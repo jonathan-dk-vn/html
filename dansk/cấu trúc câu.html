@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo Chuyên sâu: Cấu trúc Câu Tiếng Đan Mạch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&display=swap');
+        body { font-family: 'Lexend', sans-serif; background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.5); }
+        .v2-gradient { background: linear-gradient(to right, #ef4444, #dc2626); }
+        .sav-gradient { background: linear-gradient(to right, #3b82f6, #2563eb); }
+        .accent-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .nav-sticky { position: sticky; top: 20px; max-height: calc(100vh - 40px); overflow-y: auto; }
+        .syntax-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+        .syntax-table th { background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; padding: 12px; font-size: 12px; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; }
+        .syntax-table td { padding: 10px; border-bottom: 1px solid #e2e8f0; font-size: 14px; }
+        .syntax-table tr:hover { background: #f8fafc; }
+    </style>
+</head>
+<body class="min-h-screen py-10 px-4">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="relative mb-12 text-center">
+            <div class="inline-block px-6 py-2 bg-white rounded-full text-red-600 font-bold text-sm mb-4 shadow-sm tracking-widest uppercase">
+                🇩🇰 Grammatik-Guide 2026
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-4 tracking-tighter">
+                CẤU TRÚC CÂU <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-blue-600">TIẾNG ĐAN MẠCH</span>
+            </h1>
+            <p class="text-slate-600 max-w-3xl mx-auto text-lg italic">
+                Báo cáo chuyên sâu về Cấu trúc câu và Trật tự từ trong tiếng Đan Mạch - Hướng dẫn toàn diện từ cơ bản đến nâng cao
+            </p>
+        </header>
+
+        <div class="grid lg:grid-cols-4 gap-8">
+            <!-- Navigation Sidebar -->
+            <div class="lg:col-span-1">
+                <div class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-200 nav-sticky">
+                    <div class="bg-gradient-to-br from-slate-700 to-slate-900 p-5 text-white">
+                        <h2 class="text-lg font-bold tracking-tighter uppercase flex items-center gap-2">
+                            <i class="fas fa-list"></i> Mục lục
+                        </h2>
+                    </div>
+                    <nav class="p-4 space-y-2">
+                        <a href="#section1" class="block px-4 py-2 rounded-lg hover:bg-red-50 text-sm font-semibold text-slate-700 hover:text-red-600 transition">1. Cơ sở lý thuyết</a>
+                        <a href="#section2" class="block px-4 py-2 rounded-lg hover:bg-red-50 text-sm font-semibold text-slate-700 hover:text-red-600 transition">2. Mệnh đề chính (HS)</a>
+                        <a href="#section3" class="block px-4 py-2 rounded-lg hover:bg-blue-50 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">3. Mệnh đề phụ (LS)</a>
+                        <a href="#section4" class="block px-4 py-2 rounded-lg hover:bg-purple-50 text-sm font-semibold text-slate-700 hover:text-purple-600 transition">4. "Sức nặng" của từ</a>
+                        <a href="#section5" class="block px-4 py-2 rounded-lg hover:bg-emerald-50 text-sm font-semibold text-slate-700 hover:text-emerald-600 transition">5. Kết hợp câu</a>
+                        <a href="#section6" class="block px-4 py-2 rounded-lg hover:bg-amber-50 text-sm font-semibold text-slate-700 hover:text-amber-600 transition">6. Tổng kết</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="lg:col-span-3 space-y-8">
+                
+                <!-- Section 1: Cơ sở lý thuyết -->
+                <div id="section1" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-200">
+                    <div class="bg-gradient-to-r from-slate-700 to-slate-900 p-6 text-white">
+                        <h2 class="text-3xl font-bold tracking-tighter uppercase">1. Cơ sở lý thuyết</h2>
+                    </div>
+                    <div class="p-8 space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                                <span class="h-2 w-2 rounded-full bg-red-600"></span>
+                                1.1. Định nghĩa các thành phần câu
+                            </h3>
+                            <div class="overflow-x-auto">
+                                <table class="syntax-table rounded-xl overflow-hidden">
+                                    <thead>
+                                        <tr>
+                                            <th class="rounded-tl-xl">Ký hiệu</th>
+                                            <th>Tên gọi</th>
+                                            <th>Chức năng</th>
+                                            <th class="rounded-tr-xl">Ví dụ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white">
+                                        <tr>
+                                            <td class="font-bold text-red-600">S</td>
+                                            <td>Subjekt (Chủ ngữ)</td>
+                                            <td>Thực hiện hành động</td>
+                                            <td class="font-mono text-sm">Toget, Han, Bilen</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-blue-600">V</td>
+                                            <td>Verbal (Động từ)</td>
+                                            <td>Hạt nhân của câu</td>
+                                            <td class="font-mono text-sm">kører, vil, har spist</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-blue-500">V1</td>
+                                            <td>Động từ hữu hạn</td>
+                                            <td>Được chia theo thì và ngôi</td>
+                                            <td class="font-mono text-sm">kører, vil, har</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-cyan-600">V2</td>
+                                            <td>Động từ không hữu hạn</td>
+                                            <td>Phân từ, nguyên mẫu</td>
+                                            <td class="font-mono text-sm">spist, køre, lavet</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-orange-600">O</td>
+                                            <td>Objekt (Tân ngữ trực tiếp)</td>
+                                            <td>Đối tượng nhận hành động</td>
+                                            <td class="font-mono text-sm">bilen, huset, ham</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-amber-600">IO</td>
+                                            <td>Indirekte objekt</td>
+                                            <td>Người nhận lợi</td>
+                                            <td class="font-mono text-sm">hende, Bo, mig</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-slate-700">A</td>
+                                            <td>Adverbial (Trạng ngữ)</td>
+                                            <td>Bổ nghĩa về thời gian, địa điểm</td>
+                                            <td class="font-mono text-sm">nu, i morgen, til arbejde</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-purple-600">CA</td>
+                                            <td>Centraladverbial</td>
+                                            <td>Trạng từ có vị trí cố định</td>
+                                            <td class="font-mono text-sm">ikke, altid, måske, gerne</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="bg-purple-50 p-6 rounded-2xl border-2 border-purple-200">
+                            <h4 class="font-bold text-purple-900 mb-3 flex items-center gap-2">
+                                <i class="fas fa-star"></i> Lưu ý về Centraladverbial (CA)
+                            </h4>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div class="bg-white p-3 rounded-lg">
+                                    <span class="font-bold text-purple-700 block mb-1">Phủ định:</span>
+                                    <span class="font-mono">ikke</span>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg">
+                                    <span class="font-bold text-purple-700 block mb-1">Thời gian:</span>
+                                    <span class="font-mono">altid, aldrig, ofte, sjældent</span>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg">
+                                    <span class="font-bold text-purple-700 block mb-1">Mức độ:</span>
+                                    <span class="font-mono">måske, nok, vel, sikkert</span>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg">
+                                    <span class="font-bold text-purple-700 block mb-1">Cách thức:</span>
+                                    <span class="font-mono">gerne, godt, hellere, helst</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Hovedsætning -->
+                <div id="section2" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-red-100">
+                    <div class="v2-gradient p-6 text-white">
+                        <h2 class="text-3xl font-bold tracking-tighter uppercase flex items-center justify-between">
+                            <span>2. Mệnh đề chính (Hovedsætninger)</span>
+                            <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-black">V2 RULE</span>
+                        </h2>
+                    </div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex items-center gap-4 bg-red-50 p-6 rounded-2xl border-2 border-red-200">
+                            <div class="h-16 w-16 bg-red-600 text-white rounded-xl flex items-center justify-center text-3xl font-bold shadow-lg shadow-red-200">2</div>
+                            <div>
+                                <p class="text-red-900 font-bold text-lg mb-1">Quy tắc V2 - Nguyên tắc bất di bất dịch</p>
+                                <p class="text-red-700 text-sm">Động từ hữu hạn (V1) LUÔN LUÔN đứng ở vị trí thứ hai trong mệnh đề chính.</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">2.1. Trật tự từ xuôi (Ligefrem ordstilling)</h3>
+                            <div class="bg-slate-900 text-slate-100 p-6 rounded-2xl font-mono space-y-3">
+                                <div class="grid grid-cols-8 gap-2 text-center text-xs">
+                                    <div class="bg-red-600 p-2 rounded font-bold">Vị trí 1</div>
+                                    <div class="bg-blue-600 p-2 rounded font-bold">Vị trí 2</div>
+                                    <div class="bg-purple-600 p-2 rounded font-bold">Vị trí 3</div>
+                                    <div class="bg-cyan-600 p-2 rounded font-bold">Vị trí 4</div>
+                                    <div class="bg-amber-600 p-2 rounded font-bold">Vị trí 5</div>
+                                    <div class="bg-orange-600 p-2 rounded font-bold">Vị trí 6</div>
+                                    <div class="bg-slate-600 p-2 rounded font-bold">Vị trí 7</div>
+                                    <div class="bg-slate-700 p-2 rounded font-bold">Vị trí 8</div>
+                                </div>
+                                <div class="grid grid-cols-8 gap-2 text-center text-sm">
+                                    <div class="text-red-400 font-bold">S</div>
+                                    <div class="text-blue-400 font-bold">V1</div>
+                                    <div class="text-purple-400 font-bold">CA</div>
+                                    <div class="text-cyan-400 font-bold">V2</div>
+                                    <div class="text-amber-400 font-bold">IO</div>
+                                    <div class="text-orange-400 font-bold">O</div>
+                                    <div class="text-slate-400 font-bold">A</div>
+                                    <div class="text-slate-500 font-bold">A</div>
+                                </div>
+                                <div class="border-t border-slate-700 pt-3 space-y-2">
+                                    <div class="grid grid-cols-8 gap-2 text-sm">
+                                        <div class="text-red-400">Han</div>
+                                        <div class="text-blue-400 underline">vil</div>
+                                        <div class="text-purple-400">godt</div>
+                                        <div class="text-cyan-400">låne</div>
+                                        <div class="text-amber-400">hende</div>
+                                        <div class="text-orange-400">bilen</div>
+                                        <div class="text-slate-400">til arbejde</div>
+                                        <div class="text-slate-500">i morgen</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">2.2. Đảo ngữ (Inversion)</h3>
+                            <div class="bg-red-900 text-white p-6 rounded-2xl space-y-4">
+                                <p class="text-sm italic">Đảo ngữ xảy ra khi một thành phần KHÁC chủ ngữ được đặt ở vị trí đầu câu (vị trí 1).</p>
+                                <div class="bg-red-800 p-4 rounded-xl font-mono text-sm space-y-2">
+                                    <div><span class="text-yellow-400">[Nu]</span> + <span class="text-blue-400 underline font-bold">har</span> + <span class="text-emerald-400">jeg</span> + <span class="text-purple-400">ikke</span> + købt + bogen.</div>
+                                    <div><span class="text-yellow-400">[I morgen]</span> + <span class="text-blue-400 underline font-bold">vil</span> + <span class="text-emerald-400">han</span> + <span class="text-purple-400">måske</span> + vise + hende + huset.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-50 p-6 rounded-2xl border-2 border-amber-200">
+                            <h4 class="font-bold text-amber-900 mb-3 flex items-center gap-2">
+                                <i class="fas fa-exclamation-triangle"></i> Ngoại lệ quan trọng
+                            </h4>
+                            <p class="text-sm text-amber-800">Một số centraladverbier KHÔNG được đặt ở vị trí đầu câu: <span class="font-mono font-bold">ikke, også, gerne, godt, kun, lige</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Ledsætning -->
+                <div id="section3" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-blue-100">
+                    <div class="sav-gradient p-6 text-white">
+                        <h2 class="text-3xl font-bold tracking-tighter uppercase flex items-center justify-between">
+                            <span>3. Mệnh đề phụ (Ledsætninger)</span>
+                            <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-black">SAV RULE</span>
+                        </h2>
+                    </div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex items-center gap-4 bg-blue-50 p-6 rounded-2xl border-2 border-blue-200">
+                            <div class="h-16 w-16 bg-blue-600 text-white rounded-xl flex items-center justify-center text-xl font-bold shadow-lg shadow-blue-200">SAV</div>
+                            <div>
+                                <p class="text-blue-900 font-bold text-lg mb-1">Quy tắc SAV - Đặc trưng cốt lõi</p>
+                                <p class="text-blue-700 text-sm">Trong mệnh đề phụ, CA (đặc biệt là 'ikke') đứng TRƯỚC động từ hữu hạn (V1).</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900 text-slate-100 p-6 rounded-2xl space-y-4">
+                            <div class="font-mono text-sm space-y-2">
+                                <p class="text-slate-400">Cấu trúc: <span class="text-yellow-400">(Konjunktion)</span> + <span class="text-emerald-400">S</span> + <span class="text-purple-400 font-bold">CA</span> + <span class="text-blue-400 font-bold">V1</span> + V2 + O + A</p>
+                                <div class="border-t border-slate-700 pt-3 space-y-2">
+                                    <div>...at <span class="text-emerald-400">hun</span> <span class="text-purple-400 font-bold">ikke</span> <span class="text-blue-400 font-bold">møder</span> kl. 8</div>
+                                    <div>...fordi <span class="text-emerald-400">jeg</span> <span class="text-purple-400 font-bold">ikke</span> <span class="text-blue-400 font-bold">har</span> set den</div>
+                                    <div>...hvis <span class="text-emerald-400">de</span> <span class="text-purple-400 font-bold">ikke</span> <span class="text-blue-400 font-bold">kommer</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">3.2. Các loại mệnh đề phụ</h3>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                                    <h4 class="font-bold text-blue-900 mb-2 flex items-center gap-2">
+                                        <i class="fas fa-clock"></i> Mệnh đề thời gian
+                                    </h4>
+                                    <div class="space-y-1 text-sm font-mono text-blue-800">
+                                        <div>når (hiện tại/tương lai)</div>
+                                        <div>da (quá khứ, một lần)</div>
+                                        <div>mens, før, efter, til</div>
+                                    </div>
+                                </div>
+                                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+                                    <h4 class="font-bold text-emerald-900 mb-2 flex items-center gap-2">
+                                        <i class="fas fa-question"></i> Mệnh đề điều kiện
+                                    </h4>
+                                    <div class="space-y-1 text-sm font-mono text-emerald-800">
+                                        <div>hvis (nếu)</div>
+                                        <div>medmindre (trừ khi)</div>
+                                        <div>såfremt (với điều kiện)</div>
+                                    </div>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-xl border border-purple-200">
+                                    <h4 class="font-bold text-purple-900 mb-2 flex items-center gap-2">
+                                        <i class="fas fa-link"></i> Mệnh đề nguyên nhân
+                                    </h4>
+                                    <div class="space-y-1 text-sm font-mono text-purple-800">
+                                        <div>fordi (vì)</div>
+                                        <div>da (vì)</div>
+                                        <div>eftersom (vì, bởi vì)</div>
+                                    </div>
+                                </div>
+                                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
+                                    <h4 class="font-bold text-amber-900 mb-2 flex items-center gap-2">
+                                        <i class="fas fa-shield-alt"></i> Mệnh đề nhượng bộ
+                                    </h4>
+                                    <div class="space-y-1 text-sm font-mono text-amber-800">
+                                        <div>selvom (mặc dù)</div>
+                                        <div>skønt (dù cho)</div>
+                                        <div>uanset om (bất kể)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-red-50 p-6 rounded-2xl border-2 border-red-200">
+                            <h4 class="font-bold text-red-900 mb-3 flex items-center gap-2">
+                                <i class="fas fa-exclamation-circle"></i> QUY TẮC QUAN TRỌNG
+                            </h4>
+                            <p class="text-sm text-red-800">Khi ledsætning đứng TRƯỚC, mệnh đề chính phải có <span class="font-bold">INVERSION</span> (đảo ngữ)!</p>
+                            <div class="bg-white p-4 rounded-lg mt-3 font-mono text-sm text-red-900">
+                                <div class="mb-2"><span class="text-blue-600 font-bold">[Når det ikke regner]</span>, <span class="text-red-600 underline font-bold">cykler</span> <span class="text-emerald-600">han</span> altid.</div>
+                                <div><span class="text-blue-600 font-bold">[Fordi hun var syg]</span>, <span class="text-red-600 underline font-bold">blev</span> <span class="text-emerald-600">hun</span> hjemme.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Tunge og lette led -->
+                <div id="section4" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-purple-100">
+                    <div class="bg-gradient-to-r from-purple-700 to-indigo-800 p-6 text-white">
+                        <h2 class="text-3xl font-bold tracking-tighter uppercase">4. Phân tích "Sức nặng" của từ</h2>
+                    </div>
+                    <div class="p-8 space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-purple-50 p-6 rounded-2xl border-2 border-purple-200">
+                                <h3 class="font-bold text-purple-900 mb-4 text-lg flex items-center gap-2">
+                                    <i class="fas fa-weight-hanging"></i> Tunge led (Từ nặng)
+                                </h3>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-circle text-purple-600 text-xs mt-1"></i>
+                                        <span><strong>Egennavne:</strong> <span class="font-mono">Bo, Peter, København</span></span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-circle text-purple-600 text-xs mt-1"></i>
+                                        <span><strong>Substantiver:</strong> <span class="font-mono">bilen, huset, bogen</span></span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-circle text-purple-600 text-xs mt-1"></i>
+                                        <span><strong>Infinitiver:</strong> <span class="font-mono">at rejse, at læse</span></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-emerald-50 p-6 rounded-2xl border-2 border-emerald-200">
+                                <h3 class="font-bold text-emerald-900 mb-4 text-lg flex items-center gap-2">
+                                    <i class="fas fa-feather"></i> Lette led (Từ nhẹ)
+                                </h3>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-circle text-emerald-600 text-xs mt-1"></i>
+                                        <span><strong>Pronominer:</strong> <span class="font-mono">ham, hende, det, den, mig</span></span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-circle text-emerald-600 text-xs mt-1"></i>
+                                        <span><strong>Adverbierne:</strong> <span class="font-mono">her, der</span></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-slate-800 to-slate-900 text-white p-6 rounded-2xl">
+                            <h3 class="text-xl font-bold mb-4">Quy tắc vị trí CA với Tunge/Lette led</h3>
+                            <div class="bg-slate-700 p-4 rounded-xl space-y-2 text-sm">
+                                <p>⚠️ <strong>Chỉ áp dụng cho thì đơn (Nutid/Datid) trong Hovedsætning!</strong></p>
+                                <ol class="list-decimal list-inside space-y-1 ml-4">
+                                    <li>CA đứng <span class="text-emerald-400 font-bold">SAU</span> lette led (đại từ)</li>
+                                    <li>CA đứng <span class="text-purple-400 font-bold">TRƯỚC</span> tunge led (danh từ)</li>
+                                    <li>IO (Indirekte objekt) LUÔN đứng trước O (Objekt)</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">4.3. Các trường hợp cụ thể</h3>
+                            <div class="overflow-x-auto">
+                                <table class="syntax-table rounded-xl overflow-hidden">
+                                    <thead>
+                                        <tr>
+                                            <th class="rounded-tl-xl">IO</th>
+                                            <th>O</th>
+                                            <th>Vị trí CA</th>
+                                            <th>Cấu trúc</th>
+                                            <th class="rounded-tr-xl">Ví dụ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white">
+                                        <tr>
+                                            <td class="font-bold text-purple-600">Tung</td>
+                                            <td class="font-bold text-purple-600">Tung</td>
+                                            <td><span class="font-bold text-purple-600">CA</span> - IO - O</td>
+                                            <td class="font-mono text-xs">De viser <strong>ikke</strong> Bo huset</td>
+                                            <td><span class="text-green-600">✅</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-emerald-600">Let</td>
+                                            <td class="font-bold text-purple-600">Tung</td>
+                                            <td>IO - <span class="font-bold text-purple-600">CA</span> - O</td>
+                                            <td class="font-mono text-xs">De viser ham <strong>ikke</strong> huset</td>
+                                            <td><span class="text-green-600">✅</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-emerald-600">Let</td>
+                                            <td class="font-bold text-emerald-600">Let</td>
+                                            <td>IO - O - <span class="font-bold text-purple-600">CA</span></td>
+                                            <td class="font-mono text-xs">De viser ham det <strong>ikke</strong></td>
+                                            <td><span class="text-green-600">✅</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-purple-600">Tung</td>
+                                            <td class="font-bold text-emerald-600">Let</td>
+                                            <td><span class="font-bold text-purple-600">CA</span> - IO - O</td>
+                                            <td class="font-mono text-xs">De viser <strong>ikke</strong> Bo den</td>
+                                            <td><span class="text-amber-600">⚠️</span> (ít gặp)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 p-6 rounded-2xl border-2 border-blue-200">
+                            <h4 class="font-bold text-blue-900 mb-3 flex items-center gap-2">
+                                <i class="fas fa-lightbulb"></i> Lưu ý đặc biệt
+                            </h4>
+                            <div class="space-y-3 text-sm">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <p class="font-bold text-blue-800 mb-2">1. Trong thì kép (Førnutid, Førdatid):</p>
+                                    <p class="font-mono text-blue-900">De har <span class="text-purple-600 font-bold">ikke</span> vist ham det.</p>
+                                    <p class="text-xs text-slate-600 mt-1 italic">CA LUÔN đứng sau V1 (không có ngoại lệ!)</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <p class="font-bold text-blue-800 mb-2">2. Trong Ledsætning:</p>
+                                    <p class="font-mono text-blue-900">Han siger, at de <span class="text-purple-600 font-bold">ikke</span> viser ham det.</p>
+                                    <p class="text-xs text-slate-600 mt-1 italic">Quy tắc SAV luôn được áp dụng</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5: Kết hợp câu -->
+                <div id="section5" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-emerald-100">
+                    <div class="bg-gradient-to-r from-emerald-700 to-teal-800 p-6 text-white">
+                        <h2 class="text-3xl font-bold tracking-tighter uppercase">5. Kết hợp câu (Liên từ và Cú pháp)</h2>
+                    </div>
+                    <div class="p-8 space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">5.1. Phân loại liên từ</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-emerald-50 p-6 rounded-2xl border-2 border-emerald-200">
+                                    <h4 class="font-bold text-emerald-900 mb-4 text-lg flex items-center gap-2">
+                                        <i class="fas fa-check-circle"></i> Liên từ kết hợp (HS + HS)
+                                    </h4>
+                                    <p class="text-sm text-emerald-800 mb-3">Nối 2 Hovedsætninger - Không gây đảo ngữ</p>
+                                    <div class="space-y-2">
+                                        <div class="bg-white p-3 rounded-lg font-mono text-sm">
+                                            <span class="font-bold text-emerald-700">og</span> <span class="text-slate-600">(và)</span>
+                                        </div>
+                                        <div class="bg-white p-3 rounded-lg font-mono text-sm">
+                                            <span class="font-bold text-emerald-700">men</span> <span class="text-slate-600">(nhưng)</span>
+                                        </div>
+                                        <div class="bg-white p-3 rounded-lg font-mono text-sm">
+                                            <span class="font-bold text-emerald-700">eller</span> <span class="text-slate-600">(hoặc)</span>
+                                        </div>
+                                        <div class="bg-white p-3 rounded-lg font-mono text-sm">
+                                            <span class="font-bold text-emerald-700">for</span> <span class="text-slate-600">(vì - giải thích)</span>
+                                        </div>
+                                        <div class="bg-white p-3 rounded-lg font-mono text-sm">
+                                            <span class="font-bold text-emerald-700">så</span> <span class="text-slate-600">(vì vậy)</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-blue-50 p-6 rounded-2xl border-2 border-blue-200">
+                                    <h4 class="font-bold text-blue-900 mb-4 text-lg flex items-center gap-2">
+                                        <i class="fas fa-link"></i> Liên từ phụ thuộc (HS + LS)
+                                    </h4>
+                                    <p class="text-sm text-blue-800 mb-3">Nối Ledsætning - Quy tắc SAV (S-CA-V)</p>
+                                    <div class="space-y-2">
+                                        <div class="bg-white p-3 rounded-lg font-mono text-sm">
+                                            <span class="font-bold text-blue-700">at, fordi, hvis</span>
+                                        </div>
+                                        <div class="bg-white p-3 rounded-lg font-mono text-sm">
+                                            <span class="font-bold text-blue-700">når, da, selvom</span>
+                                        </div>
+                                        <div class="bg-white p-3 rounded-lg font-mono text-sm">
+                                            <span class="font-bold text-blue-700">som, der, hvor</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">5.2. Bốn mô hình kết hợp Hovedsætninger</h3>
+                            <div class="space-y-4">
+                                <div class="bg-white p-5 rounded-xl border-2 border-slate-200">
+                                    <h4 class="font-bold text-slate-800 mb-3">Mô hình 1: Ligefrem + Ligefrem</h4>
+                                    <p class="font-mono text-sm bg-slate-100 p-3 rounded">S - V1 - CA - V2..., (konj.) S - V1 - CA - V2...</p>
+                                    <div class="mt-2 text-sm text-slate-600">
+                                        <p class="font-mono">Hun vil gerne rejse, <span class="text-red-600 font-bold">men</span> hun kan ikke få fri.</p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white p-5 rounded-xl border-2 border-slate-200">
+                                    <h4 class="font-bold text-slate-800 mb-3">Mô hình 2: Ligefrem + Inversion</h4>
+                                    <p class="font-mono text-sm bg-slate-100 p-3 rounded">S - V1 - CA - V2..., (konj.) X - V1 - S - CA - V2...</p>
+                                    <div class="mt-2 text-sm text-slate-600">
+                                        <p class="font-mono">Han var ikke rask, <span class="text-red-600 font-bold">og</span> derfor <span class="underline">ville</span> han gerne hjem.</p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white p-5 rounded-xl border-2 border-slate-200">
+                                    <h4 class="font-bold text-slate-800 mb-3">Mô hình 3: Inversion + Ligefrem</h4>
+                                    <p class="font-mono text-sm bg-slate-100 p-3 rounded">X - V1 - S - CA - V2..., (konj.) S - V1 - CA - V2...</p>
+                                    <div class="mt-2 text-sm text-slate-600">
+                                        <p class="font-mono">I dag <span class="underline">skal</span> hun passe børn, <span class="text-red-600 font-bold">så</span> hun kan ikke gå med.</p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white p-5 rounded-xl border-2 border-slate-200">
+                                    <h4 class="font-bold text-slate-800 mb-3">Mô hình 4: Inversion + Inversion</h4>
+                                    <p class="font-mono text-sm bg-slate-100 p-3 rounded">X - V1 - S - CA - V2..., (konj.) X - V1 - S - CA - V2...</p>
+                                    <div class="mt-2 text-sm text-slate-600">
+                                        <p class="font-mono">Først <span class="underline">skal</span> hun gøre rent, <span class="text-red-600 font-bold">og</span> så <span class="underline">skal</span> hun vaske tøj.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-50 p-6 rounded-2xl border-2 border-amber-200">
+                            <h3 class="text-xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+                                <i class="fas fa-exclamation-triangle"></i> Phân biệt đặc biệt: 'så' - Adverbium hay Konjunktion?
+                            </h3>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-white p-4 rounded-xl">
+                                    <h4 class="font-bold text-emerald-700 mb-2">Så lẩm Adverbium</h4>
+                                    <p class="text-sm mb-2">Ý nghĩa: <span class="italic">bagefter (sau đó)</span></p>
+                                    <p class="text-sm mb-2">GÂY RA INVERSION (V-S)</p>
+                                    <div class="bg-emerald-50 p-3 rounded font-mono text-xs">
+                                        ...og <span class="font-bold text-emerald-700">så</span> <span class="underline">laver</span> hun mad.
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-xl">
+                                    <h4 class="font-bold text-blue-700 mb-2">Så làm Konjunktion</h4>
+                                    <p class="text-sm mb-2">Ý nghĩa: <span class="italic">og derfor (vì vậy)</span></p>
+                                    <p class="text-sm mb-2">KHÔNG có inversion (S-V)</p>
+                                    <div class="bg-blue-50 p-3 rounded font-mono text-xs">
+                                        Hun var syg, <span class="font-bold text-blue-700">så</span> hun kom ikke.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-purple-50 p-6 rounded-2xl border-2 border-purple-200">
+                            <h3 class="text-xl font-bold text-purple-900 mb-4">5.5. Phân biệt 'for' và 'fordi'</h3>
+                            <div class="overflow-x-auto">
+                                <table class="syntax-table rounded-xl overflow-hidden">
+                                    <thead>
+                                        <tr>
+                                            <th class="rounded-tl-xl">Tiêu chí</th>
+                                            <th>for</th>
+                                            <th class="rounded-tr-xl">fordi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white">
+                                        <tr>
+                                            <td class="font-bold">Loại</td>
+                                            <td>Hovedsætningskonjunktion</td>
+                                            <td>Ledsætningskonjunktion</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold">Nối</td>
+                                            <td>HS + HS</td>
+                                            <td>HS + LS</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold">Trật tự từ</td>
+                                            <td class="font-mono text-emerald-600">S - V - CA</td>
+                                            <td class="font-mono text-blue-600">S - CA - V</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold">Có thể đảo vị trí?</td>
+                                            <td><span class="text-red-600">❌ KHÔNG</span></td>
+                                            <td><span class="text-green-600">✅ CÓ</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold">Ví dụ</td>
+                                            <td class="font-mono text-sm">Hun spiste ikke så meget, <strong>for</strong> hun var ikke sulten.</td>
+                                            <td class="font-mono text-sm">Han blev hjemme, <strong>fordi</strong> han var syg.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 6: Tổng kết -->
+                <div id="section6" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-amber-100">
+                    <div class="bg-gradient-to-r from-amber-700 to-orange-800 p-6 text-white">
+                        <h2 class="text-3xl font-bold tracking-tighter uppercase">6. Tổng kết & Lưu ý quan trọng</h2>
+                    </div>
+                    <div class="p-8 space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">6.1. Bảng tóm tắt các quy tắc cốt lõi</h3>
+                            <div class="overflow-x-auto">
+                                <table class="syntax-table rounded-xl overflow-hidden">
+                                    <thead>
+                                        <tr>
+                                            <th class="rounded-tl-xl">Loại mệnh đề</th>
+                                            <th>Quy tắc chính</th>
+                                            <th>Vị trí CA</th>
+                                            <th class="rounded-tr-xl">Ví dụ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white">
+                                        <tr>
+                                            <td class="font-bold text-red-600">Hovedsætning (ligefrem)</td>
+                                            <td>V ở vị trí 2</td>
+                                            <td class="font-mono text-sm">S - V1 - <span class="text-purple-600 font-bold">CA</span> - V2</td>
+                                            <td class="font-mono text-sm">Han vil <strong>ikke</strong> komme</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-red-600">Hovedsætning (inversion)</td>
+                                            <td>V ở vị trí 2</td>
+                                            <td class="font-mono text-sm">X - V1 - S - <span class="text-purple-600 font-bold">CA</span> - V2</td>
+                                            <td class="font-mono text-sm">I dag vil han <strong>ikke</strong> komme</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-red-600">HS (thì đơn + lette led)</td>
+                                            <td>Tùy "sức nặng"</td>
+                                            <td class="font-mono text-sm">S - V1 - Let - <span class="text-purple-600 font-bold">CA</span> - Tung</td>
+                                            <td class="font-mono text-sm">De viser ham <strong>ikke</strong> huset</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-bold text-blue-600">Ledsætning</td>
+                                            <td>SAV</td>
+                                            <td class="font-mono text-sm">S - <span class="text-purple-600 font-bold">CA</span> - V1 - V2</td>
+                                            <td class="font-mono text-sm">at han <strong>ikke</strong> kommer</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">6.2. Những lỗi thường gặp và cách tránh</h3>
+                            <div class="space-y-4">
+                                <div class="bg-red-50 p-5 rounded-xl border-2 border-red-200">
+                                    <h4 class="font-bold text-red-900 mb-3 flex items-center gap-2">
+                                        <i class="fas fa-times-circle"></i> Lỗi 1: Đặt CA sai vị trí trong Ledsætning
+                                    </h4>
+                                    <div class="space-y-2">
+                                        <div class="flex items-start gap-2">
+                                            <span class="text-red-600 font-bold">❌</span>
+                                            <div class="font-mono text-sm">Hun siger, at hun <span class="text-red-600 font-bold underline">møder ikke</span> kl. 8.</div>
+                                        </div>
+                                        <div class="flex items-start gap-2">
+                                            <span class="text-green-600 font-bold">✅</span>
+                                            <div class="font-mono text-sm">Hun siger, at hun <span class="text-green-600 font-bold">ikke møder</span> kl. 8.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-red-50 p-5 rounded-xl border-2 border-red-200">
+                                    <h4 class="font-bold text-red-900 mb-3 flex items-center gap-2">
+                                        <i class="fas fa-times-circle"></i> Lỗi 2: Quên inversion sau Ledsætning đầu câu
+                                    </h4>
+                                    <div class="space-y-2">
+                                        <div class="flex items-start gap-2">
+                                            <span class="text-red-600 font-bold">❌</span>
+                                            <div class="font-mono text-sm">Når det regner, <span class="text-red-600 font-bold underline">han tager</span> bussen.</div>
+                                        </div>
+                                        <div class="flex items-start gap-2">
+                                            <span class="text-green-600 font-bold">✅</span>
+                                            <div class="font-mono text-sm">Når det regner, <span class="text-green-600 font-bold">tager han</span> bussen.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-red-50 p-5 rounded-xl border-2 border-red-200">
+                                    <h4 class="font-bold text-red-900 mb-3 flex items-center gap-2">
+                                        <i class="fas fa-times-circle"></i> Lỗi 3: Nhầm lẫn giữa 'for' và 'fordi'
+                                    </h4>
+                                    <div class="space-y-2">
+                                        <div class="flex items-start gap-2">
+                                            <span class="text-red-600 font-bold">❌</span>
+                                            <div class="font-mono text-sm">Fordi hun <span class="text-red-600 font-bold underline">var ikke</span> sulten, spiste hun ikke.</div>
+                                        </div>
+                                        <div class="flex items-start gap-2">
+                                            <span class="text-green-600 font-bold">✅</span>
+                                            <div class="font-mono text-sm">Fordi hun <span class="text-green-600 font-bold">ikke var</span> sulten, spiste hun ikke.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-red-50 p-5 rounded-xl border-2 border-red-200">
+                                    <h4 class="font-bold text-red-900 mb-3 flex items-center gap-2">
+                                        <i class="fas fa-times-circle"></i> Lỗi 4: Đặt 'ikke' đầu câu
+                                    </h4>
+                                    <div class="space-y-2">
+                                        <div class="flex items-start gap-2">
+                                            <span class="text-red-600 font-bold">❌</span>
+                                            <div class="font-mono text-sm"><span class="text-red-600 font-bold underline">Ikke vil</span> han komme.</div>
+                                        </div>
+                                        <div class="flex items-start gap-2">
+                                            <span class="text-green-600 font-bold">✅</span>
+                                            <div class="font-mono text-sm">Han vil <span class="text-green-600 font-bold">ikke</span> komme.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-slate-800 to-slate-900 text-white p-8 rounded-2xl">
+                            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                                <i class="fas fa-sitemap"></i> Sơ đồ tư duy tổng hợp
+                            </h3>
+                            <div class="bg-slate-700 p-6 rounded-xl font-mono text-sm space-y-3 overflow-x-auto">
+                                <div class="text-yellow-400 font-bold">HỆ THỐNG NGỮ PHÁP ĐAN MẠCH (DANSK SYNTAX)</div>
+                                <div>│</div>
+                                <div>├─ <span class="text-red-400">1. BẢNG MÃ THÀNH PHẦN</span></div>
+                                <div>│  ├─ F (Fundament): Vị trí 1</div>
+                                <div>│  ├─ v (V1): Động từ chia thì</div>
+                                <div>│  ├─ n (S): Chủ ngữ</div>
+                                <div>│  ├─ a (CA): Trạng từ trung tâm</div>
+                                <div>│  ├─ V (V2): Động từ nguyên mẫu/Phân từ</div>
+                                <div>│  ├─ N (O): Tân ngữ</div>
+                                <div>│  └─ A (Adv): Trạng từ cuối câu</div>
+                                <div>│</div>
+                                <div>├─ <span class="text-red-400">2. HOVEDSÆTNING (HS)</span> - QUY TẮC V2</div>
+                                <div>│  ├─ A. LIGEFREM: [ S ] + [ v ] + [ a ]...</div>
+                                <div>│  └─ B. INVERSION: [ X ] + [ v ] + [ S ] + [ a ]...</div>
+                                <div>│</div>
+                                <div>├─ <span class="text-blue-400">3. LEDSÆTNING (LS)</span> - QUY TẮC SAV</div>
+                                <div>│  └─ Cấu trúc: [ Konj ] + [ S ] + [ a ] + [ v ]...</div>
+                                <div>│</div>
+                                <div>├─ <span class="text-purple-400">4. TUNGE/LETTE LED</span></div>
+                                <div>│  ├─ CA sau lette led (đại từ)</div>
+                                <div>│  └─ CA trước tunge led (danh từ)</div>
+                                <div>│</div>
+                                <div>└─ <span class="text-emerald-400">5. KẾT HỢP CÂU</span></div>
+                                <div>   ├─ Liên từ đẳng lập: og, men, eller, for, så</div>
+                                <div>   └─ Liên từ phụ thuộc: at, fordi, hvis, når...</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 p-6 rounded-2xl border-2 border-blue-200">
+                            <h3 class="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
+                                <i class="fas fa-check-double"></i> Checklist tự kiểm tra
+                            </h3>
+                            <div class="space-y-3">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <p class="font-bold text-slate-800 mb-2">☐ Đây là Hovedsætning hay Ledsætning?</p>
+                                    <ul class="text-sm text-slate-600 ml-6 space-y-1">
+                                        <li>• Nếu HS → Động từ có ở vị trí 2 không?</li>
+                                        <li>• Nếu LS → CA có đứng trước V không?</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <p class="font-bold text-slate-800 mb-2">☐ Có CA trong câu không?</p>
+                                    <ul class="text-sm text-slate-600 ml-6 space-y-1">
+                                        <li>• Nếu trong HS thì đơn → CA đứng sau lette led, trước tunge led?</li>
+                                        <li>• Nếu trong HS thì kép → CA ở giữa V1 và V2?</li>
+                                        <li>• Nếu trong LS → CA luôn trước V1?</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <p class="font-bold text-slate-800 mb-2">☐ Có kết hợp câu không?</p>
+                                    <ul class="text-sm text-slate-600 ml-6 space-y-1">
+                                        <li>• Dùng og/men/eller/for/så → sau nó là HS (S-V)</li>
+                                        <li>• Dùng at/fordi/hvis/når/da → sau nó là LS (S-CA-V)</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <p class="font-bold text-slate-800 mb-2">☐ Ledsætning có đứng đầu không?</p>
+                                    <ul class="text-sm text-slate-600 ml-6 space-y-1">
+                                        <li>• Nếu có → HS phải có inversion (V-S)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-8 rounded-2xl">
+                            <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                                <i class="fas fa-graduation-cap"></i> Lời khuyên thực hành
+                            </h3>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-white/10 p-4 rounded-xl backdrop-blur">
+                                    <h4 class="font-bold mb-2 flex items-center gap-2">
+                                        <span class="h-8 w-8 bg-white/20 rounded-full flex items-center justify-center">1</span>
+                                        Đọc to các ví dụ
+                                    </h4>
+                                    <p class="text-sm opacity-90">Để cảm nhận nhịp điệu tự nhiên của câu tiếng Đan Mạch</p>
+                                </div>
+                                <div class="bg-white/10 p-4 rounded-xl backdrop-blur">
+                                    <h4 class="font-bold mb-2 flex items-center gap-2">
+                                        <span class="h-8 w-8 bg-white/20 rounded-full flex items-center justify-center">2</span>
+                                        Luyện tập viết lại câu
+                                    </h4>
+                                    <p class="text-sm opacity-90">Theo nhiều cấu trúc khác nhau (HS → LS, ligefrem → inversion)</p>
+                                </div>
+                                <div class="bg-white/10 p-4 rounded-xl backdrop-blur">
+                                    <h4 class="font-bold mb-2 flex items-center gap-2">
+                                        <span class="h-8 w-8 bg-white/20 rounded-full flex items-center justify-center">3</span>
+                                        Chú ý đặc biệt đến 'ikke'
+                                    </h4>
+                                    <p class="text-sm opacity-90">Đây là từ chỉ điểm rõ nhất cho loại mệnh đề</p>
+                                </div>
+                                <div class="bg-white/10 p-4 rounded-xl backdrop-blur">
+                                    <h4 class="font-bold mb-2 flex items-center gap-2">
+                                        <span class="h-8 w-8 bg-white/20 rounded-full flex items-center justify-center">4</span>
+                                        Ghi nhớ các cụm cố định
+                                    </h4>
+                                    <p class="text-sm opacity-90">Với liên từ phụ thuộc như fordi, selvom, hvis, når, da</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-amber-500 to-orange-600 text-white p-8 rounded-2xl text-center">
+                            <i class="fas fa-trophy text-5xl mb-4 opacity-80"></i>
+                            <h3 class="text-3xl font-bold mb-3">Kết luận</h3>
+                            <p class="text-lg leading-relaxed max-w-3xl mx-auto">
+                                Cấu trúc câu và trật tự từ trong tiếng Đan Mạch có vẻ phức tạp, nhưng thực chất tuân theo các quy tắc logic rõ ràng. 
+                                Chìa khóa để thành thạo là: <span class="font-bold">Phân biệt được Hovedsætning và Ledsætning</span>, 
+                                <span class="font-bold">Ghi nhớ quy tắc V2 (cho HS) và SAV (cho LS)</span>, 
+                                <span class="font-bold">Hiểu khái niệm "tunge/lette led"</span>, và 
+                                <span class="font-bold">Nắm vững cách kết hợp câu</span>.
+                            </p>
+                            <div class="mt-6 inline-block bg-white/20 px-8 py-3 rounded-full font-bold backdrop-blur">
+                                Held og lykke med din dansk! 🇩🇰
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer class="mt-16 text-center pb-8">
+            <div class="glass-card rounded-2xl p-6 inline-block">
+                <p class="text-slate-600 text-sm font-medium mb-2">
+                    <i class="fas fa-book-open text-red-600"></i> Báo cáo Chuyên sâu: Cấu trúc Câu Tiếng Đan Mạch
+                </p>
+                <p class="text-slate-400 text-xs">
+                    Dansk Syntaks Oversigt © 2026 | Chúc bạn học tốt tiếng Đan Mạch!
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

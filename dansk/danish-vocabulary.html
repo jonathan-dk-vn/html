@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Từ Điển Đan Mạch – Dịch Nghĩa</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --cream: #f5f0e8;
+    --coral: #e85d3a;
+    --amber: #d4a017;
+    --sage: #4a7c59;
+    --card-bg: #ffffff;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--cream);
+    color: var(--navy);
+    min-height: 100vh;
+  }
+
+  h1, h2, .serif { font-family: 'DM Serif Display', serif; }
+
+  .category-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+    user-select: none;
+  }
+
+  .category-badge:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  /* Grid tự động thích ứng với màn hình Ultrawide 34 inch */
+  .word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .word-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(26,39,68,0.1);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Loại bỏ border-color hover cũ vì không còn click trên thẻ */
+  .word-card:hover {
+    box-shadow: 0 4px 20px rgba(26,39,68,0.05);
+    transform: translateY(-2px);
+  }
+
+  .word-card.expanded {
+    border-color: var(--navy);
+    background: var(--navy);
+    color: white;
+  }
+
+  .word-card.expanded .da-word { color: var(--amber); }
+  .word-card.expanded .count-badge { background: rgba(255,255,255,0.15); color: #fff; }
+  .word-card.expanded .en-trans { color: #a8d5b5; }
+  .word-card.expanded .vi-trans { color: #f5c78a; }
+  .word-card.expanded .lang-label { opacity: 0.6; }
+
+  .da-word {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  .count-badge {
+    font-size: 0.62rem;
+    background: rgba(26,39,68,0.08);
+    border-radius: 999px;
+    padding: 2px 7px;
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  .translations { 
+    display: none; 
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .word-card.expanded .translations { display: block; }
+
+  .lang-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+    margin-bottom: 4px;
+  }
+
+  .en-trans { font-size: 0.95rem; font-weight: 500; color: var(--sage); }
+  .vi-trans { font-size: 0.95rem; font-weight: 500; color: var(--amber); }
+
+  .category-section { margin-bottom: 40px; }
+
+  .search-bar {
+    background: white;
+    border: 2px solid rgba(26,39,68,0.15);
+    border-radius: 12px;
+    padding: 14px 24px;
+    font-size: 1.1rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--navy);
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .search-bar:focus {
+    border-color: var(--coral);
+    box-shadow: 0 0 0 3px rgba(232,93,58,0.1);
+  }
+
+  .header-bg {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(212,160,23,0.2) 0%, transparent 70%),
+                radial-gradient(ellipse at 20% 50%, rgba(232,93,58,0.15) 0%, transparent 60%);
+  }
+
+  .stat-pill {
+    background: rgba(255,255,255,0.1);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .category-filter-btn {
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1.5px solid rgba(26,39,68,0.2);
+    background: white;
+    cursor: pointer;
+    transition: all 0.18s;
+    color: var(--navy);
+  }
+
+  .category-filter-btn.active, .category-filter-btn:hover {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 80px 20px;
+    color: rgba(26,39,68,0.4);
+  }
+
+  /* Category colors */
+  .cat-conj { background: rgba(232,93,58,0.15); color: #c0422a; border: 1px solid rgba(232,93,58,0.3); }
+  .cat-prep { background: rgba(74,124,89,0.15); color: #3a6b47; border: 1px solid rgba(74,124,89,0.3); }
+  .cat-adv-c { background: rgba(90,95,180,0.15); color: #4a5080; border: 1px solid rgba(90,95,180,0.3); }
+  .cat-pron { background: rgba(200,100,20,0.15); color: #a05010; border: 1px solid rgba(200,100,20,0.3); }
+  .cat-adv { background: rgba(40,140,180,0.15); color: #1a7aaa; border: 1px solid rgba(40,140,180,0.3); }
+  .cat-noun-n { background: rgba(140,60,160,0.15); color: #7a3a90; border: 1px solid rgba(140,60,160,0.3); }
+  .cat-adj { background: rgba(180,140,0,0.15); color: #906a00; border: 1px solid rgba(180,140,0,0.3); }
+  .cat-noun { background: rgba(26,39,68,0.15); color: #1a2744; border: 1px solid rgba(26,39,68,0.3); }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(26,39,68,0.3); border-radius: 4px; }
+
+  .hint-text { 
+    font-size: 0.9rem; 
+    color: rgba(26,39,68,0.6);
+    text-align: center;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .word-card { animation: fadeIn 0.3s ease both; }
+</style>
+</head>
+<body>
+
+<div class="header-bg py-12 px-6">
+  <div class="relative w-full max-w-[3000px] mx-auto 2xl:px-8">
+    <div class="flex items-center gap-3 mb-4">
+      <span style="font-size:1.8rem">🇩🇰</span>
+      <h1 class="text-white text-3xl md:text-5xl serif">Từ Điển Đan Mạch</h1>
+    </div>
+    <p class="text-white/70 mb-6 text-sm md:text-lg">Dịch nghĩa từ vựng tiếng Đan Mạch sang <span style="color:var(--amber)">tiếng Anh</span> & <span style="color:#f9a87a">tiếng Việt</span></p>
+    <div class="flex flex-wrap gap-3">
+      <span class="stat-pill">📚 8 loại từ</span>
+      <span class="stat-pill">✨ Tối ưu màn hình Ultrawide 34"</span>
+    </div>
+  </div>
+</div>
+
+<div class="w-full max-w-[3000px] mx-auto px-6 2xl:px-14 py-8">
+  <input type="text" id="search" class="search-bar mb-6" placeholder="🔍  Tìm kiếm từ tiếng Đan Mạch...">
+
+  <div class="flex flex-wrap gap-3 mb-8" id="filterBtns">
+    <button class="category-filter-btn active" data-cat="all">Tất cả</button>
+    <button class="category-filter-btn" data-cat="konjunktion">Liên từ</button>
+    <button class="category-filter-btn" data-cat="præposition">Giới từ</button>
+    <button class="category-filter-btn" data-cat="centraladverbium">Phó từ trung tâm</button>
+    <button class="category-filter-btn" data-cat="pronomen">Đại từ</button>
+    <button class="category-filter-btn" data-cat="adverbium">Trạng từ</button>
+    <button class="category-filter-btn" data-cat="t-ord">Danh từ trung tính</button>
+    <button class="category-filter-btn" data-cat="adjektiv">Tính từ</button>
+    <button class="category-filter-btn" data-cat="substantiv">Danh từ</button>
+  </div>
+
+  <p class="hint-text">💡 Nhấn vào thẻ phân loại từ (ví dụ: <span class="category-badge cat-conj mx-1" style="cursor:default">Konjunktion</span>) để mở / đóng tất cả bản dịch của nhóm đó</p>
+
+  <div id="wordContainer"></div>
+  <div id="noResults" class="no-results hidden">
+    <div style="font-size:4rem">🔎</div>
+    <p class="mt-4 text-2xl serif">Không tìm thấy từ nào</p>
+  </div>
+</div>
+
+<script>
+const categories = [
+  {
+    id: 'konjunktion',
+    name: 'Konjunktion',
+    nameVI: 'Liên từ',
+    badgeClass: 'cat-conj',
+    words: [
+      { da: 'og', en: 'and', vi: 'và' },
+      { da: 'at', en: 'that / to (infinitive)', vi: 'rằng / để' },
+      { da: 'til', en: 'to / for', vi: 'đến / để' },
+      { da: 'om', en: 'about / whether', vi: 'về / liệu' },
+      { da: 'eller', en: 'or', vi: 'hoặc' },
+      { da: 'fordi', en: 'because', vi: 'bởi vì' },
+      { da: 'selvom', en: 'even though / although', vi: 'mặc dù' },
+      { da: 'mens', en: 'while', vi: 'trong khi' },
+      { da: 'ellers', en: 'otherwise / else', vi: 'không thì / nếu không' },
+      { da: 'dengang', en: 'when / back when', vi: 'hồi đó / khi' },
+      { da: 'inden', en: 'before', vi: 'trước khi' },
+      { da: 'indtil', en: 'until', vi: 'cho đến khi' },
+      { da: 'ligesom', en: 'just like / as', vi: 'giống như' },
+      { da: 'forresten', en: 'by the way', vi: 'nhân tiện' },
+      { da: 'som om', en: 'as if', vi: 'như thể' },
+      { da: 'så at', en: 'so that', vi: 'để mà / sao cho' },
+      { da: 'dermed', en: 'thereby / with that', vi: 'theo đó / vì vậy' },
+      { da: 'endda', en: 'even / in fact', vi: 'thậm chí / thực ra' },
+      { da: 'efter at', en: 'after', vi: 'sau khi' },
+      { da: 'samt', en: 'as well as / along with', vi: 'cùng với' },
+      { da: 'selv om', en: 'even though / although', vi: 'mặc dù' },
+    ]
+  },
+  {
+    id: 'præposition',
+    name: 'Præposition',
+    nameVI: 'Giới từ',
+    badgeClass: 'cat-prep',
+    words: [
+      { da: 'på', en: 'on / at / in', vi: 'trên / ở / tại' },
+      { da: 'med', en: 'with', vi: 'với / cùng' },
+      { da: 'af', en: 'of / by / from', vi: 'của / bởi' },
+      { da: 'fra', en: 'from', vi: 'từ' },
+      { da: 'sammen med', en: 'together with', vi: 'cùng với' },
+      { da: 'hos', en: 'at (someone\'s place) / with', vi: 'ở nhà / tại chỗ' },
+      { da: 'blandt', en: 'among', vi: 'trong số / giữa' },
+      { da: 'på grund af', en: 'because of / due to', vi: 'vì / do' },
+      { da: 'uden for', en: 'outside (of)', vi: 'ngoài / bên ngoài' },
+      { da: 'per', en: 'per / by', vi: 'mỗi / theo' },
+      { da: 'uden', en: 'without', vi: 'không có / thiếu' },
+      { da: 'i nærheden af', en: 'near / close to', vi: 'gần / gần đó' },
+      { da: 'i stedet for', en: 'instead of', vi: 'thay vì' },
+      { da: 'ad', en: 'along / via', vi: 'dọc theo / qua' },
+      { da: 'ifølge', en: 'according to', vi: 'theo / căn cứ theo' },
+      { da: 'i løbet af', en: 'during / in the course of', vi: 'trong suốt / trong khoảng' },
+      { da: 'inden for', en: 'within / inside', vi: 'trong vòng / bên trong' },
+      { da: 'langs', en: 'along', vi: 'dọc theo' },
+      { da: 'via', en: 'via / through', vi: 'qua / thông qua' },
+      { da: 'igennem', en: 'through', vi: 'xuyên qua' },
+      { da: 'nedenfor', en: 'below / beneath', vi: 'bên dưới / phía dưới' },
+      { da: 'over for', en: 'opposite / across from', vi: 'đối diện / phía trước' },
+    ]
+  },
+  {
+    id: 'centraladverbium',
+    name: 'Centraladverbium',
+    nameVI: 'Phó từ trung tâm',
+    badgeClass: 'cat-adv-c',
+    words: [
+      { da: 'ikke', en: 'not', vi: 'không' },
+      { da: 'også', en: 'also / too', vi: 'cũng / nữa' },
+      { da: 'godt', en: 'well / fine', vi: 'tốt / được' },
+      { da: 'gerne', en: 'gladly / willingly', vi: 'vui lòng / sẵn lòng' },
+      { da: 'lige', en: 'just / equally', vi: 'vừa / ngay / bằng nhau' },
+      { da: 'tit', en: 'often / frequently', vi: 'thường xuyên' },
+      { da: 'altid', en: 'always', vi: 'luôn luôn' },
+      { da: 'kun', en: 'only / just', vi: 'chỉ' },
+      { da: 'jo', en: 'you know / of course (particle)', vi: 'mà / đúng là' },
+      { da: 'bare', en: 'just / only / simply', vi: 'chỉ / đơn giản là' },
+      { da: 'nok', en: 'enough / probably', vi: 'đủ / có lẽ' },
+      { da: 'måske', en: 'maybe / perhaps', vi: 'có lẽ / có thể' },
+      { da: 'aldrig', en: 'never', vi: 'không bao giờ' },
+      { da: 'nemlig', en: 'namely / you see', vi: 'đó là / cụ thể là' },
+      { da: 'hellere', en: 'rather / preferably', vi: 'thà / thà là' },
+      { da: 'egentlig', en: 'actually / really', vi: 'thực ra / thật sự' },
+      { da: 'desværre', en: 'unfortunately', vi: 'tiếc là / không may' },
+      { da: 'alligevel', en: 'anyway / still / nevertheless', vi: 'dù sao / vẫn / tuy nhiên' },
+      { da: 'helst', en: 'preferably / best of all', vi: 'tốt nhất là / thà' },
+      { da: 'virkelig', en: 'really / truly', vi: 'thật sự / thực sự' },
+      { da: 'ofte', en: 'often', vi: 'thường' },
+      { da: 'sommetider', en: 'sometimes', vi: 'đôi khi' },
+      { da: 'vel', en: 'right? / surely', vi: 'chắc chắn / phải không' },
+      { da: 'heldigvis', en: 'fortunately / luckily', vi: 'may mắn thay' },
+      { da: 'sjældent', en: 'rarely / seldom', vi: 'hiếm khi' },
+      { da: 'sikkert', en: 'surely / certainly', vi: 'chắc chắn' },
+      { da: 'stadigvæk', en: 'still / yet', vi: 'vẫn còn' },
+      { da: 'netop', en: 'exactly / just', vi: 'chính xác / vừa đúng' },
+    ]
+  },
+  {
+    id: 'pronomen',
+    name: 'Pronomen',
+    nameVI: 'Đại từ',
+    badgeClass: 'cat-pron',
+    words: [
+      { da: 'det', en: 'it / that', vi: 'nó / điều đó' },
+      { da: 'i', en: 'you (plural)', vi: 'các bạn' },
+      { da: 'jeg', en: 'I', vi: 'tôi' },
+      { da: 'han', en: 'he', vi: 'anh ấy / ông ấy' },
+      { da: 'hun', en: 'she', vi: 'cô ấy / bà ấy' },
+      { da: 'de', en: 'they', vi: 'họ' },
+      { da: 'en', en: 'one (article: a/an)', vi: 'một (mạo từ)' },
+      { da: 'et', en: 'a/an (neuter article)', vi: 'một (mạo từ trung tính)' },
+      { da: 'du', en: 'you (singular)', vi: 'bạn' },
+      { da: 'der', en: 'who/which (relative) / there', vi: 'người mà / ở đó' },
+      { da: 'vi', en: 'we', vi: 'chúng tôi / chúng ta' },
+      { da: 'hvad', en: 'what', vi: 'cái gì / gì' },
+      { da: 'den', en: 'it / that (common gender)', vi: 'nó (giống thường)' },
+      { da: 'som', en: 'who / which / that (relative)', vi: 'người mà / cái mà' },
+      { da: 'man', en: 'one / you (impersonal)', vi: 'người ta / mình' },
+      { da: 'meget', en: 'very / much / a lot', vi: 'rất / nhiều' },
+      { da: 'mange', en: 'many', vi: 'nhiều' },
+      { da: 'sig', en: 'oneself / himself / herself', vi: 'bản thân / tự mình' },
+      { da: 'sin', en: 'his/her/its (reflexive)', vi: 'của anh ấy/cô ấy (hồi chỉ)' },
+      { da: 'noget', en: 'something / some', vi: 'cái gì đó / một chút' },
+      { da: 'nogle', en: 'some / a few', vi: 'một số / vài' },
+      { da: 'min', en: 'my (common gender)', vi: 'của tôi' },
+      { da: 'deres', en: 'their / theirs', vi: 'của họ' },
+      { da: 'dem', en: 'them', vi: 'họ (tân ngữ)' },
+      { da: 'alle', en: 'all / everyone', vi: 'tất cả / mọi người' },
+      { da: 'hvis', en: 'whose / if', vi: 'của ai / nếu' },
+      { da: 'hver', en: 'every / each', vi: 'mỗi / từng' },
+      { da: 'mig', en: 'me', vi: 'tôi (tân ngữ)' },
+      { da: 'hende', en: 'her (object)', vi: 'cô ấy (tân ngữ)' },
+      { da: 'selv', en: 'self / even', vi: 'bản thân / ngay cả' },
+      { da: 'hendes', en: 'her / hers', vi: 'của cô ấy' },
+      { da: 'nogen', en: 'someone / anyone / some', vi: 'ai đó / bất kỳ ai' },
+      { da: 'ham', en: 'him (object)', vi: 'anh ấy (tân ngữ)' },
+      { da: 'andre', en: 'others / other', vi: 'những người khác' },
+      { da: 'sine', en: 'his/her/its (plural, reflexive)', vi: 'của anh/cô ấy (số nhiều)' },
+      { da: 'hans', en: 'his', vi: 'của anh ấy' },
+      { da: 'sit', en: 'his/her/its (neuter, reflexive)', vi: 'của anh/cô ấy (trung tính)' },
+      { da: 'dig', en: 'you (object)', vi: 'bạn (tân ngữ)' },
+      { da: 'mine', en: 'my (plural)', vi: 'của tôi (số nhiều)' },
+      { da: 'alt', en: 'everything / all', vi: 'tất cả mọi thứ' },
+      { da: 'mit', en: 'my (neuter)', vi: 'của tôi (trung tính)' },
+      { da: 'vores', en: 'our / ours', vi: 'của chúng tôi' },
+      { da: 'os', en: 'us', vi: 'chúng tôi (tân ngữ)' },
+      { da: 'andet', en: 'other / another thing', vi: 'cái khác' },
+      { da: 'din', en: 'your (common)', vi: 'của bạn' },
+      { da: 'anden', en: 'other / another', vi: 'khác / cái khác' },
+      { da: 'hvem', en: 'who', vi: 'ai' },
+      { da: 'ingen', en: 'no one / none', vi: 'không ai / không có' },
+      { da: 'dit', en: 'your (neuter)', vi: 'của bạn (trung tính)' },
+      { da: 'jer', en: 'you (plural, object)', vi: 'các bạn (tân ngữ)' },
+      { da: 'hvilken', en: 'which / what (common)', vi: 'cái nào / nào' },
+      { da: 'dine', en: 'your (plural)', vi: 'của bạn (số nhiều)' },
+      { da: 'jeres', en: 'your (plural)', vi: 'của các bạn' },
+      { da: 'hvilket', en: 'which (neuter)', vi: 'cái nào (trung tính)' },
+      { da: 'intet', en: 'nothing', vi: 'không có gì' },
+      { da: 'dens', en: 'its (common gender)', vi: 'của nó' },
+    ]
+  },
+  {
+    id: 'adverbium',
+    name: 'Adverbium',
+    nameVI: 'Trạng từ',
+    badgeClass: 'cat-adv',
+    words: [
+      { da: 'for', en: 'too (excessive) / for', vi: 'quá / cho' },
+      { da: 'nu', en: 'now', vi: 'bây giờ' },
+      { da: 'lidt', en: 'a little / a bit', vi: 'một chút / ít' },
+      { da: 'her', en: 'here', vi: 'ở đây' },
+      { da: 'efter', en: 'after / afterwards', vi: 'sau / về sau' },
+      { da: 'da', en: 'then / when / because', vi: 'khi ấy / vì' },
+      { da: 'ud', en: 'out', vi: 'ra ngoài' },
+      { da: 'sammen', en: 'together', vi: 'cùng nhau' },
+      { da: 'op', en: 'up', vi: 'lên' },
+      { da: 'ind', en: 'in / into', vi: 'vào trong' },
+      { da: 'mere', en: 'more', vi: 'nhiều hơn' },
+      { da: 'igen', en: 'again', vi: 'lại / một lần nữa' },
+      { da: 'i dag', en: 'today', vi: 'hôm nay' },
+      { da: 'siden', en: 'since / ago', vi: 'kể từ / trước đây' },
+      { da: 'nogle gange', en: 'sometimes', vi: 'đôi khi' },
+      { da: 'rigtig', en: 'really / properly', vi: 'thật sự / đúng là' },
+      { da: 'for eksempel', en: 'for example', vi: 'ví dụ' },
+      { da: 'over', en: 'over / above', vi: 'qua / ở trên' },
+      { da: 'først', en: 'first / at first', vi: 'đầu tiên' },
+      { da: 'bagefter', en: 'afterwards / later', vi: 'sau đó' },
+      { da: 'normalt', en: 'normally / usually', vi: 'thông thường' },
+      { da: 'helt', en: 'completely / quite', vi: 'hoàn toàn / khá' },
+      { da: 'hjemme', en: 'at home', vi: 'ở nhà' },
+      { da: 'sjovt', en: 'funnily / amusingly', vi: 'buồn cười / vui' },
+      { da: 'heller ikke', en: 'neither / not either', vi: 'cũng không' },
+      { da: 'stadig', en: 'still / yet', vi: 'vẫn / vẫn còn' },
+      { da: 'cirka', en: 'approximately / about', vi: 'khoảng / xấp xỉ' },
+      { da: 'hårdt', en: 'hard / toughly', vi: 'cứng / vất vả' },
+      { da: 'alene', en: 'alone', vi: 'một mình' },
+      { da: 'rundt', en: 'around', vi: 'xung quanh' },
+      { da: 'faktisk', en: 'actually / in fact', vi: 'thực ra / thực tế' },
+      { da: 'næsten', en: 'almost / nearly', vi: 'gần như / hầu như' },
+      { da: 'derfor', en: 'therefore / so', vi: 'do đó / vì vậy' },
+      { da: 'bedre', en: 'better', vi: 'tốt hơn' },
+      { da: 'længe', en: 'for a long time', vi: 'lâu / trong thời gian dài' },
+      { da: 'om morgenen', en: 'in the morning', vi: 'vào buổi sáng' },
+      { da: 'tilbage', en: 'back', vi: 'trở lại / quay lại' },
+      { da: 'fint', en: 'fine / nicely', vi: 'tốt / ổn' },
+      { da: 'om aftenen', en: 'in the evening', vi: 'vào buổi tối' },
+      { da: 'især', en: 'especially / particularly', vi: 'đặc biệt / nhất là' },
+      { da: 'henne', en: 'over there', vi: 'đằng kia / phía đó' },
+      { da: 'ned', en: 'down', vi: 'xuống' },
+      { da: 'hvor længe', en: 'how long', vi: 'bao lâu' },
+      { da: 'for meget', en: 'too much', vi: 'quá nhiều' },
+      { da: 'mest', en: 'most', vi: 'nhất / nhiều nhất' },
+      { da: 'omkring', en: 'around / about', vi: 'khoảng / quanh' },
+      { da: 'sådan', en: 'like that / such', vi: 'như vậy / như thế' },
+      { da: 'hurtigt', en: 'quickly / fast', vi: 'nhanh chóng' },
+      { da: 'ude', en: 'outside / out', vi: 'bên ngoài' },
+      { da: 'selvfølgelig', en: 'of course', vi: 'dĩ nhiên / tất nhiên' },
+      { da: 'hen', en: 'toward (direction)', vi: 'về phía' },
+      { da: 'inde', en: 'inside / indoors', vi: 'bên trong / trong nhà' },
+      { da: 'senere', en: 'later', vi: 'sau này / sau đó' },
+      { da: 'mellem', en: 'between / among', vi: 'giữa / trong số' },
+      { da: 'sidst', en: 'last / most recently', vi: 'lần cuối / gần nhất' },
+      { da: 'foran', en: 'in front of / ahead', vi: 'trước / phía trước' },
+      { da: 'til sidst', en: 'finally / in the end', vi: 'cuối cùng' },
+      { da: 'lige nu', en: 'right now', vi: 'ngay bây giờ' },
+      { da: 'i morgen', en: 'tomorrow', vi: 'ngày mai' },
+      { da: 'snart', en: 'soon', vi: 'sớm thôi' },
+      { da: 'nemt', en: 'easily', vi: 'dễ dàng' },
+      { da: 'mindre', en: 'less', vi: 'ít hơn' },
+      { da: 'tidligt', en: 'early', vi: 'sớm' },
+      { da: 'hele tiden', en: 'all the time', vi: 'suốt thời gian / mãi' },
+      { da: 'i går', en: 'yesterday', vi: 'hôm qua' },
+      { da: 'om eftermiddagen', en: 'in the afternoon', vi: 'vào buổi chiều' },
+      { da: 'langt', en: 'far / a long way', vi: 'xa / rất' },
+      { da: 'næste uge', en: 'next week', vi: 'tuần sau' },
+      { da: 'som regel', en: 'as a rule / usually', vi: 'thông thường / theo quy tắc' },
+      { da: 'for sent', en: 'too late', vi: 'quá muộn' },
+      { da: 'dårligt', en: 'badly / poorly', vi: 'kém / tệ' },
+      { da: 'allerede', en: 'already', vi: 'đã / rồi' },
+      { da: 'bedst', en: 'best', vi: 'tốt nhất' },
+      { da: 'endnu', en: 'yet / still / even more', vi: 'vẫn / còn / thậm chí hơn' },
+      { da: 'derhjemme', en: 'at home (there)', vi: 'ở nhà đó' },
+      { da: 'desuden', en: 'moreover / furthermore', vi: 'hơn nữa / thêm vào đó' },
+      { da: 'specielt', en: 'especially / specifically', vi: 'đặc biệt' },
+      { da: 'endelig', en: 'finally / at last', vi: 'cuối cùng / rốt cuộc' },
+      { da: 'slet ikke', en: 'not at all', vi: 'hoàn toàn không' },
+      { da: 'direkte', en: 'directly / straight', vi: 'trực tiếp' },
+      { da: 'straks', en: 'immediately / right away', vi: 'ngay lập tức' },
+    ]
+  },
+  {
+    id: 't-ord',
+    name: 'T-ord (Intetkøn)',
+    nameVI: 'Danh từ trung tính (et-ord)',
+    badgeClass: 'cat-noun-n',
+    words: [
+      { da: 'år', en: 'year', vi: 'năm' },
+      { da: 'arbejde', en: 'work', vi: 'công việc / làm việc' },
+      { da: 'job', en: 'job', vi: 'việc làm' },
+      { da: 'hjem', en: 'home', vi: 'nhà / quê nhà' },
+      { da: 'par', en: 'pair / couple', vi: 'cặp / đôi' },
+      { da: 'tog', en: 'train', vi: 'tàu hỏa' },
+      { da: 'folk', en: 'people / folk', vi: 'người dân / dân gian' },
+      { da: 'hus', en: 'house', vi: 'nhà / căn nhà' },
+      { da: 'liv', en: 'life', vi: 'cuộc sống / cuộc đời' },
+      { da: 'bord', en: 'table', vi: 'bàn' },
+      { da: 'stykke', en: 'piece', vi: 'mảnh / miếng' },
+      { da: 'fjernsyn', en: 'television', vi: 'tivi / truyền hình' },
+      { da: 'sted', en: 'place', vi: 'nơi / chỗ' },
+      { da: 'møde', en: 'meeting', vi: 'cuộc họp' },
+      { da: 'ord', en: 'word', vi: 'từ / chữ' },
+      { da: 'kort', en: 'card / map / short', vi: 'thẻ / bản đồ / ngắn' },
+      { da: 'æg', en: 'egg', vi: 'trứng' },
+      { da: 'land', en: 'land / country', vi: 'đất / quốc gia' },
+      { da: 'nummer', en: 'number', vi: 'số' },
+      { da: 'barn', en: 'child', vi: 'đứa trẻ' },
+      { da: 'kollegium', en: 'student dormitory', vi: 'ký túc xá' },
+      { da: 'vand', en: 'water', vi: 'nước' },
+      { da: 'kød', en: 'meat', vi: 'thịt' },
+      { da: 'billede', en: 'picture / image', vi: 'hình ảnh / bức tranh' },
+      { da: 'glas', en: 'glass', vi: 'kính / ly thủy tinh' },
+      { da: 'lys', en: 'light / candle', vi: 'ánh sáng / nến' },
+      { da: 'vejr', en: 'weather', vi: 'thời tiết' },
+      { da: 'brød', en: 'bread', vi: 'bánh mì' },
+      { da: 'humør', en: 'mood', vi: 'tâm trạng' },
+      { da: 'firma', en: 'company / firm', vi: 'công ty' },
+      { da: 'hotel', en: 'hotel', vi: 'khách sạn' },
+      { da: 'værelse', en: 'room', vi: 'phòng' },
+      { da: 'køkken', en: 'kitchen', vi: 'nhà bếp' },
+      { da: 'hold', en: 'team / group', vi: 'đội nhóm' },
+      { da: 'kilo', en: 'kilogram', vi: 'ki-lô-gam' },
+      { da: 'fag', en: 'subject / trade', vi: 'môn học / nghề' },
+      { da: 'kvarter', en: 'quarter (hour) / neighborhood', vi: 'một phần tư giờ / khu vực' },
+      { da: 'salt', en: 'salt', vi: 'muối' },
+      { da: 'bad', en: 'bath', vi: 'bồn tắm / tắm' },
+      { da: 'mærke', en: 'brand / mark', vi: 'thương hiệu / dấu' },
+      { da: 'held', en: 'luck', vi: 'may mắn' },
+      { da: 'besøg', en: 'visit', vi: 'chuyến thăm' },
+      { da: 'gram', en: 'gram', vi: 'gam' },
+      { da: 'hår', en: 'hair', vi: 'tóc' },
+      { da: 'navn', en: 'name', vi: 'tên' },
+      { da: 'spørgsmål', en: 'question', vi: 'câu hỏi' },
+      { da: 'sprog', en: 'language', vi: 'ngôn ngữ' },
+      { da: 'problem', en: 'problem', vi: 'vấn đề' },
+      { da: 'fly', en: 'airplane / fly', vi: 'máy bay / bay' },
+      { da: 'svar', en: 'answer / reply', vi: 'câu trả lời' },
+      { da: 'museum', en: 'museum', vi: 'bảo tàng' },
+      { da: 'kontor', en: 'office', vi: 'văn phòng' },
+      { da: 'øje', en: 'eye', vi: 'mắt' },
+      { da: 'øjeblik', en: 'moment / instant', vi: 'khoảnh khắc' },
+      { da: 'hospital', en: 'hospital', vi: 'bệnh viện' },
+      { da: 'tv', en: 'TV', vi: 'tivi' },
+      { da: 'netværk', en: 'network', vi: 'mạng lưới' },
+      { da: 'træ', en: 'tree / wood', vi: 'cây / gỗ' },
+      { da: 'telt', en: 'tent', vi: 'lều' },
+      { da: 'valg', en: 'choice / election', vi: 'lựa chọn / bầu cử' },
+      { da: 'vindue', en: 'window', vi: 'cửa sổ' },
+    ]
+  },
+  {
+    id: 'adjektiv',
+    name: 'Adjektiv',
+    nameVI: 'Tính từ',
+    badgeClass: 'cat-adj',
+    words: [
+      { da: 'dansk', en: 'Danish', vi: 'tiếng Đan Mạch / người Đan Mạch' },
+      { da: 'god', en: 'good', vi: 'tốt / giỏi' },
+      { da: 'glad', en: 'happy / glad', vi: 'vui / hạnh phúc' },
+      { da: 'lille', en: 'small / little', vi: 'nhỏ / bé' },
+      { da: 'nye', en: 'new (plural/definite)', vi: 'mới (số nhiều)' },
+      { da: 'stor', en: 'big / large', vi: 'lớn / to' },
+      { da: 'hele', en: 'whole / entire', vi: 'toàn bộ / cả' },
+      { da: 'spændende', en: 'exciting / interesting', vi: 'thú vị / hấp dẫn' },
+      { da: 'flere', en: 'several / more', vi: 'nhiều / thêm' },
+      { da: 'første', en: 'first', vi: 'đầu tiên' },
+      { da: 'gode', en: 'good (plural/definite)', vi: 'tốt (số nhiều)' },
+      { da: 'gift', en: 'married', vi: 'đã kết hôn' },
+      { da: 'lang', en: 'long', vi: 'dài / lâu' },
+      { da: 'svært', en: 'difficult / hard (neuter)', vi: 'khó khăn' },
+      { da: 'forskellige', en: 'different / various', vi: 'khác nhau / khác biệt' },
+      { da: 'gamle', en: 'old (definite/plural)', vi: 'già / cũ (số nhiều)' },
+      { da: 'hyggeligt', en: 'cozy / nice', vi: 'ấm cúng / thoải mái' },
+      { da: 'ny', en: 'new', vi: 'mới' },
+      { da: 'halv', en: 'half', vi: 'nửa' },
+      { da: 'færdig', en: 'done / finished', vi: 'xong / hoàn thành' },
+      { da: 'engelsk', en: 'English', vi: 'tiếng Anh / người Anh' },
+      { da: 'dejligt', en: 'lovely / wonderful (neuter)', vi: 'tuyệt vời' },
+      { da: 'fri', en: 'free', vi: 'tự do / rảnh' },
+      { da: 'travlt', en: 'busy (neuter)', vi: 'bận rộn' },
+      { da: 'ondt', en: 'pain / sore', vi: 'đau / đau đớn' },
+      { da: 'træt', en: 'tired', vi: 'mệt mỏi' },
+      { da: 'vigtigt', en: 'important (neuter)', vi: 'quan trọng' },
+      { da: 'gammel', en: 'old', vi: 'già / cũ' },
+      { da: 'høj', en: 'tall / high / loud', vi: 'cao / to (âm thanh)' },
+      { da: 'dejlig', en: 'lovely / nice', vi: 'dễ thương / tuyệt' },
+      { da: 'særlig', en: 'special / particular', vi: 'đặc biệt' },
+      { da: 'syg', en: 'ill / sick', vi: 'ốm / bệnh' },
+      { da: 'tom', en: 'empty', vi: 'trống' },
+      { da: 'tilfreds', en: 'satisfied / content', vi: 'hài lòng' },
+      { da: 'frisk', en: 'healthy / fresh', vi: 'khỏe / tươi' },
+      { da: 'stresset', en: 'stressed', vi: 'căng thẳng' },
+      { da: 'dyrt', en: 'expensive (neuter)', vi: 'đắt' },
+      { da: 'fantastisk', en: 'fantastic / amazing', vi: 'tuyệt vời / tuyệt vời' },
+      { da: 'sulten', en: 'hungry', vi: 'đói' },
+      { da: 'bange', en: 'scared / afraid', vi: 'sợ hãi' },
+      { da: 'interesseret', en: 'interested', vi: 'quan tâm / thích thú' },
+      { da: 'fuld', en: 'full / drunk', vi: 'đầy / say rượu' },
+      { da: 'interessant', en: 'interesting', vi: 'thú vị' },
+      { da: 'sød', en: 'sweet / cute', vi: 'ngọt / dễ thương' },
+      { da: 'billigt', en: 'cheap (neuter)', vi: 'rẻ' },
+      { da: 'dårlig', en: 'bad / poor', vi: 'xấu / kém' },
+      { da: 'blå', en: 'blue', vi: 'màu xanh lam' },
+      { da: 'brun', en: 'brown', vi: 'màu nâu' },
+      { da: 'rød', en: 'red', vi: 'màu đỏ' },
+      { da: 'grøn', en: 'green', vi: 'màu xanh lá' },
+      { da: 'hvid', en: 'white', vi: 'màu trắng' },
+      { da: 'sort', en: 'black', vi: 'màu đen' },
+      { da: 'gul', en: 'yellow', vi: 'màu vàng' },
+      { da: 'rask', en: 'well / healthy', vi: 'khỏe / lành mạnh' },
+      { da: 'varm', en: 'warm / hot', vi: 'ấm / nóng' },
+      { da: 'kold', en: 'cold', vi: 'lạnh' },
+      { da: 'stor', en: 'big', vi: 'to lớn' },
+      { da: 'ung', en: 'young', vi: 'trẻ' },
+      { da: 'sund', en: 'healthy', vi: 'lành mạnh / khỏe' },
+      { da: 'nervøs', en: 'nervous', vi: 'lo lắng / hồi hộp' },
+      { da: 'trist', en: 'sad', vi: 'buồn' },
+      { da: 'stolt', en: 'proud', vi: 'tự hào' },
+      { da: 'vred', en: 'angry', vi: 'tức giận' },
+      { da: 'gravid', en: 'pregnant', vi: 'mang thai' },
+      { da: 'forelsket', en: 'in love', vi: 'đang yêu' },
+      { da: 'gratis', en: 'free (no cost)', vi: 'miễn phí' },
+      { da: 'smuk', en: 'beautiful', vi: 'đẹp' },
+      { da: 'aktiv', en: 'active', vi: 'tích cực / hoạt bát' },
+      { da: 'kreativ', en: 'creative', vi: 'sáng tạo' },
+      { da: 'dygtig', en: 'skilled / capable', vi: 'giỏi / tài năng' },
+      { da: 'positiv', en: 'positive', vi: 'tích cực' },
+      { da: 'tryg', en: 'safe / secure', vi: 'an toàn / yên tâm' },
+      { da: 'rolig', en: 'calm / quiet', vi: 'bình tĩnh / yên tĩnh' },
+      { da: 'tørstig', en: 'thirsty', vi: 'khát' },
+    ]
+  },
+  {
+    id: 'substantiv',
+    name: 'Substantiv',
+    nameVI: 'Danh từ (en-ord)',
+    badgeClass: 'cat-noun',
+    words: [
+      { da: 'ja', en: 'yes', vi: 'có / vâng' },
+      { da: 'nej', en: 'no', vi: 'không' },
+      { da: 'hej', en: 'hi / hello', vi: 'xin chào' },
+      { da: 'to', en: 'two', vi: 'hai' },
+      { da: 'tre', en: 'three', vi: 'ba' },
+      { da: 'fire', en: 'four', vi: 'bốn' },
+      { da: 'fem', en: 'five', vi: 'năm' },
+      { da: 'seks', en: 'six', vi: 'sáu' },
+      { da: 'syv', en: 'seven', vi: 'bảy' },
+      { da: 'otte', en: 'eight', vi: 'tám' },
+      { da: 'ni', en: 'nine', vi: 'chín' },
+      { da: 'klokken', en: 'the clock / o\'clock', vi: 'đồng hồ / giờ' },
+      { da: 'have', en: 'garden', vi: 'vườn' },
+      { da: 'tid', en: 'time', vi: 'thời gian' },
+      { da: 'dag', en: 'day', vi: 'ngày' },
+      { da: 'børn', en: 'children', vi: 'trẻ em' },
+      { da: 'mad', en: 'food', vi: 'thức ăn' },
+      { da: 'venner', en: 'friends', vi: 'bạn bè' },
+      { da: 'by', en: 'city / town', vi: 'thành phố' },
+      { da: 'ugen', en: 'the week', vi: 'tuần (xác định)' },
+      { da: 'kæreste', en: 'boyfriend / girlfriend', vi: 'người yêu' },
+      { da: 'kaffe', en: 'coffee', vi: 'cà phê' },
+      { da: 'måneder', en: 'months', vi: 'các tháng' },
+      { da: 'lejlighed', en: 'apartment / opportunity', vi: 'căn hộ / cơ hội' },
+      { da: 'familie', en: 'family', vi: 'gia đình' },
+      { da: 'ting', en: 'things', vi: 'đồ vật / những thứ' },
+      { da: 'timer', en: 'hours', vi: 'các giờ' },
+      { da: 'mor', en: 'mother / mom', vi: 'mẹ' },
+      { da: 'minutter', en: 'minutes', vi: 'các phút' },
+      { da: 'tøj', en: 'clothes', vi: 'quần áo' },
+      { da: 'tur', en: 'trip / turn', vi: 'chuyến đi / lượt' },
+      { da: 'gang', en: 'time / occurrence / hallway', vi: 'lần / lần này / hành lang' },
+      { da: 'skole', en: 'school', vi: 'trường học' },
+      { da: 'mand', en: 'man / husband', vi: 'đàn ông / chồng' },
+      { da: 'problemer', en: 'problems', vi: 'các vấn đề' },
+      { da: 'far', en: 'father / dad', vi: 'bố / ba' },
+      { da: 'uddannelse', en: 'education', vi: 'giáo dục / bằng cấp' },
+      { da: 'penge', en: 'money', vi: 'tiền' },
+      { da: 'kvinder', en: 'women', vi: 'phụ nữ' },
+      { da: 'lørdag', en: 'Saturday', vi: 'thứ Bảy' },
+      { da: 'veninde', en: 'female friend', vi: 'bạn gái (bạn bè nữ)' },
+      { da: 'kone', en: 'wife', vi: 'vợ' },
+      { da: 'søndag', en: 'Sunday', vi: 'Chủ Nhật' },
+      { da: 'fredag', en: 'Friday', vi: 'thứ Sáu' },
+      { da: 'lørdag', en: 'Saturday', vi: 'thứ Bảy' },
+      { da: 'mandag', en: 'Monday', vi: 'thứ Hai' },
+      { da: 'tirsdag', en: 'Tuesday', vi: 'thứ Ba' },
+      { da: 'onsdag', en: 'Wednesday', vi: 'thứ Tư' },
+      { da: 'torsdag', en: 'Thursday', vi: 'thứ Năm' },
+      { da: 'aften', en: 'evening', vi: 'buổi tối' },
+      { da: 'fest', en: 'party', vi: 'bữa tiệc' },
+      { da: 'frokost', en: 'lunch', vi: 'bữa trưa' },
+      { da: 'ven', en: 'friend (male)', vi: 'bạn (nam)' },
+      { da: 'plads', en: 'space / seat / square', vi: 'chỗ / ghế / quảng trường' },
+      { da: 'masser', en: 'lots / masses', vi: 'rất nhiều' },
+      { da: 'arbejdet', en: 'the work', vi: 'công việc (xác định)' },
+      { da: 'sprogskole', en: 'language school', vi: 'trường học ngoại ngữ' },
+      { da: 'bil', en: 'car', vi: 'ô tô / xe hơi' },
+      { da: 'ferie', en: 'vacation / holiday', vi: 'kỳ nghỉ' },
+      { da: 'middag', en: 'lunch / noon / dinner', vi: 'bữa trưa / buổi trưa' },
+      { da: 'søster', en: 'sister', vi: 'chị/em gái' },
+      { da: 'søn', en: 'son', vi: 'con trai' },
+      { da: 'datter', en: 'daughter', vi: 'con gái' },
+      { da: 'bror', en: 'brother', vi: 'anh/em trai' },
+      { da: 'bus', en: 'bus', vi: 'xe buýt' },
+      { da: 'læge', en: 'doctor / physician', vi: 'bác sĩ' },
+      { da: 'løn', en: 'salary / wage', vi: 'lương' },
+      { da: 'tradition', en: 'tradition', vi: 'truyền thống' },
+      { da: 'verden', en: 'world', vi: 'thế giới' },
+      { da: 'december', en: 'December', vi: 'tháng Mười Hai' },
+      { da: 'juli', en: 'July', vi: 'tháng Bảy' },
+      { da: 'januar', en: 'January', vi: 'tháng Một' },
+      { da: 'juni', en: 'June', vi: 'tháng Sáu' },
+      { da: 'maj', en: 'May', vi: 'tháng Năm' },
+      { da: 'august', en: 'August', vi: 'tháng Tám' },
+      { da: 'september', en: 'September', vi: 'tháng Chín' },
+      { da: 'oktober', en: 'October', vi: 'tháng Mười' },
+      { da: 'november', en: 'November', vi: 'tháng Mười Một' },
+      { da: 'februar', en: 'February', vi: 'tháng Hai' },
+      { da: 'marts', en: 'March', vi: 'tháng Ba' },
+      { da: 'april', en: 'April', vi: 'tháng Tư' },
+      { da: 'forældre', en: 'parents', vi: 'cha mẹ' },
+      { da: 'ø', en: 'island', vi: 'đảo' },
+      { da: 'morgenmad', en: 'breakfast', vi: 'bữa sáng' },
+      { da: 'kaffe', en: 'coffee', vi: 'cà phê' },
+      { da: 'te', en: 'tea', vi: 'trà' },
+      { da: 'vin', en: 'wine', vi: 'rượu vang' },
+      { da: 'øl', en: 'beer', vi: 'bia' },
+      { da: 'vand', en: 'water', vi: 'nước' },
+      { da: 'mælk', en: 'milk', vi: 'sữa' },
+      { da: 'juice', en: 'juice', vi: 'nước hoa quả' },
+      { da: 'ost', en: 'cheese', vi: 'pho mát' },
+      { da: 'rugbrød', en: 'rye bread', vi: 'bánh mì đen' },
+      { da: 'smørrebrød', en: 'Danish open sandwich', vi: 'bánh sandwich mở của Đan Mạch' },
+      { da: 'fisk', en: 'fish', vi: 'cá' },
+      { da: 'laks', en: 'salmon', vi: 'cá hồi' },
+      { da: 'kylling', en: 'chicken', vi: 'gà' },
+      { da: 'salat', en: 'salad / lettuce', vi: 'salad / rau xà lách' },
+      { da: 'frugt', en: 'fruit', vi: 'hoa quả' },
+      { da: 'æble', en: 'apple', vi: 'quả táo' },
+      { da: 'kartofler', en: 'potatoes', vi: 'khoai tây' },
+      { da: 'grøntsager', en: 'vegetables', vi: 'rau củ' },
+      { da: 'sport', en: 'sport', vi: 'thể thao' },
+      { da: 'fodbold', en: 'football / soccer', vi: 'bóng đá' },
+      { da: 'musik', en: 'music', vi: 'âm nhạc' },
+      { da: 'film', en: 'film / movie', vi: 'phim' },
+      { da: 'seng', en: 'bed', vi: 'giường' },
+      { da: 'stue', en: 'living room', vi: 'phòng khách' },
+      { da: 'pause', en: 'break / pause', vi: 'giải lao / dừng' },
+      { da: 'natur', en: 'nature', vi: 'thiên nhiên' },
+      { da: 'sommer', en: 'summer', vi: 'mùa hè' },
+      { da: 'vinter', en: 'winter', vi: 'mùa đông' },
+      { da: 'forår', en: 'spring', vi: 'mùa xuân' },
+      { da: 'efterår', en: 'autumn / fall', vi: 'mùa thu' },
+      { da: 'restaurant', en: 'restaurant', vi: 'nhà hàng' },
+      { da: 'café', en: 'café', vi: 'quán cà phê' },
+      { da: 'kultur', en: 'culture', vi: 'văn hóa' },
+      { da: 'natklub', en: 'nightclub', vi: 'hộp đêm' },
+      { da: 'sygeplejerske', en: 'nurse', vi: 'y tá' },
+      { da: 'læge', en: 'doctor', vi: 'bác sĩ' },
+      { da: 'pædagog', en: 'pedagogue / childcare worker', vi: 'nhà sư phạm / giáo viên mầm non' },
+      { da: 'ingeniør', en: 'engineer', vi: 'kỹ sư' },
+      { da: 'journalist', en: 'journalist', vi: 'nhà báo' },
+      { da: 'arkitekt', en: 'architect', vi: 'kiến trúc sư' },
+      { da: 'undskyld', en: 'excuse me / sorry', vi: 'xin lỗi' },
+      { da: 'goddag', en: 'good day / hello', vi: 'chào ngày mới' },
+      { da: 'godmorgen', en: 'good morning', vi: 'chào buổi sáng' },
+      { da: 'farvel', en: 'goodbye', vi: 'tạm biệt' },
+      { da: 'mange tak', en: 'thank you very much', vi: 'cảm ơn nhiều' },
+      { da: 'selv tak', en: 'you\'re welcome', vi: 'không có gì' },
+      { da: 'velbekomme', en: 'enjoy your meal / you\'re welcome', vi: 'mời dùng / không có gì' },
+      { da: 'vi ses', en: 'see you / we\'ll meet', vi: 'hẹn gặp lại' },
+      { da: 'tusind tak', en: 'a thousand thanks', vi: 'cảm ơn một nghìn lần' },
+      { da: 'jul', en: 'Christmas', vi: 'Giáng Sinh' },
+      { da: 'påske', en: 'Easter', vi: 'Lễ Phục Sinh' },
+      { da: 'fødselsdag', en: 'birthday', vi: 'sinh nhật' },
+    ]
+  }
+];
+
+let activeCategory = 'all';
+// Lưu trữ các Nhóm đang được mở thay vì lưu từng thẻ
+let expandedCategories = new Set();
+
+function renderWords() {
+  const container = document.getElementById('wordContainer');
+  const query = document.getElementById('search').value.toLowerCase().trim();
+  let totalVisible = 0;
+
+  container.innerHTML = '';
+
+  categories.forEach((cat, ci) => {
+    if (activeCategory !== 'all' && activeCategory !== cat.id) return;
+
+    const filtered = cat.words.filter(w =>
+      !query ||
+      w.da.toLowerCase().includes(query) ||
+      w.en.toLowerCase().includes(query) ||
+      w.vi.toLowerCase().includes(query)
+    );
+
+    if (filtered.length === 0) return;
+    totalVisible += filtered.length;
+
+    const section = document.createElement('div');
+    section.className = 'category-section';
+
+    // Tạo tiêu đề (nhóm từ) có thể click được
+    const header = document.createElement('div');
+    header.className = 'flex items-center gap-3 mb-5';
+    
+    const badge = document.createElement('span');
+    badge.className = `category-badge ${cat.badgeClass}`;
+    badge.textContent = cat.name;
+    badge.title = 'Nhấn để mở / đóng toàn bộ từ vựng';
+    
+    const countText = document.createElement('span');
+    countText.className = 'text-sm text-gray-500 font-medium';
+    countText.textContent = `${cat.nameVI} · ${filtered.length} từ`;
+
+    header.appendChild(badge);
+    header.appendChild(countText);
+    section.appendChild(header);
+
+    // Tạo lưới hiển thị thẻ (sử dụng css .word-grid)
+    const grid = document.createElement('div');
+    grid.className = 'word-grid';
+
+    // Xác định xem nhóm này đang được mở hay đóng
+    const isCategoryExpanded = expandedCategories.has(cat.id);
+
+    filtered.forEach((w, i) => {
+      const card = document.createElement('div');
+      card.className = 'word-card' + (isCategoryExpanded ? ' expanded' : '');
+      // Tốc độ xuất hiện mượt hơn cho nhiều thẻ
+      card.style.animationDelay = `${(i % 20) * 0.02}s`;
+
+      card.innerHTML = `
+        <div class="da-word">${w.da}</div>
+        <div class="translations">
+          <div class="en-trans">${w.en}</div>
+          <div class="vi-trans">${w.vi}</div>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    // Thêm sự kiện click vào Category Badge thay vì click từng thẻ
+    badge.addEventListener('click', () => {
+      const cards = grid.querySelectorAll('.word-card');
+      if (expandedCategories.has(cat.id)) {
+        // Nếu đang mở thì đóng lại
+        expandedCategories.delete(cat.id);
+        cards.forEach(c => c.classList.remove('expanded'));
+      } else {
+        // Nếu đang đóng thì mở ra
+        expandedCategories.add(cat.id);
+        cards.forEach(c => c.classList.add('expanded'));
+      }
+    });
+
+    section.appendChild(grid);
+    container.appendChild(section);
+  });
+
+  document.getElementById('noResults').classList.toggle('hidden', totalVisible > 0);
+}
+
+// Lọc theo nhóm
+document.getElementById('filterBtns').addEventListener('click', e => {
+  const btn = e.target.closest('[data-cat]');
+  if (!btn) return;
+  activeCategory = btn.dataset.cat;
+  document.querySelectorAll('.category-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderWords();
+});
+
+// Tìm kiếm
+document.getElementById('search').addEventListener('input', renderWords);
+
+// Khởi tạo
+renderWords();
+</script>
+</body>
+</html>

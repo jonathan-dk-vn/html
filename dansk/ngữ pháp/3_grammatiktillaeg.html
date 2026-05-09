@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammatiktillæg - Dansk Videre Mod Dansk</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Lexend', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        .accent-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .accent-shadow:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Navigation */
+        .nav-sticky {
+            position: sticky;
+            top: 24px;
+            max-height: calc(100vh - 48px);
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+
+        .nav-item {
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.6);
+            border-left-color: #3b82f6;
+            color: #1d4ed8;
+            padding-left: 1rem;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .syntax-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            min-width: 600px;
+        }
+
+        .syntax-table th {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 14px;
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-align: left;
+        }
+
+        .syntax-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .syntax-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .syntax-table tr:hover {
+            background: #f1f5f9;
+        }
+
+        /* Gradients Headers */
+        .gradient-text {
+            background: linear-gradient(to right, #1e293b, #475569);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-red {
+            background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+        }
+
+        /* Hovedsætninger */
+        .header-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        /* Ledsætninger */
+        .header-green {
+            background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+        }
+
+        /* Verber */
+        .header-purple {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+        }
+
+        /* Pronominer */
+        .header-orange {
+            background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+        }
+
+        /* Substantiver */
+        .header-teal {
+            background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%);
+        }
+
+        /* Adverbier/Tid/Sted */
+        .header-rose {
+            background: linear-gradient(135deg, #f43f5e 0%, #be123c 100%);
+        }
+
+        /* Adjektiver */
+
+        /* Utilities */
+        .code-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #3b82f6;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-family: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+            color: #334155;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        strong {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        /* Specific content styling */
+        .example-block {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Main Title -->
+        <header class="text-center mb-12 py-8">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 gradient-text tracking-tight uppercase">
+                Grammatiktillæg
+            </h1>
+            <p class="text-xl text-slate-500 font-light">Dansk Videre Mod Dansk</p>
+        </header>
+
+        <div class="grid lg:grid-cols-4 gap-8">
+
+            <!-- Sidebar Navigation -->
+            <aside class="hidden lg:block">
+                <nav class="nav-sticky glass-card rounded-2xl p-6 accent-shadow">
+                    <h3
+                        class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-200 pb-2">
+                        Mục lục</h3>
+                    <ul class="space-y-1 text-sm text-slate-600" id="toc-list">
+                        <!-- JS will populate this -->
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="lg:col-span-3 space-y-10">
+
+                <!-- 1. Hovedsætninger -->
+                <div id="hovedsaetninger"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-red p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-layer-group mr-3"></i>Hovedsætninger</h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-8">
+
+                        <!-- 1.1 Ligefrem ordstilling -->
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold text-red-600 border-b border-red-100 pb-2">1. Hovedsætninger
+                                med ligefrem ordstilling</h3>
+                            <p>En neutral hovedsætning begynder med <strong>subjekt</strong> og har <strong>ligefrem
+                                    ordstilling</strong> (S-V).</p>
+
+                            <div class="table-container">
+                                <table class="syntax-table">
+                                    <thead>
+                                        <tr>
+                                            <th>S</th>
+                                            <th>V1</th>
+                                            <th>CA</th>
+                                            <th>V2</th>
+                                            <th>IO</th>
+                                            <th>O</th>
+                                            <th>A</th>
+                                            <th>A</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>subjekt</td>
+                                            <td>verbum 1</td>
+                                            <td>central adv</td>
+                                            <td>verbum 2</td>
+                                            <td>indirekte obj.</td>
+                                            <td>objekt</td>
+                                            <td>adverbial</td>
+                                            <td>adverbial</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Han</td>
+                                            <td>vil</td>
+                                            <td>godt</td>
+                                            <td>låne</td>
+                                            <td>hende</td>
+                                            <td>bilen</td>
+                                            <td>til arbejde</td>
+                                            <td>i morgen.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>De</td>
+                                            <td>skal</td>
+                                            <td>måske</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>til Paris</td>
+                                            <td>i uge 7.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-sm text-slate-500 italic">*Bemærk: Hvis der både er
+                                <strong>stedsadverbial</strong> og <strong>tidsadverbial</strong> sidst i sætningen,
+                                placeres <strong>sted</strong> før <strong>tid</strong>.</p>
+                        </div>
+
+                        <!-- 1.2 Inversion -->
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold text-red-600 border-b border-red-100 pb-2">2. Hovedsætninger
+                                med inversion</h3>
+
+                            <h4 class="font-bold text-slate-700 mt-4">2.1. Inversion i spørgsmål</h4>
+                            <p>Der er <strong>inversion</strong> (V-S) i spørgsmål med eller uden
+                                <strong>hv-ord</strong>.</p>
+                            <div class="table-container">
+                                <table class="syntax-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Hv-ord</th>
+                                            <th>V1</th>
+                                            <th>S</th>
+                                            <th>CA</th>
+                                            <th>V2</th>
+                                            <th>IO</th>
+                                            <th>O</th>
+                                            <th>A</th>
+                                            <th>A</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td>Skal</td>
+                                            <td>de</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>til Paris</td>
+                                            <td>i uge 7?</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hvorfor</td>
+                                            <td>vil</td>
+                                            <td>han</td>
+                                            <td>ikke</td>
+                                            <td>låne</td>
+                                            <td>hende</td>
+                                            <td>bilen</td>
+                                            <td></td>
+                                            <td>i dag?</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h4 class="font-bold text-slate-700 mt-4">2.2. Inversion i konstaterende sætninger</h4>
+                            <p>Når et andet led (CA, IO, O eller A) placeres før <strong>subjektet</strong>, er der
+                                <strong>inversion</strong>.</p>
+                            <div class="table-container">
+                                <table class="syntax-table">
+                                    <thead>
+                                        <tr>
+                                            <th>X (Front)</th>
+                                            <th>V1</th>
+                                            <th>S</th>
+                                            <th>CA</th>
+                                            <th>V2</th>
+                                            <th>IO</th>
+                                            <th>O</th>
+                                            <th>A</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Måske</td>
+                                            <td>vil</td>
+                                            <td>han</td>
+                                            <td></td>
+                                            <td>vise</td>
+                                            <td>hende</td>
+                                            <td>huset</td>
+                                            <td>i morgen.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hende</td>
+                                            <td>vil</td>
+                                            <td>han</td>
+                                            <td>måske</td>
+                                            <td>vise</td>
+                                            <td></td>
+                                            <td>huset</td>
+                                            <td>i morgen.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Huset</td>
+                                            <td>vil</td>
+                                            <td>han</td>
+                                            <td>måske</td>
+                                            <td>vise</td>
+                                            <td>hende</td>
+                                            <td></td>
+                                            <td>i morgen.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>I morgen</td>
+                                            <td>vil</td>
+                                            <td>han</td>
+                                            <td>måske</td>
+                                            <td>vise</td>
+                                            <td>hende</td>
+                                            <td>huset</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 1.3 To hovedsætninger sammen -->
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold text-red-600 border-b border-red-100 pb-2">3. To hovedsætninger
+                                sammen</h3>
+                            <p>Forbindes med konjunktioner: <strong>og, eller, men, for, så</strong>. <span
+                                    class="text-red-500 font-bold">Ingen inversion efter konjunktioner.</span></p>
+
+                            <div class="grid md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <h5 class="font-bold text-red-800 mb-2">De 5 konjunktioner</h5>
+                                    <ul class="space-y-2 text-sm">
+                                        <li><strong>og</strong> (tilføjelse)</li>
+                                        <li><strong>men</strong> (kontrast)</li>
+                                        <li><strong>eller</strong> (alternativ)</li>
+                                        <li><strong>for</strong> (forklaring)</li>
+                                        <li><strong>så</strong> (konsekvens)</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-4 rounded-lg">
+                                    <h5 class="font-bold text-slate-800 mb-2">4 kombinationer</h5>
+                                    <ul class="space-y-2 text-sm text-slate-600">
+                                        <li>1. Ligefrem + Ligefrem</li>
+                                        <li>2. Ligefrem + Inversion</li>
+                                        <li>3. Inversion + Ligefrem</li>
+                                        <li>4. Inversion + Inversion</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 1.4 Så -->
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold text-red-600 border-b border-red-100 pb-2">4. ‘Så’ - adverbium
+                                eller konjunktion?</h3>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="example-block border-l-4 border-l-slate-400">
+                                    <h5 class="font-bold text-slate-700">Adverbium (Bagefter)</h5>
+                                    <p class="text-sm mt-1">Ordstilling: <strong>Inversion (V-S)</strong></p>
+                                    <p class="text-slate-600 italic mt-2">"Først køber hun ind, og <strong>så laver
+                                            hun</strong> mad."</p>
+                                </div>
+                                <div class="example-block border-l-4 border-l-red-500">
+                                    <h5 class="font-bold text-red-700">Konjunktion (Derfor)</h5>
+                                    <p class="text-sm mt-1">Ordstilling: <strong>Ligefrem (S-V)</strong></p>
+                                    <p class="text-slate-600 italic mt-2">"Hun var syg, <strong>så hun kom</strong>
+                                        ikke."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Ledsætninger -->
+                <div id="ledsaetninger"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-blue p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-project-diagram mr-3"></i>Ledsætninger</h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-8">
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="font-bold text-blue-700 mb-3">Typer af ledsætninger</h3>
+                                <ul class="space-y-2 text-sm">
+                                    <li><span class="font-bold text-slate-700">Objektsætninger:</span> at</li>
+                                    <li><span class="font-bold text-slate-700">Spørgende:</span> hv-ord, om</li>
+                                    <li><span class="font-bold text-slate-700">Relativ:</span> der, som, hvor</li>
+                                    <li><span class="font-bold text-slate-700">Betingelse:</span> hvis</li>
+                                    <li><span class="font-bold text-slate-700">Årsag:</span> fordi</li>
+                                    <li><span class="font-bold text-slate-700">Indrømmelse:</span> selv om</li>
+                                    <li><span class="font-bold text-slate-700">Følge:</span> så</li>
+                                    <li><span class="font-bold text-slate-700">Hensigt:</span> for at</li>
+                                    <li><span class="font-bold text-slate-700">Tid:</span> når, da, mens, før...</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-xl">
+                                <h3 class="font-bold text-blue-800 mb-2">Ordstilling (SAV)</h3>
+                                <p class="mb-2">I ledsætninger placeres <strong>CA</strong> mellem
+                                    <strong>subjekt</strong> og <strong>verbum 1</strong>.</p>
+                                <div class="code-box bg-white border-blue-200">
+                                    S - <strong>CA</strong> - V1 - V2
+                                </div>
+                                <p class="text-sm italic text-slate-600 mt-2">Eks.: Hun siger, at de
+                                    <strong>gerne</strong> vil komme.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-slate-200 pt-6">
+                            <h3 class="text-xl font-bold text-blue-600 mb-4">Hovedsætning + Ledsætning</h3>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-slate-700">Hovedsætning før ledsætning</h4>
+                                    <p class="text-sm text-slate-600">S - V1 ... , Konj - S - V1</p>
+                                    <p class="italic bg-white p-2 rounded border mt-1">"Han cykler altid, når det ikke
+                                        regner."</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-700">Ledsætning før hovedsætning (Inversion i HS)
+                                    </h4>
+                                    <p class="text-sm text-slate-600">Konj - S - V1 ... , <strong>V1 - S</strong></p>
+                                    <p class="italic bg-white p-2 rounded border mt-1">"Når det ikke regner,
+                                        <strong>cykler han</strong> altid."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 3. Centraladverbier -->
+                <div id="ca-tunge-lette"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-teal p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-balance-scale mr-3"></i>Centraladverbier (CA) -
+                            Tunge/Lette led</h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-6">
+                        <div class="bg-teal-50 p-4 rounded-lg border border-teal-100">
+                            <p class="mb-2">Reglen gælder kun i <strong>Hovedsætninger</strong> med verbum i
+                                <strong>usammensat tid</strong> (Nutid/Datid).</p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-bold text-slate-800 border-b pb-1 mb-2">Tunge led</h4>
+                                <p class="text-sm text-slate-600 mb-2">Egennavne, substantiver, infinitiver.</p>
+                                <p class="font-bold text-teal-600">CA placeres FØR tunge led.</p>
+                                <ul class="list-disc pl-5 mt-2 text-sm">
+                                    <li>De viser <strong>ikke</strong> <u>Bo</u> huset.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 border-b pb-1 mb-2">Lette led</h4>
+                                <p class="text-sm text-slate-600 mb-2">Pronominer, her/der.</p>
+                                <p class="font-bold text-teal-600">CA placeres EFTER lette led.</p>
+                                <ul class="list-disc pl-5 mt-2 text-sm">
+                                    <li>De viser <u>ham</u> <strong>ikke</strong> huset.</li>
+                                    <li>De viser <u>ham det</u> <strong>ikke</strong>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Verber -->
+                <div id="verber" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-green p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-play mr-3"></i>Verber</h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-8">
+
+                        <!-- Tider -->
+                        <div class="table-container">
+                            <table class="syntax-table text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Imperativ</th>
+                                        <th>Infinitiv</th>
+                                        <th>Nutid</th>
+                                        <th>Datid</th>
+                                        <th>Førnutid</th>
+                                        <th>Førdatid</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="font-mono text-xs text-slate-500">
+                                        <td>Rod</td>
+                                        <td>-e</td>
+                                        <td>-(e)r</td>
+                                        <td>-ede/-te</td>
+                                        <td>har/er -et/-t</td>
+                                        <td>havde/var -et/-t</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hent</td>
+                                        <td>at hente</td>
+                                        <td>henter</td>
+                                        <td>hentede</td>
+                                        <td>har hentet</td>
+                                        <td>havde hentet</td>
+                                    </tr>
+                                    <tr>
+                                        <td>rejs</td>
+                                        <td>at rejse</td>
+                                        <td>rejser</td>
+                                        <td>rejste</td>
+                                        <td>er rejst</td>
+                                        <td>var rejst</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Førnutid rules -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-green-700">Førnutid: Har eller Er?</h4>
+                                <ul class="space-y-2 text-sm mt-2">
+                                    <li><strong>Har:</strong> De fleste verber.</li>
+                                    <li><strong>Er:</strong> Bevægelse (gå, rejse) eller overgang (begynde, blive).</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-green-700">Fremtid</h4>
+                                <ul class="space-y-2 text-sm mt-2">
+                                    <li><strong>Nutid:</strong> "De tager af sted kl. 8."</li>
+                                    <li><strong>Skal:</strong> Planer/Aftaler. "De skal på museum."</li>
+                                    <li><strong>Vil:</strong> Ønsker/Beslutninger. "De vil i Operaen."</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Datid vs Førnutid -->
+                        <div class="bg-slate-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-slate-800 mb-2">Datid eller Førnutid?</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <strong class="text-slate-700">Datid (Past)</strong>
+                                    <p class="text-slate-500">Fokus på fortiden. Afsluttet. Bestemt tidspunkt.</p>
+                                    <p class="italic mt-1">"Vi spiste frokost kl. 12."</p>
+                                </div>
+                                <div>
+                                    <strong class="text-slate-700">Førnutid (Present Perfect)</strong>
+                                    <p class="text-slate-500">Fokus på nutiden. Start i fortid, virkning nu.</p>
+                                    <p class="italic mt-1">"Vi har lige spist (er mætte)."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modalverber -->
+                        <div>
+                            <h3 class="text-xl font-bold text-green-600 mb-4 border-b border-green-100 pb-2">Modalverber
+                            </h3>
+                            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="bg-white p-3 rounded shadow-sm border text-center">
+                                    <strong class="block text-lg mb-1">Kan</strong>
+                                    <span class="text-xs text-slate-500">Evne, Mulighed</span>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow-sm border text-center">
+                                    <strong class="block text-lg mb-1">Skal</strong>
+                                    <span class="text-xs text-slate-500">Pligt, Planer</span>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow-sm border text-center">
+                                    <strong class="block text-lg mb-1">Vil</strong>
+                                    <span class="text-xs text-slate-500">Vilje, Ønske</span>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow-sm border text-center">
+                                    <strong class="block text-lg mb-1">Må</strong>
+                                    <span class="text-xs text-slate-500">Tilladelse, Forbud</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 5. Adjektiver -->
+                <div id="adjektiver"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-rose p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-paint-brush mr-3"></i>Adjektiver</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="table-container mb-6">
+                            <table class="syntax-table">
+                                <thead>
+                                    <tr>
+                                        <th>Grundform (n-ord)</th>
+                                        <th>T-form (t-ord)</th>
+                                        <th>E-form (Flertal / Bestemt)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>En <strong>ny</strong> bog</td>
+                                        <td>Et <strong>nyt</strong> ur</td>
+                                        <td>To <strong>nye</strong> bøger</td>
+                                    </tr>
+                                    <tr>
+                                        <td>En <strong>stor</strong> stue</td>
+                                        <td>Et <strong>stort</strong> værelse</td>
+                                        <td>Det <strong>store</strong> værelse</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="bg-rose-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-rose-800 mb-2">Uregelmæssigheder i E-form</h4>
+                            <ul class="grid grid-cols-2 gap-2 text-sm">
+                                <li>-el &rarr; -le (gammel &rarr; gamle)</li>
+                                <li>-er &rarr; -re (lækker &rarr; lækre)</li>
+                                <li>-en &rarr; -ne (vissen &rarr; visne)</li>
+                                <li>-et &rarr; -ede (stribet &rarr; stribede)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Substantiver -->
+                <div id="substantiver"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-orange p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-cube mr-3"></i>Substantiver</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="font-bold text-orange-700 mb-2">Ental (Singular)</h3>
+                                <ul class="space-y-2 text-sm">
+                                    <li><strong>Ubestemt:</strong> en bil, et hus</li>
+                                    <li><strong>Bestemt:</strong> bilen, huset</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-orange-700 mb-2">Flertal (Plural)</h3>
+                                <ul class="space-y-2 text-sm">
+                                    <li><strong>Ubestemt:</strong> -(e)r (biler), -e (huse), ingen (år)</li>
+                                    <li><strong>Bestemt:</strong> -(e)rne (bilerne), -(e)ne (husene)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Pronominer -->
+                <div id="pronominer"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-purple p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-user mr-3"></i>Pronominer</h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-6">
+                        <div class="table-container">
+                            <table class="syntax-table">
+                                <thead>
+                                    <tr>
+                                        <th>Person</th>
+                                        <th>Subjekt</th>
+                                        <th>Objekt</th>
+                                        <th>Possessiv</th>
+                                        <th>Refleksiv</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1. ental</td>
+                                        <td>jeg</td>
+                                        <td>mig</td>
+                                        <td>min/mit/mine</td>
+                                        <td>mig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2. ental</td>
+                                        <td>du</td>
+                                        <td>dig</td>
+                                        <td>din/dit/dine</td>
+                                        <td>dig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3. ental</td>
+                                        <td>han/hun</td>
+                                        <td>ham/hende</td>
+                                        <td>hans/hendes/sin</td>
+                                        <td>sig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1. flertal</td>
+                                        <td>vi</td>
+                                        <td>os</td>
+                                        <td>vores</td>
+                                        <td>os</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-purple-800 mb-2">Hans/Hendes vs. Sin/Sit/Sine</h4>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <strong>Hans/Hendes:</strong><br>
+                                    Når objektet <em>ikke</em> tilhører subjektet.<br>
+                                    <span class="italic">"Bo elsker <strong>hans</strong> kone." (En andens kone)</span>
+                                </div>
+                                <div>
+                                    <strong>Sin/Sit/Sine:</strong><br>
+                                    Når objektet <em>tilhører</em> subjektet.<br>
+                                    <span class="italic">"Bo elsker <strong>sin</strong> kone." (Bos egen kone)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Steds/Retnings/Tidsudtryk -->
+                <div id="andre-udtryk"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-teal p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-map-marker-alt mr-3"></i>Sted, Retning & Tid
+                        </h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-6">
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-slate-800">Sted (Hvor?)</h4>
+                                <p class="text-xs text-slate-500 mb-2">Væren (at være)</p>
+                                <ul class="text-sm list-disc pl-5">
+                                    <li>på indkøb, på restaurant</li>
+                                    <li>til fest, til fodbold</li>
+                                    <li>hos lægen</li>
+                                    <li><strong>Adverbier (Lang):</strong> ude, inde, oppe, hjemme</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Retning (Hvor hen?)</h4>
+                                <p class="text-xs text-slate-500 mb-2">Bevægelse (at skulle)</p>
+                                <ul class="text-sm list-disc pl-5">
+                                    <li>på indkøb</li>
+                                    <li>til fest, til England</li>
+                                    <li>hjem, ud, hen</li>
+                                    <li><strong>Adverbier (Kort):</strong> ud, ind, op, hjem</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="border-t pt-4">
+                            <h4 class="font-bold text-slate-800 mb-2">Tidsudtryk</h4>
+                            <div class="grid grid-cols-3 gap-2 text-sm">
+                                <div class="bg-slate-50 p-2 rounded">
+                                    <strong>Fortid:</strong><br>
+                                    i går, i morges, i mandags
+                                </div>
+                                <div class="bg-slate-50 p-2 rounded">
+                                    <strong>Fremtid:</strong><br>
+                                    i morgen, i aften, på mandag
+                                </div>
+                                <div class="bg-slate-50 p-2 rounded">
+                                    <strong>Periode:</strong><br>
+                                    i en uge, om aftenen
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <footer class="mt-16 text-center text-slate-400 text-sm pb-8">
+            <p>&copy; 2024 Dansk Grammatik Guide. Designed with <i class="fas fa-heart text-red-400"></i> & TailwindCSS.
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Generate TOC
+        document.addEventListener('DOMContentLoaded', () => {
+            const tocList = document.getElementById('toc-list');
+            const sections = document.querySelectorAll('main > div[id]');
+
+            sections.forEach(section => {
+                const id = section.id;
+                const titleEl = section.querySelector('h2');
+                if (!titleEl) return;
+
+                const title = titleEl.innerText;
+
+                const li = document.createElement('li');
+                li.className = 'nav-item';
+                li.innerHTML = `<a href="#${id}" class="block py-2 text-slate-600 hover:text-blue-600">${title}</a>`;
+                tocList.appendChild(li);
+            });
+
+            // Smooth Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Highlight Active Link on Scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('.nav-item').forEach(li => {
+                    li.classList.remove('active');
+                    const link = li.querySelector('a');
+                    if (link.getAttribute('href').includes(current)) {
+                        li.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

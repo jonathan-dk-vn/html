@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dansk Skriveguide – Cẩm nang viết tiếng Đan Mạch (B1–B2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Nordic Luxury Color Palette */
+    --bg-main: #F9F8F6;
+    --bg-sidebar: #1A1A1A;
+    --surface: #FFFFFF;
+    --surface-alt: #F3F1ED;
+    --border: #E5E2DC;
+    --border-dark: #333333;
+    
+    --text-sidebar: #E8E6E1;
+    --text-sidebar-muted: #99958F;
+    --text-main: #2B2B2B;
+    --text-muted: #6E6B67;
+    
+    --accent-red: #8B2635; /* Muted Danish Red */
+    --accent-red-light: #F7EAEB;
+    --accent-gold: #B89047;
+    --accent-green: #2E5C4A;
+    --bg-green: #EAF2EF;
+    --accent-blue: #3A6073;
+    --bg-blue: #EBF1F5;
+
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    
+    --radius: 4px; /* Sharp, editorial feel */
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-main: #121212;
+      --bg-sidebar: #0A0A0A;
+      --surface: #1A1A1A;
+      --surface-alt: #242424;
+      --border: #2C2C2C;
+      --text-main: #E0E0E0;
+      --text-muted: #999999;
+      --accent-red: #A83244;
+      --accent-red-light: #2A1115;
+      --bg-green: #15241D;
+      --accent-green: #68A88A;
+      --bg-blue: #162229;
+      --accent-blue: #7CA8BF;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.7;
+    font-weight: 300;
+    overflow: hidden; /* App layout handles scrolling */
+  }
+
+  /* LAYOUT: APP CONTAINER */
+  .app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  /* LAYOUT: SIDEBAR */
+  .sidebar {
+    width: 280px;
+    min-width: 280px;
+    background: var(--bg-sidebar);
+    color: var(--text-sidebar);
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-dark);
+    z-index: 10;
+  }
+
+  .sidebar-header {
+    padding: 40px 32px 32px;
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .brand-title {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #FFF;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+  
+  .brand-title span {
+    color: var(--accent-red);
+    font-style: italic;
+  }
+
+  .brand-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-sidebar-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+  }
+
+  .nav-menu {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-sidebar-muted);
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-btn:hover {
+    color: #FFF;
+    background: rgba(255,255,255,0.05);
+    padding-left: 20px;
+  }
+
+  .nav-btn.active {
+    color: #FFF;
+    background: rgba(139, 38, 53, 0.15); /* Accent tint */
+    border-left: 3px solid var(--accent-red);
+    font-weight: 500;
+  }
+
+  /* LAYOUT: MAIN CONTENT */
+  .main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 60px;
+    scroll-behavior: smooth;
+  }
+
+  .tab-panel {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+  }
+  .tab-panel.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* EDITORIAL HEADINGS */
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+    max-width: 600px;
+  }
+
+  .section-title {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-red);
+    margin-bottom: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ULTRAWIDE GRIDS */
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  /* Grid scaling for Ultrawide & standard desktop */
+  @media (min-width: 1200px) {
+    .editorial-grid { grid-template-columns: 1fr 1fr; gap: 60px; }
+  }
+  @media (min-width: 1800px) {
+    .editorial-grid { grid-template-columns: 450px 1fr; gap: 80px; }
+  }
+  @media (min-width: 2400px) {
+    /* 3440x1440 Ultrawide Magic */
+    .editorial-grid { grid-template-columns: 450px 450px 1fr; gap: 80px; }
+  }
+
+  /* Cards Grid */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 24px;
+  }
+  @media (min-width: 2400px) {
+    .cards-grid { grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); gap: 40px; }
+  }
+
+  /* UI COMPONENTS */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 32px;
+    border-radius: var(--radius);
+  }
+
+  /* Steps List */
+  .steps {
+    list-style: none;
+    counter-reset: editorial-step;
+  }
+  .steps li {
+    position: relative;
+    padding-left: 48px;
+    margin-bottom: 24px;
+  }
+  .steps li::before {
+    counter-increment: editorial-step;
+    content: "0" counter(editorial-step);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--accent-red);
+    font-weight: 600;
+  }
+  .steps strong {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--text-main);
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .steps em {
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* Phrases Grid */
+  .phrase-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .phrase-item {
+    padding: 16px;
+    background: var(--surface-alt);
+    border-left: 2px solid var(--accent-gold);
+  }
+  .phrase-item .dk {
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 4px;
+  }
+  .phrase-item .vn {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  /* Tables */
+  .table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 24px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  th {
+    text-align: left;
+    padding: 16px;
+    border-bottom: 2px solid var(--border);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .td-dk {
+    font-weight: 500;
+    color: var(--accent-red);
+  }
+
+  /* Letter Paper (The display) */
+  .letter-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 48px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.02);
+    position: relative;
+  }
+  .letter-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 4px;
+    background: var(--accent-red);
+  }
+  .letter-text {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-main);
+    white-space: pre-wrap;
+  }
+  .letter-text b, .letter-text strong {
+    font-weight: 600;
+    color: var(--accent-red);
+  }
+
+  /* Tag Selectors */
+  .selector-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .selector-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 40px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .selector-btn:hover {
+    border-color: var(--text-muted);
+    color: var(--text-main);
+  }
+  .selector-btn.active {
+    background: var(--text-main);
+    color: var(--bg-main);
+    border-color: var(--text-main);
+  }
+
+  /* Info / Tip Box */
+  .tip-box {
+    background: var(--accent-red-light);
+    border: 1px solid rgba(139, 38, 53, 0.1);
+    padding: 20px 24px;
+    font-size: 0.9rem;
+    margin-top: 24px;
+    color: var(--accent-red);
+  }
+  .tip-box ul { margin-top: 8px; padding-left: 20px; }
+  .tip-box li { margin-bottom: 6px; }
+  
+  .tip-box.green { background: var(--bg-green); color: var(--accent-green); border-color: rgba(46, 92, 74, 0.1); }
+  .tip-box.blue { background: var(--bg-blue); color: var(--accent-blue); border-color: rgba(58, 96, 115, 0.1); }
+
+  /* Formula Grid */
+  .formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .formula-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px;
+    position: relative;
+  }
+  .formula-num {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--border);
+    position: absolute;
+    top: 10px; right: 20px;
+    font-style: italic;
+    line-height: 1;
+  }
+  .formula-dk { font-weight: 600; color: var(--accent-red); margin-bottom: 4px; }
+  .formula-vn { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
+  .formula-ex { font-family: var(--font-serif); font-style: italic; font-size: 0.95rem; color: var(--text-main); }
+
+  /* Opgave (Tasks) */
+  .task-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--text-main);
+    padding: 32px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .task-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .task-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .task-list {
+    padding-left: 20px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+  }
+  .task-list li { margin-bottom: 8px; }
+
+  /* Checklist Progress */
+  .progress-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 32px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .progress-val {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: var(--accent-red);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .progress-track {
+    height: 4px;
+    background: var(--border);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .progress-fill {
+    position: absolute;
+    top: 0; left: 0; height: 100%;
+    background: var(--accent-red);
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .check-item:hover { border-color: var(--text-muted); }
+  .check-item.checked { background: var(--surface-alt); }
+  .check-item input {
+    margin-top: 4px;
+    width: 18px; height: 18px;
+    accent-color: var(--text-main);
+    cursor: pointer;
+  }
+  .check-item label {
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    flex: 1;
+  }
+  .check-item label span { color: var(--accent-red); font-weight: 500; }
+
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .app-container { flex-direction: column; }
+    .sidebar { width: 100%; min-width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border-dark); }
+    .nav-menu { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; padding: 16px; scrollbar-width: none; }
+    .nav-btn { white-space: nowrap; }
+    .main-content { padding: 32px 20px; }
+    .editorial-grid { grid-template-columns: 1fr; }
+    .letter-container { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app-container">
+  
+  <!-- SIDEBAR NAVIGATION -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="brand-title">Dansk<br><span>Skriveguide</span></div>
+      <div class="brand-subtitle">Cẩm nang viết tiếng Đan Mạch (B1–B2)</div>
+    </div>
+    <nav class="nav-menu">
+      <button class="nav-btn active" onclick="showTab('klage', this)">📮 Klage (Phàn nàn)</button>
+      <button class="nav-btn" onclick="showTab('anbefaling', this)">⭐ Anbefaling (Giới thiệu)</button>
+      <button class="nav-btn" onclick="showTab('ansoegning', this)">📄 Ansøgning (Xin việc)</button>
+      <button class="nav-btn" onclick="showTab('email', this)">✉️ E-mail svar (Email bạn bè)</button>
+      <button class="nav-btn" onclick="showTab('vocab', this)">📚 Từ vựng & Ngữ pháp</button>
+      <button class="nav-btn" onclick="showTab('opgaver', this)">🏋️ Opgaver (Bài tập)</button>
+      <button class="nav-btn" onclick="showTab('checklist', this)">✅ Tjekliste (Kiểm tra)</button>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT AREA -->
+  <main class="main-content">
+
+    <!-- ===== TAB: KLAGE ===== -->
+    <div id="tab-klage" class="tab-panel active">
+      <h1 class="page-title">En Klage</h1>
+      <p class="page-subtitle">Hướng dẫn viết thư phàn nàn chính thức. Phù hợp cho Prøve i Dansk 3, yêu cầu ngôn ngữ trang trọng, lập luận rõ ràng và lịch sự.</p>
+
+      <div class="editorial-grid">
+        <!-- Cột Lý Thuyết -->
+        <div class="theory-col">
+          <div class="section-title">01 / Cấu trúc chuẩn</div>
+          <div class="card" style="margin-bottom: 32px;">
+            <ol class="steps">
+              <li><strong>Người nhận (Modtager)</strong><br><em>"Til [tên]"</em> — KHÔNG dùng "Kære" hay "Hej" nếu đây là klage cực kỳ chính thức (Dùng "Kære" nếu phàn nàn dịch vụ thông thường).</li>
+              <li><strong>Tiêu đề (Overskrift)</strong><br><em>"Vedrørende / Vedr."</em> hoặc <em>"Angående / Ang."</em> + thông tin cụ thể (số đơn, ngày mua).</li>
+              <li><strong>Nội dung chính (Klage)</strong><br>Giải thích rõ vấn đề. Sử dụng liệt kê: <em>For det første... For det andet... Ydermere...</em></li>
+              <li><strong>Yêu cầu (Krav)</strong><br>Nêu rõ mong muốn bồi thường. <em>"Jeg forventer..."</em> hoặc <em>"Jeg anmoder om..."</em> + <em>"bør"</em></li>
+              <li><strong>Kết thúc (Afslutning)</strong><br><em>"Med venlig hilsen"</em> + Tên đầy đủ.</li>
+            </ol>
+          </div>
+
+          <div class="section-title">02 / Từ nối bắt buộc</div>
+          <div class="phrase-list">
+            <div class="phrase-item"><div class="dk">For det første... / For det andet...</div><div class="vn">Thứ nhất... / Thứ hai... (Liệt kê vấn đề)</div></div>
+            <div class="phrase-item"><div class="dk">Ydermere... / Endelig...</div><div class="vn">Hơn nữa... / Cuối cùng...</div></div>
+            <div class="phrase-item"><div class="dk">Imidlertid + [Động từ] + [Chủ ngữ]</div><div class="vn">Tuy nhiên... (Đảo ngữ bắt buộc: Imidlertid svarede han...)</div></div>
+            <div class="phrase-item"><div class="dk">Derimod...</div><div class="vn">Ngược lại... (So sánh với kỳ vọng của bạn)</div></div>
+            <div class="phrase-item"><div class="dk">Alt i alt... derfor...</div><div class="vn">Tóm lại... vì vậy... (Dùng ở đoạn kết luận/yêu cầu)</div></div>
+          </div>
+        </div>
+
+        <!-- Cột Thực Hành (Bài Mẫu) -->
+        <div class="practice-col" style="grid-column: span min(2, 2);"> <!-- Spans multiple cols on ultrawide -->
+          <div class="section-title">03 / Bài mẫu thực tế</div>
+          <div class="selector-group" id="klage-selector">
+            <button class="selector-btn active" onclick="showKlage(0, this)">🍕 Nhà hàng</button>
+            <button class="selector-btn" onclick="showKlage(1, this)">👗 Mua online</button>
+            <button class="selector-btn" onclick="showKlage(2, this)">🏠 Nhà ở</button>
+            <button class="selector-btn" onclick="showKlage(3, this)">🚂 Tàu hỏa</button>
+            <button class="selector-btn" onclick="showKlage(4, this)">🏋️ Fitness</button>
+            <button class="selector-btn" onclick="showKlage(5, this)">📱 Điện thoại</button>
+            <button class="selector-btn" onclick="showKlage(6, this)">🚗 Thuê xe</button>
+            <button class="selector-btn" onclick="showKlage(7, this)">📦 Bưu kiện</button>
+            <button class="selector-btn" onclick="showKlage(8, this)">🏫 Trường học</button>
+            <button class="selector-btn" onclick="showKlage(9, this)">🦷 Nha khoa</button>
+          </div>
+          <div id="klage-display"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TAB: ANBEFALING ===== -->
+    <div id="tab-anbefaling" class="tab-panel">
+      <h1 class="page-title">En Anbefaling</h1>
+      <p class="page-subtitle">Thư giới thiệu/khuyến nghị một người, dịch vụ hoặc địa điểm. Cần thể hiện thái độ tích cực, dẫn chứng cụ thể và ý nghĩa cá nhân.</p>
+
+      <div class="editorial-grid">
+        <div class="theory-col">
+          <div class="section-title">01 / Cấu trúc chuẩn</div>
+          <div class="card" style="margin-bottom: 32px;">
+            <ol class="steps">
+              <li><strong>Giới thiệu (Introduktion)</strong><br><em>Jeg vil gerne anbefale [tên/nơi]...</em> Giới thiệu rõ đối tượng.</li>
+              <li><strong>Khen ngợi cụ thể (Positive eksempler)</strong><br><em>"Det, der imponerer mig mest, er..."</em> Đưa ra ít nhất 2 lý do cụ thể.</li>
+              <li><strong>Ý nghĩa cá nhân (Personlig erfaring)</strong><br><em>"For mig som udlænding er det enormt vigtigt at..."</em> Giải thích tại sao điều này lại quan trọng với bạn.</li>
+              <li><strong>Khuyến nghị (Opfordring)</strong><br><em>Jeg vil varmt anbefale... til alle...</em> Kêu gọi người khác trải nghiệm.</li>
+            </ol>
+          </div>
+
+          <div class="section-title">02 / Mẫu câu hữu ích</div>
+          <div class="table-wrapper card" style="padding: 0;">
+            <table>
+              <tr><th>Mục đích</th><th>Tiếng Đan Mạch</th></tr>
+              <tr><td>Giới thiệu</td><td class="td-dk">Jeg vil gerne anbefale [X] af hele mit hjerte.</td></tr>
+              <tr><td>Khen ấn tượng nhất</td><td class="td-dk">Det, der imponerer mig mest, er [hans/hendes] evne til at...</td></tr>
+              <tr><td>Ý nghĩa cá nhân</td><td class="td-dk">Takket være [X] har jeg fået [bedre helbred / selvtillid].</td></tr>
+              <tr><td>Kết luận</td><td class="td-dk">Jeg vil varmt anbefale [X] til alle... Du vil ikke fortryde det!</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="practice-col" style="grid-column: span min(2, 2);">
+          <div class="section-title">03 / Bài mẫu</div>
+          <div class="selector-group" id="anbefaling-selector">
+            <button class="selector-btn active" onclick="showAnbefaling(0, this)">🩺 Bác sĩ</button>
+            <button class="selector-btn" onclick="showAnbefaling(1, this)">🏫 Trường ngôn ngữ</button>
+            <button class="selector-btn" onclick="showAnbefaling(2, this)">🔧 Thợ VVS</button>
+            <button class="selector-btn" onclick="showAnbefaling(3, this)">🏛️ Nhà văn hóa</button>
+          </div>
+          <div id="anbefaling-display"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TAB: ANSØGNING ===== -->
+    <div id="tab-ansoegning" class="tab-panel">
+      <h1 class="page-title">En Ansøgning</h1>
+      <p class="page-subtitle">Thư xin việc hoặc ứng tuyển tình nguyện. Cần nêu rõ nguồn thông tin, động lực, kỹ năng phù hợp và thời gian có thể làm việc.</p>
+
+      <div class="editorial-grid">
+        <div class="theory-col">
+          <div class="section-title">01 / Cấu trúc chuẩn</div>
+          <div class="card" style="margin-bottom: 32px;">
+            <ol class="steps">
+              <li><strong>Nguồn tin (Indledning)</strong><br><em>Jeg skriver i forbindelse med jeres opslag om [stilling], som jeg så på [nơi].</em></li>
+              <li><strong>Giới thiệu bản thân (Præsentation)</strong><br>Tên, quốc gia, thời gian ở Đan Mạch, trình độ tiếng, kinh nghiệm.</li>
+              <li><strong>Động lực & Năng lực (Motivation)</strong><br><em>Grunden til, at jeg ønsker at arbejde hos jer, er, at...</em> Nêu rõ kỹ năng mềm (flittig, udadvendt...).</li>
+              <li><strong>Thông tin thực tế (Afslutning)</strong><br>Giờ giấc có thể làm việc. <em>Jeg ser frem til at høre fra jer.</em></li>
+            </ol>
+          </div>
+
+          <div class="section-title">02 / Mẫu câu mô tả bản thân</div>
+          <div class="phrase-list">
+            <div class="phrase-item"><div class="dk">Som person er jeg åben, arbejdsom og ansvarlig.</div><div class="vn">Cá nhân tôi cởi mở, chăm chỉ và có trách nhiệm.</div></div>
+            <div class="phrase-item"><div class="dk">Jeg er vant til at arbejde selvstændigt og i team.</div><div class="vn">Tôi quen làm việc độc lập và theo nhóm.</div></div>
+            <div class="phrase-item"><div class="dk">Jeg trives med at have travlt og elsker udfordringer.</div><div class="vn">Tôi thích bận rộn và yêu thích thử thách.</div></div>
+          </div>
+        </div>
+
+        <div class="practice-col" style="grid-column: span min(2, 2);">
+          <div class="section-title">03 / Bài mẫu</div>
+          <div class="selector-group" id="ansoegning-selector">
+            <button class="selector-btn active" onclick="showAnsoegning(0, this)">❤️ Tình nguyện Røde Kors</button>
+            <button class="selector-btn" onclick="showAnsoegning(1, this)">☕ Tjener (Café Rejen)</button>
+            <button class="selector-btn" onclick="showAnsoegning(2, this)">🍜 Tjener (Fuldtid)</button>
+          </div>
+          <div id="ansoegning-display"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TAB: EMAIL ===== -->
+    <div id="tab-email" class="tab-panel">
+      <h1 class="page-title">E-mail Svar</h1>
+      <p class="page-subtitle">Trả lời e-mail của bạn bè (Opgave 2). Ngôn ngữ thân mật (uformelt), yêu cầu phải phản hồi ĐẦY ĐỦ các ý trong thư gốc.</p>
+
+      <div class="editorial-grid">
+        <div class="theory-col">
+          <div class="section-title">01 / Công thức 6 bước</div>
+          <div class="formula-grid" style="margin-bottom: 32px;">
+            <div class="formula-card">
+              <div class="formula-num">1</div>
+              <div class="formula-dk">Lời chào mở đầu</div>
+              <div class="formula-vn">Bắt buộc: Kære [tên],</div>
+              <div class="formula-ex">Kære Sara,</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-num">2</div>
+              <div class="formula-dk">Cảm ơn email</div>
+              <div class="formula-vn">Cho thấy bạn đang trả lời</div>
+              <div class="formula-ex">Tusind tak for din mail!</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-num">3</div>
+              <div class="formula-dk">Phản hồi ý 1</div>
+              <div class="formula-vn">Trích dẫn + cảm xúc</div>
+              <div class="formula-ex">Du skriver, at... det lyder fantastisk!</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-num">4</div>
+              <div class="formula-dk">Phản hồi ý 2</div>
+              <div class="formula-vn">Chuyển chủ đề tinh tế</div>
+              <div class="formula-ex">Med hensyn til... så synes jeg...</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-num">5</div>
+              <div class="formula-dk">Kết thúc thân mật</div>
+              <div class="formula-vn">Câu chốt ấm áp</div>
+              <div class="formula-ex">Jeg glæder mig til vi ses!</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-num">6</div>
+              <div class="formula-dk">Chữ ký</div>
+              <div class="formula-vn">KHÔNG formal</div>
+              <div class="formula-ex">Kærlig hilsen / Mange hilsner</div>
+            </div>
+          </div>
+          
+          <div class="section-title">02 / Mẫu câu chuyển chủ đề</div>
+          <div class="phrase-list">
+            <div class="phrase-item"><div class="dk">Du skriver/fortæller, at...</div><div class="vn">Bạn viết/kể rằng...</div></div>
+            <div class="phrase-item"><div class="dk">Du spørger, om...</div><div class="vn">Bạn hỏi liệu...</div></div>
+            <div class="phrase-item"><div class="dk">Med hensyn til... / Angående...</div><div class="vn">Về việc... / Liên quan đến...</div></div>
+          </div>
+        </div>
+
+        <div class="practice-col" style="grid-column: span min(2, 2);">
+          <div class="section-title">03 / Email mẫu</div>
+          <div class="selector-group" id="email-selector">
+            <button class="selector-btn active" onclick="showEmail(0, this)">🎉 Buổi tiệc</button>
+            <button class="selector-btn" onclick="showEmail(1, this)">🇪🇸 Tiếng Tây Ban Nha</button>
+            <button class="selector-btn" onclick="showEmail(2, this)">🤝 Tình nguyện</button>
+          </div>
+          <div id="email-display"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TAB: VOCAB ===== -->
+    <div id="tab-vocab" class="tab-panel">
+      <h1 class="page-title">Ordforråd & Grammatik</h1>
+      <p class="page-subtitle">Từ vựng theo chủ đề và các cấu trúc ngữ pháp nâng cao giúp ăn điểm trong bài thi viết.</p>
+
+      <div class="cards-grid">
+        <div class="card table-wrapper" style="padding:0;">
+          <table>
+            <tr><th colspan="2" style="font-size: 1rem; color: var(--text-main); background: var(--surface-alt);">⚠️ Vấn đề thường gặp (Klage)</th></tr>
+            <tr><td class="td-dk">maden var kold</td><td>thức ăn lạnh</td></tr>
+            <tr><td class="td-dk">varen var defekt</td><td>hàng bị hỏng/lỗi</td></tr>
+            <tr><td class="td-dk">toget var forsinket</td><td>tàu bị trễ</td></tr>
+            <tr><td class="td-dk">manglende varmt vand</td><td>mất nước nóng</td></tr>
+            <tr><td class="td-dk">dårlig service</td><td>dịch vụ kém</td></tr>
+            <tr><td class="td-dk">pakken er forsvundet</td><td>mất gói hàng</td></tr>
+          </table>
+        </div>
+
+        <div class="card table-wrapper" style="padding:0;">
+          <table>
+            <tr><th colspan="2" style="font-size: 1rem; color: var(--text-main); background: var(--surface-alt);">💰 Yêu cầu bồi thường (Krav)</th></tr>
+            <tr><td class="td-dk">en (fuld) refusion</td><td>hoàn tiền (toàn bộ)</td></tr>
+            <tr><td class="td-dk">en delvis tilbagebetaling</td><td>hoàn tiền một phần</td></tr>
+            <tr><td class="td-dk">et gavekort</td><td>thẻ quà tặng</td></tr>
+            <tr><td class="td-dk">en erstatningsvare</td><td>hàng thay thế</td></tr>
+            <tr><td class="td-dk">en passende kompensation</td><td>bồi thường phù hợp</td></tr>
+          </table>
+        </div>
+
+        <div class="card table-wrapper" style="padding:0;">
+          <table>
+            <tr><th colspan="2" style="font-size: 1rem; color: var(--text-main); background: var(--surface-alt);">⏱️ Trạng từ thời gian (Quan trọng)</th></tr>
+            <tr><td class="td-dk">allerede</td><td>ngay từ đầu / đã</td></tr>
+            <tr><td class="td-dk">straks</td><td>ngay lập tức</td></tr>
+            <tr><td class="td-dk">for [X] dage siden</td><td>[X] ngày trước</td></tr>
+            <tr><td class="td-dk">siden [dato]</td><td>kể từ [ngày]</td></tr>
+            <tr><td class="td-dk">efterhånden</td><td>dần dần</td></tr>
+          </table>
+        </div>
+
+        <div class="card table-wrapper" style="padding:0; grid-column: 1 / -1;">
+          <table>
+            <tr><th colspan="3" style="font-size: 1rem; color: var(--text-main); background: var(--surface-alt);">🔗 Ngữ pháp nâng cao (B2 Level)</th></tr>
+            <tr><th style="width: 25%;">Cấu trúc</th><th style="width: 45%;">Ví dụ</th><th>Ghi chú</th></tr>
+            <tr><td class="td-dk">S-passiv</td><td>Problemet løse<strong>s</strong> hurtigst muligt.</td><td>Bị động trang trọng (đuôi -s).</td></tr>
+            <tr><td class="td-dk">Perfektum</td><td>Jeg <strong>har kontaktet</strong> viceværten 3 gange.</td><td>Hành động lặp lại kéo dài đến hiện tại.</td></tr>
+            <tr><td class="td-dk">Inversion (Đảo ngữ)</td><td>Imidlertid <strong>svarede han</strong>, at...</td><td>Đảo V-S khi trạng từ đứng đầu câu.</td></tr>
+            <tr><td class="td-dk">Dobbelt sætning</td><td>Grunden til, at jeg ønsker..., er, at...</td><td>Câu đôi thể hiện lý do phức hợp.</td></tr>
+            <tr><td class="td-dk">Relativsætning</td><td>en jakke, <strong>som</strong> jeg har købt...</td><td>Sử dụng đại từ quan hệ nối câu.</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TAB: OPGAVER ===== -->
+    <div id="tab-opgaver" class="tab-panel">
+      <h1 class="page-title">Træningsopgaver</h1>
+      <p class="page-subtitle">Chọn một đề bài, tự viết ra giấy hoặc trình soạn thảo, sau đó đối chiếu với bài mẫu ở các mục tương ứng.</p>
+
+      <div class="section-title" style="margin-top: 40px;">📮 Đề bài: Klage</div>
+      <div class="cards-grid">
+        <div class="task-card">
+          <div class="task-title">K1 – Restaurant "Bella Italia"</div>
+          <div class="task-desc">Du spiste på restauranten og var utilfreds. Fortæl:</div>
+          <ul class="task-list">
+            <li>Hvornår du var der & hvad du spiste.</li>
+            <li>Hvad du er utilfreds med.</li>
+            <li>Hvordan de kan gøre dig tilfreds igen.</li>
+          </ul>
+        </div>
+        <div class="task-card">
+          <div class="task-title">K2 – Trendsales (Køb online)</div>
+          <div class="task-desc">Købt tøj online, varerne var ikke som beskrevet. Fortæl:</div>
+          <ul class="task-list">
+            <li>Hvornår købet skete & hvad du købte.</li>
+            <li>Hvad der var galt med varerne.</li>
+            <li>Sælgers svar & hvad Trendsales skal gøre nu.</li>
+          </ul>
+        </div>
+        <div class="task-card">
+          <div class="task-title">K3 – Boligselskab (Varmt vand)</div>
+          <div class="task-desc">Intet varmt vand i over 14 dage. Fortæl:</div>
+          <ul class="task-list">
+            <li>Hvor du bor & hvornår det opstod.</li>
+            <li>Hvordan det påvirker din hverdag.</li>
+            <li>Kontakt til vicevært & krav til løsning.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-top: 60px;">⭐ Đề bài: Anbefaling & Ansøgning</div>
+      <div class="cards-grid">
+        <div class="task-card">
+          <div class="task-title">A1 – Læge / Klinik</div>
+          <div class="task-desc">Skriv en anbefaling af din læge. Fortæl:</div>
+          <ul class="task-list">
+            <li>Navn og placering.</li>
+            <li>Hvorfor hun er god (2-3 grunde).</li>
+            <li>Personlig betydning & opfordring.</li>
+          </ul>
+        </div>
+        <div class="task-card">
+          <div class="task-title">An1 – Frivillig i Røde Kors</div>
+          <div class="task-desc">Ansøg om at blive frivillig. Fortæl:</div>
+          <ul class="task-list">
+            <li>Hvor du så opslaget & hvem du er.</li>
+            <li>Hvorfor du vil arbejde for dem.</li>
+            <li>Hvornår du kan hjælpe.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-top: 60px;">✉️ Đề bài: E-mail Svar</div>
+      <div class="cards-grid">
+        <div class="task-card">
+          <div class="task-title">E1 – Festinvitation fra Sara</div>
+          <div class="task-desc">Svar på invitation til fest. Du skal:</div>
+          <ul class="task-list">
+            <li>Takke for invitationen.</li>
+            <li>Fortælle om du kan komme.</li>
+            <li>Svare på hvad du vil spise.</li>
+            <li>Afslutte venligt.</li>
+          </ul>
+        </div>
+        <div class="task-card">
+          <div class="task-title">E2 – Thomas vil lære spansk</div>
+          <div class="task-desc">Giv råd til din ven. Du skal:</div>
+          <ul class="task-list">
+            <li>Reagere på nyheden.</li>
+            <li>Give tanker om at lære et nyt sprog.</li>
+            <li>Anbefale noget konkret.</li>
+            <li>Afslutte med et spørgsmål.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TAB: CHECKLIST ===== -->
+    <div id="tab-checklist" class="tab-panel">
+      <h1 class="page-title">Tjekliste</h1>
+      <p class="page-subtitle">Kiểm tra lại bài viết của bạn trước khi nộp bài. Đảm bảo đáp ứng đầy đủ các tiêu chí chấm điểm của kỳ thi PD3.</p>
+
+      <div class="progress-container">
+        <div class="progress-val" id="progress-percent-all">0%</div>
+        <div style="font-size:0.9rem; color:var(--text-muted); margin-bottom:24px; text-transform:uppercase; letter-spacing:0.1em;">Tổng tiến độ hoàn thành</div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-bar-all" style="width:0%"></div>
+        </div>
+      </div>
+
+      <div class="editorial-grid">
+        <div class="card">
+          <div class="section-title">📮 Klage (Thư phàn nàn)</div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Ít nhất 150 từ (lý tưởng: 150–200)</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Tiêu đề: <span>Vedr.: [chủ đề cụ thể]</span></label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Lời mở đầu chính thức (Til / Kære)</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Dùng từ nối: <span>For det første / For det andet / Ydermere...</span></label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Đảo ngữ: <span>Imidlertid + Động từ</span></label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Có 3 biểu thức thời gian: <span>allerede, straks...</span></label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Yêu cầu rõ: <span>Jeg forventer / anmoder om... + bør</span></label></div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">⭐ Anbefaling (Thư giới thiệu)</div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Giới thiệu rõ tên & địa điểm</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Khen ngợi: <span>Det, der imponerer mig mest...</span></label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Liên hệ bản thân: <span>For mig som udlænding...</span></label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Kêu gọi: <span>Jeg vil varmt anbefale... til alle</span></label></div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">📄 Ansøgning (Thư xin việc)</div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Nêu rõ nơi thấy tin tuyển dụng</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Giới thiệu lý lịch & tiếng Đan Mạch</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Nêu động lực: <span>Grunden til, at jeg ønsker...</span></label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Mô tả kỹ năng mềm rõ ràng</label></div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">✉️ E-mail svar (Bạn bè)</div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Độ dài ít nhất 90 từ</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Cảm ơn: <span>Tusind tak for din mail</span></label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Trả lời TẤT CẢ câu hỏi trong thư gốc</label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Chuyển chủ đề: <span>Med hensyn til... / Angående...</span></label></div>
+          <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><label>Ký tên thân mật: <span>Kærlig hilsen</span></label></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// ===== TAB NAVIGATION =====
+function showTab(name, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+  // Reset scroll position
+  document.querySelector('.main-content').scrollTop = 0;
+}
+
+// ===== DATA ARRAYS =====
+const klageData = [
+  {
+    title: "🍕 Klage til restaurant Bella Italia",
+    situation: "Phàn nàn về chất lượng đồ ăn và thái độ phục vụ tại nhà hàng.",
+    letter: `Esbjerg, den 16. april 2026
+
+Van Thanh
+Stormgade 12, 2. th., 6700 Esbjerg
+
+Restaurant Bella Italia
+Att.: Restaurantchef
+Torvegade 5, 6700 Esbjerg
+
+<b>Vedr.: Klage over utilfredsstillende oplevelse</b>
+
+Kære restaurantchef,
+
+Jeg skriver for at klage over mit besøg på jeres restaurant den 10. april 2026. <b>For en uge siden</b> besøgte jeg restauranten sammen med en ven. <b>Allerede</b> ved ankomsten oplevede jeg dog længere ventetid end forventet.
+
+<b>For det første</b> var maden ikke af den kvalitet, jeg havde forventet, da pizzaen var kold ved servering. <b>For det andet</b> virkede desserten ikke frisk. <b>Ydermere</b> oplevede jeg, at personalet ikke reagerede, da jeg gjorde opmærksom på problemet.
+
+Jeg kontaktede <b>straks</b> en medarbejder. <b>Imidlertid</b> fik jeg kun et kort svar uden løsning. <b>Derimod</b> blev jeg tilbudt at betale fuld pris, hvilket jeg fandt urimeligt.
+
+<b>Endelig</b> vil jeg understrege, at dette har været til stor gene. <b>Alt i alt</b> har oplevelsen været utilfredsstillende, og jeg <b>forventer</b> derfor, at I <b>bør</b> tilbyde en passende kompensation.
+
+Med venlig hilsen
+Van Thanh`,
+    tips: ["<b>Datid:</b> besøgte, bestilte, oplevede, kontaktede", "<b>Tidsudtryk:</b> for en uge siden, allerede, straks", "<b>Modalverb:</b> forventer, bør"]
+  },
+  {
+    title: "👗 Klage til Trendsales",
+    situation: "Mua quần áo cũ online nhưng hàng hỏng, người bán từ chối nhận lại.",
+    letter: `Esbjerg, den 16. april 2026
+
+Trendsales Kundeservice
+Østergade 20, 2100 København Ø
+
+<b>Vedr.: Klage over defekte varer købt via Trendsales</b>
+
+Kære kundeservice,
+
+Jeg skriver for at klage over et køb, jeg foretog den 5. april 2026. <b>For 11 dage siden</b> købte jeg en jakke og sko fra en privat sælger. <b>Allerede</b> ved modtagelsen opdagede jeg dog flere problemer.
+
+<b>For det første</b> var jakken i dårligere stand end beskrevet, med tydelige pletter. <b>For det andet</b> var skoene beskadigede. <b>Ydermere</b> stemte størrelsen ikke overens med annoncen.
+
+Jeg kontaktede <b>straks</b> sælgeren. <b>Imidlertid</b> svarede hun, at hun ikke ønskede at tage dem retur. <b>Derimod</b> foreslog hun, at jeg selv reparerede skoene, hvilket er utilfredsstillende.
+
+<b>Endelig</b> vil jeg understrege min utilfredshed. <b>Alt i alt</b> <b>anmoder</b> jeg om, at Trendsales <b>bør</b> hjælpe med en løsning, herunder fuld refundering.
+
+Med venlig hilsen
+Van Thanh`,
+    tips: ["Cấu trúc 4 đoạn rõ ràng, lập luận sắc bén.", "Đảo ngữ: Imidlertid svarede hun...", "Động từ quá khứ thống nhất cho lời kể."]
+  },
+  {
+    title: "🏠 Klage til boligselskab",
+    situation: "Căn hộ mất nước nóng hơn 14 ngày, báo ban quản lý không giải quyết.",
+    letter: `Esbjerg, den 16. april 2026
+
+Boligselskabet Vestbo
+Nørregade 45, 6700 Esbjerg
+
+<b>Vedr.: Klage over manglende varmt vand i lejligheden</b>
+
+Kære beboerservice,
+
+Jeg skriver for at klage over manglen på varmt vand i min lejlighed, hvor jeg har boet <b>siden januar 2026</b>. Problemet opstod den 8. april, og <b>allerede</b> samme dag forsvandt det varme vand helt.
+
+<b>For det første</b> har det haft store konsekvenser for min dagligdag, da jeg ikke kan tage bad. <b>For det andet</b> er det vanskeligt at vaske op hygiejnisk. <b>Ydermere</b> er det særligt belastende, da jeg arbejder fysisk.
+
+Jeg ringede til viceværten <b>straks</b> efter fejlen opstod. <b>Imidlertid</b> lovede han en hurtig løsning, uden at det skete. <b>Derimod</b> fik jeg ved anden henvendelse at vide, at der ingen tidsplan var.
+
+<b>Alt i alt</b> er forholdene uacceptable, og jeg <b>anmoder</b> derfor om, at problemet skal være løst senest den 20. april.
+
+Med venlig hilsen
+Van Thanh`,
+    tips: ["<b>Perfektum:</b> har boet, har haft (kéo dài đến hiện tại).", "Tạo áp lực thời gian cụ thể ở cuối thư."]
+  },
+  {
+    title: "🚂 Klage til DSB",
+    situation: "Tàu trễ 80 phút, lỡ buổi phỏng vấn việc làm quan trọng.",
+    letter: `Esbjerg, den 16. april 2026
+
+DSB Kundeservice
+Telegade 2, 2630 Taastrup
+
+<b>Vedr.: Klage over togforsinkelse</b>
+
+Kære kundeservice,
+
+Jeg skriver for at klage over en forsinkelse den 12. april 2026. <b>For fire dage siden</b> ankom jeg til perronen i god tid for at rejse til Odense.
+
+<b>For det første</b> blev toget forsinket uden tydelig forklaring. <b>For det andet</b> modtog jeg først information efter lang tids ventetid. <b>Ydermere</b> var informationen over højttaleren meget uklar.
+
+<b>Efterhånden</b> blev forsinkelsen længere. <b>Imidlertid</b> kunne personalet ikke give præcise oplysninger. <b>Derimod</b> fik jeg <b>senere</b> at vide, at toget var 80 minutter forsinket.
+
+<b>Endelig</b> har dette haft betydelige konsekvenser, da jeg missede et vigtigt møde. <b>Alt i alt</b> <b>forventer</b> jeg, at DSB <b>bør</b> yde en kompensation, f.eks. refusion af billetten.
+
+Med venlig hilsen
+Van Thanh`,
+    tips: ["<b>Efterhånden</b> dùng để diễn tả sự việc tăng dần theo thời gian.", "Lý do phàn nàn rõ ràng: missede et vigtigt møde."]
+  },
+  {
+    title: "🏋️ Klage til fitnesscenter",
+    situation: "Phòng tập dơ bẩn, máy móc hỏng hóc kéo dài nhiều tuần.",
+    letter: `Esbjerg, den 16. april 2026
+
+PulseFit – Att.: Ledelsen
+Fitnessvej 8, 6700 Esbjerg
+
+<b>Vedr.: Klage over utilfredsstillende forhold</b>
+
+Kære ledelse,
+
+Jeg skriver for at klage over forholdene i jeres center. Problemerne har stået på i <b>flere uger</b>, og <b>allerede</b> i slutningen af marts oplevede jeg mangler.
+
+<b>For det første</b> er flere maskiner ude af drift. <b>For det andet</b> fungerer noget af udstyret ikke korrekt. <b>Ydermere</b> er rengøringen utilstrækkelig, med snavs og sved på maskinerne.
+
+<b>Efterhånden</b> har dette påvirket min træning negativt. <b>Imidlertid</b> betaler jeg fuldt medlemskab. <b>Derimod</b> havde jeg forventet et rent og funktionelt miljø.
+
+<b>Alt i alt</b> <b>forventer</b> jeg, at I forbedrer forholdene, ellers opsiger jeg mit medlemskab inden den 25. april.
+
+Med venlig hilsen
+Van Thanh`,
+    tips: ["Dùng từ vựng chuyên ngành: ude af drift, utilstrækkelig rengøring.", "Cảnh báo hủy thẻ: opsiger mit medlemskab."]
+  },
+  {
+    title: "📱 Klage over defekt telefon",
+    situation: "Điện thoại mới mua hỏng sau 1 tuần, nhân viên thái độ lồi lõm.",
+    letter: `Esbjerg, den 16. april 2026
+
+TechZone – Att.: Butikschefen
+Kongensgade 18, 6700 Esbjerg
+
+<b>Vedr.: Klage over defekt telefon og service</b>
+
+Kære butikschef,
+
+Jeg skriver for at klage over en telefon købt den 2. april 2026. <b>Allerede</b> efter få dage begyndte den at slukke af sig selv.
+
+<b>For det første</b> tog medarbejderen i butikken ikke problemet alvorligt, da jeg henvendte mig. <b>For det andet</b> blev jeg mødt med en afvisende tone. <b>Ydermere</b> fik jeg ingen klar løsning.
+
+Jeg besøgte butikken <b>kort efter</b>. <b>Imidlertid</b> fik jeg at vide, at jeg selv skulle kontakte producenten. <b>Derimod</b> forventede jeg, at I ville tage ansvar.
+
+<b>Alt i alt</b> <b>anmoder</b> jeg om en reparation eller en ny telefon, og jeg afventer svar senest den 20. april.
+
+Med venlig hilsen
+Van Thanh`,
+    tips: ["Mô tả rõ 2 vấn đề: Sản phẩm lỗi (defekt telefon) & Thái độ kém (afvisende tone)."]
+  },
+  {
+    title: "🚗 Klage over lejebil",
+    situation: "Thuê ô tô bị lỗi máy lạnh, đèn báo đỏ, nhân viên không hỗ trợ đổi xe.",
+    letter: `Esbjerg, den 16. april 2026
+
+DriveEasy Biludlejning
+Industrivej 10, 2600 Glostrup
+
+<b>Vedr.: Klage over lejebil med fejl</b>
+
+Kære kundeservice,
+
+Jeg skriver for at klage over en bil, jeg lejede den 10. april 2026. <b>Allerede</b> ved afhentningen bemærkede jeg problemer.
+
+<b>For det første</b> fungerede aircondition ikke. <b>For det andet</b> lyste en advarselslampe. <b>Ydermere</b> var bilen ikke ordentligt rengjort.
+
+Jeg ringede <b>straks</b> til jer. <b>Imidlertid</b> fik jeg at vide, at jeg bare kunne køre videre. <b>Derimod</b> blev der ikke tilbudt udskiftning.
+
+<b>Alt i alt</b> er jeg meget utilfreds, og jeg <b>anmoder</b> derfor om, at I <b>bør</b> tilbagebetale mindst 50% af lejen.
+
+Med venlig hilsen
+Van Thanh`,
+    tips: ["Từ vựng: advarselslampe (đèn cảnh báo), udskiftning (thay thế)."]
+  },
+  {
+    title: "📦 Klage over bortkommet pakke",
+    situation: "Gửi tài liệu quan trọng nhưng bưu kiện bị thất lạc, hệ thống tracking không đổi.",
+    letter: `Esbjerg, den 16. april 2026
+
+PostNord Kundeservice
+Hedegaardsvej 88, 2300 København S
+
+<b>Vedr.: Klage over bortkommet pakke</b>
+
+Kære kundeservice,
+
+Jeg skriver for at klage over en pakke sendt den 6. april 2026. <b>For ti dage siden</b> indleverede jeg pakken.
+
+<b>For det første</b> ankom den til sorteringscenteret den 7. april. <b>For det andet</b> har tracking-status <b>siden da</b> ikke ændret sig. <b>Ydermere</b> mangler der oplysninger om pakkens lokation.
+
+Jeg kontaktede jer <b>for tre dage siden</b>. <b>Imidlertid</b> fik jeg kun en generel besked om at vente. <b>Derimod</b> blev ingen undersøgelse startet.
+
+Pakken indeholder vigtige dokumenter. <b>Alt i alt</b> <b>anmoder</b> jeg om, at I straks igangsætter en efterlysning.
+
+Med venlig hilsen
+Van Thanh`,
+    tips: ["Từ vựng: tracking-status, sorteringscenter, efterlysning (truy tìm)."]
+  },
+  {
+    title: "🏫 Klage til skoleleder",
+    situation: "Giáo viên quát mắng con trai bạn, con không còn muốn đi học.",
+    letter: `Esbjerg, den 16. april 2026
+
+Rørkjær Skole – Att.: Skolelederen
+Skolebakken 10, 6700 Esbjerg
+
+<b>Vedr.: Klage over undervisningsforhold i 5.B</b>
+
+Kære skoleleder,
+
+Jeg skriver for at klage over forholdene for min søn, Ali Nguyen, der har gået på skolen <b>siden august 2024</b>.
+
+<b>For det første</b> taler læreren ofte i en meget hård tone. <b>For det andet</b> gives der ikke tilstrækkelig hjælp. <b>Ydermere</b> mangler der respektfuld kommunikation.
+
+<b>Siden da</b> har Ali virket umotiveret. <b>Imidlertid</b> forsøger han at følge med. <b>Derimod</b> glæder han sig ikke længere til at komme i skole.
+
+Dette er en alvorlig situation. <b>Alt i alt</b> <b>anmoder</b> jeg om et møde snarest muligt.
+
+Med venlig hilsen
+Van Thanh`,
+    tips: ["Giọng văn cực kỳ tôn trọng nhưng kiên quyết (respektfuld men bestemt)."]
+  },
+  {
+    title: "🦷 Klage til tandlæge",
+    situation: "Đến hẹn khám răng nhưng hệ thống không ghi nhận, bị đuổi về mất ngày công.",
+    letter: `Esbjerg, den 16. april 2026
+
+SmileTand Klinik
+Strandbygade 25, 6700 Esbjerg
+
+<b>Vedr.: Klage over fejl i booking og service</b>
+
+Kære ledelse,
+
+Jeg skriver for at klage over en oplevelse den 9. april 2026. <b>Allerede</b> ved ankomsten fik jeg at vide, at min tid ikke var registreret i jeres system.
+
+<b>For det første</b> måtte jeg forlade klinikken uden behandling. <b>For det andet</b> betød det fravær fra mit arbejde uden grund. <b>Ydermere</b> blev min behandling forsinket.
+
+Jeg viste min bekræftelse. <b>Imidlertid</b> fik jeg at vide, at fejlen var min. <b>Derimod</b> forventede jeg en undskyldning og løsning.
+
+<b>Alt i alt</b> <b>anmoder</b> jeg om en ny tid omgående samt en passende kompensation.
+
+Med venlig hilsen
+Van Thanh`,
+    tips: ["Từ vựng: fravær (vắng mặt/nghỉ làm), bekræftelse (xác nhận)."]
+  }
+];
+
+const anbefalingData = [
+  {
+    title: "🩺 Anbefaling af læge (Dr. Pham Thi Lan)",
+    letter: `<b>Anmeldelse af Vestergade Lægeklinik – ⭐⭐⭐⭐⭐</b>
+
+Jeg vil gerne anbefale min læge, dr. Pham Thi Lan, som arbejder på Vestergade Lægeklinik i Esbjerg. Jeg skiftede til hende for seks måneder siden, hvilket er den bedste beslutning, jeg har truffet.
+
+<b>Det, der imponerer mig mest, er</b>, at hun altid tager sig god tid til at lytte og forklare alting tydeligt. Hun taler langsomt og sikrer sig, at jeg har forstået alt. <b>Derudover</b> er hun hurtig til at henvise til specialister, når det er nødvendigt.
+
+For mig som udlænding er det enormt vigtigt at have en god læge, da det giver tryghed i sundhedssystemet. Takket være hende føler jeg mig altid i gode hænder.
+
+Jeg vil <b>varmt anbefale</b> dr. Lan til alle – især udlændinge!
+
+Med venlig hilsen
+Linh Nguyen`,
+    tips: ["<b>Det, der imponerer mig mest...</b> cấu trúc đỉnh cao cho thư khen.", "<b>Takket være hende...</b> Nhờ có cô ấy..."]
+  },
+  {
+    title: "🏫 Anbefaling af Sprogskole",
+    letter: `<b>Anbefaling af AOF Sprogcenter Esbjerg</b>
+
+Jeg vil gerne anbefale AOF Sprogcenter til alle udlændinge. Jeg har gået her i otte måneder, og det har haft stor betydning for mit liv i Danmark.
+
+Underviseren, Mette, er utrolig dygtig. <b>Det, der imponerer mig mest, er</b>, at hun forklarer grammatik på en enkel og forståelig måde. <b>Derudover</b> sørger hun for, at alle i klassen deltager aktivt, så man tvinges til at tale.
+
+At lære dansk er afgørende, fordi det åbner døre til arbejdsmarkedet og det danske samfund. Takket være kurset har mit dansk forbedret sig markant.
+
+Jeg vil <b>varmt anbefale</b> kurset til alle – du vil ikke fortryde det!
+
+Med venlig hilsen
+Linh Nguyen`,
+    tips: ["Liên hệ lợi ích thực tế: åbner døre til arbejdsmarkedet (mở cửa vào thị trường lđ)."]
+  },
+  {
+    title: "🔧 Anbefaling af Håndværker (VVS)",
+    letter: `<b>Kæmpe anbefaling til Hansen VVS</b>
+
+Jeg vil gerne give en ærlig anbefaling til Hansen VVS, som for nylig hjalp mig med en vandskade.
+
+<b>For det første</b> mødte håndværkeren op til tiden og reparerede røret på samme dag. <b>For det andet</b> var prisen fair og helt som aftalt – ingen skjulte gebyrer. <b>Ydermere</b> ryddede han pænt op efter sig.
+
+<b>Det, der imponerer mig mest, er</b> hans ærlighed og klare kommunikation. For mig er det vigtigt at have en håndværker, man kan stole på, så man ikke bliver udnyttet.
+
+Jeg anbefaler Hansen VVS til alle – 100 procent!
+
+Med venlig hilsen
+Linh Nguyen`,
+    tips: ["ingen skjulte gebyrer (không có phí ẩn) - từ vựng ăn điểm.", "100 procent! (Hoàn toàn!) - kết thúc tự nhiên, thuyết phục."]
+  },
+  {
+    title: "🏛️ Anbefaling af Kulturhus",
+    letter: `<b>Anbefaling af Kulturhuset Mødestedet</b>
+
+Jeg vil gerne anbefale Kulturhuset Mødestedet til alle, der søger et åbent og inkluderende fællesskab i Esbjerg.
+
+<b>Det, der gør Mødestedet til et særligt sted, er</b> den varme stemning. <b>For det første</b> arrangerer de mange gratis aktiviteter, som fx sprogcafé. <b>For det andet</b> er det et fantastisk sted at opbygge et dansk netværk. <b>Ydermere</b> er personalet altid imødekommende.
+
+For mig har stedet haft stor betydning, da det gav mig venner og selvtillid. Som ny i Danmark kan man let føle sig ensom, men her er alle velkomne.
+
+Jeg anbefaler alle at kigge forbi – I bliver ikke skuffet!
+
+Med venlig hilsen
+Linh Nguyen`,
+    tips: ["inkluderende fællesskab (Cộng đồng bao trùm/chào đón).", "I bliver ikke skuffet! (Các bạn sẽ không thất vọng đâu)."]
+  }
+];
+
+const ansoegningData = [
+  {
+    title: "❤️ Ansøgning som frivillig (Røde Kors)",
+    letter: `<b>Emne: Ansøgning om frivillig medarbejder</b>
+
+Kære butiksleder,
+
+Jeg skriver i forbindelse med jeres opslag om frivillige, som jeg så på biblioteket i forrige uge.
+
+Mit navn er Linh Nguyen. Jeg er 31 år og kommer fra Vietnam. Jeg har boet i Esbjerg i halvandet år og arbejder deltid. I min fritid leder jeg efter muligheder for at integrere mig bedre og gøre noget meningsfuldt.
+
+<b>Grunden til, at jeg ønsker at arbejde hos jer, er, at</b> Røde Kors repræsenterer værdier, som jeg deler. Jeg tror også på, at genbrug gavner miljøet. Som person er jeg flittig, pålidelig og har erfaring med kundeservice fra mit hjemland.
+
+Jeg har tid til at hjælpe mandag og onsdag formiddag fra 9-13, men er meget fleksibel.
+
+Jeg ser frem til at høre fra jer.
+
+Med venlig hilsen
+Linh Nguyen – tlf. 98 76 54 32`,
+    tips: ["Nêu rõ động lực giá trị: repræsenterer værdier, som jeg deler.", "Cung cấp thời gian rảnh cụ thể: mandag og onsdag..."]
+  },
+  {
+    title: "☕ Ansøgning som tjener (Café Rejen)",
+    letter: `<b>Ansøgning om stillingen som tjener på Café Rejen</b>
+
+Jeg skriver til jer, fordi jeg er meget interesseret i jobbet som tjener, som I har slået op.
+
+Jeg er 25 år, kommer fra Ungarn, og har boet i Danmark i to år. Jeg studerer design på Nørrebro og har gået på sprogskole, så jeg taler og forstår dansk godt. Da jeg boede i Ungarn, arbejdede jeg som tjener i tre år, og jeg elskede cafémiljøet.
+
+<b>Som person er jeg</b> udadvendt, ansvarsfuld og trives med at have travlt. Jeg er altid i godt humør og elsker at give kunderne en god oplevelse. <b>Derfor er jeg sikker på, at</b> jeg passer perfekt ind i jeres team.
+
+Jeg kan arbejde aften og weekend, og jeg kan starte med det samme.
+
+Jeg håber at få mulighed for at komme til en samtale.
+
+Med venlig hilsen
+Daniela Larsen
+Tlf: 29 82 33 57
+Bilag: CV`,
+    tips: ["Trình bày mạch lạc quá khứ: Da jeg boede i Ungarn, arbejdede jeg...", "Đính kèm CV ở cuối (Bilag: CV)."]
+  },
+  {
+    title: "🍜 Ansøgning som tjener (Fuldtid)",
+    letter: `<b>Ansøgning om job som tjener på fuldtid</b>
+
+Jeg har med stor interesse læst jeres annonce på jobnet.dk, og søger hermed stillingen som fuldtidstjener.
+
+Jeg er en vietnamesisk kvinde på 25 år, der har været i Danmark i 1½ år. Jeg har bestået PD3 og taler flydende dansk. Jeg har ikke formel uddannelse som tjener, men har praktisk erfaring, da jeg <b>blandt andet</b> har arbejdet på en restaurant det seneste år.
+
+<b>Grunden til, at jeg søger netop dette job, er, at</b> jeg kender jeres hyggelige restaurant og brænder for at yde god service. <b>Som person er jeg</b> hurtig, vant til at arbejde selvstændigt, og jeg bevarer overblikket i stressede situationer.
+
+Jeg er tilgængelig for fuldtid og glæder mig til at høre fra jer.
+
+Med venlig hilsen
+Hong Jørgensen`,
+    tips: ["bevarer overblikket (giữ được sự bao quát/bình tĩnh) - cụm từ vàng cho ngành dịch vụ."]
+  }
+];
+
+const emailData = [
+  {
+    title: "🎉 Svar på invitation til fest",
+    letter: `Kære Sara,
+
+Tusind tak for din søde mail! Jeg blev virkelig glad for at høre fra dig.
+
+<b>Du skriver, at</b> du holder en fest næste lørdag – det lyder jo fantastisk! Ja, jeg vil meget gerne komme, og jeg glæder mig allerede helt vildt.
+
+<b>Med hensyn til maden, så</b> er jeg heldigvis ikke kræsen. Jeg spiser det meste, bare ikke for stærk mad. Skal jeg eventuelt tage noget dessert med? Sig endelig til!
+
+<b>Du spørger også, om</b> jeg kender andre gæster. Jeg tror kun, jeg kender Magnus, men det gør ikke noget. Det er altid sjovt at møde nye mennesker!
+
+Jeg glæder mig til vi ses næste weekend!
+
+Kærlig hilsen
+Linh`,
+    tips: ["Trả lời đầy đủ 3 ý: Có đến không? Ăn gì? Biết ai không?", "Văn phong hào hứng: helt vildt, fantastisk."]
+  },
+  {
+    title: "🇪🇸 Svar til ven om sprogkursus",
+    letter: `Kære Thomas,
+
+Mange tak for din mail! Det var rigtig hyggeligt at høre fra dig igen.
+
+<b>Du fortæller, at</b> du overvejer at lære spansk. Det synes jeg er en utrolig god idé! Spansk er et smukt sprog, og det er mega praktisk, når man rejser. Du kommer ikke til at fortryde det.
+
+<b>Angående, hvordan du bedst kommer i gang, vil jeg anbefale dig</b> at downloade appen Duolingo. Det er sjovt og gratis. <b>Derudover</b> kan du se spanske serier med danske undertekster – det hjalp mig meget med at lære dansk!
+
+Jeg taler desværre ikke spansk selv, men jeg kender en del portugisisk. Måske kan vi øve lidt sammen en dag?
+
+Pøj pøj med projektet!
+
+Mange hilsner
+Linh`,
+    tips: ["Pøj pøj (Chúc may mắn) - cách diễn đạt rất Đan Mạch.", "Angående... vil jeg anbefale... (Mẫu câu chuyển ý khuyên bảo)."]
+  },
+  {
+    title: "🤝 Svar om frivilligt arbejde",
+    letter: `Kære Mia,
+
+Tusind tak for din lange mail. Jeg blev så glad for at læse den!
+
+<b>Du skriver, at</b> du er interesseret i at blive frivillig lektiehjælper. Det lyder som et utrolig flot initiativ, og børnene vil være heldige at have dig!
+
+<b>Du spørger, om</b> jeg har erfaring med frivilligt arbejde. Ja, det har jeg faktisk. Jeg er i Røde Kors to gange om ugen, og det giver mig enormt meget glæde. Man møder mange søde mennesker, og det styrker ens netværk.
+
+<b>Hvad angår dit spørgsmål om frivilligcenteret, så</b> vil jeg helt klart sige JA! Meld dig til. De er super professionelle og hjælpsomme.
+
+Hvornår regner du med at starte? Jeg glæder mig til at høre mere!
+
+Kærlig hilsen
+Linh`,
+    tips: ["Hvad angår... så vil jeg helt klart sige JA! (Phản hồi mạnh mẽ và tích cực).", "Kết thúc bằng một câu hỏi ngược lại để duy trì hội thoại."]
+  }
+];
+
+// ===== RENDER RENDERERS =====
+function renderLetterContent(data) {
+  const letterHtml = data.letter.replace(/\n/g, '<br>');
+  const tipsHtml = data.tips.map(t => `<li>${t}</li>`).join('');
+  return `
+    <div class="letter-container">
+      <div class="letter-text">${letterHtml}</div>
+    </div>
+    <div class="tip-box blue">
+      <strong>📌 Điểm sáng ngôn ngữ:</strong>
+      <ul>${tipsHtml}</ul>
+    </div>
+  `;
+}
+
+function showKlage(idx, btn) {
+  document.querySelectorAll('#klage-selector .selector-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  
+  const data = klageData[idx];
+  document.getElementById('klage-display').innerHTML = `
+    <div class="card" style="margin-bottom:24px; padding:24px; background:var(--surface-alt);">
+      <div style="font-family:var(--font-serif); font-weight:600; font-size:1.1rem; color:var(--accent-red); margin-bottom:8px;">${data.title}</div>
+      <div style="font-size:0.9rem; color:var(--text-muted);">${data.situation}</div>
+    </div>
+    ${renderLetterContent(data)}
+  `;
+}
+
+function showAnbefaling(idx, btn) {
+  document.querySelectorAll('#anbefaling-selector .selector-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('anbefaling-display').innerHTML = renderLetterContent(anbefalingData[idx]);
+}
+
+function showAnsoegning(idx, btn) {
+  document.querySelectorAll('#ansoegning-selector .selector-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('ansoegning-display').innerHTML = renderLetterContent(ansoegningData[idx]);
+}
+
+function showEmail(idx, btn) {
+  document.querySelectorAll('#email-selector .selector-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('email-display').innerHTML = renderLetterContent(emailData[idx]);
+}
+
+// ===== CHECKLIST PROGRESS =====
+function toggleCheck(item) {
+  const cb = item.querySelector('input[type="checkbox"]');
+  cb.checked = !cb.checked;
+  if (cb.checked) item.classList.add('checked');
+  else item.classList.remove('checked');
+  updateProgress();
+}
+
+function updateProgress() {
+  const all = document.querySelectorAll('#tab-checklist input[type="checkbox"]');
+  const checked = document.querySelectorAll('#tab-checklist input[type="checkbox"]:checked');
+  const pct = all.length ? Math.round((checked.length / all.length) * 100) : 0;
+  
+  document.getElementById('progress-bar-all').style.width = pct + '%';
+  document.getElementById('progress-percent-all').textContent = pct + '%';
+  
+  if(pct === 100) {
+    document.getElementById('progress-bar-all').style.background = 'var(--accent-green)';
+    document.getElementById('progress-percent-all').style.color = 'var(--accent-green)';
+  } else {
+    document.getElementById('progress-bar-all').style.background = 'var(--accent-red)';
+    document.getElementById('progress-percent-all').style.color = 'var(--accent-red)';
+  }
+}
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', function() {
+  showKlage(0, document.querySelector('#klage-selector button'));
+  showAnbefaling(0, document.querySelector('#anbefaling-selector button'));
+  showAnsoegning(0, document.querySelector('#ansoegning-selector button'));
+  showEmail(0, document.querySelector('#email-selector button'));
+  updateProgress();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dansk Ordstilling — Interactive Mindmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lexend', sans-serif;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            color: #1e293b;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+            background-size: 28px 28px;
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 24px 20px 60px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 36px 20px 28px;
+        }
+
+        .header-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #dc2626;
+            background: white;
+            border: 1px solid #fecaca;
+            padding: 5px 18px;
+            border-radius: 999px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.1);
+        }
+
+        .header h1 {
+            font-weight: 800;
+            font-size: clamp(26px, 4.5vw, 52px);
+            line-height: 1.1;
+            color: #0f172a;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+
+        .header h1 .accent {
+            background: linear-gradient(to right, #ef4444, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-sub {
+            font-size: 15px;
+            color: #64748b;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .legend-row {
+            display: flex;
+            gap: 12px 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .legend-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* HINTS */
+        .hint-bar {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 14px 0 26px;
+        }
+
+        .hint-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .hint-chip {
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* MINDMAP */
+        .mindmap-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* CENTER NODE */
+        .center-node {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 20px;
+            padding: 20px 40px;
+            text-align: center;
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.3), 0 4px 12px rgba(15, 23, 42, 0.15);
+            border: 2px solid #475569;
+        }
+
+        .center-title {
+            font-weight: 800;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .center-sub {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+
+        /* SVG CONNECTOR */
+        .tree-connector-wrap {
+            width: 100%;
+            height: 52px;
+            position: relative;
+        }
+
+        /* BRANCHES GRID */
+        .branches-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            width: 100%;
+        }
+
+        @media (max-width: 1200px) {
+            .branches-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 680px) {
+            .branches-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .branch {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .branch-header {
+            border-radius: 16px;
+            padding: 14px 18px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            user-select: none;
+        }
+
+        .branch-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .branch-num {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+
+        .branch-title {
+            font-weight: 800;
+            font-size: 15px;
+            line-height: 1.3;
+            padding-right: 30px;
+        }
+
+        .branch-desc {
+            font-size: 11px;
+            font-weight: 400;
+            margin-top: 5px;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        .branch-toggle {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .branch-children {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, opacity 0.3s;
+            max-height: 2000px;
+            opacity: 1;
+        }
+
+        .branch-children.collapsed {
+            max-height: 0;
+            opacity: 0;
+        }
+
+        /* BRANCH THEMES */
+        .branch-header.slate-theme {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            border: 1px solid #475569;
+        }
+
+        .branch-header.slate-theme .branch-num {
+            color: #94a3b8;
+        }
+
+        .branch-header.red-theme {
+            background: linear-gradient(to right, #ef4444, #dc2626);
+            color: white;
+            border: 1px solid #b91c1c;
+        }
+
+        .branch-header.blue-theme {
+            background: linear-gradient(to right, #3b82f6, #2563eb);
+            color: white;
+            border: 1px solid #1d4ed8;
+        }
+
+        .branch-header.purple-theme {
+            background: linear-gradient(to right, #8b5cf6, #7c3aed);
+            color: white;
+            border: 1px solid #6d28d9;
+        }
+
+        /* TOPIC NODES */
+        .topic-node {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 10px 14px;
+            cursor: pointer;
+            transition: all 0.18s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .topic-node:hover {
+            border-color: #cbd5e1;
+            transform: translateX(3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+
+        .topic-node.has-detail::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .topic-node.slate-theme.has-detail::before {
+            background: #475569;
+        }
+
+        .topic-node.red-theme.has-detail::before {
+            background: #ef4444;
+        }
+
+        .topic-node.blue-theme.has-detail::before {
+            background: #3b82f6;
+        }
+
+        .topic-node.purple-theme.has-detail::before {
+            background: #8b5cf6;
+        }
+
+        .topic-node:hover.slate-theme {
+            border-color: #94a3b8;
+        }
+
+        .topic-node:hover.red-theme {
+            border-color: #fca5a5;
+        }
+
+        .topic-node:hover.blue-theme {
+            border-color: #93c5fd;
+        }
+
+        .topic-node:hover.purple-theme {
+            border-color: #c4b5fd;
+        }
+
+        .topic-title {
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #1e293b;
+            line-height: 1.4;
+        }
+
+        .topic-preview {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 4px;
+            font-weight: 400;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 6px;
+        }
+
+        .tag {
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 999px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        .tag-warn {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .tag-tip {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .tag-key {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .tag-info {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+
+        .pulse-anim {
+            animation: nodePulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes nodePulse {
+
+            0%,
+            100% {
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            }
+
+            50% {
+                box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15), 0 4px 12px rgba(239, 68, 68, 0.1);
+            }
+        }
+
+        /* SUB-CHILDREN */
+        .sub-children {
+            padding-left: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            border-left: 2px solid #e2e8f0;
+            margin-left: 10px;
+            overflow: hidden;
+            transition: max-height 0.35s ease-out, opacity 0.3s;
+            max-height: 1500px;
+            opacity: 1;
+        }
+
+        .sub-children.collapsed {
+            max-height: 0;
+            opacity: 0;
+        }
+
+        .sub-node {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.18s;
+            font-size: 12px;
+            font-weight: 600;
+            color: #334155;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .sub-node:hover {
+            background: #fff;
+            border-color: #cbd5e1;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        }
+
+        .sub-node-preview {
+            font-size: 10px;
+            font-weight: 400;
+            color: #94a3b8;
+        }
+
+        /* SUMMARY TABLE */
+        .syntax-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .syntax-table th {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 11px 14px;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+
+        .syntax-table td {
+            padding: 11px 14px;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 13px;
+            background: white;
+            vertical-align: top;
+        }
+
+        .syntax-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .syntax-table tr:hover td {
+            background: #f8fafc;
+        }
+
+        /* DETAIL MODAL */
+        .detail-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s;
+        }
+
+        .detail-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .detail-panel {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 780px;
+            max-height: 88vh;
+            overflow-y: auto;
+            transform: translateY(16px) scale(0.98);
+            transition: transform 0.25s;
+            box-shadow: 0 32px 80px rgba(15, 23, 42, 0.2), 0 8px 24px rgba(15, 23, 42, 0.1);
+        }
+
+        .detail-overlay.open .detail-panel {
+            transform: translateY(0) scale(1);
+        }
+
+        .detail-panel-header {
+            padding: 24px 28px 18px;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 5;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .detail-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            color: #64748b;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+            line-height: 1;
+        }
+
+        .detail-close:hover {
+            background: #fee2e2;
+            color: #dc2626;
+            border-color: #fca5a5;
+        }
+
+        .detail-category {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 7px;
+        }
+
+        .detail-title {
+            font-weight: 800;
+            font-size: 21px;
+            color: #0f172a;
+            line-height: 1.2;
+            padding-right: 40px;
+        }
+
+        .detail-body {
+            padding: 22px 28px;
+        }
+
+        .block {
+            margin-bottom: 20px;
+        }
+
+        .block-label {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .block-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #f1f5f9;
+        }
+
+        .formula-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 14px 18px;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .formula-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 4px;
+        }
+
+        .f-pos {
+            padding: 3px 11px;
+            border-radius: 7px;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .f-S {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .f-V {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+
+        .f-CA {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .f-A {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .f-O {
+            background: #ede9fe;
+            color: #7c3aed;
+        }
+
+        .f-K {
+            background: #fce7f3;
+            color: #db2777;
+        }
+
+        .f-X {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .f-HV {
+            background: #fce7f3;
+            color: #db2777;
+        }
+
+        .arrow {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .example-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 14px 18px;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .ex-line {
+            margin-bottom: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .ex-line:last-child {
+            margin-bottom: 0;
+        }
+
+        .ex-dk {
+            color: #1e293b;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .ex-vi {
+            color: #64748b;
+            font-size: 11px;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .ex-anno {
+            color: #94a3b8;
+            font-size: 10px;
+            font-weight: 400;
+        }
+
+        .ex-verb {
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        .ex-ca {
+            color: #16a34a;
+            font-weight: 700;
+        }
+
+        .ex-subj {
+            color: #dc2626;
+            font-weight: 700;
+        }
+
+        .ex-highlight {
+            color: #d97706;
+            font-weight: 700;
+        }
+
+        .error-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .error-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .error-wrong,
+        .error-right {
+            border-radius: 10px;
+            padding: 12px 15px;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .error-wrong {
+            background: #fff5f5;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+        }
+
+        .error-right {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #16a34a;
+        }
+
+        .error-label {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .note-box {
+            background: #fffbeb;
+            border: 1px solid #fed7aa;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 13px;
+            color: #92400e;
+            line-height: 1.7;
+            display: flex;
+            gap: 10px;
+            font-weight: 400;
+        }
+
+        .note-box strong {
+            font-weight: 700;
+        }
+
+        .note-icon {
+            flex-shrink: 0;
+            font-size: 16px;
+            margin-top: 1px;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            font-size: 12px;
+        }
+
+        .compare-table th {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            padding: 9px 12px;
+            text-align: left;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .compare-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #f1f5f9;
+            background: #fff;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .compare-table tr:hover td {
+            background: #f8fafc;
+        }
+
+        .compare-table .col-key {
+            color: #dc2626;
+            font-weight: 700;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrap">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-badge">🇩🇰 Grammatik-Guide 2026</div>
+            <h1>CẤU TRÚC CÂU <span class="accent">TIẾNG ĐAN MẠCH</span></h1>
+            <p class="header-sub">Sơ đồ tư duy tương tác — Cấu trúc câu và Trật tự từ (Dansk Ordstilling)</p>
+
+            <div class="legend-row">
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#dc2626"></div><span style="color:#dc2626">S = Chủ
+                        ngữ</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#2563eb"></div><span style="color:#2563eb">V = Động
+                        từ</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#16a34a"></div><span style="color:#16a34a">CA = Trạng từ
+                        trung tâm (ikke...)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#d97706"></div><span style="color:#d97706">A = Trạng
+                        ngữ</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background:#7c3aed"></div><span style="color:#7c3aed">O = Tân
+                        ngữ</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- HINTS -->
+        <div class="hint-bar">
+            <div class="hint-item"><span class="hint-chip"
+                    style="background:#f1f5f9;color:#475569;border:1px solid #e2e8f0">▼ ▲</span> Click tiêu đề nhánh để
+                thu/mở</div>
+            <div class="hint-item"><span class="hint-chip"
+                    style="background:#dbeafe;color:#2563eb;border:1px solid #bfdbfe">→</span> Click node để xem chi
+                tiết đầy đủ</div>
+            <div class="hint-item"><span class="hint-chip"
+                    style="background:#fee2e2;color:#dc2626;border:1px solid #fecaca">!</span> Viền đỏ nhấp nháy = Lỗi
+                thường gặp</div>
+        </div>
+
+        <!-- MINDMAP -->
+        <div class="mindmap-container">
+
+            <!-- Center Node -->
+            <div class="center-node">
+                <div class="center-title">🇩🇰 DANSK ORDSTILLING</div>
+                <div class="center-sub">Cấu trúc câu & Trật tự từ</div>
+            </div>
+
+            <!-- SVG Connectors -->
+            <div class="tree-connector-wrap">
+                <svg width="100%" height="52" viewBox="0 0 1000 52" preserveAspectRatio="none"
+                    style="overflow:visible;display:block;">
+                    <line x1="500" y1="0" x2="125" y2="52" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 3" />
+                    <line x1="500" y1="0" x2="375" y2="52" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 3" />
+                    <line x1="500" y1="0" x2="625" y2="52" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 3" />
+                    <line x1="500" y1="0" x2="875" y2="52" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 3" />
+                    <circle cx="125" cy="52" r="3.5" fill="#475569" />
+                    <circle cx="375" cy="52" r="3.5" fill="#ef4444" />
+                    <circle cx="625" cy="52" r="3.5" fill="#3b82f6" />
+                    <circle cx="875" cy="52" r="3.5" fill="#8b5cf6" />
+                </svg>
+            </div>
+
+            <!-- BRANCHES -->
+            <div class="branches-row">
+
+                <!-- BRANCH 1: QUY TẮC CỐT LÕI -->
+                <div class="branch" id="branch-1">
+                    <div class="branch-header slate-theme" onclick="toggleBranch('branch-1')">
+                        <div class="branch-num">Nhánh 01 · Core Rules</div>
+                        <div class="branch-title">⚙️ Quy tắc Cốt lõi</div>
+                        <div class="branch-desc">V2 Rule & SAV Rule<br>Nền tảng của mọi cú pháp</div>
+                        <div class="branch-toggle">−</div>
+                    </div>
+                    <div class="branch-children" id="branch-1-children">
+                        <div class="topic-node slate-theme has-detail" onclick="showDetail('v2rule')">
+                            <div class="topic-title"><span>🔴</span> Quy tắc V2 (Verb Second)</div>
+                            <div class="topic-preview">Động từ LUÔN ở vị trí số 2 trong HS</div>
+                            <div class="topic-tags"><span class="tag tag-warn">Bất di bất dịch</span><span
+                                    class="tag tag-info">Mệnh đề chính</span></div>
+                        </div>
+                        <div class="topic-node slate-theme has-detail" onclick="showDetail('savrule')">
+                            <div class="topic-title"><span>🟢</span> Quy tắc SAV (Subj–Adv–Verb)</div>
+                            <div class="topic-preview">CA đứng TRƯỚC V trong mệnh đề phụ</div>
+                            <div class="topic-tags"><span class="tag tag-tip">Mệnh đề phụ</span><span
+                                    class="tag tag-warn">SAV vs SVA</span></div>
+                        </div>
+                        <div class="topic-node slate-theme has-detail" onclick="showDetail('components')">
+                            <div class="topic-title"><span>📋</span> Bảng mã thành phần câu</div>
+                            <div class="topic-preview">S · V · CA · O · IO · A — đầy đủ</div>
+                            <div class="topic-tags"><span class="tag tag-info">Nền tảng</span><span
+                                    class="tag tag-tip">Tham khảo nhanh</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BRANCH 2: MỆNH ĐỀ CHÍNH -->
+                <div class="branch" id="branch-2">
+                    <div class="branch-header red-theme" onclick="toggleBranch('branch-2')">
+                        <div class="branch-num">Nhánh 02 · Main Clause</div>
+                        <div class="branch-title">📕 Mệnh đề Chính (HS)</div>
+                        <div class="branch-desc">Hauptsætning<br>Ligefrem · Inversion · Spørgsmål</div>
+                        <div class="branch-toggle">−</div>
+                    </div>
+                    <div class="branch-children" id="branch-2-children">
+                        <div class="topic-node red-theme has-detail" onclick="showDetail('ligefrem')">
+                            <div class="topic-title"><span>➡️</span> Trật tự thuận (Ligefrem)</div>
+                            <div class="topic-preview">S → V1 → CA → V2 → IO → O → A</div>
+                            <div class="topic-tags"><span class="tag tag-tip">Cơ bản nhất</span></div>
+                        </div>
+                        <div class="topic-node red-theme" onclick="toggleSub('inv-sub')" style="cursor:pointer">
+                            <div class="topic-title"><span>🔄</span> Đảo ngữ (Inversion)<span
+                                    style="margin-left:auto;color:#94a3b8;font-size:10px">▼</span></div>
+                            <div class="topic-preview">Khi X ≠ S đứng đầu → V–S</div>
+                            <div class="topic-tags"><span class="tag tag-key">X–V–S–CA</span></div>
+                        </div>
+                        <div class="sub-children" id="inv-sub">
+                            <div class="sub-node" onclick="showDetail('inv-stmt');event.stopPropagation()">
+                                <span>🎯 Đảo ngữ trần thuật (Foranstilling)</span>
+                                <span class="sub-node-preview">Nhấn mạnh A / O / IO đứng đầu câu</span>
+                            </div>
+                            <div class="sub-node" onclick="showDetail('qja');event.stopPropagation()">
+                                <span>❓ Câu hỏi Ja/Nej</span>
+                                <span class="sub-node-preview">V1 – S – CA – V2 – O – A ?</span>
+                            </div>
+                            <div class="sub-node" onclick="showDetail('qhv');event.stopPropagation()">
+                                <span>❓ Câu hỏi Hv-ord</span>
+                                <span class="sub-node-preview">Hv – V1 – S – CA – V2 – O ?</span>
+                            </div>
+                        </div>
+                        <div class="topic-node red-theme" onclick="toggleSub('tl-sub')" style="cursor:pointer">
+                            <div class="topic-title"><span>⚖️</span> Sức nặng Tunge/Lette led<span
+                                    style="margin-left:auto;color:#94a3b8;font-size:10px">▼</span></div>
+                            <div class="topic-preview">Đại từ (nhẹ) vs Danh từ (nặng)</div>
+                            <div class="topic-tags"><span class="tag tag-warn">Lỗi phổ biến #4</span></div>
+                        </div>
+                        <div class="sub-children" id="tl-sub">
+                            <div class="sub-node" onclick="showDetail('tl-simple');event.stopPropagation()">
+                                <span>📍 Thì đơn (Nutid/Datid)</span>
+                                <span class="sub-node-preview">CA phụ thuộc vào "sức nặng" IO & O</span>
+                            </div>
+                            <div class="sub-node" onclick="showDetail('tl-compound');event.stopPropagation()">
+                                <span>📍 Thì kép (Førnutid)</span>
+                                <span class="sub-node-preview">CA luôn giữa V1 và V2 — không ngoại lệ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BRANCH 3: MỆNH ĐỀ PHỤ -->
+                <div class="branch" id="branch-3">
+                    <div class="branch-header blue-theme" onclick="toggleBranch('branch-3')">
+                        <div class="branch-num">Nhánh 03 · Subordinate</div>
+                        <div class="branch-title">📘 Mệnh đề Phụ (LS)</div>
+                        <div class="branch-desc">Ledsætning<br>SAV · som/der · LS trước HS</div>
+                        <div class="branch-toggle">−</div>
+                    </div>
+                    <div class="branch-children" id="branch-3-children">
+                        <div class="topic-node blue-theme has-detail" onclick="showDetail('ls-identity')">
+                            <div class="topic-title"><span>🔍</span> Nhận diện Ledsætning</div>
+                            <div class="topic-preview">at · fordi · hvis · når · da · selvom...</div>
+                            <div class="topic-tags"><span class="tag tag-info">Liên từ phụ</span></div>
+                        </div>
+                        <div class="topic-node blue-theme has-detail" onclick="showDetail('ls-sav')">
+                            <div class="topic-title"><span>🟢</span> Công thức SAV chuẩn</div>
+                            <div class="topic-preview">Konj + S + CA + V1 + V2 + O + A</div>
+                            <div class="topic-tags"><span class="tag tag-key">Vị trí của "ikke"</span><span
+                                    class="tag tag-warn">Lỗi #1</span></div>
+                        </div>
+                        <div class="topic-node blue-theme has-detail" onclick="showDetail('ls-relativ')">
+                            <div class="topic-title"><span>🔗</span> Mệnh đề quan hệ som/der</div>
+                            <div class="topic-preview">som/der đóng vai trò S trong LS</div>
+                            <div class="topic-tags"><span class="tag tag-info">Relative Clause</span></div>
+                        </div>
+                        <div class="topic-node blue-theme has-detail pulse-anim" onclick="showDetail('ls-before-hs')"
+                            style="border-color:#fca5a5;border-width:1.5px;">
+                            <div class="topic-title"><span>⚠️</span> LS đứng TRƯỚC HS!</div>
+                            <div class="topic-preview">→ HS BẮT BUỘC có Inversion!</div>
+                            <div class="topic-tags"><span class="tag tag-warn">CỰC KỲ QUAN TRỌNG</span><span
+                                    class="tag tag-warn">Lỗi #2</span></div>
+                        </div>
+                        <div class="topic-node blue-theme has-detail" onclick="showDetail('ls-types')">
+                            <div class="topic-title"><span>📚</span> Phân loại Ledsætning</div>
+                            <div class="topic-preview">fordi · selvom · hvis · når · da · mens...</div>
+                            <div class="topic-tags"><span class="tag tag-info">7 nhóm chính</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BRANCH 4: LIÊN TỪ -->
+                <div class="branch" id="branch-4">
+                    <div class="branch-header purple-theme" onclick="toggleBranch('branch-4')">
+                        <div class="branch-num">Nhánh 04 · Conjunctions</div>
+                        <div class="branch-title">🔗 Liên từ & Từ nối</div>
+                        <div class="branch-desc">Konjunktioner · Adverbia<br>for/fordi · 3 cách dùng của "så"</div>
+                        <div class="branch-toggle">−</div>
+                    </div>
+                    <div class="branch-children" id="branch-4-children">
+                        <div class="topic-node purple-theme has-detail" onclick="showDetail('konj-hs')">
+                            <div class="topic-title"><span>🔵</span> Liên từ chính (Nối HS–HS)</div>
+                            <div class="topic-preview">og · men · eller · for · så</div>
+                            <div class="topic-tags"><span class="tag tag-tip">Không gây đảo ngữ</span><span
+                                    class="tag tag-info">Ligefrem sau nó</span></div>
+                        </div>
+                        <div class="topic-node purple-theme has-detail" onclick="showDetail('konj-ls')">
+                            <div class="topic-title"><span>🟢</span> Liên từ phụ (Nối HS–LS)</div>
+                            <div class="topic-preview">at · fordi · selvom · hvis · når · da</div>
+                            <div class="topic-tags"><span class="tag tag-key">Áp dụng SAV</span></div>
+                        </div>
+                        <div class="topic-node purple-theme has-detail pulse-anim" onclick="showDetail('adv-konj')"
+                            style="border-color:#fca5a5;border-width:1.5px;">
+                            <div class="topic-title"><span>⚠️</span> Trạng từ liên kết — CẠM BẪY!</div>
+                            <div class="topic-preview">therefore · dog · alligevel → GÂY INVERSION</div>
+                            <div class="topic-tags"><span class="tag tag-warn">Cạm bẫy</span><span
+                                    class="tag tag-warn">V–S sau nó</span></div>
+                        </div>
+                        <div class="topic-node purple-theme has-detail" onclick="showDetail('for-vs-fordi')">
+                            <div class="topic-title"><span>⚡</span> Phân biệt "for" vs "fordi"</div>
+                            <div class="topic-preview">for → HS (S-V) · fordi → LS (S-CA-V)</div>
+                            <div class="topic-tags"><span class="tag tag-warn">Lỗi #3</span><span
+                                    class="tag tag-key">Rất hay gặp</span></div>
+                        </div>
+                        <div class="topic-node purple-theme has-detail" onclick="showDetail('saa-roles')">
+                            <div class="topic-title"><span>🎭</span> 3 vai trò của "så"</div>
+                            <div class="topic-preview">Konjunktion · Adverbium · Ledsætning</div>
+                            <div class="topic-tags"><span class="tag tag-warn">Rất hay nhầm</span><span
+                                    class="tag tag-key">Ghi nhớ kỹ</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end branches-row -->
+
+            <!-- SUMMARY TABLE -->
+            <div style="margin-top:36px;width:100%;max-width:960px;">
+                <div
+                    style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#94a3b8;text-align:center;margin-bottom:12px;">
+                    <i class="fas fa-table"></i> Bảng tóm tắt nhanh — Vị trí CA (ikke) trong các loại câu
+                </div>
+                <div
+                    style="overflow-x:auto;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.07);border:1px solid #e2e8f0;">
+                    <table class="syntax-table">
+                        <thead>
+                            <tr>
+                                <th style="border-radius:14px 0 0 0">Loại câu</th>
+                                <th>Quy tắc chính</th>
+                                <th>Vị trí CA</th>
+                                <th style="border-radius:0 14px 0 0">Ví dụ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="color:#dc2626;font-weight:700">HS Ligefrem</td>
+                                <td>V ở vị trí 2</td>
+                                <td>S – V1 – <strong style="color:#16a34a">CA</strong> – V2</td>
+                                <td>Han vil <strong style="color:#16a34a">ikke</strong> komme</td>
+                            </tr>
+                            <tr>
+                                <td style="color:#dc2626;font-weight:700">HS Inversion</td>
+                                <td>X ở vị trí 1</td>
+                                <td>X – V1 – S – <strong style="color:#16a34a">CA</strong> – V2</td>
+                                <td>I dag vil han <strong style="color:#16a34a">ikke</strong> komme</td>
+                            </tr>
+                            <tr>
+                                <td style="color:#dc2626;font-weight:700">HS thì đơn<br><small
+                                        style="font-weight:400;color:#94a3b8">(lette led)</small></td>
+                                <td>Sức nặng IO/O</td>
+                                <td>S – V1 – IO – <strong style="color:#16a34a">CA</strong> – O</td>
+                                <td>De viser ham <strong style="color:#16a34a">ikke</strong> huset</td>
+                            </tr>
+                            <tr>
+                                <td style="color:#2563eb;font-weight:700">LS (mọi loại)</td>
+                                <td style="color:#dc2626;font-weight:700">SAV bắt buộc</td>
+                                <td>S – <strong style="color:#16a34a">CA</strong> – V1 – V2</td>
+                                <td>…at han <strong style="color:#16a34a">ikke</strong> kommer</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div><!-- end mindmap-container -->
+
+        <!-- FOOTER -->
+        <footer style="text-align:center;margin-top:48px;padding-bottom:20px;">
+            <div class="glass-card" style="display:inline-block;padding:14px 28px;border-radius:16px;">
+                <p style="font-size:13px;color:#64748b;font-weight:600;margin-bottom:4px;">
+                    <i class="fas fa-book-open" style="color:#dc2626"></i> Sơ đồ tư duy tương tác: Cấu trúc Câu Tiếng
+                    Đan Mạch
+                </p>
+                <p style="font-size:11px;color:#94a3b8;">Dansk Syntaks Oversigt © 2026 | Held og lykke med din dansk!
+                    🇩🇰</p>
+            </div>
+        </footer>
+
+    </div><!-- end page-wrap -->
+
+    <!-- DETAIL MODAL -->
+    <div class="detail-overlay" id="detailOverlay" onclick="closeDetail(event)">
+        <div class="detail-panel">
+            <div class="detail-panel-header">
+                <div class="detail-category" id="detailCategory">—</div>
+                <div class="detail-title" id="detailTitle">—</div>
+                <button class="detail-close" onclick="closeDetail()">✕</button>
+            </div>
+            <div class="detail-body" id="detailBody">—</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleBranch(id) {
+            const ch = document.getElementById(id + '-children');
+            const btn = document.querySelector('#' + id + ' .branch-toggle');
+            btn.textContent = ch.classList.toggle('collapsed') ? '+' : '−';
+        }
+        function toggleSub(id) { document.getElementById(id).classList.toggle('collapsed'); }
+        function showDetail(key) {
+            const d = DETAIL[key]; if (!d) return;
+            document.getElementById('detailCategory').textContent = d.category;
+            document.getElementById('detailCategory').style.color = d.color || '#2563eb';
+            document.getElementById('detailTitle').textContent = d.title;
+            document.getElementById('detailBody').innerHTML = d.html;
+            document.getElementById('detailOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDetail(e) {
+            if (e && e.target !== document.getElementById('detailOverlay') && !e.target.classList.contains('detail-close')) return;
+            document.getElementById('detailOverlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('detailOverlay').classList.remove('open'); document.body.style.overflow = ''; } });
+
+        // Helpers
+        const block = (label, html) => `<div class="block"><div class="block-label">${label}</div>${html}</div>`;
+        const fml = (...parts) => {
+            const line = parts.map(([c, t]) => `<span class="f-pos ${c}">${t}</span>`).join('<span class="arrow"> → </span>');
+            return `<div class="formula-box"><div class="formula-line">${line}</div></div>`;
+        };
+        const fmlM = (lines) => {
+            const inner = lines.map(p => {
+                if (typeof p === 'string') return `<div style="font-size:10px;color:#94a3b8;margin:6px 0 3px;font-weight:700;letter-spacing:1px;text-transform:uppercase">${p}</div>`;
+                return `<div class="formula-line">${p.map(([c, t]) => `<span class="f-pos ${c}">${t}</span>`).join('<span class="arrow"> → </span>')}</div>`;
+            }).join('');
+            return `<div class="formula-box">${inner}</div>`;
+        };
+        const exs = (arr) => {
+            const inner = arr.map(([dk, vi, ann]) => `<div class="ex-line"><div class="ex-dk">${dk}</div>${vi ? `<div class="ex-vi">${vi}</div>` : ''}${ann ? `<div class="ex-anno">${ann}</div>` : ''}</div>`).join('');
+            return `<div class="example-box">${inner}</div>`;
+        };
+        const errBox = (w, r, wl = '', rl = '') =>
+            `<div class="error-box"><div class="error-wrong"><div class="error-label">❌ ${wl || 'SAI'}</div>${w}</div><div class="error-right"><div class="error-label">✅ ${rl || 'ĐÚNG'}</div>${r}</div></div>`;
+        const note = t => `<div class="note-box"><div class="note-icon">💡</div><div>${t}</div></div>`;
+        const cmpTable = (hs, rows) => {
+            const th = hs.map(h => `<th>${h}</th>`).join('');
+            const tr = rows.map(r => `<tr>${r.map((c, i) => `<td ${i === 0 ? 'class="col-key"' : ''}>${c}</td>`).join('')}</tr>`).join('');
+            return `<div style="overflow-x:auto"><table class="compare-table"><thead><tr>${th}</tr></thead><tbody>${tr}</tbody></table></div>`;
+        };
+
+        const DETAIL = {
+            v2rule: {
+                category: 'NHÁNH 1 · QUY TẮC CỐT LÕI', color: '#dc2626', title: '🔴 Quy tắc V2 — Động từ luôn ở vị trí THỨ HAI',
+                html: block('PHÁT BIỂU', `<div class="formula-box" style="background:#fff5f5;border-color:#fecaca;"><div style="font-size:14px;color:#dc2626;font-weight:800;margin-bottom:8px">"Trong MỆNH ĐỀ CHÍNH, V1 LUÔN LUÔN đứng ở vị trí số 2"</div><div style="font-size:12px;color:#64748b">Bất kể thành phần nào ở vị trí 1 (S, A, O, hay toàn bộ LS), V1 vẫn ở vị trí 2.</div></div>`) +
+                    block('CÔNG THỨC', fmlM(['Khi S đứng đầu (Ligefrem):',
+                        [['f-S', 'S'], ['f-V', 'V1'], ['f-CA', '(CA)'], ['f-X', 'V2'], ['f-O', 'O'], ['f-A', 'A']],
+                        'Khi X ≠ S đứng đầu (Inversion):',
+                        [['f-X', 'X'], ['f-V', 'V1'], ['f-S', 'S'], ['f-CA', '(CA)'], ['f-X', 'V2'], ['f-A', 'A']]])) +
+                    block('VÍ DỤ', exs([
+                        ['<span class="ex-subj">Han</span> <span class="ex-verb">vil</span> <span class="ex-ca">ikke</span> komme i dag.', 'Anh ấy không muốn đến hôm nay.', 'S → V1 → CA → A'],
+                        ['I morgen <span class="ex-verb">vil</span> <span class="ex-subj">han</span> <span class="ex-ca">ikke</span> komme.', 'Ngày mai anh ấy sẽ không đến.', 'A(vị trí 1) → V1 → S → CA — INVERSION!'],
+                        ['Fordi han var syg, <span class="ex-verb">blev</span> <span class="ex-subj">han</span> hjemme.', 'Vì anh bị ốm, anh ở nhà.', 'LS(vị trí 1) → V1 → S — INVERSION sau LS!'],
+                    ])) +
+                    block('❌ LỖI', errBox('Ikke vil han komme.<br><small style="color:#94a3b8">(CA ở vị trí 1)</small>', 'Han vil <strong>ikke</strong> komme.<br><small style="color:#64748b">(CA đúng vị trí)</small>')) +
+                    note('Quy tắc V2 là <strong>tuyệt đối</strong>. Đếm: thành phần đầu tiên là 1, động từ phải là 2!')
+            },
+            savrule: {
+                category: 'NHÁNH 1 · QUY TẮC CỐT LÕI', color: '#16a34a', title: '🟢 Quy tắc SAV — CA đứng TRƯỚC V trong mệnh đề phụ',
+                html: block('PHÁT BIỂU', `<div class="formula-box" style="background:#f0fdf4;border-color:#bbf7d0;"><div style="font-size:14px;color:#16a34a;font-weight:800;margin-bottom:8px">"Trong MỆNH ĐỀ PHỤ, CA (đặc biệt là 'ikke') đứng TRƯỚC động từ hữu hạn (V1)"</div></div>`) +
+                    block('SO SÁNH HS vs LS', fmlM(['Mệnh đề CHÍNH (HS):',
+                        [['f-S', 'S'], ['f-V', 'V1'], ['f-CA', 'CA'], ['f-X', 'V2']],
+                        'Mệnh đề PHỤ (LS):',
+                        [['f-K', 'Konj'], ['f-S', 'S'], ['f-CA', 'CA'], ['f-V', 'V1'], ['f-X', 'V2']]])) +
+                    block('VÍ DỤ — Vị trí "ikke"', exs([
+                        ['Han <span class="ex-verb">går</span> <span class="ex-ca">ikke</span>.', 'Anh ấy không đi. (HS)', 'V1 → CA trong HS'],
+                        ['…at han <span class="ex-ca">ikke</span> <span class="ex-verb">går</span>.', '…rằng anh ấy không đi. (LS)', 'CA → V1 trong LS'],
+                        ['Han <span class="ex-verb">vil</span> <span class="ex-ca">ikke</span> komme.', 'Anh ấy không muốn đến. (HS)', ''],
+                        ['…fordi han <span class="ex-ca">ikke</span> <span class="ex-verb">vil</span> komme.', '…vì anh ấy không muốn đến. (LS)', ''],
+                    ])) +
+                    block('❌ LỖI #1', errBox('Hun siger, at hun <strong>møder ikke</strong> kl. 8.<br><small style="color:#94a3b8">(Trật tự HS trong LS!)</small>', 'Hun siger, at hun <strong>ikke møder</strong> kl. 8.<br><small style="color:#64748b">(CA trước V ✓)</small>')) +
+                    note('"ikke" chỉ điểm rõ nhất: <strong>HS → V + ikke</strong> · <strong>LS → ikke + V</strong>')
+            },
+            components: {
+                category: 'NHÁNH 1 · NỀN TẢNG', color: '#475569', title: '📋 Bảng mã thành phần câu',
+                html: block('THÀNH PHẦN', cmpTable(['Ký hiệu', 'Tên gọi', 'Chức năng', 'Ví dụ'], [
+                    ['<span class="f-pos f-S">S</span>', 'Subjekt', 'Thực hiện hành động', 'Toget, Han'],
+                    ['<span class="f-pos f-V">V1</span>', 'Verbal hữu hạn', 'Động từ chia thì', 'kører, vil, har'],
+                    ['<span class="f-pos f-X">V2</span>', 'Verbal vô hạn', 'Phân từ, nguyên mẫu', 'spist, køre'],
+                    ['<span class="f-pos f-CA">CA</span>', 'Centraladverbial', 'Trạng từ trung tâm', 'ikke, altid, måske'],
+                    ['<span class="f-pos f-O">O</span>', 'Objekt', 'Tân ngữ', 'bilen, huset'],
+                    ['IO', 'Indirekte objekt', 'Tân ngữ gián tiếp', 'hende, Bo, mig'],
+                    ['<span class="f-pos f-A">A</span>', 'Adverbial', 'Trạng ngữ', 'nu, i morgen'],
+                ])) +
+                    block('NHÓM CA', `<div class="example-box"><div class="ex-line"><div class="ex-dk">Phủ định: <span class="ex-ca">ikke</span></div></div><div class="ex-line"><div class="ex-dk">Tần suất: <span class="ex-ca">altid, aldrig, ofte, tit, sjældent, sommetider</span></div></div><div class="ex-line"><div class="ex-dk">Mức độ: <span class="ex-ca">måske, nok, vel, sikkert, næppe</span></div></div><div class="ex-line"><div class="ex-dk">Cách thức: <span class="ex-ca">gerne, godt, hellere, helst</span></div></div><div class="ex-line"><div class="ex-dk">Nhấn mạnh: <span class="ex-ca">jo, nemlig, netop, bare, også</span></div></div></div>`) +
+                    note('CA có <strong>vị trí cố định</strong>, không đặt tùy ý như trạng ngữ thông thường!')
+            },
+            ligefrem: {
+                category: 'NHÁNH 2 · MỆNH ĐỀ CHÍNH', color: '#dc2626', title: '➡️ Trật tự thuận — Ligefrem Ordstilling',
+                html: block('CÔNG THỨC', fmlM(['Thì đơn:',
+                    [['f-S', 'S'], ['f-V', 'V1'], ['f-CA', '(CA)'], ['f-O', 'IO'], ['f-O', 'O'], ['f-A', 'A']],
+                    'Thì kép:',
+                    [['f-S', 'S'], ['f-V', 'V1'], ['f-CA', 'CA'], ['f-X', 'V2'], ['f-O', 'IO'], ['f-O', 'O'], ['f-A', 'A']]])) +
+                    block('VÍ DỤ', exs([
+                        ['<span class="ex-subj">Hun</span> <span class="ex-verb">spiser</span> brød til morgenmad.', 'Cô ấy ăn bánh mì buổi sáng.', 'S → V1 → O → A'],
+                        ['<span class="ex-subj">De</span> <span class="ex-verb">har</span> <span class="ex-ca">altid</span> boet i København.', 'Họ luôn sống ở Copenhagen.', 'S → V1 → CA → V2 → A'],
+                        ['<span class="ex-subj">Han</span> <span class="ex-verb">vil</span> <span class="ex-ca">godt</span> låne hende bilen til arbejde i morgen.', 'Anh sẵn lòng cho cô mượn xe đi làm ngày mai.', 'Đầy đủ: S-V1-CA-V2-IO-O-A-A'],
+                    ])) +
+                    block('QUY TẮC STED TRƯỚC TID', `<div class="example-box"><div class="ex-line"><div class="ex-dk">Han bor <span class="ex-highlight">i København</span> <span class="ex-highlight">nu</span>.</div><div class="ex-vi">Nơi chốn (sted) → Thời gian (tid) — luôn theo thứ tự này!</div></div></div>`)
+            },
+            'inv-stmt': {
+                category: 'NHÁNH 2 · INVERSION', color: '#dc2626', title: '🎯 Đảo ngữ trần thuật — Foranstilling',
+                html: block('CÔNG THỨC', fmlM([[['f-X', 'X (≠ S)'], ['f-V', 'V1'], ['f-S', 'S'], ['f-CA', '(CA)'], ['f-X', 'V2'], ['f-O', 'O'], ['f-A', 'A']]])) +
+                    block('VÍ DỤ', exs([
+                        ['<span class="ex-highlight">I morgen</span> <span class="ex-verb">vil</span> <span class="ex-subj">han</span> <span class="ex-ca">måske</span> vise hende huset.', 'Ngày mai có lẽ anh sẽ cho cô xem nhà.', 'A đứng đầu → V-S'],
+                        ['<span class="ex-highlight">Hende</span> <span class="ex-verb">vil</span> <span class="ex-subj">han</span> <span class="ex-ca">måske</span> vise huset.', 'Cô ấy — anh có lẽ sẽ cho xem nhà.', 'IO đứng đầu → V-S'],
+                        ['<span class="ex-highlight">Ham</span> <span class="ex-verb">kender</span> <span class="ex-subj">jeg</span>, men <span class="ex-highlight">hende</span> <span class="ex-verb">kender</span> jeg <span class="ex-ca">ikke</span>.', 'Anh ấy tôi biết, còn cô ấy tôi không biết.', 'Modstilling — đối lập'],
+                    ])) +
+                    block('⚠️ CA KHÔNG ĐỨNG ĐẦU', errBox('<strong>Ikke</strong> vil han komme.<br><strong>Aldrig</strong> har de boet her.', 'Han vil <strong>ikke</strong> komme.<br>De har <strong>aldrig</strong> boet her.'))
+            },
+            qja: {
+                category: 'NHÁNH 2 · CÂU HỎI', color: '#dc2626', title: '❓ Câu hỏi Ja/Nej',
+                html: block('CÔNG THỨC', fmlM([[['f-V', 'V1'], ['f-S', 'S'], ['f-CA', '(CA)'], ['f-X', 'V2'], ['f-O', 'O'], ['f-A', 'A ?']]])) +
+                    note('Vị trí 1 để TRỐNG. V1 đứng đầu câu hỏi Ja/Nej.') +
+                    block('VÍ DỤ', exs([
+                        ['<span class="ex-verb">Rejser</span> <span class="ex-subj">han</span> til Sverige?', 'Anh có đi Thụy Điển không?', 'V1 → S → A'],
+                        ['<span class="ex-verb">Vil</span> <span class="ex-subj">du</span> have kaffe?', 'Bạn có muốn cà phê không?', 'V1 → S → V2 → O'],
+                        ['<span class="ex-verb">Har</span> <span class="ex-subj">han</span> <span class="ex-ca">ikke</span> set filmen?', 'Anh chưa xem phim à?', 'V1 → S → CA → V2 → O'],
+                    ]))
+            },
+            qhv: {
+                category: 'NHÁNH 2 · CÂU HỎI', color: '#dc2626', title: '❓ Câu hỏi Hv-ord',
+                html: block('CÔNG THỨC', fmlM([[['f-HV', 'Hv-ord'], ['f-V', 'V1'], ['f-S', 'S'], ['f-CA', '(CA)'], ['f-X', 'V2'], ['f-O', 'O'], ['f-A', 'A ?']]])) +
+                    block('CÁC HV-ORD', `<div class="example-box"><div class="ex-line"><div class="ex-dk"><span class="ex-highlight">Hvad</span> — Cái gì? · <span class="ex-highlight">Hvem</span> — Ai? · <span class="ex-highlight">Hvor</span> — Ở đâu?</div></div><div class="ex-line"><div class="ex-dk"><span class="ex-highlight">Hvornår</span> — Khi nào? · <span class="ex-highlight">Hvorfor</span> — Tại sao? · <span class="ex-highlight">Hvordan</span> — Như thế nào?</div></div></div>`) +
+                    block('VÍ DỤ', exs([
+                        ['<span class="ex-highlight">Hvem</span> <span class="ex-verb">er</span> det?', 'Đó là ai?', 'Hv → V1 → S'],
+                        ['<span class="ex-highlight">Hvor</span> <span class="ex-verb">bor</span> <span class="ex-subj">hun</span>?', 'Cô ấy sống ở đâu?', 'Hv → V1 → S'],
+                        ['<span class="ex-highlight">Hvorfor</span> <span class="ex-verb">vil</span> <span class="ex-subj">han</span> <span class="ex-ca">ikke</span> låne hende bilen?', 'Tại sao anh không cho cô mượn xe?', 'Hv → V1 → S → CA → V2'],
+                    ]))
+            },
+            'tl-simple': {
+                category: 'NHÁNH 2 · SỨC NẶNG', color: '#dc2626', title: '⚖️ Tunge/Lette Led — Thì Đơn',
+                html: block('NGUYÊN TẮC', `<div class="formula-box" style="background:#fff5f5;border-color:#fecaca;"><div style="margin-bottom:8px;font-size:13px">🪶 <strong style="color:#dc2626">Lette (nhẹ)</strong> = Đại từ: ham, hende, dem, det...<br>🪨 <strong style="color:#1e293b">Tunge (nặng)</strong> = Danh từ: Peter, bogen, huset...</div><div style="color:#475569;font-size:12px">CA đứng <strong>SAU</strong> lette · CA đứng <strong>TRƯỚC</strong> tunge</div></div>`) +
+                    block('4 TRƯỜNG HỢP', cmpTable(['IO', 'O', 'Vị trí CA', 'Ví dụ'], [
+                        ['Tung', 'Tung', '<strong style="color:#16a34a">CA</strong> – IO – O', 'De viser <strong>ikke</strong> Bo huset'],
+                        ['Lette', 'Tung', 'IO – <strong style="color:#16a34a">CA</strong> – O', 'De viser ham <strong>ikke</strong> huset'],
+                        ['Lette', 'Lette', 'IO – O – <strong style="color:#16a34a">CA</strong>', 'De viser ham det <strong>ikke</strong>'],
+                        ['Tung', 'Lette', '<strong style="color:#16a34a">CA</strong> – IO – O', 'De viser <strong>ikke</strong> Bo den ⚠️'],
+                    ])) +
+                    block('VÍ DỤ', exs([
+                        ['Jeg giver <span class="ex-ca">ikke</span> Peter bogen.', 'Tôi không cho Peter quyển sách.', 'IO=Peter(tung) O=bogen(tung)'],
+                        ['Jeg giver ham <span class="ex-ca">ikke</span> bogen.', 'Tôi không cho anh ấy quyển sách.', 'IO=ham(lette) O=bogen(tung)'],
+                        ['Jeg giver ham den <span class="ex-ca">ikke</span>.', 'Tôi không cho anh ấy nó.', 'IO=ham(lette) O=den(lette)'],
+                    ])) +
+                    block('❌ LỖI #4', errBox('De viser <strong>ikke ham</strong> huset.<br><small style="color:#94a3b8">(CA trước đại từ — SAI)</small>', 'De viser ham <strong>ikke</strong> huset.<br><small style="color:#64748b">(CA sau đại từ, trước danh từ ✓)</small>'))
+            },
+            'tl-compound': {
+                category: 'NHÁNH 2 · SỨC NẶNG', color: '#dc2626', title: '⚖️ CA trong Thì Kép (Førnutid)',
+                html: block('QUY TẮC', `<div class="formula-box" style="background:#eff6ff;border-color:#bfdbfe;"><div style="font-size:14px;color:#2563eb;font-weight:800;margin-bottom:8px">Trong thì kép: CA LUÔN đứng giữa V1 và V2</div><div style="font-size:12px;color:#64748b">Không có ngoại lệ về tunge/lette led!</div></div>`) +
+                    block('CÔNG THỨC', fmlM([[['f-S', 'S'], ['f-V', 'V1 (har/havde)'], ['f-CA', 'CA'], ['f-V', 'V2 (past part.)'], ['f-O', 'IO'], ['f-O', 'O'], ['f-A', 'A']]])) +
+                    block('VÍ DỤ', exs([
+                        ['De har <span class="ex-ca">ikke</span> vist ham det.', 'Họ đã không cho anh xem nó.', 'har → ikke → vist'],
+                        ['Jeg har <span class="ex-ca">altid</span> elsket Danmark.', 'Tôi luôn yêu Đan Mạch.', 'har → altid → elsket'],
+                        ['Han havde <span class="ex-ca">måske</span> glemt det.', 'Có lẽ anh đã quên.', 'havde → måske → glemt'],
+                    ])) +
+                    note('Với thì kép: <strong>har/havde + CA + V2</strong>. Không cần quan tâm sức nặng IO/O!')
+            },
+            'ls-identity': {
+                category: 'NHÁNH 3 · MỆNH ĐỀ PHỤ', color: '#2563eb', title: '🔍 Nhận diện Ledsætning',
+                html: block('DẤU HIỆU', `<div class="formula-box" style="background:#eff6ff;border-color:#bfdbfe;">Ledsætning luôn bắt đầu bằng <strong style="color:#2563eb">liên từ phụ</strong> hoặc <strong style="color:#2563eb">từ để hỏi làm liên từ</strong></div>`) +
+                    block('PHÂN LOẠI', cmpTable(['Nhóm', 'Liên từ', 'Ý nghĩa'], [
+                        ['Thời gian', 'da, når, mens, før, efter at, til, siden', 'khi, lúc, trong khi...'],
+                        ['Nguyên nhân', 'fordi, da, eftersom', 'vì, bởi vì'],
+                        ['Điều kiện', 'hvis, medmindre', 'nếu, trừ khi'],
+                        ['Nhượng bộ', 'selvom, skønt', 'mặc dù'],
+                        ['Mục đích', 'for at', 'để mà'],
+                        ["'at'", "at", "rằng (mệnh đề tân ngữ)"],
+                        ['Câu hỏi gián tiếp', 'om, hvad, hvem, hvor...', 'có... không / cái gì...'],
+                    ])) +
+                    block('VÍ DỤ', exs([
+                        ['Hun siger, <span class="ex-highlight">at</span> hun <span class="ex-ca">ikke</span> kan komme.', 'Cô nói rằng cô không thể đến.', 'at → LS: hun IKKE kan'],
+                        ['<span class="ex-highlight">Når</span> det regner, tager han bussen.', 'Khi trời mưa, anh bắt xe buýt.', 'når → LS đứng trước → HS inversion!'],
+                    ]))
+            },
+            'ls-sav': {
+                category: 'NHÁNH 3 · MỆNH ĐỀ PHỤ', color: '#2563eb', title: '🟢 Công thức SAV chuẩn',
+                html: block('CÔNG THỨC', fmlM([[['f-K', 'Konjunktion'], ['f-S', 'S'], ['f-CA', 'CA'], ['f-V', 'V1'], ['f-X', 'V2'], ['f-O', 'IO'], ['f-O', 'O'], ['f-A', 'A']]])) +
+                    block('VÍ DỤ', exs([
+                        ['…at hun <span class="ex-ca">ikke</span> <span class="ex-verb">møder</span> kl. 8.', '…rằng cô không gặp lúc 8.', 'S=hun, CA=ikke, V1=møder'],
+                        ['…fordi jeg <span class="ex-ca">ikke</span> <span class="ex-verb">har</span> set den.', '…vì tôi chưa xem nó.', 'S=jeg, CA=ikke, V1=har, V2=set'],
+                        ['…selvom han <span class="ex-ca">aldrig</span> <span class="ex-verb">er</span> træt.', '…mặc dù anh không bao giờ mệt.', 'CA=aldrig, V1=er'],
+                        ['Manden, der <span class="ex-ca">ikke</span> <span class="ex-verb">bor</span> her.', 'Người đàn ông không sống ở đây.', 'der làm S → SAV: CA trước V'],
+                    ])) +
+                    block('❌ LỖI #1', errBox('at hun <strong>møder ikke</strong> kl. 8.<br>at de <strong>kommer ikke</strong>.', 'at hun <strong>ikke møder</strong> kl. 8.<br>at de <strong>ikke kommer</strong>.'))
+            },
+            'ls-relativ': {
+                category: 'NHÁNH 3 · MỆNH ĐỀ PHỤ', color: '#2563eb', title: '🔗 Mệnh đề quan hệ som / der',
+                html: block('PHÂN BIỆT', cmpTable(['', 'der', 'som'], [
+                    ['Vai trò', 'Chỉ làm CHỦ NGỮ (S)', 'Làm S hoặc TÂN NGỮ (O)'],
+                    ['Thay thế', 'Người/Vật ở vị trí S', 'Người/Vật ở mọi vị trí'],
+                    ['Lưu ý', 'Không thể bỏ qua', 'Có thể bỏ khi làm O'],
+                ])) +
+                    block('der/som làm S', exs([
+                        ['Han har en bror, <span class="ex-highlight">der</span> hedder Jan.', 'Anh có người anh tên Jan.', 'der = S của hedder'],
+                        ['Manden, <span class="ex-highlight">der</span> <span class="ex-ca">ikke</span> bor her.', 'Người đàn ông không sống ở đây.', 'SAV: CA trước V'],
+                    ])) +
+                    block('som làm O', exs([
+                        ['Han har en bil, <span class="ex-highlight">som</span> vi kan låne.', 'Anh có xe mà chúng ta có thể mượn.', 'som = O của låne'],
+                        ['Filmen, <span class="ex-highlight">som</span> vi <span class="ex-ca">ikke</span> har set.', 'Phim mà chúng ta chưa xem.', 'SAV vẫn áp dụng'],
+                    ])) +
+                    note('Sau <strong>der/som</strong>, quy tắc SAV vẫn áp dụng đầy đủ!')
+            },
+            'ls-before-hs': {
+                category: 'NHÁNH 3 · CỰC KỲ QUAN TRỌNG', color: '#dc2626', title: '⚠️ Ledsætning đứng TRƯỚC Hauptsætning',
+                html: block('QUY TẮC VÀNG', `<div class="formula-box" style="background:#fff5f5;border-color:#fecaca;"><div style="font-size:14px;color:#dc2626;font-weight:800;margin-bottom:8px">⚠️ Khi LS đứng trước, HS BẮT BUỘC có INVERSION!</div><div style="font-size:12px;color:#475569">LS chiếm vị trí 1 → V1 phải ở vị trí 2 → S lùi về vị trí 3</div></div>`) +
+                    block('CÔNG THỨC', fmlM(['LS (S-CA-V1) → [dấu phẩy] → HS bắt đầu bằng V1:',
+                        [['f-K', 'LS (…)'], ['f-V', 'V1(HS)'], ['f-S', 'S(HS)'], ['f-CA', 'CA(HS)'], ['f-X', 'V2(HS)'], ['f-A', '...']]])) +
+                    block('VÍ DỤ', exs([
+                        ['Når det <span class="ex-ca">ikke</span> regner, <span class="ex-verb">cykler</span> <span class="ex-subj">han</span> <span class="ex-ca">altid</span>.', 'Khi trời không mưa, anh luôn đạp xe.', 'LS → V1-S-CA trong HS'],
+                        ['Fordi han var syg, <span class="ex-verb">blev</span> <span class="ex-subj">han</span> hjemme.', 'Vì anh bị ốm, anh ở nhà.', 'LS → V1-S'],
+                        ['Selvom det regnede, <span class="ex-verb">ville</span> <span class="ex-subj">han</span> <span class="ex-ca">ikke</span> købe en paraply.', 'Mặc dù trời mưa, anh không muốn mua ô.', 'LS → V-S-CA'],
+                        ['Hvis du vil, <span class="ex-verb">kan</span> <span class="ex-subj">vi</span> gå i biografen.', 'Nếu bạn muốn, chúng ta có thể đi rạp.', 'LS → V-S'],
+                    ])) +
+                    block('❌ LỖI #2', errBox('Når det regner, <strong>han tager</strong> bussen.<br>Fordi hun var syg, <strong>hun blev</strong> hjemme.', 'Når det regner, <strong>tager han</strong> bussen.<br>Fordi hun var syg, <strong>blev hun</strong> hjemme.', 'KHÔNG ĐẢO NGỮ', 'CÓ ĐẢO NGỮ ✓')) +
+                    note('Thấy dấu phẩy sau mệnh đề phụ → nhớ ngay: <strong>V phải đến trước S trong mệnh đề chính!</strong>')
+            },
+            'ls-types': {
+                category: 'NHÁNH 3 · MỆNH ĐỀ PHỤ', color: '#2563eb', title: '📚 Phân loại Ledsætning theo liên từ',
+                html: block('DA vs NÅR', errBox('<span class="ex-highlight">da</span> = Quá khứ, <strong>một lần duy nhất</strong><br><br>Da hun var barn, boede hun i Spanien.<br><small style="color:#94a3b8">Khi còn nhỏ, cô sống ở Tây Ban Nha.</small>', '<span class="ex-highlight">når</span> = Hiện tại/Tương lai, <strong>lặp lại</strong><br><br>Når det regner, tager han bussen.<br><small style="color:#64748b">Khi trời mưa, anh bắt xe buýt.</small>', 'da', 'når')) +
+                    block('CÁC LOẠI KHÁC', exs([
+                        ['Han bor der, <span class="ex-highlight">mens</span> hun studerer.', 'Anh ở đó trong khi cô học.', 'mens = trong khi'],
+                        ['Han børster tænder, <span class="ex-highlight">før</span> han går i seng.', 'Anh đánh răng trước khi đi ngủ.', 'før = trước khi'],
+                        ['Han gik, <span class="ex-highlight">selvom</span> hun bad ham blive.', 'Anh đi mặc dù cô xin ở lại.', 'selvom = mặc dù'],
+                        ['Han træner, <span class="ex-highlight">for at</span> han kan vinde.', 'Anh tập để có thể thắng.', 'for at = để mà'],
+                        ['Hun spørger, <span class="ex-highlight">om</span> han forstår dansk.', 'Cô hỏi liệu anh có hiểu tiếng Đan không.', 'om = câu hỏi gián tiếp'],
+                    ]))
+            },
+            'konj-hs': {
+                category: 'NHÁNH 4 · LIÊN TỪ CHÍNH', color: '#7c3aed', title: '🔵 Liên từ chính (Nối HS–HS)',
+                html: block('5 LIÊN TỪ CHÍNH', cmpTable(['Liên từ', 'Nghĩa', 'Ví dụ'], [
+                    ['<span class="col-key">og</span>', 'và', 'Han er træt, og hun er sulten.'],
+                    ['<span class="col-key">men</span>', 'nhưng', 'Han er rig, men hun er fattig.'],
+                    ['<span class="col-key">eller</span>', 'hoặc', 'Vil du te eller kaffe?'],
+                    ['<span class="col-key">for</span>', 'vì (→ HS)', 'Hun spiste ikke, for hun var ikke sulten.'],
+                    ['<span class="col-key">så</span>', 'vì vậy (→ HS)', 'Han er syg, så han kan ikke komme.'],
+                ])) +
+                    block('ĐẶC ĐIỂM', `<div class="example-box"><div class="ex-line"><div class="ex-dk">✅ Sau liên từ chính: <strong>Ligefrem</strong> (S–V) — không bao giờ gây đảo ngữ!</div></div><div class="ex-line"><div class="ex-dk">Han er træt, <span class="ex-highlight">og</span> <span class="ex-subj">han</span> <span class="ex-verb">vil</span> gå i seng.</div><div class="ex-anno">og → S-V trong HS2</div></div></div>`) +
+                    note('"for" là liên từ CHÍNH, nối HS+HS. Khác hoàn toàn với "fordi" là liên từ PHỤ!')
+            },
+            'konj-ls': {
+                category: 'NHÁNH 4 · LIÊN TỪ PHỤ', color: '#7c3aed', title: '🟢 Liên từ phụ (Nối HS–LS)',
+                html: block('DANH SÁCH', `<div class="example-box"><div class="ex-line"><div class="ex-dk"><span class="ex-ca">at</span> — rằng</div></div><div class="ex-line"><div class="ex-dk"><span class="ex-ca">fordi</span> — vì</div></div><div class="ex-line"><div class="ex-dk"><span class="ex-ca">selvom / skønt</span> — mặc dù</div></div><div class="ex-line"><div class="ex-dk"><span class="ex-ca">hvis</span> — nếu</div></div><div class="ex-line"><div class="ex-dk"><span class="ex-ca">når / da / mens</span> — khi / trong khi</div></div><div class="ex-line"><div class="ex-dk"><span class="ex-ca">om</span> — liệu có (câu hỏi gián tiếp)</div></div><div class="ex-line"><div class="ex-dk"><span class="ex-ca">som / der</span> — mà, người mà (quan hệ)</div></div></div>`) +
+                    block('QUY TẮC', fmlM(['Sau liên từ phụ: áp dụng SAV!', [['f-K', 'Konj'], ['f-S', 'S'], ['f-CA', 'CA'], ['f-V', 'V1'], ['f-X', 'V2'], ['f-A', '...']]])) +
+                    block('VÍ DỤ', exs([
+                        ['Han siger, <span class="ex-highlight">at</span> hun <span class="ex-ca">ikke</span> kommer.', 'Anh nói rằng cô không đến.', ''],
+                        ['<span class="ex-highlight">Hvis</span> du <span class="ex-ca">ikke</span> vil, behøver du ikke.', 'Nếu bạn không muốn, bạn không cần.', ''],
+                    ]))
+            },
+            'adv-konj': {
+                category: 'NHÁNH 4 · CẠM BẪY', color: '#dc2626', title: '⚠️ Trạng từ liên kết — CẠM BẪY gây Inversion!',
+                html: block('VẤN ĐỀ', `<div class="formula-box" style="background:#fff5f5;border-color:#fecaca;"><div style="font-size:13px;color:#dc2626;font-weight:800;margin-bottom:8px">Các từ này TRÔNG NHƯ liên từ nhưng là TRẠNG TỪ!</div><div style="font-size:12px;color:#475569">Chúng chiếm vị trí F → gây INVERSION (V–S)!</div></div>`) +
+                    block('DANH SÁCH', cmpTable(['Từ', 'Nghĩa', 'Hiệu ứng'], [
+                        ['<span class="col-key">derfor</span>', 'vì vậy, do đó', 'Gây INVERSION V-S'],
+                        ['<span class="col-key">dog</span>', 'tuy nhiên', 'Gây INVERSION V-S'],
+                        ['<span class="col-key">alligevel</span>', 'dù sao', 'Gây INVERSION V-S'],
+                        ['<span class="col-key">ellers</span>', 'nếu không', 'Gây INVERSION V-S'],
+                        ['<span class="col-key">desuden</span>', 'hơn nữa', 'Gây INVERSION V-S'],
+                    ])) +
+                    block('VÍ DỤ', exs([
+                        ['Han er træt. <span class="ex-highlight">Derfor</span> <span class="ex-verb">sover</span> <span class="ex-subj">han</span> nu.', 'Anh mệt. Vì vậy anh đang ngủ.', 'Derfor → V-S!'],
+                        ['Det er dyrt. <span class="ex-highlight">Dog</span> <span class="ex-verb">køber</span> <span class="ex-subj">han</span> det.', 'Đắt. Tuy nhiên anh vẫn mua.', 'Dog → V-S!'],
+                    ])) +
+                    block('SO SÁNH', errBox('Han er træt, <strong>så han sover</strong>.<br><small style="color:#94a3b8">(så là KONJUNKTION → S-V)</small>', 'Han er træt. <strong>Derfor sover han</strong>.<br><small style="color:#64748b">(derfor là ADVERBIUM → V-S ✓)</small>', 'så (liên từ)', 'derfor (trạng từ)'))
+            },
+            'for-vs-fordi': {
+                category: 'NHÁNH 4 · PHÂN BIỆT', color: '#7c3aed', title: '⚡ Phân biệt "for" và "fordi"',
+                html: block('BẢNG SO SÁNH', cmpTable(['Tiêu chí', 'for', 'fordi'], [
+                    ['Loại', 'Konjunktion (chính)', 'Konjunktion (phụ)'],
+                    ['Nối', 'HS + HS', 'HS + LS'],
+                    ['Trật tự', 'S – V – CA (ligefrem)', 'S – CA – V (SAV)'],
+                    ['Đứng đầu?', '❌ KHÔNG thể', '✅ CÓ thể (LS đứng trước)'],
+                    ['Vị trí ikke', 'S-V-<strong>ikke</strong>', 'S-<strong>ikke</strong>-V'],
+                ])) +
+                    block('VÍ DỤ', exs([
+                        ['Hun spiste <span class="ex-ca">ikke</span>, <span class="ex-highlight">for</span> hun var <span class="ex-ca">ikke</span> sulten.', 'Cô không ăn vì không đói.', 'for → HS2: hun var ikke'],
+                        ['Han blev hjemme, <span class="ex-highlight">fordi</span> han var syg.', 'Anh ở nhà vì bị ốm.', 'fordi → LS: han var syg'],
+                        ['<span class="ex-highlight">Fordi</span> hun <span class="ex-ca">ikke</span> var sulten, spiste hun <span class="ex-ca">ikke</span>.', 'Vì không đói, cô không ăn.', 'fordi đứng đầu → inversion'],
+                    ])) +
+                    block('❌ LỖI #3', errBox('<strong>For</strong> hun var ikke sulten, spiste hun ikke.<br><small style="color:#94a3b8">("for" KHÔNG đứng đầu câu!)</small>', '<strong>Fordi</strong> hun ikke var sulten, spiste hun ikke.<br><small style="color:#64748b">("fordi" đứng đầu + SAV ✓)</small>')) +
+                    note('Kiểm tra nhanh: S-V-<strong>ikke</strong> → dùng "for" · S-<strong>ikke</strong>-V → dùng "fordi"')
+            },
+            'saa-roles': {
+                category: 'NHÁNH 4 · TỪ PHỨC TẠP', color: '#7c3aed', title: '🎭 Ba vai trò của từ "så"',
+                html: block('VAI TRÒ 1 — Konjunktion (vì vậy, S-V)', `<div class="example-box"><div class="ex-line"><div class="ex-dk">Nghĩa: <span class="ex-highlight">og derfor</span> · Sau nó: <strong>S–V</strong> (không đảo ngữ)</div></div><div class="ex-line"><div class="ex-dk">Han er syg, <span class="ex-highlight">så</span> <span class="ex-subj">han</span> <span class="ex-verb">kom</span> <span class="ex-ca">ikke</span>.</div><div class="ex-vi">Anh bị ốm, vì vậy anh không đến.</div></div></div>`) +
+                    block('VAI TRÒ 2 — Adverbium (sau đó, V-S)', `<div class="example-box"><div class="ex-line"><div class="ex-dk">Nghĩa: <span class="ex-highlight">bagefter</span> · Sau "og/for" · Gây INVERSION (V-S)!</div></div><div class="ex-line"><div class="ex-dk">Først køber hun ind, og <span class="ex-highlight">så</span> <span class="ex-verb">laver</span> <span class="ex-subj">hun</span> mad.</div><div class="ex-vi">Đầu tiên cô mua sắm, và sau đó nấu ăn.</div><div class="ex-anno">og SÅ chiếm vị trí F → V-S!</div></div></div>`) +
+                    block('VAI TRÒ 3 — Mục đích (để mà)', `<div class="example-box"><div class="ex-line"><div class="ex-dk">Nghĩa: <span class="ex-highlight">for at</span> (để mà) · Gây LS với SAV</div></div><div class="ex-line"><div class="ex-dk">Han arbejder hårdt, <span class="ex-highlight">så</span> han kan købe et hus.</div><div class="ex-vi">Anh làm việc chăm chỉ để có thể mua nhà.</div></div></div>`) +
+                    block('NHẬN BIẾT NHANH', cmpTable(['Tình huống', 'Vai trò', 'Trật tự'], [
+                        ['Dấu phẩy trước "så" + "vì vậy"', 'Konjunktion', '<strong style="color:#16a34a">S – V</strong>'],
+                        ['"og/for" trước "så" + "sau đó"', 'Adverbium', '<strong style="color:#dc2626">V – S</strong>'],
+                        ['"så" + mục đích', 'Ledsætning', '<strong style="color:#2563eb">S – CA – V</strong>'],
+                    ]))
+            },
+        };
+    </script>
+</body>
+
+</html>

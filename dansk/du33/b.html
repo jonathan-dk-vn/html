@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danskuddannelse 3 - Modul 3 (Sæt B)</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Lexend', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        .accent-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .accent-shadow:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Navigation */
+        .nav-sticky {
+            position: sticky;
+            top: 24px;
+            max-height: calc(100vh - 48px);
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+
+        .nav-item {
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.6);
+            border-left-color: #3b82f6;
+            color: #1d4ed8;
+            padding-left: 1rem;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .syntax-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            min-width: 600px;
+        }
+
+        .syntax-table th {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 14px;
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-align: left;
+        }
+
+        .syntax-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+            color: #475569;
+            vertical-align: top;
+        }
+
+        .syntax-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .syntax-table tr:hover {
+            background: #f1f5f9;
+        }
+
+        /* Gradients Headers */
+        .header-slate {
+            background: linear-gradient(135deg, #475569 0%, #1e293b 100%);
+        }
+
+        /* Exam Sections */
+        .header-red {
+            background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+        }
+
+        /* Writing Guide */
+        .header-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        /* Conversation Answers */
+        .header-green {
+            background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+        }
+
+        /* Reading Answers */
+        .header-orange {
+            background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+        }
+
+        /* Oral Guide */
+        .header-purple {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+        }
+
+        /* Reading 3/4 Answers */
+
+        /* Typography Utilities */
+        .translation-text {
+            display: block;
+            font-size: 0.85em;
+            color: #64748b;
+            margin-top: 0.25rem;
+            
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #1e293b, #475569);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .vocab-list li {
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+
+        .vocab-list li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Main Title -->
+        <header class="text-center mb-12 py-8">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 gradient-text tracking-tight uppercase">
+                Modul 3 Exam - Sæt B
+            </h1>
+            <p class="text-xl text-slate-500 font-light">Eksamen & Studieguide (Exam & Study Guide)</p>
+        </header>
+
+        <div class="grid lg:grid-cols-4 gap-8">
+
+            <!-- Sidebar Navigation -->
+            <aside class="hidden lg:block">
+                <nav class="nav-sticky glass-card rounded-2xl p-6 accent-shadow">
+                    <h3
+                        class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-200 pb-2">
+                        Mục lục</h3>
+                    <ul class="space-y-1 text-sm text-slate-600" id="toc-list">
+                        <!-- JS will populate this -->
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="lg:col-span-3 space-y-10">
+
+                <!-- INFO CARD -->
+                <div id="info"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100 p-6">
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="h-12 w-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-600">
+                            <i class="fas fa-user-graduate text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-500 uppercase font-bold">Kursist Information</p>
+                            <h2 class="text-2xl font-bold text-slate-800">Sæt B</h2>
+                            <p class="text-slate-600">Kursistnr.: *****_*****</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== PART 1: EXAM PAPER ==================== -->
+
+                <!-- Læsning Opgave 1 -->
+                <div id="laesning-1"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-slate p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-book-open mr-3"></i>Læsning, Opgave 1</h2>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Fill in
+                            the blanks</span>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <p class="mb-4 text-slate-600"><strong>Instruktion:</strong> Læs teksten <em>Sia skal have
+                                møbler</em>. Skriv de ord (1-6), der mangler.</p>
+
+                        <div class="bg-slate-100 p-4 rounded-xl mb-6 border border-slate-200">
+                            <p class="font-bold text-slate-700 mb-2 uppercase text-xs tracking-wider">Ordliste:</p>
+                            <div class="flex flex-wrap gap-2 text-sm">
+                                <span class="bg-white px-3 py-1 rounded shadow-sm text-slate-700">mange</span>
+                                <span class="bg-white px-3 py-1 rounded shadow-sm text-slate-700">om</span>
+                                <span class="bg-white px-3 py-1 rounded shadow-sm text-slate-700">selvom</span>
+                                <span class="bg-white px-3 py-1 rounded shadow-sm text-slate-700">hvis</span>
+                                <span class="bg-white px-3 py-1 rounded shadow-sm text-slate-700">da</span>
+                                <span class="bg-white px-3 py-1 rounded shadow-sm text-slate-700">billig</span>
+                                <span class="bg-white px-3 py-1 rounded shadow-sm text-slate-700">fordi</span>
+                                <span class="bg-white px-3 py-1 rounded shadow-sm text-slate-700 font-bold">flere</span>
+                                <span class="bg-white px-3 py-1 rounded shadow-sm text-slate-700 font-bold">til</span>
+                                <span class="bg-white px-3 py-1 rounded shadow-sm text-slate-700 font-bold">også</span>
+                                <span class="bg-white px-3 py-1 rounded shadow-sm text-slate-700 font-bold">for</span>
+                                <span class="bg-white px-3 py-1 rounded shadow-sm text-slate-700 font-bold">dyrt</span>
+                                <span class="bg-white px-3 py-1 rounded shadow-sm text-slate-700 font-bold">nu</span>
+                            </div>
+                        </div>
+
+                        <div class="prose max-w-none text-slate-700 leading-relaxed space-y-4">
+                            <h3 class="text-xl font-bold text-slate-800">Sia skal have møbler</h3>
+                            <p>Sia er 20 år gammel og er lige flyttet hjemmefra i en lille lejlighed. Hun skal have
+                                møbler til sin lejlighed, men hun har ikke så (0) <strong>mange</strong> penge, fordi
+                                hun studerer og får SU. Hun har ikke råd til at købe nyt, så hun tager på loppemarked
+                                for at lede efter brugte møbler.</p>
+                            <p>Hun drømmer om at finde en flot sofa, et rundt spisebord og fire stole (1) ______
+                                spisebordet. Der er mange forskellige møbler, så det tager tid at finde de rigtige. Mens
+                                hun går rundt og kigger, får hun øje på en sofa, der er i brunt læder og kun koster 500
+                                kr. Hun sætter sig i sofaen for at mærke, (2) ______ hun sidder godt. Det gør hun, og
+                                prisen er okay, synes hun. Hun betaler 500 kr. og begynder at lede efter et spisebord og
+                                fire stole, men det er umuligt at finde et pænt spisebord.</p>
+                            <p>Til gengæld har hun set fire stole, der er super flotte. De koster 2.000 kr., men det
+                                synes hun er (3) ______. Hun spørger sælgeren, om hun kan få dem billigere. Han svarer,
+                                at det kan hun desværre ikke, men hun kan få et skab gratis med. Sia tænker. Hun har jo
+                                ikke planlagt at købe et skab, (4) ______ det faktisk er rigtig pænt.</p>
+                            <p>Hun siger ja til de fire stole og skabet og betaler 2.000 kr. Hun er nødt til at bestille
+                                en møbeltransport for at få sine ting hjem, og lidt efter kommer en lille flyttebil.
+                                Chaufføren hjælper hende med at bære møblerne op og sætte dem på plads. (5) ______ han
+                                er gået, står Sia og kigger på sine nye møbler. Det ser meget fint ud, synes hun. (6)
+                                ______ mangler hun bare et spisebord. Det kan hun måske finde på DBA, tænker hun.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Læsning Opgave 2A -->
+                <div id="laesning-2a"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-slate p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-comments mr-3"></i>Læsning, Opgave 2A: Sonny &
+                            Brian</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <p class="mb-4 text-slate-600"><strong>Instruktion:</strong> Situation: Sonny skriver til sin
+                            ven Brian. Find de svar fra Brian, der passer (A-F).</p>
+
+                        <div class="table-container">
+                            <table class="syntax-table">
+                                <thead>
+                                    <tr>
+                                        <th class="w-1/2">Sonny (Beskeder)</th>
+                                        <th class="w-1/2">Brian (Svar)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Skal du med ud og se fodboldkamp på søndag?</td>
+                                        <td>(0) Z** - Jo, måske. Hvem spiller?</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Brøndby og FCK</td>
+                                        <td>(1) ________</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Super. Skal vi måske mødes lidt før?</td>
+                                        <td>(2) ________</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Okay. Men vi tager kun én øl, ikke? Skal vi cykle til stadion eller tage
+                                            bussen?</td>
+                                        <td>(3) ________</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Okay, vi cykler. Vi ses på søndag.</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-lg mt-4 border border-slate-200">
+                            <h4 class="font-bold text-slate-800 mb-2">Svarmuligheder:</h4>
+                            <ul class="space-y-1 text-sm text-slate-700">
+                                <li><strong>A:</strong> Én øl, det er en aftale! Og skal vi ikke cykle?</li>
+                                <li><strong>B:</strong> Det kan jeg desværre ikke nå.</li>
+                                <li><strong>C:</strong> Ja, lad os gøre det. På Café Ølkælderen?</li>
+                                <li><strong>D:</strong> Jeg kan desværre ikke på søndag.</li>
+                                <li><strong>E:</strong> Jeg synes, vi skal tage bilen.</li>
+                                <li><strong>F:</strong> Yes! Selvfølgelig vil jeg med.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Læsning Opgave 2B -->
+                <div id="laesning-2b"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-slate p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-comments mr-3"></i>Læsning, Opgave 2B: Dina &
+                            Lilian</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <p class="mb-4 text-slate-600"><strong>Instruktion:</strong> Situation: Dina skriver til sin ven
+                            Lilian. Find de svar fra Lilian, der passer (A-F).</p>
+
+                        <div class="table-container">
+                            <table class="syntax-table">
+                                <thead>
+                                    <tr>
+                                        <th class="w-1/2">Dina (Beskeder)</th>
+                                        <th class="w-1/2">Lilian (Svar)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Hej Lilian. Kommer du til sommerfesten på fredag?</td>
+                                        <td>(0) Z** - Jeg ved det ikke endnu. Min datter er syg.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kan din mand ikke passe hende?</td>
+                                        <td>(1) ________</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hvad fejler din datter?</td>
+                                        <td>(2) ________</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Øv da. Hvor længe har hun været syg?</td>
+                                        <td>(3) ________</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jeg krydser fingre. Vi ses måske på fredag :)</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-lg mt-4 border border-slate-200">
+                            <h4 class="font-bold text-slate-800 mb-2">Svarmuligheder:</h4>
+                            <ul class="space-y-1 text-sm text-slate-700">
+                                <li><strong>A:</strong> Hun er sikkert rask i morgen.</li>
+                                <li><strong>B:</strong> Influenza. Hun har feber og hoster.</li>
+                                <li><strong>C:</strong> Nej, han er på kursus i Tyskland.</li>
+                                <li><strong>D:</strong> Hun fejler ikke noget og er frisk igen.</li>
+                                <li><strong>E:</strong> I tre dage, så måske er hun rask på fredag.</li>
+                                <li><strong>F:</strong> Han er journalist og arbejder på Politiken.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Læsning Opgave 3 -->
+                <div id="laesning-3"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-slate p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-align-left mr-3"></i>Læsning, Opgave 3</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <p class="mb-4 text-slate-600"><strong>Instruktion:</strong> Læs teksten <em>Minas
+                                kolonihavehus</em>. Find den sætning, der passer i hvert afsnit.</p>
+
+                        <div class="space-y-6">
+                            <!-- Section 1 -->
+                            <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                                <h4 class="font-bold text-slate-800 mb-2">1.</h4>
+                                <p class="text-slate-700 mb-2">Mina bor i en 3-værelses lejlighed... De tager tit hen på
+                                    legepladsen, men hun synes faktisk, det er ret besværligt... og nogle gange vil
+                                    sønnen ikke med hjem igen. <strong>[ ... ]</strong> Så kunne Minas søn bare løbe ud
+                                    og lege på græsset...</p>
+                                <ul class="text-sm space-y-1 text-slate-600 pl-4 border-l-2 border-slate-300">
+                                    <li>A. Minas søn kan godt lide at lege på sit værelse.</li>
+                                    <li>B. Derfor ville det være dejligt, hvis de havde en lille have.</li>
+                                    <li>C. Så Mina vil gerne flytte i en større lejlighed.</li>
+                                    <li>D. Derfor drømmer Mina om at få en altan.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Section 2 -->
+                            <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                                <h4 class="font-bold text-slate-800 mb-2">2.</h4>
+                                <p class="text-slate-700 mb-2">En dag ser Mina en annonce med et rødt kolonihavehus...
+                                    Der står også i annoncen, at der er installeret både vand og elektricitet...
+                                    Derudover er der et lille køkken, en stue og et soveværelse. <strong>[ ...
+                                        ]</strong> Mina synes, det lyder fantastisk...</p>
+                                <ul class="text-sm space-y-1 text-slate-600 pl-4 border-l-2 border-slate-300">
+                                    <li>A. Desuden ligger kolonihaven kun 5 km væk, så hun ville kunne cykle derhen.
+                                    </li>
+                                    <li>B. Det er ærgerligt, for hun ville gerne have en lidt større have.</li>
+                                    <li>C. Men Mina er ikke helt sikker og vil gerne se på nogle andre huse.</li>
+                                    <li>D. Desværre bliver det nok for dyrt, tænker Mina.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Section 3 -->
+                            <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                                <h4 class="font-bold text-slate-800 mb-2">3.</h4>
+                                <p class="text-slate-700 mb-2">Der er åbent hus om søndagen kl. 11... Det er torsdag i
+                                    dag, så der er nogle dage til, at hun skal derud. <strong>[ ... ]</strong> Mina har
+                                    selv en opsparing, men ikke nok til at købe et kolonihavehus. Hun skal måske også
+                                    bruge penge til nogle havemøbler...</p>
+                                <ul class="text-sm space-y-1 text-slate-600 pl-4 border-l-2 border-slate-300">
+                                    <li>A. Hun har ikke så mange penge, så hun skal låne alle pengene i banken.</li>
+                                    <li>B. Hun tror, at hun har penge nok til at købe kolonihaven.</li>
+                                    <li>C. Det er et lidt dyrt hus, så hun vil alligevel ikke købe det.</li>
+                                    <li>D. Så hun kan nå at spørge sin bankrådgiver, om hun kan låne nogle penge.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Section 4 -->
+                            <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                                <h4 class="font-bold text-slate-800 mb-2">4.</h4>
+                                <p class="text-slate-700 mb-2">Mina og hendes søn tager til åbent hus... Hun ved med det
+                                    samme, at hun elsker det sted, og det gør hendes søn også, kan hun se på ham.
+                                    <strong>[ ... ]</strong> Mina fortæller sælgeren, at hun har lavet en aftale med sin
+                                    bank...</p>
+                                <ul class="text-sm space-y-1 text-slate-600 pl-4 border-l-2 border-slate-300">
+                                    <li>A. For han løber nemlig rundt i haven og griner.</li>
+                                    <li>B. Men han er ikke taget med alligevel.</li>
+                                    <li>C. For han sidder i sin klapvogn og sover.</li>
+                                    <li>D. Det er første gang, han er med i banken.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Section 5 -->
+                            <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                                <h4 class="font-bold text-slate-800 mb-2">5.</h4>
+                                <p class="text-slate-700 mb-2">Mina har købt kolonihavehuset... Hendes søn elsker at
+                                    lege i haven, hvor Mina har placeret en sandkasse og et gyngestativ... <strong>[ ...
+                                        ]</strong> De inviterer hinanden på kaffe og kage, og hver måned er der
+                                    fællesspisning...</p>
+                                <ul class="text-sm space-y-1 text-slate-600 pl-4 border-l-2 border-slate-300">
+                                    <li>A. Og Mina får besøg i haven af sin familie.</li>
+                                    <li>B. Mina og hendes søn har desværre ikke så meget tid til hinanden.</li>
+                                    <li>C. Og Mina taler med naboerne og hygger sig med dem.</li>
+                                    <li>D. Minas nabo er et ungt par, der helst vil være alene.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Læsning Opgave 4 -->
+                <div id="laesning-4"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-slate p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-users mr-3"></i>Læsning, Opgave 4</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <p class="mb-4 text-slate-600"><strong>Instruktion:</strong> Læs de tre tekster (A, B og C), og
+                            læs spørgsmålene (1-7). Find den person, der passer til hvert spørgsmål.</p>
+                        <div class="flex space-x-4 mb-6">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded font-bold">A: Pia</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded font-bold">B: Curt</span>
+                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded font-bold">C: Larisa</span>
+                        </div>
+
+                        <div class="table-container mb-6">
+                            <table class="syntax-table">
+                                <thead>
+                                    <tr>
+                                        <th>Spørgsmål</th>
+                                        <th class="w-24 text-center">Svar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>(0) Hvem har boet i Danmark længst?</td>
+                                        <td class="text-center font-bold">A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1. Hvem var glad for, at lægebesøget var gratis?</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2. Hvem var nødt til at få fat i lægen igen?</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3. Hvem ventede længst på at få en tid hos lægen?</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4. Hvem fik udskrevet medicin af lægen?</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5. Hvem havde svært ved at finde lægeklinikken?</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>6. Hvem tænkte ikke på at opsøge en privat klinik?</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>7. Hvem havde den læge, der stillede flest spørgsmål?</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Mini Texts -->
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-slate-50 p-4 rounded text-sm text-slate-700">
+                                <strong class="block mb-2 text-blue-800">A. Pia (Norge)</strong>
+                                3 år i Aarhus. Forsker. Overrasket over ventetid (>2 uger). Lettet da tid kom. Fandt
+                                nemt klinikken. Lægen lyttede og spurgte meget. Overvejede privatklinik men for dyrt.
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded text-sm text-slate-700">
+                                <strong class="block mb-2 text-green-800">B. Curt (USA)</strong>
+                                1 år i Odense. Underviser. Ventede 6 dage. Kort konsultation (10 min). Lægen stillede
+                                næsten ingen spørgsmål. Glad for det var gratis.
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded text-sm text-slate-700">
+                                <strong class="block mb-2 text-orange-800">C. Larisa (Portugal)</strong>
+                                2 år i Danmark. Vidste ikke telefontid. Tid 1 uge efter. Svært at finde (Google Maps).
+                                Fik recept. Måtte kontakte igen. Måske privathospital fremover.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skrivning Opgaver -->
+                <div id="skrivning-tasks"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-slate p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-pen-fancy mr-3"></i>Skrivning Opgaver</h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-8">
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 border-b pb-2 mb-3">Opgave 1: Anbefaling</h3>
+                            <p class="text-slate-700"><strong>Situation:</strong> Du har fået en ny læge, der er rigtig
+                                god. Du vil skrive en anbefaling på internettet.</p>
+                            <div class="bg-slate-50 p-4 rounded mt-2 text-sm text-slate-700">
+                                <strong>Krav:</strong>
+                                <ul class="list-disc pl-5 mt-1">
+                                    <li>Hvad din læge hedder</li>
+                                    <li>Hvor lægeklinikken ligger</li>
+                                    <li>Hvorfor du synes, lægen er god</li>
+                                    <li>Hvad det betyder for dig at have en god læge</li>
+                                </ul>
+                                <p class="mt-2"><strong>Overskrift:</strong> Anbefaling af din læge</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 border-b pb-2 mb-3">Opgave 2: Svar på e-mail
+                            </h3>
+                            <p class="text-slate-700"><strong>E-mail fra Sofie:</strong></p>
+                            <div class="bg-white border-l-4 border-blue-400 p-4 my-2 italic text-slate-600 text-sm">
+                                "Jeg håber, du nyder den danske sommer. Jeg synes næsten, det er lidt for varmt i år.
+                                Hvad synes du? ... Har du et godt råd til, hvordan man husker alle de nye ord...? Måske
+                                kender du en, der gerne vil tale spansk med mig...?"
+                            </div>
+                            <p class="text-sm text-slate-500"><strong>Krav:</strong> Min. 90 ord. Tid: 30 min.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mundtlig Opgaver -->
+                <div id="mundtlig-tasks"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-slate p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-comment-dots mr-3"></i>Mundtlig Kommunikation
+                        </h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="bg-slate-200 text-slate-700 font-bold px-2 rounded mr-3 mt-1">1</span>
+                                <div>
+                                    <strong class="text-slate-800">Opgave 1:</strong> Interview (Find materiale på
+                                    danskogprøver.dk)
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-slate-200 text-slate-700 font-bold px-2 rounded mr-3 mt-1">2</span>
+                                <div>
+                                    <strong class="text-slate-800">Opgave 2:</strong> Bolig.
+                                    <p class="text-sm text-slate-600 mt-1">Billeder vises af forskellige boligtyper:
+                                        Gammel gård, moderne parcelhus, lejlighedskompleks, ældre bygning.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ==================== PART 2: ANSWERS & EXPLANATIONS ==================== -->
+
+                <div class="py-6 flex items-center justify-center">
+                    <span
+                        class="bg-slate-200 text-slate-500 px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase">Answers
+                        & Study Guide</span>
+                </div>
+
+                <!-- 🟢 LÆSNING 1 Answers -->
+                <div id="ans-laesning-1"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-green-100">
+                    <div class="header-green p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-check-circle mr-3"></i>🟢 LÆSNING 1: Đáp án &
+                            Giải thích</h2>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">6
+                            Points</span>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-6">
+
+                        <div class="prose max-w-none text-slate-700">
+                            <!-- Câu 1 -->
+                            <div class="border-b border-green-100 pb-4">
+                                <h3 class="text-lg font-bold text-green-700">Câu 1: "til" ✅</h3>
+                                <p class="text-sm text-slate-600 mb-2"><em>"...et rundt spisebord og fire stole
+                                        <strong>(1) til</strong> spisebordet."</em></p>
+                                <div class="bg-green-50 p-3 rounded text-sm">
+                                    <strong>🔍 Giải thích:</strong> "til" (cho/để dùng với) chỉ mục đích. "Stole til
+                                    bordet" = ghế dành cho cái bàn.<br>
+                                    <span class="translation-text">Dịch: ...bốn cái ghế dành cho cái bàn đó.</span>
+                                </div>
+                            </div>
+
+                            <!-- Câu 2 -->
+                            <div class="border-b border-green-100 pb-4 mt-4">
+                                <h3 class="text-lg font-bold text-green-700">Câu 2: "om" ✅</h3>
+                                <p class="text-sm text-slate-600 mb-2"><em>"Hun sætter sig i sofaen for at mærke,
+                                        <strong>(2) om</strong> hun sidder godt."</em></p>
+                                <div class="bg-green-50 p-3 rounded text-sm">
+                                    <strong>🔍 Giải thích:</strong> "om" (liệu có) dẫn dắt câu hỏi gián tiếp sau động từ
+                                    "mærke" (cảm nhận/kiểm tra).<br>
+                                    <span class="translation-text">Dịch: ...để cảm nhận xem liệu cô ấy có ngồi thoải mái
+                                        không.</span>
+                                </div>
+                            </div>
+
+                            <!-- Câu 3 -->
+                            <div class="border-b border-green-100 pb-4 mt-4">
+                                <h3 class="text-lg font-bold text-green-700">Câu 3: "dyrt" ✅</h3>
+                                <p class="text-sm text-slate-600 mb-2"><em>"De koster 2.000 kr., men det synes hun er
+                                        <strong>(3) dyrt</strong>."</em></p>
+                                <div class="bg-green-50 p-3 rounded text-sm">
+                                    <strong>🔍 Giải thích:</strong> "dyrt" (đắt) là tính từ dạng trung tính (t-form) vì
+                                    chủ ngữ là "det".<br>
+                                    <span class="translation-text">Dịch: ...nhưng cô ấy nghĩ điều đó là đắt.</span>
+                                </div>
+                            </div>
+
+                            <!-- Câu 4 -->
+                            <div class="border-b border-green-100 pb-4 mt-4">
+                                <h3 class="text-lg font-bold text-green-700">Câu 4: "selvom" ✅</h3>
+                                <p class="text-sm text-slate-600 mb-2"><em>"Hun har jo ikke planlagt at købe et skab,
+                                        <strong>(4) selvom</strong> det faktisk er rigtig pænt."</em></p>
+                                <div class="bg-green-50 p-3 rounded text-sm">
+                                    <strong>🔍 Giải thích:</strong> "selvom" (mặc dù) chỉ sự nhượng bộ/đối lập (không
+                                    định mua NHƯNG nó đẹp).<br>
+                                    <span class="translation-text">Dịch: ...mặc dù nó thật sự rất đẹp.</span>
+                                </div>
+                            </div>
+
+                            <!-- Câu 5 -->
+                            <div class="border-b border-green-100 pb-4 mt-4">
+                                <h3 class="text-lg font-bold text-green-700">Câu 5: "Da" ✅</h3>
+                                <p class="text-sm text-slate-600 mb-2"><em>"<strong>(5) Da</strong> han er gået, står
+                                        Sia og kigger..."</em></p>
+                                <div class="bg-green-50 p-3 rounded text-sm">
+                                    <strong>🔍 Giải thích:</strong> "Da" (khi/sau khi) dùng cho thời gian quá khứ.<br>
+                                    <span class="translation-text">Dịch: Sau khi anh ấy đã đi, Sia đứng nhìn...</span>
+                                </div>
+                            </div>
+
+                            <!-- Câu 6 -->
+                            <div class="mt-4">
+                                <h3 class="text-lg font-bold text-green-700">Câu 6: "Nu" ✅</h3>
+                                <p class="text-sm text-slate-600 mb-2"><em>"<strong>(6) Nu</strong> mangler hun bare et
+                                        spisebord."</em></p>
+                                <div class="bg-green-50 p-3 rounded text-sm">
+                                    <strong>🔍 Giải thích:</strong> "Nu" (bây giờ) chỉ thời điểm hiện tại sau khi đã mua
+                                    các món khác.<br>
+                                    <span class="translation-text">Dịch: Bây giờ cô ấy chỉ còn thiếu một cái bàn
+                                        ăn.</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 🔵 LÆSNING 2 Answers -->
+                <div id="ans-laesning-2"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-blue-100">
+                    <div class="header-blue p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-check-double mr-3"></i>🔵 LÆSNING 2: Đáp án Hội
+                            thoại</h2>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">6
+                            Points</span>
+                    </div>
+                    <div class="p-6 md:p-8 grid md:grid-cols-2 gap-8">
+
+                        <!-- 2A Sonny & Brian -->
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-800 mb-4 border-b border-blue-200 pb-2">2A: Sonny &
+                                Brian</h3>
+                            <ul class="space-y-4">
+                                <li class="bg-blue-50 p-3 rounded">
+                                    <div class="flex justify-between font-bold text-blue-900"><span>Câu 1</span><span>F
+                                            ✅</span></div>
+                                    <p class="text-sm text-slate-600 mt-1">"Yes! Selvfølgelig vil jeg med."</p>
+                                    <p class="text-xs text-slate-500 italic">Brian hào hứng khi biết đội bóng (Brøndby
+                                        vs FCK).</p>
+                                </li>
+                                <li class="bg-blue-50 p-3 rounded">
+                                    <div class="flex justify-between font-bold text-blue-900"><span>Câu 2</span><span>C
+                                            ✅</span></div>
+                                    <p class="text-sm text-slate-600 mt-1">"Ja, lad os gøre det. På Café Ølkælderen?"
+                                    </p>
+                                    <p class="text-xs text-slate-500 italic">Đồng ý gặp sớm và đề xuất địa điểm.</p>
+                                </li>
+                                <li class="bg-blue-50 p-3 rounded">
+                                    <div class="flex justify-between font-bold text-blue-900"><span>Câu 3</span><span>A
+                                            ✅</span></div>
+                                    <p class="text-sm text-slate-600 mt-1">"Én øl, det er en aftale! Og skal vi ikke
+                                        cykle?"</p>
+                                    <p class="text-xs text-slate-500 italic">Trả lời cả 2 câu hỏi: 1 bia + đi xe đạp.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 2B Dina & Lilian -->
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-800 mb-4 border-b border-blue-200 pb-2">2B: Dina &
+                                Lilian</h3>
+                            <ul class="space-y-4">
+                                <li class="bg-blue-50 p-3 rounded">
+                                    <div class="flex justify-between font-bold text-blue-900"><span>Câu 1</span><span>C
+                                            ✅</span></div>
+                                    <p class="text-sm text-slate-600 mt-1">"Nej, han er på kursus i Tyskland."</p>
+                                    <p class="text-xs text-slate-500 italic">Giải thích tại sao chồng không trông con
+                                        được.</p>
+                                </li>
+                                <li class="bg-blue-50 p-3 rounded">
+                                    <div class="flex justify-between font-bold text-blue-900"><span>Câu 2</span><span>B
+                                            ✅</span></div>
+                                    <p class="text-sm text-slate-600 mt-1">"Influenza. Hun har feber og hoster."</p>
+                                    <p class="text-xs text-slate-500 italic">Trả lời về bệnh gì (hvad fejler).</p>
+                                </li>
+                                <li class="bg-blue-50 p-3 rounded">
+                                    <div class="flex justify-between font-bold text-blue-900"><span>Câu 3</span><span>E
+                                            ✅</span></div>
+                                    <p class="text-sm text-slate-600 mt-1">"I tre dage, så måske er hun rask på fredag."
+                                    </p>
+                                    <p class="text-xs text-slate-500 italic">Trả lời bao lâu (hvor længe) + hy vọng.</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 🟣 LÆSNING 3 & 4 Answers -->
+                <div id="ans-laesning-3-4"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-purple-100">
+                    <div class="header-slate p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-list-ol mr-3"></i>LÆSNING 3 & 4: Đáp án</h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-8">
+
+                        <!-- Læsning 3 -->
+                        <div>
+                            <h3 class="text-xl font-bold text-purple-700 mb-3">Læsning 3: Minas kolonihavehus (5 điểm)
+                            </h3>
+                            <div class="grid grid-cols-5 gap-2 text-center">
+                                <div class="bg-purple-50 p-2 rounded border border-purple-200">
+                                    <span class="block text-xs uppercase text-slate-500">Đoạn 1</span>
+                                    <span class="font-bold text-purple-800 text-lg">B</span>
+                                </div>
+                                <div class="bg-purple-50 p-2 rounded border border-purple-200">
+                                    <span class="block text-xs uppercase text-slate-500">Đoạn 2</span>
+                                    <span class="font-bold text-purple-800 text-lg">A</span>
+                                </div>
+                                <div class="bg-purple-50 p-2 rounded border border-purple-200">
+                                    <span class="block text-xs uppercase text-slate-500">Đoạn 3</span>
+                                    <span class="font-bold text-purple-800 text-lg">D</span>
+                                </div>
+                                <div class="bg-purple-50 p-2 rounded border border-purple-200">
+                                    <span class="block text-xs uppercase text-slate-500">Đoạn 4</span>
+                                    <span class="font-bold text-purple-800 text-lg">A</span>
+                                </div>
+                                <div class="bg-purple-50 p-2 rounded border border-purple-200">
+                                    <span class="block text-xs uppercase text-slate-500">Đoạn 5</span>
+                                    <span class="font-bold text-purple-800 text-lg">C</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Læsning 4 -->
+                        <div>
+                            <h3 class="text-xl font-bold text-purple-700 mb-3">Læsning 4: Tìm người (7 điểm)</h3>
+                            <div class="overflow-x-auto">
+                                <table class="syntax-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Câu hỏi</th>
+                                            <th>Đáp án</th>
+                                            <th>Từ khóa / Bằng chứng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1. Glad for gratis?</td>
+                                            <td class="font-bold text-green-600">B (Curt)</td>
+                                            <td class="text-sm italic">"...glad for, at jeg ikke skulle betale"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2. Få fat i lægen igen?</td>
+                                            <td class="font-bold text-orange-600">C (Larisa)</td>
+                                            <td class="text-sm italic">"...kontakte ham igen... fik en ny tid"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3. Ventede længst?</td>
+                                            <td class="font-bold text-blue-600">A (Pia)</td>
+                                            <td class="text-sm italic">"...over to ugers ventetid" (Curt 6 dage, Larisa
+                                                1 uge)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4. Fik medicin?</td>
+                                            <td class="font-bold text-orange-600">C (Larisa)</td>
+                                            <td class="text-sm italic">"...skrev en recept"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5. Svært at finde?</td>
+                                            <td class="font-bold text-orange-600">C (Larisa)</td>
+                                            <td class="text-sm italic">"...ikke helt let at finde"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6. Tænkte ikke på privat?</td>
+                                            <td class="font-bold text-green-600">B (Curt)</td>
+                                            <td class="text-sm italic">(Không nhắc đến trong văn bản, 2 người kia có
+                                                nhắc)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7. Flest spørgsmål?</td>
+                                            <td class="font-bold text-blue-600">A (Pia)</td>
+                                            <td class="text-sm italic">"...spurgte mig om mange ting"</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 🔴 SKRIVNING GUIDE -->
+                <div id="guide-skrivning"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-red-100">
+                    <div class="header-red p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-pencil-alt mr-3"></i>🔴 SKRIVNING: Hướng dẫn &
+                            Bài mẫu</h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-8">
+
+                        <!-- Opgave 1: Anbefaling -->
+                        <div>
+                            <h3 class="text-xl font-bold text-red-700 mb-3">Opgave 1: Anbefaling af læge</h3>
+                            <div class="bg-red-50 p-4 rounded-xl border border-red-100 mb-4">
+                                <h4 class="font-bold text-red-800 mb-2">Bài mẫu (Eksempel):</h4>
+                                <p class="text-sm text-slate-700 italic mb-4">
+                                    "Jeg vil gerne anbefale min læge, <strong>Dr. Mette Hansen</strong>. Hendes klinik
+                                    ligger på Vestergade 45 i Viborg...<br><br>
+                                    <strong>Aldrig har jeg mødt en læge, der lytter så godt som Dr. Hansen!</strong>...
+                                    Hun har hjulpet mig med mange forskellige sygdomme... <strong>Desuden</strong> er
+                                    Dr. Hansen meget dygtig til at forklare tingene...<br><br>
+                                    For mig betyder det rigtig meget at have en god læge. <strong>Fordi</strong> jeg har
+                                    et lille barn, bliver jeg tit bekymret..."
+                                </p>
+
+                                <div class="bg-white p-3 rounded border border-red-200">
+                                    <strong class="text-red-600 text-xs uppercase tracking-wide">Kỹ thuật Ngữ
+                                        pháp:</strong>
+                                    <ul class="list-disc pl-5 mt-1 text-sm text-slate-600">
+                                        <li><strong>Inversion:</strong> "Aldrig har jeg mødt...", "Først efter
+                                            konsultationen giver hun..."</li>
+                                        <li><strong>Førnutid:</strong> "Hun har hjulpet..."</li>
+                                        <li><strong>Bindeord:</strong> Desuden, fordi, derfor.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Opgave 2: Email -->
+                        <div>
+                            <h3 class="text-xl font-bold text-red-700 mb-3">Opgave 2: Svar til Sofie</h3>
+                            <div class="bg-red-50 p-4 rounded-xl border border-red-100 mb-4">
+                                <h4 class="font-bold text-red-800 mb-2">Checklist nội dung:</h4>
+                                <ul class="text-sm space-y-1 text-slate-700 mb-4">
+                                    <li>✅ Về mùa hè: "Sidste år var sommeren meget kold... Nu kan vi sidde ude..."</li>
+                                    <li>✅ Lời khuyên học từ: "Først og fremmest skal du bruge ordene...", "Desuden kan
+                                        du se spanske film..."</li>
+                                    <li>✅ Tìm người nói tiếng TBN: "Har jeg faktisk en god ide! (Rosa fra Mexico)"</li>
+                                </ul>
+
+                                <div class="bg-white p-3 rounded border border-red-200">
+                                    <strong class="text-red-600 text-xs uppercase tracking-wide">Mẹo viết:</strong>
+                                    <p class="text-sm text-slate-600 mt-1">Dùng <strong>Inversion</strong> để nhấn mạnh
+                                        lời khuyên ("Først og fremmest skal du..."). Dùng <strong>Bindeord</strong>
+                                        (Desuden, derfor) để liên kết ý.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 🟡 MUNDTLIG GUIDE -->
+                <div id="guide-mundtlig"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-orange-100">
+                    <div class="header-orange p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-comment mr-3"></i>🟡 MUNDTLIG: "Bolig"</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="font-bold text-orange-800 mb-2">10 Từ vựng "Vàng"</h3>
+                                <ul class="vocab-list text-sm text-slate-700">
+                                    <li><strong>Et parcelhus</strong> (nhà riêng/biệt lập)</li>
+                                    <li><strong>En lejlighed</strong> (căn hộ chung cư)</li>
+                                    <li><strong>På landet</strong> (ở nông thôn)</li>
+                                    <li><strong>I byen</strong> (ở thành phố)</li>
+                                    <li><strong>Et nærområde</strong> (khu vực lân cận)</li>
+                                    <li><strong>At pendle</strong> (đi lại làm việc)</li>
+                                    <li><strong>At renovere</strong> (cải tạo/sửa chữa)</li>
+                                    <li><strong>En altan / En have</strong> (ban công / vườn)</li>
+                                    <li><strong>Energivenlig</strong> (tiết kiệm năng lượng)</li>
+                                    <li><strong>Vedligeholdelse</strong> (bảo trì)</li>
+                                </ul>
+                            </div>
+                            <div class="bg-orange-50 p-4 rounded-xl">
+                                <h3 class="font-bold text-orange-800 mb-2">Cấu trúc trả lời</h3>
+                                <div class="space-y-2 text-sm text-slate-700">
+                                    <p><strong>1. Mening (Ý kiến):</strong> "Jeg vil helst bo i et parcelhus..."</p>
+                                    <p><strong>2. Grund (Lý do):</strong> "Fordi jeg gerne vil have ro og plads til mine
+                                        børn."</p>
+                                    <p><strong>3. Uddybning (Mở rộng):</strong> "Desuden kan jeg godt lide at have en
+                                        have, hvor jeg kan dyrke grøntsager."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <footer class="mt-16 text-center text-slate-400 text-sm pb-8">
+            <p>&copy; 2024 Danskuddannelse 3 Guide. Designed with <i class="fas fa-heart text-red-400"></i> &
+                TailwindCSS.</p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Generate TOC
+        document.addEventListener('DOMContentLoaded', () => {
+            const tocList = document.getElementById('toc-list');
+            const sections = document.querySelectorAll('main > div[id]');
+
+            sections.forEach(section => {
+                const id = section.id;
+                // Try to find h2, if not h3
+                let titleEl = section.querySelector('h2');
+                if (!titleEl) titleEl = section.querySelector('h3');
+
+                if (!titleEl) return;
+
+                const title = titleEl.innerText;
+
+                const li = document.createElement('li');
+                li.className = 'nav-item';
+                li.innerHTML = `<a href="#${id}" class="block py-2 text-slate-600 hover:text-blue-600 truncate" title="${title}">${title}</a>`;
+                tocList.appendChild(li);
+            });
+
+            // Smooth Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Highlight Active Link on Scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('.nav-item').forEach(li => {
+                    li.classList.remove('active');
+                    const link = li.querySelector('a');
+                    if (link.getAttribute('href').includes(current)) {
+                        li.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

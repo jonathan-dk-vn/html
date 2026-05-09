@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opgave 2 – Øvelse DU3 Modul 3</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --red: #C0392B;
+            --red-light: #FDEDEC;
+            --red-mid: #F1948A;
+            --navy: #1A2540;
+            --navy-mid: #2C3E6B;
+            --text: #1A1A2E;
+            --text-muted: #5A6070;
+            --text-hint: #9099AA;
+            --bg: #F4F6F9;
+            --surface: #FFFFFF;
+            --surface2: #F8F9FB;
+            --border: rgba(0, 0, 0, 0.10);
+            --border-strong: rgba(0, 0, 0, 0.18);
+            --green: #1E8449;
+            --green-light: #EAFAF1;
+            --blue: #154360;
+            --blue-light: #EBF5FB;
+            --amber: #784212;
+            --amber-light: #FEF9E7;
+            --purple: #512E5F;
+            --purple-light: #F5EEF8;
+            --teal: #0E6251;
+            --teal-light: #E8F8F5;
+            --shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+            --radius: 10px;
+            --radius-sm: 6px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* LAYOUT */
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background: var(--navy);
+            color: white;
+            flex-shrink: 0;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .main {
+            flex: 1;
+            padding: 28px 32px;
+            width: auto;
+        }
+
+        /* SIDEBAR */
+        .sidebar-header {
+            padding: 24px 20px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .sidebar-title {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 4px;
+        }
+
+        .sidebar-subtitle {
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            background: var(--red);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-top: 8px;
+            letter-spacing: 0.04em;
+        }
+
+        .topic-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.72);
+            cursor: pointer;
+            text-align: left;
+            font-size: 14px;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .topic-btn:hover {
+            background: rgba(255, 255, 255, 0.07);
+            color: white;
+        }
+
+        .topic-btn.active {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+        }
+
+        .topic-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .topic-name {
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .topic-sub {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .sidebar-section {
+            padding: 8px 20px 4px;
+            margin-top: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .sidebar-tip {
+            padding: 14px 20px;
+            margin: 12px 16px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.5;
+            border-left: 3px solid var(--red);
+        }
+
+        /* HEADER */
+        .page-header {
+            margin-bottom: 24px;
+        }
+
+        .page-topic {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .page-topic-icon {
+            font-size: 24px;
+        }
+
+        .page-topic-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .page-topic-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .level-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: var(--amber-light);
+            color: var(--amber);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(120, 66, 18, 0.15);
+        }
+
+        /* TABS */
+        .tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 24px;
+        }
+
+        .tab-btn {
+            padding: 10px 18px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .tab-btn:hover {
+            color: var(--navy);
+        }
+
+        .tab-btn.active {
+            color: var(--red);
+            border-bottom-color: var(--red);
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+
+        .card+.card {
+            margin-top: 12px;
+        }
+
+        /* BILLEDER TAB */
+        .images-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .image-card {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            cursor: default;
+        }
+
+        .image-num {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--red);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .image-emoji {
+            font-size: 40px;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .image-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .image-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .format-box {
+            background: var(--blue-light);
+            border: 1px solid rgba(21, 67, 96, 0.15);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+        }
+
+        .format-box h3 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--blue);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .format-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-top: 1px solid rgba(21, 67, 96, 0.1);
+        }
+
+        .format-row:first-of-type {
+            border-top: none;
+        }
+
+        .format-tag {
+            flex-shrink: 0;
+            font-size: 11px;
+            font-weight: 700;
+            background: var(--blue);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-top: 2px;
+        }
+
+        .format-text {
+            font-size: 14px;
+            color: var(--blue);
+        }
+
+        .task-tip {
+            background: #FFFBF0;
+            border: 1px solid rgba(120, 66, 18, 0.2);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--amber);
+        }
+
+        .task-tip strong {
+            font-weight: 600;
+        }
+
+        /* DEL 1 TAB */
+        .tip-box {
+            background: var(--amber-light);
+            border: 1px solid rgba(120, 66, 18, 0.18);
+            border-left: 4px solid #E67E22;
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: var(--amber);
+        }
+
+        .tip-box strong {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .dialogue {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .bubble {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .bubble-a {
+            flex-direction: row;
+        }
+
+        .bubble-b {
+            flex-direction: row-reverse;
+        }
+
+        .bubble-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .avatar-a {
+            background: var(--navy-mid);
+        }
+
+        .avatar-b {
+            background: var(--red);
+        }
+
+        .bubble-text {
+            max-width: 72%;
+            padding: 11px 16px;
+            border-radius: 14px;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .bubble-a .bubble-text {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-top-left-radius: 4px;
+        }
+
+        .bubble-b .bubble-text {
+            background: var(--navy);
+            color: white;
+            border-top-right-radius: 4px;
+        }
+
+        .phrase-box {
+            background: var(--green-light);
+            border: 1px solid rgba(30, 132, 73, 0.15);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            margin-top: 20px;
+        }
+
+        .phrase-box h3 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--green);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .phrase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .phrase-chip {
+            background: white;
+            border: 1px solid rgba(30, 132, 73, 0.2);
+            border-radius: var(--radius-sm);
+            padding: 7px 12px;
+            font-size: 13px;
+            color: var(--green);
+        }
+
+        /* DEL 2 TAB */
+        .q-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .q-header {
+            padding: 16px 20px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .q-num {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--red);
+            letter-spacing: 0.08em;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .q-text {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--navy);
+            flex: 1;
+        }
+
+        .q-toggle {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            white-space: nowrap;
+            flex-shrink: 0;
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            background: none;
+            transition: background 0.15s;
+        }
+
+        .q-toggle:hover {
+            background: var(--bg);
+        }
+
+        .q-answer {
+            display: none;
+            padding: 14px 20px;
+            background: var(--green-light);
+            border-top: 1px solid rgba(30, 132, 73, 0.12);
+        }
+
+        .q-answer.open {
+            display: block;
+        }
+
+        .q-answer-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--green);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .q-answer-text {
+            font-size: 14px;
+            color: var(--green);
+            line-height: 1.6;
+        }
+
+        .vn-note {
+            font-size: 12px;
+            color: var(--text-hint);
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        /* VOCABULARY TAB */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .vocab-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+        }
+
+        .vocab-word {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .vocab-def {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .vocab-section {
+            margin-top: 24px;
+        }
+
+        .vocab-section h3 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .phrase-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .phrase-table td {
+            padding: 9px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .phrase-table td:first-child {
+            font-weight: 500;
+            color: var(--navy);
+            width: 50%;
+        }
+
+        .phrase-table td:last-child {
+            color: var(--text-muted);
+        }
+
+        .phrase-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* INTRO CARD */
+        .intro-card {
+            background: var(--red-light);
+            border: 1px solid rgba(192, 57, 43, 0.2);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+
+        .intro-card h2 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--red);
+            margin-bottom: 10px;
+        }
+
+        .intro-steps {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 140px;
+            background: white;
+            border: 1px solid rgba(192, 57, 43, 0.15);
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+        }
+
+        .step-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--red);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .step-text {
+            font-size: 13px;
+            color: var(--text);
+        }
+
+        @media (max-width: 700px) {
+            .app {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+            }
+
+            .main {
+                padding: 16px;
+            }
+
+            .images-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .phrase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">Øvelse</div>
+                <div class="sidebar-subtitle">Opgave 2</div>
+                <div class="sidebar-badge">DU3 · Modul 3</div>
+            </div>
+            <div class="sidebar-section">Emner</div>
+
+            <!-- Emner / Topics will be generated dynamically by JS -->
+            <div id="sidebar-nav"></div>
+
+            <div class="sidebar-tip">
+                💡 <strong>Tip:</strong> Lad Del 1 starte med at se billederne, derefter øv dialogen, til sidst øv Del 2
+                ved at skjule svarene.
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main" id="main-content">
+            <!-- Filled dynamically by JS -->
+        </main>
+    </div>
+
+    <script>
+        const topics = [
+            {
+                emoji: "🚌",
+                title: "Transportmidler",
+                sub: "Transport og pendling",
+                images: [
+                    { emoji: "🚲", label: "Cykel", desc: "En person cykler på en bred cykelsti i den danske by" },
+                    { emoji: "🚌", label: "Bus", desc: "Passagerer venter tålmodigt ved et busstoppested i regnen" },
+                    { emoji: "🚗", label: "Bil", desc: "En familie kører roligt på motorvejen en lørdag" },
+                    { emoji: "🚶", label: "Til fods", desc: "En person nyder en gåtur gennem et stille kvarter" },
+                    { emoji: "🚆", label: "Tog", desc: "Passagerer læser, arbejder og slapper af i et moderne S-tog" },
+                    { emoji: "🛵", label: "Motorcykel", desc: "En person navigerer effektivt og hurtigt gennem morgentrafik" }
+                ],
+                del1tip: "Husk: Du skal spørge din partner om ALLE billeder og give din egen mening undervejs. Brug: 'Hvilken foretrækker du frem for de andre?', 'Synes du, at det er praktisk?', 'Hvad er den største ulempe ved...?', 'Er det dyrt eller billigt at bruge...?'",
+                dialogue: [
+                    { s: "A", t: "Hvilken af disse transportmidler bruger du helst i din hverdag? Jeg foretrækker helt klart cyklen, fordi det er sundt, billigt og hjælper mig med at holde formen. Hvad med dig?" },
+                    { s: "B", t: "Jeg bruger mest bussen eller toget, når jeg skal på arbejde. Jeg kan godt lide at læse eller høre podcasts, mens jeg kører – det er meget bedre for miljøet end at køre bil. Synes du ikke, at det er lidt farligt at cykle i myldretiden?" },
+                    { s: "A", t: "Det kan godt være lidt udfordrende, men i Danmark er der heldigvis rigtig gode cykelstier næsten overalt. Trafikkulturen er også meget mere respektfuld over for cyklister end i mange andre lande. Hvad synes du om at gå til fods, hvis det ikke er for langt?" },
+                    { s: "B", t: "Det kan jeg faktisk rigtig godt lide, især om morgenen, når vejret er godt. Det er en dejlig måde at rydde tankerne og starte dagen på. Men om vinteren er det simpelthen for koldt og mørkt. Hvornår bruger du bilen?" },
+                    { s: "A", t: "Jeg bruger kun bil, når jeg skal handle mange tunge ting, køre børn til aktiviteter, eller når det regner rigtig meget. Til hverdag prøver jeg at undgå det på grund af miljøet og parkeringsudgifterne. Og dig? Kører du nogensinde bil eller motorcykel?" },
+                    { s: "B", t: "Sjældent bil. Men jeg kører af og til på motorcykel. Det er utrolig praktisk til at navigere hurtigt gennem gaderne og finde parkeringspladser. Hvad synes du om motorcykel som transportmiddel?" },
+                    { s: "A", t: "Det lyder smart, men jeg er lidt nervøs for sikkerheden, især i dårligt vejr eller på glatte veje. Og jeg tror, man kan fryse rigtigt meget om vinteren! Kører du med hjelm og fuld beskyttelse?" },
+                    { s: "B", t: "Selvfølgelig! Sikkerhed er altid det vigtigste. Jeg tror, offentlig transport er det mest afslappende valg i det daglige, men motorcyklen er god, når jeg skal hurtigt fra A til B." },
+                    { s: "A", t: "Det er et godt punkt. Hvad koster det månedligt for dig at bruge toget og bussen? Er det dyrere eller billigere end at have en bil?" },
+                    { s: "B", t: "Et månedskort koster mig cirka 500 kroner om måneden. Det er klart billigere end biludgifter med forsikring, brændstof og parkering. Så på det punkt er offentlig transport klart en fordel." },
+                    { s: "A", t: "Det er jeg enig i. Og tænk på CO2-aftrykket! Hvad ville du råde en ny flygtning til at bruge for at komme rundt i din by?" },
+                    { s: "B", t: "Helt klart cyklen til hverdagen og bussen til de lidt længere ture. Det er billigst, miljøvenligst og en rigtig god måde at lære byen at kende på." }
+                ],
+                phrases: [
+                    "Hvilken foretrækker du frem for...?", "Synes du, at det er...?", "Har du nogensinde prøvet at...?",
+                    "Hvad er den største fordel ved...?", "Er det billigt eller dyrt at bruge...?", "Hvornår bruger du normalt...?",
+                    "Det er bedre for miljøet", "At rydde tankerne om morgenen", "At navigere hurtigt gennem gaderne",
+                    "I myldretiden er det kaotisk", "Det hjælper mig med at holde formen", "At undgå forsinkelser og stress",
+                    "Det er en praktisk og billig løsning", "På den anden side synes jeg...", "Hvad er dit indtryk af...?",
+                    "Det koster mig cirka... om måneden", "Hvad ville du råde en til...?", "Det er mest miljøvenligt at...",
+                    "Man sparer både tid og penge", "Trafikkulturen er meget anderledes her"
+                ],
+                del2: [
+                    { q: "Hvilket transportmiddel bruger du normalt?", a: "Jeg cykler som regel til sprogcentret hver morgen. Det tager cirka 15 minutter, og det er rigtig god motion. Om vinteren tager jeg nogle gange bussen, hvis det er for koldt eller glat.", vn: "Dùng 'som regel' (thường thì) để nói về thói quen hằng ngày. Thêm exception (om vinteren) để câu trả lời thực tế hơn." },
+                    { q: "Hvor tit rejser du med bil?", a: "Jeg rejser sjældent med bil i hverdagen, fordi det ikke er godt for trafikken og miljøet. Jeg foretrækker at gå, cykle eller tage bussen. Men til familieudflugt i weekenden låner vi somme tider en bil.", vn: "Giải thích lý do (bảo vệ môi trường, tắc đường) và thêm exception hợp lý (cuối tuần)." },
+                    { q: "Hvordan kommer du til skole eller arbejde?", a: "Jeg bruger offentlig transport som bussen eller S-toget for at komme til mit kursus. Det sænker risikoen for ulykker og er mere miljøvenligt. Og jeg kan bruge rejsetiden til at øve mig i dansk!", vn: "Đề cập đến sự an toàn và môi trường, và thêm điểm sáng tạo: học tiếng trong lúc đi xe." },
+                    { q: "Hvilken slags transport bruger folk mest, hvor du bor?", a: "Folk bruger mest cykler og offentlige busser, hvor jeg bor. Man ser næsten aldrig nogen gå lang vej. Det er nødvendigt for at reducere luftforurening og spare tid i hverdagen.", vn: "Liên hệ tình hình thực tế ở Đan Mạch và nhấn mạnh lợi ích môi trường." },
+                    { q: "Er der meget trafik, hvor du bor?", a: "Nej, vejene i mit kvarter er ikke særlig befærdede det meste af dagen, hvilket gør det meget sikrere for børn at lege udenfor. Dog kan det godt blive lidt tæt på hovedvejen i myldretiden om morgenen.", vn: "Sử dụng từ vựng nâng cao: 'ikke særlig befærdede' (không quá đông), thêm exception về giờ cao điểm." },
+                    { q: "Hvordan rejser folk om natten i din by?", a: "Om natten bruger folk her typisk taxaer, delebiler eller cykler, fordi busserne ikke kører så hyppigt. Natbusserne kører dog hvert 30. minut i weekenderne, så man er ikke helt på den.", vn: "Nêu giải pháp đi lại ban đêm, thêm chi tiết về Natbus ở Đan Mạch." },
+                    { q: "Hvad kan du lide ved at rejse med tog?", a: "Jeg kan rigtig godt lide komforten og muligheden for at slappe af, mens jeg kører. I toget kan jeg læse en bog, lytte til podcasts eller bare nyde udsigten over det danske landskab uden stress.", vn: "Mô tả trải nghiệm cá nhân phong phú: đọc sách, nghe podcast, ngắm cảnh." },
+                    { q: "Hvor tit er der trafikforsinkelser i din by?", a: "Trafikforsinkelser er ret almindelige, især med busserne i myldretiden om morgenen. Det får mig til at planlægge mine rejser lidt tidligere end nødvendigt og altid tjekke rejseplanen på telefonen.", vn: "Nhấn mạnh cách xử lý tình huống thực tế: kiểm tra ứng dụng Rejseplanen." },
+                    { q: "Kan du lide lange rejser med fly?", a: "Ja, det gør jeg faktisk. Det giver mig mulighed for at slappe af i mange timer, se en god film og bagefter udforske helt nye destinationer i verden. Dog kan det lange sit i et smalt sæde godt blive lidt ubehageligt.", vn: "Thể hiện quan điểm cân bằng: tích cực về khám phá, thực tế về sự bất tiện." },
+                    { q: "Hvad er den største forskel på transport her og i dit hjemland?", a: "I mit hjemland kører næsten alle på motorcykel eller scooter, og der er meget kaotisk trafik uden tydelige regler. Her i Danmark er der fantastiske cykelstier, og alle respekterer trafikreglerne. Det er en kæmpe forskel!", vn: "So sánh văn hóa giao thông: luật lệ rõ ràng ở Đan Mạch vs. tình trạng lộn xộn ở quê hương." },
+                    { q: "Hvad synes du om delebilordninger som fx Delebilogn?", a: "Det er en rigtig smart og fleksibel løsning, synes jeg. Man betaler kun for det, man bruger, og det er meget mere miljøvenligt end at eje sin egen bil. Jeg har selv brugt det et par gange til weekendture.", vn: "Thể hiện hiểu biết về xu hướng mới ở Đan Mạch (delebil - car sharing), liên kết với môi trường." },
+                    { q: "Cykler du altid med hjelm?", a: "Ja, altid! Det er et krav fra min mand, og det er jo bare fornuftigt. I starten syntes jeg, det var lidt irriterende, men nu er jeg slet ikke tryg ved at cykle uden hjelm. Sikkerhed er vigtigst.", vn: "Thể hiện thái độ tích cực về an toàn giao thông, nhắc đến sự thay đổi quan điểm theo thời gian." }
+                ],
+                vocab: [
+                    ["transportmiddel", "phương tiện giao thông"], ["cykelsti", "làn đường xe đạp"],
+                    ["offentlig transport", "giao thông công cộng"], ["forurener / luftforurening", "gây ô nhiễm / ô nhiễm không khí"],
+                    ["miljøvenlig", "thân thiện với môi trường"], ["foretrækker", "thích hơn, ưu tiên"],
+                    ["praktisk", "tiện lợi, thực tế"], ["hyppig", "thường xuyên"], ["myldretid", "giờ cao điểm"],
+                    ["forsinkelse", "sự chậm trễ"], ["at navigere", "điều hướng / di chuyển"],
+                    ["bekvemmelighed", "sự tiện nghi / thuận tiện"], ["CO2-aftryk", "dấu chân carbon (khí thải)"],
+                    ["at reducere stress", "giảm căng thẳng"], ["at komme til skade", "bị thương"],
+                    ["at undgå", "tránh"], ["udsigt", "tầm nhìn / cảnh quan"],
+                    ["at planlægge omhyggeligt", "lên kế hoạch cẩn thận"], ["destination", "điểm đến"],
+                    ["befærdet", "đông đúc (về đường xá)"], ["delebil", "ô tô dùng chung (car sharing)"],
+                    ["månedskort", "vé tháng"], ["brændstof", "nhiên liệu, xăng"],
+                    ["hjelm", "mũ bảo hiểm"], ["rejseplanen", "ứng dụng/trang web lập kế hoạch hành trình"]
+                ]
+            },
+            {
+                emoji: "🏃",
+                title: "Sport og motion",
+                sub: "Sportsaktiviteter",
+                images: [
+                    { emoji: "🏊", label: "Svømmehallen", desc: "En person svømmer rolige baner i en moderne svømmehal" },
+                    { emoji: "🏋️", label: "Fitnesscenter", desc: "Folk træner koncentreret med vægte og maskiner i et lyst gym" },
+                    { emoji: "🏃", label: "Løb i parken", desc: "En person løber afslappet på en smukt belagt sti i en grøn park" },
+                    { emoji: "⚽", label: "Holdsport", desc: "En gruppe spiller intenst fodbold på en kunstgræsbane" },
+                    { emoji: "🎾", label: "Tennis", desc: "To personer spiller koncentreret tennis i strålende solskin" },
+                    { emoji: "🛹", label: "Skateboard", desc: "En ung person laver imponerende tricks på et skateboard i en skatepark" }
+                ],
+                del1tip: "Udtryk din mening om ALLE sportsgrenene, og sammenlign dem. Brug: 'Jeg kan bedst lide... fordi...', 'Det er sundt fordi…', 'Hvad foretrækker du af disse muligheder?', 'Har du nogensinde prøvet...?', 'Hvad er den største fordel ved...?'",
+                dialogue: [
+                    { s: "A", t: "Hvilken af disse sportsaktiviteter tiltaler dig mest? Jeg løber gerne en tur i parken to til tre gange om ugen, fordi det er gratis, man får frisk luft og tømt hovedet. Hvad med dig?" },
+                    { s: "B", t: "Det lyder dejligt og sundt! Men jeg kan personligt bedst lide at svømme. Det er utrolig skånsomt for kroppen og leddene, og man bruger hele kroppen på én gang. Er du med i en sportsklub?" },
+                    { s: "A", t: "Nej, jeg foretrækker faktisk at træne alene, fordi jeg kan planlægge det frit. Hvad synes du om fitnesscenter? Det virker meget populært her i Danmark, især om vinteren, når det er for mørkt og koldt udenfor." },
+                    { s: "B", t: "Fitness er godt og meget fleksibelt, men det kan blive lidt kedeligt og ensomt at sidde alene med maskinerne. Jeg synes, holdsport som fodbold er meget sjovere, fordi man er social og motiverer hinanden. Spiller du noget holdsport?" },
+                    { s: "A", t: "Jeg spillede meget badminton i mit hjemland – det er faktisk enormt populært der! Men det har været lidt svært at finde et passende hold her i Danmark. Synes du, det er farligt at spille kontaktsport?" },
+                    { s: "B", t: "Det kan det bestemt være, da man let kan få skader i knæ eller ankel. Men det lærer os også fantastisk teamwork, kommunikation og at kæmpe for hinanden. Hvad tænker du om tennis og skateboard?" },
+                    { s: "A", t: "Tennis ser meget elegant og teknisk ud, men det kræver meget træning og en god partner at øve med. Skateboard tror jeg slet ikke er noget for mig – koordinationen er for svær, og jeg er bange for at falde!" },
+                    { s: "B", t: "Haha, det forstår jeg godt! Man skal starte tidligt, helst som barn, for at blive rigtig god til skateboard. Hvad med yoga eller pilates? Har du prøvet det?" },
+                    { s: "A", t: "Ja, jeg går til yoga en gang om ugen, og det er fantastisk for fleksibiliteten og for at reducere stress. Det passer perfekt til mig som supplement til løbet. Hvad med dig?" },
+                    { s: "B", t: "Jeg har aldrig prøvet yoga, men det lyder faktisk rigtig godt. Måske skulle jeg prøve det om vinteren, når det ikke er så fedt at svømme udendørs." },
+                    { s: "A", t: "Ja, det kan jeg varmt anbefale! Hvad er din motivation for at dyrke sport? Er det for sundheden, vægten eller bare for sjov?" },
+                    { s: "B", t: "Primært for sundheden og for at have det godt med mig selv mentalt. Når jeg ikke motionerer, føler jeg mig faktisk mere træt og irriteret. Motion er min medicin!" }
+                ],
+                phrases: [
+                    "Jeg kan bedst lide... fordi...", "Det er utrolig skånsomt for kroppen og leddene", "Er du medlem af en klub?",
+                    "Det kræver meget teknik og koordination", "Hvad synes du generelt om...?", "Det passer mig meget bedre end...",
+                    "At få frisk luft og rydde hovedet", "Det er en god måde at socialisere på", "Det virker lidt farligt og risikabelt",
+                    "Jeg har aldrig prøvet det, men...", "Kontaktsport kan nemt give skader", "Det lærer os teamwork og disciplin",
+                    "At presse sig selv til grænsen", "Jeg dyrker sport for sundheden og det mentale", "Man bruger hele kroppen på én gang",
+                    "Det er min medicin mod stress", "Jeg kan varmt anbefale at prøve...", "Som supplement til min anden træning",
+                    "Motivationen er vigtig for at blive ved", "Det er svært at finde tid til i en travl hverdag"
+                ],
+                del2: [
+                    { q: "Hvilke sportsgrene kan du lide at se i fjernsynet?", a: "Jeg elsker at se store fodboldkampe og tennis i fjernsynet. Det er utrolig spændende, og det forbinder mig med venner og familie, der deler samme passion. Tour de France er også en favorit, da den vises meget på dansk tv.", vn: "Đề cập đến yếu tố xã hội (kết nối) và nêu tên sự kiện cụ thể phổ biến ở Đan Mạch (Tour de France)." },
+                    { q: "Hvilke sportsgrene kan du dyrke nær dit hjem?", a: "Jeg har en stor skov og en sø nær mit hjem, så jeg kan løbe, cykle mountainbike eller kano. Om sommeren svømmer jeg nogle gange i søen, men det kræver mod, for vandet er koldt!", vn: "Mô tả môi trường tự nhiên xung quanh và thêm detalje vui về nước lạnh ở Đan Mạch." },
+                    { q: "Hvornår på dagen dyrker du oftest sport?", a: "Jeg dyrker normalt sport om aftenen efter arbejde, fordi det giver mig mulighed for at reducere stress og friske mig op til næste dag. Om sommeren tager jeg dog en løbetur tidligt om morgenen, inden det bliver for varmt.", vn: "Chỉ ra thời điểm cụ thể theo mùa và lý do tâm lý (giảm stress, tươi tỉnh)." },
+                    { q: "Hvilke sportsgrene dyrkede du, da du var yngre?", a: "Da jeg var barn, svømmede og spillede jeg fodbold med mine venner næsten hver dag efter skole. Det var en fantastisk tid. Jeg savner den frhed og energi, man har som barn.", vn: "Sử dụng thì quá khứ (svømmede, spillede) để nói về ký ức tuổi thơ, và thêm cảm xúc hoài niệm." },
+                    { q: "Synes du, at det er farligt at spille rugby eller fodbold?", a: "Ja, det kan det være, fordi det er kontaktsport, og man kan nemt få skader i knæ, ankel eller skulder. Men det lærer spillerne modstandskraft, disciplin og teamwork, som er værdifulde egenskaber i livet generelt.", vn: "Đánh giá hai mặt (rủi ro về thể chất vs. giá trị kỹ năng sống) của các môn thể thao va chạm." },
+                    { q: "Synes du, at det er svært at spille tennis?", a: "Ja, bestemt i starten! Det kræver meget præcision, teknik og vedholdenhed. Men det er en fantastisk og givende sport, når man endelig begynder at ramme bolden rigtigt. Man kan spille det hele livet.", vn: "Thừa nhận độ khó (kỹ thuật, kiên trì) và nhấn mạnh lợi ích lâu dài (môn thể thao trọn đời)." },
+                    { q: "Foretrækker du at se sport i fjernsynet eller live på stadion?", a: "Jeg foretrækker helt klart at se sport live på et stadion, selvom det er dyrere. Den live stemning, jublen fra tilskuerne og spændingen er noget helt særligt, som man ikke kan genskabe foran et tv.", vn: "So sánh cụ thể: trải nghiệm trực tiếp (đắt hơn nhưng đặc biệt) vs. xem qua màn hình." },
+                    { q: "Hvad er den bedste sport for travle mennesker?", a: "Jeg tror, løb eller yoga er de bedste, fordi det ikke kræver nogen forudgående aftale eller særligt udstyr. Man kan gøre det, præcis når det passer ind i ens eget skema, og det er billigt og effektivt.", vn: "Nhấn mạnh sự tiện lợi (không cần hẹn, không cần thiết bị đắt tiền) đối với người bận rộn." },
+                    { q: "Er det svært at dyrke sport i Danmark om vinteren?", a: "Det kan det være på grund af kulden, mørket og det glatte underlag. Derfor flytter mange danskere, inklusiv mig selv, ind i fitnesscentrene eller svømmehallerne om vinteren. Indendørs sport er virkelig populært her.", vn: "Thể hiện hiểu biết về văn hóa tập thể thao theo mùa ở Đan Mạch: outdoor → indoor vào mùa đông." },
+                    { q: "Hvad motiverer dig til at fortsætte med at træne?", a: "Min største motivation er at have det godt mentalt og fysisk. Når jeg ikke træner i en uge, mærker jeg, at jeg bliver mere træt, irritabel og stresset. Motion er simpelthen en investering i min trivsel.", vn: "Đưa ra lý do tâm lý sâu sắc: kết nối giữa vận động thể chất và sức khỏe tinh thần." },
+                    { q: "Har du nogensinde deltaget i et løb eller en sportsbegivenhed?", a: "Ja! Jeg deltog i et lokalt 5 km-løb her i byen sidste år. Det var en fantastisk oplevelse at løbe med hundredvis af andre mennesker og krydse mållinjen. Jeg håber at gøre det igen til foråret.", vn: "Kể về trải nghiệm tham gia sự kiện thể thao thực tế, thêm hy vọng về tương lai." },
+                    { q: "Dyrker dine børn eller din familie sport?", a: "Ja, mine børn går til fodbold og svømning i sportsklubben. Det er meget godt for dem socialt og fysisk. Min mand løber somme tider med mig i weekenden, og det er en dejlig måde at bruge tid sammen på.", vn: "Nhắc đến sự tham gia của gia đình trong thể thao, liên hệ với cuộc sống xã hội của trẻ em ở Đan Mạch." }
+                ],
+                vocab: [
+                    ["holde sig i form", "giữ dáng, duy trì thể lực"], ["skånsomt for kroppen", "nhẹ nhàng/an toàn cho cơ thể và khớp"],
+                    ["holdsport", "thể thao đồng đội"], ["kontaktsport", "thể thao va chạm"],
+                    ["træne alene / at dyrke solo-sport", "tập một mình"], ["passion for", "niềm đam mê với"],
+                    ["at reducere stress", "giảm căng thẳng"], ["modstandskraft", "sự kiên cường / sức chịu đựng"],
+                    ["præcision", "sự chính xác"], ["teknik", "kỹ thuật"], ["givende", "đáng giá / bổ ích / xứng đáng"],
+                    ["publikum / tilskuere", "khán giả"], ["stemning på stadion", "bầu không khí trên sân vận động"],
+                    ["at presse sig selv", "thúc đẩy, tự thách thức bản thân"], ["skema / tidsplan", "lịch trình"],
+                    ["forudgående aftale", "cuộc hẹn trước, lịch đặt trước"], ["at svømme", "bơi lội"],
+                    ["at løbe en tur", "đi chạy bộ"], ["vedholdenhed", "sự kiên trì, bền bỉ"],
+                    ["trivsel", "sự sung túc / hạnh phúc khỏe mạnh"], ["supplement", "bổ sung, thêm vào"],
+                    ["mållinjen", "vạch đích"], ["fleksibilitet", "sự linh hoạt (cơ thể)"],
+                    ["sportsklub", "câu lạc bộ thể thao"], ["investering i helbredet", "đầu tư vào sức khỏe"]
+                ]
+            },
+            {
+                emoji: "🍽️",
+                title: "Madsteder",
+                sub: "Steder at spise",
+                images: [
+                    { emoji: "🏠", label: "Hjemme", desc: "En hel familie sidder samlet og spiser varm hjemmelavet middag" },
+                    { emoji: "🍽️", label: "Restaurant", desc: "En gruppe venner ler og hygger sig over maden på en fin restaurant" },
+                    { emoji: "☕", label: "Café", desc: "En person sidder afslappet med en stor kop kaffe på en hyggelig café" },
+                    { emoji: "🥙", label: "Takeaway", desc: "En person køber varm mad fra en travl madbod i gågaden" },
+                    { emoji: "🧺", label: "Picnic i parken", desc: "Venner griner og spiser frokost på et farverigt tæppe i parken" },
+                    { emoji: "🍔", label: "Fastfood", desc: "En person spiser hurtigt en stor burger og pommes frites" }
+                ],
+                del1tip: "Sammenlign madstederne grundigt. Brug: 'Jeg synes, at … er hyggeligere end …', 'Hvad er ulempen ved...?', 'Hvad synes du om at spise sundt?', 'Hvor ofte spiser du ude?', 'Hvornår vælger du den løsning?'",
+                dialogue: [
+                    { s: "A", t: "Hvilket af disse madsteder foretrækker du mest i din hverdag? Jeg spiser helst de fleste måltider hjemme, fordi det er billigere, sundere og jeg har kontrol over ingredienserne. Hvad med dig?" },
+                    { s: "B", t: "Jeg er meget enig – hjemmelavet mad er klart bedst til hverdag. Men i weekenden elsker jeg at gå på en hyggelig café med en god veninde. Man kan sidde og tale i timevis uden stress. Går du tit på restaurant?" },
+                    { s: "A", t: "Ikke så tit, det er mest til særlige lejligheder som fødselsdage eller romantiske aftener med min mand, da det er ret dyrt her i Danmark. Hvad tænker du om takeaway og fastfood? Spiser du det ofte?" },
+                    { s: "B", t: "Det er super praktisk, når man har haft en lang, udmattende arbejdsdag og slet ikke har overskud til at lave mad. Men jeg prøver at begrænse det til en gang om ugen, da det sjældent er særlig sundt. Har du prøvet picnic i parken?" },
+                    { s: "A", t: "Ja, det er fantastisk om sommeren! Det er så billigt, afslappende og en rigtig god måde at nyde den friske luft på. Man pakker bare en kurv med baguette, ost og frugt og finder en dejlig plads i græsset. Men kvaliteten af gademad kan godt variere, synes du ikke?" },
+                    { s: "B", t: "Jo, det har du ret i. Nogle madboder og takeawayrestauranter er virkelig gode, mens andre er skuffende. Jeg bruger altid apps som Trustpilot til at læse anmeldelser, inden jeg prøver et nyt sted." },
+                    { s: "A", t: "Det er en klog vane! Hvad er din absolutte yndlingsret, som du altid laver hjemme?" },
+                    { s: "B", t: "Jeg elsker at lave en stor gryde fyldt suppe med grøntsager og kylling. Det er simpelt, sundt og mætter hele familien. Hvad laver du, hvis du bare har 20 minutter til at lave aftensmad?" },
+                    { s: "A", t: "Så laver jeg pasta med hjemmelavet tomatsauce og parmesan. Det er hurtigt, lækkert og børnene elsker det. Hvad er den dyreste restaurant, du nogensinde har spist på?" },
+                    { s: "B", t: "Jeg har spist på en fin restaurant i forbindelse med en fejring. Det var utrolig lækkert, men prisen var en lille chok! Til hverdag klarer jeg mig fint med hjemmelavet mad og en cafe i weekenden." },
+                    { s: "A", t: "Hvad er det vigtigste for dig, når du vælger, hvad du vil spise – smag, sundhed eller pris?" },
+                    { s: "B", t: "Alle tre er vigtige, men sundheden er nok det vigtigste for mig på lang sigt. Jeg vil gerne have det godt og have masser af energi, og det starter ved at spise rigtigt." }
+                ],
+                phrases: [
+                    "Til særlige lejligheder som fødselsdage", "Kvaliteten varierer meget fra sted til sted", "Det er utrolig hyggeligt at...",
+                    "Man slipper for at handle ind og vaske op", "Det er meget sundere og billigere hjemme", "Hvad er den største fordel ved...?",
+                    "At have fuld kontrol over ingredienserne", "Det er en super praktisk løsning", "Jeg prøver at begrænse det",
+                    "At holde picnic i det fri med venner", "Det afhænger af mit humør og overskud", "En romantisk stemning og godt selskab",
+                    "Det er alt for dyrt i længden", "At støtte lokale cafeer og restauranter", "Jeg bruger apps til at læse anmeldelser",
+                    "Man pakker bare en kurv og finder en plads", "Hvornår vælger du den løsning?", "Jeg har ikke overskud til at lave mad i dag",
+                    "Det smager af barndom og hjemve", "En god balance mellem pris og kvalitet"
+                ],
+                del2: [
+                    { q: "Hvilket måltid på dagen er dit yndlingsmåltid?", a: "Aftensmad er klart mit yndlingsmåltid. Det er en dejlig tid, hvor hele familien samles, slapper af og nyder et godt, varmt måltid og snakker om, hvad der er sket i løbet af dagen.", vn: "Bữa tối mang ý nghĩa gắn kết gia đình (familien samles) và thời gian chia sẻ ngày sống." },
+                    { q: "Hvor tit laver du mad derhjemme?", a: "Jeg laver mad næsten hver aften. Det er en god måde at sikre, at vi spiser sundt, og det giver mig mulighed for at eksperimentere med nye opskrifter og smage lidt af verdens køkkener hjemmefra.", vn: "Giải thích lợi ích: sức khỏe và sự sáng tạo khi nấu ăn. 'Verdens køkkener' thể hiện sự tò mò ẩm thực." },
+                    { q: "Hvilken slags mad kan du bedst lide at spise?", a: "Jeg elsker frisk, lokal mad med masser af grøntsager, fisk og fuldkorn. Det er vigtigt for mig at have en balanceret kost. Men indimellem er en god pizza eller burger også dejlig – man skal ikke være for streng med sig selv!", vn: "Thể hiện quan điểm cân bằng: ăn lành mạnh nhưng không quá cứng nhắc, thỉnh thoảng cũng thưởng thức đồ ăn 'syndig'." },
+                    { q: "Hvem spiser du normalt aftensmad sammen med?", a: "Jeg spiser normalt sammen med min mand og vores to børn. Det er en særlig tid for os at dele dagens oplevelser og nyheder med hinanden – uden mobiltelefoner ved bordet! Det er en regel, vi holder strengt.", vn: "Nhấn mạnh việc chia sẻ và quy tắc không dùng điện thoại trong bữa ăn – điều phổ biến ở gia đình Đan Mạch." },
+                    { q: "Synes du, at kage er lækkert?", a: "Ja, absolut! I Danmark er der en fantastisk tradition for at nyde kage til kaffe – det hedder 'kaffehygge'. Jeg kan især godt lide kanelsneglen og den klassiske æblekage. Men jeg spiser det kun en gang imellem.", vn: "Liên hệ văn hóa 'kaffehygge' đặc trưng Đan Mạch và nêu tên bánh cụ thể: kanelsnegl, æblekage." },
+                    { q: "Synes du, at det er sundt at spise på fastfood-restauranter?", a: "Nej, generelt ikke. Fastfood indeholder ofte meget salt, sukker og mættet fedt, hvilket kan føre til helbredsproblemer over tid. Men det er selvfølgelig praktisk og tilgængeligt, så det handler om at gøre det til en sjælden fornøjelse.", vn: "Nêu thành phần không lành mạnh (muối, đường, chất béo) nhưng cũng thừa nhận tính tiện lợi và nhấn mạnh sự điều độ." },
+                    { q: "Synes du, at det er billigt at holde picnic i parken?", a: "Ja, det er utrolig billigt! Man kan tage hjemmelavet mad og en flaske vand med og nyde en hel eftermiddag i naturen gratis. Det er en af de bedste og billigste glæder i livet, synes jeg.", vn: "Nhấn mạnh tính kinh tế và không gian hòa mình với thiên nhiên, dùng tone nhẹ nhàng và tích cực." },
+                    { q: "Hvad er din yndlingscafé eller -restaurant her i byen?", a: "Min yndlingscafé ligger nede ved havnen. De serverer rigtig god, stærk kaffe og lækre smørrebrød. Stemningen er rolig og hyggelig, og personalet er altid imødekommende og venligt.", vn: "Miêu tả địa điểm cụ thể: vị trí (tại cảng), món ngon, không khí ấm cúng, nhân viên tốt." },
+                    { q: "Hvad er den største forskel på at spise hjemme og på restaurant?", a: "Hjemme er det langt billigere og ofte sundere. På restaurant betaler man ikke kun for maden, men også for oplevelsen, atmosfæren, servicen og det faktum, at man slipper for at lave mad og vaske op bagefter.", vn: "So sánh toàn diện: giá cả, sức khỏe vs. trải nghiệm, dịch vụ, và sự tiện lợi không cần rửa bát." },
+                    { q: "Hvem er det, der oftest laver maden i din familie?", a: "Det er normalt mig, der har ansvar for aftensmaden, fordi jeg kommer hjem fra arbejde først. Min mand laver mad i weekenden og er faktisk bedre til det end mig! Det fungerer godt at dele de huslige pligter.", vn: "Chia sẻ cách phân công việc nhà công bằng và thêm yếu tố hài hước (mand laver bedre mad)." },
+                    { q: "Bruger du opskrifter, eller laver du mad på slump?", a: "Det afhænger af retten. Til dagligdags madlavning kender jeg de fleste opskrifter udenad og laver mad på rutine. Men prøver jeg noget nyt og avanceret, googler jeg altid opskriften for at gøre det rigtigt.", vn: "Phân biệt rõ hai trường hợp: nấu theo thói quen quen thuộc vs. nấu món mới cần tra công thức." },
+                    { q: "Synes du, det er vigtigt at spise økologisk?", a: "Ja, det synes jeg i princippet. Økologisk mad er bedre for miljøet og for vores helbred. Men det er desværre dyrere, så jeg prøver at vælge de vigtigste ting som kød, mælk og æg i økologisk kvalitet.", vn: "Thể hiện quan điểm cân bằng: ủng hộ hữu cơ về mặt nguyên tắc nhưng thực tế vì giá cả, chọn lọc có chủ đích." }
+                ],
+                vocab: [
+                    ["til særlige lejligheder", "vào các dịp đặc biệt"], ["stemning / atmosfære", "bầu không khí"],
+                    ["hyggeligt", "ấm cúng, thoải mái (khái niệm đặc trưng Đan Mạch)"], ["kvaliteten varierer", "chất lượng không đồng đều"],
+                    ["at slippe for", "tránh được / khỏi phải làm gì đó"], ["balanceret kost", "chế độ ăn uống cân bằng"],
+                    ["råvarer", "nguyên liệu tươi (nấu ăn)"], ["at eksperimentere med opskrifter", "thử nghiệm công thức nấu ăn mới"],
+                    ["helbredsproblemer", "vấn đề sức khỏe"], ["fedt, salt og sukker", "chất béo, muối và đường"],
+                    ["gratis / uden beregning", "miễn phí"], ["godbid / syndigt måltid", "món ăn ngon / bữa ăn 'tội lỗi'"],
+                    ["hjemmelavet", "tự làm tại nhà"], ["økologisk", "hữu cơ"], ["at snitte / hakke grøntsager", "thái, băm rau củ"],
+                    ["personale / tjener", "nhân viên / người phục vụ"], ["skuffende", "đáng thất vọng"],
+                    ["imødekommende", "thân thiện, dễ gần"], ["smørrebrød", "bánh mì mở Đan Mạch"],
+                    ["kaffehygge", "truyền thống uống cà phê kèm bánh ngọt ấm cúng ở Đan Mạch"],
+                    ["på slump", "theo bản năng, không theo công thức"], ["huslige pligter", "việc nhà"],
+                    ["mættet fedt", "chất béo bão hòa"], ["tilgængelig", "dễ tiếp cận, tiện lợi"]
+                ]
+            },
+            {
+                emoji: "🏖️",
+                title: "Ferietyper",
+                sub: "Ferie og rejser",
+                images: [
+                    { emoji: "🏖️", label: "Strandferie", desc: "En glad familie slapper helt af på en smuk, solrig strand" },
+                    { emoji: "⛺", label: "Camping", desc: "Et hyggeligt telt i en frodig skov med et bål og stjernehimmel" },
+                    { emoji: "🏙️", label: "Byferie", desc: "Begejstrede turister besøger seværdigheder og museer i en stor, pulserende by" },
+                    { emoji: "🏔️", label: "Bjergferie", desc: "En person vandrer på en smuk, smal bjergsti med storslået udsigt" },
+                    { emoji: "🛳️", label: "Krydstogt", desc: "Et luksuriøst stort skib sejler roligt på det azurblå hav" },
+                    { emoji: "✈️", label: "Flyrejse", desc: "Rejsende kigger spændt ud fra flyvinduet over skyer og by" }
+                ],
+                del1tip: "Giv din mening om ALLE ferietyperne og begrund dem. Spørg: 'Hvad kan du lide ved…?', 'Er du overhovedet til camping?', 'Foretrækker du aktiv ferie eller total afslapning?', 'Hvilken ferie har du drømt om?'",
+                dialogue: [
+                    { s: "A", t: "Hvilken type ferie foretrækker du allermest, når du endelig har fri? Jeg elsker en god strandferie, fordi man kan koble helt af fra hverdagen, læse en god bog og nyde solen og havet. Hvad med dig?" },
+                    { s: "B", t: "Stranden er dejlig, men efter to dage keder jeg mig og bliver rastløs. Jeg kan meget bedre lide en aktiv byferie, hvor man kan besøge spændende museer, smage lokal mad og opleve en helt ny kultur. Er du overhovedet til camping?" },
+                    { s: "A", t: "Ikke rigtig, nej. Jeg synes, det er lidt ubehageligt og besværligt at sove i telt, og hvis det regner, er det fuldstændig elendigt! Hvad synes du om bjergferie med vandring?" },
+                    { s: "B", t: "Det er utrolig smukt og giver en fantastisk følelse af frihed, men det er også fysisk ret krævende. Man skal have de rigtige sko og god kondition. Tager du hellere på ferie alene eller med din familie?" },
+                    { s: "A", t: "Helt klart med familien! Det er meget hyggeligere at dele oplevelserne med nogen, man holder af. Hvad er den mest spændende by, du nogensinde har besøgt?" },
+                    { s: "B", t: "Barcelona i Spanien var utrolig fascinerende! Arkitekturen, maden, musikken – det hele var perfekt. Hvad er den bedste ferie, du nogensinde har haft?" },
+                    { s: "A", t: "Jeg tror, det var en uge i Italien, hvor vi besøgte Rom og Amalfikysten. Det var eventyrligt med al den smukke natur, historien og den fantastiske mad. Det var malerisk!" },
+                    { s: "B", t: "Det lyder som en drøm! Hvad synes du om krydstogt? Det virker meget luksuriøst." },
+                    { s: "A", t: "Det lyder fristende, men jeg er lidt bekymret for, at det er meget dyrt og ikke så miljøvenligt. Store krydstogtskibe bruger jo enormt meget brændstof. Hvad tænker du?" },
+                    { s: "B", t: "Det er et godt punkt om miljøet. Men til gengæld er det utrolig praktisk – man pakker én kuffert og besøger mange lande på én tur. Måske er det noget for, når vi engang er pensionister!" },
+                    { s: "A", t: "Haha, god idé! Hvad er det vigtigste for dig, når du planlægger en ferie?" },
+                    { s: "B", t: "Det vigtigste er, at alle i familien har det godt og er glade. Budgettet er også vigtigt. Vi behøver ikke rejse til de dyreste steder – det handler om at skabe minder sammen." }
+                ],
+                phrases: [
+                    "Man kan slappe helt af og glemme alt", "Det er lidt ubehageligt og besværligt at...", "Jeg er mere til aktiv ferie end...",
+                    "Jeg er slet ikke til camping og telte", "Man kan opleve en ny og fascinerende kultur", "Det er hårdt men utrolig smukt",
+                    "Hellere strandliv end bjergvandring", "At koble helt af fra hverdagen og arbejdet", "Efter to dage keder jeg mig",
+                    "Det er meget lærerigt og spændende", "At dele oplevelser med dem, man holder af", "At nyde den friske bjergluft",
+                    "En luksuriøs og bekvem måde at rejse på", "Fysisk udfordrende men belønner sig", "Det vigtigste er at skabe minder",
+                    "Budgettet er en vigtig faktor", "Jeg drømmer om engang at besøge...", "Det er ikke særlig miljøvenligt at flyve",
+                    "Man pakker én kuffert og ser mange lande", "Det handler ikke om penge, men om oplevelser"
+                ],
+                del2: [
+                    { q: "Hvad er din absolutte yndlingsferie?", a: "Min yndlingsferie er en kombineret strand- og kulturferie. Jeg elsker at svømme i havet om morgenen og besøge historiske seværdigheder om eftermiddagen. Sidst var jeg i Grækenland, og det var magisk.", vn: "Kết hợp 2 sở thích (biển + văn hóa) và đưa ra ví dụ điểm đến cụ thể (Hy Lạp)." },
+                    { q: "Hvornår på året foretrækker du at tage på ferie?", a: "Jeg foretrækker at tage på ferie i april eller maj, inden sommerpriserne stiger, og turisterne er overalt. Vejret er stadig godt, men alt er billigere og mere roligt. Det er det perfekte tidspunkt!", vn: "Nêu chiến lược thông minh: đi vào mùa thấp điểm (trước hè) để tiết kiệm và tránh đông đúc." },
+                    { q: "Hvad er det allervigtigste for dig, når du er på ferie?", a: "Det allervigtigste er at have kvalitetstid med min familie uden stress fra arbejde og hverdagen. Vi behøver ikke rejse dyrt eller langt – bare vi har det sjovt og skaber gode minder sammen.", vn: "Đặt giá trị gia đình và ký ức lên trên vật chất, một câu trả lời rất được đánh giá cao." },
+                    { q: "Har du nogensinde prøvet camping eller vandring i bjergene?", a: "Jeg har aldrig sovet i telt, men jeg har prøvet at vandre på en bjergsti i mit hjemland. Det var utrolig hårdt for benene, men udsigten fra toppen var så smuk og overvældende, at det var det hele værd.", vn: "Sử dụng 'aldrig... men...' để nói về điều chưa thử và điều đã thử, kèm cảm xúc chân thực." },
+                    { q: "Synes du, at det er sjovt at bo på en campingplads?", a: "Både og. For børn er det fantastisk, fordi de hurtigt finder nye venner og oplever naturen på tæt hold. Men personligt foretrækker jeg at sove i en god seng på et hotel, for søvnkvaliteten er vigtig for mig på ferie.", vn: "Quan điểm đa chiều: tốt cho trẻ em (kết bạn, gần thiên nhiên) nhưng bản thân thích thoải mái hơn." },
+                    { q: "Føler du dig nogensinde træt efter en ferie?", a: "Ja, meget tit faktisk! Hvis det har været en aktiv byferie med megen sightseeing og gåtur, er jeg fysisk udmattet, men mentalt frisk og opladet. Kroppen er træt, men sjælen er glad og fyldt med nye minder.", vn: "Diễn đạt sự tương phản thú vị: mệt mỏi thể chất nhưng sảng khoái tinh thần sau kỳ nghỉ." },
+                    { q: "Synes du, at det er billigt at bo hos sin familie i udlandet under ferien?", a: "Ja, det er enormt billigt, fordi man sparer mange penge på hotel og restaurantmåltider. Men vigtigere er det, at man kan tilbringe ægte kvalitetstid med sin udvidede familie, som man måske ikke ser så tit.", vn: "Nêu 2 lợi ích quan trọng: tiết kiệm tiền VÀ thời gian gắn kết gia đình mà thường ít gặp." },
+                    { q: "Er det sjovere at holde ferie med familien eller med sine venner?", a: "Det afhænger virkelig af, hvad man vil opleve. Med familien er det mere hyggeligt, trygt og afslappet. Med venner er det ofte mere eventyrligt, spontant og festligt – man tager flere chancer og prøver nye ting.", vn: "Phân biệt rõ tính chất của từng nhóm: gia đình (ấm cúng, an toàn) vs. bạn bè (phiêu lưu, tự phát)." },
+                    { q: "Synes du, at det er langsomt at rejse med skib eller færge?", a: "Ja, det tager meget længere tid end fly. Men til gengæld er der noget romantisk og afslappende ved at sejle roligt og nyde det store blå hav uden stress. Det er en oplevelse i sig selv, ikke kun transporten.", vn: "Biến nhược điểm (chậm) thành ưu điểm (thư giãn, trải nghiệm lãng mạn)." },
+                    { q: "Hvad gør du for at spare penge på din ferie?", a: "Jeg booker altid fly og hotel i god tid, helst seks måneder i forvejen. Jeg vælger rejser uden for højsæsonen og laver mad selv i lejligheden frem for at spise på restaurant hver aften. Planlægning er alt!", vn: "Chia sẻ kỹ năng thực tế: đặt vé sớm, đi trái mùa, tự nấu ăn — thể hiện sự khéo léo quản lý tài chính." },
+                    { q: "Har du nogensinde haft en ferie, der gik galt?", a: "Ja, engang bestilte vi et hotel online, og da vi ankom, var det ingenting som på billederne! Det var snavset og mørkt. Det var frustrerende, men vi griner alle af det nu. Vi lærte altid at læse anmeldelserne grundigt!", vn: "Kể về một tình huống 'du lịch tai hại' hài hước và bài học rút ra từ đó — thể hiện khiếu hài hước." },
+                    { q: "Drømmer du om en bestemt eksotisk destination?", a: "Ja, jeg drømmer om en dag at besøge Japan. Kulturen, maden, naturen og historien – det er alt sammen utrolig fascinerende for mig. Det er min store drøm at opleve kirsebærblomsternes sæson i Tokyo en forårsdag.", vn: "Kể về một địa điểm mơ ước cụ thể (Nhật Bản) và lý do rõ ràng, thể hiện sự hiểu biết về điểm đến." }
+                ],
+                vocab: [
+                    ["slappe af / koble af", "thư giãn / ngắt kết nối"], ["seværdigheder", "điểm tham quan / danh lam thắng cảnh"],
+                    ["ubehagelig / besværlig", "khó chịu / bất tiện"], ["vandring / at vandre i bjergene", "đi bộ đường dài / leo núi"],
+                    ["lokal kultur og mad", "văn hóa và ẩm thực địa phương"], ["at opleve noget nyt", "trải nghiệm điều gì mới mẻ"],
+                    ["hyggelig / tryg", "ấm cúng / an toàn"], ["at koble af fra hverdagen", "xả hơi, ngắt kết nối khỏi cuộc sống hằng ngày"],
+                    ["udvidet familie", "gia đình mở rộng (họ hàng)"], ["overnatning / at overnatte", "việc lưu trú qua đêm"],
+                    ["eventyrlig", "mang tính phiêu lưu, mạo hiểm"], ["spontan", "ngẫu hứng, không có kế hoạch"],
+                    ["udflugt / dagstur", "chuyến dã ngoại / chuyến đi trong ngày"], ["fysisk udfordrende", "thách thức về thể chất"],
+                    ["udsigt / panorama", "tầm nhìn / quang cảnh rộng lớn"], ["i ro og mag", "một cách bình yên, thong thả"],
+                    ["højsæson / lavseason", "mùa cao điểm / mùa thấp điểm"], ["at booke i god tid", "đặt trước từ sớm"],
+                    ["overvældende", "choáng ngợp, ấn tượng mạnh"], ["at skabe minder", "tạo ra những kỷ niệm đẹp"],
+                    ["kirsebærblomster", "hoa anh đào"], ["rastløs", "bồn chồn, không ngồi yên được"]
+                ]
+            },
+            {
+                emoji: "🛍️",
+                title: "Shoppingsteder",
+                sub: "Indkøb og butikker",
+                images: [
+                    { emoji: "🏬", label: "Indkøbscenter", desc: "Et stort, moderne indkøbscenter med mange butikker og travle shoppere" },
+                    { emoji: "🛒", label: "Supermarked", desc: "Brede, velopfyldte hylder med mange varer i et dansk supermarked" },
+                    { emoji: "🏪", label: "Udendørs marked", desc: "Et farverigt og livligt udendørs marked med friske, lokale grøntsager" },
+                    { emoji: "💻", label: "Online shopping", desc: "En person handler bekvemt tøj og sko fra computeren hjemme" },
+                    { emoji: "👗", label: "Tøjbutik", desc: "En kvinde prøver forskellige outfits foran et stort spejl i en butik" },
+                    { emoji: "♻️", label: "Genbrugsbutik", desc: "Folk kigger nysgerrigt og finder skjulte skatte i en genbrugsbutik" }
+                ],
+                del1tip: "Diskuter fordele og ulemper ved hvert shoppingsted grundigt. Brug: 'Det er godt fordi…', 'Ulempen er dog at…', 'Foretrækker du at shoppe alene eller med venner?', 'Hvad køber du oftest online?', 'Synes du genbrugstøj er en god idé?'",
+                dialogue: [
+                    { s: "A", t: "Hvor handler du oftest ind til daglig? Jeg foretrækker mit lokale supermarked, fordi det er tæt på og meget praktisk at få overstået hurtigt på vej hjem fra arbejde. Hvad med dig?" },
+                    { s: "B", t: "Jeg handler faktisk rigtig meget online nu om dage. Det er meget nemmere, og man kan sammenligne priser fra mange butikker uden at bevæge sig fra sofaen. Synes du, at udendørs markeder er billige?" },
+                    { s: "A", t: "Ja, markeder er fantastiske til at købe frisk frugt og grøntsager fra lokale producenter, og man støtter det lokale landbrug. Men det er ikke altid praktisk i regnvejr. Hvad synes du generelt om store indkøbscentre?" },
+                    { s: "B", t: "De er gode, fordi alt er samlet under ét tag, og man kan handle, spise og se en film på samme sted. Men man kan hurtigt bruge for mange penge, og køerne kan være lange. Shopper du tøj alene eller med venner?" },
+                    { s: "A", t: "Jeg vil helst have en veninde med, fordi man får ærlige råd og en anden mening, hvis man er i tvivl. Men online er jeg altid alene! Hvad køber du oftest online?" },
+                    { s: "B", t: "Mest tøj, sko og elektronik. Det er som regel billigere, og der er enormt mange valgmuligheder. Men ulempen er, at man ikke kan prøve tøjet eller mærke kvaliteten, inden man betaler." },
+                    { s: "A", t: "Ja, det er ret besværligt at returnere pakker, hvis noget ikke passer eller er skuffende. Hvad synes du om genbrugsbutikker? Handler du der nogensinde?" },
+                    { s: "B", t: "Ja, faktisk! Jeg finder tit rigtig lækre og billige ting i genbrugsbutikker. Det er godt for pengepungen og for miljøet. Det er jo bæredygtigt at give tøj og møbler et nyt liv." },
+                    { s: "A", t: "Det er jeg helt enig i. Jeg har selv fundet et smukt vintage-tøjstykke i en genbrugsbutik for nylig. Det var en rigtig skattejagt! Hvad er den dyreste ting, du nogensinde har købt i en butik?" },
+                    { s: "B", t: "Nok min bærbare computer til studiet. Det var en stor investering, men den er absolut nødvendig. Hvad med dig?" },
+                    { s: "A", t: "Jeg brugte mange penge på en god vinterfrakke engang. Men den har nu holdt i fem år, så det var egentlig en god investering i det lange løb." },
+                    { s: "B", t: "Det er en god pointe – kvalitet er vigtigt. Det er bedre at købe noget dyrt, der holder, end noget billigt, der falder fra hinanden efter et halvt år." }
+                ],
+                phrases: [
+                    "At sammenligne priser fra mange butikker", "Den største fordel er...", "Ulempen er dog klart, at...",
+                    "Man kan ikke prøve eller føle kvaliteten", "Det tager alt for lang tid i kø", "At få ærlige råd fra en veninde",
+                    "Samlet under ét tag – super praktisk", "Det er ret besværligt at returnere pakker", "At støtte lokale producenter og bønder",
+                    "Kvaliteten af varerne varierer meget", "Godt for pengepungen og miljøet", "Når man er i tvivl om størrelse eller farve",
+                    "At få det overstået hurtigt", "Det er en god og bæredygtig investering", "En rigtig skattejagt i genbrugsbutikken",
+                    "Billigt er ikke altid godt i det lange løb", "Kvalitet er vigtigere end pris", "Det er en nødvendig udgift",
+                    "Shopper du oftest alene eller med nogen?", "Leveringstiden er en klar ulempe ved online"
+                ],
+                del2: [
+                    { q: "Hvor handler du normalt dine dagligvarer?", a: "Jeg handler normalt i Netto eller Lidl to til tre gange om ugen, fordi det er tæt på og priserne er rimelige. Men til frisk kød og specielle grøntsager tager jeg på lørdag formiddag på det lokale marked.", vn: "Nêu tên siêu thị Đan Mạch thực tế (Netto, Lidl) và phân biệt rõ thói quen mua sắm theo loại hàng." },
+                    { q: "Køber du ofte tøj eller andre ting online?", a: "Ja, jeg handler online mindst en gang om ugen, især tøj, sko og bøger. Det er yderst praktisk, og der er altid gode tilbud. Men leveringstiden på to til tre dage kan somme tider føles lang, hvis man er utålmodig.", vn: "Nêu tần suất, loại hàng, ưu điểm và nhược điểm cụ thể (thời gian giao hàng)." },
+                    { q: "Hvad er efter din mening den største ulempe ved online shopping?", a: "Den absolut største ulempe er, at man ikke kan se, røre ved eller prøve varerne, inden man betaler. Det kan resultere i skuffelser, og det er meget besværligt og tidskrævende at returnere noget via posten.", vn: "Nhấn mạnh sự thiếu hụt của trải nghiệm vật lý và sự phiền phức khi đổi trả." },
+                    { q: "Synes du, at lokale udendørs markeder er bedre end supermarkeder?", a: "Til frisk, lokal og sæsonbetonet mad er markeder klart bedre og hyggeligere. Men til hverdagens nødvendigheder som mælk, pasta og toiletpapir er supermarkedet langt mere praktisk og nemmere.", vn: "Phân biệt rõ ràng: chợ (tươi, địa phương, theo mùa) vs. siêu thị (tiện lợi, đầy đủ hàng thiết yếu)." },
+                    { q: "Hvem går du oftest på tøjindkøb med?", a: "Jeg går helst med min søster eller en tæt veninde, fordi de kender min smag og giver ærlige, direkte råd. Det er også bare rigtig hyggeligt at shoppe og spise frokost bagefter som en social aktivitet.", vn: "Đề cập đến yếu tố xã hội (ăn trưa sau khi mua sắm) và tầm quan trọng của sự chân thành trong lời khuyên." },
+                    { q: "Synes du, at store indkøbscentre er spændende?", a: "Ja, de er faktisk meget praktiske og spændende. De er ikke kun til shopping – de har biografer, restauranter og caféer, så man kan tilbringe en hel lørdag der med familien og have noget for alle aldre.", vn: "Mở rộng khái niệm TTTM: không chỉ mua sắm mà còn là trung tâm giải trí, ăn uống, phù hợp mọi lứa tuổi." },
+                    { q: "Synes du, at det er vigtigt at købe genbrugstøj?", a: "Ja, jeg tror, det er blevet vigtigere end nogensinde. Modeindustrien er desværre meget forurenende, så at købe brugt tøj er en rigtig god og bæredygtig måde at reducere sit miljøaftryk på.", vn: "Liên hệ với vấn đề thời sự: công nghiệp thời trang ô nhiễm, nhấn mạnh tính bền vững." },
+                    { q: "Køber du nogle gange helt nyt tøj til specielle fester?", a: "Ja, til bryllupper eller store fødselsdage synes jeg, det er hyggeligt at købe et nyt og flot outfit. Det får mig til at føle mig mere selvsikker og giver mig en god anledning til at se mig selv i nyt lys.", vn: "Giải thích cảm giác tự tin và sự đặc biệt khi mặc đồ mới trong dịp quan trọng." },
+                    { q: "Hvordan er dit tøj, når du bare slapper af derhjemme?", a: "Hjemme er komfort altid øverst på prioritetslisten. Jeg sætter pris på blødt og løstsiddende tøj, som et par behagelige joggingbukser og en stor sweater. Det er min måde at lade op på efter en lang arbejdsdag.", vn: "Miêu tả đồ mặc nhà và kết nối với nhu cầu tâm lý (thư giãn, nạp lại năng lượng)." },
+                    { q: "Har du et budget, når du shopper?", a: "Ja, helt bestemt. Jeg prøver altid at sætte et realistisk månedligt budget for tøj og underholdning. Det hjælper mig med at undgå impulsive indkøb, som man så fortryder bagefter.", vn: "Thể hiện kỹ năng quản lý tài chính thông minh và ý thức tránh mua sắm theo cảm tính (impulskøb)." },
+                    { q: "Hvad er forskellen på at handle i Danmark og i dit hjemland?", a: "I mit hjemland er der masser af livlige gademarkeder, der er åbne sent om aftenen og sælger alt muligt. Her i Danmark er det mere organiseret og dyrt, men kvaliteten og forbrugerbeskyttelsen er til gengæld meget bedre.", vn: "So sánh hai văn hóa mua sắm: chợ đường phố sống động ở quê nhà vs. có tổ chức nhưng đắt hơn ở Đan Mạch." },
+                    { q: "Synes du, at danske priser generelt er høje?", a: "Ja, det synes jeg! Priserne i Danmark er generelt meget højere end i mit hjemland, især på mad, tøj og restauranter. Men lønningerne er jo heldigvis også tilsvarende højere, så det balancerer sig lidt.", vn: "Nêu nhận xét về giá cả ở Đan Mạch với cái nhìn cân bằng: đắt nhưng lương cũng cao hơn." }
+                ],
+                vocab: [
+                    ["at sammenligne priser", "so sánh giá cả"], ["leveringstid", "thời gian giao hàng"],
+                    ["at returnere en vare", "đổi/trả lại hàng hóa"], ["dagligvarer / nødvendigheder", "hàng tạp hóa, nhu yếu phẩm"],
+                    ["valgmuligheder", "những sự lựa chọn (phong phú)"], ["ulempe / fordel", "nhược điểm / ưu điểm"],
+                    ["besværligt og tidskrævende", "phiền phức và tốn thời gian"], ["at røre ved / prøve", "chạm vào / thử (hàng)"],
+                    ["ærlige og direkte råd", "lời khuyên chân thành và thẳng thắn"], ["modetrends", "xu hướng thời trang"],
+                    ["bæredygtig / miljøvenlig", "bền vững / thân thiện môi trường"], ["løstsiddende og blødt tøj", "quần áo rộng rãi mềm mại thoải mái"],
+                    ["at skåne miljøet", "bảo vệ / giữ gìn môi trường"], ["pengepung / budget", "ví tiền / ngân sách"],
+                    ["stilfuld / elegant", "phong cách, sành điệu"], ["selvsikker", "tự tin"],
+                    ["impulskøb", "mua sắm theo cảm tính (không có kế hoạch)"], ["sæsonbetonet", "theo mùa"],
+                    ["forbrugerbeskyttelse", "bảo vệ người tiêu dùng"], ["vintage", "cổ điển, đồ cũ có phong cách"],
+                    ["en skattejagt", "cuộc săn kho báu (ví dụ trong cửa hàng đồ cũ)"], ["prioritetsliste", "danh sách ưu tiên"],
+                    ["indkøbscenter / butikscenter", "trung tâm thương mại"], ["at fortryde et indkøb", "hối hận về một lần mua sắm"]
+                ]
+            },
+            {
+                emoji: "💻",
+                title: "Digitale vaner",
+                sub: "Skærm og teknologi",
+                images: [
+                    { emoji: "📱", label: "Sociale medier", desc: "En person scroller intenst og uafbrudt på sin smartphone i sofaen" },
+                    { emoji: "🎬", label: "Streaming", desc: "En person ser en spændende serie på et stort fladskærmstv om aftenen" },
+                    { emoji: "💬", label: "Videochat", desc: "To personer taler og griner højlydt via computerens webcam" },
+                    { emoji: "🎮", label: "Gaming", desc: "En ung person spiller koncentreret computerspil med headset" },
+                    { emoji: "📰", label: "Netnyheder", desc: "En person læser dagens vigtigste nyheder på en tablet om morgenen" },
+                    { emoji: "🎧", label: "Podcasts", desc: "En person lytter afslappet til en podcast med høretelefoner på gåtur" }
+                ],
+                del1tip: "Del dine daglige digitale vaner og spørg nysgerrigt ind til partnerens. Brug: 'Hvor meget tid bruger du på…?', 'Synes du, at det påvirker din søvn negativt?', 'Hvad bruger du din telefon allermest til?', 'Mener du, at børn bruger for meget tid foran skærmen?'",
+                dialogue: [
+                    { s: "A", t: "Hvis du skal være helt ærlig, hvilken digital aktivitet bruger du allermest tid på? Jeg er nok alt for meget på sociale medier som Instagram og Facebook for at følge med i venners liv og nyheder. Hvad med dig?" },
+                    { s: "B", t: "Jeg er slem til at streame serier på Netflix og HBO om aftenen. Somme tider ser jeg to eller tre afsnit i træk uden at mærke, at klokken er blevet midnat! Det er dejligt at slappe af med, men det koster på søvnen." },
+                    { s: "A", t: "Det kender jeg alt til! Hvad synes du om gaming? Spiller du nogensinde computerspil eller mobilspil?" },
+                    { s: "B", t: "Nej, gaming interesserer mig slet ikke. Men min teenagesøn spiller i timevis hver dag! Jeg er lidt bekymret for, at det påvirker hans lektier og søvn. Bruger du videochat til at tale med din familie?" },
+                    { s: "A", t: "Ja, rigtig meget! Jeg ringer til min mor og mine søskende i Vietnam næsten hver uge via FaceTime. Det er utrolig dejligt at se deres ansigter og ikke kun høre stemmen. Det føles meget mere nærværende." },
+                    { s: "B", t: "Det forstår jeg godt. Teknologien gør jo faktisk verden meget mindre. Hvor mange gange om dagen tjekker du egentlig din telefon? Har du nogensinde talt det?" },
+                    { s: "A", t: "Jeg tror, det er mange gange! Jeg ved godt, det er for meget. Jeg har faktisk prøvet at installere en app, der måler min skærmtid, og det var et lidt chokerende resultat, desværre." },
+                    { s: "B", t: "Haha, det er jeg bange for at prøve! Hvad synes du om børns brug af skærme? Mener du, at forældre skal sætte faste grænser?" },
+                    { s: "A", t: "Ja, absolut. Det er meget vigtigt, at børn bevæger sig, leger udenfor og læser rigtige bøger. Men teknologi bruges jo også meget i skolen nu, så det er en svær balance." },
+                    { s: "B", t: "Det er rigtigt. Podcasts hører jeg faktisk rigtig meget til. Det er en fantastisk måde at lære noget nyt på, mens man laver noget andet, som at gå tur eller vaske op." },
+                    { s: "A", t: "Hvilke podcasts lytter du til? Har du en favorit?" },
+                    { s: "B", t: "Jeg lytter meget til dansk radio og podcasts om aktuelle nyheder og samfundsemner. Det er virkelig godt for min danskforståelse og mit ordforråd. Kan du anbefale noget på dansk?" }
+                ],
+                phrases: [
+                    "At følge med i nyheder og vennernes liv", "Det er en rigtig god måde at...", "Jeg bruger nok alt for meget tid på det",
+                    "At begrænse sin daglige skærmtid", "At sætte faste grænser for børn", "Det er dejligt at kunne se ansigtet",
+                    "At sidde limet til en skærm i timevis", "Det koster på nattesøvnen desværre", "Det siger mig slet ikke noget",
+                    "Jeg tjekker min telefon konstant", "At være afhængig af teknologi og sociale medier", "Teknologien gør verden meget mindre",
+                    "Det er et chokerende resultat", "Svær balance mellem skærm og leg udenfor", "Det er fantastisk til at lære noget nyt",
+                    "At installere en app til skærmtid", "Podcasts er perfekte til multitasking", "Det påvirker min søvnkvalitet negativt",
+                    "En nærværende og personlig oplevelse", "Aktuelle nyheder og samfundsemner"
+                ],
+                del2: [
+                    { q: "Hvad bruger du generelt din smartphone allermest til i hverdagen?", a: "Jeg bruger den primært til at tjekke netnyheder om morgenen, skrive beskeder til familie og venner, bruge GPS-navigation og høre podcasts på vejen til arbejde. Den er næsten blevet en forlængelse af mig selv!", vn: "Liệt kê 4 hành động cụ thể và tự nhận thức về sự phụ thuộc vào điện thoại một cách hài hước." },
+                    { q: "Synes du, at vi som samfund bruger alt for meget tid foran skærmen?", a: "Ja, det synes jeg bestemt. Jeg kan selv mærke, at for meget skærmtid påvirker min søvnkvalitet og koncentration negativt. Det er et voksende samfundsproblem, og vi er nødt til at tale mere om det.", vn: "Liên hệ trải nghiệm cá nhân với vấn đề xã hội rộng hơn, thể hiện sự nhận thức phê phán." },
+                    { q: "Bruger du sociale medier aktivt til at forbedre dit danske sprog?", a: "Ja, det gør jeg faktisk! Jeg følger danske nyhedssider som DR og TV2, ser korte videoer med undertekster og kommenterer på dansk. Det hjælper mig enormt med at lære ny slang og dagligdags udtryk i et naturligt kontekst.", vn: "Cách cực hay để ghi điểm: kết nối mạng xã hội với việc học tiếng một cách chủ động và sáng tạo." },
+                    { q: "Hvad mener du, der er de største fordele og ulemper ved streamingtjenester?", a: "Den største fordel er friheden til at se præcis det, man vil, lige når man har lyst. Ulempen er, at det er for nemt at binge-watche og dermed spilde alt for mange timer, som man burde bruge på andre ting.", vn: "Cấu trúc so sánh rõ ràng: ưu điểm (tự do, on-demand) và nhược điểm thực tế (binge-watching, lãng phí thời gian)." },
+                    { q: "Synes du, at det er interessant at se dokumentarprogrammer eller historiske serier på tv?", a: "Ja, meget! Dokumentarprogrammer om naturen, historien og videnskaben er bestemt ikke kedelige – de er yderst lærerige og hjælper mig med at forstå verden bedre. Netflix har faktisk rigtig gode engelske og danske dokumentarer.", vn: "Dùng từ vựng tích cực (lærerige, forstå verden) và nævn konkrete eksempler fra populære platforme." },
+                    { q: "Synes du, at det er trist at se nyhedsudsendelser i fjernsynet?", a: "Det kan det godt være, fordi nyheder desværre ofte fokuserer på krig, klimaforandringer og kriminalitet. Men det er nødvendigt at holde sig informeret om verden. Jeg prøver at balancere det med positive nyheder.", vn: "Thừa nhận nội dung tiêu cực của tin tức nhưng nhấn mạnh tầm quan trọng của việc cập nhật thông tin." },
+                    { q: "Hvor meget tid bruger du typisk på at se fjernsyn på en normal ugedag?", a: "På travle hverdage ser jeg måske kun nyhederne og et enkelt program om aftenen – i alt en times tid. Men i weekenden er det min dejlige måde at koble helt af på, så der kan det hurtigt blive to til tre timer.", vn: "So sánh cụ thể thời gian sử dụng ngày thường (ít) vs. cuối tuần (nhiều hơn, có lý do)." },
+                    { q: "Er det sjovere for dig at se en film alene på din tablet eller sammen med andre?", a: "Jeg foretrækker absolut at se film i fællesskab med min familie eller gode venner. Det er en hyggelig, social aktivitet, og det er sjovt at diskutere handlingen og karaktererne efterfølgende over kaffen.", vn: "Nhấn mạnh khía cạnh xã hội và tilvækst af fællesskab ('hygge') i filmoplevelsen." },
+                    { q: "Bruger du nogensinde videochat til møder eller undervisning?", a: "Ja, jeg bruger Zoom til onlineundervisning et par gange om ugen. Det sparer meget transporttid, og man kan deltage hjemmefra i pyjamas! Men jeg savner den personlige kontakt og energien i et rigtigt klasseværelse.", vn: "Thêm detalje hài hước (pyjamas) và thừa nhận sự thiếu hụt tương tác trực tiếp." },
+                    { q: "Hvad gør du for at begrænse din skærmtid?", a: "Jeg har prøvet at indføre et forbud mod telefonen i soveværelset om natten og slukke for alle notifikationer i to timer om eftermiddagen. Det er faktisk svært, men jeg sover allerede bedre!", vn: "Chia sẻ những chiến lược cụ thể và thực tế để giảm thời gian sử dụng màn hình." },
+                    { q: "Hvad er dit syn på børn og skærme?", a: "Jeg mener, at børn under 10 år bør have meget begrænset skærmtid – maksimalt en time om dagen. Det er utrolig vigtigt, at de i stedet leger, bevæger sig og udvikler kreativitet og sociale færdigheder.", vn: "Đưa ra quan điểm rõ ràng với số liệu cụ thể (1 time/ngày) và lý do phát triển toàn diện của trẻ." },
+                    { q: "Følger du nogen inspirerende danskere på sociale medier?", a: "Ja! Jeg følger et par danske madblogs og en fitnessinstruktør på Instagram. Det er faktisk en god måde for mig at øve mig i at læse dansk i en sjov og uformel kontekst.", vn: "Kết nối việc dùng mạng xã hội với việc học tiếng Đan Mạch một cách tự nhiên và sáng tạo." }
+                ],
+                vocab: [
+                    ["sociale medier", "mạng xã hội"], ["at streame serier", "xem series trực tuyến (streaming)"],
+                    ["skærmtid", "thời gian sử dụng màn hình"], ["at begrænse", "giới hạn, hạn chế"],
+                    ["videochat / videoopkald", "gọi điện video"], ["at sætte faste grænser", "đặt ra giới hạn rõ ràng"],
+                    ["at tjekke nyheder", "xem tin / cập nhật tin tức"], ["fordele og ulemper", "những ưu và nhược điểm"],
+                    ["at være afhængig af", "bị nghiện / phụ thuộc vào"], ["underholdning", "sự giải trí"],
+                    ["at binge-watche", "xem liên tục nhiều tập phim một lúc"], ["lærerig / informativ", "mang tính giáo dục / thông tin"],
+                    ["deprimerende / trist", "đáng buồn, gây chán nản"], ["klimaforandringer", "biến đổi khí hậu"],
+                    ["at holde sig informeret", "cập nhật thông tin"], ["notifikationer", "thông báo (trên điện thoại)"],
+                    ["GPS-navigation", "điều hướng GPS"], ["ordforråd", "vốn từ vựng"],
+                    ["undertekster", "phụ đề"], ["nærværende", "hiện diện, chú tâm (không phân tâm)"],
+                    ["fællesskab", "cộng đồng, sự đoàn kết"], ["samfundsproblem", "vấn đề xã hội"],
+                    ["sociale færdigheder", "kỹ năng xã hội"], ["uformel kontekst", "ngữ cảnh không trang trọng"]
+                ]
+            },
+            {
+                emoji: "🏘️",
+                title: "Bolig og Nabolag",
+                sub: "Hjem og boligformer",
+                images: [
+                    { emoji: "🏢", label: "Lejlighed", desc: "En lys og moderne lejlighed i et højhus midt i storbyen" },
+                    { emoji: "🏡", label: "Hus på landet", desc: "Et hyggeligt, stort hus med en smuk frodig have ude på landet" },
+                    { emoji: "🏘️", label: "Rækkehus", desc: "En række identiske huse i en rolig forstad med private, grønne haver" },
+                    { emoji: "🛏️", label: "Bofællesskab", desc: "Unge studerende deler hyggeligt et stort fælles køkken og stue" },
+                    { emoji: "🏠", label: "Villa / Parcelhus", desc: "Et klassisk parcelhus i et stille og roligt dansk kvarter" },
+                    { emoji: "🌳", label: "Altan/Terrasse", desc: "Folk nyder morgenkaffen på en solrig altan med blomster og planter" }
+                ],
+                del1tip: "Tal åbent om jeres nuværende boligsituation og fremtidsdrømme. Brug: 'Jeg bor lige nu i...', 'Den største fordel ved at bo i... er...', 'Hvordan er dine naboer?', 'Hvad er dit drømmehjem?', 'Er det dyrt at leje her?'",
+                dialogue: [
+                    { s: "A", t: "Hvordan bor du og din familie i øjeblikket? Jeg bor selv i en lille toværelses lejlighed i centrum. Det er meget praktisk, fordi der er butikker, caféer og S-toget lige uden for døren. Hvad med dig?" },
+                    { s: "B", t: "Jeg bor i et ældre rækkehus ude i en rolig forstad. Vi elsker at have vores lille private have, hvor børnene kan lege frit. Synes du ikke, det er for støjende og stressende at bo midt i byen?" },
+                    { s: "A", t: "Jo, trafikken og støjen kan godt genere om natten og i weekenden. Men jeg elsker bylivet og energien – der sker altid noget nyt. Har du prøvet at bo i et bofællesskab?" },
+                    { s: "B", t: "Ja, dengang jeg var ung studerende boede jeg i et bofællesskab med fire andre. Det var sjovt og billigt, men man har desværre ikke meget privatliv. Hvad er dit ultimative drømmehjem?" },
+                    { s: "A", t: "Mit drømmehjem er et stort, lyst hus på landet med en stor have og plads til et vegetabilsk bede. Hvad med dit?" },
+                    { s: "B", t: "Jeg er faktisk meget tilfreds med mit rækkehus. Det passer perfekt til vores families behov. Og naboerne er virkelig fantastiske – vi holder somme tider vejfest og griller sammen om sommeren." },
+                    { s: "A", t: "Det lyder idyllisk! Kender du dine naboer godt? Jeg kender næsten ingen i min opgang." },
+                    { s: "B", t: "Ja, vi kender hinanden ret godt. Vi hjælper hinanden med pakker, dyr og have. Det er en rigtig god følelse af fællesskab og tryghed. Er det dyrt at bo der, du bor nu?" },
+                    { s: "A", t: "Ja, huslejen i centrum er desværre meget høj. Jeg betaler næsten 10.000 kroner om måneden for min lille lejlighed. Det er en stor del af min løn. Hvad betaler du?" },
+                    { s: "B", t: "Vi betaler lidt mindre, fordi vi bor i forstaden. Men til gengæld bruger vi lidt tid på at pendle. Det er en afvejning." },
+                    { s: "A", t: "Vil du i fremtiden helst eje eller leje din bolig?" },
+                    { s: "B", t: "Jeg drømmer om at eje vores nuværende hus en dag, fordi det er en god investering. Men boligpriserne i Danmark er jo steget enormt, så det er en stor udfordring for mange familier." }
+                ],
+                phrases: [
+                    "Hvordan bor du i øjeblikket?", "Det er yderst praktisk, fordi...", "Har du nogensinde prøvet at bo i...?",
+                    "Hvad er dit ultimative drømmehjem?", "Der er fuldstændig fred og ro på landet", "Man har desværre ikke meget privatliv",
+                    "At dele køkken og badeværelse", "Det passer perfekt til vores families behov", "At bo midt i centrum med al bekvemmelighed",
+                    "I udkanten af byen / i forstaden", "Det er alt for larmende og stressende", "Vi har et fantastisk naboskab og fællesskab",
+                    "Huslejen er meget høj i centrum", "Det er en stor investering på lang sigt", "Boligpriserne er steget enormt",
+                    "En rolig og tryg omgivelse for børnene", "At pendle til og fra arbejde", "Fordelen ved at eje frem for at leje",
+                    "Vi holder vejfest og grill om sommeren", "En afvejning mellem tid og økonomi"
+                ],
+                del2: [
+                    { q: "Kender du dine naboer godt der, hvor du bor?", a: "Ja, jeg kender dem faktisk ret godt. Vi bor i en liten bebyggelse med mange børnefamilier, og vi snakker tit over hækken. Vi hjælper også hinanden med praktiske ting som at modtage pakker eller passe hinandens katte i ferierne.", vn: "Văn hóa láng giềng (naboskab) quan trọng ở Đan Mạch. Kể về các hoạt động giúp đỡ nhau cụ thể." },
+                    { q: "Hvad synes du er den absolut største fordel ved dit nuværende nabolag?", a: "Den største fordel er, at det er meget trygt og roligt – perfekt for børnene at vokse op i. Og det er tæt på både natur og S-toget, så vi ikke er isolerede fra resten af byen. Det bedste fra to verdener!", vn: "Liệt kê 2 ưu điểm kết hợp (an toàn + tiếp cận tốt) với cụm từ hay: 'det bedste fra to verdener'." },
+                    { q: "Er der stor forskel på, hvordan man bor her i Danmark og i dit hjemland?", a: "Ja, en enorm forskel! I mit hjemland bor flere generationer ofte under samme tag – bedsteforældre, forældre og børn sammen. Det giver en stærk familieenhed. Her i Danmark er man vant til at bo i sin egen bolig og klare sig selv.", vn: "So sánh văn hóa gia đình nhiều thế hệ (cùng nhà) ở Châu Á vs. sự tự lập cá nhân ở Đan Mạch." },
+                    { q: "Vil du i fremtiden helst leje eller eje din egen bolig?", a: "På lang sigt vil jeg meget gerne eje min bolig, fordi det er en solid investering og giver en følelse af stabilitet og tilknytning. Men lige nu er det nemmest og mest fleksibelt at leje, da vi ikke ved, om vi bliver i Danmark permanent.", vn: "Nêu lý do tài chính cho việc mua nhà (đầu tư, ổn định) và lý do thực tế cho việc thuê hiện tại (linh hoạt, không chắc ở lại)." },
+                    { q: "Hvad kan du bedst lide at lave udendørs i dit område?", a: "Jeg kan rigtig godt lide at gå en lang aftentur med min familie langs kysten eller i skoven. Det er den perfekte måde for mig at rydde tankerne, nyde årstidernes skiften og tale om, hvad der er sket i løbet af dagen.", vn: "Mô tả hoạt động cụ thể (đi dạo buổi tối) và tác dụng tinh thần kép (giải tỏa tâm trí + gắn kết gia đình)." },
+                    { q: "Hvordan er trafikforholdene, der hvor du bor nu?", a: "Trafikken i mit kvarter er normalt ganske rolig og stille. Men på den nærliggende hovedvej kan det blive rigtig tæt og larmende i myldretiden om morgenen, når alle skal nå bus og tog. Det er en lille ulempe.", vn: "Đánh giá thực tế tình hình giao thông địa phương: phân biệt giờ bình thường và giờ cao điểm." },
+                    { q: "Hvilket værelse i din bolig kan du bedst lide at opholde dig i?", a: "Jeg kan bedst lide vores stue, fordi det er det store, lyse fællesrum, hvor vi bruger aftener og weekender samlet som familie. Vi sidder der og ser fjernsyn, spiller spil og snakker. Det er vores fælles hjerte i hjemmet.", vn: "Chọn phòng khách (stue) như 'trái tim của gia đình' - câu trả lời ấm áp và gắn kết gia đình." },
+                    { q: "Hvor er det bedste sted at tage hen om aftenen i dit område?", a: "Kysten og den lille havn er det allerbedste sted at besøge om aftenen. Det er altid fredeligt, og lyden af vand og måger giver mig en dyb følelse af ro. Jeg tager tit en hurtig aftentur derhen alene for at tænke og slappe af.", vn: "Chỉ ra địa điểm thư giãn cụ thể (bờ biển/bến cảng) và mô tả âm thanh thiên nhiên giúp thư giãn." },
+                    { q: "Har du en have eller en altan, og hvordan bruger du den?", a: "Jeg bor i lejlighed, så jeg har desværre ikke have. Men jeg har en dejlig altan, som jeg har fyldt med potter og urter. Om sommeren spiser vi aftensmad derude og nyder solnedgangen. Det er et lille paradis!", vn: "Bù đắp việc không có vườn bằng ban công (altan) được trang trí đẹp và mô tả tích cực về không gian nhỏ." },
+                    { q: "Hvad er den mest udfordrende ting ved at bo i et nyt land?", a: "Den sværeste ting er at finde sig til rette og opbygge et socialt netværk fra bunden. Lejlighed og job kan man finde, men ægte venskaber og en følelse af at høre til tager tid. Men det kommer langsomt!", vn: "Thành thật về những thách thức của việc định cư ở nước mới, đặc biệt là mạng lưới xã hội và cảm giác thuộc về." },
+                    { q: "Hvad er den største forskel på at bo i centrum og i forstaden?", a: "I centrum er alt inden for gangafstand, men det er dyrere, mere støjende og man har meget lidt plads. I forstaden er det roligere og rummer, og man har typisk en have. Men man skal bruge tid på at pendle til arbejde og indkøb.", vn: "So sánh toàn diện: trung tâm (tiện lợi, đắt, ồn ào) vs. ngoại ô (yên tĩnh, rộng rãi, phải đi lại nhiều)." }
+                ],
+                vocab: [
+                    ["forstad", "vùng ngoại ô"], ["rækkehus", "nhà liền kề / nhà phố dãy"],
+                    ["bofællesskab", "nhà ở chung / ở ghép"], ["privatliv", "sự riêng tư"],
+                    ["drømmehjem", "ngôi nhà mơ ước"], ["at eje", "sở hữu, mua"],
+                    ["at leje", "thuê"], ["investering / stabilitet", "sự đầu tư / sự ổn định"],
+                    ["naboskab / fællesskab", "tình làng nghĩa xóm / cộng đồng"], ["flere generationer", "nhiều thế hệ cùng chung sống"],
+                    ["kvarter / bebyggelse", "khu dân cư / khu phố"], ["altan / terrasse", "ban công / sân thượng"],
+                    ["trygt og roligt", "an toàn và bình yên"], ["husleje", "tiền thuê nhà"],
+                    ["at flytte hjemmefra", "dọn ra ở riêng"], ["parcelhus / villa", "nhà biệt lập"],
+                    ["rummeligt og lyst", "rộng rãi và sáng sủa"], ["tilknytning", "sự gắn bó, cảm giác thuộc về"],
+                    ["årstidernes skiften", "sự thay đổi các mùa"], ["vejfest", "tiệc đường phố (lễ hội hàng xóm)"],
+                    ["at pendle", "đi lại hằng ngày (commute)"], ["boligpriserne", "giá bất động sản / nhà ở"]
+                ]
+            },
+            {
+                emoji: "💼",
+                title: "Arbejde og Uddannelse",
+                sub: "Job og studieliv",
+                images: [
+                    { emoji: "🏢", label: "Kontorjob", desc: "Engagerede medarbejdere arbejder ved computere i et lyst, åbent kontor" },
+                    { emoji: "🛠️", label: "Håndværk", desc: "En dygtig person i arbejdstøj arbejder præcist med et håndværksprojekt" },
+                    { emoji: "📚", label: "Studie", desc: "En koncentreret studerende læser store fagtekster på et stille bibliotek" },
+                    { emoji: "🏠", label: "Hjemmearbejde", desc: "En person arbejder fokuseret og effektivt på sin laptop hjemme ved skrivebordet" },
+                    { emoji: "🤝", label: "Møde", desc: "Engagerede kolleger diskuterer ivrigt et projekt rundt om et mødebord" },
+                    { emoji: "☕", label: "Kaffepause", desc: "Glade kolleger slapper af og griner over kaffen i kantinen" }
+                ],
+                del1tip: "Spørg nysgerrigt ind til partnerens hverdag og holdninger til arbejdslivet. Brug: 'Hvad laver du til hverdag?', 'Arbejder du eller studerer du?', 'Hvad betyder mest for dig i et job?', 'Hvad er dit drømmejob?', 'Kan du lide dit arbejdsmiljø?'",
+                dialogue: [
+                    { s: "A", t: "Hvilken af disse arbejdssituationer passer bedst på din nuværende hverdag? Jeg arbejder selv på et travlt kontor med mange kolleger fra 8 til 16 hver dag. Det kan godt blive intenst. Hvad med dig?" },
+                    { s: "B", t: "Jeg er studerende på et sprogcenter i øjeblikket. Jeg bruger mange timer på at studere dansk og engelsk. Det kræver rigtig meget selvdisciplin og motivation, særligt de dage, man ikke er frisk." },
+                    { s: "A", t: "Det forstår jeg godt! Hvad er dit mål med dine studier? Hvad drømmer du om at arbejde med på sigt?" },
+                    { s: "B", t: "Jeg drømmer om at blive pædagog eller social- og sundhedsassistent, fordi jeg elsker at hjælpe og passe på andre mennesker. Hvad er det bedste ved dit job?" },
+                    { s: "A", t: "Det bedste er mine kolleger og arbejdsmiljøet. Vi har en flad hierarkisk struktur, hvilket betyder, at man nemt kan tale åbent med sin chef. Det er meget anderledes end i mit hjemland. Arbejder du nogensinde hjemmefra?" },
+                    { s: "B", t: "Som studerende er jeg jo hjemme det meste af tiden! Men det er svært at fokusere derhjemme med børn og huslige pligter. Kantinen på skolen er faktisk et godt sted at studere og møde nye venner." },
+                    { s: "A", t: "Det kan jeg sagtens forstå. Hvad er det vigtigste for dig i et fremtidigt job – løn, kollegaer eller interessante opgaver?" },
+                    { s: "B", t: "Helt klart et godt arbejdsmiljø og meningsfulde opgaver. Penge er selvfølgelig nødvendigt, men man tilbringer jo så mange timer på sin arbejdsplads, at man skal trives og føle sig værdsat." },
+                    { s: "A", t: "Det er jeg fuldstændig enig i. Hvad synes du om at arbejde skiftehold eller om natten? Kunne det passe dig?" },
+                    { s: "B", t: "Nej, det tror jeg ikke. Jeg er et morgenperson og fungerer bedst i dagtimerne. Skiftehold ville ødelægge min rytme og min tid med familien om aftenen." },
+                    { s: "A", t: "Hvad er den største forskel på arbejdskulturen her og i dit hjemland?" },
+                    { s: "B", t: "Her i Danmark er der meget mere tillid til medarbejderne, og man har ret til at sige sin mening til chefen. I mit hjemland er hierarkiet meget strammere, og chefen har altid ret. Det er en stor kulturel forskel!" }
+                ],
+                phrases: [
+                    "Hvad laver du primært til hverdag?", "Det kræver meget selvdisciplin og motivation", "Jeg sparer tid og penge på transporten",
+                    "Jeg savner den sociale kontakt med kollegerne", "Arbejdsmiljøet er rigtig godt og trygt", "At arbejde med sine hænder",
+                    "Et åbent og lyst kontorlandskab", "At have en flad hierarkisk struktur", "Den sociale kontakt i frokoststpausen er vigtig",
+                    "At sparre med hinanden og hjælpe", "Fuldtidsjob versus deltid – hvad passer?", "At have fleksible og frie arbejdstider",
+                    "Spændende og meningsfulde arbejdsopgaver", "Ansigt til ansigt er bedst for samarbejdet", "At trives og føle sig værdsat",
+                    "Chefen er meget tilgængelig og lyttende", "Hierarkiet er meget strammere i mit hjemland", "Man skal have tillid til sine medarbejdere",
+                    "Hvad er dit ultimative drømmejob?", "At bruge sin uddannelse i praksis"
+                ],
+                del2: [
+                    { q: "Hvad arbejder du med i øjeblikket, eller hvad studerer du?", a: "Jeg studerer dansk på et sprogcenter på modul 3, og ved siden af arbejder jeg deltid i en dagligvarebutik som ekspedient. Det er hårdt at jonglere begge dele, men det giver mig vigtig dansk arbejdserfaring.", vn: "Kết hợp học tiếng và làm việc bán thời gian — thể hiện sự chăm chỉ và ý thức xây dựng kinh nghiệm thực tế." },
+                    { q: "Hvad er allervigtigst for dig: at have en høj løn eller et godt arbejdsmiljø?", a: "Et godt arbejdsmiljø med rare, støttende kolleger er klart det vigtigste for mig. Man tilbringer ufattelig mange timer på sin arbejdsplads, og hvis man ikke trives, går det ud over både motivation og helbred.", vn: "Đưa ra lựa chọn rõ ràng và giải thích lý do sâu sắc: môi trường ảnh hưởng đến động lực và sức khỏe." },
+                    { q: "Er det helt normalt at arbejde hjemmefra i dit hjemland?", a: "Nej, slet ikke! I mit hjemland forventes det, at man møder fysisk op og viser sig frem for chefen hver dag. Her i Danmark er der meget mere tillid og frihed til at tilrettelægge sin egen arbejdsdag, og det beundrer jeg enormt.", vn: "So sánh văn hóa làm việc: sự tin tưởng và tự chủ ở Đan Mạch vs. kiểm soát chặt chẽ ở quê hương." },
+                    { q: "Hvad er dit absolutte drømmejob i fremtiden?", a: "Mit drømmejob er at arbejde som tolk eller sproglærer, fordi jeg elsker sprog, kommunikation og det at bygge bro mellem kulturer. Det føler jeg vil give mig en dyb personlig mening og tilfredshed.", vn: "Kể về công việc mơ ước có liên quan đến ngôn ngữ (rất phù hợp trong bối cảnh học tiếng) và giải thích ý nghĩa cá nhân." },
+                    { q: "På hvilket tidspunkt møder du på universitetet eller arbejdet hver dag?", a: "Jeg møder klokken 8 på mit kursus og klokken 14 på arbejdet. Det er en lang dag, men jeg er faktisk et morgenperson og fungerer bedst, når jeg starter tidligt og er færdig inden mørkets frembrud.", vn: "Mô tả lịch trình cụ thể và tự nhận biết bản thân là 'morgenperson'." },
+                    { q: "Hvad er den allerførste ting, du gør, når du ankommer til din studie- eller arbejdsplads?", a: "Det første, jeg gør, er at hente en kop kaffe i kantinen og sætte mig ned for at tjekke dagens vigtigste emails og opgaver. Det hjælper mig med at organisere mine tanker og prioritere, hvad der er mest presserende.", vn: "Mô tả chuỗi hành động buổi sáng cụ thể và logic: cà phê → email → ưu tiên công việc." },
+                    { q: "Har du tid til at se og tale med dine venner på universitetet hver dag?", a: "Ja, heldigvis! Jeg spiser altid frokost med mine studiekammerater i kantinen. Det er en vigtig pause, hvor vi kan støtte hinanden fagligt og socialt og grine lidt af de svære tekster og grammatikregler.", vn: "Khía cạnh xã hội ở trường học: ăn trưa chung, hỗ trợ nhau về học thuật và tinh thần, thêm nét hài hước." },
+                    { q: "Føler du, at du har meget fritid ved siden af dit studie eller arbejde?", a: "Ikke rigtig. Hverdagene er ret fyldte, men jeg prøver bevidst at planlægge min tid, så jeg har lørdag eftermiddag og søndag fri til familien og til at slappe helt af uden dårlig samvittighed.", vn: "Thể hiện kỹ năng quản lý thời gian (work-life balance) và tầm quan trọng của thời gian gia đình." },
+                    { q: "Synes du, at der er meget pres og stress forbundet med uddannelse i dag?", a: "Ja, det er der desværre. Der er høje forventninger til karakterer og hurtig gennemførelse, og mange studerende kæmper med stress og mistrivsel. Det er vigtigt, at uddannelsesinstitutionerne tager det alvorligt og tilbyder støtte.", vn: "Nhận xét xã hội về áp lực học tập và nêu trách nhiệm của nhà trường trong việc hỗ trợ học sinh." },
+                    { q: "Hvad gør du, hvis du er uenig med din chef eller lærer?", a: "Jeg prøver altid at fremføre min uenighed respektfuldt og med gode argumenter. Her i Danmark er det accepteret og endda forventet at sige sin mening. I starten var det svært for mig kulturelt, men nu er jeg glad for den tradition.", vn: "Thể hiện sự thích nghi văn hóa: dần dần học cách nói thẳng và lập luận một cách tôn trọng ở Đan Mạch." },
+                    { q: "Hvad lærte du allermest af dine år i skolen i dit hjemland?", a: "Jeg lærte disciplin, respekt for lærere og vigtigheden af at arbejde hårdt. Men jeg savnede lidt den kreative frihed og selvstændighed, som børn her i Danmark får mulighed for at udvikle fra en tidlig alder.", vn: "So sánh giáo dục hai nước: kỷ luật và sự cần cù ở quê nhà vs. tự do sáng tạo và độc lập ở Đan Mạch." },
+                    { q: "Er det nemmere eller sværere at finde job i Danmark end i dit hjemland?", a: "Sproget er den største barriere for mig. Selv med en god uddannelse fra mit hjemland er det svært at komme ind på det danske arbejdsmarked uden flydende dansk. Men jeg håber, at mine danskkundskaber snart er gode nok!", vn: "Thành thật về thách thức ngôn ngữ trên thị trường lao động Đan Mạch — rất thực tế và được cảm thông." }
+                ],
+                vocab: [
+                    ["fuldtidsjob / deltidsjob", "công việc toàn thời gian / bán thời gian"], ["arbejdsmiljø", "môi trường làm việc"],
+                    ["kolleger / medarbejdere", "đồng nghiệp / nhân viên"], ["at arbejde hjemmefra", "làm việc từ xa / tại nhà"],
+                    ["selvdisciplin og motivation", "kỷ luật tự giác và động lực"], ["fleksibel arbejdstid", "giờ làm việc linh hoạt"],
+                    ["drømmejob", "công việc mơ ước"], ["ansigt til ansigt", "mặt đối mặt / trực tiếp"],
+                    ["flad hierarkisk struktur", "cấu trúc ít phân cấp (sếp và nhân viên gần gũi)"], ["tillid til medarbejderne", "sự tin tưởng vào nhân viên"],
+                    ["studiekammerater", "bạn cùng lớp / cùng khoá học"], ["forelæsning / undervisning", "bài giảng / buổi học"],
+                    ["dårlig samvittighed", "cảm giác tội lỗi / cắn rứt lương tâm"], ["forventninger til karakterer", "kỳ vọng về điểm số"],
+                    ["at strukturere sin tid", "tổ chức / sắp xếp thời gian"], ["tolk / sproglærer", "phiên dịch / giáo viên ngôn ngữ"],
+                    ["at trives / mistrivsel", "phát triển tốt / thiếu hạnh phúc (về tâm lý)"], ["at fremføre sin mening", "trình bày / nêu ý kiến của mình"],
+                    ["sprogbarriere", "rào cản ngôn ngữ"], ["arbejdsmarkedet", "thị trường lao động"],
+                    ["at jonglere", "cân bằng nhiều việc cùng lúc (như tung hứng)"], ["presserende opgaver", "nhiệm vụ khẩn cấp"],
+                    ["gennemførelse", "việc hoàn thành (chương trình học)"]
+                ]
+            },
+            {
+                emoji: "🌤️",
+                title: "Vejr og Årstider",
+                sub: "Klimaet i Danmark",
+                images: [
+                    { emoji: "☀️", label: "Sommer og sol", desc: "Glade danskere nyder den sjældne, skinnende sol og griller i haven" },
+                    { emoji: "🌧️", label: "Regnvejr", desc: "En person i gul regntøj går hurtigt med en paraply gennem en regnvåd gade" },
+                    { emoji: "❄️", label: "Sne og kulde", desc: "Et smukt hvidt vinterland med sne på tagene og is på søerne" },
+                    { emoji: "🌬️", label: "Blæsevejr", desc: "Kraftige træer bøjer sig i den stærke Nordsøvind ved den jyske kyst" },
+                    { emoji: "🌸", label: "Forår", desc: "Smukke lyserøde og hvide blomster springer ud på træerne i det tidlige forår" },
+                    { emoji: "🍂", label: "Efterår", desc: "Skoven er dækket af prægtige gule, røde og brune blade i efterårslys" }
+                ],
+                del1tip: "Tal om, hvordan det skiftende vejr påvirker jeres humør, energi og daglige vaner. Brug: 'Hvilken årstid trives du bedst i?', 'Hvad finder du på at lave, når det regner hele dagen?', 'Hvordan har du det med de mørke vintre?', 'Hvad er den største vejrmæssige overraskelse her?'",
+                dialogue: [
+                    { s: "A", t: "Hvis du skal vælge, hvilken årstid kan du allerbedst lide i Danmark? Jeg elsker sommeren, fordi de lyse nætter er fantastiske – det er lyst helt til klokken 22, og man kan være udenfor hele aftenen!" },
+                    { s: "B", t: "Sommer er vidunderlig! Men jeg må indrømme, at efteråret med dets smukke farver og hyggelige stemning i stuen faktisk er min favorit. Hvad synes du om det konstante regnvejr her i Danmark?" },
+                    { s: "A", t: "Åh, regnvejret kan jeg virkelig ikke lide, especially når jeg skal cykle til kursus og ankommer fuldstændig drivvåd. Men indenfor under et varmt tæppe med varm te og en god bog – det er faktisk hyggeligt!" },
+                    { s: "B", t: "Ja, den indendørs hygge er danskerne jo mestre i! Men hvad med blæsevejret? Det overraskede mig mest, da jeg kom hertil – det blæser jo enormt meget, uanset årstiden!" },
+                    { s: "A", t: "Det er rigtigt! Modvinden, når man cykler, er for hård. Det er som om, man kører mod en usynlig mur. Jeg tjekker altid DMIs vejrudsigt, inden jeg cykler." },
+                    { s: "B", t: "Ja, DMI-appen er uundværlig! Hvad synes du er den sværeste ting at vænne sig til ved det danske klima?" },
+                    { s: "A", t: "Det er helt klart mørket om vinteren. Fra november til februar er der kun fire til fem timers dagslys. Det påvirker virkelig mit humør og min energi negativt." },
+                    { s: "B", t: "Det forstår jeg godt. Mange danskere bruger lyslamper om vinteren for at holde vinterdepressionen på afstand. Har du prøvet det?" },
+                    { s: "A", t: "Ja, det hjælper faktisk lidt! Foråret er til gengæld det bedste tidspunkt, fordi man mærker naturen vågne og energien komme tilbage. Nyder du foråret?" },
+                    { s: "B", t: "Ja, foråret er magisk her. Fuglene begynder at synge, blomsterne springer ud, og danskerne kommer ud af deres vinterhule med et stort smil. Hele landet virker som en ny begyndelse." },
+                    { s: "A", t: "Det er smukt sagt! Hvad er det varmeste vejr, du har oplevet her i Danmark?" },
+                    { s: "B", t: "For et par år siden var der en hedebølge med 33 grader i tre uger. Det var chokerende for et land, der normalt er så koldt! Men danskerne vidste ikke, hvad de skulle stille op med varmen." }
+                ],
+                phrases: [
+                    "Hvilken årstid trives du allerbedst i?", "Jeg er absolut mest til sol og sommer...", "Det er enormt hyggeligt at blive indenfor",
+                    "Det var meget svært at vænne sig til...", "Jeg husker altid at tjekke DMI's vejrudsigt", "Hvordan har du det egentlig med...?",
+                    "De lyse og lange sommernætter er fantastiske", "At cykle i stærk, kold modvind", "Det danske vejr er utrolig uforudsigeligt",
+                    "At blive fuldstændig drivvåd på cyklen", "Mørket påvirker mit humør negativt", "Årstidernes skiften er smuk og dynamisk",
+                    "Man kryber ind under et varmt tæppe", "Det giver en masse ny energi og glæde", "Danskerne er mestre i indendørs hygge",
+                    "En lyslampe hjælper mod vinterdepression", "Fuglene begynder at synge om foråret", "Det er som en helt ny begyndelse",
+                    "En hedebølge er sjælden og chokerende", "Man mærker naturen vågne op igen"
+                ],
+                del2: [
+                    { q: "Påvirker det meget skiftende danske vejr dit humør?", a: "Ja, enormt! Om vinteren kan jeg godt blive lidt trist, træt og sløv, fordi det er mørkt i så mange timer. Men jeg prøver aktivt at modvirke det ved at bruge en lyslampe, motionere og komme ud i frokostpausen selv på kolde dage.", vn: "Thừa nhận ảnh hưởng của thời tiết (đặc biệt mùa đông tối tăm) và chia sẻ các chiến lược chủ động để đối phó." },
+                    { q: "Hvad laver du allerhelst, når det regner non-stop hele weekenden?", a: "En regnvejrsweekend er den perfekte undskyldning for at bage boller, læse en god roman, se en serie og ordne lidt i lejligheden. Det føles faktisk rigtig produktivt og hyggeligt, og dårlig samvittighed er der ingen af!", vn: "Liệt kê các hoạt động trong nhà thú vị và kết thúc bằng cách biến mưa thành điều tích cực (không có cảm giác tội lỗi)." },
+                    { q: "Hvad er den største klimamæssige forskel på at bo her og i dit hjemland?", a: "I mit hjemland er vejret varmt og fugtigt næsten hele året med en tydelig regntid og tørketid. Her i Danmark skifter vejret bogstaveligt talt time for time, og der er fire meget tydelige og smukke årstider. Det er en fascinerende forskel.", vn: "So sánh hai kiểu khí hậu (nhiệt đới vs. ôn đới 4 mùa rõ rệt) với cái nhìn tò mò và tích cực." },
+                    { q: "Er der efter din mening overhovedet noget godt ved det mørke danske vintervejr?", a: "Ja, absolut! Vinterhyggen er noget helt særligt. Danskerne tænder stearinlys overalt, bager og drikker varm gløgg. Og de sjældne, klare vinterdage med sne og frost er faktisk utrolig smukke og fotogeniske.", vn: "Tìm ra vẻ đẹp và văn hóa đặc trưng của mùa đông Đan Mạch: hygge, stearinlys, gløgg, tuyết." },
+                    { q: "Hvilken måned på året oplever du som den absolut koldeste, hvor du bor nu?", a: "Januar og februar er de koldeste måneder her. Frosten kan komme ned på minus 10-15 grader, og det blæser bidende koldt fra havet. Jeg pakker mig godt ind i lag på lag af tøj, uldne sokker og en varm hue.", vn: "Nêu nhiệt độ cụ thể (âm 10-15 độ) và mô tả cách mặc ấm theo lớp (lag-på-lag)." },
+                    { q: "Hvor tit sner det i den by, du kommer fra oprindeligt?", a: "Det sner aldrig i mit hjemland, fordi det er tropisk. Sne var for mig noget fra eventyr og julefilm, inden jeg kom til Danmark. Første gang det snede her, var jeg ekstremt begejstret og tog hundredvis af billeder!", vn: "Chia sẻ trải nghiệm tuyết rơi lần đầu tiên ở Đan Mạch — một kỷ niệm xúc động và ngây thơ đẹp đẽ." },
+                    { q: "Kan du bedst lide rigtig varmt vejr, over 30 grader?", a: "Nej, faktisk ikke! Jeg foretrækker et pænt moderat vejr på 18-22 grader. Ekstrem varme gør mig sløv, giver mig hovedpine og gør det svært at sove. Paradoksalt nok er det mildere danske klima faktisk godt for mig.", vn: "Câu trả lời bất ngờ và thú vị: người từ nước nóng lại thích khí hậu mát hơn ở Đan Mạch." },
+                    { q: "Hvordan har du det rent fysisk og mentalt, når vejret er smukt og solrigt?", a: "Strålende sol giver mig en virkelig stærk følelse af glæde, frihed og energi. Jeg smiler mere, er mere produktiv og har meget mere lyst til at komme ud og møde mennesker. Solskin er simpelthen det bedste naturlige antidepressivum!", vn: "Mô tả phản ứng mạnh mẽ và tích cực với ánh nắng, đặc biệt có ý nghĩa ở một đất nước thiếu nắng." },
+                    { q: "Hvem foretrækker du at tilbringe sommertiden med?", a: "Sommertiden tilbringer jeg helst med min nærmeste familie og gode venner. Vi planlægger altid mindst et par sommerdage ved stranden eller i sommerhuset, hvor vi griller, bader og spiller spil. De minder holder vi for evigt.", vn: "Kết nối mùa hè với những kỷ niệm gia đình quý giá: bãi biển, nhà nghỉ mùa hè, nướng BBQ." },
+                    { q: "Hvad er det sværeste ved det danske vejr for dig som nyankommet?", a: "Det sværeste er kombinationen af kulde, blæst og mørke i vintermånederne. Man vænner sig til kulden og mørket, men blæsten er for mig den sværeste at håndtere – det er svært at have en god dag, når det blæser 15 meter i sekundet!", vn: "Nêu cụ thể yếu tố khó chịu nhất (gió) với dữ liệu cụ thể (15 m/s), thể hiện sự quan sát tỉ mỉ." },
+                    { q: "Bruger du regntøj og vandtætte sko i det daglige?", a: "Ja, det er en nødvendighed her i Danmark! Jeg har investeret i en god vandtæt jakke og vandtætte støvler, der holder mig tør. Det tog tid at acceptere, men nu er det bare en naturlig del af hverdagen for mig.", vn: "Thể hiện sự thích nghi thực tế với thời tiết Đan Mạch: mua đồ mưa chất lượng và coi đó là điều bình thường." }
+                ],
+                vocab: [
+                    ["årstid", "mùa (trong năm)"], ["vejrudsigt / DMI", "bản tin dự báo thời tiết / trang thời tiết Đan Mạch"],
+                    ["at vænne sig til", "làm quen / thích nghi với"], ["modvind", "gió ngược chiều / gió cản đầu"],
+                    ["at påvirke humøret", "ảnh hưởng đến tâm trạng"], ["mørkt og koldt", "tối tăm và lạnh lẽo"],
+                    ["stearinlys", "nến"], ["drivvåd", "ướt sũng / ướt như chuột lột"],
+                    ["uforudsigeligt", "không thể đoán trước được"], ["sløv og træt", "lờ đờ / uể oải và mệt mỏi"],
+                    ["overskud og energi", "sức sống dồi dào / tràn đầy năng lượng"], ["regntid og tørketid", "mùa mưa và mùa khô"],
+                    ["bidende kold", "lạnh thấu xương / lạnh cắt da cắt thịt"], ["lyslampe", "đèn ánh sáng chữa trị (chống trầm cảm mùa đông)"],
+                    ["vinterdepression / vintermørke", "trầm cảm mùa đông / bóng tối mùa đông"], ["moderat og mildt vejr", "thời tiết ôn hòa vừa phải"],
+                    ["grill / at grille udendørs", "nướng BBQ ngoài trời"], ["hedebølge", "đợt nắng nóng bất thường"],
+                    ["vandtæt jakke og støvler", "áo khoác và ủng chống thấm nước"], ["lag på lag", "nhiều lớp quần áo (mặc chồng lên nhau)"],
+                    ["frost / is på søerne", "sương giá / băng trên mặt hồ"], ["gløgg", "rượu vang nóng gia vị (truyền thống mùa Giáng sinh Đan Mạch)"]
+                ]
+            },
+            {
+                emoji: "🎨",
+                title: "Kultur og Hobbyer",
+                sub: "Fritidsinteresser indendørs og udendørs",
+                images: [
+                    { emoji: "📖", label: "Læse", desc: "En person sidder dybt fordybet i en tyk, spændende roman i en blød lænestol" },
+                    { emoji: "🍳", label: "Lave mad/Bage", desc: "En glad og kreativ person bager en smuk kage i et hyggeligt køkken" },
+                    { emoji: "🪴", label: "Havearbejde", desc: "En person med havehandsker planter smukt blomstrende planter i haven" },
+                    { emoji: "🖼️", label: "Kultur/Museum", desc: "Besøgende kigger interesseret og eftertænksomt på kunst på et lyst museum" },
+                    { emoji: "🎸", label: "Spille musik", desc: "En person øver sig med stor glæde og koncentration på en akustisk guitar" },
+                    { emoji: "🎟️", label: "Biograf/Teater", desc: "Et par sidder lykkeligt i mørket med popcorn og ser en film på det store lærred" }
+                ],
+                del1tip: "Diskuter åbent og nysgerrigt, hvordan I slapper bedst af og lader batterierne op. Brug: 'Jeg interesserer mig dybt for...', 'Hvad slapper du bedst af med efter en lang uge?', 'Går du tit ud for at opleve kultur?', 'Hvad er din yndlingshobby, og hvornår fik du den?'",
+                dialogue: [
+                    { s: "A", t: "Hvad elsker du allermest at lave, når du endelig har fri? Jeg slapper personligt bedst af med at læse en spændende krimi eller en historisk roman i sofaen med en kop varm kaffe. Hvad med dig?" },
+                    { s: "B", t: "Læsning er dejligt! Men jeg er faktisk meget mere glad for at stå i køkkenet. Jeg elsker at eksperimentere med opskrifter fra hele verden og bagefter invitere venner på besøg for at smage min mad. Har du grønne fingre?" },
+                    { s: "A", t: "Slet ikke, desværre! Mine stueplanter overlever næppe, fordi jeg altid glemmer at vande dem. Men jeg elsker at gå på museum og udstillinger. Der er gratis adgang til mange museer i Danmark!" },
+                    { s: "B", t: "Det er sandt! Jeg går af og til på kunstmuseum, men jeg foretrækker biografen eller en live koncert. Musikoplevelsen live er simpelthen ubetalelig. Er du til det danske teater?" },
+                    { s: "A", t: "Jeg har faktisk prøvet det et par gange, men dansk teater er lidt svært at følge med i sprogligt endnu. Biografen er nemmere, fordi der er undertekster. Hvad ser du typisk?" },
+                    { s: "B", t: "Jeg elsker dramafilm og dokumentarer. Men mine børn trækker mig med til animationsfilm! Hvad er den bedste film, du har set på det seneste?" },
+                    { s: "A", t: "Jeg så en utrolig smuk dansk film om familieliv fornylig. Det var rørende og tæt på virkeligheden. Har du nogen gode anbefalinger til dansk film?" },
+                    { s: "B", t: "Ja! 'Druk' med Mads Mikkelsen er fantastisk – en virkelig klog og sjov dansk film. Den vandt Oscar! Spiller du et instrument?" },
+                    { s: "A", t: "Nej, men jeg drømmer om at lære at spille klaver engang. Jeg finder musikken utrolig smuk og afslappende. Det er bare svært at finde tid og penge til det." },
+                    { s: "B", t: "Ja, man skal prioritere hobbyer, ellers forsvinder de i hverdagens travlhed. Jeg prøvede at lære guitar, men manglede tålmodighed. Måske skal vi begge tage én hobby alvorligt til næste år!" },
+                    { s: "A", t: "Det lyder som en god plan! Hvad er din absolutte favorithobby – den, der giver dig mest glæde?" },
+                    { s: "B", t: "Det er nok madlavningen. Når jeg laver et rigtigt godt måltid og ser mine gæster og familie nyde det, er der ingen bedre følelse i verden. Det er min måde at vise kærlighed på." }
+                ],
+                phrases: [
+                    "Jeg interesserer mig dybt for...", "Jeg slapper allerbedst af med at...", "At koble hjernen helt af og glemme alt",
+                    "Har du mon grønne fingre?", "Kulturelle arrangementer er vigtige for mig", "At invitere venner på besøg til middag",
+                    "At lade batterierne op efter en lang uge", "Jeg er ikke særlig tålmodig, desværre", "Det kan godt være temmelig dyrt",
+                    "Der er gratis adgang til mange museer", "Det er en fantastisk og unik oplevelse", "Musik live er simpelthen ubetalelig",
+                    "At eksperimentere med opskrifter fra verden", "Når man endelig har fri fra alle pligter", "Det er min måde at vise kærlighed på",
+                    "En god bog og en kop kaffe er perfekt", "Jeg drømmer om engang at lære...", "Man skal prioritere sine hobbyer",
+                    "Det forsvinder i hverdagens travlhed", "Hvad giver dig mest glæde i livet?"
+                ],
+                del2: [
+                    { q: "Har du en specifik hobby, som du bruger rigtig meget af din fri tid på?", a: "Ja, jeg elsker at tegne og male. Når jeg sidder og tegner, glemmer jeg alt om tid og stress – det er som meditation for mig. Jeg tegner mest portrætter af min familie og naturscener fra min barndom i Vietnam.", vn: "Kể chi tiết về sở thích vẽ và so sánh với thiền định — câu trả lời sâu sắc về lợi ích tâm lý." },
+                    { q: "Hvorfor tror du, det er vigtigt for mennesker at have en fritidsinteresse?", a: "Det er utrolig vigtigt, fordi en hobby giver livet mening ud over arbejde og pligter. Det er frirum, hvor man kan udtrykke sig, glemme stress og møde ligesindede. Uden hobbyer bliver livet meget kedeligt og ensformigt.", vn: "Lập luận về tầm quan trọng của sở thích: ý nghĩa cuộc sống, biểu đạt bản thân, kết nối xã hội." },
+                    { q: "Læser du ofte bøger, artikler eller aviser på dansk for at øve dig?", a: "Ja, jeg prøver at læse lidt dansk hver dag. Jeg starter med enkle tekster på 'DR Ligetil' og korte nyhedsartikler. Rigtige romaner er stadig svære, men jeg har faktisk sat mig for at læse én dansk ungdomsbog i sommer!", vn: "Thể hiện sự chủ động học tiếng (DR Ligetil) và có mục tiêu cụ thể (đọc sách thiếu niên mùa hè)." },
+                    { q: "Går du ofte ud og oplever kultur i din by, som fx teater eller koncerter?", a: "Ikke så tit, fordi det kræver babysitter og planlægning med små børn. Men vi prøver at tage i biografen eller på museum en gang om måneden. Og i sommers var vi til en helt fantastisk udendørs festival – det var magisk!", vn: "Thực tế về thách thức khi có con nhỏ, nhưng vẫn tìm cách tham gia và chia sẻ kỷ niệm đẹp từ festival." },
+                    { q: "Hvornår starter din weekend normalt, og hvad føler du, når den begynder?", a: "Min weekend starter fredag eftermiddag, når jeg lukker bøgerne og slukker computeren. Det er en vidunderlig følelse af frihed og lettelse. Jeg planlægger altid mindst én ting, der giver mig glæde, så weekenden ikke bare forsvinder.", vn: "Miêu tả cảm xúc tự do khi tuần học kết thúc và tầm quan trọng của việc lên kế hoạch cho niềm vui." },
+                    { q: "Hvad laver du normalt på en helt almindelig, afslappet søndag?", a: "Søndag er min recharge-dag. Jeg starter med en lang morgengåtur, bager boller til familien om formiddagen, og om eftermiddagen slapper vi alle af i stuen med film og spil. Om aftenen planlægger jeg den kommende uge.", vn: "Chuỗi hoạt động cụ thể và ý nghĩa của ngày Chủ Nhật: nạp lại năng lượng và chuẩn bị cho tuần mới." },
+                    { q: "Mødtes du tilfældigvis med nogle af dine venner i den forgangne weekend?", a: "Ja, jeg mødtes med et par studiekammerater lørdag. Vi holdt en hyggelig frokost hjemme hos én af os, spillede kortspil og snakkede i timevis om vores fremtidsplaner og kulturoplevelser. Det var en perfekt dag.", vn: "Sử dụng thì quá khứ để kể chuyện, thêm detalje về nội dung buổi gặp mặt (trò chơi bài, kế hoạch tương lai)." },
+                    { q: "Hvilke hobbyer eller interesser kan andre medlemmer i din familie lide?", a: "Min mand er vild med at løbe og cykle, og han deltager tit i lokale løbeevents. Mine børn elsker at bygge LEGO og se film. Og min mor, der besøger os somme tider, er utrolig god til at strikke og brodere. Alle har vi noget!", vn: "Miêu tả sở thích của từng thành viên gia đình một cách sinh động và đa dạng." },
+                    { q: "Laver du helst dine hobbyer inde i hjemmet eller ude i naturen?", a: "Jeg er lidt af begge typer. Om sommeren er jeg meget udendørs – fotograferer, cykler og picnikker. Om vinteren trækker det mere ind, og så tegner og læser jeg. Det er dejligt at have hobbyer, der passer til årstiderne.", vn: "Thể hiện sự linh hoạt theo mùa: outdoor mùa hè, indoor mùa đông — hoàn toàn hợp lý ở Đan Mạch." },
+                    { q: "Tror du, det er sandt, at en fælles hobby kan styrke et venskab?", a: "Ja, 100 procent! Fælles interesser skaber en unik og stærk forbindelse. Når man dyrker en hobby sammen – spiller badminton, går til kor eller læser i den samme bogklub – har man altid noget at tale om og dele.", vn: "Khẳng định mạnh mẽ và đưa ra ví dụ cụ thể (cầu lông, hát hợp xướng, câu lạc bộ sách)." },
+                    { q: "Hvad er det dyreste kulturelle arrangement, du nogensinde har deltaget i?", a: "Jeg var til en stor klassisk koncert med et fuldt symfoniorkester engang. Billetten kostede 400 kroner, men det var virkelig noget særligt og overvældende at opleve live musikken fylde hele salen. Det var et minde for livet!", vn: "Chia sẻ trải nghiệm văn hóa đặc biệt và đắt tiền với cảm xúc chân thực — kỷ niệm suốt đời." },
+                    { q: "Hvad er den nemmeste og billigste hobby, du kan anbefale til andre?", a: "Løb er helt klart den nemmeste og billigste hobby! Man har kun brug for et par sko, og man kan løbe overalt, når som helst. Derudover er det utrolig godt for både kroppen og mentalen. Det kan jeg varmt anbefale til alle.", vn: "Giới thiệu môn chạy bộ như sở thích hoàn hảo: đơn giản, rẻ, tốt cho cả thể chất và tinh thần." }
+                ],
+                vocab: [
+                    ["fritidsinteresse / hobby", "sở thích / thú vui lúc rảnh rỗi"], ["at koble af / at lade op", "ngắt kết nối / nạp lại năng lượng"],
+                    ["at have grønne fingre", "có tay trồng trọt (giỏi làm vườn)"], ["udstilling / fernisering", "buổi triển lãm nghệ thuật"],
+                    ["kulturelt arrangement / event", "sự kiện / chương trình văn hóa"], ["at fotografere / tage billeder", "chụp ảnh"],
+                    ["at forbedre sit ordforråd", "cải thiện vốn từ vựng"], ["hverdagens stress og jag", "sự căng thẳng và xô bồ của ngày thường"],
+                    ["en krimi / historisk roman", "truyện trinh thám / tiểu thuyết lịch sử"], ["tålmodig / utålmodig", "kiên nhẫn / thiếu kiên nhẫn"],
+                    ["at være pebret / dyrt", "đắt đỏ (về giá cả)"], ["ligesindede mennesker", "những người cùng chí hướng / sở thích"],
+                    ["sammenskudsgilde / frokostselskab", "tiệc góp / bữa ăn trưa cùng nhau"], ["frirum / kreativt frirum", "không gian tự do / không gian sáng tạo"],
+                    ["stærkere bånd / forbindelse", "sự gắn kết bền chặt hơn"], ["brætspil / kortspil", "cờ bàn / trò chơi bài"],
+                    ["symfoniorkester", "dàn nhạc giao hưởng"], ["bogklub", "câu lạc bộ sách"],
+                    ["at brodere / strikke", "thêu / đan (len)"], ["overvældende oplevelse", "trải nghiệm choáng ngợp"],
+                    ["recharge-dag", "ngày nạp lại năng lượng"], ["ensformig", "đơn điệu, nhàm chán"],
+                    ["at prioritere sine hobbyer", "ưu tiên cho sở thích cá nhân"], ["at udtrykke sig kreativt", "thể hiện bản thân một cách sáng tạo"]
+                ]
+            }
+        ];
+        let currentTopic = 0;
+        let activeTab = "billeder";
+
+        function renderSidebar() {
+            const container = document.getElementById("sidebar-nav");
+
+            // Array of colors for topic icons
+            const iconColors = [
+                "rgba(59,130,246,0.15)", // blue
+                "rgba(34,197,94,0.15)",  // green
+                "rgba(239,68,68,0.15)",  // red
+                "rgba(245,158,11,0.15)", // amber
+                "rgba(139,92,246,0.15)", // purple
+                "rgba(20,184,166,0.15)", // teal
+                "rgba(236,72,153,0.15)", // pink
+                "rgba(249,115,22,0.15)", // orange
+                "rgba(6,182,212,0.15)",  // cyan
+                "rgba(99,102,241,0.15)"  // indigo
+            ];
+
+            let html = "";
+            topics.forEach((t, i) => {
+                const color = iconColors[i % iconColors.length];
+                const isActive = currentTopic === i ? "active" : "";
+                html += `
+                    <button class="topic-btn ${isActive}" onclick="selectTopic(${i})">
+                        <div class="topic-icon" style="background: ${color};">${t.emoji}</div>
+                        <div>
+                            <div class="topic-name">${t.title}</div>
+                            <div class="topic-sub">${t.sub}</div>
+                        </div>
+                    </button>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function selectTopic(i) {
+            currentTopic = i;
+            activeTab = "billeder";
+            renderSidebar(); // Update active states in sidebar
+            render();        // Render main content
+        }
+
+        function selectTab(t) {
+            activeTab = t;
+            render();
+        }
+
+        function toggleAnswer(i) {
+            const el = document.getElementById("ans-" + i);
+            const btn = document.getElementById("tbtn-" + i);
+            if (el.classList.contains("open")) {
+                el.classList.remove("open");
+                btn.textContent = "Vis svar";
+            } else {
+                el.classList.add("open");
+                btn.textContent = "Skjul svar";
+            }
+        }
+
+        function render() {
+            const t = topics[currentTopic];
+            const main = document.getElementById("main-content");
+
+            const tabs = ["billeder", "del1", "del2", "ord"];
+            const tabLabels = ["🖼 Billeder", "💬 Del 1 – Dialog", "❓ Del 2 – Spørgsmål", "📚 Nyttige ord"];
+
+            let html = `
+    <div class="page-header">
+      <div class="page-topic">
+        <span class="page-topic-icon">${t.emoji}</span>
+        <div>
+          <div class="page-topic-title">${t.title}</div>
+          <div class="page-topic-meta">${t.sub}</div>
+        </div>
+      </div>
+      <span class="level-badge">A2–B1 · DU3 Modul 3</span>
+    </div>
+
+    <div class="tabs">
+      ${tabs.map((tab, i) => `<button class="tab-btn ${activeTab === tab ? "active" : ""}" onclick="selectTab('${tab}')">${tabLabels[i]}</button>`).join("")}
+    </div>
+  `;
+
+            if (activeTab === "billeder") {
+                html += `
+      <div class="intro-card">
+        <h2>📋 Sådan fungerer Opgave 2</h2>
+        <div class="intro-steps">
+          <div class="step">
+            <div class="step-label">Del 1 · ~4 min</div>
+            <div class="step-text">Paropgave: Du og din partner får 4 billeder og diskuterer præferencer</div>
+          </div>
+          <div class="step">
+            <div class="step-label">Del 2 · ~3 min</div>
+            <div class="step-text">Individuel: Tester stiller uddybende spørgsmål om dine erfaringer</div>
+          </div>
+          <div class="step">
+            <div class="step-label">Bedømmelse</div>
+            <div class="step-text">Bestået / Ikke bestået ud fra en helhedsvurdering</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="images-grid">
+        ${t.images.map((img, i) => `
+          <div class="image-card">
+            <div class="image-num">Billede ${i + 1}</div>
+            <div class="image-emoji">${img.emoji}</div>
+            <div class="image-label">${img.label}</div>
+            <div class="image-desc">${img.desc}</div>
+          </div>
+        `).join("")}
+      </div>
+
+      <div class="format-box">
+        <h3>Hvad du skal gøre i Del 1 (paropgave)</h3>
+        <div class="format-row"><span class="format-tag">1</span><span class="format-text">Se de fire billeder sammen med din partner</span></div>
+        <div class="format-row"><span class="format-tag">2</span><span class="format-text">Fortæl, hvad du kan se på hvert billede</span></div>
+        <div class="format-row"><span class="format-tag">3</span><span class="format-text">Giv udtryk for dine præferencer – hvad foretrækker du og hvorfor?</span></div>
+        <div class="format-row"><span class="format-tag">4</span><span class="format-text">Stil spørgsmål til din partner om ALLE fire billeder</span></div>
+        <div class="format-row"><span class="format-tag">5</span><span class="format-text">Svar på din partners spørgsmål med korte begrundelser</span></div>
+      </div>
+
+      <div class="task-tip">
+        <strong>⚠️ Vigtigt:</strong> Du skal kommentere ALLE 4 billeder – ikke kun dit yndlingsbillede. Tester observerer, om du er aktiv og stiller spørgsmål til din partner.
+      </div>
+    `;
+            }
+
+            if (activeTab === "del1") {
+                html += `
+      <div class="tip-box">
+        <strong>💬 Tip til Del 1 – Paropgave</strong>
+        ${t.del1tip}
+      </div>
+
+      <div class="dialogue">
+        ${t.dialogue.map(d => `
+          <div class="bubble bubble-${d.s.toLowerCase()}">
+            <div class="bubble-avatar avatar-${d.s.toLowerCase()}">${d.s}</div>
+            <div class="bubble-text">${d.t}</div>
+          </div>
+        `).join("")}
+      </div>
+
+      <div class="phrase-box">
+        <h3>Nyttige sætninger til Del 1</h3>
+        <div class="phrase-grid">
+          ${t.phrases.map(p => `<div class="phrase-chip">${p}</div>`).join("")}
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 16px; background: #FFF8F8; border-color: rgba(192,57,43,0.15);">
+        <div style="font-size: 13px; font-weight: 700; color: var(--red); margin-bottom: 10px; letter-spacing: 0.06em; text-transform: uppercase;">❌ Undgå disse fejl</div>
+        <div style="font-size: 14px; color: var(--text); line-height: 1.8;">
+          • Undgå: <em>"Det er en god måde for mig at… / Det er vigtigt for mig at…"</em> (for unaturligt og gentages for meget)<br>
+          • Undgå at tale i for lang tid uden at spørge din partner<br>
+          • Undgå at springe et af de fire billeder over<br>
+          • Undgå at læse op fra forberedte sætninger
+        </div>
+      </div>
+    `;
+            }
+
+            if (activeTab === "del2") {
+                html += `
+      <div class="tip-box">
+        <strong>❓ Tip til Del 2 – Individuel</strong>
+        Tester stiller uddybende spørgsmål om dine egne erfaringer og præferencer. Svar naturligt og giv korte begrundelser. Det er OK at sige "Jeg ved det ikke helt, men jeg tror, at…"
+      </div>
+
+      ${t.del2.map((item, i) => `
+        <div class="q-card">
+          <div class="q-header" onclick="toggleAnswer(${i})">
+            <span class="q-num">SPM ${i + 1}</span>
+            <span class="q-text">${item.q}</span>
+            <button class="q-toggle" id="tbtn-${i}">Vis svar</button>
+          </div>
+          <div class="q-answer" id="ans-${i}">
+            <div class="q-answer-label">Eksempel på svar</div>
+            <div class="q-answer-text">${item.a}</div>
+            <div class="vn-note">💡 ${item.vn}</div>
+          </div>
+        </div>
+      `).join("")}
+
+      <div class="card" style="margin-top: 8px; background: var(--blue-light); border-color: rgba(21,67,96,0.15);">
+        <div style="font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 10px; letter-spacing: 0.06em; text-transform: uppercase;">Gode fraser til Del 2</div>
+        <table class="phrase-table">
+          <tr><td>Ja, det synes jeg, fordi…</td><td>Vâng, tôi nghĩ vậy, vì…</td></tr>
+          <tr><td>Nej, ikke rigtig. Jeg foretrækker…</td><td>Không hẳn. Tôi thích… hơn</td></tr>
+          <tr><td>Det er svært at sige, men…</td><td>Khó nói, nhưng…</td></tr>
+          <tr><td>Da jeg var yngre, plejede jeg at…</td><td>Khi còn trẻ, tôi thường…</td></tr>
+          <tr><td>I mit hjemland er der…</td><td>Ở quê hương tôi có…</td></tr>
+          <tr><td>Jeg tror, at det er vigtigt at…</td><td>Tôi nghĩ điều quan trọng là…</td></tr>
+        </table>
+      </div>
+    `;
+            }
+
+            if (activeTab === "ord") {
+                html += `
+      <div class="vocab-grid">
+        ${t.vocab.map(([da, vn]) => `
+          <div class="vocab-card">
+            <div class="vocab-word">${da}</div>
+            <div class="vocab-def">${vn}</div>
+          </div>
+        `).join("")}
+      </div>
+
+      <div class="vocab-section">
+        <h3>Generelle nøglesætninger til Opgave 2</h3>
+        <table class="phrase-table">
+          <tr><td>Jeg foretrækker … frem for …</td><td>Tôi thích… hơn là…</td></tr>
+          <tr><td>Fordelen ved … er, at …</td><td>Ưu điểm của… là…</td></tr>
+          <tr><td>Ulempen er, at …</td><td>Nhược điểm là…</td></tr>
+          <tr><td>Jeg synes, at … er bedre, fordi …</td><td>Tôi nghĩ… tốt hơn, vì…</td></tr>
+          <tr><td>Hvad synes du om …?</td><td>Bạn nghĩ gì về…?</td></tr>
+          <tr><td>Er du til / ikke til …?</td><td>Bạn có thích… không?</td></tr>
+          <tr><td>Jeg har aldrig prøvet at …</td><td>Tôi chưa bao giờ thử…</td></tr>
+          <tr><td>Har du nogensinde …?</td><td>Bạn có bao giờ…?</td></tr>
+          <tr><td>Hvilken af disse foretrækker du?</td><td>Bạn thích cái nào trong số này?</td></tr>
+          <tr><td>Jeg bruger … til at …</td><td>Tôi dùng… để…</td></tr>
+        </table>
+      </div>
+    `;
+            }
+
+            main.innerHTML = html;
+        }
+
+        // Initialize App
+        renderSidebar();
+        render();
+    </script>
+</body>
+
+</html>

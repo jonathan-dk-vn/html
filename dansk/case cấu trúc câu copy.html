@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3.js Mind Map - Cấu Trúc Câu Tiếng Đan Mạch (Vertical • Light)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8fafc;
+            font-family: 'Mulish', sans-serif;
+            overflow: hidden;
+            color: #0f172a;
+        }
+
+        #mindmap-container {
+            width: 100vw;
+            height: 100vh;
+            cursor: grab;
+        }
+        #mindmap-container:active {
+            cursor: grabbing;
+        }
+
+        .hud {
+            position: fixed;
+            top: 2rem; left: 2rem;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .hud h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: #0f172a;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.06);
+        }
+        .hud p {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid #e2e8f0;
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #334155;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            backdrop-filter: blur(8px);
+        }
+
+        .link {
+            fill: none;
+            stroke: #94a3b8;
+            stroke-width: 2.8px;
+            transition: stroke 0.3s;
+        }
+        
+        .node circle {
+            fill: #ffffff;
+            stroke-width: 3.5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
+        }
+        .node circle:hover {
+            filter: brightness(1.08) drop-shadow(0 6px 12px rgba(0,0,0,0.12));
+            transform: scale(1.08);
+        }
+
+        .node-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 17.5px;
+            font-weight: 700;
+            fill: #1e293b;
+            pointer-events: none;
+            text-shadow: 0 1px 3px rgba(255,255,255,0.9);
+        }
+
+        .d3-card {
+            background: #ffffff;
+            border-left: 6px solid;
+            border-radius: 12px;
+            padding: 1.4rem;
+            box-shadow: 0 15px 25px -5px rgba(0,0,0,0.1);
+            width: 330px;
+            height: 235px;
+            color: #0f172a;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+        }
+        .card-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
+            font-weight: 900;
+            color: #e2e8f0;
+            line-height: 1;
+        }
+        .card-sub {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-bottom: 0.9rem;
+        }
+        .card-formula {
+            background: #0f172a;
+            color: #f8fafc;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.82rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 6px;
+            margin-bottom: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .card-formula span { color: #38bdf8; font-weight: bold; }
+        .card-ex {
+            background: #f8fafc;
+            border-left: 3px solid #cbd5e1;
+            padding: 0.6rem 0.9rem;
+            flex-grow: 1;
+            border-radius: 4px;
+        }
+        .ex-dk { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 0.97rem; margin-bottom: 0.25rem; }
+        .ex-vi { font-size: 0.82rem; color: #475569; }
+    </style>
+</head>
+<body>
+
+<div class="hud">
+    <h1>Dansk Grammatik <span style="color:#38bdf8;">Mind Map</span></h1>
+    <p>🖱️ <b>Kéo thả</b> để di chuyển • <b>Lăn chuột</b> để Thu/Phóng • <b>Click vòng tròn</b> để mở rộng / thu gọn nhánh</p>
+</div>
+
+<div id="mindmap-container"></div>
+
+<script>
+// === DỮ LIỆU ===
+const treeData = {
+    name: "Cấu Trúc Câu (37)",
+    color: "#38bdf8",
+    children: [
+        { name: "01. Mệnh đề chính", color: "#2563eb", children: [
+            { name: "Cơ bản", color: "#2563eb", children: [
+                { no: "1", title: "Câu đơn giản", sub: "S – V1 – O/A", form: "S → <span>V1</span> → O/A", dk: "Hun spiser brød til morgenmad.", vi: "Cô ấy ăn bánh mì vào bữa sáng.", color: "#2563eb" },
+                { no: "2", title: "Thì kép", sub: "Hoàn thành", form: "S → <span>V1</span> → CA → V2 → O → A", dk: "De har altid boet i København.", vi: "Họ luôn sống ở Copenhagen.", color: "#2563eb" }
+            ]},
+            { name: "Vị trí Tân ngữ", color: "#2563eb", children: [
+                { no: "3", title: "Cả 2 là danh từ", sub: "CA đứng trước cả hai", form: "S → <span>V1</span> → CA → IO → O", dk: "De viser ikke Bo huset.", vi: "Họ không chỉ cho Bo ngôi nhà.", color: "#2563eb" },
+                { no: "4", title: "IO đại từ, O danh từ", sub: "CA chen giữa", form: "S → <span>V1</span> → IO → CA → O", dk: "De viser ham ikke huset.", vi: "Họ không chỉ cho anh ấy ngôi nhà.", color: "#2563eb" },
+                { no: "5", title: "Cả 2 là đại từ", sub: "CA đứng cuối", form: "S → <span>V1</span> → IO → O → CA", dk: "De viser ham det ikke.", vi: "Họ không chỉ cho anh ấy nó.", color: "#2563eb" }
+            ]}
+        ]},
+        { name: "02. Đảo Ngữ (Inversion)", color: "#ea580c", children: [
+            { name: "Câu hỏi", color: "#ea580c", children: [
+                { no: "6", title: "Câu hỏi Ja/Nej", sub: "V1 đứng đầu", form: "<span>V1</span> → S → CA → V2 → O", dk: "Rejser han til Sverige?", vi: "Anh ấy đang đi Thụy Điển không?", color: "#ea580c" },
+                { no: "7", title: "Câu hỏi Hv-ord", sub: "Từ để hỏi đứng đầu", form: "Hv → <span>V1</span> → S → CA → V2", dk: "Hvorfor vil han ikke låne hende bilen?", vi: "Tại sao anh ấy không muốn cho cô ấy mượn xe?", color: "#ea580c" }
+            ]},
+            { name: "Nhấn mạnh", color: "#ea580c", children: [
+                { no: "8", title: "Đảo ngữ sau A", sub: "Nhấn mạnh thời gian/nơi chốn", form: "A → <span>V1</span> → S → CA → V2", dk: "I går kom Poul sent hjem.", vi: "Hôm qua Poul về nhà muộn.", color: "#ea580c" },
+                { no: "9", title: "Đảo ngữ sau O", sub: "Nhấn mạnh tân ngữ", form: "O → <span>V1</span> → S → CA → V2", dk: "Ham kender jeg, men hende...", vi: "Anh ấy tôi biết, nhưng cô ấy...", color: "#ea580c" },
+                { no: "10", title: "Đảo ngữ sau CA", sub: "Måske đặt đầu câu", form: "CA → <span>V1</span> → S → CA → V2", dk: "Måske vil han vise hende huset.", vi: "Có lẽ anh ấy sẽ chỉ cho cô ấy ngôi nhà.", color: "#ea580c" }
+            ]}
+        ]},
+        { name: "03. Mệnh đề phụ (LS)", color: "#059669", children: [
+            { name: "Đại từ / Gián tiếp", color: "#059669", children: [
+                { no: "11", title: "Mệnh đề 'at'", sub: "Objektsætning", form: "HS, at → S → <span>CA</span> → V1", dk: "Han ved, at de ikke kommer.", vi: "Anh ấy biết rằng họ sẽ không đến.", color: "#059669" },
+                { no: "12", title: "Mệnh đề 'der/som'", sub: "Làm chủ ngữ", form: "N, der/som → <span>CA</span> → V1", dk: "Han har en bror, der ikke bor her.", vi: "Anh ấy có một người anh không sống ở đây.", color: "#059669" },
+                { no: "13", title: "Mệnh đề 'som'", sub: "Làm tân ngữ", form: "N, som → S → <span>CA</span> → V1", dk: "Det er bogen, som jeg aldri har læst.", vi: "Đó là cuốn sách mà tôi chưa bao giờ đọc.", color: "#059669" },
+                { no: "14", title: "Câu hỏi gián tiếp", sub: "Hv-ord / om", form: "HS + Hv/om → S → <span>CA</span> → V1", dk: "Jeg ved ikke, hvor han bor.", vi: "Tôi không biết anh ấy sống ở đâu.", color: "#059669" }
+            ]},
+            { name: "Liên từ phụ thuộc", color: "#059669", children: [
+                { no: "16", title: "Điều kiện (hvis)", sub: "If", form: "HS + hvis → S → <span>CA</span> → V1", dk: "De tager en taxa, hvis det ikke regner.", vi: "Đi taxi nếu trời không mưa.", color: "#059669" },
+                { no: "17", title: "Nguyên nhân (fordi)", sub: "Because", form: "HS + fordi → S → <span>CA</span> → V1", dk: "Han blev hjemme, fordi han ikke var rask.", vi: "Ở nhà vì không khỏe.", color: "#059669" },
+                { no: "18", title: "Nhượng bộ (selvom)", sub: "Even though", form: "HS + selvom → S → <span>CA</span> → V1", dk: "Han går på arbejde, selvom han er syg.", vi: "Đi làm dù bị ốm.", color: "#059669" },
+                { no: "19", title: "Thời gian (når/da/mens)", sub: "When/While", form: "HS + når/da/mens → S → <span>CA</span> → V", dk: "Han ringer, når han không arbejder.", vi: "Gọi điện khi không làm việc.", color: "#059669" }
+            ]}
+        ]},
+        { name: "04. LS Đứng Đầu", color: "#7c3aed", children: [
+            { no: "24", title: "Når + Đảo ngữ", sub: "Thời gian", form: "[når–S–CA–V], <span>V1</span>–S–CA", dk: "Når det ikke regner, cykler han altid.", vi: "Khi không mưa, anh ấy luôn đạp xe.", color: "#7c3aed" },
+            { no: "25", title: "Fordi + Đảo ngữ", sub: "Nguyên nhân", form: "[fordi–S–CA–V], <span>V1</span>–S–A", dk: "Fordi han var syg, blev han hjemme.", vi: "Vì bị ốm, nên ở nhà.", color: "#7c3aed" },
+            { no: "26", title: "Selvom + Đảo ngữ", sub: "Nhượng bộ", form: "[selvom–S–V], <span>V1</span>–S–A", dk: "Selvom hun var træt, arbejdede hun videre.", vi: "Dù mệt vẫn làm tiếp.", color: "#7c3aed" },
+            { no: "27", title: "Hvis + Đảo ngữ", sub: "Điều kiện", form: "[hvis–S–V], <span>V1</span>–S–V2", dk: "Hvis du vil, kan vi gå i biografen.", vi: "Nếu muốn, có thể đi xem phim.", color: "#7c3aed" }
+        ]},
+        { name: "05. Kết Hợp Câu", color: "#e11d48", children: [
+            { no: "28", title: "Liên từ đẳng lập", sub: "og/men/eller (Không đảo)", form: "HS, <span>og/men</span> S–V1–CA", dk: "Hun vil gerne rejse, men hun kan ikke.", vi: "Muốn đi, nhưng không thể.", color: "#e11d48" },
+            { no: "29", title: "Trạng từ liên kết", sub: "derfor (Gây đảo ngữ)", form: "HS. <span>Adv.</span> → <span>V1</span> → S → CA", dk: "Han er træt. Derfor sover han nu.", vi: "Anh ấy mệt. Vì vậy đang ngủ.", color: "#e11d48" },
+            { no: "30", title: "'Så' (Adverbium)", sub: "Sau đó (Gây đảo)", form: "HS, og <span>så</span> → V1 → S → O", dk: "Først køber hun ind, og så laver hun mad.", vi: "Mua sắm xong và sau đó nấu ăn.", color: "#e11d48" },
+            { no: "31", title: "'Så' (Konjunktion)", sub: "Vì vậy (Không đảo)", form: "HS₁, <span>så</span> S → V1 → CA", dk: "Hun var syg, så hun kom ikke.", vi: "Bị ốm, vì vậy cô ấy không đến.", color: "#e11d48" },
+            { no: "32", title: "for vs fordi", sub: "for (HS+HS) | fordi (HS+LS)", form: "for (S–V) · fordi (S–CA–V)", dk: "Hun spiste ikke, for hun var ikke sulten.", vi: "Không ăn vì không đói.", color: "#e11d48" }
+        ]},
+        { name: "06. Câu Phức", color: "#64748b", children: [
+            { no: "33", title: "Ligefrem + Ligefrem", sub: "S-V + Konj + S-V", form: "S–<span>V1</span>, konj. S–<span>V1</span>", dk: "Hun har ikke arbejde, så hun tjener ikke penge.", vi: "Không có việc, nên không có tiền.", color: "#64748b" },
+            { no: "34", title: "Ligefrem + Inversion", sub: "S-V + Konj + Adv-V-S", form: "S–<span>V1</span>, og A–<span>V1</span>–S", dk: "Han var ikke rask, og derfor ville han hjem.", vi: "Không khỏe, và vì vậy muốn về.", color: "#64748b" },
+            { no: "35", title: "Inversion + Ligefrem", sub: "Adv-V-S + Konj + S-V", form: "A–<span>V1</span>–S, men S–<span>V1</span>", dk: "Normalt vil hun hjælpe, men hun har ikke tid.", vi: "Thường muốn giúp, nhưng không có thời gian.", color: "#64748b" },
+            { no: "37", title: "LS + HS + LS", sub: "Ba vế phức tạp", form: "[LS...], <span>V1</span>–S, [fordi...]", dk: "Selvom det regnede, ville han ikke købe...", vi: "Dù mưa, anh ấy vẫn không mua...", color: "#64748b" }
+        ]}
+    ]
+};
+
+// === CODE CHÍNH (ĐÃ SỬA LỖI CLICK) ===
+const width = window.innerWidth;
+const height = window.innerHeight;
+
+const svg = d3.select("#mindmap-container").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+const g = svg.append("g");
+
+const zoom = d3.zoom()
+    .scaleExtent([0.15, 3])
+    .on("zoom", (event) => g.attr("transform", event.transform));
+svg.call(zoom);
+
+svg.call(zoom.transform, d3.zoomIdentity.translate(width / 2, 110).scale(0.78));
+
+const tree = d3.tree().nodeSize([480, 360]);
+
+const root = d3.hierarchy(treeData, d => d.children);
+root.x0 = width / 2;
+root.y0 = 80;
+
+root.children.forEach(collapse);
+let i = 0;
+
+update(root);
+
+function update(source) {
+    const treeData = tree(root);
+    const nodes = treeData.descendants();
+    const links = treeData.descendants().slice(1);
+
+    const node = g.selectAll('g.node')
+        .data(nodes, d => d.id || (d.id = ++i));
+
+    const nodeEnter = node.enter().append('g')
+        .attr('class', 'node')
+        .attr("transform", d => `translate(${source.x0},${source.y0})`);
+
+    nodeEnter.each(function(d) {
+        const thisNode = d3.select(this);
+
+        if (!d.children && !d._children && d.data.form) {
+            // Leaf node (card)
+            const fo = thisNode.append("foreignObject")
+                .attr("width", 340)
+                .attr("height", 245)
+                .attr("x", -170)
+                .attr("y", 48)
+                .style("opacity", 0);
+
+            fo.append("xhtml:div")
+                .html(`
+                    <div class="d3-card" style="border-color: ${d.data.color};">
+                        <div class="card-header">
+                            <div>
+                                <div class="card-title">${d.data.title}</div>
+                                <div class="card-sub">${d.data.sub}</div>
+                            </div>
+                            <div class="card-num">${d.data.no}</div>
+                        </div>
+                        <div class="card-formula">${d.data.form}</div>
+                        <div class="card-ex">
+                            <div class="ex-dk">${d.data.dk}</div>
+                            <div class="ex-vi">${d.data.vi}</div>
+                        </div>
+                    </div>
+                `);
+
+            fo.transition().duration(500).style("opacity", 1);
+        } else {
+            // Branch node (vòng tròn + text) → ĐÃ THÊM .on('click', click)
+            thisNode.append('circle')
+                .attr('r', d.depth === 0 ? 19 : 14)
+                .style("stroke", d.data.color)
+                .on('click', click);                    // ← DÒNG NÀY ĐÃ ĐƯỢC SỬA
+
+            thisNode.append('text')
+                .attr('class', 'node-text')
+                .attr("dy", d.depth === 0 ? "-2.4em" : "-2em")
+                .attr("text-anchor", "middle")
+                .text(d.data.name)
+                .style('fill-opacity', 1e-6);
+        }
+    });
+
+    const nodeUpdate = nodeEnter.merge(node);
+
+    nodeUpdate.transition().duration(650)
+        .attr("transform", d => `translate(${d.x},${d.y})`);
+
+    nodeUpdate.select('circle')
+        .attr('r', d => d.depth === 0 ? 19 : 14)
+        .style("fill", d => d._children ? "#ffffff" : "#f1f5f9")
+        .style("stroke", d => d.data.color);
+
+    nodeUpdate.select('text').transition().duration(500).style('fill-opacity', 1);
+
+    node.exit().transition().duration(500)
+        .attr("transform", d => `translate(${d.x},${d.y})`)
+        .remove();
+
+    // Links
+    const link = g.selectAll('path.link')
+        .data(links, d => d.id);
+
+    const linkEnter = link.enter().insert('path', "g")
+        .attr("class", "link")
+        .attr('d', d => {
+            const o = {x: source.x0, y: source.y0};
+            return diagonal(o, o);
+        });
+
+    linkEnter.merge(link).transition().duration(650)
+        .attr('d', d => diagonal(d, d.parent));
+
+    link.exit().transition().duration(500)
+        .attr('d', d => {
+            const o = {x: d.x, y: d.y};
+            return diagonal(o, o);
+        })
+        .remove();
+
+    nodes.forEach(d => { d.x0 = d.x; d.y0 = d.y; });
+}
+
+function diagonal(s, d) {
+    return `M ${s.x},${s.y}
+            C ${s.x},${s.y + (d.y - s.y)/2},
+              ${d.x},${s.y + (d.y - s.y)/2},
+              ${d.x},${d.y}`;
+}
+
+function click(event, d) {
+    if (d.children) {
+        d._children = d.children;
+        d.children = null;
+    } else {
+        d.children = d._children;
+        d._children = null;
+    }
+    update(d);
+}
+
+function collapse(d) {
+    if (d.children) {
+        d._children = d.children;
+        d.children = null;
+    }
+}
+
+root.children.forEach(collapse);
+update(root);
+</script>
+</body>
+</html>

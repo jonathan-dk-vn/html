@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundtlig Emne: Mit Arbejde</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Lexend', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: { 850: '#151e2e' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        body { 
+            font-family: 'Lexend', sans-serif; 
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); /* Warm orange tone for farm/work */
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* Glassmorphism */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.6); 
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+        
+        .accent-shadow { 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .accent-shadow:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .nav-sticky { 
+            position: sticky; 
+            top: 24px; 
+            max-height: calc(100vh - 48px); 
+            overflow-y: auto; 
+            scrollbar-width: thin;
+        }
+        
+        .nav-item {
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            background: rgba(255,255,255,0.6);
+            border-left-color: #f97316; /* Orange for work topic */
+            color: #c2410c;
+            padding-left: 1rem;
+        }
+
+        /* Gradients Headers */
+        .gradient-text {
+            background: linear-gradient(to right, #7c2d12, #ea580c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Specific Header Colors for Cards */
+        .header-card-1 { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); } /* Orange */
+        .header-card-2 { background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); } /* Blue */
+        .header-card-3 { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); } /* Purple */
+        .header-card-4 { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); } /* Red */
+        .header-card-5 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); } /* Green */
+        .header-card-6 { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); } /* Amber */
+
+        /* Custom components */
+        .script-segment {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: #fffaf0;
+            border-left: 4px solid #fdba74;
+            margin-bottom: 1rem;
+        }
+        
+        .script-segment:hover {
+            background-color: #fff7ed;
+            border-left-color: #f97316;
+        }
+
+        .danish-text {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .vietnamese-text {
+            color: #64748b;
+            font-size: 0.9rem;
+            
+        }
+
+        .keyword-badge {
+            display: inline-block;
+            background-color: #ffedd5;
+            color: #9a3412;
+            padding: 0.2rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 0.25rem;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        
+        <!-- Main Title -->
+        <header class="text-center mb-12 py-8">
+            <div class="inline-block p-2 px-4 rounded-full bg-orange-100 text-orange-700 font-bold text-sm mb-4 tracking-wide uppercase">
+                Mundtlig Dansk - Præsentation
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 gradient-text tracking-tight uppercase">
+                Mit Arbejde (Công việc của tôi)
+            </h1>
+            <p class="text-xl text-slate-500 font-light">Ny Solvang - Svinefarm & Farestald</p>
+        </header>
+
+        <div class="grid lg:grid-cols-4 gap-8">
+            
+            <!-- Sidebar Navigation -->
+            <aside class="hidden lg:block">
+                <nav class="nav-sticky glass-card rounded-2xl p-6 accent-shadow">
+                    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-200 pb-2">Nội dung</h3>
+                    <ul class="space-y-1 text-sm text-slate-600" id="toc-list">
+                        <!-- JS will populate this -->
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="lg:col-span-3 space-y-10">
+
+                <!-- 1. MINDMAP OVERVIEW -->
+                <div id="mindmap" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="bg-gradient-to-r from-orange-600 to-orange-500 p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-project-diagram mr-3"></i>Mindmap: 6 Điểm Chính</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            
+                            <!-- Card 1: Sted/Tid -->
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-3 text-orange-600">
+                                    <i class="fas fa-map-marker-alt mr-2 text-xl"></i>
+                                    <h3 class="font-bold uppercase text-sm">1. Arbejdssted / Tid</h3>
+                                </div>
+                                <ul class="text-sm space-y-2 text-slate-600">
+                                    <li>• <strong>Sted:</strong> Ny Solvang (Danmark)</li>
+                                    <li>• <strong>Type:</strong> Svinefarm / Farestald</li>
+                                    <li>• <strong>Varighed:</strong> 1,5 år (halvandet år)</li>
+                                    <li>• <strong>Erfaring:</strong> Dyrlægestuderende før</li>
+                                </ul>
+                            </div>
+
+                            <!-- Card 2: Arbejdsplads -->
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-3 text-blue-600">
+                                    <i class="fas fa-building mr-2 text-xl"></i>
+                                    <h3 class="font-bold uppercase text-sm">2. Arbejdspladsen</h3>
+                                </div>
+                                <ul class="text-sm space-y-2 text-slate-600">
+                                    <li>• <strong>Størrelse:</strong> Stor producent</li>
+                                    <li>• <strong>Aktivitet:</strong> 80 faringer/uge</li>
+                                    <li>• <strong>Smågrise:</strong> 1.400/uge</li>
+                                    <li>• <strong>Sprog:</strong> Dansk & Engelsk</li>
+                                </ul>
+                            </div>
+
+                            <!-- Card 3: Arbejdstider -->
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-3 text-purple-600">
+                                    <i class="fas fa-clock mr-2 text-xl"></i>
+                                    <h3 class="font-bold uppercase text-sm">3. Arbejdstider</h3>
+                                </div>
+                                <ul class="text-sm space-y-2 text-slate-600">
+                                    <li>• <strong>Mødetid:</strong> 06:00/07:00</li>
+                                    <li>• <strong>Fyraften:</strong> 14:30</li>
+                                    <li>• <strong>Mandag:</strong> Møde kl. 09:00</li>
+                                    <li>• <strong>Weekend:</strong> Vagt hver anden uge</li>
+                                </ul>
+                            </div>
+
+                            <!-- Card 4: Opgaver -->
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-3 text-red-600">
+                                    <i class="fas fa-clipboard-list mr-2 text-xl"></i>
+                                    <h3 class="font-bold uppercase text-sm">4. Arbejdsopgaver</h3>
+                                </div>
+                                <ul class="text-sm space-y-2 text-slate-600">
+                                    <li>• <strong>Farestald:</strong> Tjekke faringer</li>
+                                    <li>• <strong>Vigtigt:</strong> Forebygge kvælning</li>
+                                    <li>• <strong>Pleje:</strong> Fodring, medicin</li>
+                                    <li>• <strong>Special:</strong> Ammesøer/Kuldudjævning</li>
+                                </ul>
+                            </div>
+
+                            <!-- Card 5: Kollegaer -->
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-3 text-emerald-600">
+                                    <i class="fas fa-users mr-2 text-xl"></i>
+                                    <h3 class="font-bold uppercase text-sm">5. Kollegaer / Chef</h3>
+                                </div>
+                                <ul class="text-sm space-y-2 text-slate-600">
+                                    <li>• <strong>Chef:</strong> Driftsleder (20+ års erf.)</li>
+                                    <li>• <strong>Team:</strong> Faringsansvarlig + praktikanter</li>
+                                    <li>• <strong>Miljø:</strong> Internationalt (UKR, PL, PH)</li>
+                                    <li>• <strong>Samarbejde:</strong> Hjælpsomme</li>
+                                </ul>
+                            </div>
+
+                            <!-- Card 6: Mening -->
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-3 text-amber-600">
+                                    <i class="fas fa-comment-dots mr-2 text-xl"></i>
+                                    <h3 class="font-bold uppercase text-sm">6. Min Mening</h3>
+                                </div>
+                                <ul class="text-sm space-y-2 text-slate-600">
+                                    <li>• <strong>Positivt:</strong> Meningsfuldt, dyr trives</li>
+                                    <li>• <strong>Negativt:</strong> Fysisk hårdt, tidligt op</li>
+                                    <li>• <strong>Følelse:</strong> Stor arbejdsglæde</li>
+                                    <li>• <strong>Resultat:</strong> Synligt med det samme</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. PRESENTATION SCRIPT -->
+                <div id="presentation" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="bg-gradient-to-r from-teal-600 to-teal-500 p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-microphone-alt mr-3"></i>Bài Thuyết Trình (Script)</h2>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Niveau B1/B2</span>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <p class="text-slate-500 mb-4 italic text-sm"><i class="fas fa-info-circle mr-2"></i>Các cụm từ quan trọng được tô đậm. Hãy đọc to để luyện tập.</p>
+
+                        <!-- Intro -->
+                        <div class="script-segment">
+                            <p class="danish-text">Jeg hedder Thanh, og jeg vil gerne fortælle om mit arbejde.</p>
+                            <p class="vietnamese-text">Tôi tên là Thanh, và tôi muốn kể về công việc của mình.</p>
+                        </div>
+
+                        <!-- 1. Sted/Hvor længe -->
+                        <div class="script-segment">
+                            <p class="danish-text">Jeg er <span class="text-teal-600">ansat på</span> Ny Solvang, som er en større svineproducent her i Danmark.</p>
+                            <p class="vietnamese-text">Tôi được tuyển dụng tại Ny Solvang, một nhà sản xuất thịt lợn lớn tại Đan Mạch.</p>
+                            <p class="danish-text mt-2">Jeg <span class="text-teal-600">har været en del af teamet</span> i cirka halvandet år nu. Det er en svinefarm med fokus på farestalden.</p>
+                            <p class="vietnamese-text">Tôi đã là một phần của đội ngũ được khoảng một năm rưỡi nay. Đó là trang trại tập trung vào chuồng đẻ.</p>
+                        </div>
+
+                        <!-- 2. Arbejdsplads -->
+                        <div class="script-segment">
+                            <p class="danish-text">Det er en stor arbejdsplads <span class="text-teal-600">med høj aktivitet</span>. Vi har omkring 80 faringer hver uge, og vi fravænner cirka 1.400 smågrise ugentligt.</p>
+                            <p class="vietnamese-text">Đó là nơi làm việc lớn với hoạt động cao độ. Chúng tôi có khoảng 80 ca sinh mỗi tuần và cai sữa 1.400 lợn con.</p>
+                            <p class="danish-text mt-2"><span class="text-teal-600">Hverdagen er derfor travl!</span> Det officielle sprog er dansk, men <span class="text-teal-600">da vi har mange internationale praktikanter</span>, <span class="text-teal-600">kommunikerer</span> vi også ofte på engelsk.</p>
+                            <p class="vietnamese-text">Do đó hàng ngày rất bận rộn! Ngôn ngữ chính là tiếng Đan Mạch, nhưng vì có nhiều thực tập sinh quốc tế, chúng tôi cũng thường giao tiếp bằng tiếng Anh.</p>
+                        </div>
+
+                        <!-- 3. Arbejdstider -->
+                        <div class="script-segment">
+                            <p class="danish-text">Min dag starter tidligt – jeg <span class="text-teal-600">møder ind</span> enten klokken 06.00 eller 07.00 og <span class="text-teal-600">har fri</span> klokken 14.30.</p>
+                            <p class="vietnamese-text">Ngày của tôi bắt đầu sớm – tôi vào làm lúc 6 hoặc 7 giờ và tan làm lúc 14:30.</p>
+                            <p class="danish-text mt-2">Hver mandag formiddag <span class="text-teal-600">holder vi et kort møde</span>, hvor vi <span class="text-teal-600">drøfter</span> ugens opgaver. <span class="text-teal-600">Derudover</span> har jeg weekendvagt hver anden uge.</p>
+                            <p class="vietnamese-text">Mỗi sáng thứ Hai chúng tôi họp ngắn để thảo luận nhiệm vụ tuần. Ngoài ra tôi trực cuối tuần cách tuần.</p>
+                        </div>
+
+                        <!-- 4. Opgaver -->
+                        <div class="script-segment">
+                            <p class="danish-text">Mine <span class="text-teal-600">primære ansvarsområder</span> er i farestalden. Her overvåger jeg faringerne, <span class="text-teal-600">hvilket indebærer</span> at sikre, at færrest mulige grise bliver klemt.</p>
+                            <p class="vietnamese-text">Nhiệm vụ chính của tôi là ở chuồng đẻ. Tôi giám sát việc sinh nở, bao gồm việc đảm bảo ít lợn con bị đè nhất có thể.</p>
+                            <p class="danish-text mt-2">En <span class="text-teal-600">særlig funktion</span> er håndteringen af ammesøer og kuldudjævning. <span class="text-teal-600">Det sikrer, at</span> alle grise får nok mælk.</p>
+                            <p class="vietnamese-text">Một chức năng đặc biệt là xử lý lợn nái nuôi và ghép bầy. Điều này đảm bảo tất cả lợn con đều có đủ sữa.</p>
+                            <p class="danish-text mt-2">Dyrevelfærd er noget, vi <span class="text-teal-600">vægter utroligt højt</span>. <span class="text-teal-600">Det har førsteprioritet</span>.</p>
+                            <p class="vietnamese-text">Phúc lợi động vật là điều chúng tôi cực kỳ coi trọng. Nó là ưu tiên hàng đầu.</p>
+                        </div>
+
+                        <!-- 5. Kollegaer -->
+                        <div class="script-segment">
+                            <p class="danish-text">Vores driftsleder er en dansk kvinde med over 20 års erfaring – hun er både <span class="text-teal-600">kompetent</span> og imødekommende.</p>
+                            <p class="vietnamese-text">Quản lý của chúng tôi là một phụ nữ Đan Mạch với hơn 20 năm kinh nghiệm – cô ấy vừa có năng lực vừa dễ mến.</p>
+                            <p class="danish-text mt-2">Vi har også praktikanter fra hele verden. Vi <span class="text-teal-600">arbejder godt sammen</span> og hjælper hinanden hele tiden.</p>
+                            <p class="vietnamese-text">Chúng tôi cũng có thực tập sinh từ khắp thế giới. Chúng tôi làm việc ăn ý và luôn giúp đỡ nhau.</p>
+                        </div>
+
+                        <!-- 6. Mening -->
+                        <div class="script-segment">
+                            <p class="danish-text">Jeg synes, mit job er spændende, <span class="text-teal-600">fordi jeg følger</span> dyrenes trivsel hver dag. <span class="text-teal-600">Det giver stor arbejdsglæde</span>.</p>
+                            <p class="vietnamese-text">Tôi thấy công việc thú vị vì tôi theo dõi sức khỏe vật nuôi hàng ngày. Nó mang lại niềm vui lớn.</p>
+                            <p class="danish-text mt-2"><span class="text-teal-600">Selvom det er fysisk krævende</span> at stå tidligt op, <span class="text-teal-600">føles det meningsfuldt</span>, <span class="text-teal-600">da jeg kan se resultaterne</span> med det samme.</p>
+                            <p class="vietnamese-text">Mặc dù đòi hỏi thể lực và dậy sớm, nó cảm thấy ý nghĩa vì tôi thấy kết quả ngay lập tức.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Q&A SECTION -->
+                <div id="qa" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="bg-gradient-to-r from-indigo-600 to-indigo-500 p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-question-circle mr-3"></i>Spørgsmål & Svar (Q&A)</h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-4">
+                        
+                        <!-- Question 1 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button class="w-full text-left p-4 bg-slate-50 font-bold text-slate-700 hover:bg-slate-100 transition-colors flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span>1. Hvorfor valgte du at arbejde med dyr?</span>
+                                <i class="fas fa-chevron-down text-slate-400"></i>
+                            </button>
+                            <div class="p-4 bg-white hidden border-t border-slate-200">
+                                <p class="text-slate-800 mb-2">Jeg har altid været interesseret i dyr. Jeg var <strong>faktisk</strong> dyrlægestuderende i Vietnam, så det var naturligt for mig. Jeg <strong>synes, det er meningsfuldt</strong> at tage vare på deres sundhed.</p>
+                                <p class="text-sm text-slate-500 italic">Tôi luôn quan tâm động vật. Thực ra tôi từng là sinh viên thú y ở VN. Tôi thấy việc chăm sóc sức khỏe cho chúng rất ý nghĩa.</p>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button class="w-full text-left p-4 bg-slate-50 font-bold text-slate-700 hover:bg-slate-100 transition-colors flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span>2. Hvad gør du for at forebygge kvælning af grise?</span>
+                                <i class="fas fa-chevron-down text-slate-400"></i>
+                            </button>
+                            <div class="p-4 bg-white hidden border-t border-slate-200">
+                                <p class="text-slate-800 mb-2">Vi tjekker faringerne hele tiden, <strong>især når</strong> søerne ligger sig. Vi putter de nyfødte grise i varme huler, <strong>så</strong> soen ikke ligger på dem.</p>
+                                <p class="text-sm text-slate-500 italic">Chúng tôi kiểm tra liên tục, nhất là khi lợn nái nằm xuống. Chúng tôi đặt lợn con vào ổ ấm để mẹ không đè lên.</p>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button class="w-full text-left p-4 bg-slate-50 font-bold text-slate-700 hover:bg-slate-100 transition-colors flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span>3. Hvad er det sværeste ved dit arbejde?</span>
+                                <i class="fas fa-chevron-down text-slate-400"></i>
+                            </button>
+                            <div class="p-4 bg-white hidden border-t border-slate-200">
+                                <p class="text-slate-800 mb-2"><strong>Det sværeste er helt klart</strong> at stå op klokken 6 eller 7 hver dag. Og arbejdet er også meget <strong>fysisk krævende</strong>. <strong>Nogle gange er det også svært følelsesmæssigt</strong>, når en gris dør.</p>
+                                <p class="text-sm text-slate-500 italic">Khó nhất là dậy lúc 6-7h sáng. Công việc cũng nặng nhọc. Đôi khi khó khăn về cảm xúc khi lợn chết.</p>
+                            </div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button class="w-full text-left p-4 bg-slate-50 font-bold text-slate-700 hover:bg-slate-100 transition-colors flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span>4. Hvorfor laver I kuldudjævning?</span>
+                                <i class="fas fa-chevron-down text-slate-400"></i>
+                            </button>
+                            <div class="p-4 bg-white hidden border-t border-slate-200">
+                                <p class="text-slate-800 mb-2"><strong>Fordi</strong> nogle søer får for mange grise. Vi flytter de største grise til en ammeso. <strong>På den måde</strong> får alle grise nok mælk og den bedste start.</p>
+                                <p class="text-sm text-slate-500 italic">Vì một số con đẻ quá nhiều. Chúng tôi chuyển lợn to sang mẹ nuôi. Cách này giúp tất cả lợn con đủ sữa.</p>
+                            </div>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button class="w-full text-left p-4 bg-slate-50 font-bold text-slate-700 hover:bg-slate-100 transition-colors flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span>5. Vil du anbefale dit arbejde til andre?</span>
+                                <i class="fas fa-chevron-down text-slate-400"></i>
+                            </button>
+                            <div class="p-4 bg-white hidden border-t border-slate-200">
+                                <p class="text-slate-800 mb-2">Ja, <strong>bestemt</strong>! <strong>Især til dem, der</strong> kan lide dyr og ikke er bange for fysisk arbejde. Man skal <strong>være interesseret i</strong> dyrevelfærd.</p>
+                                <p class="text-sm text-slate-500 italic">Có, chắc chắn! Nhất là ai thích động vật và không ngại việc nặng. Phải quan tâm đến phúc lợi động vật.</p>
+                            </div>
+                        </div>
+
+                         <!-- Question 6 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button class="w-full text-left p-4 bg-slate-50 font-bold text-slate-700 hover:bg-slate-100 transition-colors flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span>6. Hvad gør I på mandagsmødet?</span>
+                                <i class="fas fa-chevron-down text-slate-400"></i>
+                            </button>
+                            <div class="p-4 bg-white hidden border-t border-slate-200">
+                                <p class="text-slate-800 mb-2">Vi <strong>drøfter</strong> ugens opgaver og problemsøer. Driftslederen fortæller vigtige ting. <strong>Det er et godt møde</strong>, hvor vi planlægger arbejdet sammen.</p>
+                                <p class="text-sm text-slate-500 italic">Chúng tôi thảo luận nhiệm vụ tuần và lợn bệnh. Quản lý thông báo tin quan trọng. Đó là cuộc họp tốt để lên kế hoạch.</p>
+                            </div>
+                        </div>
+
+                         <!-- Question 7 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button class="w-full text-left p-4 bg-slate-50 font-bold text-slate-700 hover:bg-slate-100 transition-colors flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span>7. Hvad er det bedste øjeblik?</span>
+                                <i class="fas fa-chevron-down text-slate-400"></i>
+                            </button>
+                            <div class="p-4 bg-white hidden border-t border-slate-200">
+                                <p class="text-slate-800 mb-2"><strong>Det bedste er</strong>, når jeg ser en god faring med mange levende grise, der trives. At se dyrene leve sundt er <strong>den største glæde</strong>.</p>
+                                <p class="text-sm text-slate-500 italic">Tuyệt nhất là thấy một ca sinh tốt với nhiều lợn con sống và phát triển. Thấy vật nuôi khỏe mạnh là niềm vui lớn nhất.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 4. VOCABULARY -->
+                <div id="vocabulary" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="bg-gradient-to-r from-rose-600 to-rose-500 p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-tags mr-3"></i>Từ Vựng Chuyên Ngành</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left text-slate-600">
+                                <thead class="text-xs text-slate-700 uppercase bg-slate-100">
+                                    <tr>
+                                        <th class="px-6 py-3 rounded-l-lg">Cụm từ (Dansk)</th>
+                                        <th class="px-6 py-3 rounded-r-lg">Nghĩa & Chức năng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">En farestald</td>
+                                        <td class="px-6 py-4">Chuồng đẻ (nơi lợn sinh con)</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">En faring</td>
+                                        <td class="px-6 py-4">Sự sinh đẻ của lợn</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">Kuldudjævning</td>
+                                        <td class="px-6 py-4">Ghép bầy (chia đều lợn con)</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">En ammeso</td>
+                                        <td class="px-6 py-4">Lợn nái nuôi (nuôi con hộ con khác)</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">Dyrevelfærd</td>
+                                        <td class="px-6 py-4">Phúc lợi động vật</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">At forebygge kvælning</td>
+                                        <td class="px-6 py-4">Ngăn ngừa việc bị đè chết/ngạt</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">At fravænne</td>
+                                        <td class="px-6 py-4">Cai sữa</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">En driftsleder</td>
+                                        <td class="px-6 py-4">Quản lý trang trại</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">Fysisk krævende</td>
+                                        <td class="px-6 py-4">Đòi hỏi thể lực cao</td>
+                                    </tr>
+                                    <tr class="bg-white">
+                                        <td class="px-6 py-4 font-bold text-blue-700">Stor arbejdsglæde</td>
+                                        <td class="px-6 py-4">Niềm vui lớn trong công việc</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <footer class="mt-16 text-center text-slate-400 text-sm pb-8">
+            <p>&copy; 2024 Danskuddannelse 3 Guide. Designed with <i class="fas fa-heart text-red-400"></i> & TailwindCSS.</p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Generate TOC
+        document.addEventListener('DOMContentLoaded', () => {
+            const tocList = document.getElementById('toc-list');
+            const sections = document.querySelectorAll('main > div[id]');
+            
+            sections.forEach(section => {
+                const id = section.id;
+                // Try to find h2, if not h3
+                let titleEl = section.querySelector('h2');
+                if (!titleEl) titleEl = section.querySelector('h3');
+                
+                if (!titleEl) return;
+                
+                const title = titleEl.innerText;
+                
+                const li = document.createElement('li');
+                li.className = 'nav-item';
+                li.innerHTML = `<a href="#${id}" class="block py-2 text-slate-600 hover:text-orange-600 truncate" title="${title}">${title}</a>`;
+                tocList.appendChild(li);
+            });
+
+            // Smooth Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Highlight Active Link on Scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('.nav-item').forEach(li => {
+                    li.classList.remove('active');
+                    const link = li.querySelector('a');
+                    if (link.getAttribute('href').includes(current)) {
+                        li.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

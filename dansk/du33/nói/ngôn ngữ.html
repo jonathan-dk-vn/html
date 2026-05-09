@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundtlig Emne: Min Skole</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Lexend', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: { 850: '#151e2e' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        body { 
+            font-family: 'Lexend', sans-serif; 
+            background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* Glassmorphism */
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.6); 
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+        
+        .accent-shadow { 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .accent-shadow:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .nav-sticky { 
+            position: sticky; 
+            top: 24px; 
+            max-height: calc(100vh - 48px); 
+            overflow-y: auto; 
+            scrollbar-width: thin;
+        }
+        
+        .nav-item {
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            background: rgba(255,255,255,0.6);
+            border-left-color: #0ea5e9;
+            color: #0284c7;
+            padding-left: 1rem;
+        }
+
+        /* Gradients Headers */
+        .gradient-text {
+            background: linear-gradient(to right, #0f172a, #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-blue { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+        .header-teal { background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%); }
+        .header-indigo { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
+        .header-rose { background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%); }
+        .header-amber { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .header-emerald { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+
+        /* Custom components */
+        .script-segment {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: #f8fafc;
+            border-left: 4px solid #cbd5e1;
+            margin-bottom: 1rem;
+        }
+        
+        .script-segment:hover {
+            background-color: #f1f5f9;
+            border-left-color: #3b82f6;
+        }
+
+        .danish-text {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .vietnamese-text {
+            color: #64748b;
+            font-size: 0.9rem;
+            
+        }
+
+        .keyword-badge {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.2rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 0.25rem;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        
+        <!-- Main Title -->
+        <header class="text-center mb-12 py-8">
+            <div class="inline-block p-2 px-4 rounded-full bg-blue-100 text-blue-700 font-bold text-sm mb-4 tracking-wide uppercase">
+                Mundtlig Dansk - Præsentation
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 gradient-text tracking-tight uppercase">
+                Min Skole (Trường Của Tôi)
+            </h1>
+            <p class="text-xl text-slate-500 font-light">UCplus Online - Danskuddannelse 3, Modul 3</p>
+        </header>
+
+        <div class="grid lg:grid-cols-4 gap-8">
+            
+            <!-- Sidebar Navigation -->
+            <aside class="hidden lg:block">
+                <nav class="nav-sticky glass-card rounded-2xl p-6 accent-shadow">
+                    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-200 pb-2">Nội dung</h3>
+                    <ul class="space-y-1 text-sm text-slate-600" id="toc-list">
+                        <!-- JS will populate this -->
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="lg:col-span-3 space-y-10">
+
+                <!-- 1. MINDMAP OVERVIEW -->
+                <div id="mindmap" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-blue p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-project-diagram mr-3"></i>Mindmap: 6 Điểm Chính</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            
+                            <!-- Card 1: Sted/Tid -->
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-3 text-blue-600">
+                                    <i class="fas fa-map-marker-alt mr-2 text-xl"></i>
+                                    <h3 class="font-bold uppercase text-sm">1. Sted / Tid</h3>
+                                </div>
+                                <ul class="text-sm space-y-2 text-slate-600">
+                                    <li>• <strong>Skole:</strong> UCplus, Tønder</li>
+                                    <li>• <strong>Form:</strong> Online (hjemmefra)</li>
+                                    <li>• <strong>Tid:</strong> Onsdag 19:00 - 21:30</li>
+                                    <li>• <strong>Pause:</strong> Kl. 20:30</li>
+                                </ul>
+                            </div>
+
+                            <!-- Card 2: Skolen -->
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-3 text-teal-600">
+                                    <i class="fas fa-school mr-2 text-xl"></i>
+                                    <h3 class="font-bold uppercase text-sm">2. Skolen</h3>
+                                </div>
+                                <ul class="text-sm space-y-2 text-slate-600">
+                                    <li>• <strong>Type:</strong> Offentlig sprogskole</li>
+                                    <li>• <strong>Niveau:</strong> DU3, Modul 3</li>
+                                    <li>• <strong>Miljø:</strong> Internationalt</li>
+                                    <li>• <strong>Antal:</strong> 10-15 kursister</li>
+                                </ul>
+                            </div>
+
+                            <!-- Card 3: Transport -->
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-3 text-indigo-600">
+                                    <i class="fas fa-car mr-2 text-xl"></i>
+                                    <h3 class="font-bold uppercase text-sm">3. Transport</h3>
+                                </div>
+                                <ul class="text-sm space-y-2 text-slate-600">
+                                    <li>• <strong>Ingen transport:</strong> Online</li>
+                                    <li>• <strong>Fordel:</strong> Tidsbesparende</li>
+                                    <li>• <strong>Krav:</strong> Computer & internet</li>
+                                    <li>• <strong>Fleksibelt:</strong> Passer til hverdag</li>
+                                </ul>
+                            </div>
+
+                            <!-- Card 4: Undervisningen -->
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-3 text-rose-600">
+                                    <i class="fas fa-book-open mr-2 text-xl"></i>
+                                    <h3 class="font-bold uppercase text-sm">4. Undervisningen</h3>
+                                </div>
+                                <ul class="text-sm space-y-2 text-slate-600">
+                                    <li>• <strong>Aktiviteter:</strong> Samtale, læsning, grammatik</li>
+                                    <li>• <strong>Metoder:</strong> Breakout rooms</li>
+                                    <li>• <strong>Bedst:</strong> Samtaleøvelser</li>
+                                    <li>• <strong>Sværest:</strong> Grammatik</li>
+                                </ul>
+                            </div>
+
+                            <!-- Card 5: Lærer/Elever -->
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-3 text-amber-600">
+                                    <i class="fas fa-users mr-2 text-xl"></i>
+                                    <h3 class="font-bold uppercase text-sm">5. Lærer / Elever</h3>
+                                </div>
+                                <ul class="text-sm space-y-2 text-slate-600">
+                                    <li>• <strong>Lærer:</strong> Karen (dygtig, tålmodig)</li>
+                                    <li>• <strong>Elever:</strong> Fra hele verden</li>
+                                    <li>• <strong>Udfordring:</strong> Kender ikke alle navne</li>
+                                    <li>• <strong>Samarbejde:</strong> Små grupper</li>
+                                </ul>
+                            </div>
+
+                            <!-- Card 6: Mening -->
+                            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-center mb-3 text-emerald-600">
+                                    <i class="fas fa-comment-dots mr-2 text-xl"></i>
+                                    <h3 class="font-bold uppercase text-sm">6. Min Mening</h3>
+                                </div>
+                                <ul class="text-sm space-y-2 text-slate-600">
+                                    <li>• <strong>Tilfreds:</strong> Høj kvalitet</li>
+                                    <li>• <strong>Fordel:</strong> Fleksibilitet</li>
+                                    <li>• <strong>Savner:</strong> Fysisk kontakt</li>
+                                    <li>• <strong>Udvikling:</strong> Motiverende</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. PRESENTATION SCRIPT -->
+                <div id="presentation" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-teal p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-microphone-alt mr-3"></i>Bài Thuyết Trình (Script)</h2>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Niveau B1</span>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <p class="text-slate-500 mb-4 italic text-sm"><i class="fas fa-info-circle mr-2"></i>Các cụm từ quan trọng được tô đậm. Hãy đọc to để luyện tập.</p>
+
+                        <!-- Intro -->
+                        <div class="script-segment">
+                            <p class="danish-text">Jeg hedder Thanh, og jeg vil gerne fortælle om min danskskole.</p>
+                            <p class="vietnamese-text">Tôi tên là Thanh, và tôi muốn kể về trường tiếng Đan Mạch của tôi.</p>
+                        </div>
+
+                        <!-- 1. Sted/Tid -->
+                        <div class="script-segment">
+                            <p class="danish-text">Jeg går på UCplus i Tønder, men jeg har onlineundervisning, så jeg sidder faktisk derhjemme.</p>
+                            <p class="vietnamese-text">Tôi học UCplus ở Tønder, nhưng tôi học online, nên thực ra tôi ngồi ở nhà.</p>
+                            <p class="danish-text mt-2"><span class="text-teal-600">Min undervisning foregår hver onsdag aften</span> fra klokken sytten til halv ti.</p>
+                            <p class="vietnamese-text">Lớp học của tôi diễn ra vào mỗi tối thứ Tư từ 17h đến 21h30.</p>
+                            <p class="danish-text mt-2">Vi <span class="text-teal-600">holder en lille pause</span> klokken halv ni, <span class="text-teal-600">hvilket giver mig tid til</span> at strække benene og lave en kop te.</p>
+                            <p class="vietnamese-text">Chúng tôi nghỉ giải lao một chút lúc 20h30, điều này giúp tôi có thời gian duỗi chân và pha trà.</p>
+                        </div>
+
+                        <!-- 2. Skolen -->
+                        <div class="script-segment">
+                            <p class="danish-text">UCplus er en offentlig sprogskole, og jeg er på DU3, Modul 3.</p>
+                            <p class="danish-text mt-2"><span class="text-teal-600">Selvom det er online</span>, er der studerende fra mange forskellige lande, så det er et meget internationalt miljø.</p>
+                            <p class="vietnamese-text">Mặc dù là học online, nhưng có học viên từ nhiều nước, nên môi trường rất quốc tế.</p>
+                            <p class="danish-text mt-2"><span class="text-teal-600">Det, synes jeg, er ret spændende.</span></p>
+                            <p class="vietnamese-text">Tôi nghĩ điều đó khá thú vị.</p>
+                        </div>
+
+                        <!-- 3. Transport -->
+                        <div class="script-segment">
+                            <p class="danish-text"><span class="text-teal-600">Fordelen ved onlineundervisning er, at</span> jeg slipper helt for transport.</p>
+                            <p class="vietnamese-text">Lợi thế của học online là tôi hoàn toàn không phải di chuyển.</p>
+                            <p class="danish-text mt-2">Jeg skal bare åbne min computer derhjemme, og så er jeg klar. <span class="text-teal-600">Det sparer mig for en masse tid</span>.</p>
+                            <p class="vietnamese-text">Tôi chỉ cần mở máy tính ở nhà là xong. Điều đó giúp tôi tiết kiệm rất nhiều thời gian.</p>
+                            <p class="danish-text mt-2"><span class="text-teal-600">Det eneste, jeg skal huske, er</span> at have en stabil internetforbindelse.</p>
+                            <p class="vietnamese-text">Điều duy nhất tôi phải nhớ là có kết nối internet ổn định.</p>
+                        </div>
+
+                        <!-- 4. Undervisningen -->
+                        <div class="script-segment">
+                            <p class="danish-text">I timerne laver vi mange forskellige ting. Vi har samtaleøvelser, <span class="text-teal-600">som jeg synes er det bedste</span>.</p>
+                            <p class="vietnamese-text">Trong giờ học chúng tôi làm nhiều thứ. Chúng tôi có bài tập hội thoại, cái mà tôi nghĩ là hay nhất.</p>
+                            <p class="danish-text mt-2"><span class="text-teal-600">Fordi jeg får mulighed for</span> at øve mit mundtlige dansk. Vi analyserer også tekster og arbejder med grammatik, <span class="text-teal-600">hvilket nogle gange er ret svært</span>.</p>
+                            <p class="vietnamese-text">Bởi vì tôi có cơ hội luyện nói. Chúng tôi cũng phân tích văn bản và học ngữ pháp, điều mà đôi khi khá khó.</p>
+                        </div>
+
+                        <!-- 5. Lærere -->
+                        <div class="script-segment">
+                            <p class="danish-text">Min lærer hedder Karen, og hun er virkelig dygtig. Hun er erfaren og tålmodig.</p>
+                            <p class="danish-text mt-2">Hun <span class="text-teal-600">bruger forskellige metoder som</span> breakout rooms <span class="text-teal-600">for at gøre undervisningen effektiv</span>.</p>
+                            <p class="vietnamese-text">Cô ấy dùng nhiều phương pháp như breakout rooms để làm buổi học hiệu quả.</p>
+                            <p class="danish-text mt-2"><span class="text-teal-600">Jeg må indrømme, at</span> jeg ikke kender alle de andre elevers navne, <span class="text-teal-600">fordi det er online</span>.</p>
+                            <p class="vietnamese-text">Tôi phải thú nhận là tôi không biết tên tất cả mọi người vì học online.</p>
+                        </div>
+
+                        <!-- 6. Mening -->
+                        <div class="script-segment">
+                            <p class="danish-text"><span class="text-teal-600">Alt i alt</span> er jeg meget tilfreds med min sprogskole.</p>
+                            <p class="vietnamese-text">Nhìn chung tôi rất hài lòng.</p>
+                            <p class="danish-text mt-2"><span class="text-teal-600">Det eneste, jeg savner, er</span> den fysiske kontakt med de andre elever.</p>
+                            <p class="vietnamese-text">Điều duy nhất tôi nhớ là sự tiếp xúc trực tiếp với các học viên khác.</p>
+                            <p class="danish-text mt-2">Men <span class="text-teal-600">generelt</span> passer det rigtig godt til mit liv.</p>
+                            <p class="vietnamese-text">Nhưng nhìn chung nó rất hợp với cuộc sống của tôi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Q&A SECTION -->
+                <div id="qa" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-indigo p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-question-circle mr-3"></i>Spørgsmål & Svar (Q&A)</h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-4">
+                        
+                        <!-- Question 1 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button class="w-full text-left p-4 bg-slate-50 font-bold text-slate-700 hover:bg-slate-100 transition-colors flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span>1. Hvorfor valgte du onlineundervisning?</span>
+                                <i class="fas fa-chevron-down text-slate-400"></i>
+                            </button>
+                            <div class="p-4 bg-white hidden border-t border-slate-200">
+                                <p class="text-slate-800 mb-2">Jeg valgte det <strong>primært på grund af</strong> fleksibiliteten. Jeg bor i Esbjerg, og <strong>det ville tage lang tid at</strong> køre til Tønder. Det <strong>sparer mig for</strong> tid og penge.</p>
+                                <p class="text-sm text-slate-500 italic">Tôi chọn chủ yếu vì sự linh hoạt. Tôi sống ở Esbjerg và sẽ tốn nhiều thời gian đi đến Tønder. Nó giúp tôi tiết kiệm thời gian và tiền bạc.</p>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button class="w-full text-left p-4 bg-slate-50 font-bold text-slate-700 hover:bg-slate-100 transition-colors flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span>2. Hvad er forskellen på online og fysisk skole?</span>
+                                <i class="fas fa-chevron-down text-slate-400"></i>
+                            </button>
+                            <div class="p-4 bg-white hidden border-t border-slate-200">
+                                <p class="text-slate-800 mb-2"><strong>Den største forskel er selvfølgelig</strong> den fysiske kontakt. Man savner snakken i pauserne. Men <strong>til gengæld</strong> er onlineundervisning ofte mere fokuseret.</p>
+                                <p class="text-sm text-slate-500 italic">Khác biệt lớn nhất tất nhiên là tương tác trực tiếp. Người ta nhớ những cuộc trò chuyện lúc nghỉ. Nhưng bù lại, học online thường tập trung hơn.</p>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button class="w-full text-left p-4 bg-slate-50 font-bold text-slate-700 hover:bg-slate-100 transition-colors flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span>3. Hvad er din favoritaktivitet?</span>
+                                <i class="fas fa-chevron-down text-slate-400"></i>
+                            </button>
+                            <div class="p-4 bg-white hidden border-t border-slate-200">
+                                <p class="text-slate-800 mb-2">Det er helt klart samtaleøvelserne. <strong>Jeg kan godt lide at</strong> diskutere emner med andre, <strong>for det føles mere autentisk</strong>.</p>
+                                <p class="text-sm text-slate-500 italic">Chắc chắn là bài tập hội thoại. Tôi thích thảo luận các chủ đề với người khác, vì nó cảm giác chân thực hơn.</p>
+                            </div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button class="w-full text-left p-4 bg-slate-50 font-bold text-slate-700 hover:bg-slate-100 transition-colors flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span>4. Hvad er det sværeste?</span>
+                                <i class="fas fa-chevron-down text-slate-400"></i>
+                            </button>
+                            <div class="p-4 bg-white hidden border-t border-slate-200">
+                                <p class="text-slate-800 mb-2">Grammatikken, især datidsformer. På vietnamesisk ændrer verberne sig ikke <strong>på samme måde</strong>, så <strong>det kræver meget øvelse for mig</strong>.</p>
+                                <p class="text-sm text-slate-500 italic">Ngữ pháp, đặc biệt là thì quá khứ. Trong tiếng Việt động từ không đổi theo cách đó, nên nó đòi hỏi tôi phải luyện tập nhiều.</p>
+                            </div>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div class="border border-slate-200 rounded-xl overflow-hidden">
+                            <button class="w-full text-left p-4 bg-slate-50 font-bold text-slate-700 hover:bg-slate-100 transition-colors flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span>5. Vil du anbefale UCplus?</span>
+                                <i class="fas fa-chevron-down text-slate-400"></i>
+                            </button>
+                            <div class="p-4 bg-white hidden border-t border-slate-200">
+                                <p class="text-slate-800 mb-2">Ja, bestemt. <strong>Især til dem, der</strong> har en travl hverdag. Men <strong>det kræver selvdisciplin</strong> at følge med online.</p>
+                                <p class="text-sm text-slate-500 italic">Có, chắc chắn. Đặc biệt cho những người bận rộn. Nhưng cần có kỷ luật tự giác để theo kịp việc học online.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 4. VOCABULARY -->
+                <div id="vocabulary" class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-rose p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-tags mr-3"></i>Từ Vựng & Cụm Từ "Vàng"</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left text-slate-600">
+                                <thead class="text-xs text-slate-700 uppercase bg-slate-100">
+                                    <tr>
+                                        <th class="px-6 py-3 rounded-l-lg">Cụm từ (Dansk)</th>
+                                        <th class="px-6 py-3 rounded-r-lg">Nghĩa & Chức năng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">Fordelen ved... er, at...</td>
+                                        <td class="px-6 py-4">Lợi thế của... là... (Nhấn mạnh ưu điểm)</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">Det sparer mig for...</td>
+                                        <td class="px-6 py-4">Giúp tôi tiết kiệm... (thời gian/tiền bạc)</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">Hvilket giver mig tid til...</td>
+                                        <td class="px-6 py-4">Điều này cho tôi thời gian để... (Nối câu B1)</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">Selvom det er...</td>
+                                        <td class="px-6 py-4">Mặc dù là... (Câu đối lập/nhượng bộ)</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">Desuden</td>
+                                        <td class="px-6 py-4">Hơn nữa / Ngoài ra (Bổ sung ý)</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">Det, synes jeg, er...</td>
+                                        <td class="px-6 py-4">Tôi nghĩ điều đó là... (Nêu ý kiến cá nhân)</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-bold text-blue-700">Alt i alt</td>
+                                        <td class="px-6 py-4">Nhìn chung / Tóm lại (Kết luận)</td>
+                                    </tr>
+                                    <tr class="bg-white">
+                                        <td class="px-6 py-4 font-bold text-blue-700">Det eneste, jeg savner, er...</td>
+                                        <td class="px-6 py-4">Điều duy nhất tôi nhớ/thiếu là...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <footer class="mt-16 text-center text-slate-400 text-sm pb-8">
+            <p>&copy; 2024 Danskuddannelse 3 Guide. Designed with <i class="fas fa-heart text-red-400"></i> & TailwindCSS.</p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Generate TOC
+        document.addEventListener('DOMContentLoaded', () => {
+            const tocList = document.getElementById('toc-list');
+            const sections = document.querySelectorAll('main > div[id]');
+            
+            sections.forEach(section => {
+                const id = section.id;
+                // Try to find h2, if not h3
+                let titleEl = section.querySelector('h2');
+                if (!titleEl) titleEl = section.querySelector('h3');
+                
+                if (!titleEl) return;
+                
+                const title = titleEl.innerText;
+                
+                const li = document.createElement('li');
+                li.className = 'nav-item';
+                li.innerHTML = `<a href="#${id}" class="block py-2 text-slate-600 hover:text-blue-600 truncate" title="${title}">${title}</a>`;
+                tocList.appendChild(li);
+            });
+
+            // Smooth Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Highlight Active Link on Scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('.nav-item').forEach(li => {
+                    li.classList.remove('active');
+                    const link = li.querySelector('a');
+                    if (link.getAttribute('href').includes(current)) {
+                        li.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

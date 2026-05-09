@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 ORDSTILLING (SYNTAKS) - ĐÁP ÁN CHI TIẾT</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Lexend', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        .accent-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .accent-shadow:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Navigation */
+        .nav-sticky {
+            position: sticky;
+            top: 24px;
+            max-height: calc(100vh - 48px);
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+
+        .nav-item {
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.6);
+            border-left-color: #3b82f6;
+            color: #1d4ed8;
+            padding-left: 1rem;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .syntax-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            min-width: 600px;
+        }
+
+        .syntax-table th {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 14px;
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-align: left;
+        }
+
+        .syntax-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .syntax-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .syntax-table tr:hover {
+            background: #f1f5f9;
+        }
+
+        /* Syntax Highlighting in Tables */
+        .syntax-s {
+            color: #dc2626;
+            font-weight: 700;
+        }
+
+        /* Subject - Red */
+        .syntax-v {
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        /* Verb - Blue */
+        .syntax-a {
+            color: #7c3aed;
+            font-weight: 700;
+        }
+
+        /* Adverbial - Purple */
+
+        /* Gradients */
+        .gradient-text {
+            background: linear-gradient(to right, #1e293b, #475569);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-red {
+            background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+        }
+
+        .header-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        .header-purple {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+        }
+
+        .header-teal {
+            background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%);
+        }
+
+        .header-orange {
+            background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+        }
+
+        .header-slate {
+            background: linear-gradient(135deg, #475569 0%, #1e293b 100%);
+        }
+
+        /* Utilities */
+        .code-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #3b82f6;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-family: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+            color: #334155;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #cbd5e1;
+            padding-left: 1rem;
+            
+            color: #64748b;
+            margin: 1rem 0;
+        }
+
+        .highlight-red {
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        .highlight-blue {
+            color: #2563eb;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Main Title -->
+        <header class="text-center mb-12 py-8">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 gradient-text tracking-tight">
+                8 ORDSTILLING (SYNTAKS)
+            </h1>
+            <p class="text-xl text-slate-500 font-light">Đáp án và Bài giảng Chi tiết</p>
+        </header>
+
+        <div class="grid lg:grid-cols-4 gap-8">
+
+            <!-- Sidebar Navigation -->
+            <aside class="hidden lg:block">
+                <nav class="nav-sticky glass-card rounded-2xl p-6 accent-shadow">
+                    <h3
+                        class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-200 pb-2">
+                        Mục lục</h3>
+                    <ul class="space-y-1 text-sm text-slate-600" id="toc-list">
+                        <!-- JS will populate this -->
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="lg:col-span-3 space-y-10">
+
+                <!-- OPGAVE 1 -->
+                <div id="opgave-1"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-red p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-layer-group mr-3"></i>Opgave 1: Ordstilling i
+                            hovedsætninger</h2>
+                        <span
+                            class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Hovedsætning</span>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="table-container">
+                            <table class="syntax-table">
+                                <thead>
+                                    <tr>
+                                        <th>Subjekt (S)</th>
+                                        <th>Verbal 1 (V1)</th>
+                                        <th>Adverbial (A)</th>
+                                        <th>Verbal 2 (V2)</th>
+                                        <th>Objekt (O)</th>
+                                        <th>Steds-/tidsadverbial</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0. Pia og Nils</td>
+                                        <td class="syntax-v">vil</td>
+                                        <td class="syntax-a">gerne</td>
+                                        <td class="syntax-v">rejse</td>
+                                        <td></td>
+                                        <td>til Sverige til maj</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1. Vi</td>
+                                        <td class="syntax-v">kommer</td>
+                                        <td class="syntax-a">ikke</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>til festen i morgen</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2. Anna og Jens</td>
+                                        <td class="syntax-v">kan</td>
+                                        <td class="syntax-a">godt</td>
+                                        <td class="syntax-v">komme</td>
+                                        <td></td>
+                                        <td>på lørdag</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3. Min gode ven</td>
+                                        <td class="syntax-v">har</td>
+                                        <td class="syntax-a">også</td>
+                                        <td class="syntax-v">lavet</td>
+                                        <td>mad</td>
+                                        <td>i dag</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4. Min søster</td>
+                                        <td class="syntax-v">har</td>
+                                        <td class="syntax-a">lige</td>
+                                        <td class="syntax-v">købt</td>
+                                        <td>vin</td>
+                                        <td>i Irma</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5. Det</td>
+                                        <td class="syntax-v">regnede</td>
+                                        <td class="syntax-a">ikke</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>på Møn i sidste uge</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6. Jeg</td>
+                                        <td class="syntax-v">har</td>
+                                        <td></td>
+                                        <td class="syntax-v">været</td>
+                                        <td></td>
+                                        <td>i Rom</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7. Ali</td>
+                                        <td class="syntax-v">holder</td>
+                                        <td class="syntax-a">aldrig</td>
+                                        <td></td>
+                                        <td>ferie</td>
+                                        <td>om sommeren</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8. De</td>
+                                        <td class="syntax-v">vil</td>
+                                        <td class="syntax-a">gerne</td>
+                                        <td class="syntax-v">købe</td>
+                                        <td>et nyt tv</td>
+                                        <td>på nettet i næste uge</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 mt-6">
+                            <h3 class="text-lg font-bold text-slate-800 mb-3"><i
+                                    class="fas fa-lightbulb text-yellow-500 mr-2"></i>Giải thích</h3>
+                            <p class="mb-2"><strong>Quy tắc vàng:</strong> Trật tự từ tiêu chuẩn cho mệnh đề chính là
+                                <strong>S-V-A</strong>.</p>
+                            <ul class="list-disc pl-5 space-y-2 text-slate-600">
+                                <li><strong>Động từ luôn ở vị trí 2:</strong> V1 (động từ được chia) luôn đứng thứ 2.
+                                </li>
+                                <li><strong>Trật tự S-V-A:</strong> Chủ ngữ (S) -> Động từ (V1) -> Trạng từ trung tâm
+                                    (A).</li>
+                                <li><strong>V2:</strong> Đứng sau trạng từ (A).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OPGAVE 2 -->
+                <div id="opgave-2"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-red p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-pen-fancy mr-3"></i>Opgave 2: Indsæt adverbialer
+                        </h2>
+                        <span
+                            class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Adverbialer</span>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                                <p>1. Min søn hjælper <span class="syntax-a">altid</span> med at gøre rent.</p>
+                                <p class="mt-2 text-sm text-slate-500 border-t pt-2">Vị trí: Sau V1</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                                <p>2. Hun har <span class="syntax-a">tit</span> afleveret børnene i børnehave.</p>
+                                <p class="mt-2 text-sm text-slate-500 border-t pt-2">Vị trí: Giữa V1 và V2</p>
+                            </div>
+                            <!-- More items simulated for brevity in display logic, preserving content -->
+                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                                <p>3. De bliver <span class="syntax-a">måske</span> nødt til at sælge deres hus.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                                <p>4. Det har <span class="syntax-a">kun</span> sneet i et par dage.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                                <p>5. Pia vil <span class="syntax-a">gerne</span> begynde at spille badminton.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                                <p>6. Jeg har <span class="syntax-a">aldrig</span> set filmen.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                                <p>7. Jeg kan <span class="syntax-a">nok</span> få fri på torsdag.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                                <p>8. Drengen fortalte <span class="syntax-a">selvfølgelig</span> sin mor om ulykken.
+                                </p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                                <p>9. Jeg synes <span class="syntax-a">ikke</span>, at det er en god ide.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                                <p>10. Jeg tror <span class="syntax-a">godt</span>, at vi kan komme til din fødselsdag.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OPGAVE 3 -->
+                <div id="opgave-3"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-purple p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-random mr-3"></i>Opgave 3: Inversion (Đảo ngữ)
+                        </h2>
+                        <span
+                            class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">Inversion</span>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <p class="mb-4"><strong>Khi nào có Inversion?</strong></p>
+                        <ol class="list-decimal pl-5 space-y-2 mb-6 text-slate-700">
+                            <li>Trong câu hỏi Ja/Nej.</li>
+                            <li>Khi trạng từ (thời gian/địa điểm) đứng đầu câu.</li>
+                            <li>Khi mệnh đề phụ đứng trước mệnh đề chính.</li>
+                        </ol>
+
+                        <div class="table-container">
+                            <table class="syntax-table">
+                                <thead>
+                                    <tr>
+                                        <th>Steds-/tidsadverbial</th>
+                                        <th>Verbal 1 (V1)</th>
+                                        <th>Subjekt (S)</th>
+                                        <th>Adverbial (A)</th>
+                                        <th>Verbal 2 (V2)</th>
+                                        <th>Objekt (O)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>I går</td>
+                                        <td class="syntax-v">kom</td>
+                                        <td class="syntax-s">Poul</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>sent hjem (adv)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="bg-slate-800 text-slate-200 p-4 rounded-lg font-mono text-sm mt-4">
+                            <span class="text-gray-400">// Nguyên tắc vàng</span><br>
+                            Động từ hữu hạn LUÔN ở vị trí thứ 2.<br>
+                            Thành phần khác đứng đầu -> <span class="text-yellow-400">V-S</span> (Đảo ngữ).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OPGAVE 4 -->
+                <div id="opgave-4"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-orange p-6 text-white">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-hammer mr-3"></i>Opgave 4: Build up - Inversion
+                        </h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <h3 class="font-bold text-slate-700 mb-4">Đáp án (Có đảo ngữ)</h3>
+                        <div class="table-container">
+                            <table class="syntax-table">
+                                <thead>
+                                    <tr>
+                                        <th>Front (Adv)</th>
+                                        <th>V1</th>
+                                        <th>S</th>
+                                        <th>A</th>
+                                        <th>V2</th>
+                                        <th>Objekt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>I morgen</td>
+                                        <td class="syntax-v">er</td>
+                                        <td class="syntax-s">butikken</td>
+                                        <td class="syntax-a">ikke</td>
+                                        <td>lukket</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>I kantinen</td>
+                                        <td class="syntax-v">sælger</td>
+                                        <td class="syntax-s">de</td>
+                                        <td class="syntax-a">også</td>
+                                        <td></td>
+                                        <td>kaffe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>I weekenden</td>
+                                        <td class="syntax-v">besøger</td>
+                                        <td class="syntax-s">jeg</td>
+                                        <td class="syntax-a">altid</td>
+                                        <td></td>
+                                        <td>mine venner</td>
+                                    </tr>
+                                    <tr>
+                                        <td>I Danmark</td>
+                                        <td class="syntax-v">har</td>
+                                        <td class="syntax-s">jeg</td>
+                                        <td class="syntax-a">ikke</td>
+                                        <td>haft</td>
+                                        <td>mange job</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lørdag aften</td>
+                                        <td class="syntax-v">ser</td>
+                                        <td class="syntax-s">vi</td>
+                                        <td class="syntax-a">tit</td>
+                                        <td></td>
+                                        <td>tv</td>
+                                    </tr>
+                                    <tr>
+                                        <td>I morges</td>
+                                        <td class="syntax-v">kunne</td>
+                                        <td class="syntax-s">han</td>
+                                        <td class="syntax-a">godt</td>
+                                        <td>tage</td>
+                                        <td>bussen</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OPGAVE 5 & 6 -->
+                <div id="opgave-5-6"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-slate p-6 text-white">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-exchange-alt mr-3"></i>Opgave 5 & 6: Linh hoạt
+                            đảo ngữ</h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-6">
+                        <div class="code-box">
+                            <p class="font-bold mb-2">// Opgave 5: Thời gian & Địa điểm</p>
+                            <p>1. Der er også mange sommerhuse i Nordsjælland.<br>→ <span class="highlight-blue">I
+                                    Nordsjælland er der</span> også mange sommerhuse.</p>
+                            <hr class="my-2 border-gray-200">
+                            <p>2. Hun har ikke været forkølet ret mange gange i år.<br>→ <span class="highlight-blue">I
+                                    år har hun</span> ikke været forkølet ret mange gange.</p>
+                            <hr class="my-2 border-gray-200">
+                            <p>5. Jeg skal heldigvis møde kl. 9 i morgen.<br>→ <span class="highlight-blue">I morgen
+                                    skal jeg</span> heldigvis møde kl. 9.<br>→ <span class="highlight-blue">Heldigvis
+                                    skal jeg</span> møde kl. 9 i morgen.</p>
+                        </div>
+
+                        <div class="code-box">
+                            <p class="font-bold mb-2">// Opgave 6: Adverbialer khác</p>
+                            <p>0. Han kom alligevel i går.<br>→ <span class="highlight-blue">Alligevel kom han</span> i
+                                går.</p>
+                            <hr class="my-2 border-gray-200">
+                            <p>1. Jeg må desværre aflyse vores aftale.<br>→ <span class="highlight-blue">Desværre må
+                                    jeg</span> aflyse vores aftale.</p>
+                            <hr class="my-2 border-gray-200">
+                            <p>6. Der kom pludselig et tog forbi.<br>→ <span class="highlight-blue">Pludselig kom
+                                    der</span> et tog forbi.</p>
+                            <hr class="my-2 border-gray-200">
+                            <p>9. Vi har faktisk aldrig været på Bornholm.<br>→ <span class="highlight-blue">Faktisk har
+                                    vi</span> aldrig været på Bornholm.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OPGAVE 7: Finding Inversion -->
+                <div id="opgave-7"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-purple p-6 text-white">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-search mr-3"></i>Opgave 7: Find inversion</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <p class="mb-4">Các vị trí có inversion trong văn bản Angela:</p>
+                        <div class="table-container">
+                            <table class="syntax-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tids-adverbialer</th>
+                                        <th>Steds-adverbialer</th>
+                                        <th>Andre adverbialer</th>
+                                        <th>Ledsætninger (Đầu câu)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>for to år siden</td>
+                                        <td>i Italien</td>
+                                        <td>Derfor</td>
+                                        <td>Da jeg kom til Danmark</td>
+                                    </tr>
+                                    <tr>
+                                        <td>kort tid efter</td>
+                                        <td></td>
+                                        <td>så</td>
+                                        <td>Da jeg blev fyret</td>
+                                    </tr>
+                                    <tr>
+                                        <td>nu</td>
+                                        <td></td>
+                                        <td>Faktisk</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Men mine danske kollegaer</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>heldigvis</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OPGAVE 8 & 9: Questions -->
+                <div id="opgave-8-9"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-teal p-6 text-white">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-question-circle mr-3"></i>Opgave 8 & 9:
+                            Spørgsmål</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-lg font-bold text-teal-700 mb-2">Ja/Nej-spørgsmål (V-S-A)</h3>
+                        <div class="table-container mb-8">
+                            <table class="syntax-table">
+                                <thead>
+                                    <tr>
+                                        <th>V1</th>
+                                        <th>S</th>
+                                        <th>A</th>
+                                        <th>V2</th>
+                                        <th>Objekt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="syntax-v">Har</td>
+                                        <td class="syntax-s">de</td>
+                                        <td class="syntax-a">aldrig</td>
+                                        <td>været</td>
+                                        <td>i London?</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="syntax-v">Kan</td>
+                                        <td class="syntax-s">I</td>
+                                        <td class="syntax-a">godt</td>
+                                        <td>lide</td>
+                                        <td>at cykle?</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-teal-700 mb-2">Hv-spørgsmål (Hv - V - S - A)</h3>
+                        <div class="table-container">
+                            <table class="syntax-table">
+                                <thead>
+                                    <tr>
+                                        <th>Hv-ord</th>
+                                        <th>V1</th>
+                                        <th>S</th>
+                                        <th>A</th>
+                                        <th>V2</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Hvornår</td>
+                                        <td class="syntax-v">skal</td>
+                                        <td class="syntax-s">de</td>
+                                        <td></td>
+                                        <td>rejse?</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hvorfor</td>
+                                        <td class="syntax-v">spiste</td>
+                                        <td class="syntax-s">han</td>
+                                        <td></td>
+                                        <td>is?</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OPGAVE 10-13: Ledsætninger -->
+                <div id="opgave-10-13"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-blue-100">
+                    <div class="header-blue p-6 text-white flex items-center justify-between">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-project-diagram mr-3"></i>Opgave 10-13:
+                            Ledsætninger</h2>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">S-A-V
+                            Regel</span>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r">
+                            <p class="font-bold text-blue-900">QUY TẮC QUAN TRỌNG NHẤT (S-A-V)</p>
+                            <p class="text-blue-800 text-sm">Trong mệnh đề phụ, trạng từ (A) luôn đứng
+                                <strong>TRƯỚC</strong> động từ (V).</p>
+                        </div>
+
+                        <h3 class="font-bold text-slate-700 mb-2">Ví dụ cấu trúc (Opgave 11):</h3>
+                        <div class="table-container mb-6">
+                            <table class="syntax-table">
+                                <thead>
+                                    <tr>
+                                        <th>Konj.</th>
+                                        <th>S</th>
+                                        <th>A (Trước V!)</th>
+                                        <th>V1</th>
+                                        <th>V2</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>at</td>
+                                        <td>vi</td>
+                                        <td class="syntax-a">ikke</td>
+                                        <td class="syntax-v">kan</td>
+                                        <td>lide...</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hvis</td>
+                                        <td>han</td>
+                                        <td></td>
+                                        <td class="syntax-v">skal</td>
+                                        <td>rejse...</td>
+                                    </tr>
+                                    <tr>
+                                        <td>fordi</td>
+                                        <td>det</td>
+                                        <td class="syntax-a">altid</td>
+                                        <td class="syntax-v">blæser</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="font-bold text-slate-700 mb-2">Thực hành vị trí (Opgave 12 & 13):</h3>
+                        <ul class="space-y-3">
+                            <li class="bg-white p-3 rounded shadow-sm border border-slate-100 flex items-center">
+                                <span
+                                    class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded mr-3">12.1</span>
+                                <span>Han skriver, at han <span class="syntax-a">måske</span> kommer til sommer.</span>
+                            </li>
+                            <li class="bg-white p-3 rounded shadow-sm border border-slate-100 flex items-center">
+                                <span
+                                    class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded mr-3">12.2</span>
+                                <span>...fordi han <span class="syntax-a">ofte</span> var utilfreds.</span>
+                            </li>
+                            <li class="bg-white p-3 rounded shadow-sm border border-slate-100 flex items-center">
+                                <span
+                                    class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded mr-3">13.1</span>
+                                <span>Min chef blev sur, fordi jeg <span class="syntax-a">igen</span> <span
+                                        class="syntax-v">kom</span> for sent.</span>
+                            </li>
+                            <li class="bg-white p-3 rounded shadow-sm border border-slate-100 flex items-center">
+                                <span
+                                    class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded mr-3">13.2</span>
+                                <span>Jeg er glad for, at min nabo <span class="syntax-a">ikke</span> <span
+                                        class="syntax-v">kommer</span>.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- OPGAVE 14-16: Konvertering -->
+                <div id="opgave-14-16"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-blue p-6 text-white">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-sync-alt mr-3"></i>Opgave 14-16: Chuyển đổi câu
+                        </h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-6">
+                        <div>
+                            <h4 class="font-bold text-slate-700 border-b pb-2 mb-3">Opgave 14: Với "at"</h4>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-slate-50 p-4 rounded">
+                                    <p class="text-xs text-slate-500 uppercase font-bold mb-1">Hovedsætning (S-V-A)</p>
+                                    <p class="text-red-600">Mona kan <strong>godt</strong> lide sit arbejde.</p>
+                                </div>
+                                <div class="bg-blue-50 p-4 rounded">
+                                    <p class="text-xs text-blue-500 uppercase font-bold mb-1">Ledsætning (S-A-V)</p>
+                                    <p class="text-blue-700">Tom siger, at Mona <strong>godt</strong> kan lide sit
+                                        arbejde.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-700 border-b pb-2 mb-3">Opgave 15: Fordi / Selvom</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base">
+                                <li>Jeg går på sprogskole, <strong class="text-blue-600">selvom jeg ikke taler så godt
+                                        dansk</strong>.</li>
+                                <li>Min varmeregning er så høj, <strong class="text-blue-600">fordi min søn aldrig
+                                        sparer på varmen</strong>.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-700 border-b pb-2 mb-3">Opgave 16: Der / Som (Relativ
+                                sætning)</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base">
+                                <li>Jeg har en søn på 24, <strong class="text-purple-600">der stadigvæk bor
+                                        hjemme</strong>.</li>
+                                <li>Jeg har en dejlig kæreste, <strong class="text-purple-600">som jeg kun har kendt i 3
+                                        måneder</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OPGAVE 17-19: Spørgende ledsætninger -->
+                <div id="opgave-17-19"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-teal p-6 text-white">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-question mr-3"></i>Opgave 17-19: Spørgende
+                            ledsætninger</h2>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <p class="mb-4 text-slate-600">Trong mệnh đề phụ nghi vấn: <strong>KHÔNG CÓ ĐẢO NGỮ</strong>.
+                        </p>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-slate-800 mb-2">Hv-spørgsmål</h4>
+                                <div class="code-box">
+                                    <p class="text-xs text-gray-400 mb-1">Trực tiếp (V-S): Hvad laver du?</p>
+                                    <p class="font-bold text-teal-700">Jeg ved ikke, <span class="underline">hvad du
+                                            laver</span>.</p>
+                                    <hr class="my-2 border-gray-200">
+                                    <p class="text-xs text-gray-400 mb-1">Trực tiếp: Hvor bor han?</p>
+                                    <p class="font-bold text-teal-700">Ida spørger, <span class="underline">hvor han
+                                            bor</span>.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 mb-2">Ja/Nej (dùng "om")</h4>
+                                <div class="code-box">
+                                    <p class="text-xs text-gray-400 mb-1">Trực tiếp: Bor du alene?</p>
+                                    <p class="font-bold text-teal-700">Hun spørger, <span class="underline">om du bor
+                                            alene</span>.</p>
+                                    <hr class="my-2 border-gray-200">
+                                    <p class="text-xs text-gray-400 mb-1">Trực tiếp: Kommer han snart?</p>
+                                    <p class="font-bold text-teal-700">Ved du, <span class="underline">om han snart
+                                            kommer</span>?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OPGAVE 20-29: Hỗn hợp & Đảo ngữ -->
+                <div id="opgave-20-29"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-orange p-6 text-white">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-cogs mr-3"></i>Opgave 20-29: Cấu trúc phức hợp
+                        </h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-8">
+
+                        <!-- Opgave 20 -->
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-3 border-l-4 border-orange-500 pl-3">Opgave
+                                20: LS đứng trước HS → Đảo ngữ</h3>
+                            <div class="bg-orange-50 p-4 rounded-lg">
+                                <p class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Når vi får ferie,
+                                    <strong>rejser vi</strong>. (V-S)</p>
+                                <p class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Hvis det regner,
+                                    <strong>bliver jeg</strong> hjemme.</p>
+                                <p class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Da hun kom hjem,
+                                    <strong>gik hun</strong> i seng.</p>
+                            </div>
+                        </div>
+
+                        <!-- Opgave 21-22 -->
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-3 border-l-4 border-orange-500 pl-3">Opgave
+                                21-22: Da vs Når</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white border p-3 rounded">
+                                    <p class="font-bold text-center text-slate-700 mb-2">DA (Quá khứ 1 lần)</p>
+                                    <p class="text-sm">"Da jeg boede i Letland..."</p>
+                                </div>
+                                <div class="bg-white border p-3 rounded">
+                                    <p class="font-bold text-center text-slate-700 mb-2">NÅR (Lặp lại/Tương lai)</p>
+                                    <p class="text-sm">"Når jeg snakker bedre dansk..."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Opgave 27 -->
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-3 border-l-4 border-orange-500 pl-3">Opgave
+                                27: Vị trí Adverbial (Tổng hợp)</h3>
+                            <p class="mb-2">1. De bestod <span class="syntax-a">ikke</span> modultesten, fordi de <span
+                                    class="syntax-a">ikke</span> havde forberedt sig.</p>
+                            <p class="mb-2">5. Selvom de <span class="syntax-a">ikke</span> arbejdede hurtigt, blev de
+                                <span class="syntax-a">alligevel</span> færdige til tiden.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- OPGAVE 30-33 -->
+                <div id="opgave-30-33"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow border-2 border-slate-100">
+                    <div class="header-slate p-6 text-white">
+                        <h2 class="text-2xl font-bold"><i class="fas fa-check-double mr-3"></i>Opgave 30-33: Nâng cao &
+                            Lỗi thường gặp</h2>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-6">
+
+                        <div>
+                            <h4 class="font-bold text-slate-700">Opgave 30: Đại từ tân ngữ (Pronomen)</h4>
+                            <p class="text-sm text-slate-500 mb-2">Đại từ đứng trước trạng từ.</p>
+                            <div class="bg-slate-50 p-3 rounded border">
+                                <p>Jeg besøgte <strong class="text-blue-600">hende</strong> sjældent.</p>
+                                <p>Han husker aldrig at købe <strong class="text-blue-600">det</strong>.</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-700">Opgave 31: Các loại "SÅ"</h4>
+                            <ul class="list-disc pl-5 text-sm space-y-1">
+                                <li><strong>Liên từ chính (kết quả):</strong> HS + så + HS (S-V). <br><em>"Han skruede
+                                        op, så gæsterne kunne høre..."</em></li>
+                                <li><strong>Liên từ phụ (mục đích):</strong> HS + så + LS (S-A-V). <br><em>"...så vi
+                                        ikke kommer for sent."</em></li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-8">
+                            <h3 class="text-xl font-bold text-red-600 mb-4 border-b border-red-100 pb-2">Repetition: Các
+                                lỗi thường gặp (Fejlretning)</h3>
+                            <div class="space-y-4">
+                                <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                                    <p class="font-bold text-red-800">❌ Lỗi 1: Sai trật tự LS</p>
+                                    <p class="text-slate-600">Sai: ...hvorfor han altid kommer for sent.</p>
+                                    <p class="text-green-700 font-bold">✅ Đúng: ...hvorfor han <span
+                                            class="underline">altid kommer</span> for sent. (S-A-V)</p>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                                    <p class="font-bold text-red-800">❌ Lỗi 2: Quên đảo ngữ</p>
+                                    <p class="text-slate-600">Sai: Måske jeg kommer i skole.</p>
+                                    <p class="text-green-700 font-bold">✅ Đúng: Måske <span class="underline">kommer
+                                            jeg</span> i skole. (V-S)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SUMMARY CARD -->
+                <div id="conclusion"
+                    class="glass-card rounded-3xl overflow-hidden accent-shadow bg-gradient-to-br from-slate-800 to-slate-900 text-white">
+                    <div class="p-8 md:p-12">
+                        <h2
+                            class="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
+                            KẾT LUẬN & CÔNG THỨC TỔNG HỢP</h2>
+
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-xl font-bold text-blue-300 mb-3">Mệnh đề chính (HS)</h3>
+                                <div class="bg-white/10 p-4 rounded-xl backdrop-blur-md">
+                                    <p class="font-mono text-sm md:text-base">S - <span
+                                            class="text-green-400 font-bold">V</span> - <span
+                                            class="text-yellow-400 font-bold">A</span> - V2 - O</p>
+                                    <p class="mt-2 text-sm text-gray-300">Trạng từ (A) đứng <strong>SAU</strong> động từ
+                                        V1.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-red-300 mb-3">Mệnh đề phụ (LS)</h3>
+                                <div class="bg-white/10 p-4 rounded-xl backdrop-blur-md">
+                                    <p class="font-mono text-sm md:text-base">Konj - S - <span
+                                            class="text-yellow-400 font-bold">A</span> - <span
+                                            class="text-green-400 font-bold">V</span> - V2</p>
+                                    <p class="mt-2 text-sm text-gray-300">Trạng từ (A) đứng <strong>TRƯỚC</strong> động
+                                        từ V1.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 text-center">
+                            <p class="text-lg font-light italic opacity-80">"Quy tắc vàng: Động từ hữu hạn luôn ở vị trí
+                                thứ 2 trong mệnh đề chính."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <footer class="mt-16 text-center text-slate-400 text-sm pb-8">
+            <p>&copy; 2024 Danish Syntax Guide. Designed with <i class="fas fa-heart text-red-400"></i> & TailwindCSS.
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Generate TOC
+        document.addEventListener('DOMContentLoaded', () => {
+            const tocList = document.getElementById('toc-list');
+            const sections = document.querySelectorAll('main > div[id]');
+
+            sections.forEach(section => {
+                const id = section.id;
+                // Get the title from the h2 inside the section
+                const titleEl = section.querySelector('h2');
+                if (!titleEl) return;
+
+                const title = titleEl.innerText;
+
+                const li = document.createElement('li');
+                li.className = 'nav-item';
+                li.innerHTML = `<a href="#${id}" class="block py-2 text-slate-600 hover:text-blue-600">${title}</a>`;
+                tocList.appendChild(li);
+            });
+
+            // Smooth Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Highlight Active Link on Scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('.nav-item').forEach(li => {
+                    li.classList.remove('active');
+                    const link = li.querySelector('a');
+                    if (link.getAttribute('href').includes(current)) {
+                        li.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
