@@ -1,1143 +1,1658 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cấu Trúc Câu Tiếng Đan Mạch</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --cream: #f5f0e8;
-    --ink: #1a1510;
-    --rust: #b5411a;
-    --gold: #c8933a;
-    --sage: #4a6741;
-    --slate: #3d5a73;
-    --rose: #8b3a52;
-    --paper: #ede8dc;
-    --rule: rgba(26,21,16,0.15);
-  }
-
-  * { box-sizing: border-box; }
-
-  body {
-    background-color: var(--cream);
-    color: var(--ink);
-    font-family: 'Mulish', sans-serif;
-    font-weight: 300;
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-  }
-
-  /* Paper texture overlay */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 27px, var(--rule) 27px, var(--rule) 28px),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .page-wrapper {
-    position: relative;
-    z-index: 1;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 3rem 2rem 6rem;
-  }
-
-  /* Header */
-  .masthead {
-    border-top: 4px solid var(--ink);
-    border-bottom: 1px solid var(--ink);
-    padding: 2rem 0 1.5rem;
-    margin-bottom: 0.5rem;
-    position: relative;
-  }
-  .masthead::after {
-    content: '';
-    display: block;
-    height: 3px;
-    background: var(--ink);
-    margin-top: 0.4rem;
-  }
-  .masthead-eyebrow {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--rust);
-    margin-bottom: 0.75rem;
-  }
-  .masthead h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 6vw, 4rem);
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-  }
-  .masthead-sub {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    color: rgba(26,21,16,0.5);
-    margin-top: 0.75rem;
-    text-transform: uppercase;
-  }
-
-  /* Section labels */
-  .section-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--rust);
-    border-bottom: 1px solid var(--rust);
-    padding-bottom: 0.3rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .section-label::before {
-    content: '§';
-    font-size: 0.9rem;
-    color: var(--rust);
-  }
-
-  /* Card */
-  .card {
-    background: var(--paper);
-    border: 1px solid rgba(26,21,16,0.18);
-    border-radius: 2px;
-    padding: 1.5rem 1.75rem;
-    margin-bottom: 1.25rem;
-    position: relative;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-    box-shadow: 2px 3px 0 rgba(26,21,16,0.06);
-  }
-  .card:hover {
-    box-shadow: 4px 6px 0 rgba(26,21,16,0.1);
-    transform: translateY(-1px);
-  }
-  .card-accent {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    border-radius: 2px 0 0 2px;
-  }
-
-  .card-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 900;
-    color: rgba(26,21,16,0.08);
-    position: absolute;
-    top: 0.5rem;
-    right: 1rem;
-    line-height: 1;
-  }
-
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-    line-height: 1.3;
-  }
-
-  .card-subtitle {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 0.85rem;
-    opacity: 0.55;
-  }
-
-  /* Formula band */
-  .formula {
-    background: var(--ink);
-    color: var(--cream);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    padding: 0.45rem 0.85rem;
-    border-radius: 1px;
-    margin-bottom: 0.85rem;
-    display: inline-block;
-  }
-  .formula span { color: var(--gold); }
-
-  /* Example sentence */
-  .example-block {
-    border-left: 2px solid var(--rule);
-    padding: 0.6rem 0.9rem;
-    margin-top: 0.75rem;
-  }
-  .dk-sentence {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.08rem;
-    font-style: italic;
-    font-weight: 400;
-    margin-bottom: 0.25rem;
-    line-height: 1.5;
-  }
-  .vi-translation {
-    font-size: 0.78rem;
-    color: rgba(26,21,16,0.55);
-    font-weight: 400;
-  }
-
-  /* Token labels */
-  .tokens {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-    margin-top: 0.6rem;
-  }
-  .token {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6rem;
-    padding: 0.15rem 0.4rem;
-    border-radius: 1px;
-    border: 1px solid currentColor;
-    opacity: 0.7;
-  }
-  .tok-s { color: var(--slate); }
-  .tok-v { color: var(--sage); }
-  .tok-ca { color: var(--rust); }
-  .tok-o { color: var(--rose); }
-  .tok-a { color: var(--gold); }
-  .tok-k { color: var(--ink); }
-
-  /* Note box */
-  .note {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.65rem;
-    background: rgba(181,65,26,0.07);
-    border-left: 2px solid var(--rust);
-    padding: 0.4rem 0.65rem;
-    margin-top: 0.75rem;
-    color: var(--rust);
-    line-height: 1.6;
-  }
-
-  /* Legend */
-  .legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6rem;
-    margin-bottom: 2rem;
-    padding: 0.85rem 1rem;
-    border: 1px solid var(--rule);
-    background: var(--paper);
-  }
-  .legend-item { display: flex; align-items: center; gap: 0.3rem; }
-  .legend-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  /* Group heading */
-  .group-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 3rem 0 1.25rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--ink);
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-  }
-  .group-num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--rust);
-    letter-spacing: 0.15em;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-
-  /* Accent colors per section */
-  .acc-main { background: var(--slate); }
-  .acc-inv  { background: var(--rust); }
-  .acc-ca   { background: var(--gold); }
-  .acc-ls   { background: var(--sage); }
-  .acc-comb { background: var(--rose); }
-
-  /* Decorative rule */
-  .deco-rule {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 0.75rem;
-    margin: 2.5rem 0;
-    color: rgba(26,21,16,0.25);
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-  }
-  .deco-rule::before, .deco-rule::after {
-    content: '';
-    display: block;
-    height: 1px;
-    background: var(--rule);
-  }
-
-  /* Scroll fade-in */
-  .card {
-    opacity: 0;
-    animation: fadeUp 0.5s ease forwards;
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Stagger via JS class */
-  .anim-0 { animation-delay: 0s; }
-  .anim-1 { animation-delay: 0.06s; }
-  .anim-2 { animation-delay: 0.12s; }
-  .anim-3 { animation-delay: 0.18s; }
-  .anim-4 { animation-delay: 0.24s; }
-  .anim-5 { animation-delay: 0.3s; }
-
-  /* Print tweak */
-  @media print {
-    body::before { display: none; }
-    .card { box-shadow: none; border: 1px solid #ccc; }
-  }
-</style>
-</head>
-<body>
-<div class="page-wrapper">
-
-  <!-- Masthead -->
-  <header class="masthead">
-    <div class="masthead-eyebrow">Ngữ pháp tiếng Đan Mạch · Dansk Grammatik</div>
-    <h1>Cấu Trúc Câu<br><em>& Trật Tự Từ</em></h1>
-    <div class="masthead-sub">Tất cả các trường hợp · Ví dụ minh họa · Sơ đồ phân tích</div>
-  </header>
-
-  <!-- Legend -->
-  <div class="legend" style="margin-top:1.25rem;">
-    <div class="legend-item"><div class="legend-dot" style="background:var(--slate)"></div><span class="tok-s">S = Chủ ngữ</span></div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--sage)"></div><span class="tok-v">V1/V2 = Động từ</span></div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--rust)"></div><span class="tok-ca">CA = Trạng từ trung tâm</span></div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--rose)"></div><span class="tok-o">O/IO = Tân ngữ</span></div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div><span class="tok-a">A = Trạng ngữ</span></div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--ink)"></div><span class="tok-k">Konj = Liên từ</span></div>
-  </div>
-
-  <!-- ======================== SECTION 1 ======================== -->
-  <div class="group-heading">
-    <span class="group-num">01 —</span>
-    Mệnh đề chính · Ligefrem Ordstilling
-  </div>
-  <div class="section-label">Trật tự từ xuôi (Chủ ngữ đứng đầu)</div>
-
-  <!-- 1.1 -->
-  <div class="card anim-0">
-    <div class="card-accent acc-main"></div>
-    <div class="card-number">1</div>
-    <div class="card-title">Câu đơn giản: S – V1 – O/A</div>
-    <div class="card-subtitle">Cấu trúc cơ bản nhất</div>
-    <div class="formula">S → <span>V1</span> → O/A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Hun spiser brød til morgenmad.</div>
-      <div class="vi-translation">Cô ấy ăn bánh mì vào bữa sáng.</div>
-      <div class="tokens">
-        <span class="token tok-s">S: hun</span>
-        <span class="token tok-v">V1: spiser</span>
-        <span class="token tok-o">O: brød</span>
-        <span class="token tok-a">A: til morgenmad</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 1.2 -->
-  <div class="card anim-1">
-    <div class="card-accent acc-main"></div>
-    <div class="card-number">2</div>
-    <div class="card-title">Thì kép (Sammensat tid): S – V1 – CA – V2</div>
-    <div class="card-subtitle">Hiện tại hoàn thành / Quá khứ hoàn thành</div>
-    <div class="formula">S → <span>V1</span> → CA → V2 → O → A</div>
-    <div class="example-block">
-      <div class="dk-sentence">De har altid boet i København.</div>
-      <div class="vi-translation">Họ luôn sống ở Copenhagen.</div>
-      <div class="tokens">
-        <span class="token tok-s">S: de</span>
-        <span class="token tok-v">V1: har</span>
-        <span class="token tok-ca">CA: altid</span>
-        <span class="token tok-v">V2: boet</span>
-        <span class="token tok-a">A: i København</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 1.3 -->
-  <div class="card anim-2">
-    <div class="card-accent acc-main"></div>
-    <div class="card-number">3</div>
-    <div class="card-title">Thì đơn + CA + Tân ngữ danh từ: S – V1 – CA – IO – O</div>
-    <div class="card-subtitle">CA trước cả IO và O khi cả hai là tunge led</div>
-    <div class="formula">S → <span>V1</span> → CA → IO<sub>(danh từ)</sub> → O<sub>(danh từ)</sub></div>
-    <div class="example-block">
-      <div class="dk-sentence">De viser ikke Bo huset.</div>
-      <div class="vi-translation">Họ không chỉ cho Bo ngôi nhà.</div>
-      <div class="tokens">
-        <span class="token tok-s">S: de</span>
-        <span class="token tok-v">V1: viser</span>
-        <span class="token tok-ca">CA: ikke</span>
-        <span class="token tok-o">IO: Bo</span>
-        <span class="token tok-o">O: huset</span>
-      </div>
-    </div>
-    <div class="note">⚠ IO và O đều là tunge led → CA đứng trước cả hai</div>
-  </div>
-
-  <!-- 1.4 -->
-  <div class="card anim-3">
-    <div class="card-accent acc-main"></div>
-    <div class="card-number">4</div>
-    <div class="card-title">Thì đơn + CA + IO đại từ: S – V1 – IO – CA – O</div>
-    <div class="card-subtitle">IO là lette led (đại từ), O là tunge led (danh từ)</div>
-    <div class="formula">S → <span>V1</span> → IO<sub>(đại từ)</sub> → CA → O<sub>(danh từ)</sub></div>
-    <div class="example-block">
-      <div class="dk-sentence">De viser ham ikke huset.</div>
-      <div class="vi-translation">Họ không chỉ cho anh ấy ngôi nhà.</div>
-      <div class="tokens">
-        <span class="token tok-s">S: de</span>
-        <span class="token tok-v">V1: viser</span>
-        <span class="token tok-o">IO: ham</span>
-        <span class="token tok-ca">CA: ikke</span>
-        <span class="token tok-o">O: huset</span>
-      </div>
-    </div>
-    <div class="note">⚠ IO là đại từ (nhẹ) → CA sau IO, trước danh từ O</div>
-  </div>
-
-  <!-- 1.5 -->
-  <div class="card anim-4">
-    <div class="card-accent acc-main"></div>
-    <div class="card-number">5</div>
-    <div class="card-title">Thì đơn + CA sau hai đại từ: S – V1 – IO – O – CA</div>
-    <div class="card-subtitle">Cả IO và O đều là lette led (đại từ)</div>
-    <div class="formula">S → <span>V1</span> → IO<sub>(đại từ)</sub> → O<sub>(đại từ)</sub> → CA</div>
-    <div class="example-block">
-      <div class="dk-sentence">De viser ham det ikke.</div>
-      <div class="vi-translation">Họ không chỉ cho anh ấy nó.</div>
-      <div class="tokens">
-        <span class="token tok-s">S: de</span>
-        <span class="token tok-v">V1: viser</span>
-        <span class="token tok-o">IO: ham</span>
-        <span class="token tok-o">O: det</span>
-        <span class="token tok-ca">CA: ikke</span>
-      </div>
-    </div>
-    <div class="note">⚠ Cả hai đều là đại từ → CA đứng sau cùng</div>
-  </div>
-
-  <div class="deco-rule">✦</div>
-
-  <!-- ======================== SECTION 2 ======================== -->
-  <div class="group-heading">
-    <span class="group-num">02 —</span>
-    Mệnh đề chính · Đảo Ngữ (Inversion)
-  </div>
-  <div class="section-label">Câu hỏi & nhấn mạnh — V2 Rule: V1 luôn ở vị trí 2</div>
-
-  <!-- 2.1 -->
-  <div class="card anim-0">
-    <div class="card-accent acc-inv"></div>
-    <div class="card-number">6</div>
-    <div class="card-title">Câu hỏi Ja/Nej: V1 – S – (CA) – V2</div>
-    <div class="card-subtitle">Động từ đứng đầu — Yes/No question</div>
-    <div class="formula"><span>V1</span> → S → CA → V2 → O → A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Rejser han til Sverige?</div>
-      <div class="vi-translation">Anh ấy đang đi Thụy Điển không?</div>
-      <div class="tokens">
-        <span class="token tok-v">V1: rejser</span>
-        <span class="token tok-s">S: han</span>
-        <span class="token tok-a">A: til Sverige</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2.2 -->
-  <div class="card anim-1">
-    <div class="card-accent acc-inv"></div>
-    <div class="card-number">7</div>
-    <div class="card-title">Câu hỏi Hv-ord: Hv – V1 – S – (CA) – V2</div>
-    <div class="card-subtitle">Từ để hỏi đứng đầu — Wh-question</div>
-    <div class="formula">Hv → <span>V1</span> → S → CA → V2 → O → A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Hvorfor vil han ikke låne hende bilen?</div>
-      <div class="vi-translation">Tại sao anh ấy không muốn cho cô ấy mượn xe?</div>
-      <div class="tokens">
-        <span class="token tok-k">Hv: hvorfor</span>
-        <span class="token tok-v">V1: vil</span>
-        <span class="token tok-s">S: han</span>
-        <span class="token tok-ca">CA: ikke</span>
-        <span class="token tok-v">V2: låne</span>
-        <span class="token tok-o">IO: hende</span>
-        <span class="token tok-o">O: bilen</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2.3 -->
-  <div class="card anim-2">
-    <div class="card-accent acc-inv"></div>
-    <div class="card-number">8</div>
-    <div class="card-title">Đảo ngữ sau Trạng ngữ (A): A – V1 – S</div>
-    <div class="card-subtitle">Nhấn mạnh thời gian / nơi chốn lên đầu</div>
-    <div class="formula">A → <span>V1</span> → S → CA → V2 → O</div>
-    <div class="example-block">
-      <div class="dk-sentence">I går kom Poul sent hjem.</div>
-      <div class="vi-translation">Hôm qua Poul về nhà muộn.</div>
-      <div class="tokens">
-        <span class="token tok-a">A: i går</span>
-        <span class="token tok-v">V1: kom</span>
-        <span class="token tok-s">S: Poul</span>
-        <span class="token tok-a">A: sent</span>
-        <span class="token tok-a">A: hjem</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2.4 -->
-  <div class="card anim-3">
-    <div class="card-accent acc-inv"></div>
-    <div class="card-number">9</div>
-    <div class="card-title">Đảo ngữ sau Tân ngữ (O): O – V1 – S</div>
-    <div class="card-subtitle">Nhấn mạnh tân ngữ (modstilling)</div>
-    <div class="formula">O → <span>V1</span> → S → CA → V2</div>
-    <div class="example-block">
-      <div class="dk-sentence">Ham kender jeg, men hende kender jeg ikke.</div>
-      <div class="vi-translation">Anh ấy tôi biết, nhưng cô ấy tôi không biết.</div>
-      <div class="tokens">
-        <span class="token tok-o">O: ham</span>
-        <span class="token tok-v">V1: kender</span>
-        <span class="token tok-s">S: jeg</span>
-        <span class="token tok-o">O: hende</span>
-        <span class="token tok-v">V1: kender</span>
-        <span class="token tok-s">S: jeg</span>
-        <span class="token tok-ca">CA: ikke</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2.5 -->
-  <div class="card anim-4">
-    <div class="card-accent acc-inv"></div>
-    <div class="card-number">10</div>
-    <div class="card-title">Đảo ngữ sau CA (Måske, Normalt…): CA – V1 – S</div>
-    <div class="card-subtitle">Một số CA có thể foranstilles (đặt đầu câu)</div>
-    <div class="formula">CA<sub>(måske)</sub> → <span>V1</span> → S → CA → V2 → O → A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Måske vil han vise hende huset i morgen.</div>
-      <div class="vi-translation">Có lẽ anh ấy sẽ chỉ cho cô ấy ngôi nhà vào ngày mai.</div>
-      <div class="tokens">
-        <span class="token tok-ca">CA: måske</span>
-        <span class="token tok-v">V1: vil</span>
-        <span class="token tok-s">S: han</span>
-        <span class="token tok-v">V2: vise</span>
-        <span class="token tok-o">IO: hende</span>
-        <span class="token tok-o">O: huset</span>
-        <span class="token tok-a">A: i morgen</span>
-      </div>
-    </div>
-    <div class="note">⚠ "ikke, også, gerne, godt, kun, lige" KHÔNG được đặt đầu câu</div>
-  </div>
-
-  <div class="deco-rule">✦</div>
-
-  <!-- ======================== SECTION 3 ======================== -->
-  <div class="group-heading">
-    <span class="group-num">03 —</span>
-    Mệnh đề phụ · Ledsætning (SAV)
-  </div>
-  <div class="section-label">Quy tắc vàng: CA đứng TRƯỚC V1</div>
-
-  <!-- 3.1 -->
-  <div class="card anim-0">
-    <div class="card-accent acc-ls"></div>
-    <div class="card-number">11</div>
-    <div class="card-title">Mệnh đề 'at' (Objektsætning)</div>
-    <div class="card-subtitle">Thay thế tân ngữ danh từ</div>
-    <div class="formula">HS, at → S → <span>CA</span> → V1 → V2 → O → A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Han ved, at de ikke kommer i morgen.</div>
-      <div class="vi-translation">Anh ấy biết rằng họ sẽ không đến vào ngày mai.</div>
-      <div class="tokens">
-        <span class="token tok-k">HS: han ved</span>
-        <span class="token tok-k">Konj: at</span>
-        <span class="token tok-s">S: de</span>
-        <span class="token tok-ca">CA: ikke</span>
-        <span class="token tok-v">V1: kommer</span>
-        <span class="token tok-a">A: i morgen</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3.2 -->
-  <div class="card anim-1">
-    <div class="card-accent acc-ls"></div>
-    <div class="card-number">12</div>
-    <div class="card-title">Mệnh đề quan hệ 'der/som' làm S</div>
-    <div class="card-subtitle">der/som thay thế chủ ngữ</div>
-    <div class="formula">N, der/som → <span>CA</span> → V1 → V2 → O → A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Han har en bror, der ikke bor i Danmark.</div>
-      <div class="vi-translation">Anh ấy có một người anh không sống ở Đan Mạch.</div>
-      <div class="tokens">
-        <span class="token tok-k">der: S (quan hệ)</span>
-        <span class="token tok-ca">CA: ikke</span>
-        <span class="token tok-v">V1: bor</span>
-        <span class="token tok-a">A: i Danmark</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3.3 -->
-  <div class="card anim-2">
-    <div class="card-accent acc-ls"></div>
-    <div class="card-number">13</div>
-    <div class="card-title">Mệnh đề quan hệ 'som' làm O</div>
-    <div class="card-subtitle">som thay thế tân ngữ</div>
-    <div class="formula">N, som → S → <span>CA</span> → V1 → V2</div>
-    <div class="example-block">
-      <div class="dk-sentence">Det er bogen, som jeg aldrig har læst.</div>
-      <div class="vi-translation">Đó là cuốn sách mà tôi chưa bao giờ đọc.</div>
-      <div class="tokens">
-        <span class="token tok-k">som: O (quan hệ)</span>
-        <span class="token tok-s">S: jeg</span>
-        <span class="token tok-ca">CA: aldrig</span>
-        <span class="token tok-v">V1: har</span>
-        <span class="token tok-v">V2: læst</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3.4 -->
-  <div class="card anim-3">
-    <div class="card-accent acc-ls"></div>
-    <div class="card-number">14</div>
-    <div class="card-title">Câu hỏi gián tiếp với Hv-ord</div>
-    <div class="card-subtitle">Spørgende ledsætning</div>
-    <div class="formula">HS + Hv → S → <span>CA</span> → V1 → V2 → O → A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Jeg ved ikke, hvor han bor.</div>
-      <div class="vi-translation">Tôi không biết anh ấy sống ở đâu.</div>
-      <div class="tokens">
-        <span class="token tok-k">Hv: hvor</span>
-        <span class="token tok-s">S: han</span>
-        <span class="token tok-v">V1: bor</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3.5 -->
-  <div class="card anim-4">
-    <div class="card-accent acc-ls"></div>
-    <div class="card-number">15</div>
-    <div class="card-title">Câu hỏi gián tiếp với 'om'</div>
-    <div class="card-subtitle">Có… không — Yes/No gián tiếp</div>
-    <div class="formula">HS + om → S → <span>CA</span> → V1 → O</div>
-    <div class="example-block">
-      <div class="dk-sentence">Hun spørger, om han forstår dansk.</div>
-      <div class="vi-translation">Cô ấy hỏi xem anh ấy có hiểu tiếng Đan Mạch không.</div>
-      <div class="tokens">
-        <span class="token tok-k">Konj: om</span>
-        <span class="token tok-s">S: han</span>
-        <span class="token tok-v">V1: forstår</span>
-        <span class="token tok-o">O: dansk</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3.6 -->
-  <div class="card anim-5">
-    <div class="card-accent acc-ls"></div>
-    <div class="card-number">16</div>
-    <div class="card-title">Mệnh đề điều kiện 'hvis'</div>
-    <div class="card-subtitle">If-clause</div>
-    <div class="formula">HS + hvis → S → <span>CA</span> → V1</div>
-    <div class="example-block">
-      <div class="dk-sentence">De tager en taxa, hvis det ikke regner.</div>
-      <div class="vi-translation">Họ sẽ đi taxi nếu trời không mưa.</div>
-      <div class="tokens">
-        <span class="token tok-k">Konj: hvis</span>
-        <span class="token tok-s">S: det</span>
-        <span class="token tok-ca">CA: ikke</span>
-        <span class="token tok-v">V1: regner</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3.7 -->
-  <div class="card anim-0">
-    <div class="card-accent acc-ls"></div>
-    <div class="card-number">17</div>
-    <div class="card-title">Mệnh đề nguyên nhân 'fordi'</div>
-    <div class="card-subtitle">Because-clause</div>
-    <div class="formula">HS + fordi → S → <span>CA</span> → V1 → A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Han blev hjemme, fordi han ikke var rask.</div>
-      <div class="vi-translation">Anh ấy ở nhà vì anh ấy không khỏe.</div>
-      <div class="tokens">
-        <span class="token tok-k">Konj: fordi</span>
-        <span class="token tok-s">S: han</span>
-        <span class="token tok-ca">CA: ikke</span>
-        <span class="token tok-v">V1: var</span>
-        <span class="token tok-a">A: rask</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3.8 -->
-  <div class="card anim-1">
-    <div class="card-accent acc-ls"></div>
-    <div class="card-number">18</div>
-    <div class="card-title">Mệnh đề nhượng bộ 'selvom'</div>
-    <div class="card-subtitle">Even though — concessive clause</div>
-    <div class="formula">HS + selvom → S → <span>CA</span> → V1 → A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Han går på arbejde, selvom han ikke er rask.</div>
-      <div class="vi-translation">Anh ấy vẫn đi làm dù anh ấy không khỏe.</div>
-      <div class="tokens">
-        <span class="token tok-k">Konj: selvom</span>
-        <span class="token tok-s">S: han</span>
-        <span class="token tok-ca">CA: ikke</span>
-        <span class="token tok-v">V1: er</span>
-        <span class="token tok-a">A: rask</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3.9 -->
-  <div class="card anim-2">
-    <div class="card-accent acc-ls"></div>
-    <div class="card-number">19</div>
-    <div class="card-title">Mệnh đề thời gian 'når' (hiện tại/lặp lại)</div>
-    <div class="card-subtitle">When — thì hiện tại hoặc tương lai</div>
-    <div class="formula">HS + når → S → <span>CA</span> → V1</div>
-    <div class="example-block">
-      <div class="dk-sentence">Han ringer, når han ikke arbejder.</div>
-      <div class="vi-translation">Anh ấy gọi điện khi anh ấy không làm việc.</div>
-      <div class="tokens">
-        <span class="token tok-k">Konj: når</span>
-        <span class="token tok-s">S: han</span>
-        <span class="token tok-ca">CA: ikke</span>
-        <span class="token tok-v">V1: arbejder</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3.10 -->
-  <div class="card anim-3">
-    <div class="card-accent acc-ls"></div>
-    <div class="card-number">20</div>
-    <div class="card-title">Mệnh đề thời gian 'da' (quá khứ)</div>
-    <div class="card-subtitle">When — sự kiện một lần trong quá khứ</div>
-    <div class="formula">HS + da → S → <span>CA</span> → V1 → A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Hun boede i London, da hun var lille.</div>
-      <div class="vi-translation">Cô ấy sống ở London khi còn nhỏ.</div>
-      <div class="tokens">
-        <span class="token tok-k">Konj: da</span>
-        <span class="token tok-s">S: hun</span>
-        <span class="token tok-v">V1: var</span>
-        <span class="token tok-a">A: lille</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3.11 -->
-  <div class="card anim-4">
-    <div class="card-accent acc-ls"></div>
-    <div class="card-number">21</div>
-    <div class="card-title">Mệnh đề thời gian 'mens'</div>
-    <div class="card-subtitle">While — đồng thời</div>
-    <div class="formula">HS + mens → S → <span>CA</span> → V1 → O</div>
-    <div class="example-block">
-      <div class="dk-sentence">Hun strikker, mens hun ser fjernsyn.</div>
-      <div class="vi-translation">Cô ấy đan len trong khi xem ti-vi.</div>
-      <div class="tokens">
-        <span class="token tok-k">Konj: mens</span>
-        <span class="token tok-s">S: hun</span>
-        <span class="token tok-v">V1: ser</span>
-        <span class="token tok-o">O: fjernsyn</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3.12 -->
-  <div class="card anim-5">
-    <div class="card-accent acc-ls"></div>
-    <div class="card-number">22</div>
-    <div class="card-title">Mệnh đề mục đích 'for at'</div>
-    <div class="card-subtitle">In order to</div>
-    <div class="formula">HS + for at → S → V1 → V2 → O</div>
-    <div class="example-block">
-      <div class="dk-sentence">Han træner meget, for at han kan vinde.</div>
-      <div class="vi-translation">Anh ấy tập luyện nhiều để có thể chiến thắng.</div>
-      <div class="tokens">
-        <span class="token tok-k">Konj: for at</span>
-        <span class="token tok-s">S: han</span>
-        <span class="token tok-v">V1: kan</span>
-        <span class="token tok-v">V2: vinde</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3.13 -->
-  <div class="card anim-0">
-    <div class="card-accent acc-ls"></div>
-    <div class="card-number">23</div>
-    <div class="card-title">Mệnh đề so sánh 'som / end'</div>
-    <div class="card-subtitle">As / than — so sánh</div>
-    <div class="formula">HS + som/end → S → <span>CA</span> → V1 → O</div>
-    <div class="example-block">
-      <div class="dk-sentence">Huset var større, end hun huskede det.</div>
-      <div class="vi-translation">Ngôi nhà to hơn cô ấy nhớ.</div>
-      <div class="tokens">
-        <span class="token tok-k">Konj: end</span>
-        <span class="token tok-s">S: hun</span>
-        <span class="token tok-v">V1: huskede</span>
-        <span class="token tok-o">O: det</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="deco-rule">✦</div>
-
-  <!-- ======================== SECTION 4 ======================== -->
-  <div class="group-heading">
-    <span class="group-num">04 —</span>
-    Ledsætning Đứng Đầu → Inversion
-  </div>
-  <div class="section-label">Quy tắc vàng: LS chiếm vị trí 1 → HS phải đảo ngữ</div>
-
-  <!-- 4.1 -->
-  <div class="card anim-0">
-    <div class="card-accent acc-ca"></div>
-    <div class="card-number">24</div>
-    <div class="card-title">LS 'når' + HS đảo ngữ</div>
-    <div class="card-subtitle">Mệnh đề thời gian đứng đầu</div>
-    <div class="formula">[LS: Konj–S–CA–V1], <span>V1</span>–S–CA–V2</div>
-    <div class="example-block">
-      <div class="dk-sentence">Når det ikke regner, cykler han altid.</div>
-      <div class="vi-translation">Khi trời không mưa, anh ấy luôn đạp xe.</div>
-      <div class="tokens">
-        <span class="token tok-k">LS: når det ikke regner</span>
-        <span class="token tok-v">V1: cykler</span>
-        <span class="token tok-s">S: han</span>
-        <span class="token tok-ca">CA: altid</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4.2 -->
-  <div class="card anim-1">
-    <div class="card-accent acc-ca"></div>
-    <div class="card-number">25</div>
-    <div class="card-title">LS 'fordi' + HS đảo ngữ</div>
-    <div class="card-subtitle">Mệnh đề nguyên nhân đứng đầu</div>
-    <div class="formula">[LS: fordi–S–CA–V1–A], <span>V1</span>–S–A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Fordi han var syg, blev han hjemme.</div>
-      <div class="vi-translation">Vì anh ấy bị ốm, nên anh ấy ở nhà.</div>
-      <div class="tokens">
-        <span class="token tok-k">LS: fordi han var syg</span>
-        <span class="token tok-v">V1: blev</span>
-        <span class="token tok-s">S: han</span>
-        <span class="token tok-a">A: hjemme</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4.3 -->
-  <div class="card anim-2">
-    <div class="card-accent acc-ca"></div>
-    <div class="card-number">26</div>
-    <div class="card-title">LS 'selvom' + HS đảo ngữ</div>
-    <div class="card-subtitle">Mệnh đề nhượng bộ đứng đầu</div>
-    <div class="formula">[LS: selvom–S–V1–A], <span>V1</span>–S–A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Selvom hun var træt, arbejdede hun videre.</div>
-      <div class="vi-translation">Dù mệt, cô ấy vẫn tiếp tục làm việc.</div>
-      <div class="tokens">
-        <span class="token tok-k">LS: selvom hun var træt</span>
-        <span class="token tok-v">V1: arbejdede</span>
-        <span class="token tok-s">S: hun</span>
-        <span class="token tok-a">A: videre</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4.4 -->
-  <div class="card anim-3">
-    <div class="card-accent acc-ca"></div>
-    <div class="card-number">27</div>
-    <div class="card-title">LS 'hvis' + HS đảo ngữ</div>
-    <div class="card-subtitle">Mệnh đề điều kiện đứng đầu</div>
-    <div class="formula">[LS: hvis–S–V1], <span>V1</span>–S–V2–A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Hvis du vil, kan vi gå i biografen.</div>
-      <div class="vi-translation">Nếu bạn muốn, chúng ta có thể đi xem phim.</div>
-      <div class="tokens">
-        <span class="token tok-k">LS: hvis du vil</span>
-        <span class="token tok-v">V1: kan</span>
-        <span class="token tok-s">S: vi</span>
-        <span class="token tok-v">V2: gå</span>
-        <span class="token tok-a">A: i biografen</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="deco-rule">✦</div>
-
-  <!-- ======================== SECTION 5 ======================== -->
-  <div class="group-heading">
-    <span class="group-num">05 —</span>
-    Kết Hợp Câu · Liên Từ
-  </div>
-  <div class="section-label">Hauptsætningskonjunktioner & Ledsætningskonjunktioner</div>
-
-  <!-- 5.1 -->
-  <div class="card anim-0">
-    <div class="card-accent acc-comb"></div>
-    <div class="card-number">28</div>
-    <div class="card-title">Liên từ đẳng lập: HS + og/men/eller/for/så + HS</div>
-    <div class="card-subtitle">Không gây inversion — ligefrem ordstilling sau liên từ</div>
-    <div class="formula">S–V1–CA, <span>og/men</span> S–V1–CA–V2</div>
-    <div class="example-block">
-      <div class="dk-sentence">Hun vil gerne rejse, men hun kan ikke få fri.</div>
-      <div class="vi-translation">Cô ấy muốn đi du lịch, nhưng cô ấy không thể nghỉ được.</div>
-      <div class="tokens">
-        <span class="token tok-k">Konj: men</span>
-        <span class="token tok-s">S: hun</span>
-        <span class="token tok-v">V1: kan</span>
-        <span class="token tok-ca">CA: ikke</span>
-        <span class="token tok-v">V2: få fri</span>
-      </div>
-    </div>
-    <div class="note">⚠ og, men, eller, for, så → KHÔNG đảo ngữ sau liên từ</div>
-  </div>
-
-  <!-- 5.2 -->
-  <div class="card anim-1">
-    <div class="card-accent acc-comb"></div>
-    <div class="card-number">29</div>
-    <div class="card-title">Trạng từ liên kết: HS + Adv. (derfor, dog…) → Inversion</div>
-    <div class="card-subtitle">Cạm bẫy! Adverbium chiếm vị trí F → GÂY đảo ngữ</div>
-    <div class="formula">HS. <span>Adv.</span> → <span>V1</span> → S → CA</div>
-    <div class="example-block">
-      <div class="dk-sentence">Han er træt. Derfor sover han nu.</div>
-      <div class="vi-translation">Anh ấy mệt. Vì vậy anh ấy đang ngủ bây giờ.</div>
-      <div class="tokens">
-        <span class="token tok-a">Adv: derfor (vị trí F)</span>
-        <span class="token tok-v">V1: sover</span>
-        <span class="token tok-s">S: han</span>
-        <span class="token tok-a">A: nu</span>
-      </div>
-    </div>
-    <div class="note">⚠ therefore, dog, alligevel, ellers, desuden, tværtimod → GÂY INVERSION</div>
-  </div>
-
-  <!-- 5.3 -->
-  <div class="card anim-2">
-    <div class="card-accent acc-comb"></div>
-    <div class="card-number">30</div>
-    <div class="card-title">'Så' làm Adverbium (inversion)</div>
-    <div class="card-subtitle">Nghĩa: "sau đó" — og så / for så</div>
-    <div class="formula">HS, og <span>så</span> → V1 → S → O</div>
-    <div class="example-block">
-      <div class="dk-sentence">Først køber hun ind, og så laver hun mad.</div>
-      <div class="vi-translation">Đầu tiên cô ấy đi mua sắm, và sau đó cô ấy nấu ăn.</div>
-      <div class="tokens">
-        <span class="token tok-a">Adv: så (sau đó)</span>
-        <span class="token tok-v">V1: laver</span>
-        <span class="token tok-s">S: hun</span>
-        <span class="token tok-o">O: mad</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 5.4 -->
-  <div class="card anim-3">
-    <div class="card-accent acc-comb"></div>
-    <div class="card-number">31</div>
-    <div class="card-title">'Så' làm Konjunktion (không inversion)</div>
-    <div class="card-subtitle">Nghĩa: "vì vậy, do đó" — sau dấu phẩy</div>
-    <div class="formula">HS₁, <span>så</span> S → V1 → CA</div>
-    <div class="example-block">
-      <div class="dk-sentence">Hun var syg, så hun kom ikke.</div>
-      <div class="vi-translation">Cô ấy bị ốm, vì vậy cô ấy không đến.</div>
-      <div class="tokens">
-        <span class="token tok-k">Konj: så (vì vậy)</span>
-        <span class="token tok-s">S: hun</span>
-        <span class="token tok-v">V1: kom</span>
-        <span class="token tok-ca">CA: ikke</span>
-      </div>
-    </div>
-    <div class="note">Mẹo: dấu phẩy trước 'så' → konjunktion (S–V). 'og så'/'for så' → adverbium (V–S)</div>
-  </div>
-
-  <!-- 5.5 -->
-  <div class="card anim-4">
-    <div class="card-accent acc-comb"></div>
-    <div class="card-number">32</div>
-    <div class="card-title">Phân biệt 'for' vs 'fordi'</div>
-    <div class="card-subtitle">for = HS+HS (S–V–CA) &nbsp;|&nbsp; fordi = HS+LS (S–CA–V)</div>
-    <div class="formula"><span>for</span>: HS₁, for HS₂ (ligefrem) &nbsp;·&nbsp; <span>fordi</span>: HS, fordi LS (SAV)</div>
-    <div class="example-block">
-      <div class="dk-sentence">Hun spiste ikke, for hun var ikke sulten.</div>
-      <div class="vi-translation">Cô ấy không ăn, vì cô ấy không đói. [HS + HS]</div>
-      <div class="tokens">
-        <span class="token tok-k">for → HS (S–V–CA)</span>
-      </div>
-    </div>
-    <div class="example-block" style="margin-top:0.5rem;">
-      <div class="dk-sentence">Han blev hjemme, fordi han ikke var sulten.</div>
-      <div class="vi-translation">Anh ấy ở nhà vì anh ấy không đói. [HS + LS (SAV)]</div>
-      <div class="tokens">
-        <span class="token tok-k">fordi → LS (S–CA–V)</span>
-      </div>
-    </div>
-    <div class="note">⚠ 'for' KHÔNG thể đứng đầu câu. 'fordi' CÓ THỂ (khi LS đứng trước, HS đảo ngữ)</div>
-  </div>
-
-  <div class="deco-rule">✦</div>
-
-  <!-- ======================== SECTION 6 ======================== -->
-  <div class="group-heading">
-    <span class="group-num">06 —</span>
-    Câu Phức Tổng Hợp
-  </div>
-  <div class="section-label">Kết hợp nhiều mệnh đề — phân tích toàn diện</div>
-
-  <!-- 6.1 Lig + Lig -->
-  <div class="card anim-0">
-    <div class="card-accent acc-main"></div>
-    <div class="card-number">33</div>
-    <div class="card-title">Mô hình 1: Ligefrem + Ligefrem</div>
-    <div class="card-subtitle">HS₁ (S–V–CA) + Konj + HS₂ (S–V–CA)</div>
-    <div class="formula">S–<span>V1</span>–CA, konj. S–<span>V1</span>–CA–V2</div>
-    <div class="example-block">
-      <div class="dk-sentence">Hun har ikke arbejde, så hun tjener ikke penge.</div>
-      <div class="vi-translation">Cô ấy không có việc làm, vì vậy cô ấy không kiếm được tiền.</div>
-    </div>
-  </div>
-
-  <!-- 6.2 Lig + Inv -->
-  <div class="card anim-1">
-    <div class="card-accent acc-main"></div>
-    <div class="card-number">34</div>
-    <div class="card-title">Mô hình 2: Ligefrem + Inversion</div>
-    <div class="card-subtitle">HS₁ (S–V–CA) + Konj + HS₂ (A–V–S–CA)</div>
-    <div class="formula">S–<span>V1</span>–CA, og A–<span>V1</span>–S–CA</div>
-    <div class="example-block">
-      <div class="dk-sentence">Han var ikke rask, og derfor ville han gerne hjem.</div>
-      <div class="vi-translation">Anh ấy không khỏe, và vì vậy anh ấy muốn về nhà.</div>
-    </div>
-  </div>
-
-  <!-- 6.3 Inv + Lig -->
-  <div class="card anim-2">
-    <div class="card-accent acc-main"></div>
-    <div class="card-number">35</div>
-    <div class="card-title">Mô hình 3: Inversion + Ligefrem</div>
-    <div class="card-subtitle">HS₁ (A–V–S) + Konj + HS₂ (S–V–CA)</div>
-    <div class="formula">A–<span>V1</span>–S–CA, men S–<span>V1</span>–CA–O</div>
-    <div class="example-block">
-      <div class="dk-sentence">Normalt vil hun gerne hjælpe, men hun har ikke tid.</div>
-      <div class="vi-translation">Thường thì cô ấy muốn giúp, nhưng cô ấy không có thời gian.</div>
-    </div>
-  </div>
-
-  <!-- 6.4 Inv + Inv -->
-  <div class="card anim-3">
-    <div class="card-accent acc-main"></div>
-    <div class="card-number">36</div>
-    <div class="card-title">Mô hình 4: Inversion + Inversion</div>
-    <div class="card-subtitle">HS₁ (A–V–S) + Konj + HS₂ (A–V–S)</div>
-    <div class="formula">A–<span>V1</span>–S–V2, og A–<span>V1</span>–S–V2–O</div>
-    <div class="example-block">
-      <div class="dk-sentence">Først skal hun gøre rent, og så skal hun vaske tøj.</div>
-      <div class="vi-translation">Đầu tiên cô ấy phải dọn dẹp, và sau đó cô ấy phải giặt quần áo.</div>
-    </div>
-  </div>
-
-  <!-- 6.5 Complex -->
-  <div class="card anim-4">
-    <div class="card-accent acc-comb"></div>
-    <div class="card-number">37</div>
-    <div class="card-title">Câu phức tổng hợp: LS + HS + LS</div>
-    <div class="card-subtitle">Ba vế — LS đứng đầu gây inversion</div>
-    <div class="formula">[LS: selvom–S–V1], <span>V1</span>–S–CA–V2, fordi–S–V1–A</div>
-    <div class="example-block">
-      <div class="dk-sentence">Selvom det regnede, ville han ikke købe en paraply, fordi den var for dyr.</div>
-      <div class="vi-translation">Dù trời mưa, anh ấy vẫn không muốn mua ô vì nó quá đắt.</div>
-      <div class="tokens">
-        <span class="token tok-k">LS₁: selvom det regnede</span>
-        <span class="token tok-v">HS: ville han ikke købe</span>
-        <span class="token tok-k">LS₂: fordi den var for dyr</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <div style="margin-top:4rem; border-top:2px solid var(--ink); padding-top:1rem; display:flex; justify-content:space-between; align-items:center;">
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.4;">
-      Dansk Syntax · 37 Trường hợp cấu trúc
-    </div>
-    <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;opacity:0.3;">Dansk Grammatik</div>
-  </div>
-
-</div>
-
-<script>
-  // Stagger animation by adding delay classes
-  document.querySelectorAll('.card').forEach((card, i) => {
-    card.style.animationDelay = `${i * 0.04}s`;
-  });
-
-  // Intersection Observer for scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cấu Trúc Câu Tiếng Đan Mạch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Mulish:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f5f0e8;
+      --ink: #1a1510;
+      --rust: #b5411a;
+      --gold: #c8933a;
+      --sage: #4a6741;
+      --slate: #3d5a73;
+      --rose: #8b3a52;
+      --teal: #2a6b6b;
+      --paper: #ede8dc;
+      --rule: rgba(26, 21, 16, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--ink);
+      font-family: 'Mulish', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Paper texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 27px, var(--rule) 27px, var(--rule) 28px),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    /* Header */
+    .masthead {
+      border-top: 4px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 2rem 0 1.5rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .masthead::after {
+      content: '';
+      display: block;
+      height: 3px;
+      background: var(--ink);
+      margin-top: 0.4rem;
+    }
+
+    .masthead-eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 0.75rem;
+    }
+
+    .masthead h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .masthead-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: rgba(26, 21, 16, 0.5);
+      margin-top: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    /* Section labels */
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border-bottom: 1px solid var(--rust);
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::before {
+      content: '§';
+      font-size: 0.9rem;
+      color: var(--rust);
+    }
+
+    /* Card */
+    .card {
+      background: var(--paper);
+      border: 1px solid rgba(26, 21, 16, 0.18);
+      border-radius: 2px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      box-shadow: 2px 3px 0 rgba(26, 21, 16, 0.06);
+    }
+
+    .card:hover {
+      box-shadow: 4px 6px 0 rgba(26, 21, 16, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .card-accent {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 2px 0 0 2px;
+    }
+
+    .card-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: rgba(26, 21, 16, 0.08);
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      line-height: 1;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+      line-height: 1.3;
+    }
+
+    .card-subtitle {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+      opacity: 0.55;
+    }
+
+    /* Formula band */
+    .formula {
+      background: var(--ink);
+      color: var(--cream);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      padding: 0.45rem 0.85rem;
+      border-radius: 1px;
+      margin-bottom: 0.85rem;
+      display: inline-block;
+    }
+
+    .formula span {
+      color: var(--gold);
+    }
+
+    /* Example sentence */
+    .example-block {
+      border-left: 2px solid var(--rule);
+      padding: 0.6rem 0.9rem;
+      margin-top: 0.75rem;
+    }
+
+    .dk-sentence {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.08rem;
+      font-style: italic;
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+      line-height: 1.5;
+    }
+
+    .vi-translation {
+      font-size: 0.78rem;
+      color: rgba(26, 21, 16, 0.55);
+      font-weight: 400;
+    }
+
+    /* Token labels */
+    .tokens {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.6rem;
+    }
+
+    .token {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      padding: 0.15rem 0.4rem;
+      border-radius: 1px;
+      border: 1px solid currentColor;
+      opacity: 0.7;
+    }
+
+    .tok-s {
+      color: var(--slate);
+    }
+
+    .tok-v {
+      color: var(--sage);
+    }
+
+    .tok-ca {
+      color: var(--rust);
+    }
+
+    .tok-o {
+      color: var(--rose);
+    }
+
+    .tok-a {
+      color: var(--gold);
+    }
+
+    .tok-k {
+      color: var(--ink);
+    }
+
+    /* Note box */
+    .note {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      background: rgba(181, 65, 26, 0.07);
+      border-left: 2px solid var(--rust);
+      padding: 0.4rem 0.65rem;
+      margin-top: 0.75rem;
+      color: var(--rust);
+      line-height: 1.6;
+    }
+
+    /* Legend */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      margin-bottom: 2rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--rule);
+      background: var(--paper);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Group heading */
+    .group-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 3rem 0 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--ink);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+
+    .group-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--rust);
+      letter-spacing: 0.15em;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    /* Accent colors per section */
+    .acc-main {
+      background: var(--slate);
+    }
+
+    .acc-inv {
+      background: var(--rust);
+    }
+
+    .acc-ca {
+      background: var(--gold);
+    }
+
+    .acc-ls {
+      background: var(--sage);
+    }
+
+    .acc-comb {
+      background: var(--rose);
+    }
+
+    .acc-lt {
+      background: var(--teal);
+    }
+
+    /* Decorative rule */
+    .deco-rule {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2.5rem 0;
+      color: rgba(26, 21, 16, 0.25);
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+    }
+
+    .deco-rule::before,
+    .deco-rule::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* Scroll fade-in */
+    .card {
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
       }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Stagger via JS class */
+    .anim-0 {
+      animation-delay: 0s;
+    }
+
+    .anim-1 {
+      animation-delay: 0.06s;
+    }
+
+    .anim-2 {
+      animation-delay: 0.12s;
+    }
+
+    .anim-3 {
+      animation-delay: 0.18s;
+    }
+
+    .anim-4 {
+      animation-delay: 0.24s;
+    }
+
+    .anim-5 {
+      animation-delay: 0.3s;
+    }
+
+    /* Lette/Tunge hierarchy scale */
+    .lt-scale {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin: 0.85rem 0;
+      border-radius: 2px;
+      overflow: hidden;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.58rem;
+    }
+
+    .lt-step {
+      flex: 1;
+      padding: 0.5rem 0.3rem;
+      text-align: center;
+      line-height: 1.4;
+      position: relative;
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .lt-step:last-child {
+      border-right: none;
+    }
+
+    .lt-step-num {
+      display: block;
+      font-size: 0.9rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      opacity: 0.6;
+      margin-bottom: 0.15rem;
+    }
+
+    .lt-step-label {
+      display: block;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .lt-step-ex {
+      display: block;
+      font-style: italic;
+      opacity: 0.7;
+      color: #fff;
+      margin-top: 0.1rem;
+      font-size: 0.52rem;
+    }
+
+    .lt-arrow {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.58rem;
+      color: rgba(26, 21, 16, 0.4);
+      margin-top: 0.2rem;
+      padding: 0 0.1rem;
+    }
+
+    /* Comparison rows */
+    .compare-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .compare-ok,
+    .compare-bad {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.45rem 0.7rem;
+      border-radius: 1px;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .compare-ok {
+      background: rgba(74, 103, 65, 0.1);
+      border-left: 3px solid var(--sage);
+    }
+
+    .compare-bad {
+      background: rgba(181, 65, 26, 0.08);
+      border-left: 3px solid var(--rust);
+      text-decoration: line-through;
+      text-decoration-color: var(--rust);
+      opacity: 0.75;
+    }
+
+    .compare-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.52rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 0.2rem;
+      font-style: normal;
+    }
+
+    .compare-ok .compare-tag {
+      color: var(--sage);
+    }
+
+    .compare-bad .compare-tag {
+      color: var(--rust);
+    }
+
+    /* CA rule table */
+    .ca-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      margin-top: 0.75rem;
+    }
+
+    .ca-table th {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 0.35rem 0.55rem;
+      text-align: left;
+      letter-spacing: 0.06em;
+      font-weight: 400;
+    }
+
+    .ca-table td {
+      padding: 0.35rem 0.55rem;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .ca-table tr:nth-child(even) td {
+      background: rgba(26, 21, 16, 0.03);
+    }
+
+    .ca-table .formula-cell {
+      font-weight: 500;
+      color: var(--teal);
+      white-space: nowrap;
+    }
+
+    /* Print tweak */
+    @media print {
+      body::before {
+        display: none;
+      }
+
+      .card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="masthead-eyebrow">Ngữ pháp tiếng Đan Mạch · Dansk Grammatik</div>
+      <h1>Cấu Trúc Câu<br><em>& Trật Tự Từ</em></h1>
+      <div class="masthead-sub">Tất cả các trường hợp · Ví dụ minh họa · Sơ đồ phân tích</div>
+    </header>
+
+    <!-- Legend -->
+    <div class="legend" style="margin-top:1.25rem;">
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--slate)"></div><span class="tok-s">S = Chủ ngữ</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--sage)"></div><span class="tok-v">V1/V2 = Động từ</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--rust)"></div><span class="tok-ca">CA = Trạng từ trung tâm</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--rose)"></div><span class="tok-o">O/IO = Tân ngữ</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--gold)"></div><span class="tok-a">A = Trạng ngữ</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--ink)"></div><span class="tok-k">Konj = Liên từ</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--teal)"></div><span
+          style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--teal)">LT = Lette/Tunge Led</span>
+      </div>
+    </div>
+
+    <!-- ======================== SECTION 1 ======================== -->
+    <div class="group-heading">
+      <span class="group-num">01 —</span>
+      Mệnh đề chính · Ligefrem Ordstilling
+    </div>
+    <div class="section-label">Trật tự từ xuôi (Chủ ngữ đứng đầu)</div>
+
+    <!-- 1.1 -->
+    <div class="card anim-0">
+      <div class="card-accent acc-main"></div>
+      <div class="card-number">1</div>
+      <div class="card-title">Câu đơn giản: S – V1 – O/A</div>
+      <div class="card-subtitle">Cấu trúc cơ bản nhất</div>
+      <div class="formula">S → <span>V1</span> → O/A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Hun spiser brød til morgenmad.</div>
+        <div class="vi-translation">Cô ấy ăn bánh mì vào bữa sáng.</div>
+        <div class="tokens">
+          <span class="token tok-s">S: hun</span>
+          <span class="token tok-v">V1: spiser</span>
+          <span class="token tok-o">O: brød</span>
+          <span class="token tok-a">A: til morgenmad</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1.2 -->
+    <div class="card anim-1">
+      <div class="card-accent acc-main"></div>
+      <div class="card-number">2</div>
+      <div class="card-title">Thì kép (Sammensat tid): S – V1 – CA – V2</div>
+      <div class="card-subtitle">Hiện tại hoàn thành / Quá khứ hoàn thành</div>
+      <div class="formula">S → <span>V1</span> → CA → V2 → O → A</div>
+      <div class="example-block">
+        <div class="dk-sentence">De har altid boet i København.</div>
+        <div class="vi-translation">Họ luôn sống ở Copenhagen.</div>
+        <div class="tokens">
+          <span class="token tok-s">S: de</span>
+          <span class="token tok-v">V1: har</span>
+          <span class="token tok-ca">CA: altid</span>
+          <span class="token tok-v">V2: boet</span>
+          <span class="token tok-a">A: i København</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1.3 -->
+    <div class="card anim-2">
+      <div class="card-accent acc-main"></div>
+      <div class="card-number">3</div>
+      <div class="card-title">Thì đơn + CA + Tân ngữ danh từ: S – V1 – CA – IO – O</div>
+      <div class="card-subtitle">CA trước cả IO và O khi cả hai là tunge led</div>
+      <div class="formula">S → <span>V1</span> → CA → IO<sub>(danh từ)</sub> → O<sub>(danh từ)</sub></div>
+      <div class="example-block">
+        <div class="dk-sentence">De viser ikke Bo huset.</div>
+        <div class="vi-translation">Họ không chỉ cho Bo ngôi nhà.</div>
+        <div class="tokens">
+          <span class="token tok-s">S: de</span>
+          <span class="token tok-v">V1: viser</span>
+          <span class="token tok-ca">CA: ikke</span>
+          <span class="token tok-o">IO: Bo</span>
+          <span class="token tok-o">O: huset</span>
+        </div>
+      </div>
+      <div class="note">⚠ IO và O đều là tunge led → CA đứng trước cả hai</div>
+    </div>
+
+    <!-- 1.4 -->
+    <div class="card anim-3">
+      <div class="card-accent acc-main"></div>
+      <div class="card-number">4</div>
+      <div class="card-title">Thì đơn + CA + IO đại từ: S – V1 – IO – CA – O</div>
+      <div class="card-subtitle">IO là lette led (đại từ), O là tunge led (danh từ)</div>
+      <div class="formula">S → <span>V1</span> → IO<sub>(đại từ)</sub> → CA → O<sub>(danh từ)</sub></div>
+      <div class="example-block">
+        <div class="dk-sentence">De viser ham ikke huset.</div>
+        <div class="vi-translation">Họ không chỉ cho anh ấy ngôi nhà.</div>
+        <div class="tokens">
+          <span class="token tok-s">S: de</span>
+          <span class="token tok-v">V1: viser</span>
+          <span class="token tok-o">IO: ham</span>
+          <span class="token tok-ca">CA: ikke</span>
+          <span class="token tok-o">O: huset</span>
+        </div>
+      </div>
+      <div class="note">⚠ IO là đại từ (nhẹ) → CA sau IO, trước danh từ O</div>
+    </div>
+
+    <!-- 1.5 -->
+    <div class="card anim-4">
+      <div class="card-accent acc-main"></div>
+      <div class="card-number">5</div>
+      <div class="card-title">Thì đơn + CA sau hai đại từ: S – V1 – IO – O – CA</div>
+      <div class="card-subtitle">Cả IO và O đều là lette led (đại từ)</div>
+      <div class="formula">S → <span>V1</span> → IO<sub>(đại từ)</sub> → O<sub>(đại từ)</sub> → CA</div>
+      <div class="example-block">
+        <div class="dk-sentence">De viser ham det ikke.</div>
+        <div class="vi-translation">Họ không chỉ cho anh ấy nó.</div>
+        <div class="tokens">
+          <span class="token tok-s">S: de</span>
+          <span class="token tok-v">V1: viser</span>
+          <span class="token tok-o">IO: ham</span>
+          <span class="token tok-o">O: det</span>
+          <span class="token tok-ca">CA: ikke</span>
+        </div>
+      </div>
+      <div class="note">⚠ Cả hai đều là đại từ → CA đứng sau cùng</div>
+    </div>
+
+    <div class="deco-rule">✦</div>
+
+    <!-- ======================== SECTION 1b: LETTE OG TUNGE LED ======================== -->
+    <div class="group-heading">
+      <span class="group-num">01b —</span>
+      Lette og Tunge Led · Thành phần Nhẹ & Nặng
+    </div>
+    <div class="section-label">Nguyên tắc cốt lõi quyết định vị trí IO, O và CA trong câu</div>
+
+    <!-- LT.1: Thang bậc 6 bậc -->
+    <div class="card anim-0">
+      <div class="card-accent acc-lt"></div>
+      <div class="card-number">38</div>
+      <div class="card-title">Thang bậc Nặng/Nhẹ — 6 Bậc chính thức</div>
+      <div class="card-subtitle">Nhẹ nhất (bậc 1) → Nặng nhất (bậc 6) · Quy ước ngôn ngữ học Đan Mạch</div>
+      <div class="lt-scale" style="margin-top:1rem;">
+        <div class="lt-step" style="background:rgba(42,107,107,0.95);">
+          <span class="lt-step-num">1</span>
+          <span class="lt-step-label">Đại từ nhân xưng</span>
+          <span class="lt-step-ex">ham, den, det, dem, hende, os</span>
+        </div>
+        <div class="lt-step" style="background:rgba(42,107,107,0.80);">
+          <span class="lt-step-num">2</span>
+          <span class="lt-step-label">Đại từ chỉ định</span>
+          <span class="lt-step-ex">denne, dette, de</span>
+        </div>
+        <div class="lt-step" style="background:rgba(42,107,107,0.65);">
+          <span class="lt-step-num">3</span>
+          <span class="lt-step-label">Danh từ xác định đơn</span>
+          <span class="lt-step-ex">huset, bogen, manden</span>
+        </div>
+        <div class="lt-step" style="background:rgba(42,107,107,0.50);">
+          <span class="lt-step-num">4</span>
+          <span class="lt-step-label">Cụm danh từ dài</span>
+          <span class="lt-step-ex">det store røde hus</span>
+        </div>
+        <div class="lt-step" style="background:rgba(42,107,107,0.38);">
+          <span class="lt-step-num">5</span>
+          <span class="lt-step-label">Cụm giới từ</span>
+          <span class="lt-step-ex">til sin gamle nabo</span>
+        </div>
+        <div class="lt-step" style="background:rgba(42,107,107,0.25);">
+          <span class="lt-step-num">6</span>
+          <span class="lt-step-label">Mệnh đề phụ</span>
+          <span class="lt-step-ex">at han ikke kom i tide</span>
+        </div>
+      </div>
+      <div class="lt-arrow">
+        <span>← LETTE (nhẹ)</span>
+        <span>TUNGE (nặng) →</span>
+      </div>
+      <div class="note">⚠ "Nặng/nhẹ" là ẩn dụ về độ phức tạp cú pháp và lượng thông tin — không phải vật lý. Thứ bậc này
+        là quy ước cộng đồng người Đan Mạch, không phải tự quyết định.</div>
+    </div>
+
+    <!-- LT.2: Quy tắc 1 — Lette trước Tunge -->
+    <div class="card anim-1">
+      <div class="card-accent acc-lt"></div>
+      <div class="card-number">39</div>
+      <div class="card-title">Quy tắc 1: Lette Led đứng TRƯỚC Tunge Led</div>
+      <div class="card-subtitle">Thành phần bậc thấp hơn luôn đứng trước thành phần bậc cao hơn</div>
+      <div class="formula">IO<sub>[bậc thấp]</sub> → O<sub>[bậc cao]</sub> &nbsp;·&nbsp; Đại từ → Danh từ → Cụm → Mệnh
+        đề</div>
+      <div class="compare-row">
+        <div class="compare-ok">
+          <span class="compare-tag">✓ đúng — bậc 1 trước bậc 3</span>
+          De gav <strong>ham</strong> <strong>bogen</strong>.
+          <div style="font-size:0.7rem;font-style:normal;margin-top:0.3rem;opacity:0.6;">(họ đưa cho anh ấy cuốn sách)
+          </div>
+        </div>
+        <div class="compare-bad">
+          <span class="compare-tag">✗ sai — bậc 3 trước bậc 1</span>
+          De gav bogen ham.
+        </div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-ok">
+          <span class="compare-tag">✓ đúng — bậc 1 trước bậc 6</span>
+          Han fortalte <strong>hende</strong> <strong>at han var syg</strong>.
+          <div style="font-size:0.7rem;font-style:normal;margin-top:0.3rem;opacity:0.6;">(anh ấy nói với cô ấy rằng anh
+            ấy bị ốm)</div>
+        </div>
+        <div class="compare-bad">
+          <span class="compare-tag">✗ sai — mệnh đề trước đại từ</span>
+          Han fortalte at han var syg hende.
+        </div>
+      </div>
+      <div class="note">💡 Đại từ KHÔNG BAO GIỜ đứng sau danh từ ở vị trí tân ngữ — đây là quy tắc tuyệt đối.</div>
+    </div>
+
+    <!-- LT.3: Quy tắc 2 — Vị trí CA phụ thuộc lette/tunge -->
+    <div class="card anim-2">
+      <div class="card-accent acc-lt"></div>
+      <div class="card-number">40</div>
+      <div class="card-title">Quy tắc 2: Vị trí CA (ikke/altid/gerne…) phụ thuộc vào lette/tunge</div>
+      <div class="card-subtitle">CA "nằm sau tất cả lette led và trước tất cả tunge led"</div>
+      <table class="ca-table">
+        <tr>
+          <th>IO</th>
+          <th>O</th>
+          <th>Cấu trúc</th>
+          <th>Ví dụ</th>
+        </tr>
+        <tr>
+          <td>Danh từ (bậc 3)</td>
+          <td>Danh từ (bậc 3)</td>
+          <td class="formula-cell">S–V–<span style="color:var(--rust)">CA</span>–IO–O</td>
+          <td><em>De viser ikke Bo huset.</em></td>
+        </tr>
+        <tr>
+          <td>Đại từ (bậc 1)</td>
+          <td>Danh từ (bậc 3)</td>
+          <td class="formula-cell">S–V–IO–<span style="color:var(--rust)">CA</span>–O</td>
+          <td><em>De viser ham ikke huset.</em></td>
+        </tr>
+        <tr>
+          <td>Đại từ (bậc 1)</td>
+          <td>Đại từ (bậc 1)</td>
+          <td class="formula-cell">S–V–IO–O–<span style="color:var(--rust)">CA</span></td>
+          <td><em>De viser ham det ikke.</em></td>
+        </tr>
+        <tr>
+          <td>Đại từ (bậc 1)</td>
+          <td>Mệnh đề phụ (bậc 6)</td>
+          <td class="formula-cell">S–V–IO–<span style="color:var(--rust)">CA</span>–O<sub>mệnh đề</sub></td>
+          <td><em>Han fortalte hende ikke at han kom.</em></td>
+        </tr>
+      </table>
+      <div class="note">⚠ Nguyên tắc: CA luôn đứng ngay sau phần lette cuối cùng và ngay trước phần tunge đầu tiên.
+      </div>
+    </div>
+
+    <!-- LT.4: Quy tắc 3 — Khi cả hai đều tunge: dùng giới từ -->
+    <div class="card anim-3">
+      <div class="card-accent acc-lt"></div>
+      <div class="card-number">41</div>
+      <div class="card-title">Quy tắc 3: Khi cả hai IO và O đều Tunge → dùng giới từ til/for</div>
+      <div class="card-subtitle">Khi IO là cụm danh từ dài (bậc 4+), bắt buộc dùng giới từ</div>
+      <div class="formula">S–<span>V</span>–CA–O<sub>(danh từ)</sub>–<span
+          style="color:var(--gold)">til/for</span>–IO<sub>(cụm dài)</sub></div>
+      <div class="example-block">
+        <div class="dk-sentence">De viser huset til hans nye nabo fra Sverige.</div>
+        <div class="vi-translation">Họ chỉ ngôi nhà cho người hàng xóm mới từ Thụy Điển của anh ấy.</div>
+        <div class="tokens">
+          <span class="token tok-o">O: huset (bậc 3 — nhẹ hơn)</span>
+          <span class="token" style="color:var(--gold)">til (giới từ)</span>
+          <span class="token tok-o">IO: hans nye nabo fra Sverige (bậc 4–5 — nặng hơn)</span>
+        </div>
+      </div>
+      <div class="compare-row" style="margin-top:0.75rem;">
+        <div class="compare-ok">
+          <span class="compare-tag">✓ đúng — O nhẹ trước, IO nặng sau giới từ</span>
+          Læreren sendte <strong>rapporten</strong> til <strong>alle sine studerende</strong>.
+        </div>
+        <div class="compare-bad">
+          <span class="compare-tag">✗ rất kỳ — hai cụm dài cạnh nhau</span>
+          Læreren sendte alle sine studerende rapporten.
+        </div>
+      </div>
+      <div class="note">💡 Giới từ til (cho người), for (cho người/mục đích), med (mang theo), om (về chủ đề) đẩy IO
+        nặng ra cuối câu một cách tự nhiên.</div>
+    </div>
+
+    <!-- LT.5: Bảng tự kiểm tra khi viết câu -->
+    <div class="card anim-4">
+      <div class="card-accent acc-lt"></div>
+      <div class="card-number">42</div>
+      <div class="card-title">Cách tự kiểm tra khi viết câu có IO + O</div>
+      <div class="card-subtitle">Quy trình 3 bước — áp dụng mỗi khi có hai tân ngữ</div>
+      <div style="margin-top:0.75rem;">
+        <div style="display:flex;flex-direction:column;gap:0.5rem;">
+          <div
+            style="background:rgba(42,107,107,0.08);border-left:3px solid var(--teal);padding:0.5rem 0.8rem;font-family:'IBM Plex Mono',monospace;font-size:0.63rem;line-height:1.7;">
+            <span style="color:var(--teal);font-weight:600;">Bước 1 —</span> Xác định bậc của IO và O trên thang 1→6<br>
+            <span style="opacity:0.6;">đại từ=1 · đại từ chỉ định=2 · danh từ đơn=3 · cụm danh từ=4 · cụm giới từ=5 ·
+              mệnh đề=6</span>
+          </div>
+          <div
+            style="background:rgba(42,107,107,0.08);border-left:3px solid var(--teal);padding:0.5rem 0.8rem;font-family:'IBM Plex Mono',monospace;font-size:0.63rem;line-height:1.7;">
+            <span style="color:var(--teal);font-weight:600;">Bước 2 —</span> Cái nào bậc thấp hơn? → đứng TRƯỚC<br>
+            <span style="opacity:0.6;">Nếu bằng nhau hoặc cả hai ≥ bậc 4 → sang bước 3</span>
+          </div>
+          <div
+            style="background:rgba(42,107,107,0.08);border-left:3px solid var(--teal);padding:0.5rem 0.8rem;font-family:'IBM Plex Mono',monospace;font-size:0.63rem;line-height:1.7;">
+            <span style="color:var(--teal);font-weight:600;">Bước 3 —</span> Nếu IO nặng hơn hoặc bằng O → dùng giới từ
+            til/for đẩy IO ra sau<br>
+            <span style="opacity:0.6;">→ S–V–CA–O–til–IO</span>
+          </div>
+          <div
+            style="background:rgba(181,65,26,0.07);border-left:3px solid var(--rust);padding:0.5rem 0.8rem;font-family:'IBM Plex Mono',monospace;font-size:0.63rem;line-height:1.7;">
+            <span style="color:var(--rust);font-weight:600;">Sau đó —</span> Đặt CA: ngay sau lette cuối, ngay trước
+            tunge đầu<br>
+            <span style="opacity:0.6;">Nếu cả IO + O đều là đại từ → CA ra cuối cùng</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LT.6: Bảng so sánh đầy đủ -->
+    <div class="card anim-5">
+      <div class="card-accent acc-lt"></div>
+      <div class="card-number">43</div>
+      <div class="card-title">Bảng tổng hợp: Tất cả tổ hợp IO + O có thể gặp</div>
+      <div class="card-subtitle">Dùng làm tài liệu tham chiếu nhanh</div>
+      <table class="ca-table">
+        <tr>
+          <th>IO</th>
+          <th>O</th>
+          <th>CA</th>
+          <th>Công thức đầy đủ</th>
+          <th>Ví dụ</th>
+        </tr>
+        <tr>
+          <td>đại từ (1)</td>
+          <td>đại từ (1)</td>
+          <td>sau O</td>
+          <td class="formula-cell">V–IO–O–CA</td>
+          <td><em>viser ham det ikke</em></td>
+        </tr>
+        <tr>
+          <td>đại từ (1)</td>
+          <td>danh từ (3)</td>
+          <td>giữa IO và O</td>
+          <td class="formula-cell">V–IO–CA–O</td>
+          <td><em>viser ham ikke huset</em></td>
+        </tr>
+        <tr>
+          <td>danh từ (3)</td>
+          <td>danh từ (3)</td>
+          <td>trước IO</td>
+          <td class="formula-cell">V–CA–IO–O</td>
+          <td><em>viser ikke Bo huset</em></td>
+        </tr>
+        <tr>
+          <td>đại từ (1)</td>
+          <td>mệnh đề (6)</td>
+          <td>giữa IO và O</td>
+          <td class="formula-cell">V–IO–CA–O<sub>mệnh đề</sub></td>
+          <td><em>fortalte hende ikke at han kom</em></td>
+        </tr>
+        <tr>
+          <td>cụm dài (4+)</td>
+          <td>danh từ (3)</td>
+          <td>trước O</td>
+          <td class="formula-cell">V–CA–O–til–IO</td>
+          <td><em>viser ikke huset til alle naboerne</em></td>
+        </tr>
+      </table>
+      <div class="note">💡 Ghi nhớ: CA luôn "nằm ở ranh giới" giữa vùng lette và vùng tunge trong câu.</div>
+    </div>
+
+    <div class="deco-rule">✦</div>
+
+    <!-- ======================== SECTION 2 ======================== -->
+    <div class="group-heading">
+      <span class="group-num">02 —</span>
+      Mệnh đề chính · Đảo Ngữ (Inversion)
+    </div>
+    <div class="section-label">Câu hỏi & nhấn mạnh — V2 Rule: V1 luôn ở vị trí 2</div>
+
+    <!-- 2.1 -->
+    <div class="card anim-0">
+      <div class="card-accent acc-inv"></div>
+      <div class="card-number">6</div>
+      <div class="card-title">Câu hỏi Ja/Nej: V1 – S – (CA) – V2</div>
+      <div class="card-subtitle">Động từ đứng đầu — Yes/No question</div>
+      <div class="formula"><span>V1</span> → S → CA → V2 → O → A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Rejser han til Sverige?</div>
+        <div class="vi-translation">Anh ấy đang đi Thụy Điển không?</div>
+        <div class="tokens">
+          <span class="token tok-v">V1: rejser</span>
+          <span class="token tok-s">S: han</span>
+          <span class="token tok-a">A: til Sverige</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.2 -->
+    <div class="card anim-1">
+      <div class="card-accent acc-inv"></div>
+      <div class="card-number">7</div>
+      <div class="card-title">Câu hỏi Hv-ord: Hv – V1 – S – (CA) – V2</div>
+      <div class="card-subtitle">Từ để hỏi đứng đầu — Wh-question</div>
+      <div class="formula">Hv → <span>V1</span> → S → CA → V2 → O → A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Hvorfor vil han ikke låne hende bilen?</div>
+        <div class="vi-translation">Tại sao anh ấy không muốn cho cô ấy mượn xe?</div>
+        <div class="tokens">
+          <span class="token tok-k">Hv: hvorfor</span>
+          <span class="token tok-v">V1: vil</span>
+          <span class="token tok-s">S: han</span>
+          <span class="token tok-ca">CA: ikke</span>
+          <span class="token tok-v">V2: låne</span>
+          <span class="token tok-o">IO: hende</span>
+          <span class="token tok-o">O: bilen</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.3 -->
+    <div class="card anim-2">
+      <div class="card-accent acc-inv"></div>
+      <div class="card-number">8</div>
+      <div class="card-title">Đảo ngữ sau Trạng ngữ (A): A – V1 – S</div>
+      <div class="card-subtitle">Nhấn mạnh thời gian / nơi chốn lên đầu</div>
+      <div class="formula">A → <span>V1</span> → S → CA → V2 → O</div>
+      <div class="example-block">
+        <div class="dk-sentence">I går kom Poul sent hjem.</div>
+        <div class="vi-translation">Hôm qua Poul về nhà muộn.</div>
+        <div class="tokens">
+          <span class="token tok-a">A: i går</span>
+          <span class="token tok-v">V1: kom</span>
+          <span class="token tok-s">S: Poul</span>
+          <span class="token tok-a">A: sent</span>
+          <span class="token tok-a">A: hjem</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.4 -->
+    <div class="card anim-3">
+      <div class="card-accent acc-inv"></div>
+      <div class="card-number">9</div>
+      <div class="card-title">Đảo ngữ sau Tân ngữ (O): O – V1 – S</div>
+      <div class="card-subtitle">Nhấn mạnh tân ngữ (modstilling)</div>
+      <div class="formula">O → <span>V1</span> → S → CA → V2</div>
+      <div class="example-block">
+        <div class="dk-sentence">Ham kender jeg, men hende kender jeg ikke.</div>
+        <div class="vi-translation">Anh ấy tôi biết, nhưng cô ấy tôi không biết.</div>
+        <div class="tokens">
+          <span class="token tok-o">O: ham</span>
+          <span class="token tok-v">V1: kender</span>
+          <span class="token tok-s">S: jeg</span>
+          <span class="token tok-o">O: hende</span>
+          <span class="token tok-v">V1: kender</span>
+          <span class="token tok-s">S: jeg</span>
+          <span class="token tok-ca">CA: ikke</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.5 -->
+    <div class="card anim-4">
+      <div class="card-accent acc-inv"></div>
+      <div class="card-number">10</div>
+      <div class="card-title">Đảo ngữ sau CA (Måske, Normalt…): CA – V1 – S</div>
+      <div class="card-subtitle">Một số CA có thể foranstilles (đặt đầu câu)</div>
+      <div class="formula">CA<sub>(måske)</sub> → <span>V1</span> → S → CA → V2 → O → A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Måske vil han vise hende huset i morgen.</div>
+        <div class="vi-translation">Có lẽ anh ấy sẽ chỉ cho cô ấy ngôi nhà vào ngày mai.</div>
+        <div class="tokens">
+          <span class="token tok-ca">CA: måske</span>
+          <span class="token tok-v">V1: vil</span>
+          <span class="token tok-s">S: han</span>
+          <span class="token tok-v">V2: vise</span>
+          <span class="token tok-o">IO: hende</span>
+          <span class="token tok-o">O: huset</span>
+          <span class="token tok-a">A: i morgen</span>
+        </div>
+      </div>
+      <div class="note">⚠ "ikke, også, gerne, godt, kun, lige" KHÔNG được đặt đầu câu</div>
+    </div>
+
+    <div class="deco-rule">✦</div>
+
+    <!-- ======================== SECTION 3 ======================== -->
+    <div class="group-heading">
+      <span class="group-num">03 —</span>
+      Mệnh đề phụ · Ledsætning (SAV)
+    </div>
+    <div class="section-label">Quy tắc vàng: CA đứng TRƯỚC V1</div>
+
+    <!-- 3.1 -->
+    <div class="card anim-0">
+      <div class="card-accent acc-ls"></div>
+      <div class="card-number">11</div>
+      <div class="card-title">Mệnh đề 'at' (Objektsætning)</div>
+      <div class="card-subtitle">Thay thế tân ngữ danh từ</div>
+      <div class="formula">HS, at → S → <span>CA</span> → V1 → V2 → O → A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Han ved, at de ikke kommer i morgen.</div>
+        <div class="vi-translation">Anh ấy biết rằng họ sẽ không đến vào ngày mai.</div>
+        <div class="tokens">
+          <span class="token tok-k">HS: han ved</span>
+          <span class="token tok-k">Konj: at</span>
+          <span class="token tok-s">S: de</span>
+          <span class="token tok-ca">CA: ikke</span>
+          <span class="token tok-v">V1: kommer</span>
+          <span class="token tok-a">A: i morgen</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.2 -->
+    <div class="card anim-1">
+      <div class="card-accent acc-ls"></div>
+      <div class="card-number">12</div>
+      <div class="card-title">Mệnh đề quan hệ 'der/som' làm S</div>
+      <div class="card-subtitle">der/som thay thế chủ ngữ</div>
+      <div class="formula">N, der/som → <span>CA</span> → V1 → V2 → O → A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Han har en bror, der ikke bor i Danmark.</div>
+        <div class="vi-translation">Anh ấy có một người anh không sống ở Đan Mạch.</div>
+        <div class="tokens">
+          <span class="token tok-k">der: S (quan hệ)</span>
+          <span class="token tok-ca">CA: ikke</span>
+          <span class="token tok-v">V1: bor</span>
+          <span class="token tok-a">A: i Danmark</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.3 -->
+    <div class="card anim-2">
+      <div class="card-accent acc-ls"></div>
+      <div class="card-number">13</div>
+      <div class="card-title">Mệnh đề quan hệ 'som' làm O</div>
+      <div class="card-subtitle">som thay thế tân ngữ</div>
+      <div class="formula">N, som → S → <span>CA</span> → V1 → V2</div>
+      <div class="example-block">
+        <div class="dk-sentence">Det er bogen, som jeg aldrig har læst.</div>
+        <div class="vi-translation">Đó là cuốn sách mà tôi chưa bao giờ đọc.</div>
+        <div class="tokens">
+          <span class="token tok-k">som: O (quan hệ)</span>
+          <span class="token tok-s">S: jeg</span>
+          <span class="token tok-ca">CA: aldrig</span>
+          <span class="token tok-v">V1: har</span>
+          <span class="token tok-v">V2: læst</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.4 -->
+    <div class="card anim-3">
+      <div class="card-accent acc-ls"></div>
+      <div class="card-number">14</div>
+      <div class="card-title">Câu hỏi gián tiếp với Hv-ord</div>
+      <div class="card-subtitle">Spørgende ledsætning</div>
+      <div class="formula">HS + Hv → S → <span>CA</span> → V1 → V2 → O → A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Jeg ved ikke, hvor han bor.</div>
+        <div class="vi-translation">Tôi không biết anh ấy sống ở đâu.</div>
+        <div class="tokens">
+          <span class="token tok-k">Hv: hvor</span>
+          <span class="token tok-s">S: han</span>
+          <span class="token tok-v">V1: bor</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.5 -->
+    <div class="card anim-4">
+      <div class="card-accent acc-ls"></div>
+      <div class="card-number">15</div>
+      <div class="card-title">Câu hỏi gián tiếp với 'om'</div>
+      <div class="card-subtitle">Có… không — Yes/No gián tiếp</div>
+      <div class="formula">HS + om → S → <span>CA</span> → V1 → O</div>
+      <div class="example-block">
+        <div class="dk-sentence">Hun spørger, om han forstår dansk.</div>
+        <div class="vi-translation">Cô ấy hỏi xem anh ấy có hiểu tiếng Đan Mạch không.</div>
+        <div class="tokens">
+          <span class="token tok-k">Konj: om</span>
+          <span class="token tok-s">S: han</span>
+          <span class="token tok-v">V1: forstår</span>
+          <span class="token tok-o">O: dansk</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.6 -->
+    <div class="card anim-5">
+      <div class="card-accent acc-ls"></div>
+      <div class="card-number">16</div>
+      <div class="card-title">Mệnh đề điều kiện 'hvis'</div>
+      <div class="card-subtitle">If-clause</div>
+      <div class="formula">HS + hvis → S → <span>CA</span> → V1</div>
+      <div class="example-block">
+        <div class="dk-sentence">De tager en taxa, hvis det ikke regner.</div>
+        <div class="vi-translation">Họ sẽ đi taxi nếu trời không mưa.</div>
+        <div class="tokens">
+          <span class="token tok-k">Konj: hvis</span>
+          <span class="token tok-s">S: det</span>
+          <span class="token tok-ca">CA: ikke</span>
+          <span class="token tok-v">V1: regner</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.7 -->
+    <div class="card anim-0">
+      <div class="card-accent acc-ls"></div>
+      <div class="card-number">17</div>
+      <div class="card-title">Mệnh đề nguyên nhân 'fordi'</div>
+      <div class="card-subtitle">Because-clause</div>
+      <div class="formula">HS + fordi → S → <span>CA</span> → V1 → A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Han blev hjemme, fordi han ikke var rask.</div>
+        <div class="vi-translation">Anh ấy ở nhà vì anh ấy không khỏe.</div>
+        <div class="tokens">
+          <span class="token tok-k">Konj: fordi</span>
+          <span class="token tok-s">S: han</span>
+          <span class="token tok-ca">CA: ikke</span>
+          <span class="token tok-v">V1: var</span>
+          <span class="token tok-a">A: rask</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.8 -->
+    <div class="card anim-1">
+      <div class="card-accent acc-ls"></div>
+      <div class="card-number">18</div>
+      <div class="card-title">Mệnh đề nhượng bộ 'selvom'</div>
+      <div class="card-subtitle">Even though — concessive clause</div>
+      <div class="formula">HS + selvom → S → <span>CA</span> → V1 → A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Han går på arbejde, selvom han ikke er rask.</div>
+        <div class="vi-translation">Anh ấy vẫn đi làm dù anh ấy không khỏe.</div>
+        <div class="tokens">
+          <span class="token tok-k">Konj: selvom</span>
+          <span class="token tok-s">S: han</span>
+          <span class="token tok-ca">CA: ikke</span>
+          <span class="token tok-v">V1: er</span>
+          <span class="token tok-a">A: rask</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.9 -->
+    <div class="card anim-2">
+      <div class="card-accent acc-ls"></div>
+      <div class="card-number">19</div>
+      <div class="card-title">Mệnh đề thời gian 'når' (hiện tại/lặp lại)</div>
+      <div class="card-subtitle">When — thì hiện tại hoặc tương lai</div>
+      <div class="formula">HS + når → S → <span>CA</span> → V1</div>
+      <div class="example-block">
+        <div class="dk-sentence">Han ringer, når han ikke arbejder.</div>
+        <div class="vi-translation">Anh ấy gọi điện khi anh ấy không làm việc.</div>
+        <div class="tokens">
+          <span class="token tok-k">Konj: når</span>
+          <span class="token tok-s">S: han</span>
+          <span class="token tok-ca">CA: ikke</span>
+          <span class="token tok-v">V1: arbejder</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.10 -->
+    <div class="card anim-3">
+      <div class="card-accent acc-ls"></div>
+      <div class="card-number">20</div>
+      <div class="card-title">Mệnh đề thời gian 'da' (quá khứ)</div>
+      <div class="card-subtitle">When — sự kiện một lần trong quá khứ</div>
+      <div class="formula">HS + da → S → <span>CA</span> → V1 → A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Hun boede i London, da hun var lille.</div>
+        <div class="vi-translation">Cô ấy sống ở London khi còn nhỏ.</div>
+        <div class="tokens">
+          <span class="token tok-k">Konj: da</span>
+          <span class="token tok-s">S: hun</span>
+          <span class="token tok-v">V1: var</span>
+          <span class="token tok-a">A: lille</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.11 -->
+    <div class="card anim-4">
+      <div class="card-accent acc-ls"></div>
+      <div class="card-number">21</div>
+      <div class="card-title">Mệnh đề thời gian 'mens'</div>
+      <div class="card-subtitle">While — đồng thời</div>
+      <div class="formula">HS + mens → S → <span>CA</span> → V1 → O</div>
+      <div class="example-block">
+        <div class="dk-sentence">Hun strikker, mens hun ser fjernsyn.</div>
+        <div class="vi-translation">Cô ấy đan len trong khi xem ti-vi.</div>
+        <div class="tokens">
+          <span class="token tok-k">Konj: mens</span>
+          <span class="token tok-s">S: hun</span>
+          <span class="token tok-v">V1: ser</span>
+          <span class="token tok-o">O: fjernsyn</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.12 -->
+    <div class="card anim-5">
+      <div class="card-accent acc-ls"></div>
+      <div class="card-number">22</div>
+      <div class="card-title">Mệnh đề mục đích 'for at'</div>
+      <div class="card-subtitle">In order to</div>
+      <div class="formula">HS + for at → S → V1 → V2 → O</div>
+      <div class="example-block">
+        <div class="dk-sentence">Han træner meget, for at han kan vinde.</div>
+        <div class="vi-translation">Anh ấy tập luyện nhiều để có thể chiến thắng.</div>
+        <div class="tokens">
+          <span class="token tok-k">Konj: for at</span>
+          <span class="token tok-s">S: han</span>
+          <span class="token tok-v">V1: kan</span>
+          <span class="token tok-v">V2: vinde</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.13 -->
+    <div class="card anim-0">
+      <div class="card-accent acc-ls"></div>
+      <div class="card-number">23</div>
+      <div class="card-title">Mệnh đề so sánh 'som / end'</div>
+      <div class="card-subtitle">As / than — so sánh</div>
+      <div class="formula">HS + som/end → S → <span>CA</span> → V1 → O</div>
+      <div class="example-block">
+        <div class="dk-sentence">Huset var større, end hun huskede det.</div>
+        <div class="vi-translation">Ngôi nhà to hơn cô ấy nhớ.</div>
+        <div class="tokens">
+          <span class="token tok-k">Konj: end</span>
+          <span class="token tok-s">S: hun</span>
+          <span class="token tok-v">V1: huskede</span>
+          <span class="token tok-o">O: det</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="deco-rule">✦</div>
+
+    <!-- ======================== SECTION 4 ======================== -->
+    <div class="group-heading">
+      <span class="group-num">04 —</span>
+      Ledsætning Đứng Đầu → Inversion
+    </div>
+    <div class="section-label">Quy tắc vàng: LS chiếm vị trí 1 → HS phải đảo ngữ</div>
+
+    <!-- 4.1 -->
+    <div class="card anim-0">
+      <div class="card-accent acc-ca"></div>
+      <div class="card-number">24</div>
+      <div class="card-title">LS 'når' + HS đảo ngữ</div>
+      <div class="card-subtitle">Mệnh đề thời gian đứng đầu</div>
+      <div class="formula">[LS: Konj–S–CA–V1], <span>V1</span>–S–CA–V2</div>
+      <div class="example-block">
+        <div class="dk-sentence">Når det ikke regner, cykler han altid.</div>
+        <div class="vi-translation">Khi trời không mưa, anh ấy luôn đạp xe.</div>
+        <div class="tokens">
+          <span class="token tok-k">LS: når det ikke regner</span>
+          <span class="token tok-v">V1: cykler</span>
+          <span class="token tok-s">S: han</span>
+          <span class="token tok-ca">CA: altid</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.2 -->
+    <div class="card anim-1">
+      <div class="card-accent acc-ca"></div>
+      <div class="card-number">25</div>
+      <div class="card-title">LS 'fordi' + HS đảo ngữ</div>
+      <div class="card-subtitle">Mệnh đề nguyên nhân đứng đầu</div>
+      <div class="formula">[LS: fordi–S–CA–V1–A], <span>V1</span>–S–A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Fordi han var syg, blev han hjemme.</div>
+        <div class="vi-translation">Vì anh ấy bị ốm, nên anh ấy ở nhà.</div>
+        <div class="tokens">
+          <span class="token tok-k">LS: fordi han var syg</span>
+          <span class="token tok-v">V1: blev</span>
+          <span class="token tok-s">S: han</span>
+          <span class="token tok-a">A: hjemme</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.3 -->
+    <div class="card anim-2">
+      <div class="card-accent acc-ca"></div>
+      <div class="card-number">26</div>
+      <div class="card-title">LS 'selvom' + HS đảo ngữ</div>
+      <div class="card-subtitle">Mệnh đề nhượng bộ đứng đầu</div>
+      <div class="formula">[LS: selvom–S–V1–A], <span>V1</span>–S–A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Selvom hun var træt, arbejdede hun videre.</div>
+        <div class="vi-translation">Dù mệt, cô ấy vẫn tiếp tục làm việc.</div>
+        <div class="tokens">
+          <span class="token tok-k">LS: selvom hun var træt</span>
+          <span class="token tok-v">V1: arbejdede</span>
+          <span class="token tok-s">S: hun</span>
+          <span class="token tok-a">A: videre</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.4 -->
+    <div class="card anim-3">
+      <div class="card-accent acc-ca"></div>
+      <div class="card-number">27</div>
+      <div class="card-title">LS 'hvis' + HS đảo ngữ</div>
+      <div class="card-subtitle">Mệnh đề điều kiện đứng đầu</div>
+      <div class="formula">[LS: hvis–S–V1], <span>V1</span>–S–V2–A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Hvis du vil, kan vi gå i biografen.</div>
+        <div class="vi-translation">Nếu bạn muốn, chúng ta có thể đi xem phim.</div>
+        <div class="tokens">
+          <span class="token tok-k">LS: hvis du vil</span>
+          <span class="token tok-v">V1: kan</span>
+          <span class="token tok-s">S: vi</span>
+          <span class="token tok-v">V2: gå</span>
+          <span class="token tok-a">A: i biografen</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="deco-rule">✦</div>
+
+    <!-- ======================== SECTION 5 ======================== -->
+    <div class="group-heading">
+      <span class="group-num">05 —</span>
+      Kết Hợp Câu · Liên Từ
+    </div>
+    <div class="section-label">Hauptsætningskonjunktioner & Ledsætningskonjunktioner</div>
+
+    <!-- 5.1 -->
+    <div class="card anim-0">
+      <div class="card-accent acc-comb"></div>
+      <div class="card-number">28</div>
+      <div class="card-title">Liên từ đẳng lập: HS + og/men/eller/for/så + HS</div>
+      <div class="card-subtitle">Không gây inversion — ligefrem ordstilling sau liên từ</div>
+      <div class="formula">S–V1–CA, <span>og/men</span> S–V1–CA–V2</div>
+      <div class="example-block">
+        <div class="dk-sentence">Hun vil gerne rejse, men hun kan ikke få fri.</div>
+        <div class="vi-translation">Cô ấy muốn đi du lịch, nhưng cô ấy không thể nghỉ được.</div>
+        <div class="tokens">
+          <span class="token tok-k">Konj: men</span>
+          <span class="token tok-s">S: hun</span>
+          <span class="token tok-v">V1: kan</span>
+          <span class="token tok-ca">CA: ikke</span>
+          <span class="token tok-v">V2: få fri</span>
+        </div>
+      </div>
+      <div class="note">⚠ og, men, eller, for, så → KHÔNG đảo ngữ sau liên từ</div>
+    </div>
+
+    <!-- 5.2 -->
+    <div class="card anim-1">
+      <div class="card-accent acc-comb"></div>
+      <div class="card-number">29</div>
+      <div class="card-title">Trạng từ liên kết: HS + Adv. (derfor, dog…) → Inversion</div>
+      <div class="card-subtitle">Cạm bẫy! Adverbium chiếm vị trí F → GÂY đảo ngữ</div>
+      <div class="formula">HS. <span>Adv.</span> → <span>V1</span> → S → CA</div>
+      <div class="example-block">
+        <div class="dk-sentence">Han er træt. Derfor sover han nu.</div>
+        <div class="vi-translation">Anh ấy mệt. Vì vậy anh ấy đang ngủ bây giờ.</div>
+        <div class="tokens">
+          <span class="token tok-a">Adv: derfor (vị trí F)</span>
+          <span class="token tok-v">V1: sover</span>
+          <span class="token tok-s">S: han</span>
+          <span class="token tok-a">A: nu</span>
+        </div>
+      </div>
+      <div class="note">⚠ therefore, dog, alligevel, ellers, desuden, tværtimod → GÂY INVERSION</div>
+    </div>
+
+    <!-- 5.3 -->
+    <div class="card anim-2">
+      <div class="card-accent acc-comb"></div>
+      <div class="card-number">30</div>
+      <div class="card-title">'Så' làm Adverbium (inversion)</div>
+      <div class="card-subtitle">Nghĩa: "sau đó" — og så / for så</div>
+      <div class="formula">HS, og <span>så</span> → V1 → S → O</div>
+      <div class="example-block">
+        <div class="dk-sentence">Først køber hun ind, og så laver hun mad.</div>
+        <div class="vi-translation">Đầu tiên cô ấy đi mua sắm, và sau đó cô ấy nấu ăn.</div>
+        <div class="tokens">
+          <span class="token tok-a">Adv: så (sau đó)</span>
+          <span class="token tok-v">V1: laver</span>
+          <span class="token tok-s">S: hun</span>
+          <span class="token tok-o">O: mad</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5.4 -->
+    <div class="card anim-3">
+      <div class="card-accent acc-comb"></div>
+      <div class="card-number">31</div>
+      <div class="card-title">'Så' làm Konjunktion (không inversion)</div>
+      <div class="card-subtitle">Nghĩa: "vì vậy, do đó" — sau dấu phẩy</div>
+      <div class="formula">HS₁, <span>så</span> S → V1 → CA</div>
+      <div class="example-block">
+        <div class="dk-sentence">Hun var syg, så hun kom ikke.</div>
+        <div class="vi-translation">Cô ấy bị ốm, vì vậy cô ấy không đến.</div>
+        <div class="tokens">
+          <span class="token tok-k">Konj: så (vì vậy)</span>
+          <span class="token tok-s">S: hun</span>
+          <span class="token tok-v">V1: kom</span>
+          <span class="token tok-ca">CA: ikke</span>
+        </div>
+      </div>
+      <div class="note">Mẹo: dấu phẩy trước 'så' → konjunktion (S–V). 'og så'/'for så' → adverbium (V–S)</div>
+    </div>
+
+    <!-- 5.5 -->
+    <div class="card anim-4">
+      <div class="card-accent acc-comb"></div>
+      <div class="card-number">32</div>
+      <div class="card-title">Phân biệt 'for' vs 'fordi'</div>
+      <div class="card-subtitle">for = HS+HS (S–V–CA) &nbsp;|&nbsp; fordi = HS+LS (S–CA–V)</div>
+      <div class="formula"><span>for</span>: HS₁, for HS₂ (ligefrem) &nbsp;·&nbsp; <span>fordi</span>: HS, fordi LS
+        (SAV)</div>
+      <div class="example-block">
+        <div class="dk-sentence">Hun spiste ikke, for hun var ikke sulten.</div>
+        <div class="vi-translation">Cô ấy không ăn, vì cô ấy không đói. [HS + HS]</div>
+        <div class="tokens">
+          <span class="token tok-k">for → HS (S–V–CA)</span>
+        </div>
+      </div>
+      <div class="example-block" style="margin-top:0.5rem;">
+        <div class="dk-sentence">Han blev hjemme, fordi han ikke var sulten.</div>
+        <div class="vi-translation">Anh ấy ở nhà vì anh ấy không đói. [HS + LS (SAV)]</div>
+        <div class="tokens">
+          <span class="token tok-k">fordi → LS (S–CA–V)</span>
+        </div>
+      </div>
+      <div class="note">⚠ 'for' KHÔNG thể đứng đầu câu. 'fordi' CÓ THỂ (khi LS đứng trước, HS đảo ngữ)</div>
+    </div>
+
+    <div class="deco-rule">✦</div>
+
+    <!-- ======================== SECTION 6 ======================== -->
+    <div class="group-heading">
+      <span class="group-num">06 —</span>
+      Câu Phức Tổng Hợp
+    </div>
+    <div class="section-label">Kết hợp nhiều mệnh đề — phân tích toàn diện</div>
+
+    <!-- 6.1 Lig + Lig -->
+    <div class="card anim-0">
+      <div class="card-accent acc-main"></div>
+      <div class="card-number">33</div>
+      <div class="card-title">Mô hình 1: Ligefrem + Ligefrem</div>
+      <div class="card-subtitle">HS₁ (S–V–CA) + Konj + HS₂ (S–V–CA)</div>
+      <div class="formula">S–<span>V1</span>–CA, konj. S–<span>V1</span>–CA–V2</div>
+      <div class="example-block">
+        <div class="dk-sentence">Hun har ikke arbejde, så hun tjener ikke penge.</div>
+        <div class="vi-translation">Cô ấy không có việc làm, vì vậy cô ấy không kiếm được tiền.</div>
+      </div>
+    </div>
+
+    <!-- 6.2 Lig + Inv -->
+    <div class="card anim-1">
+      <div class="card-accent acc-main"></div>
+      <div class="card-number">34</div>
+      <div class="card-title">Mô hình 2: Ligefrem + Inversion</div>
+      <div class="card-subtitle">HS₁ (S–V–CA) + Konj + HS₂ (A–V–S–CA)</div>
+      <div class="formula">S–<span>V1</span>–CA, og A–<span>V1</span>–S–CA</div>
+      <div class="example-block">
+        <div class="dk-sentence">Han var ikke rask, og derfor ville han gerne hjem.</div>
+        <div class="vi-translation">Anh ấy không khỏe, và vì vậy anh ấy muốn về nhà.</div>
+      </div>
+    </div>
+
+    <!-- 6.3 Inv + Lig -->
+    <div class="card anim-2">
+      <div class="card-accent acc-main"></div>
+      <div class="card-number">35</div>
+      <div class="card-title">Mô hình 3: Inversion + Ligefrem</div>
+      <div class="card-subtitle">HS₁ (A–V–S) + Konj + HS₂ (S–V–CA)</div>
+      <div class="formula">A–<span>V1</span>–S–CA, men S–<span>V1</span>–CA–O</div>
+      <div class="example-block">
+        <div class="dk-sentence">Normalt vil hun gerne hjælpe, men hun har ikke tid.</div>
+        <div class="vi-translation">Thường thì cô ấy muốn giúp, nhưng cô ấy không có thời gian.</div>
+      </div>
+    </div>
+
+    <!-- 6.4 Inv + Inv -->
+    <div class="card anim-3">
+      <div class="card-accent acc-main"></div>
+      <div class="card-number">36</div>
+      <div class="card-title">Mô hình 4: Inversion + Inversion</div>
+      <div class="card-subtitle">HS₁ (A–V–S) + Konj + HS₂ (A–V–S)</div>
+      <div class="formula">A–<span>V1</span>–S–V2, og A–<span>V1</span>–S–V2–O</div>
+      <div class="example-block">
+        <div class="dk-sentence">Først skal hun gøre rent, og så skal hun vaske tøj.</div>
+        <div class="vi-translation">Đầu tiên cô ấy phải dọn dẹp, và sau đó cô ấy phải giặt quần áo.</div>
+      </div>
+    </div>
+
+    <!-- 6.5 Complex -->
+    <div class="card anim-4">
+      <div class="card-accent acc-comb"></div>
+      <div class="card-number">37</div>
+      <div class="card-title">Câu phức tổng hợp: LS + HS + LS</div>
+      <div class="card-subtitle">Ba vế — LS đứng đầu gây inversion</div>
+      <div class="formula">[LS: selvom–S–V1], <span>V1</span>–S–CA–V2, fordi–S–V1–A</div>
+      <div class="example-block">
+        <div class="dk-sentence">Selvom det regnede, ville han ikke købe en paraply, fordi den var for dyr.</div>
+        <div class="vi-translation">Dù trời mưa, anh ấy vẫn không muốn mua ô vì nó quá đắt.</div>
+        <div class="tokens">
+          <span class="token tok-k">LS₁: selvom det regnede</span>
+          <span class="token tok-v">HS: ville han ikke købe</span>
+          <span class="token tok-k">LS₂: fordi den var for dyr</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div
+      style="margin-top:4rem; border-top:2px solid var(--ink); padding-top:1rem; display:flex; justify-content:space-between; align-items:center;">
+      <div
+        style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.4;">
+        Dansk Syntax · 43 Trường hợp cấu trúc
+      </div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;opacity:0.3;">Dansk Grammatik
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Stagger animation by adding delay classes
+    document.querySelectorAll('.card').forEach((card, i) => {
+      card.style.animationDelay = `${i * 0.04}s`;
     });
-  }, { threshold: 0.1 });
 
-  document.querySelectorAll('.card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(16px)';
-    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(card);
-  });
+    // Intersection Observer for scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
 
-  // Search / filter
-  const searchInput = document.createElement('input');
-  searchInput.type = 'text';
-  searchInput.placeholder = 'Lọc cấu trúc câu...';
-  searchInput.style.cssText = `
+    document.querySelectorAll('.card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(16px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(card);
+    });
+
+    // Search / filter
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.placeholder = 'Lọc cấu trúc câu...';
+    searchInput.style.cssText = `
     position: sticky; top: 1rem; z-index: 10;
     width: 100%; padding: 0.6rem 1rem;
     font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem;
@@ -1145,15 +1660,16 @@
     color: var(--ink); outline: none; margin-bottom: 1.5rem;
     letter-spacing: 0.05em;
   `;
-  document.querySelector('.page-wrapper').insertBefore(searchInput, document.querySelector('.legend'));
+    document.querySelector('.page-wrapper').insertBefore(searchInput, document.querySelector('.legend'));
 
-  searchInput.addEventListener('input', () => {
-    const q = searchInput.value.toLowerCase();
-    document.querySelectorAll('.card').forEach(card => {
-      const text = card.innerText.toLowerCase();
-      card.style.display = text.includes(q) ? '' : 'none';
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.toLowerCase();
+      document.querySelectorAll('.card').forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(q) ? '' : 'none';
+      });
     });
-  });
-</script>
+  </script>
 </body>
+
 </html>
