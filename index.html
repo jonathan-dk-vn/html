@@ -1,46 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-const chokidar = require('chokidar');
-
-const TARGET_DIR = path.join(__dirname, 'HTMLS');
-const OUTPUT_FILE = path.join(__dirname, 'index.html');
-
-function getAllHtmlFiles(dirPath, arrayOfFiles = []) {
-    const files = fs.readdirSync(dirPath);
-
-    files.forEach(function(file) {
-        const fullPath = path.join(dirPath, file);
-        if (fs.statSync(fullPath).isDirectory()) {
-            arrayOfFiles = getAllHtmlFiles(fullPath, arrayOfFiles);
-        } else {
-            if (file.endsWith('.html')) {
-                arrayOfFiles.push(path.relative(__dirname, fullPath));
-            }
-        }
-    });
-
-    return arrayOfFiles;
-}
-
-function buildIndex() {
-    if (!fs.existsSync(TARGET_DIR)) {
-        fs.mkdirSync(TARGET_DIR);
-    }
-
-    const files = getAllHtmlFiles(TARGET_DIR);
-
-    const fileTree = files.reduce((acc, filePath) => {
-        const normalizedPath = filePath.replace(/\\/g, '/');
-        const parts = normalizedPath.split('/');
-        const fileName = parts.pop();
-        const folder = parts.length > 1 ? parts.slice(1).join('/') : 'Root';
-        
-        if (!acc[folder]) acc[folder] = [];
-        acc[folder].push({ name: fileName, path: normalizedPath });
-        return acc;
-    }, {});
-
-    const htmlTemplate = `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -150,7 +108,7 @@ function buildIndex() {
     </main>
 
     <script>
-        const fileData = ${JSON.stringify(fileTree)};
+        const fileData = {"dansk":[{"name":"Sơ đồ tư duy CẤU TRÚC CÂU TIẾNG ĐAN MẠCH.html","path":"HTMLS/dansk/Sơ đồ tư duy CẤU TRÚC CÂU TIẾNG ĐAN MẠCH.html"},{"name":"case cấu trúc câu copy.html","path":"HTMLS/dansk/case cấu trúc câu copy.html"},{"name":"case cấu trúc câu.html","path":"HTMLS/dansk/case cấu trúc câu.html"},{"name":"cấu trúc câu.html","path":"HTMLS/dansk/cấu trúc câu.html"},{"name":"cụm giới từ.html","path":"HTMLS/dansk/cụm giới từ.html"},{"name":"danish-vocabulary.html","path":"HTMLS/dansk/danish-vocabulary.html"},{"name":"du3mol3part2 speaking.html","path":"HTMLS/dansk/du3mol3part2 speaking.html"},{"name":"gemini-code-1779004614582.html","path":"HTMLS/dansk/gemini-code-1779004614582.html"}],"dansk/du33":[{"name":"a.html","path":"HTMLS/dansk/du33/a.html"},{"name":"b.html","path":"HTMLS/dansk/du33/b.html"},{"name":"c.html","path":"HTMLS/dansk/du33/c.html"}],"dansk/du33/nói":[{"name":"công việc.html","path":"HTMLS/dansk/du33/nói/công việc.html"},{"name":"ngôn ngữ.html","path":"HTMLS/dansk/du33/nói/ngôn ngữ.html"}],"dansk/du33/viết":[{"name":"viết.html","path":"HTMLS/dansk/du33/viết/viết.html"}],"dansk/ngữ pháp":[{"name":"3_grammatiktillaeg.html","path":"HTMLS/dansk/ngữ pháp/3_grammatiktillaeg.html"},{"name":"8 ORDSTILLING (syntaks) đáp án.html","path":"HTMLS/dansk/ngữ pháp/8 ORDSTILLING (syntaks) đáp án.html"}]};
         let currentFolder = Object.keys(fileData)[0] || null;
 
         function init() {
@@ -225,16 +183,4 @@ function buildIndex() {
         init();
     </script>
 </body>
-</html>`;
-
-    fs.writeFileSync(OUTPUT_FILE, htmlTemplate);
-    console.log(`[${new Date().toLocaleTimeString()}] ✅ Đã nâng cấp UI: Click mở trực tiếp URL tab mới`);
-}
-
-buildIndex();
-
-console.log('👀 Đang theo dõi mọi thay đổi trong thư mục HTMLS (Direct Link Mode)...');
-chokidar.watch(TARGET_DIR, { ignored: /(^|[\/\\])\../, persistent: true })
-    .on('add', () => buildIndex())
-    .on('unlink', () => buildIndex())
-    .on('change', () => buildIndex());
+</html>
