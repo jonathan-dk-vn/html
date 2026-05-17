@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khám Phá Cụm Giới Từ Đan Mạch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 300px; max-height: 400px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+        body { background-color: #FAFAFA; color: #333333; }
+        .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.15); }
+        .tab-active { background-color: #D97757; color: white; border-color: #D97757; }
+        .tab-inactive { background-color: white; color: #666666; border-color: #EAEAEA; }
+        .tab-inactive:hover { background-color: #F5F5F5; }
+        .flashcard-inner { transition: transform 0.6s; transform-style: preserve-3d; }
+        .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+        .flashcard-front, .flashcard-back { backface-visibility: hidden; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .flashcard-back { transform: rotateY(180deg); }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-[#D97757] selection:text-white">
+
+    <!-- Chosen Palette: Warm Minimalist (Background: #FAFAFA, Accent: #D97757, Text: #333333, Surface: #FFFFFF) -->
+    <!-- Application Structure Plan: The SPA is structured into three main interactive zones to maximize learning efficiency. 1. 'Tổng Quan' (Overview) acts as a dashboard with a Chart.js doughnut chart to visualize the distribution of prepositions, helping users grasp the scope of the data. 2. 'Từ Điển Khám Phá' (Discovery Dictionary) provides a powerful grid interface with dynamic category filtering and keyword search, allowing non-linear exploration of the 400 phrases based on the user's specific needs. 3. 'Thẻ Ghi Nhớ' (Flashcards) introduces active recall, a core learning mechanism, by randomizing phrases and hiding the preposition until revealed. This architecture shifts the experience from passive reading of a long list to an active, gamified learning tool. -->
+    <!-- Visualization & Content Choices: Data Info -> Goal -> Method -> Interaction -> Justification. 1. Phrase Distribution -> Goal: Inform/Organize -> Method: Chart.js Doughnut Chart -> Interaction: Hover tooltips -> Justification: Shows relative frequency of each preposition group, avoiding SVG. 2. 400 Phrases -> Goal: Explore/Search -> Method: Dynamic Grid with Filter/Search -> Interaction: Type to search, click tabs to filter -> Justification: Makes a massive list digestible. 3. Active Learning -> Goal: Memorization -> Method: CSS 3D Flip Card (Vanilla JS logic) -> Interaction: Click to flip/reveal -> Justification: Gamifies the learning process without external complex libraries. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🇩🇰</span>
+                    <span class="font-bold text-xl tracking-tight text-slate-800">Dansk<span class="text-[#D97757]">Prep</span></span>
+                </div>
+                <div class="flex gap-4 text-sm font-medium">
+                    <button onclick="switchView('dashboard')" id="nav-dashboard" class="text-[#D97757] hover:text-[#D97757] transition-colors">📊 Tổng Quan</button>
+                    <button onclick="switchView('dictionary')" id="nav-dictionary" class="text-gray-500 hover:text-[#D97757] transition-colors">🔍 Từ Điển</button>
+                    <button onclick="switchView('flashcard')" id="nav-flashcard" class="text-gray-500 hover:text-[#D97757] transition-colors">💡 Luyện Tập</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <section id="view-dashboard" class="space-y-8 block">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <h1 class="text-3xl font-bold mb-4">Tổng Quan Phân Bổ Giới Từ</h1>
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    Phần này cung cấp cái nhìn toàn cảnh về bộ dữ liệu 400 cụm giới từ tiếng Đan Mạch. Biểu đồ phân bổ dưới đây giúp bạn trực quan hóa mức độ phổ biến và số lượng cấu trúc liên quan đến từng nhóm giới từ chính (như AF, FOR, I, MED...). Bằng cách nhấp vào các phần của biểu đồ hoặc sử dụng các thống kê nhanh, bạn có thể hiểu rõ trọng tâm của tài liệu trước khi đi sâu vào tra cứu chi tiết.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-orange-50 p-6 rounded-xl border border-orange-100 flex flex-col justify-center items-center text-center">
+                        <span class="text-4xl mb-2">📚</span>
+                        <h3 class="text-3xl font-bold text-[#D97757]" id="stat-total">0</h3>
+                        <p class="text-sm text-gray-600 uppercase tracking-wide font-semibold mt-1">Tổng Số Cụm Từ</p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100 flex flex-col justify-center items-center text-center">
+                        <span class="text-4xl mb-2">🗂️</span>
+                        <h3 class="text-3xl font-bold text-blue-600" id="stat-groups">0</h3>
+                        <p class="text-sm text-gray-600 uppercase tracking-wide font-semibold mt-1">Nhóm Giới Từ</p>
+                    </div>
+                    <div class="bg-emerald-50 p-6 rounded-xl border border-emerald-100 flex flex-col justify-center items-center text-center">
+                        <span class="text-4xl mb-2">🎯</span>
+                        <h3 class="text-3xl font-bold text-emerald-600" id="stat-top">AF</h3>
+                        <p class="text-sm text-gray-600 uppercase tracking-wide font-semibold mt-1">Nhóm Phổ Biến Nhất</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl border border-gray-100">
+                    <h2 class="text-xl font-bold text-center mb-6">Tỷ Trọng Các Nhóm Giới Từ</h2>
+                    <div class="chart-container">
+                        <canvas id="distributionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button onclick="switchView('dictionary')" class="bg-[#D97757] hover:bg-[#c26446] text-white px-8 py-3 rounded-full font-bold shadow-lg transition-transform hover:scale-105">
+                    Bắt Đầu Tra Cứu Ngay ➔
+                </button>
+            </div>
+        </section>
+
+        <section id="view-dictionary" class="space-y-6 hidden">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                <h1 class="text-3xl font-bold mb-4">Từ Điển Khám Phá</h1>
+                <p class="text-gray-600 leading-relaxed">
+                    Khu vực này cho phép bạn tra cứu nhanh chóng và lọc dữ liệu theo nhu cầu. Nhập từ khóa cốt lõi (từ được in đậm) vào thanh tìm kiếm hoặc chọn trực tiếp các thẻ giới từ để khoanh vùng kết quả. Mục đích của phần này là biến danh sách dài thành một công cụ tìm kiếm động, giúp bạn dễ dàng đối chiếu và học thuộc các cụm từ trong ngữ cảnh cụ thể.
+                </p>
+            </div>
+
+            <div class="sticky top-16 z-40 bg-[#FAFAFA] py-4 space-y-4">
+                <div class="relative max-w-2xl mx-auto">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-xl">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm theo từ khóa chính (vd: kendskab, bange...)" 
+                           class="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D97757] focus:border-transparent shadow-sm text-lg">
+                </div>
+                
+                <div id="filterTabs" class="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center px-2">
+                <p class="text-gray-500 font-medium">Hiển thị <span id="resultCount" class="text-[#D97757] font-bold">0</span> kết quả</p>
+                <button onclick="resetFilters()" class="text-sm text-gray-500 hover:text-red-500 underline">✖ Xóa bộ lọc</button>
+            </div>
+
+            <div id="dictionaryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </div>
+        </section>
+
+        <section id="view-flashcard" class="space-y-6 hidden min-h-[70vh] flex flex-col items-center justify-center">
+            <div class="max-w-2xl text-center mb-8">
+                <h1 class="text-3xl font-bold mb-4">Luyện Tập Ghi Nhớ Chủ Động</h1>
+                <p class="text-gray-600 leading-relaxed">
+                    Phương pháp học hiệu quả nhất không phải là đọc thụ động, mà là tự kiểm tra. Phần này trích xuất ngẫu nhiên các cụm từ từ báo cáo gốc và ẩn đi giới từ. Hãy đọc câu, tự đoán giới từ trong đầu, sau đó nhấp vào thẻ để lật và xem đáp án. Điều này củng cố trí nhớ dài hạn của bạn đối với các cấu trúc khó.
+                </p>
+            </div>
+
+            <div class="w-full max-w-lg perspective-1000" style="perspective: 1000px;">
+                <div id="flashcardElement" class="flashcard relative w-full h-64 cursor-pointer card-hover" onclick="flipCard()">
+                    <div class="flashcard-inner relative w-full h-full text-center shadow-lg rounded-2xl border border-gray-200">
+                        
+                        <div class="flashcard-front bg-white rounded-2xl p-8 flex flex-col justify-center items-center">
+                            <span class="text-4xl mb-4">🤔</span>
+                            <p class="text-sm text-gray-400 uppercase tracking-widest font-bold mb-2" id="fc-group-hint">NHÓM: ?</p>
+                            <h2 class="text-2xl font-medium text-slate-800" id="fc-question">Tải dữ liệu...</h2>
+                            <p class="text-sm text-[#D97757] mt-8 font-medium animate-pulse">Nhấp để xem đáp án ⤾</p>
+                        </div>
+                        
+                        <div class="flashcard-back bg-[#D97757] text-white rounded-2xl p-8 flex flex-col justify-center items-center">
+                            <span class="text-4xl mb-4">✨</span>
+                            <h2 class="text-3xl font-bold mb-4" id="fc-answer">Đáp án</h2>
+                            <p class="text-orange-100 text-sm italic" id="fc-notes"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-4 mt-8">
+                <button onclick="nextFlashcard()" class="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-full font-bold shadow-md transition-colors">
+                    Chuyển Câu Khác ➔
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const rawMarkdownData = `
+# Gruppe 1 (1–50): Fokus på AF
+at have **kendskab** af (sjældent, oftest til)
+at **dø** af (sygdom)
+at være **bange** af natur
+at være **træt** af
+at være **forvirret** af
+at **lide** af (sygdom)
+at blive **syg** af stress
+at have dårlig **samvittighed** af (sjældent, oftest over)
+at være **mærket** af
+at være **lavet** af
+at være **præget** af
+at være **uafhængig** af
+at blive **glad** af
+at være **hæmmet** af
+at **leve** af (en indkomst)
+at være **stolt** af
+at **skrive** af
+at være **kendt** af
+at **bestå** af
+at være **bleg** af skræk
+at have fået **nok** af
+at have **lært** af
+at være **motiveret** af
+at være et **produkt** af
+at være **dækket** af
+at være **fri** af
+at være en **del** af
+at blive **rørt** af
+at have **glæde** af
+at være **tømt** af
+at være **udmattet** af
+at være **overrasket** af (sjældent, oftest over)
+at være **skyldig** af
+at være **uvidende** af (sjældent, oftest om)
+at **holde** af
+at have **magt** af (sjældent, oftest til)
+at være **ramt** af (lyn)
+at være **borte** af syne
+at være **udgået** af
+at være **valgt** af
+at få **hjælp** af
+at være **inspireret** af
+at blive **påvirket** af
+at være **drevet** af
+at have **bevis** af (sjældent, oftest på)
+at være **begrænset** af
+at have et **synspunkt** af (sjældent, oftest på)
+at være **berøvet** af
+at have en **forståelse** af (sjældent, oftest for)
+at få **nok** af (noget)
+
+# Gruppe 2 (51–100): Fokus på FOR
+at have **brug** for
+at sige **tak** for
+at være **bange** for
+at være **god** for
+at **betale** for
+at **interessere** sig for
+at **stemme** for
+at have **forståelse** for
+at **ønske** for (nogen)
+at **kæmpe** for
+at være **kendt** for
+at være **ked** for (nogen)
+at **frygte** for
+at gøre noget for **sjov**
+at have **ansvar** for
+at have **respekt** for
+at **stå** inde for
+at være **berømt** for
+at være til **stede** for
+at have et **motiv** for
+at være **rigtig** for (mig)
+at **bede** for (nogen)
+at være et **offer** for
+at være **garant** for
+at have et **behov** for
+at **advare** for (sjældent, oftest imod)
+at **stå** for (organisere)
+at **handle** for (penge)
+at være **dårlig** for (helbredet)
+at være **årsag** til (sjældent, oftest til)
+at have en **undskyldning** for
+at have et **valg** for (sjældent, oftest mellem)
+at være **taknemmelig** for
+at have **sans** for
+at være **blind** for
+at være **døv** for
+at være **åben** for (idéer)
+at være **modtagelig** for
+at være **klar** for (sjældent, oftest til)
+at have **tid** for (sjældent, oftest til)
+at være **afgørende** for
+at være **vigtigt** for
+at have et **ry** for
+at **glemme** for (sjældent, oftest at)
+at have en **passion** for
+at være **ivrig** for (sjældent, oftest efter)
+at være **typisk** for
+at have et **formål** for (sjældent, oftest med)
+at være **tilgivende** for
+at være **heldig** for (sjældent, oftest med)
+
+# Gruppe 3 (101–150): Fokus på I
+at være **interesseret** i
+at have **ondt** i
+at **bo** i
+at være i godt **humør**
+at være i dårligt **selskab**
+at falde i **søvn**
+at sætte i **gang**
+at have **travlt** i
+at være i **tvivl**
+at være i **stand** til
+at være i **gang** med
+at **arbejde** i
+at have **styrke** i
+at have **succes** i
+at være **forelsket** i
+at have en **fordel** i
+at være i **vanskeligheder**
+at være i **live**
+at være i **kontakt** med
+at have **held** i spil
+at have **ret** i
+at handle i **panik**
+at være i **centrum**
+at være i **fare**
+at have **tillid** i (sjældent, oftest til)
+at være i **alvor**
+at være i den **grad**
+at være i **besiddelse** af
+at være i **modvind**
+at have et **kig** i (sjældent, oftest på)
+at være i **balance**
+at være i **form**
+at være i **krise**
+at være i en **situation**
+at sætte i **relation** til
+at have en **rolle** i
+at have et **ansvar** i
+at have en **tro** i (sjældent, oftest på)
+at være **god** i (sjældent, oftest til)
+at **befinde** sig i
+at **deltage** i
+at være **dygtig** i (sjældent, oftest til)
+at være i **dagslys**
+at være i **mørke**
+at være i **bevægelse**
+at have en **indflydelse** i (sjældent, oftest på)
+at have en **interesse** i
+at være **involveret** i
+at være **engageret** i
+at have en **plads** i
+
+# Gruppe 4 (151–200): Fokus på MED
+at være **færdig** med
+at **vente** med
+at være **tilfreds** med
+at være **enig** med
+at have et **problem** med
+at **tale** med
+at **hjælpe** med
+at **begynde** med
+at **udtrykke** sig med
+at være **vild** med
+at være **gift** med
+at have **tålmodighed** med
+at have **vanskeligheder** med
+at være **uenig** med (person)
+at have **succes** med
+at være **venner** med
+at være **forenet** med
+at **handle** med
+at **kæmpe** med
+at være **forbundet** med
+at have en **relation** med
+at have et **forhold** med
+at være **sur** med (sjældent, oftest på)
+at være **ligeglad** med
+at have **travl** med
+at gøre **grin** med
+at **følges** med
+at være i **kontakt** med
+at være i **gang** med
+at have **let** med (sjældent, oftest ved)
+at have det **godt** med (nogen)
+at have det **sjovt** med
+at være **generøs** med
+at være **forsigtig** med
+at have **held** med
+at være **opmærksom** med (sjældent, oftest på)
+at have et **mål** med
+at være **kompliceret** med (sjældent)
+at have en **aftale** med
+at være **uheldig** med
+at være **sammen** med
+at **få** med
+at **bytte** med
+at være **bekendt** med
+at være **bevidst** med (sjældent, oftest om)
+at være **fyldt** med
+at være **beriget** med
+at have **tillid** med (sjældent, oftest til)
+at have **problemer** med
+at have **ret** med (sjældent, oftest i)
+
+# Gruppe 5 (201–250): Fokus på OM
+at **bede** om
+at **fortælle** om
+at **drømme** om
+at **snakke** om
+at **bekymre** sig om
+at **spørge** om
+at **handle** om
+at **vide** om
+at **rådføre** sig om
+at have et **håb** om
+at have **mistanke** om
+at **skændes** om
+at være **enige** om (sag)
+at være **uenige** om (sag)
+at have en **mening** om
+at **diskutere** om
+at få **besked** om
+at have **viden** om
+at **kæmpe** om (noget)
+at være i **tvivl** om
+at være **sikker** om (sjældent, oftest på)
+at **tænke** om (sjældent, oftest på/over)
+at **handle** om livet
+at være et **tegn** om (sjældent, oftest på)
+at **undre** sig om (sjældent, oftest over)
+at have en **idé** om
+at have en **forestilling** om
+at være **afhængig** om (sjældent, oftest af)
+at have et **ansvar** om (sjældent, oftest for)
+at være **ligeglad** om (sjældent, oftest med)
+at have et **rygte** om
+at blive **enig** om
+at være **centreret** om
+at være **baseret** om (sjældent, oftest på)
+at have en **diskussion** om
+at have en **tvist** om
+at være **forbavset** om (sjældent, oftest over)
+at have en **viden** om
+at være **bevidst** om
+at have et **kendskab** om (sjældent, oftest til)
+at være **uvidende** om
+at have et **kig** om (sjældent, oftest på)
+at være **ked** om (sjældent, oftest af/over/for)
+at være **opmærksom** om (sjældent, oftest på)
+at have et **ønske** om
+at have **magt** om (sjældent, oftest til)
+at være **bange** om (sjældent, oftest for)
+at have en **følelse** om (sjældent, oftest af)
+at have en **tvivl** om
+at være **overbevist** om
+
+# Gruppe 6 (251–300): Fokus på PÅ
+at **vente** på
+at **tænke** på
+at **svare** på
+at **tro** på
+at være **jaloux** på
+at **se** på
+at **passe** på
+at **håbe** på
+at **huske** på
+at være **sur** på (person)
+at være **baseret** på
+at **skåle** på
+at **bygge** på
+at have **indflydelse** på
+at have en **virkning** på
+at **fokusere** på
+at sætte **pris** på
+at have en **effekt** på
+at være **usikker** på
+at have et **syn** på
+at have et **blik** på
+at være **sikker** på
+at være **opmærksom** på
+at have **fokus** på
+at være **god** på (sjældent, oftest til)
+at have et **svar** på
+at have en **effekt** på
+at lægge **vægt** på
+at være **afhængig** på (sjældent, oftest af)
+at være **kritisk** på (sjældent, oftest over for)
+at have en **holdning** på (sjældent, oftest til)
+at have et **kig** på
+at være på **vej**
+at være på **toppen**
+at være på **arbejde**
+at være på **ferie**
+at have en **ret** på (sjældent, oftest til)
+at have en **tilladelse** på (sjældent, oftest til)
+at være **heldig** på (sjældent, oftest med)
+at have en **reaktion** på
+at være **koncentreret** på
+at være **enig** på (sjældent, oftest med)
+at være et **eksempel** på
+at **pege** på
+at have et **bevis** på
+at have et **tegn** på
+at sætte **lys** på
+at være **baseret** på fakta
+at have et **øje** på
+at **lytte** på (sjældent, oftest til)
+
+# Gruppe 7 (301–350): Fokus på TIL
+at have **råd** til
+at have **tid** til
+at være **nødt** til
+at **glæde** sig til
+at have **lyst** til
+at være **vant** til
+at vende **tilbage** til
+at **sige** til (nogen)
+at have **ret** til
+at få **lov** til
+at **passe** til
+at have et **ønske** til
+at have **tillid** til
+at være i **stand** til
+at være **god** til
+at have et **mål** til
+at **henvende** sig til
+at være **villig** til
+at **forberede** sig til
+at have **adgang** til
+at have **evner** til
+at **føre** til
+at **give** til
+at være **klar** til
+at være **bundet** til
+at have **kendskab** til
+at have en **holdning** til
+at have en **relation** til
+at have et **forhold** til
+at have en **konsekvens** til (sjældent, oftest for)
+at være et **bidrag** til
+at være en **trussel** til (sjældent, oftest imod)
+at være **dedikeret** til
+at være **loyal** til
+at have et **incitament** til
+at have en **udfordring** til (sjældent, oftest i)
+at have et **behov** til (sjældent, oftest for)
+at have en **tendens** til
+at være **imødekommende** til (sjældent, oftest over for)
+at stille **krav** til
+at have en **invitation** til
+at have **mod** til
+at sige **nej** til
+at være **berettiget** til
+at have en **guide** til
+at have en **løsning** til (sjældent, oftest på)
+at have et **ønske** til
+at have en **tilbøjelighed** til
+at have en **reaktion** til (sjældent, oftest på)
+at være i **besiddelse** til (sjældent, oftest af)
+
+# Gruppe 8 (351–400): Fokus på OVER, AD, FRA, HOS, VED, osv.
+at være **skuffet** over
+at **tænke** over
+at have **kontrol** over
+at **herske** over
+at **råde** over
+at **grine** over (situation)
+at være **ked** over
+at **klage** over
+at være **urolig** over
+at **undre** sig over
+at **glæde** sig over
+at **se** over (en periode)
+at **grine** ad (nogen)
+at **råbe** ad (nogen)
+at have **ondt** ved (nogen)
+at **holde** af
+at **holde** ved (tradition)
+at **søge** efter
+at **høre** fra
+at **vente** fra (sjældent, oftest på)
+at **stamme** fra
+at have **fri** fra
+at have en **fordel** frem for
+at være under **kontrol**
+at være under **pres**
+at være under **indflydelse** af
+at være ved **siden** af (nogen/noget)
+at være ved **bevidsthed**
+at være ved godt **helbred**
+at **arbejde** hos (en virksomhed)
+at **bo** hos (nogen)
+at **handle** imod
+at være **imod**
+at **advare** imod
+at have en **holdning** imod
+at være **kritisk** over for
+at være **venlig** over for
+at være **åben** over for
+at være **uden** for
+at være uden **tvivl**
+at være **inden** for
+at være **bag** ved
+at være **ved** at (gøre noget)
+at være **overrasket** over
+at **tale** over sig
+at være **sur** over (sjældent, oftest på)
+at have **magt** over
+at have **kontrol** over
+at have en **diskussion** over (sjældent, oftest om)
+at være **tilfreds** over (sjældent, oftest med)
+`;
+
+        let dictionaryData = [];
+        let groupDistribution = {};
+        let currentFilter = 'ALL';
+        let currentChart = null;
+
+        function initApp() {
+            parseData();
+            updateDashboardStats();
+            initChart();
+            buildFilterTabs();
+            renderDictionary(dictionaryData);
+            setupSearch();
+            nextFlashcard();
+        }
+
+        function parseData() {
+            const lines = rawMarkdownData.split('\n');
+            let currentGroupTitle = '';
+            let currentPrepTarget = '';
+
+            for (let line of lines) {
+                line = line.trim();
+                if (!line) continue;
+
+                if (line.startsWith('#')) {
+                    currentGroupTitle = line.replace('# ', '').trim();
+                    const prepMatch = currentGroupTitle.match(/Fokus på (.*)$/);
+                    if (prepMatch) {
+                        currentPrepTarget = prepMatch[1].trim();
+                        if (currentPrepTarget.includes(',')) {
+                            currentPrepTarget = 'ANDRE';
+                        }
+                    }
+                    if (!groupDistribution[currentPrepTarget]) {
+                        groupDistribution[currentPrepTarget] = 0;
+                    }
+                } else if (line.startsWith('at ')) {
+                    const originalText = line;
+                    
+                    const keywordMatch = line.match(/\*\*(.*?)\*\*/);
+                    const keyword = keywordMatch ? keywordMatch[1] : '';
+                    
+                    const notesMatch = line.match(/\((.*?)\)/);
+                    const notes = notesMatch ? notesMatch[1] : '';
+
+                    let cleanText = line.replace(/\*\*(.*?)\*\*/g, '$1');
+                    let textWithoutNotes = cleanText.replace(/\(.*?\)/g, '').trim();
+
+                    const words = textWithoutNotes.split(' ');
+                    let expectedPrep = currentPrepTarget;
+                    
+                    if(currentPrepTarget === 'ANDRE') {
+                         const potentialPreps = ['over', 'ad', 'fra', 'hos', 'ved', 'efter', 'imod', 'for', 'af'];
+                         for(let p of potentialPreps) {
+                             if(words.includes(p)) {
+                                 expectedPrep = p.toUpperCase();
+                                 break;
+                             }
+                         }
+                    }
+
+                    const parts = textWithoutNotes.split(new RegExp(`\\b${expectedPrep.toLowerCase()}\\b`, 'i'));
+                    const phraseBeforePrep = parts[0] ? parts[0].trim() : textWithoutNotes;
+                    const phraseAfterPrep = parts.length > 1 ? parts.slice(1).join(expectedPrep.toLowerCase()).trim() : '';
+
+                    groupDistribution[currentPrepTarget]++;
+
+                    dictionaryData.push({
+                        group: currentPrepTarget,
+                        groupTitle: currentGroupTitle,
+                        original: originalText,
+                        cleanText: cleanText,
+                        keyword: keyword,
+                        notes: notes,
+                        textWithoutNotes: textWithoutNotes,
+                        prep: expectedPrep.toLowerCase(),
+                        beforePrep: phraseBeforePrep,
+                        afterPrep: phraseAfterPrep
+                    });
+                }
+            }
+        }
+
+        function updateDashboardStats() {
+            document.getElementById('stat-total').innerText = dictionaryData.length;
+            const groupsCount = Object.keys(groupDistribution).length;
+            document.getElementById('stat-groups').innerText = groupsCount;
+            
+            let maxCount = 0;
+            let topGroup = '';
+            for(let group in groupDistribution) {
+                if(groupDistribution[group] > maxCount && group !== 'ANDRE') {
+                    maxCount = groupDistribution[group];
+                    topGroup = group;
+                }
+            }
+            document.getElementById('stat-top').innerText = topGroup;
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('distributionChart').getContext('2d');
+            const labels = Object.keys(groupDistribution);
+            const data = Object.values(groupDistribution);
+            
+            const backgroundColors = [
+                '#D97757', '#4A90E2', '#50E3C2', '#F5A623', '#9013FE', '#B8E986', '#4A4A4A', '#F8E71C'
+            ];
+
+            currentChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: backgroundColors,
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { position: 'right' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ' ' + context.label + ': ' + context.raw + ' cụm từ';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function buildFilterTabs() {
+            const container = document.getElementById('filterTabs');
+            const groups = Object.keys(groupDistribution).sort();
+            groups.unshift('ALL');
+
+            groups.forEach(group => {
+                const btn = document.createElement('button');
+                btn.innerText = group === 'ALL' ? 'Tất cả' : group;
+                btn.className = `px-5 py-2 rounded-full font-bold text-sm transition-colors border ${group === 'ALL' ? 'tab-active' : 'tab-inactive'}`;
+                btn.onclick = () => applyFilter(group, btn);
+                container.appendChild(btn);
+            });
+        }
+
+        function applyFilter(group, btnElement) {
+            currentFilter = group;
+            
+            const buttons = document.getElementById('filterTabs').children;
+            for(let btn of buttons) {
+                btn.classList.remove('tab-active');
+                btn.classList.add('tab-inactive');
+            }
+            btnElement.classList.remove('tab-inactive');
+            btnElement.classList.add('tab-active');
+
+            filterAndRender();
+        }
+
+        function setupSearch() {
+            const input = document.getElementById('searchInput');
+            input.addEventListener('input', filterAndRender);
+        }
+
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            const allBtn = document.getElementById('filterTabs').firstChild;
+            applyFilter('ALL', allBtn);
+        }
+
+        function filterAndRender() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            const filtered = dictionaryData.filter(item => {
+                const matchesGroup = currentFilter === 'ALL' || item.group === currentFilter;
+                const matchesSearch = item.cleanText.toLowerCase().includes(searchTerm) || item.notes.toLowerCase().includes(searchTerm);
+                return matchesGroup && matchesSearch;
+            });
+
+            renderDictionary(filtered);
+        }
+
+        function renderDictionary(data) {
+            const grid = document.getElementById('dictionaryGrid');
+            grid.innerHTML = '';
+            document.getElementById('resultCount').innerText = data.length;
+
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-6 rounded-xl border border-gray-100 card-hover flex flex-col justify-between';
+                
+                let displayPhrase = item.cleanText;
+                if(item.keyword) {
+                    const regex = new RegExp(`(${item.keyword})`, 'gi');
+                    displayPhrase = displayPhrase.replace(regex, `<span class="text-[#D97757] font-bold bg-orange-50 px-1 rounded">$1</span>`);
+                }
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-xs font-bold bg-gray-100 text-gray-600 px-2 py-1 rounded tracking-widest">${item.group}</span>
+                        </div>
+                        <p class="text-lg text-slate-800 leading-snug font-medium mb-3">${displayPhrase}</p>
+                    </div>
+                    ${item.notes ? `<p class="text-sm text-gray-500 italic mt-auto pt-4 border-t border-gray-50"><span class="mr-1">⚠️</span> ${item.notes}</p>` : '<div class="mt-auto"></div>'}
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function switchView(viewId) {
+            document.getElementById('view-dashboard').classList.add('hidden');
+            document.getElementById('view-dictionary').classList.add('hidden');
+            document.getElementById('view-flashcard').classList.add('hidden');
+            
+            document.getElementById('nav-dashboard').classList.replace('text-[#D97757]', 'text-gray-500');
+            document.getElementById('nav-dictionary').classList.replace('text-[#D97757]', 'text-gray-500');
+            document.getElementById('nav-flashcard').classList.replace('text-[#D97757]', 'text-gray-500');
+            
+            document.getElementById(`view-${viewId}`).classList.remove('hidden');
+            document.getElementById(`nav-${viewId}`).classList.replace('text-gray-500', 'text-[#D97757]');
+        }
+
+        let currentFlashcardItem = null;
+        function nextFlashcard() {
+            const el = document.getElementById('flashcardElement');
+            el.classList.remove('flipped');
+            
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * dictionaryData.length);
+                currentFlashcardItem = dictionaryData[randomIndex];
+                
+                document.getElementById('fc-group-hint').innerText = `NHÓM: ${currentFlashcardItem.group}`;
+                
+                let questionText = currentFlashcardItem.beforePrep;
+                if(currentFlashcardItem.afterPrep) {
+                     questionText += ' ___ ' + currentFlashcardItem.afterPrep;
+                } else {
+                     questionText += ' ___';
+                }
+
+                if(currentFlashcardItem.keyword) {
+                    const regex = new RegExp(`(${currentFlashcardItem.keyword})`, 'gi');
+                    questionText = questionText.replace(regex, `<span class="font-bold text-[#D97757]">$1</span>`);
+                }
+
+                document.getElementById('fc-question').innerHTML = questionText;
+                document.getElementById('fc-answer').innerText = currentFlashcardItem.prep.toUpperCase();
+                
+                const notesEl = document.getElementById('fc-notes');
+                if(currentFlashcardItem.notes) {
+                    notesEl.innerText = `(${currentFlashcardItem.notes})`;
+                } else {
+                    notesEl.innerText = '';
+                }
+            }, 300);
+        }
+
+        function flipCard() {
+            document.getElementById('flashcardElement').classList.toggle('flipped');
+        }
+
+        window.onload = initApp;
+
+    </script>
+</body>
+</html>

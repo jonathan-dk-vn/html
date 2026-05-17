@@ -1,0 +1,304 @@
+public/audio copy
+commit-audio.sh
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Hệ điều hành và các tệp tạm thời
+###################################
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+._*
+*.stackdump
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.download
+*.part
+
+# Môi trường phát triển và IDE
+#################################
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+gen/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Atom
+.atom/
+packages/
+
+# Các tệp build và phụ thuộc
+##############################
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+build/
+dist/
+.npm/
+.node_gyp/
+*.env
+.env.local
+.env.*.local
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+venv/
+env/
+.venv/
+.env/
+*.cfg
+*.log
+instance/
+pip-wheel-metadata/
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask
+instance/
+.webassets-cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Java
+*.class
+*.log
+*.jar
+*.war
+*.ear
+target/
+.gradle/
+build/
+hs_err_pid*
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle
+build/
+# C/C++
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+*.out
+*.a
+*.lib
+*.pch
+*.gch
+*.elf
+*.su
+*.idb
+*.pdb
+*.ilk
+*.exp
+*.map
+*.sbr
+*.bsc
+*.ncb
+
+# Ruby
+.bundle/
+vendor/bundle/
+log/
+tmp/
+.sass-cache/
+capybara-*.html
+.rspec
+Gemfile.lock
+
+# PHP / Composer
+vendor/
+composer.lock
+composer.phar
+app/config/parameters.yml
+app/config/parameters.php
+var/
+logs/
+cache/
+sessions/
+web/bundles/
+web/uploads/
+app/bootstrap.php.cache
+
+# Các tệp cấu hình và bí mật
+################################
+# Không bao giờ commit các tệp chứa thông tin nhạy cảm!
+*.env
+.env
+credentials.*
+secrets.*
+config.ini
+config.json
+*.pem
+*.key
+*.keychain
+*.p12
+*.pfx
+
+# Các tệp nén
+###############
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Các tệp log
+#############
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Các tệp liên quan đến cơ sở dữ liệu
+####################################
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+
+# Các tệp hệ thống và ẩn
+##########################
+.Spotlight-V100
+.Trashes
+.AppleDB
+.FBCIndex
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Các công cụ và thư viện khác
+################################
+# Docker
+.dockerignore
+docker-compose.yml.override
+docker-compose.override.yml
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+# Serverless Framework
+.serverless/
+
+# Các tệp tạm thời của các trình biên dịch
+########################################
+*.aux
+*.lof
+*.log
+*.lol
+*.lot
+*.toc
+*.bbl
+*.blg
+*.idx
+*.ind
+*.ilg
+*.out
+*.synctex.gz
+
+# Tài liệu
+############
+# Bỏ qua các thư mục build của các trình tạo tài liệu như Sphinx, MkDocs, Docusaurus, v.v.
+_build/
+site/
+api/
+
+# Ignore generated HTML data
+public/html-data/
+public/html-data-en/
+scripts/navigationData.generated.jsnode_modules/
+
+public/quintessential-essence/1 Medicin/2025
+public/quintessential-essence/2 Vaccination/2025
+public/quintessential-essence/4 Løbninger/2025
+public/quintessential-essence/5-Scanning/2025
+public/quintessential-essence/6 KPI Alarm

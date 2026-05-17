@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12 Thì Tiếng Anh – Destination B2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Color Palette - Solid colors only, no blurs */
+    --past: #3B6FBF;
+    --past-light: #D6E4FF;
+    --past-mid: #7AAAF5;
+    --present: #2E9E68;
+    --present-light: #C8F0DE;
+    --present-mid: #5EC996;
+    --future: #C86B1A;
+    --future-light: #FFE4C4;
+    --future-mid: #F5A45A;
+    
+    /* Nordic Editorial Theme Base */
+    --ink: #14131C;
+    --paper: #F8F8F6;
+    --surface: #FFFFFF;
+    --surface-alt: #1F1D2B;
+    --muted: #6E6B80;
+    --line: #E2E0DB;
+    --now: #E8344A;
+    --shadow: rgba(20, 19, 28, 0.05);
+    --shadow-hover: rgba(20, 19, 28, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    flex-shrink: 0;
+    background-color: #14131C;
+  }
+
+  /* ── LAYOUT: SIDEBAR + MULTI-COLUMN (Ultrawide Optimized) ── */
+  @media (min-width: 1024px) {
+    body {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+    
+    .hero {
+      flex: 0 0 380px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      text-align: left !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 40px !important;
+      overflow-y: auto;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .hero-sub {
+      margin: 0 0 40px 0 !important;
+    }
+
+    .legend {
+      justify-content: flex-start !important;
+    }
+
+    .page {
+      flex: 1;
+      max-width: none !important;
+      padding: 60px 80px 100px !important;
+      min-width: 0; /* Prevent layout breakage */
+    }
+  }
+
+  /* 3440x1440 Ultrawide Specific Adjustments */
+  @media (min-width: 2560px) {
+    .hero {
+      flex: 0 0 480px;
+      padding: 80px 60px !important;
+    }
+    .hero h1 { font-size: 72px !important; }
+    .page {
+      padding: 80px 120px 120px !important;
+    }
+    .tense-grid {
+      grid-template-columns: repeat(4, 1fr) !important;
+    }
+    .extra-cards {
+      grid-template-columns: repeat(4, 1fr) !important;
+    }
+  }
+
+  /* ── HERO / SIDEBAR ── */
+  .hero {
+    background: var(--ink); /* Solid background, no gradients/blurs */
+    padding: 52px 24px 44px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .hero-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #aaa8c0;
+    border: 1px solid #3a3750;
+    border-radius: 20px;
+    padding: 6px 16px;
+    margin-bottom: 24px;
+  }
+  
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+  
+  .hero h1 em { font-style: normal; color: var(--future-mid); }
+  
+  .hero-sub {
+    color: #aaa8c0;
+    font-size: 15px;
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .leg-btn {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--surface-alt); /* Solid color */
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 30px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #d9d6f0;
+    cursor: pointer;
+    transition: all .2s ease;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .leg-btn:hover, .leg-btn.active { 
+    background: #2A2738; 
+    border-color: rgba(255,255,255,.2); 
+    color: #fff; 
+  }
+  .leg-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+  .leg-dot.past { background: var(--past-mid); }
+  .leg-dot.present { background: var(--present-mid); }
+  .leg-dot.future { background: var(--future-mid); }
+
+  /* ── MAIN TIMELINE AREA ── */
+  .page { 
+    max-width: 960px; 
+    margin: 0 auto; 
+    padding: 48px 20px 80px; 
+  }
+
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .tl-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .tl-label.now { color: var(--now); font-weight: 500; }
+
+  /* Time axis strip */
+  .axis-wrap {
+    position: relative;
+    height: 56px;
+    margin-bottom: 64px;
+  }
+  .axis-line {
+    position: absolute;
+    top: 50%;
+    left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--past) 0%, var(--ink) 50%, var(--future) 100%);
+    transform: translateY(-50%);
+    border-radius: 2px;
+  }
+  .now-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    z-index: 2;
+  }
+  .now-line {
+    width: 2px;
+    height: 48px;
+    background: var(--now);
+    border-radius: 2px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .now-tag {
+    position: absolute;
+    top: calc(50% - 34px);
+    background: var(--now);
+    color: #fff;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .era-past, .era-present, .era-future {
+    position: absolute;
+    bottom: -10px;
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .era-past { left: 8px; color: var(--past); }
+  .era-present { left: 50%; transform: translateX(-50%); color: var(--now); }
+  .era-future { right: 8px; color: var(--future); }
+
+  /* ── SECTION DIVIDER ── */
+  .section-title {
+    display: flex; align-items: center; gap: 16px;
+    margin: 56px 0 32px;
+  }
+  .section-title span {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .section-title .bar {
+    flex: 1;
+    height: 1px;
+  }
+  .section-title.s-past .bar { background: linear-gradient(90deg, var(--past), transparent); }
+  .section-title.s-present .bar { background: linear-gradient(90deg, var(--present), transparent); }
+  .section-title.s-future .bar { background: linear-gradient(90deg, var(--future), transparent); }
+  .section-title.s-past span { color: var(--past); }
+  .section-title.s-present span { color: var(--present); }
+  .section-title.s-future span { color: var(--future); }
+
+  /* ── TENSE CARDS (Multi-column Grid) ── */
+  .tense-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 24px;
+  }
+
+  .tense-card {
+    background: var(--surface);
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+  }
+  .tense-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px var(--shadow-hover);
+  }
+  .card-header {
+    padding: 20px 24px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .card-asp {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .card-vn {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  .card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 900;
+    opacity: .06;
+    line-height: 0.8;
+    flex-shrink: 0;
+  }
+
+  /* Mini timeline inside card */
+  .card-tl {
+    margin: 10px 24px;
+    position: relative;
+    height: 32px;
+  }
+  .card-tl svg { width: 100%; height: 100%; overflow: visible; }
+
+  .card-body {
+    padding: 16px 24px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-formula {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 16px;
+    align-self: flex-start;
+  }
+  .card-uses {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex: 1;
+  }
+  .card-uses li {
+    font-size: 13px;
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+    color: #333;
+  }
+  .card-uses li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+    line-height: .9;
+    font-weight: 700;
+  }
+  .card-ex {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--muted);
+    border-left: 2px solid var(--line);
+    padding-left: 12px;
+    line-height: 1.6;
+    background: #FDFDFD;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .card-signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+  .sig {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    background: var(--line);
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* Color theming per group */
+  .past-card { border-top: 4px solid var(--past); }
+  .past-card .card-asp, .past-card .card-name { color: var(--past); }
+  .past-card .card-formula { background: var(--past-light); color: var(--past); }
+  .past-card .card-uses li::before { color: var(--past); }
+
+  .present-card { border-top: 4px solid var(--present); }
+  .present-card .card-asp, .present-card .card-name { color: var(--present); }
+  .present-card .card-formula { background: var(--present-light); color: var(--present); }
+  .present-card .card-uses li::before { color: var(--present); }
+
+  .future-card { border-top: 4px solid var(--future); }
+  .future-card .card-asp, .future-card .card-name { color: var(--future); }
+  .future-card .card-formula { background: var(--future-light); color: var(--future); }
+  .future-card .card-uses li::before { color: var(--future); }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-block {
+    margin-top: 64px;
+    background: var(--surface);
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow);
+  }
+  .compare-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    padding: 24px 32px 20px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .cmp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .cmp-table th {
+    padding: 14px 20px;
+    text-align: left;
+    background: #F9F9F8;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+  }
+  .cmp-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .cmp-table tr:last-child td { border-bottom: none; }
+  .cmp-table tr:hover td { background: #FCFCFB; }
+  .cmp-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-family: 'DM Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .cmp-badge.past { background: var(--past-light); color: var(--past); }
+  .cmp-badge.present { background: var(--present-light); color: var(--present); }
+  .cmp-badge.future { background: var(--future-light); color: var(--future); }
+
+  /* ── STATIVE SECTION (Solid Dark Theme) ── */
+  .stative-block {
+    margin-top: 64px;
+    background: var(--surface-alt); /* Solid color, no gradient */
+    border-radius: 16px;
+    padding: 40px;
+    color: #d9d6f0;
+  }
+  .stative-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .stative-block p {
+    font-size: 14px;
+    color: #aaa8c0;
+    margin-bottom: 32px;
+    line-height: 1.7;
+    max-width: 800px;
+  }
+  .stative-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .sv-group {
+    background: #2A2738; /* Solid color */
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .sv-group h3 {
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--future-mid);
+    margin-bottom: 12px;
+  }
+  .sv-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .sv-group ul li {
+    font-size: 13px;
+    color: #E2E0DB;
+  }
+  .dual-table {
+    margin-top: 32px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.1);
+  }
+  .dual-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .dual-table th {
+    padding: 12px 20px;
+    background: rgba(0,0,0,.2);
+    color: #aaa8c0;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  .dual-table td {
+    padding: 14px 20px;
+    border-top: 1px solid rgba(255,255,255,.05);
+    color: #E2E0DB;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .dual-table tr:hover td { background: rgba(255,255,255,.02); }
+  .dual-table .verb { color: var(--future-mid); font-weight: 600; }
+
+  /* ── EXTRA STRUCTURES ── */
+  .extra-section {
+    margin-top: 64px;
+  }
+  .extra-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+  }
+  .extra-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px var(--shadow);
+    transition: transform 0.2s;
+  }
+  .extra-card:hover { transform: translateY(-2px); }
+  .extra-card h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--past);
+    margin-bottom: 16px;
+  }
+  .extra-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .extra-card ul li {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #333;
+    padding-left: 16px;
+    position: relative;
+  }
+  .extra-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+    top: 2px;
+    color: var(--past);
+  }
+  .extra-card.used h3 { color: var(--present); }
+  .extra-card.used ul li::before { color: var(--present); }
+  .extra-card.would h3 { color: var(--future); }
+  .extra-card.would ul li::before { color: var(--future); }
+
+  /* ── FOOTER ── */
+  .foot {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 1px;
+    margin-top: 40px;
+  }
+
+  /* ── Filter animation ── */
+  .tense-card.hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-badge">Destination B2 · Grammar Reference</div>
+  <h1>12 Thì Tiếng Anh<br><em>Trên Một Timeline</em></h1>
+  <p class="hero-sub">Toàn bộ kiến thức về thì tiếng Anh từ Destination B2 Units 1–3 — quá khứ, hiện tại, tương lai — trình bày trực quan trên một trang duy nhất.</p>
+  <div class="legend">
+    <button class="leg-btn active" onclick="filter('all')"><span class="leg-dot" style="background:#aaa8c0"></span>Tất cả</button>
+    <button class="leg-btn" onclick="filter('past')"><span class="leg-dot past"></span>Quá khứ</button>
+    <button class="leg-btn" onclick="filter('present')"><span class="leg-dot present"></span>Hiện tại</button>
+    <button class="leg-btn" onclick="filter('future')"><span class="leg-dot future"></span>Tương lai</button>
+  </div>
+</header>
+
+<main class="page">
+
+  <div class="timeline-header">
+    <span class="tl-label past">← Quá khứ</span>
+    <span class="tl-label now">● Hiện tại</span>
+    <span class="tl-label future">Tương lai →</span>
+  </div>
+  <div class="axis-wrap">
+    <div class="axis-line"></div>
+    <div class="now-mark">
+      <div class="now-line"></div>
+      <div class="now-tag">NOW</div>
+    </div>
+    <span class="era-past">Past</span>
+    <span class="era-future">Future</span>
+
+    <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 960 56" preserveAspectRatio="none">
+      <circle cx="10%" cy="28" r="5" fill="#3B6FBF" opacity=".6"/>
+      <circle cx="20%" cy="28" r="5" fill="#3B6FBF" opacity=".6"/>
+      <circle cx="30%" cy="28" r="5" fill="#3B6FBF" opacity=".6"/>
+      <circle cx="40%" cy="28" r="5" fill="#3B6FBF" opacity=".6"/>
+      <circle cx="50%" cy="28" r="7" fill="#E8344A"/>
+      <circle cx="60%" cy="28" r="5" fill="#C86B1A" opacity=".6"/>
+      <circle cx="70%" cy="28" r="5" fill="#C86B1A" opacity=".6"/>
+      <circle cx="80%" cy="28" r="5" fill="#C86B1A" opacity=".6"/>
+      <circle cx="90%" cy="28" r="5" fill="#C86B1A" opacity=".6"/>
+    </svg>
+  </div>
+
+  <div class="section-title s-past">
+    <span>Quá Khứ · Past Tenses</span>
+    <div class="bar"></div>
+  </div>
+  <div class="tense-grid" id="grid-past">
+
+    <div class="tense-card past-card" data-group="past">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-asp">Simple</div>
+          <div class="card-name">Past Simple</div>
+          <div class="card-vn">Quá Khứ Đơn</div>
+        </div>
+        <div class="card-num">1</div>
+      </div>
+      <div class="card-tl">
+        <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2"/>
+          <path d="M308 11L315 14L308 17" fill="#ddd"/>
+          <line x1="200" y1="4" x2="200" y2="24" stroke="#E8344A" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="80" cy="14" r="6" fill="#3B6FBF"/>
+          <text x="80" y="28" text-anchor="middle" font-size="8" fill="#3B6FBF" font-family="DM Mono">past</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-formula">S + V₂ / V-ed</div>
+        <ul class="card-uses">
+          <li>Hành động đã hoàn thành trong quá khứ</li>
+          <li>Thói quen trong quá khứ (không còn nữa)</li>
+          <li>Chuỗi sự kiện trong câu chuyện</li>
+          <li>Sự thật / trạng thái trong quá khứ</li>
+        </ul>
+        <div class="card-ex">"She <strong>visited</strong> Paris last year."<br>"Tom and I <strong>played</strong> chess and he <strong>won</strong>."</div>
+        <div class="card-signals">
+          <span class="sig">yesterday</span><span class="sig">last week</span><span class="sig">ago</span><span class="sig">in 1990</span><span class="sig">when I was young</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tense-card past-card" data-group="past">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-asp">Continuous</div>
+          <div class="card-name">Past Continuous</div>
+          <div class="card-vn">Quá Khứ Tiếp Diễn</div>
+        </div>
+        <div class="card-num">2</div>
+      </div>
+      <div class="card-tl">
+        <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2"/>
+          <path d="M308 11L315 14L308 17" fill="#ddd"/>
+          <line x1="200" y1="4" x2="200" y2="24" stroke="#E8344A" stroke-width="2" stroke-linecap="round"/>
+          <rect x="40" y="9" width="130" height="10" rx="4" fill="#3B6FBF" opacity=".75"/>
+          <circle cx="130" cy="14" r="5" fill="#E8344A" stroke="#fff" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-formula">S + was/were + V-ing</div>
+        <ul class="card-uses">
+          <li>Hành động đang xảy ra tại thời điểm quá khứ</li>
+          <li>Tình huống tạm thời trong quá khứ</li>
+          <li>Bối cảnh của câu chuyện (background)</li>
+          <li>Thói quen khó chịu với <em>always</em></li>
+        </ul>
+        <div class="card-ex">"I <strong>was reading</strong> when he called."<br>"The sun <strong>was shining</strong>. Lise <strong>opened</strong> the window."</div>
+        <div class="card-signals">
+          <span class="sig">at that time</span><span class="sig">while</span><span class="sig">when</span><span class="sig">all day yesterday</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tense-card past-card" data-group="past">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-asp">Perfect</div>
+          <div class="card-name">Past Perfect</div>
+          <div class="card-vn">Quá Khứ Hoàn Thành</div>
+        </div>
+        <div class="card-num">3</div>
+      </div>
+      <div class="card-tl">
+        <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2"/>
+          <path d="M308 11L315 14L308 17" fill="#ddd"/>
+          <line x1="200" y1="4" x2="200" y2="24" stroke="#E8344A" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="50" cy="14" r="5.5" fill="#3B6FBF"/>
+          <line x1="56" y1="14" x2="108" y2="14" stroke="#3B6FBF" stroke-width="1.8"/>
+          <path d="M105 11L111 14L105 17" fill="none" stroke="#3B6FBF" stroke-width="1.8" stroke-linejoin="round"/>
+          <circle cx="115" cy="14" r="5" fill="#1A3F80"/>
+          <text x="50" y="26" text-anchor="middle" font-size="7.5" fill="#3B6FBF" font-family="DM Mono">earlier</text>
+          <text x="115" y="26" text-anchor="middle" font-size="7.5" fill="#1A3F80" font-family="DM Mono">later past</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-formula">S + had + V₃</div>
+        <ul class="card-uses">
+          <li>"Quá khứ của quá khứ" — xảy ra trước một mốc quá khứ khác</li>
+          <li>Trạng thái trước thời điểm quá khứ</li>
+          <li>Kết quả tại thời điểm quá khứ</li>
+        </ul>
+        <div class="card-ex">"She <strong>had left</strong> before he arrived."<br>"I <strong>'d already bought</strong> it when I saw it was cheaper."</div>
+        <div class="card-signals">
+          <span class="sig">before</span><span class="sig">after</span><span class="sig">by the time</span><span class="sig">already</span><span class="sig">just</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tense-card past-card" data-group="past">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-asp">Perfect Continuous</div>
+          <div class="card-name">Past Perfect Continuous</div>
+          <div class="card-vn">Quá Khứ Hoàn Thành Tiếp Diễn</div>
+        </div>
+        <div class="card-num">4</div>
+      </div>
+      <div class="card-tl">
+        <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2"/>
+          <path d="M308 11L315 14L308 17" fill="#ddd"/>
+          <line x1="200" y1="4" x2="200" y2="24" stroke="#E8344A" stroke-width="2" stroke-linecap="round"/>
+          <rect x="30" y="9" width="90" height="10" rx="4" fill="#3B6FBF" opacity=".72"/>
+          <circle cx="120" cy="14" r="5" fill="#1A3F80"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-formula">S + had been + V-ing</div>
+        <ul class="card-uses">
+          <li>Hành động liên tục đến một thời điểm quá khứ</li>
+          <li>Nhấn mạnh quá trình, để lại dấu vết</li>
+        </ul>
+        <div class="card-ex">"She <strong>had been running</strong> for six miles when you saw us."<br>"She <strong>looked</strong> tired because she <strong>had been exercising</strong> all morning."</div>
+        <div class="card-signals">
+          <span class="sig">for</span><span class="sig">all morning</span><span class="sig">before</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-title s-present">
+    <span>Hiện Tại · Present Tenses</span>
+    <div class="bar"></div>
+  </div>
+  <div class="tense-grid" id="grid-present">
+
+    <div class="tense-card present-card" data-group="present">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-asp">Simple</div>
+          <div class="card-name">Present Simple</div>
+          <div class="card-vn">Hiện Tại Đơn</div>
+        </div>
+        <div class="card-num">5</div>
+      </div>
+      <div class="card-tl">
+        <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2"/>
+          <path d="M308 11L315 14L308 17" fill="#ddd"/>
+          <line x1="160" y1="4" x2="160" y2="24" stroke="#E8344A" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="30" cy="14" r="4" fill="#2E9E68" opacity=".35"/>
+          <circle cx="75" cy="14" r="4" fill="#2E9E68" opacity=".6"/>
+          <circle cx="120" cy="14" r="4" fill="#2E9E68" opacity=".9"/>
+          <circle cx="200" cy="14" r="4" fill="#2E9E68" opacity=".9"/>
+          <circle cx="245" cy="14" r="4" fill="#2E9E68" opacity=".6"/>
+          <circle cx="290" cy="14" r="4" fill="#2E9E68" opacity=".35"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-formula">S + V₁ (he/she/it: + s/es)</div>
+        <ul class="card-uses">
+          <li>Thói quen, hành động lặp đi lặp lại</li>
+          <li>Sự thật hiển nhiên, quy luật tự nhiên</li>
+          <li>Trạng thái cố định hiện tại</li>
+          <li>Lịch trình cố định (tương lai)</li>
+        </ul>
+        <div class="card-ex">"She <strong>walks</strong> to school every day."<br>"Poland <strong>is</strong> in the European Union."</div>
+        <div class="card-signals">
+          <span class="sig">always</span><span class="sig">usually</span><span class="sig">often</span><span class="sig">never</span><span class="sig">every day</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tense-card present-card" data-group="present">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-asp">Continuous</div>
+          <div class="card-name">Present Continuous</div>
+          <div class="card-vn">Hiện Tại Tiếp Diễn</div>
+        </div>
+        <div class="card-num">6</div>
+      </div>
+      <div class="card-tl">
+        <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2"/>
+          <path d="M308 11L315 14L308 17" fill="#ddd"/>
+          <line x1="160" y1="4" x2="160" y2="24" stroke="#E8344A" stroke-width="2" stroke-linecap="round"/>
+          <rect x="100" y="9" width="120" height="10" rx="4" fill="#2E9E68" opacity=".72"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-formula">S + am/is/are + V-ing</div>
+        <ul class="card-uses">
+          <li>Hành động đang xảy ra ngay lúc nói</li>
+          <li>Tình huống tạm thời trong giai đoạn hiện tại</li>
+          <li>Xu hướng đang thay đổi</li>
+          <li>Thói quen khó chịu với <em>always</em></li>
+          <li>Kế hoạch đã sắp xếp (tương lai gần)</li>
+        </ul>
+        <div class="card-ex">"She <strong>is studying</strong> right now."<br>"Holidays abroad <strong>are becoming</strong> more popular."</div>
+        <div class="card-signals">
+          <span class="sig">now</span><span class="sig">at the moment</span><span class="sig">currently</span><span class="sig">today</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tense-card present-card" data-group="present">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-asp">Perfect</div>
+          <div class="card-name">Present Perfect</div>
+          <div class="card-vn">Hiện Tại Hoàn Thành</div>
+        </div>
+        <div class="card-num">7</div>
+      </div>
+      <div class="card-tl">
+        <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2"/>
+          <path d="M308 11L315 14L308 17" fill="#ddd"/>
+          <line x1="160" y1="4" x2="160" y2="24" stroke="#E8344A" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="60" cy="14" r="5.5" fill="#3B6FBF"/>
+          <line x1="66" y1="14" x2="150" y2="14" stroke="#3B6FBF" stroke-width="1.8"/>
+          <path d="M148 11L154 14L148 17" fill="none" stroke="#3B6FBF" stroke-width="1.8" stroke-linejoin="round"/>
+          <circle cx="160" cy="14" r="6" fill="#2E9E68"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-formula">S + have/has + V₃</div>
+        <ul class="card-uses">
+          <li>Cầu nối quá khứ–hiện tại (kết quả vẫn còn)</li>
+          <li>Trạng thái bắt đầu từ quá khứ, kéo dài đến hiện tại</li>
+          <li>Kinh nghiệm trong cuộc đời</li>
+          <li>Hành động vừa xong, quan trọng là kết quả</li>
+        </ul>
+        <div class="card-ex">"She <strong>has visited</strong> Paris twice."<br>"I <strong>'ve booked</strong> the tickets." (→ chúng ta có vé!)</div>
+        <div class="card-signals">
+          <span class="sig">already</span><span class="sig">yet</span><span class="sig">just</span><span class="sig">ever</span><span class="sig">never</span><span class="sig">since</span><span class="sig">for</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tense-card present-card" data-group="present">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-asp">Perfect Continuous</div>
+          <div class="card-name">Present Perfect Continuous</div>
+          <div class="card-vn">Hiện Tại Hoàn Thành Tiếp Diễn</div>
+        </div>
+        <div class="card-num">8</div>
+      </div>
+      <div class="card-tl">
+        <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2"/>
+          <path d="M308 11L315 14L308 17" fill="#ddd"/>
+          <line x1="160" y1="4" x2="160" y2="24" stroke="#E8344A" stroke-width="2" stroke-linecap="round"/>
+          <rect x="40" y="9" width="122" height="10" rx="4" fill="#2E9E68" opacity=".72"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-formula">S + have/has been + V-ing</div>
+        <ul class="card-uses">
+          <li>Nhấn mạnh quá trình liên tục từ quá khứ đến hiện tại</li>
+          <li>Hành động vừa dừng, để lại dấu vết / bằng chứng</li>
+          <li>Mệt mỏi sau một quá trình dài</li>
+        </ul>
+        <div class="card-ex">"She <strong>has been studying</strong> all day."<br>"I'm out of breath because I <strong>'ve been running</strong>."</div>
+        <div class="card-signals">
+          <span class="sig">all day</span><span class="sig">for hours</span><span class="sig">since morning</span><span class="sig">just</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-title s-future">
+    <span>Tương Lai · Future Expressions</span>
+    <div class="bar"></div>
+  </div>
+  <div class="tense-grid" id="grid-future">
+
+    <div class="tense-card future-card" data-group="future">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-asp">Simple — Will</div>
+          <div class="card-name">Future Simple</div>
+          <div class="card-vn">Tương Lai Đơn</div>
+        </div>
+        <div class="card-num">9</div>
+      </div>
+      <div class="card-tl">
+        <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2"/>
+          <path d="M308 11L315 14L308 17" fill="#ddd"/>
+          <line x1="110" y1="4" x2="110" y2="24" stroke="#E8344A" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="240" cy="14" r="6" fill="#C86B1A"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-formula">S + will + V₁</div>
+        <ul class="card-uses">
+          <li>Quyết định ngay tại thời điểm nói</li>
+          <li>Lời đề nghị, yêu cầu, hứa hẹn</li>
+          <li>Dự đoán không có bằng chứng</li>
+          <li>Câu điều kiện loại 1 (mệnh đề chính)</li>
+        </ul>
+        <div class="card-ex">"She <strong>will travel</strong> to Tokyo."<br>"<strong>I'll help</strong> you with that, if you like."</div>
+        <div class="card-signals">
+          <span class="sig">probably</span><span class="sig">I think</span><span class="sig">I'm sure</span><span class="sig">maybe</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tense-card future-card" data-group="future">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-asp">Simple — Be Going To</div>
+          <div class="card-name">Be Going To</div>
+          <div class="card-vn">Tương Lai có Kế Hoạch</div>
+        </div>
+        <div class="card-num">10</div>
+      </div>
+      <div class="card-tl">
+        <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2"/>
+          <path d="M308 11L315 14L308 17" fill="#ddd"/>
+          <line x1="110" y1="4" x2="110" y2="24" stroke="#E8344A" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="110" cy="14" r="5" fill="#C86B1A" opacity=".5"/>
+          <circle cx="240" cy="14" r="6" fill="#C86B1A"/>
+          <line x1="115" y1="14" x2="235" y2="14" stroke="#C86B1A" stroke-width="1.2" stroke-dasharray="5 4"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-formula">S + am/is/are going to + V₁</div>
+        <ul class="card-uses">
+          <li>Kế hoạch / ý định đã có từ trước</li>
+          <li>Dự đoán có bằng chứng hiện tại</li>
+        </ul>
+        <div class="card-ex">"I<strong>'m going to be</strong> a famous doctor one day!"<br>"It <strong>sounds</strong> like the plane<strong>'s going to take off</strong> soon."</div>
+        <div class="card-signals">
+          <span class="sig">plan to</span><span class="sig">intend to</span><span class="sig">look at those clouds!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tense-card future-card" data-group="future">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-asp">Continuous</div>
+          <div class="card-name">Future Continuous</div>
+          <div class="card-vn">Tương Lai Tiếp Diễn</div>
+        </div>
+        <div class="card-num">11</div>
+      </div>
+      <div class="card-tl">
+        <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2"/>
+          <path d="M308 11L315 14L308 17" fill="#ddd"/>
+          <line x1="110" y1="4" x2="110" y2="24" stroke="#E8344A" stroke-width="2" stroke-linecap="round"/>
+          <rect x="165" y="9" width="120" height="10" rx="4" fill="#C86B1A" opacity=".72"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-formula">S + will be + V-ing</div>
+        <ul class="card-uses">
+          <li>Hành động đang diễn ra tại thời điểm tương lai</li>
+          <li>Thói quen / xu hướng trong tương lai</li>
+        </ul>
+        <div class="card-ex">"This time next week, I <strong>will be taking</strong> my biology exam."<br>"In the future, we <strong>will all be flying</strong> using jet-packs."</div>
+        <div class="card-signals">
+          <span class="sig">this time tomorrow</span><span class="sig">at 8 pm tonight</span><span class="sig">next week at this time</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tense-card future-card" data-group="future">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-asp">Perfect / Perfect Continuous</div>
+          <div class="card-name">Future Perfect (Continuous)</div>
+          <div class="card-vn">Tương Lai Hoàn Thành</div>
+        </div>
+        <div class="card-num">12</div>
+      </div>
+      <div class="card-tl">
+        <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2"/>
+          <path d="M308 11L315 14L308 17" fill="#ddd"/>
+          <line x1="110" y1="4" x2="110" y2="24" stroke="#E8344A" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="185" cy="14" r="5.5" fill="#C86B1A"/>
+          <line x1="191" y1="14" x2="243" y2="14" stroke="#C86B1A" stroke-width="1.8"/>
+          <path d="M241 11L247 14L241 17" fill="none" stroke="#C86B1A" stroke-width="1.8" stroke-linejoin="round"/>
+          <circle cx="253" cy="14" r="4.5" fill="#888"/>
+          <rect x="152" y="9" width="35" height="10" rx="4" fill="#C86B1A" opacity=".3"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-formula">S + will have + V₃</div>
+        <div style="font-family:'DM Mono',monospace;font-size:12px;font-weight:600;padding:8px 12px;border-radius:8px;display:inline-block;margin-bottom:16px;background:var(--future-light);color:var(--future)">S + will have been + V-ing</div>
+        <ul class="card-uses">
+          <li><strong>Future Perfect:</strong> Hoàn thành trước một thời điểm trong tương lai</li>
+          <li><strong>Future Perfect Continuous:</strong> Nhấn mạnh thời gian liên tục đến mốc tương lai</li>
+        </ul>
+        <div class="card-ex">"I<strong>'ll have finished</strong> by the time you come home."<br>"At 7 PM, I <strong>'ll have been doing</strong> homework for 3 hours!"</div>
+        <div class="card-signals">
+          <span class="sig">by the time</span><span class="sig">by tomorrow</span><span class="sig">by next week</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="compare-block">
+    <h2>📊 Bảng So Sánh Nhanh — 12 Thì</h2>
+    <div style="overflow-x:auto">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Thì</th>
+          <th>Nhóm</th>
+          <th>Công thức</th>
+          <th>Dùng khi nào?</th>
+          <th>Dấu hiệu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>Past Simple</strong></td>
+          <td><span class="cmp-badge past">Past</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">S + V₂</td>
+          <td>Hành động hoàn thành, thói quen quá khứ</td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">yesterday, ago, last…</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>Past Continuous</strong></td>
+          <td><span class="cmp-badge past">Past</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">was/were + V-ing</td>
+          <td>Hành động đang diễn ra / bị gián đoạn</td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">while, at that time</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>Past Perfect</strong></td>
+          <td><span class="cmp-badge past">Past</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">had + V₃</td>
+          <td>Xảy ra trước mốc quá khứ khác</td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">before, by the time, already</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>Past Perfect Continuous</strong></td>
+          <td><span class="cmp-badge past">Past</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">had been + V-ing</td>
+          <td>Quá trình liên tục đến mốc quá khứ</td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">for, all morning, before</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>Present Simple</strong></td>
+          <td><span class="cmp-badge present">Present</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">S + V₁ (s/es)</td>
+          <td>Thói quen, sự thật, trạng thái cố định</td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">always, often, every day</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>Present Continuous</strong></td>
+          <td><span class="cmp-badge present">Present</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">am/is/are + V-ing</td>
+          <td>Hành động đang diễn ra / tạm thời</td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">now, at the moment</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><strong>Present Perfect</strong></td>
+          <td><span class="cmp-badge present">Present</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">have/has + V₃</td>
+          <td>Quá khứ ảnh hưởng hiện tại, kinh nghiệm</td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">already, yet, just, ever, since</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><strong>Present Perfect Continuous</strong></td>
+          <td><span class="cmp-badge present">Present</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">have/has been + V-ing</td>
+          <td>Quá trình liên tục với dấu vết hiện tại</td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">all day, for hours, since</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><strong>Future Simple (will)</strong></td>
+          <td><span class="cmp-badge future">Future</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">will + V₁</td>
+          <td>Quyết định tức thì, lời đề nghị, dự đoán</td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">I think, probably, I'm sure</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><strong>Be Going To</strong></td>
+          <td><span class="cmp-badge future">Future</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">am/is/are going to + V</td>
+          <td>Kế hoạch có sẵn, dự đoán có bằng chứng</td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">plan to, look!, evidence</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><strong>Future Continuous</strong></td>
+          <td><span class="cmp-badge future">Future</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">will be + V-ing</td>
+          <td>Hành động đang xảy ra tại thời điểm tương lai</td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">this time tomorrow, at 8 pm tonight</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><strong>Future Perfect</strong></td>
+          <td><span class="cmp-badge future">Future</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">will have + V₃</td>
+          <td>Hoàn thành trước mốc tương lai</td>
+          <td style="font-family:'DM Mono',monospace;font-size:12px">by the time, by tomorrow</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="stative-block">
+    <h2>⚡ Stative Verbs — Động Từ Trạng Thái</h2>
+    <p>Những động từ này <strong>không dùng với thì Continuous</strong> vì chúng diễn tả trạng thái, không phải hành động. Hỏi: "Có thể nhìn thấy hành động này không?" Nếu KHÔNG → Stative!</p>
+    <div class="stative-grid">
+      <div class="sv-group">
+        <h3>Suy nghĩ</h3>
+        <ul>
+          <li>believe</li><li>know</li><li>mean</li><li>think*</li><li>understand</li><li>imagine</li>
+        </ul>
+      </div>
+      <div class="sv-group">
+        <h3>Cảm xúc</h3>
+        <ul>
+          <li>hate</li><li>like</li><li>love</li><li>need</li><li>prefer</li><li>want</li>
+        </ul>
+      </div>
+      <div class="sv-group">
+        <h3>Giác quan</h3>
+        <ul>
+          <li>hear</li><li>see*</li><li>smell*</li><li>sound</li><li>taste*</li>
+        </ul>
+      </div>
+      <div class="sv-group">
+        <h3>Tồn tại / Ngoại hình</h3>
+        <ul>
+          <li>be</li><li>exist</li><li>appear</li><li>look*</li><li>seem</li><li>resemble</li>
+        </ul>
+      </div>
+      <div class="sv-group">
+        <h3>Sở hữu</h3>
+        <ul>
+          <li>belong to</li><li>consist of</li><li>have*</li><li>include</li><li>own</li>
+        </ul>
+      </div>
+    </div>
+    <div class="dual-table">
+      <table>
+        <thead>
+          <tr><th>Động từ</th><th>Nghĩa Trạng thái (Simple)</th><th>Nghĩa Hành động (Continuous)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="verb">have</td><td>"Do you have your ticket?" (sở hữu)</td><td>"Are you having lunch?" (ăn)</td></tr>
+          <tr><td class="verb">think</td><td>"I think he's right." (quan điểm)</td><td>"I'm thinking about it." (đang suy nghĩ)</td></tr>
+          <tr><td class="verb">see</td><td>"I see what you mean." (hiểu)</td><td>"I'm seeing the doctor." (gặp)</td></tr>
+          <tr><td class="verb">taste</td><td>"This tastes good." (có vị)</td><td>"I'm tasting the soup." (nếm thử)</td></tr>
+          <tr><td class="verb">look</td><td>"She looks tired." (trông có vẻ)</td><td>"I'm looking at you." (nhìn vào)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="extra-section">
+    <div class="section-title s-past">
+      <span>Cấu Trúc Đặc Biệt</span>
+      <div class="bar"></div>
+    </div>
+    <div class="extra-cards">
+
+      <div class="extra-card">
+        <h3>Used To · Would</h3>
+        <ul>
+          <li><em>used to + V</em> → Đã từng (không còn): cả hành động và trạng thái<br><em>"I <strong>used to be</strong> shy."</em></li>
+          <li><em>would + V</em> → Thói quen hoài niệm (chỉ hành động, không dùng trong câu hỏi/phủ định)<br><em>"He <strong>would take</strong> me to the park."</em></li>
+          <li>❌ <em>We would have a house.</em> ✅ <em>We used to have a house.</em></li>
+        </ul>
+      </div>
+
+      <div class="extra-card used">
+        <h3>Be/Get Used To</h3>
+        <ul>
+          <li><em>be used to + V-ing</em> → Đã quen với (trạng thái)<br><em>"I<strong>'m used to waking</strong> up early."</em></li>
+          <li><em>get used to + V-ing</em> → Đang quen dần (quá trình)<br><em>"I<strong>'m getting used to</strong> not smoking."</em></li>
+          <li>⚠️ Sau <em>be/get used to</em> luôn dùng V-ing, không dùng V nguyên mẫu!</li>
+        </ul>
+      </div>
+
+      <div class="extra-card would">
+        <h3>Time Clauses · Mệnh đề thời gian</h3>
+        <ul>
+          <li>Sau <em>when, as soon as, before, after, until, while, once</em> → dùng thì hiện tại (không dùng will) để nói về tương lai</li>
+          <li>✅ <em>"I'll call you <strong>when I arrive</strong>."</em></li>
+          <li>❌ <em>"I'll call you when I <strong>will arrive</strong>."</em></li>
+          <li>Công thức: Main clause (will) + Time clause (present tense)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+
+<script>
+  function filter(group) {
+    // update button state
+    document.querySelectorAll('.leg-btn').forEach(b => b.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
+    document.querySelectorAll('.tense-card').forEach(card => {
+      if (group === 'all' || card.dataset.group === group) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    // show/hide section titles
+    const sections = ['past','present','future'];
+    sections.forEach(s => {
+      const title = document.querySelector('.section-title.s-' + s);
+      const grid = document.getElementById('grid-' + s);
+      if (group === 'all' || group === s) {
+        title.style.display = '';
+        grid.style.display = 'grid'; // Ensure grid restores correctly
+      } else {
+        title.style.display = 'none';
+        grid.style.display = 'none';
+      }
+    });
+  }
+</script>
+</body>
+</html>

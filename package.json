@@ -1,0 +1,24 @@
+{
+  "name": "html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "builder.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathan-dk-vn/html.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jonathan-dk-vn/html/issues"
+  },
+  "homepage": "https://github.com/jonathan-dk-vn/html#readme",
+  "dependencies": {
+    "chokidar": "^5.0.0"
+  }
+}
