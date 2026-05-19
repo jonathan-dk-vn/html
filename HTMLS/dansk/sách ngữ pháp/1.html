@@ -1,0 +1,2377 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chương 1: Substantiver (Danh Từ) — Tiếng Đan Mạch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  /* ──────────────────────────────────────────
+     DESIGN TOKENS
+  ────────────────────────────────────────── */
+  :root {
+    /* Theme A — Blue (Nouns) */
+    --primary:       #3B6FBF;
+    --primary-light: #D6E4FF;
+    --primary-mid:   #7AAAF5;
+    --primary-dark:  #1A3F80;
+
+    /* Neutrals */
+    --success:     #2E9E68;
+    --error:       #E8344A;
+    --ink:         #14131C;
+    --paper:       #F8F8F6;
+    --surface:     #FFFFFF;
+    --surface-alt: #1F1D2B;
+    --muted:       #6E6B80;
+    --line:        #E2E0DB;
+    --shadow:      rgba(20,19,28,.06);
+    --shadow-hover:rgba(59,111,191,.16);
+  }
+
+  /* ──────────────────────────────────────────
+     RESET & BASE
+  ────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ──────────────────────────────────────────
+     LAYOUT
+  ────────────────────────────────────────── */
+  .container {
+    max-width: 3000px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  main { padding-bottom: 5rem; }
+
+  /* ──────────────────────────────────────────
+     TYPOGRAPHY SCALE
+  ────────────────────────────────────────── */
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+
+  p { margin-bottom: 0.75rem; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 600; }
+
+  del { color: var(--error); text-decoration-color: var(--error); opacity: .85; }
+
+  /* ──────────────────────────────────────────
+     HERO / HEADER
+  ────────────────────────────────────────── */
+  .hero {
+    background-color: var(--ink);
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(59,111,191,.35) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 90% 100%, rgba(122,170,245,.15) 0%, transparent 60%);
+    color: #fff;
+    padding: 4.5rem 1.5rem 3.5rem;
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--primary-mid);
+    border: 1px solid rgba(122,170,245,.4);
+    border-radius: 100px;
+    padding: .3rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: .75rem;
+    letter-spacing: -.02em;
+  }
+
+  .hero h1 em {
+    color: var(--primary-mid);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,.55);
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+  .stat-num {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--primary-mid);
+  }
+  .stat-label {
+    font-size: .75rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+  }
+
+  /* ──────────────────────────────────────────
+     SECTION DIVIDER
+  ────────────────────────────────────────── */
+  .section-sep {
+    height: 1px;
+    background: var(--line);
+    margin: 3rem 0;
+  }
+
+  /* ──────────────────────────────────────────
+     OPGAVE BLOCK
+  ────────────────────────────────────────── */
+  .opgave-block {
+    background: var(--surface);
+    border-radius: 12px;
+    box-shadow: 0 2px 16px var(--shadow);
+    margin-bottom: 2.25rem;
+    overflow: hidden;
+    transition: box-shadow .25s ease;
+  }
+  .opgave-block:hover {
+    box-shadow: 0 4px 28px var(--shadow-hover);
+  }
+
+  .op-header {
+    padding: 1.5rem 2rem 1.25rem;
+    border-bottom: 2px solid var(--primary);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .op-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: var(--primary-light);
+    border-radius: 6px;
+    padding: .25rem .6rem;
+    white-space: nowrap;
+    margin-top: .35rem;
+    flex-shrink: 0;
+  }
+
+  .op-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  /* Content grid */
+  .op-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 0;
+  }
+
+  @media (max-width: 768px) {
+    .op-content { grid-template-columns: 1fr; }
+  }
+
+  /* Left — answers */
+  .op-answers {
+    background: #FAFAFA;
+    border-right: 1px solid var(--line);
+    padding: 1.5rem 1.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .op-answers { border-right: none; border-bottom: 1px solid var(--line); }
+  }
+
+  .op-answers h3, .op-explanation h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: .85rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  .op-answers h3::before {
+    content: '✦';
+    color: var(--primary);
+    font-size: .7rem;
+  }
+
+  .op-answers ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .op-answers ul li {
+    padding: .22rem 0 .22rem 1.4rem;
+    position: relative;
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+
+  .op-answers ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.35;
+  }
+
+  /* Right — explanation */
+  .op-explanation {
+    background: var(--surface);
+    padding: 1.5rem 1.75rem;
+  }
+
+  .op-explanation h3::before {
+    content: '◈';
+    color: var(--primary-mid);
+    font-size: .85rem;
+  }
+
+  /* Timeline marker for secondary headings inside explanation */
+  .op-explanation .sub-heading {
+    font-size: .85rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 1rem 0 .35rem;
+    padding-left: .85rem;
+    border-left: 3px solid var(--primary-mid);
+  }
+
+  /* ──────────────────────────────────────────
+     QUOTE BOX
+  ────────────────────────────────────────── */
+  .quote-box {
+    border-left: 4px solid var(--primary);
+    background: var(--primary-light);
+    border-radius: 0 8px 8px 0;
+    padding: .85rem 1.1rem;
+    margin: .75rem 0;
+    font-style: italic;
+    font-size: .9rem;
+    color: var(--primary-dark);
+    line-height: 1.65;
+  }
+
+  /* ──────────────────────────────────────────
+     TABLES
+  ────────────────────────────────────────── */
+  .data-table-wrap {
+    overflow-x: auto;
+    margin: .75rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .88rem;
+  }
+
+  .data-table thead tr {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .data-table thead th {
+    padding: .65rem 1rem;
+    text-align: left;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    font-size: .75rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  .data-table tbody tr:nth-child(even) { background: #F6F8FF; }
+  .data-table tbody tr:hover { background: var(--primary-light); }
+
+  .data-table td {
+    padding: .55rem 1rem;
+    border-top: 1px solid var(--line);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .data-table td strong {
+    color: var(--primary-dark);
+  }
+
+  .group-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: .72rem;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-radius: 4px;
+    padding: .1rem .4rem;
+    font-weight: 500;
+  }
+
+  /* ──────────────────────────────────────────
+     STATIVE / ERROR BLOCK (dark panel)
+  ────────────────────────────────────────── */
+  .stative-block {
+    background: var(--surface-alt);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 2.25rem;
+    box-shadow: 0 4px 32px rgba(0,0,0,.22);
+  }
+
+  .stative-accent {
+    height: 5px;
+    background: linear-gradient(90deg, var(--error) 0%, var(--primary-mid) 100%);
+  }
+
+  .stative-header {
+    padding: 1.75rem 2rem 1.25rem;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  .stative-header .op-badge {
+    background: rgba(232,52,74,.18);
+    color: #ff8a99;
+    border: none;
+  }
+
+  .stative-header .op-title {
+    color: #fff;
+  }
+
+  .stative-body {
+    padding: 1.5rem 2rem 2rem;
+  }
+
+  .stative-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,.75);
+    margin-bottom: .85rem;
+    font-weight: 600;
+  }
+
+  /* Error table */
+  .error-table-wrap {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,.1);
+    margin-bottom: 1.5rem;
+  }
+
+  .error-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .88rem;
+  }
+
+  .error-table thead tr {
+    background: rgba(255,255,255,.08);
+  }
+
+  .error-table thead th {
+    padding: .65rem 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+    text-align: left;
+    font-weight: 400;
+  }
+
+  .error-table tbody tr {
+    border-top: 1px solid rgba(255,255,255,.06);
+  }
+
+  .error-table tbody tr:hover {
+    background: rgba(255,255,255,.04);
+  }
+
+  .error-table td {
+    padding: .75rem 1rem;
+    vertical-align: top;
+    line-height: 1.55;
+    font-size: .875rem;
+  }
+
+  .err-wrong {
+    color: #ff8a99;
+    text-decoration: line-through;
+    text-decoration-color: var(--error);
+    font-family: 'DM Mono', monospace;
+    font-size: .82rem;
+  }
+
+  .err-right {
+    color: #6EF0B0;
+    font-weight: 600;
+    font-family: 'DM Mono', monospace;
+    font-size: .82rem;
+  }
+
+  .err-reason {
+    color: rgba(255,255,255,.45);
+    font-size: .8rem;
+    margin-top: .3rem;
+    font-style: italic;
+  }
+
+  .err-num {
+    font-family: 'DM Mono', monospace;
+    font-size: .78rem;
+    color: rgba(255,255,255,.35);
+    text-align: center;
+  }
+
+  /* ──────────────────────────────────────────
+     BONUS GRID
+  ────────────────────────────────────────── */
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.1rem;
+    margin: 1rem 0;
+  }
+
+  .bonus-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.15rem 1.25rem;
+    box-shadow: 0 2px 10px var(--shadow);
+    display: flex;
+    gap: .85rem;
+    align-items: flex-start;
+    transition: box-shadow .2s, transform .2s;
+  }
+
+  .bonus-card:hover {
+    box-shadow: 0 4px 20px var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .bonus-num {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    font-family: 'DM Mono', monospace;
+    font-size: .8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bonus-text {
+    font-size: .9rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  code.mono {
+    font-family: 'DM Mono', monospace;
+    font-size: .82rem;
+    background: #F1F3F8;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: .15rem .4rem;
+    color: var(--primary-dark);
+  }
+
+  pre.mono-block {
+    font-family: 'DM Mono', monospace;
+    font-size: .82rem;
+    background: #F1F3F8;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: .85rem 1rem;
+    margin: .5rem 0;
+    color: var(--primary-dark);
+    white-space: pre-wrap;
+    line-height: 1.7;
+  }
+
+  /* ──────────────────────────────────────────
+     SECTION HEADINGS (for conclusion, summary)
+  ────────────────────────────────────────── */
+  .chapter-section {
+    background: var(--surface);
+    border-radius: 12px;
+    box-shadow: 0 2px 16px var(--shadow);
+    margin-bottom: 2.25rem;
+    overflow: hidden;
+  }
+
+  .chapter-section-header {
+    background: var(--primary-dark);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .chapter-section-header h2 {
+    font-size: 1.3rem;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .chapter-section-body {
+    padding: 1.75rem 2rem;
+  }
+
+  .rule-group {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .rule-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .rule-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: .6rem;
+  }
+
+  .rule-content { font-size: .93rem; }
+
+  /* ──────────────────────────────────────────
+     CHECKLIST
+  ────────────────────────────────────────── */
+  .checklist {
+    list-style: none;
+    padding: 0;
+  }
+
+  .checklist li {
+    display: flex;
+    gap: .75rem;
+    align-items: flex-start;
+    padding: .5rem 0;
+    font-size: .93rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .checklist li:last-child { border-bottom: none; }
+
+  .check-icon {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 4px;
+    background: var(--primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .7rem;
+    margin-top: .15rem;
+  }
+
+  /* ──────────────────────────────────────────
+     SPECIAL NOTES
+  ────────────────────────────────────────── */
+  .note-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: .75rem;
+  }
+
+  .note-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem 1.5rem;
+    background: #FAFAFA;
+    border-radius: 8px;
+    padding: .85rem 1rem;
+    border: 1px solid var(--line);
+    font-size: .88rem;
+    align-items: center;
+  }
+
+  @media (max-width: 540px) {
+    .note-item { grid-template-columns: 1fr; }
+  }
+
+  .note-wrong {
+    color: var(--error);
+    font-family: 'DM Mono', monospace;
+    font-size: .82rem;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+  }
+  .note-wrong::before { content: '✕'; font-size: .75rem; }
+
+  .note-right {
+    color: var(--success);
+    font-family: 'DM Mono', monospace;
+    font-size: .82rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+  }
+  .note-right::before { content: '✓'; font-size: .75rem; }
+
+  .note-reason {
+    grid-column: 1 / -1;
+    color: var(--muted);
+    font-size: .8rem;
+    font-style: italic;
+  }
+
+  /* ──────────────────────────────────────────
+     CONCLUSION BANNER
+  ────────────────────────────────────────── */
+  .conclusion-banner {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    border-radius: 14px;
+    padding: 2.5rem 2.5rem 2rem;
+    color: #fff;
+    margin-bottom: 2.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .conclusion-banner::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.06);
+  }
+
+  .conclusion-banner h2 {
+    font-size: 1.6rem;
+    margin-bottom: .5rem;
+    color: #fff;
+  }
+
+  .conclusion-banner p {
+    color: rgba(255,255,255,.75);
+    font-size: .95rem;
+  }
+
+  .conclusion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: .85rem;
+    margin-top: 1.5rem;
+  }
+
+  .conclusion-item {
+    background: rgba(255,255,255,.1);
+    border-radius: 8px;
+    padding: .75rem 1rem;
+    font-size: .88rem;
+    color: rgba(255,255,255,.9);
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+  }
+
+  .conclusion-item::before {
+    content: '✅';
+    flex-shrink: 0;
+    font-size: .85rem;
+    margin-top: .05rem;
+  }
+
+  /* ──────────────────────────────────────────
+     INLINE HELPERS
+  ────────────────────────────────────────── */
+  .tag-en {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: .72rem;
+    background: #EEF5FF;
+    color: var(--primary-dark);
+    border: 1px solid var(--primary-mid);
+    border-radius: 4px;
+    padding: .05rem .35rem;
+    font-weight: 500;
+  }
+
+  .tag-et {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: .72rem;
+    background: #FFF3EE;
+    color: #7A3500;
+    border: 1px solid #F5A45A;
+    border-radius: 4px;
+    padding: .05rem .35rem;
+    font-weight: 500;
+  }
+
+  .highlight { color: var(--primary); font-weight: 600; }
+  .muted { color: var(--muted); font-size: .88rem; }
+
+  /* ──────────────────────────────────────────
+     FOOTER
+  ────────────────────────────────────────── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,.35);
+    text-align: center;
+    padding: 2rem;
+    font-size: .8rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: .04em;
+  }
+
+  footer strong { color: rgba(255,255,255,.6); }
+
+  /* ──────────────────────────────────────────
+     FULL-WIDTH ANSWERS LAYOUT
+     (for opgave blocks that don't need 2-col)
+  ────────────────────────────────────────── */
+  .op-content.single-col .op-answers {
+    border-right: none;
+    grid-column: 1 / -1;
+  }
+
+  .op-content.single-col .op-explanation {
+    border-top: 1px solid var(--line);
+    grid-column: 1 / -1;
+  }
+
+  /* ──────────────────────────────────────────
+     WORD FORMULA
+  ────────────────────────────────────────── */
+  .formula {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-family: 'DM Mono', monospace;
+    font-size: .84rem;
+    background: var(--primary-light);
+    border-radius: 6px;
+    padding: .35rem .75rem;
+    color: var(--primary-dark);
+    margin: .3rem 0;
+    flex-wrap: wrap;
+  }
+
+  .formula span { color: var(--primary); }
+
+  /* ──────────────────────────────────────────
+     SENTENCE STORY (Opgave 18)
+  ────────────────────────────────────────── */
+  .story-item {
+    display: flex;
+    gap: .85rem;
+    align-items: flex-start;
+    padding: .6rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: .92rem;
+  }
+  .story-item:last-child { border-bottom: none; }
+  .story-num {
+    font-family: 'DM Mono', monospace;
+    font-size: .75rem;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    width: 1.6rem;
+    height: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: .1rem;
+  }
+
+  /* ──────────────────────────────────────────
+     LINK STYLE
+  ────────────────────────────────────────── */
+  a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  a:hover { color: var(--primary-dark); }
+
+  /* ──────────────────────────────────────────
+     FULL-WIDTH ANSWERS (single column override)
+  ────────────────────────────────────────── */
+  .op-single {
+    padding: 1.5rem 1.75rem;
+    background: var(--surface);
+  }
+
+  /* ──────────────────────────────────────────
+     SCROLL-TO-TOP
+  ────────────────────────────────────────── */
+  .toc-pill {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--primary);
+    color: #fff;
+    font-family: 'DM Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    border-radius: 100px;
+    padding: .55rem 1rem;
+    box-shadow: 0 4px 16px rgba(59,111,191,.35);
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    transition: background .2s;
+    z-index: 99;
+  }
+  .toc-pill:hover { background: var(--primary-dark); color: #fff; }
+
+  /* Mobile adjustments */
+  @media (max-width: 600px) {
+    .op-header { padding: 1.1rem 1.2rem 1rem; gap: .75rem; }
+    .op-answers, .op-explanation, .op-single { padding: 1.1rem 1.2rem; }
+    .stative-body, .stative-header, .chapter-section-body { padding: 1.25rem 1.2rem; }
+    .conclusion-banner { padding: 1.75rem 1.2rem 1.5rem; }
+    .hero { padding: 3rem 1.2rem 2.5rem; }
+    .bonus-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════
+     HERO
+═════════════════════════════════════════════════ -->
+<header class="hero" id="top">
+  <div class="container">
+    <div class="hero-badge">Chương 1 · Tiếng Đan Mạch · Ngữ pháp</div>
+    <h1>GIẢI TOÀN BỘ BÀI TẬP<br><em>Danh Từ (Substantiver)</em></h1>
+    <p class="hero-sub">Lời giải chi tiết 26 bài tập + Repetition — kèm trích dẫn lý thuyết và phân tích áp dụng từng câu</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">26</span><span class="stat-label">Bài tập chính</span></div>
+      <div class="stat"><span class="stat-num">1</span><span class="stat-label">Bài Repetition</span></div>
+      <div class="stat"><span class="stat-num">8</span><span class="stat-label">Chủ điểm ngữ pháp</span></div>
+      <div class="stat"><span class="stat-num">4</span><span class="stat-label">Dạng biến cách</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="container">
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 1
+═════════════════════════════════════════════════ -->
+<div style="height:2.5rem"></div>
+
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 1</span>
+    <h2 class="op-title">Hvad er et substantiv?</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án (Ví dụ)</h3>
+
+      <p><strong>Noget levende (Sinh vật):</strong></p>
+      <ul>
+        <li><strong>en hund</strong> — một con chó</li>
+        <li><strong>en fugl</strong> — một con chim</li>
+        <li><strong>en rose</strong> — một bông hồng</li>
+      </ul>
+
+      <p style="margin-top:.85rem"><strong>Ting (Vật thể):</strong></p>
+      <ul>
+        <li><strong>en telefon</strong> — một cái điện thoại</li>
+        <li><strong>et bord</strong> — một cái bàn</li>
+      </ul>
+
+      <p style="margin-top:.85rem"><strong>Begreber/ideer (Khái niệm/ý tưởng):</strong></p>
+      <ul>
+        <li><strong>en drøm</strong> — một giấc mơ</li>
+        <li><strong>et håb</strong> — một hy vọng</li>
+      </ul>
+
+      <p style="margin-top:.85rem"><strong>Steder/begivenheder (Địa điểm/sự kiện):</strong></p>
+      <ul>
+        <li><strong>en skole</strong> — một trường học</li>
+        <li><strong>et bryllup</strong> — một đám cưới</li>
+      </ul>
+
+      <p style="margin-top:.85rem"><strong>Substanser (Chất liệu):</strong></p>
+      <ul>
+        <li><strong>vand</strong> — nước</li>
+        <li><strong>mælk</strong> — sữa</li>
+      </ul>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Quy tắc kiểm tra</div>
+      <p>Nhận biết danh từ và phân loại danh từ theo nghĩa.</p>
+      <div class="sub-heading">Trích dẫn lý thuyết</div>
+      <div class="quote-box">
+        Trong tiếng Đan Mạch, danh từ (substantiv/navneord) là những từ dùng để chỉ tên người (<em>menneske</em>), sinh vật (<em>dyr, plante</em>), sự vật (<em>ting</em>), khái niệm hoặc ý tưởng (<em>begreber/ideer</em>), địa điểm (<em>steder</em>), và chất liệu (<em>substanser</em>).
+      </div>
+      <div class="sub-heading">Áp dụng</div>
+      <p>Các danh từ phải đi kèm mạo từ <strong>en</strong> hoặc <strong>et</strong> để xác định giống (<em>fælleskøn</em> hoặc <em>intetkøn</em>).</p>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 2
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 2</span>
+    <h2 class="op-title">Indsæt <em>en</em> eller <em>et</em></h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án</h3>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>#</th><th>Mạo từ</th><th>Danh từ</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td><span class="tag-en">en</span></td><td>pige</td></tr>
+            <tr><td>1</td><td><span class="tag-et">et</span></td><td>barn</td></tr>
+            <tr><td>2</td><td><span class="tag-en">en</span></td><td>person</td></tr>
+            <tr><td>3</td><td><span class="tag-et">et</span></td><td>menneske</td></tr>
+            <tr><td>4</td><td><span class="tag-et">et</span></td><td>firma</td></tr>
+            <tr><td>5</td><td><span class="tag-et">et</span></td><td>job</td></tr>
+            <tr><td>6</td><td><span class="tag-et">et</span></td><td>arbejde</td></tr>
+            <tr><td>7</td><td><span class="tag-et">et</span></td><td>møde</td></tr>
+            <tr><td>8</td><td><span class="tag-et">et</span></td><td>spørgsmål</td></tr>
+            <tr><td>9</td><td><span class="tag-et">et</span></td><td>svar</td></tr>
+            <tr><td>10</td><td><span class="tag-et">et</span></td><td>problem</td></tr>
+            <tr><td>11</td><td><span class="tag-en">en</span></td><td>løsning</td></tr>
+            <tr><td>12</td><td><span class="tag-et">et</span></td><td>bord</td></tr>
+            <tr><td>13</td><td><span class="tag-et">et</span></td><td>skab</td></tr>
+            <tr><td>14</td><td><span class="tag-en">en</span></td><td>lænestol</td></tr>
+            <tr><td>15</td><td><span class="tag-en">en</span></td><td>sofa</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Quy tắc kiểm tra</div>
+      <p>Phân biệt danh từ loại <strong>en</strong> (fælleskøn) và loại <strong>et</strong> (intetkøn).</p>
+      <div class="sub-heading">Trích dẫn lý thuyết — Mục 1.2.1.1</div>
+      <div class="quote-box">
+        Dạng số ít không xác định được sử dụng khi đề cập đến một đối tượng chung chung, chưa xác định. Nó luôn đi kèm với mạo từ không xác định <strong>en</strong> hoặc <strong>et</strong>.
+      </div>
+      <div class="sub-heading">Áp dụng — T-ordlisten (Phụ lục 1)</div>
+      <ul>
+        <li><strong>et-ord:</strong> barn, menneske, firma, job, arbejde, møde, spørgsmål, svar, problem, bord, skab</li>
+        <li><strong>en-ord:</strong> pige, person, løsning, lænestol, sofa</li>
+      </ul>
+      <p style="margin-top:.75rem"><strong>Lưu ý:</strong> Từ tận cùng <code class="mono">-eri</code> hoặc <code class="mono">-um</code> là <em>t-ord</em> (et-ord).</p>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 3
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 3</span>
+    <h2 class="op-title">Matching — Sammensatte substantiver</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án</h3>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Từ 1</th><th>Từ 2</th><th>Danh từ ghép</th></tr></thead>
+          <tbody>
+            <tr><td>et glas</td><td>et bord</td><td><strong>et glasbord</strong></td></tr>
+            <tr><td>en bog</td><td>en reol</td><td><strong>en bogreol</strong></td></tr>
+            <tr><td>et brød</td><td>en kniv</td><td><strong>en brødkniv</strong></td></tr>
+            <tr><td>et sprog</td><td>en skole</td><td><strong>en sprogskole</strong></td></tr>
+            <tr><td>et jordbær</td><td>en kage</td><td><strong>en jordbærkage</strong></td></tr>
+            <tr><td>et tog</td><td>en station</td><td><strong>en togstation</strong></td></tr>
+            <tr><td>en telefon</td><td>et nummer</td><td><strong>et telefonnummer</strong></td></tr>
+            <tr><td>en sommer</td><td>et hus</td><td><strong>et sommerhus</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.75rem"><strong>Quy tắc:</strong> Từ cuối cùng quyết định mạo từ (en/et) của danh từ ghép.</p>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Trích dẫn lý thuyết — Mục 1.2.4</div>
+      <div class="quote-box">
+        Danh từ ghép được tạo ra bằng cách kết hợp hai hoặc nhiều từ để tạo thành một danh từ mới với ý nghĩa mới.<br>
+        Ví dụ: <em>et glas + et bord → et glasbord</em>
+      </div>
+      <div class="sub-heading">Ví dụ minh hoạ</div>
+      <ul>
+        <li><strong>et glasbord</strong>: "bord" (et) → dùng <span class="tag-et">et</span></li>
+        <li><strong>en bogreol</strong>: "reol" (en) → dùng <span class="tag-en">en</span></li>
+        <li><strong>et telefonnummer</strong>: "nummer" (et) → dùng <span class="tag-et">et</span></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 4
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 4</span>
+    <h2 class="op-title">Lav sammensatte substantiver</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án (Ví dụ)</h3>
+      <ul>
+        <li><strong>sommer</strong>: sommerhus, sommerdag, sommerferie, sommermåned, sommerfugl</li>
+        <li><strong>vinter</strong>: vinterjakke, vinterdag, vinterferie, vintersport, vintertøj, vinterland</li>
+        <li><strong>skole</strong>: skoletaske, skolelærer, skolebarn, skoledag, skoletime, skolegård</li>
+        <li><strong>kaffe</strong>: kaffekop, kaffeautomat, kaffemaskine, kaffebar, kaffebønne, kaffekande</li>
+        <li><strong>cykel</strong>: cykelsti, cykelrytter, cykelvej, cykeltur, cykellås, cykelhjul</li>
+        <li><strong>kage</strong>: kageform, kagedej, kagebord, kagebager, kagepapir, kagesmag</li>
+        <li><strong>bus</strong>: busstation, buschaufør, busbillet, bustur, busstoppested, buskort</li>
+      </ul>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Quy tắc kiểm tra</div>
+      <p>Khả năng tạo danh từ ghép từ một từ gốc.</p>
+      <div class="sub-heading">Ví dụ công thức</div>
+      <div class="formula"><span>sommer</span> + <span>hus</span> = <strong>sommerhus</strong> (nhà mùa hè)</div><br>
+      <div class="formula"><span>vinter</span> + <span>jakke</span> = <strong>vinterjakke</strong> (áo khoác mùa đông)</div><br>
+      <div class="formula"><span>skole</span> + <span>taske</span> = <strong>skoletaske</strong> (cặp đi học)</div>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 5
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 5</span>
+    <h2 class="op-title">Find og del sammensatte substantiver</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án</h3>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>#</th><th>Danh từ ghép</th><th>Nghĩa</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td><strong>barsels·vikar</strong></td><td>en vikar for en person, som er på barsel</td></tr>
+            <tr><td>1</td><td><strong>børne·hus</strong></td><td>et hus til børn — một nhà trẻ</td></tr>
+            <tr><td>2</td><td><strong>køkken·medarbejder</strong></td><td>en medarbejder i køkkenet — nhân viên bếp</td></tr>
+            <tr><td>3</td><td><strong>deltids·stilling</strong></td><td>en stilling på deltid — công việc bán thời gian</td></tr>
+            <tr><td>4</td><td><strong>vagt·planlægning</strong></td><td>planlægning af vagter — lập kế hoạch ca làm việc</td></tr>
+            <tr><td>5</td><td><strong>produktions·køkken</strong></td><td>et køkken til produktion — bếp sản xuất</td></tr>
+            <tr><td>6</td><td><strong>arbejds·fællesskab</strong></td><td>et fællesskab på arbejdspladsen — cộng đồng làm việc</td></tr>
+            <tr><td>7</td><td><strong>køkken·erfaring</strong></td><td>erfaring med køkken — kinh nghiệm bếp</td></tr>
+            <tr><td>8</td><td><strong>samarbejds·evne</strong></td><td>evne til at samarbejde — khả năng hợp tác</td></tr>
+            <tr><td>9</td><td><strong>børnehave·barn</strong></td><td>et barn i børnehaven — đứa trẻ mẫu giáo</td></tr>
+            <tr><td>10</td><td><strong>morgen·mad</strong></td><td>mad om morgenen — bữa sáng</td></tr>
+            <tr><td>11</td><td><strong>jobansøgnings·blanket</strong></td><td>en blanket til jobansøgning — mẫu đơn xin việc</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.75rem"><strong>Bindebogstaver:</strong> <code class="mono">-s-</code> và <code class="mono">-e-</code></p>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Quy tắc kiểm tra</div>
+      <p>Nhận biết và phân tích danh từ ghép, bao gồm các chữ cái liên kết (<em>bindebogstaver</em>).</p>
+      <div class="sub-heading">Áp dụng</div>
+      <p>Danh từ ghép thường có chữ cái liên kết giữa các từ:</p>
+      <ul>
+        <li><strong>barsels-vikar</strong>: liên kết <code class="mono">-s-</code></li>
+        <li><strong>børnehave-barn</strong>: liên kết <code class="mono">-e-</code></li>
+        <li><strong>samarbejds-evne</strong>: liên kết <code class="mono">-s-</code></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 6
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 6</span>
+    <h2 class="op-title">Find og bøj substantiver flertal</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án</h3>
+      <p><strong>Flertalsendelser:</strong> <code class="mono">-er</code>, <code class="mono">-e</code>, <code class="mono">-r</code>, (ingen endelse)</p>
+      <div class="data-table-wrap" style="margin-top:.75rem">
+        <table class="data-table">
+          <thead><tr><th>Gr.</th><th>Ental</th><th>Flertal</th></tr></thead>
+          <tbody>
+            <tr><td><span class="group-badge">1</span></td><td>en lærer</td><td><strong>lærere</strong></td></tr>
+            <tr><td><span class="group-badge">1</span></td><td>en pensionist</td><td><strong>pensionister</strong></td></tr>
+            <tr><td><span class="group-badge">1</span></td><td>en blomst</td><td><strong>blomster</strong></td></tr>
+            <tr><td><span class="group-badge">1</span></td><td>en havestol</td><td><strong>havestole</strong></td></tr>
+            <tr><td><span class="group-badge">1</span></td><td>en bog</td><td><strong>bøger</strong></td></tr>
+            <tr><td><span class="group-badge">2</span></td><td>et værelse</td><td><strong>værelser</strong></td></tr>
+            <tr><td><span class="group-badge">2</span></td><td>et træ</td><td><strong>træer</strong></td></tr>
+            <tr><td><span class="group-badge">2</span></td><td>et bær</td><td><strong>bær</strong></td></tr>
+            <tr><td><span class="group-badge">3</span></td><td>en dag</td><td><strong>dage</strong></td></tr>
+            <tr><td><span class="group-badge">3</span></td><td>en stol</td><td><strong>stole</strong></td></tr>
+            <tr><td><span class="group-badge">4</span></td><td>et barn</td><td><strong>børn</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Trích dẫn lý thuyết — Mục 1.2.2.1</div>
+      <div class="quote-box">
+        Dạng số nhiều không xác định được hình thành bằng cách thêm các hậu tố khác nhau vào danh từ, phổ biến nhất là <strong>-er</strong> và <strong>-e</strong>. Một số danh từ có dạng số nhiều bất quy tắc.
+      </div>
+      <div class="sub-heading">4 nhóm số nhiều</div>
+      <ul>
+        <li><strong>Nhóm 1</strong> (thêm <code class="mono">-er</code>): lærer → lærere, blomst → blomster</li>
+        <li><strong>Nhóm 2</strong> (thêm <code class="mono">-e</code>): værelse → værelser, træ → træer</li>
+        <li><strong>Nhóm 3</strong> (không đổi/thay đổi nguyên âm): dag → dage</li>
+        <li><strong>Nhóm 4</strong> (bất quy tắc): barn → børn</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 7
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 7</span>
+    <h2 class="op-title">Internetopgave — Flertal</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án</h3>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Ental</th><th>Flertal</th><th>Gruppe</th></tr></thead>
+          <tbody>
+            <tr><td>en citron</td><td><strong>citroner</strong></td><td><span class="group-badge">1</span></td></tr>
+            <tr><td>et skab</td><td><strong>skabe</strong></td><td><span class="group-badge">2</span></td></tr>
+            <tr><td>et firma</td><td><strong>firmaer</strong></td><td><span class="group-badge">1</span></td></tr>
+            <tr><td>et kys</td><td><strong>kys</strong></td><td><span class="group-badge">3</span></td></tr>
+            <tr><td>et museum</td><td><strong>museer</strong></td><td><span class="group-badge">1</span></td></tr>
+            <tr><td>en dansker</td><td><strong>danskere</strong></td><td><span class="group-badge">1</span></td></tr>
+            <tr><td>en fod</td><td><strong>fødder</strong></td><td><span class="group-badge">4</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Quy tắc kiểm tra</div>
+      <p>Tra cứu và xác định dạng số nhiều của danh từ.</p>
+      <div class="sub-heading">Áp dụng</div>
+      <ul>
+        <li><strong>firma</strong>: tận cùng <code class="mono">-a</code> thường thêm <code class="mono">-er</code> → firmaer (Nhóm 1)</li>
+        <li><strong>kys</strong>: giữ nguyên ở số nhiều → kys (Nhóm 3)</li>
+        <li><strong>museum</strong>: tận cùng <code class="mono">-um</code> thêm <code class="mono">-er</code> → museer (Nhóm 1)</li>
+        <li><strong>fod</strong>: thay đổi nguyên âm → fødder (Nhóm 4, bất quy tắc)</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 8
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 8</span>
+    <h2 class="op-title">Beskriv billedet — Số nhiều trong ngữ cảnh</h2>
+  </div>
+  <div class="op-content single-col">
+    <div class="op-single">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--primary-dark);margin-bottom:.85rem">Đáp án</h3>
+      <p>I familien Aisens stue hænger der mange <strong>billeder</strong> på væggen, både fotos og abstrakte malerier. Op ad væggen står der to hvide <strong>reoler</strong> med mange <strong>bøger</strong>, for familien elsker at læse. Der er mange møbler i stuen, bl.a. tre røde <strong>sofaer</strong>, fire <strong>puder</strong>, så hele familien kan ligge ned og læse eller se tv, og på gulvet ved siden af hver sofa står der nogle store <strong>lamper</strong>, så der er masser af lys i stuen.</p>
+      <p>Der er tre runde brune <strong>borde</strong>. På det ene står der en vase med friske <strong>blomster</strong>, og på de to andre er der <strong>skåle</strong> med appelsiner.</p>
+      <p>På gulvet ligger der mange <strong>tæpper</strong> i grå og mørkegrønne farver.</p>
+      <p>Der er to <strong>fjernsyn</strong> i stuen, for familien elsker at se nyheder og film.</p>
+      <div class="sub-heading" style="margin-top:1rem;font-size:.85rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding-left:.85rem;border-left:3px solid var(--primary-mid)">Giải thích</div>
+      <p style="margin-top:.5rem"><strong>Quy tắc:</strong> "mange" (nhiều) yêu cầu danh từ số nhiều:<br>
+      billede → billeder, reol → reoler, bog → bøger, sofa → sofaer, blomst → blomster, tæppe → tæpper.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 9
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 9</span>
+    <h2 class="op-title">Informationskløft — Bài tập giao tiếp theo cặp</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án / Mẫu câu</h3>
+      <ul>
+        <li><strong>A:</strong> Hvor mange lamper er der på dit billede?</li>
+        <li><strong>B:</strong> Der er tre lamper. Hvor mange lamper er der på dit billede?</li>
+        <li><strong>A:</strong> Der er (også) fire lamper.</li>
+      </ul>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Quy tắc kiểm tra</div>
+      <p>Sử dụng danh từ số nhiều trong câu hỏi và câu trả lời.</p>
+      <div class="sub-heading">Áp dụng</div>
+      <p>Dùng cấu trúc <code class="mono">Hvor mange + [danh từ số nhiều]</code> để hỏi số lượng.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 10
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 10</span>
+    <h2 class="op-title">Tællelige eller utællelige substantiver?</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án</h3>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Mange (Đếm được)</th><th>Meget (Không đếm được)</th></tr></thead>
+          <tbody>
+            <tr><td>kartofler</td><td>sukker</td></tr>
+            <tr><td>dage</td><td>mælk</td></tr>
+            <tr><td>flasker</td><td>rødvin</td></tr>
+            <tr><td>kager</td><td>kaffe</td></tr>
+            <tr><td>senge</td><td>tøj</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.85rem"><strong>Hoàn thành câu:</strong></p>
+      <ul>
+        <li>Der er <strong>meget sukker</strong> i chokoladekagen.</li>
+        <li>De sælger <strong>mange kager</strong> hos bageren.</li>
+        <li>Bruger du <strong>meget sukker</strong> i din kaffe?</li>
+        <li>Hun drikker <strong>meget kaffe</strong> om morgenen.</li>
+        <li>Der blev drukket <strong>meget rødvin</strong> til festen.</li>
+        <li>Hvor <strong>mange flasker</strong> rødvin skal jeg købe?</li>
+        <li>Hvor <strong>mange dage</strong> har du fri i næste uge?</li>
+        <li>Jeg har <strong>meget tøj</strong>, som er beskidt.</li>
+        <li>Jeg skal bruge <strong>mange kartofler</strong> til pomfritter.</li>
+        <li>Der er <strong>mange senge</strong> i sovesalen.</li>
+      </ul>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Trích dẫn lý thuyết — Mục 1.1.1 &amp; 1.1.2</div>
+      <div class="quote-box">
+        Danh từ đếm được (<em>tællelige</em>) là những danh từ có thể được định lượng bằng số và có cả hình thức số ít và số nhiều.
+      </div>
+      <div class="quote-box">
+        Danh từ không đếm được (<em>utællelige</em>) là những danh từ chỉ vật liệu, chất lỏng, hoặc các khái niệm trừu tượng không thể đếm riêng lẻ. Chúng thường không có dạng số nhiều.
+      </div>
+      <div class="sub-heading">Quy tắc dùng</div>
+      <ul>
+        <li>Đếm được → dùng <strong>mange</strong> / <strong>nogle</strong></li>
+        <li>Không đếm được → dùng <strong>meget</strong> / <strong>noget</strong></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 11
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 11</span>
+    <h2 class="op-title">Sorter tællelige og utællelige substantiver</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án — Phân loại</h3>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Tællelige (Đếm được)</th><th>Utællelige (Không đếm được)</th></tr></thead>
+          <tbody>
+            <tr><td>råd</td><td>luft</td></tr>
+            <tr><td>fejl</td><td>penge</td></tr>
+            <tr><td>job</td><td>ansvar</td></tr>
+            <tr><td>nyhed</td><td>tryghed</td></tr>
+            <tr><td>søskende</td><td>fattigdom</td></tr>
+            <tr><td>fag</td><td>peber</td></tr>
+            <tr><td>—</td><td>spiritus</td></tr>
+            <tr><td>—</td><td>medicin</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.85rem"><strong>Hoàn thành câu:</strong></p>
+      <ul>
+        <li>Der er <strong>meget/noget mad</strong> i køleskabet.</li>
+        <li>Han fik en recept på <strong>noget medicin</strong>.</li>
+        <li>Den lille baby har brug for <strong>meget tryghed</strong>.</li>
+        <li>De studerende skal op i <strong>mange fag</strong>.</li>
+        <li>Der var ikke <strong>meget luft</strong> i lokalet.</li>
+        <li>Hun har søgt <strong>mange job</strong>.</li>
+        <li>Der var <strong>mange fejl</strong> i opgaven.</li>
+        <li>Hvor <strong>meget spiritus</strong> må man tage med?</li>
+        <li>Regeringen ville ikke tage <strong>noget ansvar</strong>.</li>
+        <li>Jeg havde puttet for <strong>meget peber</strong> i suppen.</li>
+        <li>Hun har <strong>mange penge</strong> i banken.</li>
+        <li>Jeg har altid savnet <strong>nogle søskende</strong>.</li>
+        <li>Der er så <strong>meget fattigdom</strong> i verden.</li>
+        <li>Sundhedsstyrelsen giver <strong>mange råd</strong> om sund kost.</li>
+        <li>Der var <strong>mange nyheder</strong> om klimakrisen.</li>
+      </ul>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Áp dụng</div>
+      <p>Tương tự Opgave 10: phân biệt danh từ đếm được (dùng <code class="mono">mange/nogle</code>) và không đếm được (dùng <code class="mono">meget/noget</code>).</p>
+      <div class="sub-heading">Lưu ý đặc biệt</div>
+      <ul>
+        <li><strong>penge</strong> (tiền): dùng mange vì là số nhiều cố định</li>
+        <li><strong>råd</strong>: đếm được → mange råd</li>
+        <li><strong>ansvar</strong>: không đếm được → noget ansvar</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 12
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 12</span>
+    <h2 class="op-title">Med eller uden <em>en</em> og <em>et</em>?</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án</h3>
+      <ul>
+        <li>Daniel er <del>en</del> englænder. Han er <strong>en</strong> kendt fodboldspiller.</li>
+        <li>Oda har været <del>en</del> revisor siden 2018 og er <strong>en</strong> dygtig revisor.</li>
+        <li>Nils har været <del>en</del> matematiklærer i 15 år. Han har altid været <strong>en</strong> god lærer.</li>
+        <li>Ahmed er uddannet <del>en</del> ingeniør men er lige blevet <del>en</del> pensionist.</li>
+        <li>I sine unge dage var Carlos <strong>en</strong> kendt musiker, men nu er han ikke <del>en</del> musiker mere.</li>
+        <li>Vi skal have fat i <strong>en</strong> elektriker. Kender du <strong>en</strong> billig elektriker?</li>
+        <li>Ali er <del>en</del> tyrker (man kan ikke høre det).</li>
+        <li>Thomas er <del>en</del> leder i <strong>et</strong> stort firma i <strong>en</strong> meget lille by.</li>
+        <li>Lis's barn går i <del>en</del> børnehave, og den ældste går i <del>en</del> skole.</li>
+        <li>Jeg har <strong>en</strong> søster, der underviser på <strong>en</strong> højskole.</li>
+        <li>Vil du have <strong>et</strong> glas rødvin, eller drikker du <del>et</del> vand?</li>
+        <li>Jeg læser <del>en</del> avis og hører <del>en</del> radio. Måske læser jeg i <strong>en</strong> bog.</li>
+        <li>Min datter er <del>en</del> vegetar.</li>
+        <li>Jeg skulle til <del>en</del> læge for rutineundersøgelse.</li>
+        <li>Du skal tale med <strong>en</strong> læge om prævention (en specifik).</li>
+        <li>Ewa er <strong>en</strong> kursist på <strong>en</strong> sprogskole.</li>
+        <li>Emil er <strong>en</strong> dygtig elev, og om to måneder bliver han <del>en</del> student.</li>
+        <li>Jeg kører i <del>en</del> bil på <del>et</del> arbejde (faste udtryk).</li>
+        <li>Der var <del>en</del> krig i mit land, men nu er der <del>en</del> fred.</li>
+        <li>Det er <strong>en</strong> fordel at have erfaring.</li>
+        <li>Når man er <strong>et</strong> barn, forstår man ikke <del>en</del> ironi.</li>
+        <li>Vi var inviteret til <del>en</del> middag hjemme hos svigerforældrene.</li>
+        <li>Det var <strong>en</strong> dejlig middag og <strong>en</strong> superhyggelig aften.</li>
+        <li>Klaus elsker at holde <del>en</del> tale til fester, selvom han ikke er god til at holde <del>en</del> tale.</li>
+        <li>Statsministeren holdt <strong>en</strong> virkelig god nytårstale.</li>
+        <li>Hun er til <del>et</del> møde i direktionen, og det var <strong>et</strong> meget langt møde.</li>
+      </ul>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">KHÔNG dùng en/et khi:</div>
+      <ul>
+        <li>Nghề nghiệp không bổ nghĩa: "er revisor", "er lærer", "er musiker"</li>
+        <li>Quốc tịch: "er englænder", "er tyrker"</li>
+        <li>Cụm cố định: "går i skole", "til læge", "i bil", "på arbejde"</li>
+        <li>Sau "til" (chỉ vai trò): "til student"</li>
+      </ul>
+      <div class="sub-heading">CÓ dùng en/et khi:</div>
+      <ul>
+        <li>Có tính từ bổ nghĩa: "en <strong>dygtig</strong> revisor"</li>
+        <li>Nói về đối tượng cụ thể: "en elektriker" (cần thuê một người)</li>
+        <li>Nhắc đến lần đầu: "et glas rødvin"</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 13
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 13</span>
+    <h2 class="op-title">Bøj substantiver i 4 former</h2>
+  </div>
+  <div class="op-content single-col">
+    <div class="op-single">
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Gr.</th>
+              <th>Ental ubestemt</th>
+              <th>Ental bestemt</th>
+              <th>Flertal ubestemt</th>
+              <th>Flertal bestemt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="group-badge">1</span></td><td>en bil</td><td>bil<strong>en</strong></td><td>bil<strong>er</strong></td><td>biler<strong>ne</strong></td></tr>
+            <tr><td><span class="group-badge">1</span></td><td>en bror</td><td>bror<strong>en</strong></td><td>brødr<strong>e</strong></td><td>brødre<strong>ne</strong></td></tr>
+            <tr><td><span class="group-badge">1</span></td><td>en film</td><td>film<strong>en</strong></td><td>film</td><td>film<strong>ene</strong></td></tr>
+            <tr><td><span class="group-badge">1</span></td><td>en flygtning</td><td>flygtning<strong>en</strong></td><td>flygtning<strong>e</strong></td><td>flygtningene</td></tr>
+            <tr><td><span class="group-badge">2</span></td><td>et hus</td><td>hus<strong>et</strong></td><td>hus<strong>e</strong></td><td>huse<strong>ne</strong></td></tr>
+            <tr><td><span class="group-badge">2</span></td><td>et billede</td><td>billede<strong>t</strong></td><td>billeder</td><td>billeder<strong>ne</strong></td></tr>
+            <tr><td><span class="group-badge">2</span></td><td>et spørgsmål</td><td>spørgsmål<strong>et</strong></td><td>spørgsmål</td><td>spørgsmål<strong>ene</strong></td></tr>
+            <tr><td><span class="group-badge">2</span></td><td>et land</td><td>land<strong>et</strong></td><td>land<strong>e</strong></td><td>land<strong>ene</strong></td></tr>
+            <tr><td><span class="group-badge">2</span></td><td>et glas</td><td>glas<strong>set</strong></td><td>glas/glasse</td><td>glassene</td></tr>
+            <tr><td><span class="group-badge">3</span></td><td>en is</td><td>is<strong>en</strong></td><td>is</td><td>is<strong>ene</strong></td></tr>
+            <tr><td><span class="group-badge">3</span></td><td>en skole</td><td>skol<strong>en</strong></td><td>skoler</td><td>skoler<strong>ne</strong></td></tr>
+            <tr><td><span class="group-badge">3</span></td><td>en bog</td><td>bog<strong>en</strong></td><td>bøger</td><td>bøger<strong>ne</strong></td></tr>
+            <tr><td><span class="group-badge">4</span></td><td>en mand</td><td>mand<strong>en</strong></td><td>mænd</td><td>mænd<strong>ene</strong></td></tr>
+            <tr><td><span class="group-badge">4</span></td><td>en måned</td><td>måned<strong>en</strong></td><td>måneder</td><td>måneder<strong>ne</strong></td></tr>
+            <tr><td><span class="group-badge">4</span></td><td>en dag</td><td>dag<strong>en</strong></td><td>dag<strong>e</strong></td><td>dag<strong>ene</strong></td></tr>
+            <tr><td><span class="group-badge">4</span></td><td>et barn</td><td>barn<strong>et</strong></td><td>børn</td><td>børn<strong>ene</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.85rem"><strong>5 substantiver utællelige (vejr, regn, vand…):</strong> không có dạng số nhiều.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 14
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 14</span>
+    <h2 class="op-title">Ubestemt eller bestemt form?</h2>
+  </div>
+  <div class="op-content single-col">
+    <div class="op-single">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--primary-dark);margin-bottom:.85rem">Đáp án — Văn bản mô tả phòng khách</h3>
+      <p>På (<strong>et billede</strong>) er der (<strong>en dagligstue</strong>). I (<strong>stuen</strong>) er der mange (<strong>møbler</strong>).</p>
+      <p>Midt i (<strong>stuen</strong>) står der (<strong>et spisebord</strong>) med tre (<strong>stole</strong>). På (<strong>spisebordet</strong>) står der to (<strong>lysestager</strong>) og (<strong>en frugtskål</strong>) fuld af (<strong>appelsiner</strong>). Ved siden af (<strong>spisebordet</strong>) står der (<strong>et sofabord</strong>) med to (<strong>vaser</strong>) med friske (<strong>blomster</strong>) og (<strong>en frugtskål</strong>).</p>
+      <p>Der er tre (<strong>sofaer</strong>), to grønne og en blå, i (<strong>stuen</strong>). I (<strong>sofaerne</strong>) ligger der et par (<strong>puder</strong>). Der er også to (<strong>reoler</strong>), to små (<strong>sofaborde</strong>), (<strong>et fjernsyn</strong>) og (<strong>en kommode</strong>). I (<strong>reolerne</strong>) står der en masse (<strong>bøger</strong>), og på (<strong>kommoden</strong>) står der (<strong>en vase</strong>) og (<strong>en lampe</strong>).</p>
+      <p>Bagved (<strong>fjernsynet</strong>) står der (<strong>en gulvlampe</strong>), og ved siden af de to (<strong>sofaer</strong>) står der også to (<strong>gulvlamper</strong>).</p>
+      <p>På (<strong>gulvet</strong>) ligger der mange (<strong>tæpper</strong>). Nogle af (<strong>tæpperne</strong>) er runde.</p>
+      <p>På (<strong>væggene</strong>) hænger der mange (<strong>familiebilleder</strong>) og (<strong>et maleri</strong>) af (<strong>en kronhjort</strong>).</p>
+      <div class="sub-heading" style="margin-top:1rem;font-size:.85rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding-left:.85rem;border-left:3px solid var(--primary-mid)">Giải thích</div>
+      <ul style="margin-top:.5rem;font-size:.9rem">
+        <li><strong>Không xác định (ubestemt):</strong> lần đầu nhắc đến → "et billede", "en dagligstue", "et spisebord"</li>
+        <li><strong>Xác định (bestemt):</strong> đã nhắc trước → "stuen", "spisebordet", "fjernsynet"</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 15
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 15</span>
+    <h2 class="op-title">Indsæt ubestemt eller bestemt form</h2>
+  </div>
+  <div class="op-content single-col">
+    <div class="op-single">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--primary-dark);margin-bottom:.85rem">Đáp án — Damen og politikeren</h3>
+      <p>En gammel <strong>dame</strong> var bange for at gå over <strong>gaden</strong>. En kendt <strong>politiker</strong> tog <strong>damen</strong> under <strong>armen</strong> og hjalp hende over <strong>gaden</strong>. Hun takkede mange <strong>gange</strong>, og <strong>politikeren</strong> sagde: "Måske skulle De stemme på mig næste <strong>gang</strong>." "Det tror jeg ikke", sagde <strong>damen</strong>. "Det er <strong>hovedet</strong>, der er noget galt med, ikke <strong>benene</strong>."</p>
+      <div class="sub-heading" style="margin-top:1rem;font-size:.85rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding-left:.85rem;border-left:3px solid var(--primary-mid)">Giải thích</div>
+      <ul style="margin-top:.5rem;font-size:.9rem">
+        <li><strong>Lần đầu nhắc đến</strong> → không xác định: "En gammel dame", "en kendt politiker"</li>
+        <li><strong>Đã được nhắc đến</strong> → xác định: "damen" (lần 2,3), "politikeren", "gaden" (lần 2)</li>
+        <li><strong>Bộ phận cơ thể</strong> → xác định: "armen", "hovedet", "benene"</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 16
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 16</span>
+    <h2 class="op-title">Skriv den rigtige form af substantivet</h2>
+  </div>
+  <div class="op-content single-col">
+    <div class="op-single">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--primary-dark);margin-bottom:.85rem">Đáp án — Hanne og Michael er flyttet på landet</h3>
+      <p>For et halvt år siden købte Hanne og Michael <strong>et hus</strong> ude på <strong>landet</strong>. <strong>Huset</strong> ligger i <strong>en landsby</strong> i Nordjylland i nærheden af <strong>en sø</strong> og tæt på <strong>havet</strong>.</p>
+      <p>Der bor kun 714 <strong>mennesker</strong> i <strong>landsbyen</strong>, så alle kender hinanden.</p>
+      <p>Hanne og Michael har nogle virkelig søde <strong>naboer</strong>. Den ene <strong>nabo</strong> er <strong>en familie</strong> med 3 mindre <strong>børn</strong>. <strong>Børnene</strong> kommer tit hjem til Hanne og Michael om <strong>eftermiddagen</strong>, og så leger de ude i <strong>haven</strong>, hvis <strong>solen</strong> skinner, eller inde i <strong>stuen</strong>, hvis <strong>vejret</strong> er dårligt.</p>
+      <p>Den anden <strong>nabo</strong> er deres gode <strong>ven</strong> Pia og Klaus, som de har kendt i mange <strong>år</strong>.</p>
+      <div class="sub-heading" style="margin-top:1rem;font-size:.85rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding-left:.85rem;border-left:3px solid var(--primary-mid)">Giải thích</div>
+      <ul style="margin-top:.5rem;font-size:.9rem">
+        <li><strong>"et hus"</strong> → không xác định (lần đầu nhắc) → <strong>"Huset"</strong> (xác định)</li>
+        <li><strong>"på landet"</strong> → xác định, khái niệm "vùng nông thôn"</li>
+        <li><strong>"714 mennesker"</strong> → số nhiều vì có số đếm</li>
+        <li><strong>"solen", "vejret"</strong> → danh từ duy nhất, luôn dùng xác định</li>
+        <li><strong>"mange år"</strong> → số nhiều với "mange"</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 17
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 17</span>
+    <h2 class="op-title">Find 4 bestemte former</h2>
+  </div>
+  <div class="op-content single-col">
+    <div class="op-single">
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>1. Hậu tố +en/+et/+ne</th>
+              <th>2. Đại từ sở hữu</th>
+              <th>3. Genitiv</th>
+              <th>4. den/det/de + adj.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>regnen</td><td>hendes hår</td><td>byens port</td><td>den gamle konge</td></tr>
+            <tr><td>vejret</td><td>hendes tøj</td><td>—</td><td>den gamle dronning</td></tr>
+            <tr><td>vandet</td><td>næsen på skoen</td><td>—</td><td>den store arv</td></tr>
+            <tr><td>hælen</td><td>—</td><td>—</td><td>den fine restaurant</td></tr>
+            <tr><td>—</td><td>—</td><td>—</td><td>det gode job</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sub-heading" style="margin-top:1rem;font-size:.85rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding-left:.85rem;border-left:3px solid var(--primary-mid)">4 cách tạo dạng xác định</div>
+      <ul style="font-size:.9rem;margin-top:.5rem">
+        <li><strong>Cách 1</strong> — Hậu tố -(e)n/-(e)t/-(e)ne: regn+en, vejr+et, vand+et</li>
+        <li><strong>Cách 2</strong> — Đại từ sở hữu: hendes hår, hendes tøj</li>
+        <li><strong>Cách 3</strong> — Genitiv: byens port</li>
+        <li><strong>Cách 4</strong> — den/det/de + tính từ + danh từ: den gamle konge</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 18
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 18</span>
+    <h2 class="op-title">Læs &amp; forstå — Byt rundt på sætningerne</h2>
+  </div>
+  <div class="op-content single-col">
+    <div class="op-single">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--primary-dark);margin-bottom:.85rem">Đáp án — Thứ tự đúng câu chuyện về Stig</h3>
+      <div class="story-item"><div class="story-num">1</div><div><strong>Stig</strong> har lige købt en <strong>restaurant</strong>.</div></div>
+      <div class="story-item"><div class="story-num">2</div><div>Før <strong>Stig</strong> købte <strong>restauranten</strong>, havde han et godt <strong>job</strong> på <strong>byens slagteri</strong>.</div></div>
+      <div class="story-item"><div class="story-num">3</div><div>Han var meget glad for <strong>jobbet</strong> som <strong>slagter</strong>, men han havde altid haft en <strong>drøm</strong> om at blive selvstændig og åbne sin egen <strong>restaurant</strong>.</div></div>
+      <div class="story-item"><div class="story-num">4</div><div><strong>Drømmen</strong> kunne blive en <strong>realitet</strong>, da han arvede en masse <strong>penge</strong> fra sin <strong>onkel</strong> i <strong>USA</strong>.</div></div>
+      <div class="story-item"><div class="story-num">5</div><div>Så <strong>Stig</strong> besluttede sig for at bruge alle <strong>pengene</strong> fra den store <strong>arv</strong> på at købe den fine <strong>restaurant</strong> i <strong>Kalundborg</strong>.</div></div>
+      <div class="story-item"><div class="story-num">6</div><div><strong>Restauranten</strong> ligger i <strong>Kalundborg</strong>.</div></div>
+      <div class="story-item"><div class="story-num">7</div><div>Det har han ikke fortrudt, for der kommer mange <strong>kunder</strong>, og alle <strong>kunderne</strong> roser <strong>Stigs mad</strong>.</div></div>
+      <div class="sub-heading" style="margin-top:1rem;font-size:.85rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding-left:.85rem;border-left:3px solid var(--primary-mid)">Giải thích</div>
+      <ul style="font-size:.9rem;margin-top:.5rem">
+        <li><strong>"en restaurant"</strong> (câu 1) → lần đầu giới thiệu → câu đầu tiên</li>
+        <li><strong>"restauranten"</strong> (câu 2) → đã được nhắc → phải sau câu 1</li>
+        <li><strong>"en drøm"</strong> → lần đầu; <strong>"Drømmen"</strong> → đã nhắc → sau câu về drøm</li>
+        <li><strong>"pengene", "den store arv"</strong> → xác định vì đã được nhắc đến</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 19
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 19</span>
+    <h2 class="op-title">Skriv bestemt form med adjektiv</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án — Bảng</h3>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Dạng xác định không có adj.</th><th>Dạng xác định + adj.</th></tr></thead>
+          <tbody>
+            <tr><td>filmen (god)</td><td><strong>den gode film</strong></td></tr>
+            <tr><td>svaret (rigtig)</td><td><strong>det rigtige svar</strong></td></tr>
+            <tr><td>opgaven (svær)</td><td><strong>den svære opgave</strong></td></tr>
+            <tr><td>arbejdet (hård)</td><td><strong>det hårde arbejde</strong></td></tr>
+            <tr><td>bøgerne (god)</td><td><strong>de gode bøger</strong></td></tr>
+            <tr><td>sproget (dansk)</td><td><strong>det danske sprog</strong></td></tr>
+            <tr><td>kursisterne (dygtig)</td><td><strong>de dygtige kursister</strong></td></tr>
+            <tr><td>tøjet (beskidt)</td><td><strong>det beskidte tøj</strong></td></tr>
+            <tr><td>børnene (fræk)</td><td><strong>de frække børn</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích + Viết lại câu</h3>
+      <div class="sub-heading">Trích dẫn lý thuyết — Mục 4.1.3 (E-form)</div>
+      <div class="quote-box">
+        Dạng E-form được hình thành bằng cách thêm <strong>-e</strong> vào dạng cơ bản. Dùng với tất cả danh từ ở dạng số nhiều và ở dạng xác định (cả số ít và số nhiều).
+      </div>
+      <div class="sub-heading">Viết lại câu</div>
+      <ul>
+        <li><strong>De sorte bukser</strong> klæder dig godt.</li>
+        <li>Hvor har du købt <strong>den smarte bluse</strong>?</li>
+        <li><strong>Det svenske flag</strong> er blåt og gult.</li>
+        <li>Skruer du ned for <strong>den høje musik</strong>?</li>
+        <li><strong>De dejlige kager</strong> blev hurtigt spist.</li>
+        <li>Jeg var på <strong>det nye museum</strong> i går.</li>
+        <li>Jeg har spist alle <strong>de friske jordbær</strong>.</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 20
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 20</span>
+    <h2 class="op-title">Fra bestemt form til genitiv</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án</h3>
+      <ul>
+        <li>Hunden er sød. (min nabo) → <strong>Min nabos hund er sød.</strong></li>
+        <li>Køkkenet er helt nyt. (Julie) → <strong>Julies køkken er helt nyt.</strong></li>
+        <li>Jeg elsker maden. (min mor) → <strong>Jeg elsker min mors mad.</strong></li>
+        <li>Forhjulet er punkteret. (cyklen) → <strong>Cyklens forhjul er punkteret.</strong></li>
+        <li>Tøjet er snavset. (børnene) → <strong>Børnenes tøj er snavset.</strong></li>
+        <li>Kantinen er lukket. (skolen) → <strong>Skolens kantine er lukket.</strong></li>
+        <li>Lejligheden er for lille. (min ven) → <strong>Min vens lejlighed er for lille.</strong></li>
+        <li>Hvor ligger nøglerne? (Jens) → <strong>Hvor ligger Jens' nøgler?</strong></li>
+        <li>Hvad er klimamålene? (FN) → <strong>Hvad er FNs klimamål?</strong></li>
+      </ul>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Trích dẫn lý thuyết — Mục 1.2.3</div>
+      <div class="quote-box">
+        Để biểu thị sự sở hữu hoặc mối quan hệ, người ta thêm hậu tố <strong>-s</strong> vào sau danh từ.<br>
+        Ví dụ: <em>Min nabos hund er sød.</em>
+      </div>
+      <div class="sub-heading">Công thức</div>
+      <div class="formula">Người/vật sở hữu + <span>s</span> + danh từ được sở hữu <small>(không có mạo từ)</small></div>
+      <div class="sub-heading">Đặc biệt</div>
+      <p>Tên tận cùng <code class="mono">-s</code>: "Jens" → <strong>Jens'</strong> hoặc <strong>Jens's</strong></p>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 21
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 21</span>
+    <h2 class="op-title">Lav beskrivende genitiv</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án</h3>
+      <ul>
+        <li>Hvidvinen er på 3 liter. → Det er en <strong>3-liters</strong> hvidvin.</li>
+        <li>Lejligheden er på 4 værelser. → Det er en <strong>4-værelsers</strong> lejlighed.</li>
+        <li>Han fylder 50 år. → Det er hans <strong>50-års</strong> fødselsdag.</li>
+        <li>Bilen har 3 døre. → Det er en <strong>3-dørs</strong> bil.</li>
+        <li>Menuen var på 4 retter. → Det var en <strong>4-retters</strong> menu.</li>
+        <li>Bordet er til to personer. → Det er et <strong>2-personers</strong> bord.</li>
+        <li>Ejendommen har 5 etager. → Det er en <strong>5-etagers</strong> ejendom.</li>
+        <li>Jobbet er på fuld tid. → Det er et <strong>fuldtids</strong>job.</li>
+        <li>Jobbet er på 20 timer om ugen. → Det er et <strong>20-timers</strong>job.</li>
+        <li>Kortet er gyldigt i et år. → Det er et <strong>1-års</strong>kort.</li>
+        <li>Togkortet gælder en måned. → Det er et <strong>1-måneds</strong>kort.</li>
+      </ul>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Genitiv mô tả (beskrivende genitiv)</div>
+      <div class="formula"><span>Số</span> – <span>danh từ</span> – s + danh từ được mô tả</div>
+      <ul style="margin-top:.75rem">
+        <li>"3 liter" → <strong>3-liters</strong> hvidvin</li>
+        <li>"4 værelser" → <strong>4-værelsers</strong> lejlighed</li>
+        <li>"fuld tid" → <strong>fuldtids</strong>job (ghép trực tiếp)</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 22
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 22</span>
+    <h2 class="op-title">Lav substantiver af verber</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án</h3>
+      <ul>
+        <li>Liva elsker at regne → <strong>regning</strong></li>
+        <li>Hun ror i kano → <strong>roning</strong></li>
+        <li>Priserne er steget → en voldsom <strong>stigning</strong></li>
+        <li>Befolkningen var undertrykt → <strong>undertrykkelse</strong></li>
+        <li>Han skal dokumentere → <strong>dokumentation</strong></li>
+        <li>De investerede penge → en stor <strong>investering</strong></li>
+        <li>Politikerne diskuterer → en stor <strong>diskussion</strong></li>
+        <li>Fleming opdagede penicillin → en vigtig <strong>opdagelse</strong></li>
+        <li>Hun forstår mig ikke → ingen <strong>forståelse</strong></li>
+        <li>Mange var skuffede → en stor <strong>skuffelse</strong></li>
+        <li>Regnemaskinen blev opfundet → <strong>opfindelsen</strong> (Pascals)</li>
+        <li>Det er forbudt at diskriminere → <strong>diskrimination</strong></li>
+        <li>Vi vedligeholder huset → <strong>vedligeholdelse</strong></li>
+      </ul>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Các hậu tố tạo danh từ từ động từ</div>
+      <ul>
+        <li><code class="mono">-ning</code>: regne → regning, ro → roning, stige → stigning</li>
+        <li><code class="mono">-else</code>: undertrykke → undertrykkelse, opdage → opdagelse, forstå → forståelse</li>
+        <li><code class="mono">-ion/-tion</code>: dokumentere → dokumentation, diskriminere → diskrimination</li>
+        <li><code class="mono">-ing</code>: investere → investering</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 23
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 23</span>
+    <h2 class="op-title">Lav substantiver af adjektiver</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án</h3>
+      <ul>
+        <li>Jeg er <strong>tålmodig</strong> → min <strong>tålmodighed</strong></li>
+        <li>Han var <strong>ensom</strong> → hans <strong>ensomhed</strong></li>
+        <li>Hun var <strong>ung</strong> i Indien → sin <strong>ungdom</strong></li>
+        <li>Jeg spiser <strong>sundt</strong> → <strong>sundhed</strong></li>
+        <li>Laura havde en <strong>fattig</strong> opvækst → <strong>fattigdom</strong></li>
+        <li>Konen var sin mand <strong>utro</strong> → <strong>utroskab</strong></li>
+        <li>Jeg elsker den <strong>skønne</strong> natur → naturens <strong>skønhed</strong></li>
+        <li>Daniel er <strong>doven</strong> → Daniels <strong>dovenskab</strong></li>
+        <li>Forældrene var <strong>kærlige</strong> → <strong>kærlighed</strong></li>
+        <li>Murugan Templet er en <strong>hellig</strong> bygning → <strong>helligdom</strong></li>
+        <li>Han er <strong>afhængig</strong> af sovepiller → en <strong>afhængighed</strong></li>
+      </ul>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Hậu tố tạo danh từ từ tính từ</div>
+      <ul>
+        <li><code class="mono">-hed</code>: tålmodig → tålmodighed, ensom → ensomhed, skøn → skønhed, kærlig → kærlighed, afhængig → afhængighed</li>
+        <li><code class="mono">-dom</code>: ung → ungdom, fattig → fattigdom, hellig → helligdom</li>
+        <li><code class="mono">-skab</code>: utro → utroskab, doven → dovenskab</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 24
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 24</span>
+    <h2 class="op-title">Find substantivers modsatte betydning</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Đáp án</h3>
+      <ul>
+        <li>Indledningen var god, men <strong>afslutningen</strong> var elendig.</li>
+        <li>Der er mange ligheder, men også en del <strong>forskelle</strong>.</li>
+        <li>Der var ingen børn inviteret, kun <strong>voksne</strong>.</li>
+        <li>Han voksede op i fattigdom, men lever nu i stor <strong>rigdom</strong>.</li>
+        <li>Man vil forebygge sygdom ved at fokusere på <strong>sundhed</strong>.</li>
+        <li>Hendes seneste film var <strong>en fiasko</strong>.</li>
+        <li>Udgifterne er højere end <strong>indtægterne</strong>.</li>
+        <li>Der er mange fordele, men også et par <strong>ulemper</strong>.</li>
+        <li>Der er mange rettigheder, men det er <strong>pligterne</strong> også.</li>
+        <li>I år frygter man <strong>et underskud</strong>.</li>
+      </ul>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Trích dẫn — Mục 4.3 Antonymer</div>
+      <div class="quote-box">
+        Từ trái nghĩa là những cặp từ có ý nghĩa đối lập nhau.<br>
+        Ví dụ: varm – kold, gammel – ung.
+      </div>
+      <div class="sub-heading">Các cặp trái nghĩa</div>
+      <ul>
+        <li>indledning ↔ <strong>afslutning</strong></li>
+        <li>ligheder ↔ <strong>forskelle</strong></li>
+        <li>børn ↔ <strong>voksne</strong></li>
+        <li>fattigdom ↔ <strong>rigdom</strong></li>
+        <li>sygdom ↔ <strong>sundhed</strong></li>
+        <li>succes ↔ <strong>fiasko</strong></li>
+        <li>udgifter ↔ <strong>indtægter</strong></li>
+        <li>fordele ↔ <strong>ulemper</strong></li>
+        <li>rettigheder ↔ <strong>pligter</strong></li>
+        <li>overskud ↔ <strong>underskud</strong></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 25
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 25</span>
+    <h2 class="op-title">Skriv den rigtige form af substantivet i e-mailen</h2>
+  </div>
+  <div class="op-content single-col">
+    <div class="op-single">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--primary-dark);margin-bottom:.85rem">Đáp án — E-mail từ Mallorca</h3>
+      <p>Hej! Hvordan går det? Nyder du din <strong>ferie</strong>?</p>
+      <p>Vi har en dejlig <strong>ferie</strong> her på Mallorca. Lige nu sidder vi på <strong>altanen</strong> på vores <strong>hotel</strong> og nyder <strong>udsigten</strong>. <strong>Hotellet</strong> ligger lige ud til <strong>vandet</strong>, så vi har faktisk den skønneste <strong>udsigt</strong>. <strong>Vejret</strong> er skønt, her er mindst 30 <strong>grader</strong>, og <strong>solen</strong> skinner hver <strong>dag</strong>. Midt på <strong>dagen</strong> er det faktisk for varmt at ligge på <strong>stranden</strong>.</p>
+      <p>Vi har lejet <strong>en bil</strong>, så vi kører rundt oppe i <strong>bjergene</strong> og nyder øens smukke <strong>natur</strong>. I går var vi oppe i <strong>en bjerglandsby</strong>, hvor ingen <strong>turister</strong> normalt kommer. Her fandt vi <strong>en restaurant</strong>, hvor vi spiste rigtig spansk <strong>mad</strong> og talte med nogle søde <strong>mennesker</strong>, der bor i <strong>området</strong>.</p>
+      <p>På vej hjem kom vi forbi <strong>et marked</strong>, hvor man kunne købe mange flotte <strong>ting</strong>. Her købte vi et par <strong>gaver</strong> til dig. Vi er hjemme igen i <strong>weekenden</strong>.</p>
+      <p>Mange hilsner Lotte og Ebbe</p>
+      <div class="sub-heading" style="margin-top:1rem;font-size:.85rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding-left:.85rem;border-left:3px solid var(--primary-mid)">Giải thích</div>
+      <ul style="font-size:.9rem;margin-top:.5rem">
+        <li><strong>"din ferie"</strong> → với đại từ sở hữu, bỏ en/et</li>
+        <li><strong>"altanen, hotellet, udsigten, vejret, solen"</strong> → xác định (đã nhắc/duy nhất)</li>
+        <li><strong>"30 grader"</strong> → số nhiều vì có số đếm</li>
+        <li><strong>"en bil, en bjerglandsby, en restaurant, et marked"</strong> → không xác định, lần đầu</li>
+        <li><strong>"bjergene"</strong> → số nhiều xác định</li>
+        <li><strong>"turister, mennesker, ting, gaver"</strong> → số nhiều không xác định</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     OPGAVE 26
+═════════════════════════════════════════════════ -->
+<article class="opgave-block">
+  <div class="op-header">
+    <span class="op-badge">Opgave 26</span>
+    <h2 class="op-title">Skriv &amp; ret — Bài tập tự do</h2>
+  </div>
+  <div class="op-content">
+    <div class="op-answers">
+      <h3>Hướng dẫn</h3>
+      <ul>
+        <li>Viết thư kể về kỳ nghỉ của bạn</li>
+        <li>Gạch dưới tất cả danh từ</li>
+        <li>Kiểm tra dạng số ít/số nhiều</li>
+        <li>Đánh dấu UF (ubestemt form) hoặc BF (bestemt form)</li>
+        <li>Trao đổi với bạn học để tìm lỗi</li>
+      </ul>
+    </div>
+    <div class="op-explanation">
+      <h3>Giải thích</h3>
+      <div class="sub-heading">Quy tắc kiểm tra</div>
+      <p>Tổng hợp toàn bộ kiến thức về danh từ.</p>
+      <div class="sub-heading">Áp dụng</div>
+      <ul>
+        <li>Phân biệt en/et</li>
+        <li>Chọn đúng dạng số ít/số nhiều</li>
+        <li>Xác định/không xác định</li>
+        <li>Áp dụng genitiv khi cần</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════
+     REPETITION — ERROR CORRECTION BLOCK (DARK)
+═════════════════════════════════════════════════ -->
+<div class="stative-block">
+  <div class="stative-accent"></div>
+  <div class="stative-header">
+    <div style="display:flex;align-items:flex-start;gap:1rem">
+      <span class="op-badge">Repetition</span>
+      <h2 class="op-title">Fejlretning — Substantiver</h2>
+    </div>
+  </div>
+  <div class="stative-body">
+    <h3>Sửa lỗi — 10 câu sai</h3>
+    <div class="error-table-wrap">
+      <table class="error-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Câu sai ❌</th>
+            <th>Câu đúng ✓</th>
+            <th>Giải thích lỗi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="err-num">1</td>
+            <td><span class="err-wrong">Jeg er en 26-årig kvinder fra Island, som har en børn.</span></td>
+            <td><span class="err-right">Jeg er en 26-årig kvinde fra Island, som har et barn.</span></td>
+            <td><div class="err-reason">"kvinder" là số nhiều → "kvinde" (số ít). "en børn" sai → "et barn" (số ít với mạo từ et).</div></td>
+          </tr>
+          <tr>
+            <td class="err-num">2</td>
+            <td><span class="err-wrong">Min nabos hunden gør hver dagen.</span></td>
+            <td><span class="err-right">Min nabos hund gør hver dag.</span></td>
+            <td><div class="err-reason">Sau genitiv "nabos", không thêm mạo từ xác định → "hund". "hver dagen" → "hver dag" (không dùng xác định sau "hver").</div></td>
+          </tr>
+          <tr>
+            <td class="err-num">3</td>
+            <td><span class="err-wrong">I går var jeg til en stor 40 år fødselsdag.</span></td>
+            <td><span class="err-right">I går var jeg til en stor 40-års fødselsdag.</span></td>
+            <td><div class="err-reason">Dùng genitiv mô tả: "40-års" thay vì "40 år".</div></td>
+          </tr>
+          <tr>
+            <td class="err-num">4</td>
+            <td><span class="err-wrong">Den lejligheden har 5 værelse og den skønneste altan.</span></td>
+            <td><span class="err-right">Lejligheden har 5 værelser og den skønneste altan.</span></td>
+            <td><div class="err-reason">Không dùng "den" khi đã có hậu tố xác định "lejligheden". "5 værelse" → số nhiều "5 værelser".</div></td>
+          </tr>
+          <tr>
+            <td class="err-num">5</td>
+            <td><span class="err-wrong">Vores lejligheden er for lille, så vi skal flytte i huset.</span></td>
+            <td><span class="err-right">Vores lejlighed er for lille, så vi skal flytte i et hus.</span></td>
+            <td><div class="err-reason">Sau đại từ sở hữu "vores", không dùng hậu tố xác định. "Huset" (xác định) → "et hus" (chưa biết ngôi nhà nào).</div></td>
+          </tr>
+          <tr>
+            <td class="err-num">6</td>
+            <td><span class="err-wrong">Min mand forældrene er pensionisterne. Før var hans faren en læge, og moren var en lærer.</span></td>
+            <td><span class="err-right">Min mands forældre er pensionister. Før var hans far læge, og mor lærer.</span></td>
+            <td><div class="err-reason">"min mand forældrene" → genitiv "min mands forældre". Nghề nghiệp không bổ nghĩa không dùng "en".</div></td>
+          </tr>
+          <tr>
+            <td class="err-num">7</td>
+            <td><span class="err-wrong">Min italienske kæresten går til dansk to gang om uge.</span></td>
+            <td><span class="err-right">Min italienske kæreste går til dansk to gange om ugen.</span></td>
+            <td><div class="err-reason">Sau tính từ + đại từ sở hữu, không dùng hậu tố xác định. "to gang" → "to gange". "om uge" → "om ugen".</div></td>
+          </tr>
+          <tr>
+            <td class="err-num">8</td>
+            <td><span class="err-wrong">Han er glad for undervisning på sprogskole.</span></td>
+            <td><span class="err-right">Han er glad for undervisningen på sprogskolen.</span></td>
+            <td><div class="err-reason">Các danh từ đã xác định cần thêm hậu tố: "undervisningen", "sprogskolen".</div></td>
+          </tr>
+          <tr>
+            <td class="err-num">9</td>
+            <td><span class="err-wrong">Fordel ved at arbejde hjemme er, at man selv kan bestemme ens arbejdstiden.</span></td>
+            <td><span class="err-right">Fordelen ved at arbejde hjemme er, at man selv kan bestemme sin arbejdstid.</span></td>
+            <td><div class="err-reason">"Fordel" (chủ ngữ) cần dạng xác định "Fordelen". "ens" → "sin". "arbejdstiden" → "arbejdstid" (sau đại từ sở hữu).</div></td>
+          </tr>
+          <tr>
+            <td class="err-num">10</td>
+            <td><span class="err-wrong">De har haft mange udgifterne i år i deres firmaet.</span></td>
+            <td><span class="err-right">De har haft mange udgifter i år i deres firma.</span></td>
+            <td><div class="err-reason">Sau "mange", danh từ không dùng hậu tố xác định → "udgifter". Sau "deres", không dùng hậu tố → "firma".</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:1.5rem">Các lỗi phổ biến — Tổng hợp</h3>
+    <ul style="color:rgba(255,255,255,.7);font-size:.9rem;padding-left:1.2rem;line-height:2">
+      <li>Nhầm lẫn số ít/số nhiều với số đếm</li>
+      <li>Dùng thừa mạo từ xác định sau genitiv hoặc đại từ sở hữu</li>
+      <li>Không dùng genitiv mô tả đúng cách (40-års)</li>
+      <li>Dùng sai hình thức xác định với den/det/de + tính từ</li>
+      <li>Quên quy tắc bỏ en/et với nghề nghiệp không bổ nghĩa</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     CONCLUSION BANNER
+═════════════════════════════════════════════════ -->
+<div class="conclusion-banner">
+  <h2>Kết luận — Toàn bộ Chương 1: Substantiver</h2>
+  <p>Đã giải <strong>26 bài tập chính + 1 bài Repetition</strong> với giải thích chi tiết dựa trên lý thuyết.</p>
+  <div class="conclusion-grid">
+    <div class="conclusion-item">Nhận biết và phân loại danh từ (Opgave 1)</div>
+    <div class="conclusion-item">Phân biệt en-ord và et-ord (Opgave 2)</div>
+    <div class="conclusion-item">Danh từ ghép sammensatte substantiver (Opgave 3-5)</div>
+    <div class="conclusion-item">Số nhiều và các nhóm biến cách (Opgave 6-7)</div>
+    <div class="conclusion-item">Đếm được và không đếm được (Opgave 10-11)</div>
+    <div class="conclusion-item">Dùng/bỏ mạo từ en/et (Opgave 12)</div>
+    <div class="conclusion-item">Bốn dạng biến cách cơ bản (Opgave 13)</div>
+    <div class="conclusion-item">Xác định và không xác định (Opgave 14-18)</div>
+    <div class="conclusion-item">Dạng xác định với tính từ (Opgave 19)</div>
+    <div class="conclusion-item">Sở hữu cách Genitiv (Opgave 20-21)</div>
+    <div class="conclusion-item">Tạo danh từ từ động từ và tính từ (Opgave 22-23)</div>
+    <div class="conclusion-item">Từ trái nghĩa — Antonymer (Opgave 24)</div>
+    <div class="conclusion-item">Ứng dụng tổng hợp (Opgave 25-26)</div>
+    <div class="conclusion-item">Sửa lỗi — Fejlretning (Repetition)</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     IMPORTANT RULES SUMMARY
+═════════════════════════════════════════════════ -->
+<div class="chapter-section">
+  <div class="chapter-section-header">
+    <span class="op-badge" style="background:rgba(255,255,255,.15);color:#fff;border:none">Tóm tắt</span>
+    <h2>Các quy tắc quan trọng nhất</h2>
+  </div>
+  <div class="chapter-section-body">
+
+    <div class="rule-group">
+      <div class="rule-title">1. Giống của danh từ (en/et)</div>
+      <ul class="rule-content">
+        <li>Học thuộc T-ordlisten (Phụ lục 1)</li>
+        <li>Từ tận cùng <code class="mono">-eri</code>, <code class="mono">-um</code> là et-ord</li>
+      </ul>
+    </div>
+
+    <div class="rule-group">
+      <div class="rule-title">2. Bốn dạng biến cách cơ bản</div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Dạng</th><th>en-ord</th><th>et-ord</th></tr></thead>
+          <tbody>
+            <tr><td>Số ít không xác định</td><td>en bil</td><td>et hus</td></tr>
+            <tr><td>Số ít xác định</td><td>bil<strong>en</strong></td><td>hus<strong>et</strong></td></tr>
+            <tr><td>Số nhiều không xác định</td><td>bil<strong>er</strong></td><td>hus<strong>e</strong></td></tr>
+            <tr><td>Số nhiều xác định</td><td>biler<strong>ne</strong></td><td>huse<strong>ne</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="rule-group">
+      <div class="rule-title">3. Bốn cách tạo dạng xác định</div>
+      <ul>
+        <li><strong>Thêm hậu tố:</strong> bilen, huset, bilerne</li>
+        <li><strong>Với đại từ sở hữu:</strong> min bil, vores hus (KHÔNG thêm hậu tố)</li>
+        <li><strong>Với genitiv:</strong> Julies bil, skolens tag (KHÔNG thêm hậu tố)</li>
+        <li><strong>Với tính từ:</strong> den <em>røde</em> bil, det <em>store</em> hus, de <em>nye</em> biler</li>
+      </ul>
+    </div>
+
+    <div class="rule-group">
+      <div class="rule-title">4. Khi KHÔNG dùng en/et</div>
+      <ul>
+        <li>Nghề nghiệp không bổ nghĩa: "Han er lærer"</li>
+        <li>Quốc tịch: "Hun er dansker"</li>
+        <li>Sau đại từ sở hữu: "min bil"</li>
+        <li>Sau genitiv: "Peters bil"</li>
+        <li>Cụm cố định: "gå i skole", "til læge"</li>
+      </ul>
+    </div>
+
+    <div class="rule-group">
+      <div class="rule-title">5. Danh từ đếm được vs không đếm được</div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Đếm được (Tællelige)</th><th>Không đếm được (Utællelige)</th></tr></thead>
+          <tbody>
+            <tr><td><strong>mange</strong> kartofler</td><td><strong>meget</strong> sukker</td></tr>
+            <tr><td><strong>mange</strong> bøger</td><td><strong>meget</strong> vand</td></tr>
+            <tr><td><strong>nogle</strong> børn</td><td><strong>noget</strong> mad</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="rule-group">
+      <div class="rule-title">6. Số nhiều — 4 nhóm chính</div>
+      <ul>
+        <li><strong>Nhóm 1:</strong> thêm <code class="mono">-er</code> → citron → citroner</li>
+        <li><strong>Nhóm 2:</strong> thêm <code class="mono">-e</code> → skab → skabe</li>
+        <li><strong>Nhóm 3:</strong> không đổi/thay đổi nguyên âm → glas → glas; bog → bøger</li>
+        <li><strong>Nhóm 4:</strong> bất quy tắc → barn → børn, mand → mænd</li>
+      </ul>
+    </div>
+
+    <div class="rule-group">
+      <div class="rule-title">7. Genitiv (Sở hữu cách)</div>
+      <div class="formula">Người sở hữu + <span>s</span> + danh từ (không có mạo từ)</div>
+      <ul style="margin-top:.75rem">
+        <li>Min nabos hund (con chó của hàng xóm tôi)</li>
+        <li>Peters bil (xe của Peter)</li>
+        <li>Skolens tag (mái của trường)</li>
+      </ul>
+      <p style="margin-top:.6rem"><strong>Genitiv mô tả:</strong> en 3-liters flaske, en 4-værelsers lejlighed</p>
+    </div>
+
+    <div class="rule-group">
+      <div class="rule-title">8. Danh từ ghép — Sammensatte substantiver</div>
+      <div class="formula">Từ 1 + Từ 2 → <span>Từ cuối quyết định giống</span></div>
+      <ul style="margin-top:.75rem">
+        <li>et glas + et bord = <strong>et glasbord</strong></li>
+        <li>en telefon + et nummer = <strong>et telefonnummer</strong></li>
+        <li>en sommer + et hus = <strong>et sommerhus</strong></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     CHECKLIST
+═════════════════════════════════════════════════ -->
+<div class="chapter-section">
+  <div class="chapter-section-header">
+    <span class="op-badge" style="background:rgba(255,255,255,.15);color:#fff;border:none">Checklist</span>
+    <h2>Checklist kiểm tra lỗi</h2>
+  </div>
+  <div class="chapter-section-body">
+    <p style="margin-bottom:1rem;color:var(--muted);font-size:.9rem">Khi viết danh từ, hãy tự hỏi:</p>
+    <ul class="checklist">
+      <li>
+        <span class="check-icon">✓</span>
+        <span><strong>En hay et?</strong> Tra T-ordlisten nếu không chắc. Nhớ: đuôi <code class="mono">-eri</code>, <code class="mono">-um</code> là et-ord.</span>
+      </li>
+      <li>
+        <span class="check-icon">✓</span>
+        <span><strong>Số ít hay số nhiều?</strong> Có số đếm / mange → số nhiều.</span>
+      </li>
+      <li>
+        <span class="check-icon">✓</span>
+        <span><strong>Xác định hay không xác định?</strong> Lần đầu nhắc đến → không xác định. Đã nhắc / người nghe biết → xác định.</span>
+      </li>
+      <li>
+        <span class="check-icon">✓</span>
+        <span><strong>Cách tạo xác định:</strong> Thêm hậu tố -(e)n/-(e)t/-(e)ne? Hay dùng đại từ sở hữu/genitiv? Hay dùng den/det/de + tính từ?</span>
+      </li>
+      <li>
+        <span class="check-icon">✓</span>
+        <span><strong>Có cần genitiv không?</strong> Chỉ sở hữu / mối quan hệ.</span>
+      </li>
+      <li>
+        <span class="check-icon">✓</span>
+        <span><strong>Nghề nghiệp / quốc tịch không bổ nghĩa?</strong> → Bỏ en/et.</span>
+      </li>
+      <li>
+        <span class="check-icon">✓</span>
+        <span><strong>Đếm được hay không đếm được?</strong> → Chọn mange/meget, nogle/noget.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SPECIAL NOTES — LỖI PHỔ BIẾN
+═════════════════════════════════════════════════ -->
+<div class="chapter-section">
+  <div class="chapter-section-header">
+    <span class="op-badge" style="background:rgba(232,52,74,.25);color:#ff8a99;border:none">⚠️ Lưu ý</span>
+    <h2>Các lỗi phổ biến nhất</h2>
+  </div>
+  <div class="chapter-section-body">
+    <ul class="note-list">
+      <li class="note-item">
+        <span class="note-wrong">min bilen</span>
+        <span class="note-right">min bil</span>
+        <span class="note-reason">Không dùng hậu tố xác định sau đại từ sở hữu</span>
+      </li>
+      <li class="note-item">
+        <span class="note-wrong">Peters en bil</span>
+        <span class="note-right">Peters bil</span>
+        <span class="note-reason">Không dùng en/et sau genitiv</span>
+      </li>
+      <li class="note-item">
+        <span class="note-wrong">den bil</span>
+        <span class="note-right">den røde bil</span>
+        <span class="note-reason">Phải có tính từ giữa den/det/de và danh từ</span>
+      </li>
+      <li class="note-item">
+        <span class="note-wrong">mange sukker</span>
+        <span class="note-right">meget sukker</span>
+        <span class="note-reason">Sukker không đếm được → dùng meget</span>
+      </li>
+      <li class="note-item">
+        <span class="note-wrong">Han er en lærer</span>
+        <span class="note-right">Han er lærer</span>
+        <span class="note-reason">Nghề nghiệp không bổ nghĩa → bỏ en</span>
+      </li>
+      <li class="note-item">
+        <span class="note-wrong">to barn</span>
+        <span class="note-right">to børn</span>
+        <span class="note-reason">Dạng số nhiều bất quy tắc của barn</span>
+      </li>
+      <li class="note-item">
+        <span class="note-wrong">hver dagen</span>
+        <span class="note-right">hver dag</span>
+        <span class="note-reason">Không dùng xác định sau "hver"</span>
+      </li>
+      <li class="note-item">
+        <span class="note-wrong">40 år fødselsdag</span>
+        <span class="note-right">40-års fødselsdag</span>
+        <span class="note-reason">Dùng genitiv mô tả: 40-års</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     BONUS EXERCISES GRID
+═════════════════════════════════════════════════ -->
+<div class="chapter-section">
+  <div class="chapter-section-header">
+    <span class="op-badge" style="background:rgba(255,255,255,.15);color:#fff;border:none">Bonus</span>
+    <h2>Bài tập ôn tập bổ sung (Tự luyện)</h2>
+  </div>
+  <div class="chapter-section-body">
+    <p style="margin-bottom:1.25rem;color:var(--muted);font-size:.9rem">Để củng cố kiến thức, bạn có thể luyện tập các bài sau:</p>
+    <div class="bonus-grid">
+
+      <div class="bonus-card">
+        <span class="bonus-num">1</span>
+        <div class="bonus-text">
+          <strong>Học thuộc T-ordlisten</strong> (trang 151) — Đây là nền tảng quan trọng nhất!
+        </div>
+      </div>
+
+      <div class="bonus-card">
+        <span class="bonus-num">2</span>
+        <div class="bonus-text">
+          <strong>Luyện bốn dạng</strong> với mỗi danh từ mới:
+          <pre class="mono-block">en bog → bogen → bøger → bøgerne
+et hus → huset → huse → husene</pre>
+        </div>
+      </div>
+
+      <div class="bonus-card">
+        <span class="bonus-num">3</span>
+        <div class="bonus-text">
+          <strong>Viết 10 câu</strong> sử dụng cả 4 cách tạo dạng xác định:
+          hậu tố, đại từ sở hữu, genitiv, den/det/de + adj.
+        </div>
+      </div>
+
+      <div class="bonus-card">
+        <span class="bonus-num">4</span>
+        <div class="bonus-text">
+          <strong>Đọc văn bản</strong> và gạch dưới tất cả danh từ, phân tích: En/et? Số ít/số nhiều? Xác định/không xác định? Tại sao dùng dạng đó?
+        </div>
+      </div>
+
+      <div class="bonus-card">
+        <span class="bonus-num">5</span>
+        <div class="bonus-text">
+          <strong>Truy cập <a href="https://praxisonline.dk" target="_blank">praxisonline.dk</a></strong> để làm thêm bài tập trực tuyến với đầy đủ phản hồi tức thì.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     KẾT — FINAL NOTE
+═════════════════════════════════════════════════ -->
+<div class="chapter-section" style="border:2px solid var(--primary-light)">
+  <div class="chapter-section-header" style="background:var(--primary-light)">
+    <span class="op-badge" style="background:var(--primary);color:#fff;border:none">📚 KẾT</span>
+    <h2 style="color:var(--primary-dark)">Hoàn thành Chương 1: Substantiver</h2>
+  </div>
+  <div class="chapter-section-body">
+    <ul class="checklist">
+      <li><span class="check-icon" style="background:var(--success)">✓</span><span><strong>26 bài tập chính</strong> đã được giải với lời giải chi tiết</span></li>
+      <li><span class="check-icon" style="background:var(--success)">✓</span><span><strong>1 bài Repetition</strong> (sửa 10 lỗi sai thường gặp)</span></li>
+      <li><span class="check-icon" style="background:var(--success)">✓</span><span><strong>Giải thích chi tiết</strong> dựa trên lý thuyết từ file ngữ pháp</span></li>
+      <li><span class="check-icon" style="background:var(--success)">✓</span><span><strong>Trích dẫn các mục lý thuyết</strong> liên quan</span></li>
+      <li><span class="check-icon" style="background:var(--success)">✓</span><span><strong>Phân tích áp dụng</strong> cho từng câu trả lời</span></li>
+    </ul>
+    <div class="quote-box" style="margin-top:1.25rem">
+      Nếu bạn cần giải thích thêm về bất kỳ bài tập nào, làm bài tập từ chương khác (Chương 2: Pronomener, Chương 3: Verber, v.v.), hoặc tạo thêm bài tập luyện tập — hãy tiếp tục! 🇩🇰
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+</main>
+
+<footer>
+  <strong>Chương 1: SUBSTANTIVER (Danh từ)</strong> · Tiếng Đan Mạch · Ngữ pháp toàn diện
+</footer>
+
+<a href="#top" class="toc-pill" title="Về đầu trang">↑ Top</a>
+
+</body>
+</html>

@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ngữ Pháp Tiếng Đan Mạch Toàn Tập</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      /* Color Palette */
+      --group1: #3B6FBF;
+      --group1-light: #D6E4FF;
+      --group1-mid: #7AAAF5;
+      
+      --group2: #2E9E68;
+      --group2-light: #C8F0DE;
+      --group2-mid: #5EC996;
+      
+      --group3: #C86B1A;
+      --group3-light: #FFE4C4;
+      --group3-mid: #F5A45A;
+
+      /* Nordic Editorial Theme Base */
+      --ink: #14131C;
+      --paper: #F8F8F6;
+      --surface: #FFFFFF;
+      --surface-alt: #1F1D2B;
+      --muted: #6E6B80;
+      --line: #E2E0DB;
+      --now: #E8344A;
+      --shadow: rgba(20, 19, 28, 0.05);
+      --shadow-hover: rgba(20, 19, 28, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      flex-shrink: 0;
+      background-color: #14131C;
+      width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+      body {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero {
+        flex: none;
+        width: 100%;
+        max-width: 960px;
+        margin: 0 auto;
+        height: auto;
+        position: relative;
+        text-align: center !important;
+        padding: 80px 20px 60px !important;
+        border-right: none;
+      }
+
+      .hero-sub {
+        margin: 0 auto 40px auto !important;
+      }
+
+      .legend {
+        justify-content: center !important;
+      }
+
+      .page {
+        flex: 1;
+        width: 100%;
+        max-width: 960px !important;
+        padding: 60px 20px 100px !important;
+        min-width: 0;
+      }
+    }
+
+    @media (min-width: 2560px) {
+      .hero {
+        max-width: 3400px;
+        padding: 100px 20px 80px !important;
+      }
+
+      .hero h1 {
+        font-size: 80px !important;
+      }
+
+      .page {
+        max-width: 2400px !important;
+        padding: 80px 20px 120px !important;
+      }
+
+      .tense-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+      }
+
+      .extra-cards {
+        grid-template-columns: repeat(4, 1fr) !important;
+      }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--ink);
+      padding: 52px 24px 44px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #aaa8c0;
+      border: 1px solid #3a3750;
+      border-radius: 20px;
+      padding: 8px 18px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 6vw, 64px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--now);
+    }
+
+    .hero-sub {
+      color: #aaa8c0;
+      font-size: 18px;
+      font-weight: 300;
+      max-width: 580px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    /* ── LEGEND ── */
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .leg-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface-alt);
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #d9d6f0;
+      cursor: pointer;
+      transition: all .2s ease;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .leg-btn:hover,
+    .leg-btn.active {
+      background: #2A2738;
+      border-color: rgba(255, 255, 255, .2);
+      color: #fff;
+    }
+
+    .leg-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .leg-dot.g1 { background: var(--group1-mid); }
+    .leg-dot.g2 { background: var(--group2-mid); }
+    .leg-dot.g3 { background: var(--group3-mid); }
+
+    /* ── MAIN TIMELINE AREA ── */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .tl-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .tl-label.now {
+      color: var(--now);
+      font-weight: 500;
+    }
+
+    .axis-wrap {
+      position: relative;
+      height: 56px;
+      margin-bottom: 64px;
+    }
+
+    .axis-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--group1) 0%, var(--group2) 50%, var(--group3) 100%);
+      transform: translateY(-50%);
+      border-radius: 2px;
+    }
+
+    .now-mark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      z-index: 2;
+    }
+
+    .now-line {
+      width: 2px;
+      height: 48px;
+      background: var(--now);
+      border-radius: 2px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .now-tag {
+      position: absolute;
+      top: calc(50% - 34px);
+      background: var(--now);
+      color: #fff;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+
+    .era-g1, .era-g2, .era-g3 {
+      position: absolute;
+      bottom: -10px;
+      font-size: 13px;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .era-g1 { left: 8px; color: var(--group1); }
+    .era-g2 { left: 50%; transform: translateX(-50%); color: var(--now); }
+    .era-g3 { right: 8px; color: var(--group3); }
+
+    /* ── SECTION DIVIDER ── */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 56px 0 32px;
+    }
+
+    .section-title span {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .section-title .bar { flex: 1; height: 1px; }
+
+    .section-title.s-g1 .bar { background: linear-gradient(90deg, var(--group1), transparent); }
+    .section-title.s-g2 .bar { background: linear-gradient(90deg, var(--group2), transparent); }
+    .section-title.s-g3 .bar { background: linear-gradient(90deg, var(--group3), transparent); }
+
+    .section-title.s-g1 span { color: var(--group1); }
+    .section-title.s-g2 span { color: var(--group2); }
+    .section-title.s-g3 span { color: var(--group3); }
+
+    /* ── TENSE CARDS ── */
+    .tense-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+    }
+
+    .tense-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: transform .3s ease, box-shadow .3s ease;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tense-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px var(--shadow-hover);
+    }
+
+    .card-header {
+      padding: 20px 24px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .card-asp {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .card-vn {
+      font-size: 15px;
+      color: var(--muted);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .card-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 50px;
+      font-weight: 900;
+      opacity: .06;
+      line-height: 0.8;
+      flex-shrink: 0;
+    }
+
+    .card-tl {
+      margin: 10px 24px;
+      position: relative;
+      height: 32px;
+    }
+
+    .card-tl svg { width: 100%; height: 100%; overflow: visible; }
+
+    .card-body {
+      padding: 16px 24px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-formula {
+      font-family: 'DM Mono', monospace;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-bottom: 16px;
+      align-self: flex-start;
+      line-height: 1.5;
+    }
+
+    .card-uses {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .card-uses li {
+      font-size: 16px;
+      line-height: 1.5;
+      padding-left: 14px;
+      position: relative;
+      color: #333;
+    }
+
+    .card-uses li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      font-size: 22px;
+      line-height: .9;
+      font-weight: 700;
+    }
+
+    .card-ex {
+      font-size: 16px;
+      font-style: italic;
+      color: var(--muted);
+      border-left: 2px solid var(--line);
+      padding-left: 12px;
+      line-height: 1.6;
+      background: #FDFDFD;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    .card-signals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 16px;
+    }
+
+    .sig {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: var(--line);
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    /* Color theming per group */
+    .g1-card { border-top: 4px solid var(--group1); }
+    .g1-card .card-asp, .g1-card .card-name { color: var(--group1); }
+    .g1-card .card-formula { background: var(--group1-light); color: var(--group1); }
+    .g1-card .card-uses li::before { color: var(--group1); }
+
+    .g2-card { border-top: 4px solid var(--group2); }
+    .g2-card .card-asp, .g2-card .card-name { color: var(--group2); }
+    .g2-card .card-formula { background: var(--group2-light); color: var(--group2); }
+    .g2-card .card-uses li::before { color: var(--group2); }
+
+    .g3-card { border-top: 4px solid var(--group3); }
+    .g3-card .card-asp, .g3-card .card-name { color: var(--group3); }
+    .g3-card .card-formula { background: var(--group3-light); color: var(--group3); }
+    .g3-card .card-uses li::before { color: var(--group3); }
+
+    /* ── COMPARISON TABLE (Pronouns Cheat Sheet) ── */
+    .compare-block {
+      margin-top: 64px;
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--shadow);
+    }
+
+    .compare-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      padding: 24px 32px 20px;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+    }
+
+    .cmp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+    }
+
+    .cmp-table th {
+      padding: 16px 20px;
+      text-align: left;
+      background: #F9F9F8;
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cmp-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .cmp-table tr:last-child td { border-bottom: none; }
+    .cmp-table tr:hover td { background: #FCFCFB; }
+
+    .badge-pron {
+      display: inline-block;
+      font-size: 14px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-family: 'DM Mono', monospace;
+      background: var(--group1-light);
+      color: var(--group1);
+      margin-right: 4px;
+      margin-bottom: 4px;
+    }
+
+    /* ── STATIVE SECTION (Dark Theme - V2 Rule Focus) ── */
+    .stative-block {
+      margin-top: 64px;
+      background: var(--surface-alt);
+      border-radius: 16px;
+      padding: 40px;
+      color: #d9d6f0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .stative-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--now), var(--group3));
+    }
+
+    .stative-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .stative-block p {
+      font-size: 18px;
+      color: #aaa8c0;
+      margin-bottom: 32px;
+      line-height: 1.7;
+      max-width: 800px;
+    }
+
+    .stative-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .sv-group {
+      background: #2A2738;
+      border: 1px solid rgba(255, 255, 255, .05);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .sv-group h3 {
+      font-size: 18px;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--now);
+      margin-bottom: 16px;
+    }
+    
+    .sv-group.sub h3 {
+      color: var(--group3-mid);
+    }
+
+    .sv-group ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sv-group ul li {
+      font-size: 16px;
+      color: #E2E0DB;
+      line-height: 1.6;
+    }
+    
+    .sv-group ul li span.hl {
+      color: var(--now);
+      font-weight: bold;
+      border-bottom: 1px dashed var(--now);
+    }
+
+    .sv-group ul li span.hl2 {
+      color: var(--group3-mid);
+      font-weight: bold;
+      border-bottom: 1px dashed var(--group3-mid);
+    }
+
+    /* ── EXTRA STRUCTURES ── */
+    .extra-section { margin-top: 64px; }
+    .extra-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .extra-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: transform 0.2s;
+    }
+
+    .extra-card:hover { transform: translateY(-2px); }
+
+    .extra-card h3 {
+      font-family: 'DM Mono', monospace;
+      font-size: 16px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--group1);
+      margin-bottom: 16px;
+    }
+
+    .extra-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .extra-card ul li {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .extra-card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      font-size: 16px;
+      top: 2px;
+      color: var(--group1);
+    }
+
+    .extra-card.green h3 { color: var(--group2); }
+    .extra-card.green ul li::before { color: var(--group2); }
+    .extra-card.orange h3 { color: var(--group3); }
+    .extra-card.orange ul li::before { color: var(--group3); }
+
+    .foot {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 15px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 1px;
+      margin-top: 40px;
+    }
+
+    .tense-card.hidden { display: none; }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="hero">
+      <div class="hero-badge">Danish Grammar Reference · Tổng Hợp</div>
+      <h1>Ngữ Pháp Tiếng Đan Mạch<br><em>Toàn Tập Căn Bản</em></h1>
+      <p class="hero-sub">Tổng hợp kiến thức nền tảng từ 8 chủ điểm quan trọng nhất: Danh từ, Đại từ, Động từ, Tính từ, Trạng từ, Giới từ, Từ nối và Cú pháp (Ordstilling) trên một trang duy nhất.</p>
+      <div class="legend">
+        <button class="leg-btn active" onclick="filter('all')"><span class="leg-dot" style="background:#aaa8c0"></span>Tất cả</button>
+        <button class="leg-btn" onclick="filter('g1')"><span class="leg-dot g1"></span>Danh & Đại từ</button>
+        <button class="leg-btn" onclick="filter('g2')"><span class="leg-dot g2"></span>Động, Tính & Trạng</button>
+        <button class="leg-btn" onclick="filter('g3')"><span class="leg-dot g3"></span>Từ nối & Cú pháp</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <div class="timeline-header">
+      <span class="tl-label past">← Thực thể</span>
+      <span class="tl-label now">● Hành động & Tính chất</span>
+      <span class="tl-label future">Cấu trúc câu →</span>
+    </div>
+    <div class="axis-wrap">
+      <div class="axis-line"></div>
+      <div class="now-mark">
+        <div class="now-line"></div>
+        <div class="now-tag">BẢN CHẤT CÂU</div>
+      </div>
+      <span class="era-g1">Chủ ngữ/Tân ngữ</span>
+      <span class="era-g3">Mệnh đề</span>
+
+      <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 960 56" preserveAspectRatio="none">
+        <circle cx="15%" cy="28" r="5" fill="#3B6FBF" opacity=".8" />
+        <circle cx="30%" cy="28" r="5" fill="#3B6FBF" opacity=".8" />
+        <circle cx="50%" cy="28" r="7" fill="#E8344A" />
+        <circle cx="70%" cy="28" r="5" fill="#C86B1A" opacity=".8" />
+        <circle cx="85%" cy="28" r="5" fill="#C86B1A" opacity=".8" />
+      </svg>
+    </div>
+
+    <!-- GROUP 1: NOUNS & PRONOUNS -->
+    <div class="section-title s-g1">
+      <span>1. Chủ thể · Substantiver & Pronomener</span>
+      <div class="bar"></div>
+    </div>
+    <div class="tense-grid" id="grid-g1">
+
+      <div class="tense-card g1-card" data-group="g1">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-asp">Ordklasse</div>
+            <div class="card-name">Substantiver</div>
+            <div class="card-vn">Danh từ</div>
+          </div>
+          <div class="card-num">1</div>
+        </div>
+        <div class="card-tl">
+          <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2" />
+            <circle cx="80" cy="14" r="6" fill="var(--group1)" />
+            <circle cx="100" cy="14" r="6" fill="var(--group1)" />
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-formula">en/et + Danh từ ➞ Danh từ + en/et</div>
+          <ul class="card-uses">
+            <li><strong>Giới tính:</strong> Fælleskøn (en - 75%) & Intetkøn (et - 25%).</li>
+            <li><strong>Dạng xác định (Bestemthed):</strong> Chuyển mạo từ xuống cuối từ (en bil ➞ bilen).</li>
+            <li><strong>Số nhiều (Pluralis):</strong> Thường thêm <em>-er</em> hoặc <em>-e</em> (biler, dage). Xác định số nhiều: <em>-ene</em> (bilerne).</li>
+            <li><strong>Sở hữu cách (Genitiv):</strong> Thêm chữ <em>-s</em> vào sau danh từ.</li>
+          </ul>
+          <div class="card-ex">"Jeg har <strong>en bil</strong>. <strong>Bilen</strong> er rød."<br>"Dette er <strong>Peters</strong> bog."</div>
+          <div class="card-signals">
+            <span class="sig">en dreng ➞ drengen</span><span class="sig">et hus ➞ huset</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tense-card g1-card" data-group="g1">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-asp">Ordklasse</div>
+            <div class="card-name">Pronomener</div>
+            <div class="card-vn">Đại từ</div>
+          </div>
+          <div class="card-num">2</div>
+        </div>
+        <div class="card-tl">
+          <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2" />
+            <circle cx="60" cy="14" r="5" fill="var(--group1)" opacity="0.5"/>
+            <path d="M70 14 L120 14" stroke="var(--group1)" stroke-dasharray="3 3"/>
+            <circle cx="130" cy="14" r="6" fill="var(--group1)" />
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-formula">Subjekt / Objekt / Possessiv</div>
+          <ul class="card-uses">
+            <li><strong>Personlige (Nhân xưng):</strong> Làm chủ ngữ (jeg, du, han...) hoặc tân ngữ (mig, dig, ham...).</li>
+            <li><strong>Possessive (Sở hữu):</strong> Chia theo giống (en/et/số nhiều) của vật bị sở hữu (min/mit/mine).</li>
+            <li><strong>Refleksive (Phản thân):</strong> Dùng "sig" cho ngôi thứ 3 khi chủ ngữ và tân ngữ là một người.</li>
+          </ul>
+          <div class="card-ex">"Han vasker <strong>sin</strong> bil." (Xe của anh ấy)<br>"Han vasker <strong>hans</strong> bil." (Xe của người khác)</div>
+          <div class="card-signals">
+            <span class="sig">jeg ➞ mig</span><span class="sig">vi ➞ os</span><span class="sig">sig/sin/sit/sine</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GROUP 2: VERBS, ADJECTIVES, ADVERBS -->
+    <div class="section-title s-g2">
+      <span>2. Hành động & Tính chất · Verber, Adj. & Adv.</span>
+      <div class="bar"></div>
+    </div>
+    <div class="tense-grid" id="grid-g2">
+
+      <div class="tense-card g2-card" data-group="g2">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-asp">Ordklasse</div>
+            <div class="card-name">Verber</div>
+            <div class="card-vn">Động từ</div>
+          </div>
+          <div class="card-num">3</div>
+        </div>
+        <div class="card-tl">
+          <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2" />
+            <rect x="100" y="9" width="60" height="10" rx="4" fill="var(--group2)" opacity=".72" />
+            <path d="M165 11L171 14L165 17" fill="var(--group2)" />
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-formula">Infinitiv ➞ Nutid ➞ Datid ➞ Førnutid</div>
+          <ul class="card-uses">
+            <li>Động từ tiếng Đan Mạch <strong>không chia theo ngôi</strong> (jeg/han/vi đều chung 1 dạng).</li>
+            <li><strong>Hiện tại (Nutid):</strong> Thường thêm <em>-r</em> vào Infinitiv (spise ➞ spiser).</li>
+            <li><strong>Quá khứ (Datid):</strong> Thêm <em>-ede</em> (nhóm 1) hoặc <em>-te</em> (nhóm 2) hoặc bất quy tắc.</li>
+            <li><strong>Modalverber (Khuyết thiếu):</strong> kan, skal, vil, må... Động từ đi sau ở dạng Infinitiv <strong>không có "at"</strong>.</li>
+          </ul>
+          <div class="card-ex">"Jeg <strong>spiser</strong> eblet." (Hiện tại)<br>"Jeg <strong>skal spise</strong> eblet." (Tương lai/Khuyết thiếu)</div>
+          <div class="card-signals">
+            <span class="sig">-r</span><span class="sig">-ede / -te</span><span class="sig">har/er + V-t</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tense-card g2-card" data-group="g2">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-asp">Ordklasse</div>
+            <div class="card-name">Adjektiver</div>
+            <div class="card-vn">Tính từ</div>
+          </div>
+          <div class="card-num">4</div>
+        </div>
+        <div class="card-tl">
+          <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2" />
+            <circle cx="130" cy="14" r="6" fill="var(--group1)" opacity=".4" />
+            <circle cx="160" cy="14" r="4" fill="var(--group2)" />
+            <path d="M150 14 Q140 5 130 10" fill="none" stroke="var(--group2)" stroke-width="1.5" />
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-formula">Grundform / +t / +e</div>
+          <ul class="card-uses">
+            <li>Tính từ bổ nghĩa cho danh từ và phải chia theo giới tính/số lượng của danh từ đó.</li>
+            <li><strong>Danh từ 'en':</strong> Giữ nguyên (stor).</li>
+            <li><strong>Danh từ 'et':</strong> Thêm <em>-t</em> (stort).</li>
+            <li><strong>Số nhiều / Dạng xác định:</strong> Thêm <em>-e</em> (store).</li>
+            <li><strong>So sánh (Gradbøjning):</strong> Thêm <em>-ere</em> (hơn), <em>-est</em> (nhất).</li>
+          </ul>
+          <div class="card-ex">"En <strong>stor</strong> bil." ➞ "To <strong>store</strong> biler."<br>"Et <strong>stort</strong> hus." ➞ "Det <strong>store</strong> hus."</div>
+          <div class="card-signals">
+            <span class="sig">stor, stort, store</span><span class="sig">-ere / -est</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tense-card g2-card" data-group="g2">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-asp">Ordklasse</div>
+            <div class="card-name">Adverbier</div>
+            <div class="card-vn">Trạng từ / Phó từ</div>
+          </div>
+          <div class="card-num">5</div>
+        </div>
+        <div class="card-tl">
+          <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2" />
+            <circle cx="130" cy="14" r="6" fill="var(--group2)" />
+            <circle cx="150" cy="14" r="3" fill="var(--now)" />
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-formula">Tid / Sted / Måde / Central</div>
+          <ul class="card-uses">
+            <li>Cung cấp thông tin về thời gian (nu, ofte), địa điểm (her, der), hoặc cách thức.</li>
+            <li><strong>Trạng từ chỉ hướng vs tĩnh:</strong> hjem (đi về nhà - chuyển động) vs hjemme (ở nhà - tĩnh).</li>
+            <li><strong>Centraladverbier (Rất quan trọng):</strong> ikke, altid, aldrig, måske... Vị trí của chúng thay đổi tùy thuộc vào câu chính hay câu phụ.</li>
+          </ul>
+          <div class="card-ex">"Han går <strong>hjem</strong> nu." (Chuyển động)<br>"Han er <strong>hjemme</strong>." (Tĩnh)</div>
+          <div class="card-signals">
+            <span class="sig">ikke</span><span class="sig">altid</span><span class="sig">hjem / hjemme</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GROUP 3: PREPOSITIONS, CONJUNCTIONS, SYNTAX -->
+    <div class="section-title s-g3">
+      <span>3. Kết nối & Cú pháp · Præp, Konj & Syntaks</span>
+      <div class="bar"></div>
+    </div>
+    <div class="tense-grid" id="grid-g3">
+
+      <div class="tense-card g3-card" data-group="g3">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-asp">Ordklasse</div>
+            <div class="card-name">Præpositioner</div>
+            <div class="card-vn">Giới từ</div>
+          </div>
+          <div class="card-num">6</div>
+        </div>
+        <div class="card-tl">
+          <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2" />
+            <path d="M120 14 Q140 -5 160 14" fill="none" stroke="var(--group3)" stroke-width="2" />
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-formula">Tid (Thời gian) & Sted (Nơi chốn)</div>
+          <ul class="card-uses">
+            <li><strong>Thời gian:</strong> <em>i</em> (i dag, i år), <em>på</em> (på mandag - thứ), <em>om</em> (om morgenen - buổi trong ngày, om sommeren - mùa).</li>
+            <li><strong>Nơi chốn:</strong> <em>i</em> (bên trong: i biografen), <em>på</em> (bề mặt/sự kiện: på bordet, på arbejde).</li>
+            <li>Nhiều trường hợp là cố định (collocations) phải học thuộc lòng.</li>
+          </ul>
+          <div class="card-ex">"Jeg tager <strong>på</strong> arbejde <strong>om</strong> morgenen."<br>"Bogen ligger <strong>på</strong> bordet <strong>i</strong> stuen."</div>
+          <div class="card-signals">
+            <span class="sig">i</span><span class="sig">på</span><span class="sig">til</span><span class="sig">om</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tense-card g3-card" data-group="g3">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-asp">Ordklasse</div>
+            <div class="card-name">Konjunktioner</div>
+            <div class="card-vn">Từ nối (Liên từ)</div>
+          </div>
+          <div class="card-num">7</div>
+        </div>
+        <div class="card-tl">
+          <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2" />
+            <circle cx="120" cy="14" r="4" fill="var(--group3)" opacity=".5" />
+            <circle cx="180" cy="14" r="4" fill="var(--group3)" opacity=".5" />
+            <line x1="125" y1="14" x2="175" y2="14" stroke="var(--group3)" stroke-width="2" />
+            <path d="M145 11 L155 14 L145 17" fill="var(--group3)" />
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-formula">Sideordnende vs Underordnende</div>
+          <ul class="card-uses">
+            <li><strong>Sideordnende (Kết hợp):</strong> <em>og, men, eller</em>. Nối 2 câu chính (Hovedsætninger) ngang hàng với nhau.</li>
+            <li><strong>Underordnende (Phụ thuộc):</strong> <em>at, fordi, når, da, hvis</em>. Bắt đầu một câu phụ (Ledsætning).</li>
+            <li><em>når</em> (khi - HT/TL hoặc lặp lại trong QK) vs <em>da</em> (khi - 1 lần duy nhất trong QK).</li>
+          </ul>
+          <div class="card-ex">"Jeg spiser, <strong>og</strong> han drikker." (Sideordnende)<br>"Jeg spiser, <strong>fordi</strong> jeg er sulten." (Underordnende)</div>
+          <div class="card-signals">
+            <span class="sig">og, men</span><span class="sig">fordi, at, når, da</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tense-card g3-card" data-group="g3" style="border: 2px solid var(--now);">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-asp" style="color:var(--now)">Syntaks (Quan trọng nhất)</div>
+            <div class="card-name" style="color:var(--now)">Ordstilling</div>
+            <div class="card-vn">Trật tự từ</div>
+          </div>
+          <div class="card-num" style="color:var(--now)">8</div>
+        </div>
+        <div class="card-tl">
+          <svg viewBox="0 0 320 28" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="14" x2="310" y2="14" stroke="#ddd" stroke-width="1.2" />
+            <rect x="80" y="8" width="16" height="12" fill="#3B6FBF" />
+            <rect x="100" y="8" width="16" height="12" fill="#E8344A" /> <!-- V2 -->
+            <rect x="120" y="8" width="16" height="12" fill="#ccc" />
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-formula" style="background:#FFE6E6; color:var(--now)">Hovedsætning: Động từ luôn ở vị trí 2</div>
+          <ul class="card-uses">
+            <li><strong>Hovedsætning (Câu chính):</strong> V2 Rule - Động từ chia (V1) luôn đứng ở vị trí số 2.</li>
+            <li><strong>Inversion (Đảo ngữ):</strong> Nếu câu không bắt đầu bằng Chủ ngữ (ví dụ bắt đầu bằng trạng từ thời gian), thì Chủ ngữ phải đảo ra sau Động từ để giữ Động từ ở vị trí số 2.</li>
+            <li><strong>Ledsætning (Câu phụ):</strong> Trạng từ <em>ikke/altid</em> đứng <strong>TRƯỚC</strong> động từ.</li>
+          </ul>
+          <div class="card-ex">"<strong>I dag <u>spiser</u> jeg</strong> æblet." (Inversion)<br>"Han siger, at <strong>han <u>ikke</u> spiser</strong>." (Ledsætning)</div>
+          <div class="card-signals">
+            <span class="sig">V2 Rule</span><span class="sig">Inversion</span><span class="sig">ikke trước V (phụ)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PRONOUNS CHEAT SHEET -->
+    <div class="compare-block">
+      <h2>Bảng Tra Cứu Đại Từ Nhanh (Pronomener)</h2>
+      <div style="overflow-x:auto">
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th>Ngôi</th>
+              <th>Chủ ngữ (Subjekt)</th>
+              <th>Tân ngữ (Objekt)</th>
+              <th>Sở hữu (Possessiv) en / et / flertal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tôi (1st)</td>
+              <td><span class="badge-pron">jeg</span></td>
+              <td><span class="badge-pron">mig</span></td>
+              <td>min / mit / mine</td>
+            </tr>
+            <tr>
+              <td>Bạn (2nd)</td>
+              <td><span class="badge-pron">du</span></td>
+              <td><span class="badge-pron">dig</span></td>
+              <td>din / dit / dine</td>
+            </tr>
+            <tr>
+              <td>Anh ấy (3rd)</td>
+              <td><span class="badge-pron">han</span></td>
+              <td><span class="badge-pron">ham</span></td>
+              <td>hans (của anh ấy) / sin/sit/sine (của chính anh ấy)</td>
+            </tr>
+            <tr>
+              <td>Cô ấy (3rd)</td>
+              <td><span class="badge-pron">hun</span></td>
+              <td><span class="badge-pron">hende</span></td>
+              <td>hendes (của cô ấy) / sin/sit/sine (của chính cô ấy)</td>
+            </tr>
+            <tr>
+              <td>Nó (Đồ vật/Con vật)</td>
+              <td><span class="badge-pron">den / det</span></td>
+              <td><span class="badge-pron">den / det</span></td>
+              <td>dens / dets</td>
+            </tr>
+            <tr>
+              <td>Chúng tôi (1st pl)</td>
+              <td><span class="badge-pron">vi</span></td>
+              <td><span class="badge-pron">os</span></td>
+              <td>vores (chung cho cả 3 dạng)</td>
+            </tr>
+            <tr>
+              <td>Các bạn (2nd pl)</td>
+              <td><span class="badge-pron">I</span> (luôn viết hoa)</td>
+              <td><span class="badge-pron">jer</span></td>
+              <td>jeres (chung cho cả 3 dạng)</td>
+            </tr>
+            <tr>
+              <td>Họ / Chúng (3rd pl)</td>
+              <td><span class="badge-pron">de</span></td>
+              <td><span class="badge-pron">dem</span></td>
+              <td>deres (chung cho cả 3 dạng)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- THE V2 RULE & WORD ORDER (DARK MODE BLOCK) -->
+    <div class="stative-block">
+      <h2>⚡ V2-Reglen & Ordstilling — Quy tắc Trật tự từ</h2>
+      <p>Lỗi sai phổ biến nhất của người học tiếng Đan Mạch là đặt sai vị trí của <strong>Động từ</strong> và <strong>"ikke"</strong> (không). Hãy nhớ kỹ sự khác biệt giữa Câu chính (Hovedsætning) và Câu phụ (Ledsætning).</p>
+      
+      <div class="stative-grid">
+        <div class="sv-group">
+          <h3>Hovedsætning (Câu chính)</h3>
+          <ul>
+            <li>Cấu trúc độc lập, có ý nghĩa hoàn chỉnh.</li>
+            <li><strong>Quy tắc V2:</strong> Động từ chia (V1) LUÔN ở vị trí số 2.</li>
+            <li><strong>Vị trí 'ikke':</strong> Đứng <strong>SAU</strong> động từ V1.</li>
+            <li>Ví dụ bình thường:<br>
+              Jeg <span class="hl">spiser</span> ikke kød.<br>
+              <em style="font-size:14px;color:#aaa8c0">(1. Subjekt | 2. Verbum | 3. Adverbium)</em>
+            </li>
+            <li>Ví dụ Đảo ngữ (Bắt đầu bằng Trạng từ):<br>
+              I dag <span class="hl">spiser</span> jeg ikke kød.<br>
+              <em style="font-size:14px;color:#aaa8c0">(1. Adverbium | 2. Verbum | 3. Subjekt | 4. Adverbium)</em>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="sv-group sub">
+          <h3>Ledsætning (Câu phụ)</h3>
+          <ul>
+            <li>Bắt đầu bằng từ nối phụ thuộc (at, fordi, når, hvis...).</li>
+            <li><strong>Không đảo ngữ:</strong> Chủ ngữ luôn đứng sau từ nối.</li>
+            <li><strong>Vị trí 'ikke':</strong> Đứng <strong>TRƯỚC</strong> động từ V1.</li>
+            <li>Ví dụ:<br>
+              Han siger, at han <span class="hl2">ikke</span> spiser kød.<br>
+              <em style="font-size:14px;color:#aaa8c0">(... Konjunktion | Subjekt | Adverbium | Verbum)</em>
+            </li>
+            <li>Ví dụ Đảo ngữ (Bắt đầu bằng Trạng từ):<br>
+              I dag <span class="hl">spiser</span> jeg ikke kød.<br>
+              <em style="font-size:12px;color:#aaa8c0">(1. Adverbium | 2. Verbum | 3. Subjekt | 4. Adverbium)</em>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="sv-group sub">
+          <h3>Ledsætning (Câu phụ)</h3>
+          <ul>
+            <li>Bắt đầu bằng từ nối phụ thuộc (at, fordi, når, hvis...).</li>
+            <li><strong>Không đảo ngữ:</strong> Chủ ngữ luôn đứng sau từ nối.</li>
+            <li><strong>Vị trí 'ikke':</strong> Đứng <strong>TRƯỚC</strong> động từ V1.</li>
+            <li>Ví dụ:<br>
+              Han siger, at han <span class="hl2">ikke</span> spiser kød.<br>
+              <em style="font-size:12px;color:#aaa8c0">(... Konjunktion | Subjekt | Adverbium | Verbum)</em>
+            </li>
+            <li>Ví dụ 2:<br>
+              Vi bliver hjemme, fordi det <span class="hl2">altid</span> regner her.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXTRA NOTABLE RULES -->
+    <div class="extra-section">
+      <div class="section-title s-g2">
+        <span>Ghi Chú Đặc Biệt</span>
+        <div class="bar"></div>
+      </div>
+      <div class="extra-cards">
+
+        <div class="extra-card orange">
+          <h3>Når vs. Da (Khi nào dùng gì?)</h3>
+          <ul>
+            <li>Cả hai đều có nghĩa là "khi" (when).</li>
+            <li>Dùng <strong>Når</strong>: Cho hiện tại, tương lai, hoặc những hành động lặp đi lặp lại nhiều lần trong quá khứ.<br><em>"Når jeg bliver stor..." (Khi tôi lớn lên)</em></li>
+            <li>Dùng <strong>Da</strong>: Cho một sự kiện chỉ xảy ra một lần duy nhất trong quá khứ.<br><em>"Da jeg var barn..." (Khi tôi còn nhỏ - chỉ xảy ra 1 lần)</em></li>
+          </ul>
+        </div>
+
+        <div class="extra-card green">
+          <h3>Hjem vs. Hjemme (Động & Tĩnh)</h3>
+          <ul>
+            <li>Rất nhiều trạng từ chỉ nơi chốn có 2 dạng. Dạng ngắn chỉ hướng di chuyển, dạng thêm '-e' chỉ trạng thái tĩnh.</li>
+            <li><strong>Chuyển động (Til):</strong> hjem, ind, ud, op, ned.<br><em>"Han går hjem." (Anh ấy đi VỀ nhà)</em></li>
+            <li><strong>Trạng thái tĩnh (På stedet):</strong> hjemme, inde, ude, oppe, nede.<br><em>"Han er hjemme." (Anh ấy ĐANG Ở nhà)</em></li>
+          </ul>
+        </div>
+
+        <div class="extra-card">
+          <h3>Sin/Sit/Sine vs. Hans/Hendes</h3>
+          <ul>
+            <li>Dùng <strong>sin/sit/sine</strong> khi chủ ngữ của câu SỞ HỮU chính tân ngữ đó. Chỉ dùng cho ngôi thứ 3 (han, hun, den, det).</li>
+            <li><em>"Han kysser sin kone."</em><br>➞ Anh ấy hôn vợ của ANH ẤY.</li>
+            <li><em>"Han kysser hans kone."</em><br>➞ Anh ấy hôn vợ của MỘT NGƯỜI ĐÀN ÔNG KHÁC! (Rất nguy hiểm nếu nhầm lẫn).</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    Ngữ pháp Đan Mạch (Danish Grammar) tổng hợp dựa trên 8 tài liệu cơ bản.
+  </footer>
+
+  <script>
+    function filter(group) {
+      document.querySelectorAll('.leg-btn').forEach(b => b.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      document.querySelectorAll('.tense-card').forEach(card => {
+        if (group === 'all' || card.dataset.group === group) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      const sections = ['g1', 'g2', 'g3'];
+      sections.forEach(s => {
+        const title = document.querySelector('.section-title.s-' + s);
+        const grid = document.getElementById('grid-' + s);
+        if (group === 'all' || group === s) {
+          title.style.display = '';
+          grid.style.display = 'grid'; 
+        } else {
+          title.style.display = 'none';
+          grid.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

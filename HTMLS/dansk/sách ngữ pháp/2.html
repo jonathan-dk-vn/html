@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chương 2: Đại từ (Pronomener) — Đáp án & Giải thích</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ===========================
+     DESIGN TOKENS & VARIABLES
+  =========================== */
+  :root {
+    /* Theme A: Blue – Pronouns/Nouns */
+    --primary: #3B6FBF;
+    --primary-light: #D6E4FF;
+    --primary-mid: #7AAAF5;
+    --primary-dark: #1A3F80;
+
+    /* Neutrals */
+    --success: #2E9E68;
+    --error: #E8344A;
+    --ink: #14131C;
+    --paper: #F8F8F6;
+    --surface: #FFFFFF;
+    --surface-alt: #1F1D2B;
+    --muted: #6E6B80;
+    --line: #E2E0DB;
+    --shadow: rgba(20, 19, 28, 0.05);
+    --shadow-hover: rgba(59, 111, 191, 0.15);
+
+    /* Typography */
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===========================
+     LAYOUT
+  =========================== */
+  .container {
+    max-width: 3000px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===========================
+     HERO / HEADER
+  =========================== */
+  header {
+    background-color: var(--ink);
+    color: #fff;
+    padding: 72px 24px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(59,111,191,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(122,170,245,0.12) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--primary-mid);
+    border: 1px solid rgba(122,170,245,0.35);
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+
+  header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 6vw, 58px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  header h1 em {
+    color: var(--primary-mid);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.52);
+    max-width: 560px;
+    margin: 0 auto;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+
+  /* ===========================
+     TABLE OF CONTENTS
+  =========================== */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--primary);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 40px 0;
+  }
+
+  .toc-title {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 16px;
+  }
+
+  .toc ol {
+    padding-left: 20px;
+    columns: 2;
+    column-gap: 32px;
+  }
+
+  @media (max-width: 600px) { .toc ol { columns: 1; } }
+
+  .toc li {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    break-inside: avoid;
+  }
+
+  .toc a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .toc a:hover { color: var(--primary); text-decoration: underline; }
+
+  /* ===========================
+     MAIN CONTENT
+  =========================== */
+  main { padding: 48px 0 80px; }
+
+  /* ===========================
+     OPGAVE BLOCKS
+  =========================== */
+  .opgave-block {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 48px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px var(--shadow);
+    transition: box-shadow 0.25s;
+  }
+
+  .opgave-block:hover {
+    box-shadow: 0 4px 24px var(--shadow-hover);
+  }
+
+  .op-header {
+    padding: 28px 32px 24px;
+    border-bottom: 2px solid var(--primary);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .op-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: var(--primary-light);
+    padding: 5px 12px;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 6px;
+  }
+
+  .op-title {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .op-title .spicy { font-size: 1rem; margin-left: 6px; }
+
+  .op-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 120px;
+  }
+
+  @media (max-width: 768px) {
+    .op-body { grid-template-columns: 1fr; }
+  }
+
+  /* Left: answers */
+  .op-answers {
+    background: #FAFAFA;
+    border-right: 1px solid var(--line);
+    padding: 28px 32px;
+  }
+
+  @media (max-width: 768px) {
+    .op-answers { border-right: none; border-bottom: 1px solid var(--line); }
+  }
+
+  .col-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .op-answers ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .op-answers ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 7px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .op-answers ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .op-answers p {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .op-answers ol {
+    padding-left: 22px;
+  }
+
+  .op-answers ol li {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    line-height: 1.65;
+  }
+
+  /* Right: explanation */
+  .op-explanation {
+    padding: 28px 32px;
+    background: var(--surface);
+  }
+
+  .op-explanation h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 20px 0 8px;
+    padding-left: 14px;
+    border-left: 3px solid var(--primary-mid);
+    line-height: 1.3;
+  }
+
+  .op-explanation h3:first-child { margin-top: 0; }
+
+  .op-explanation p {
+    font-size: 0.93rem;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.68;
+  }
+
+  .op-explanation ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+
+  .op-explanation ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 0.92rem;
+    margin-bottom: 5px;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .op-explanation ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--primary-mid);
+  }
+
+  /* Full-width answer area (no grid split) */
+  .op-body.full {
+    grid-template-columns: 1fr;
+  }
+
+  .op-body.full .op-answers {
+    border-right: none;
+  }
+
+  /* ===========================
+     QUOTE BOX
+  =========================== */
+  .quote-box {
+    border-left: 4px solid var(--primary);
+    background: var(--primary-light);
+    padding: 14px 20px;
+    border-radius: 0 4px 4px 0;
+    margin: 12px 0;
+    font-style: italic;
+    font-size: 0.91rem;
+    color: var(--primary-dark);
+    line-height: 1.7;
+  }
+
+  .quote-box p { margin: 0 0 6px; }
+  .quote-box p:last-child { margin-bottom: 0; }
+
+  /* ===========================
+     TABLES
+  =========================== */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 14px 0;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    font-family: var(--font-body);
+  }
+
+  thead tr {
+    background: var(--primary-light);
+  }
+
+  thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--primary-dark);
+    font-size: 0.83rem;
+    letter-spacing: 0.02em;
+    border-bottom: 2px solid var(--primary);
+    white-space: nowrap;
+  }
+
+  tbody tr { border-bottom: 1px solid var(--line); }
+  tbody tr:last-child { border-bottom: none; }
+
+  tbody tr:nth-child(even) { background: #f9f9f8; }
+
+  tbody td {
+    padding: 9px 14px;
+    vertical-align: top;
+    color: #2a2833;
+    line-height: 1.55;
+  }
+
+  td strong, th strong { color: var(--primary-dark); }
+
+  /* ===========================
+     INLINE HIGHLIGHTS
+  =========================== */
+  .hl { color: var(--primary-dark); font-weight: 600; }
+  .hl-err { color: var(--error); font-weight: 600; }
+  .hl-ok { color: var(--success); font-weight: 600; }
+  code.mono {
+    font-family: var(--font-mono);
+    font-size: 0.84em;
+    background: #f0f0ee;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 1px 6px;
+    color: var(--primary-dark);
+  }
+
+  pre.code-block {
+    font-family: var(--font-mono);
+    font-size: 0.83rem;
+    background: #f4f3f1;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    overflow-x: auto;
+    line-height: 1.65;
+    color: var(--ink);
+    white-space: pre-wrap;
+  }
+
+  /* ===========================
+     TEXT BLOCKS (full-width)
+  =========================== */
+  .text-block {
+    padding: 24px 32px;
+    font-size: 0.93rem;
+    line-height: 1.72;
+    color: #333;
+  }
+
+  .text-block p { margin-bottom: 10px; }
+  .text-block strong { color: var(--primary-dark); }
+
+  .letter-block {
+    background: #fafaf8;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 12px 0;
+    font-size: 0.92rem;
+    line-height: 1.72;
+  }
+
+  .letter-block .letter-title {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  /* ===========================
+     DIALOG BLOCK
+  =========================== */
+  .dialog-block {
+    padding: 20px 24px;
+    background: #f8f7ff;
+    border-radius: 6px;
+    border: 1px solid rgba(59,111,191,0.15);
+    font-size: 0.93rem;
+    line-height: 1.75;
+    margin: 10px 0;
+  }
+
+  .dialog-block p { margin-bottom: 4px; }
+  .dialog-speaker {
+    font-weight: 600;
+    color: var(--primary-dark);
+    font-size: 0.88rem;
+  }
+
+  /* ===========================
+     STATIVE / ERROR DARK PANEL
+  =========================== */
+  .stative-block {
+    background: var(--surface-alt);
+    border-radius: 10px;
+    margin-bottom: 48px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(20,19,28,0.22);
+  }
+
+  .stative-accent {
+    height: 5px;
+    background: linear-gradient(90deg, var(--error) 0%, var(--primary-mid) 100%);
+  }
+
+  .stative-inner {
+    padding: 36px 36px 40px;
+  }
+
+  .stative-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.42);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .stative-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 28px;
+    line-height: 1.25;
+  }
+
+  .stative-title em { color: var(--primary-mid); font-style: italic; }
+
+  .stative-section {
+    margin-bottom: 28px;
+  }
+
+  .stative-section-title {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary-mid);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .error-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+
+  .error-table tr {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .error-table tr:last-child { border-bottom: none; }
+
+  .error-table td {
+    padding: 11px 10px;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .err-wrong {
+    color: #ff6b7a;
+    text-decoration: line-through;
+    font-family: var(--font-mono);
+    font-size: 0.84rem;
+  }
+
+  .err-right {
+    color: #5de0a0;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: 0.84rem;
+  }
+
+  .err-reason {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.82rem;
+    font-style: italic;
+  }
+
+  .err-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    white-space: nowrap;
+    padding-right: 6px;
+  }
+
+  /* ===========================
+     CHECKLIST SECTION
+  =========================== */
+  .checklist-block {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 48px;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+
+  .checklist-title {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .checklist-title .emoji { font-size: 1.3rem; }
+
+  .check-item {
+    border-left: 3px solid var(--primary-light);
+    padding: 14px 0 14px 20px;
+    margin-bottom: 10px;
+    transition: border-color 0.2s;
+  }
+
+  .check-item:hover { border-left-color: var(--primary); }
+
+  .check-item strong {
+    display: block;
+    color: var(--primary-dark);
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+
+  .check-item ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .check-item ul li {
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+  }
+
+  .check-item ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary-mid);
+    font-size: 0.8rem;
+  }
+
+  /* ===========================
+     SUMMARY / FORMULA SECTION
+  =========================== */
+  .summary-block {
+    background: var(--surface-alt);
+    border-radius: 10px;
+    padding: 36px;
+    margin-bottom: 48px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .summary-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-mid), var(--primary-dark));
+  }
+
+  .summary-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .summary-title .emoji { margin-right: 8px; }
+
+  .summary-block pre.code-block {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.1);
+    color: #c8d8ff;
+    border-radius: 6px;
+  }
+
+  /* ===========================
+     BONUS GRID
+  =========================== */
+  .bonus-section {
+    margin-bottom: 48px;
+  }
+
+  .bonus-section-title {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+  }
+
+  .bonus-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 22px 22px 18px;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .bonus-card:hover {
+    box-shadow: 0 6px 22px var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .bonus-card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .bonus-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .bonus-card p {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  .bonus-card p:last-child { margin-bottom: 0; }
+
+  .bonus-card code.mono { display: inline-block; margin-top: 6px; font-size: 0.8rem; }
+
+  /* ===========================
+     CONCLUSION / DONE SECTION
+  =========================== */
+  .conclusion-block {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    border-radius: 10px;
+    padding: 40px 36px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .conclusion-block h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .conclusion-list {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .conclusion-list li {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+    padding-left: 8px;
+  }
+
+  .conclusion-list li::before { content: '✅ '; }
+
+  .conclusion-cta {
+    margin-top: 24px;
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.62);
+    font-style: italic;
+  }
+
+  /* ===========================
+     SECTION HEADERS (in-content)
+  =========================== */
+  .section-header {
+    padding: 20px 32px 0;
+  }
+
+  .section-h2 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  .section-h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin: 18px 0 10px;
+  }
+
+  /* ===========================
+     DIVIDER
+  =========================== */
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 0;
+  }
+
+  /* ===========================
+     FOOTER
+  =========================== */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.38);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 0.82rem;
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+  }
+
+  /* ===========================
+     RESPONSIVE TWEAKS
+  =========================== */
+  @media (max-width: 640px) {
+    .op-header { padding: 20px; gap: 10px; }
+    .op-answers, .op-explanation, .text-block { padding: 18px 20px; }
+    .stative-inner { padding: 24px 20px 28px; }
+    .bonus-grid { grid-template-columns: 1fr; }
+    .checklist-block { padding: 22px 18px; }
+    .summary-block { padding: 24px 18px; }
+    .conclusion-block { padding: 28px 20px; }
+    .toc { padding: 18px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ======================== HEADER ======================== -->
+<header>
+  <div class="hero-badge">Chương 2 · Pronomener · Stedord</div>
+  <h1>Giải Toàn Bộ Bài Tập<br><em>Đại Từ (Pronomener)</em></h1>
+  <p class="hero-sub">Đáp án chi tiết &amp; giải thích ngữ pháp — Tiếng Đan Mạch</p>
+</header>
+
+<!-- ======================== TABLE OF CONTENTS ======================== -->
+<main>
+<div class="container">
+  <nav class="toc">
+    <div class="toc-title">Mục lục bài tập</div>
+    <ol>
+      <li><a href="#op1">Opgave 1 — Kategorisering: Pronomener</a></li>
+      <li><a href="#op2">Opgave 2 — Erstat med personlige pronomener</a></li>
+      <li><a href="#op3">Opgave 3 — Omskriv med personlige pronomener</a></li>
+      <li><a href="#op4">Opgave 4 — Skriv pronomener i tekster</a></li>
+      <li><a href="#op5">Opgave 5 — Pronomener i dialogen</a></li>
+      <li><a href="#op6">Opgave 6 — Match: personlige og refleksive</a></li>
+      <li><a href="#op7">Opgave 7 — Interview: refleksive pronomener</a></li>
+      <li><a href="#op8">Opgave 8 — Indsæt refleksive verber</a></li>
+      <li><a href="#op9">Opgave 9 — Kategorisering: possessive</a></li>
+      <li><a href="#op10">Opgave 10 — Match: substantiver og possessive</a></li>
+      <li><a href="#op11">Opgave 11 — Indsæt possessive pronomener</a></li>
+      <li><a href="#op12">Opgave 12 — Pronomener i dialogen 🌶️</a></li>
+      <li><a href="#op13">Opgave 13 — hans/hendes eller sin/sit/sine 🌶️</a></li>
+      <li><a href="#op14">Opgave 14 — Tekst: Sally 🌶️</a></li>
+      <li><a href="#op15">Opgave 15 — Erstat: 3. person 🌶️</a></li>
+      <li><a href="#op16">Opgave 16 — Pronomener i mail 🌶️</a></li>
+      <li><a href="#op17">Opgave 17 — nogen, noget, nogle 🌶️</a></li>
+      <li><a href="#op18">Opgave 18 — ingen eller intet 🌶️</a></li>
+      <li><a href="#op19">Opgave 19 — ikke nogen / ikke noget 🌶️</a></li>
+      <li><a href="#op20">Opgave 20 — Det eller der? 🌶️</a></li>
+      <li><a href="#op21">Opgave 21 — Den, det, de eller der? 🌶️</a></li>
+      <li><a href="#repetition">Repetition — Fejlretning</a></li>
+      <li><a href="#konklusion">Kết luận &amp; Tóm tắt</a></li>
+      <li><a href="#checklist">Checklist kiểm tra lỗi</a></li>
+      <li><a href="#errors">Các lỗi phổ biến nhất</a></li>
+      <li><a href="#bonus">Bài tập ôn tập bổ sung</a></li>
+      <li><a href="#formula">Tóm tắt công thức nhanh</a></li>
+    </ol>
+  </nav>
+
+  <!-- ======================== OPGAVE 1 ======================== -->
+  <article class="opgave-block" id="op1">
+    <div class="op-header">
+      <span class="op-badge">Opgave 1</span>
+      <h2 class="op-title">Kategorisering — Pronomener</h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án</span>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th colspan="2">PERSONLIGE</th>
+                <th>REFLEKSIVE</th>
+                <th>POSSESSIVE</th>
+              </tr>
+              <tr>
+                <th></th>
+                <th>subjekt</th>
+                <th>ikke subjekt</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ENTAL</strong><br>1. pers.</td>
+                <td>jeg</td>
+                <td><strong>mig</strong></td>
+                <td>mig</td>
+                <td>min / <strong>mit</strong> / mine</td>
+              </tr>
+              <tr>
+                <td>2. pers.</td>
+                <td><strong>du</strong></td>
+                <td>dig</td>
+                <td>dig</td>
+                <td>din / dit / <strong>dine</strong></td>
+              </tr>
+              <tr>
+                <td>3. pers.</td>
+                <td>han / <strong>hun</strong><br>den / det</td>
+                <td>ham / <strong>hende</strong><br>den / det</td>
+                <td><strong>sig</strong></td>
+                <td>hans / hendes<br>sin / sit / sine<br>dens / <strong>dets</strong></td>
+              </tr>
+              <tr>
+                <td><strong>FLERTAL</strong><br>1. pers.</td>
+                <td>vi</td>
+                <td><strong>os</strong></td>
+                <td><strong>os</strong></td>
+                <td>vores</td>
+              </tr>
+              <tr>
+                <td>2. pers.</td>
+                <td><strong>I</strong></td>
+                <td>jer</td>
+                <td>jer</td>
+                <td><strong>jeres</strong></td>
+              </tr>
+              <tr>
+                <td>3. pers.</td>
+                <td><strong>de</strong></td>
+                <td><strong>dem</strong></td>
+                <td>sig</td>
+                <td><strong>deres</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Quy tắc được kiểm tra</h3>
+        <p>Phân loại và hình thái của các loại đại từ trong tiếng Đan Mạch.</p>
+        <div class="quote-box">
+          <p>"Đại từ nhân xưng thay đổi hình thức tùy thuộc vào vai trò ngữ pháp của nó trong câu là chủ ngữ (thực hiện hành động) hay tân ngữ (nhận hành động)."</p>
+          <p>"Đại từ phản thân được sử dụng với các động từ phản thân (refleksive verber) để chỉ hành động quay ngược lại chủ ngữ. Dạng phản thân chính là '<strong>sig</strong>' cho ngôi thứ ba."</p>
+          <p>"Đại từ sở hữu được dùng để chỉ sự sở hữu. Chúng phải hòa hợp về giống (en/et) và số (số ít/số nhiều) với danh từ mà chúng bổ nghĩa."</p>
+        </div>
+        <h3>Áp dụng</h3>
+        <ul>
+          <li><strong>Personlige pronomener:</strong> Có 2 dạng — subjekt (jeg, du, han, hun...) và ikke subjekt (mig, dig, ham, hende...)</li>
+          <li><strong>Refleksive pronomener:</strong> mig, dig, <strong>sig</strong> (đặc biệt cho ngôi 3), os, jer</li>
+          <li><strong>Possessive pronomener:</strong> Thay đổi theo giống và số — min/mit/mine, din/dit/dine, vores, jeres, deres</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 2 ======================== -->
+  <article class="opgave-block" id="op2">
+    <div class="op-header">
+      <span class="op-badge">Opgave 2</span>
+      <h2 class="op-title">Erstat med personlige pronomener</h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án</span>
+        <ol start="0">
+          <li>Jeg spiser <strong>en kage</strong>. = Jeg spiser <span class="hl">den</span>.</li>
+          <li>Hun henter <strong>børnene</strong>. = Hun henter <span class="hl">dem</span>.</li>
+          <li>Jeg har fået <strong>et ur</strong> af min kone. = Jeg har fået <span class="hl">det</span> af min kone.</li>
+          <li>Jeg har fået et ur af min kone. = Min kone har givet <span class="hl">mig</span> et ur.</li>
+          <li>Han får blomster af sin chef. = Chefen giver <span class="hl">ham</span> blomster.</li>
+          <li>Marias mand giver <strong>Maria</strong> en gave. = Han giver <span class="hl">hende</span> en gave.</li>
+          <li>Allan besøger <strong>min kone og mig</strong>. = Allan besøger <span class="hl">os</span>.</li>
+          <li>I giver <strong>mig</strong> en gave. = Jeg får en gave af <span class="hl">jer</span>.</li>
+          <li><strong>Du</strong> får en is af mig. = Jeg giver <span class="hl">dig</span> en is.</li>
+          <li>Jeg glæder mig til at se <strong>dig og dine søskende</strong>. = Jeg glæder mig til at se <span class="hl">jer</span>.</li>
+          <li>Vi har inviteret <strong>vores nye naboer</strong> på middag. = Vi har inviteret <span class="hl">dem</span> på middag.</li>
+        </ol>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Quy tắc được kiểm tra</h3>
+        <p>Thay thế danh từ bằng đại từ nhân xưng phù hợp (dạng chủ ngữ hoặc tân ngữ).</p>
+        <h3>Lý thuyết — Mục 2.1.1</h3>
+        <ul>
+          <li><code class="mono">den/det</code> thay thế danh từ en-ord/et-ord số ít</li>
+          <li><code class="mono">dem</code> thay thế danh từ số nhiều hoặc nhiều người</li>
+          <li><code class="mono">mig, dig, ham, hende, os, jer, dem</code> là dạng tân ngữ</li>
+        </ul>
+        <h3>Áp dụng</h3>
+        <ul>
+          <li>"en kage" (en-ord số ít) → <span class="hl">den</span></li>
+          <li>"børnene" (số nhiều) → <span class="hl">dem</span></li>
+          <li>"et ur" (et-ord số ít) → <span class="hl">det</span></li>
+          <li>"Maria" (nữ) → <span class="hl">hende</span></li>
+          <li>"min kone og mig" → <span class="hl">os</span> (số nhiều ngôi 1)</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 3 ======================== -->
+  <article class="opgave-block" id="op3">
+    <div class="op-header">
+      <span class="op-badge">Opgave 3</span>
+      <h2 class="op-title">Omskriv med personlige pronomener</h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án</span>
+        <ol start="0">
+          <li><strong>Min kæreste og jeg</strong> → <span class="hl">Vi</span> kommer hjem til <strong>dig og din familie</strong> → <span class="hl">jer</span>.</li>
+          <li>Vil <strong>du og din mand</strong> → <span class="hl">I</span> komme og besøge <strong>mig og min familie</strong> → <span class="hl">os</span>?</li>
+          <li>Peter vil gerne besøge <strong>sine forældre</strong> → <span class="hl">dem</span>.</li>
+          <li>Anna synes, <strong>arbejdet</strong> → <span class="hl">det</span> er for hårdt for <strong>Anna</strong> → <span class="hl">hende</span>.</li>
+          <li>Familien Hansen vil gerne besøge <strong>deres nabo John</strong> → <span class="hl">ham</span>.</li>
+          <li>Adam henter <strong>børnene</strong> → <span class="hl">dem</span> hjemme hos <strong>mig og min kone</strong> → <span class="hl">os</span>.</li>
+          <li><strong>Min kæreste og jeg</strong> → <span class="hl">Vi</span> gav <strong>vores søn</strong> → <span class="hl">ham</span> <strong>kameraet</strong> → <span class="hl">det</span> i fødselsdagsgave.</li>
+          <li>Vores lærer Sara gav <strong>mig og de andre kursister</strong> → <span class="hl">os</span> <strong>opgaverne</strong> → <span class="hl">dem</span> tilbage i dag.</li>
+          <li>Jeg har sendt <strong>gaven</strong> → <span class="hl">den</span> til <strong>mine forældre</strong> → <span class="hl">dem</span>.</li>
+          <li>Det er altid <strong>John</strong> → <span class="hl">ham</span>, der betaler <strong>regningerne</strong> → <span class="hl">dem</span>.</li>
+          <li>Jeg vil gerne invitere <strong>jer</strong> til middag i dag. <strong>I</strong> skal komme kl. 18.</li>
+          <li><strong>Mine børn</strong> → <span class="hl">De</span> leger tit med <strong>naboens børn</strong> → <span class="hl">dem</span>.</li>
+          <li>I aften får <strong>min søster</strong> → <span class="hl">hun</span> besøg af <strong>sin svigerfar</strong> → <span class="hl">ham</span>.</li>
+        </ol>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Quy tắc được kiểm tra</h3>
+        <p>Thay thế danh từ và cụm danh từ bằng đại từ nhân xưng đúng dạng và đúng vai trò trong câu.</p>
+        <h3>Áp dụng</h3>
+        <ul>
+          <li>Chủ ngữ: jeg, du, han, hun, vi, I, de</li>
+          <li>Tân ngữ: mig, dig, ham, hende, os, jer, dem</li>
+          <li>Danh từ en-ord → <span class="hl">den</span>; et-ord → <span class="hl">det</span>; số nhiều → <span class="hl">dem/de</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 4 ======================== -->
+  <article class="opgave-block" id="op4">
+    <div class="op-header">
+      <span class="op-badge">Opgave 4</span>
+      <h2 class="op-title">Skriv personlige pronomener i teksterne</h2>
+    </div>
+    <div class="op-body full">
+      <div class="op-answers">
+        <span class="col-label">Đáp án — Các bức thư</span>
+
+        <div class="letter-block">
+          <span class="letter-title">Text 1 — Selma</span>
+          <p>Kære du. Det er længe siden, <span class="hl">vi</span> to har snakket sammen. Skal <span class="hl">vi</span> ikke snart ses? <span class="hl">Jeg</span> savner <span class="hl">dig</span>! ❤️ Måske kan <span class="hl">vi</span> spise sammen hjemme hos <span class="hl">mig</span> eller <span class="hl">dig</span> i næste uge? Skriv snart. 😊 Knus Selma</p>
+        </div>
+
+        <div class="letter-block">
+          <span class="letter-title">Text 2 — Isak</span>
+          <p>Kære venner. <span class="hl">Jeg</span> har snart fødselsdag, og derfor vil <span class="hl">jeg</span> gerne invitere <span class="hl">jer</span> til fest lørdag den 14. august hjemme hos <span class="hl">mig</span>. <span class="hl">Jeg</span> laver lidt mad og køber sprut til drinks, men hvis <span class="hl">I</span> drikker øl og vin må <span class="hl">I</span> meget gerne selv tage <span class="hl">det</span> med. <span class="hl">Vi</span> skal feste og danse til den lyse morgen, så husk dansesko! <span class="hl">Jeg</span> håber, at <span class="hl">I</span> kan komme og ser frem til at se <span class="hl">jer</span>. Kh Isak</p>
+        </div>
+
+        <div class="letter-block">
+          <span class="letter-title">Text 3 — Anna til Maya</span>
+          <p>Kære Maya. Hvordan har <span class="hl">du</span> det? <span class="hl">Jeg</span> ringede til <span class="hl">dig</span> i går, men <span class="hl">du</span> var ikke hjemme. <span class="hl">Jeg</span> skal flytte på lørdag og vil høre om <span class="hl">du</span> kan komme og hjælpe <span class="hl">mig</span>. <span class="hl">Jeg</span> har også spurgt Peter om hjælp. <span class="hl">Han</span> kommer kl. 8 lørdag morgen. Hvis <span class="hl">du</span> også kan komme, kan <span class="hl">du</span> køre med <span class="hl">ham</span>. <span class="hl">Jeg</span> har bestilt en flyttevogn med to mænd til kl. 9. <span class="hl">De</span> skal selvfølgelig bære de tunge ting, men hvis <span class="hl">I</span> alle tre hjælper <span class="hl">mig</span>, går det hurtigere, og så bliver det billigere for <span class="hl">mig</span>. Kærlig hilsen Anna</p>
+        </div>
+
+        <div class="letter-block">
+          <span class="letter-title">Mail til søster og svoger — Anna til Lea og Anders</span>
+          <p>Kære Lea og Anders. Hvordan har <span class="hl">I</span> det? <span class="hl">Jeg</span> ringede til <span class="hl">jer</span> i går, men <span class="hl">I</span> var ikke hjemme. <span class="hl">Jeg</span> skal flytte på lørdag og vil høre om <span class="hl">I</span> kan komme og hjælpe <span class="hl">mig</span>. <span class="hl">Jeg</span> har også spurgt Peter om hjælp. <span class="hl">Han</span> kommer kl. 8 lørdag morgen. Hvis <span class="hl">I</span> også kan komme, kan <span class="hl">I</span> køre med <span class="hl">ham</span>. <span class="hl">Jeg</span> har bestilt en flyttevogn med to mænd til kl. 9. <span class="hl">De</span> skal selvfølgelig bære de tunge ting, men hvis <span class="hl">I</span> alle tre hjælper <span class="hl">mig</span>, går det hurtigere, og så bliver det billigere for <span class="hl">mig</span>. Kærlig hilsen Anna</p>
+        </div>
+
+        <div class="op-explanation" style="border-top:1px solid var(--line);margin-top:14px;padding-top:18px;">
+          <h3>Áp dụng</h3>
+          <ul>
+            <li>Người viết: <code class="mono">jeg/mig</code></li>
+            <li>Người nhận (1 người): <code class="mono">du/dig</code></li>
+            <li>Người nhận (nhiều người): <code class="mono">I/jer</code></li>
+            <li>Người thứ 3: <code class="mono">han/ham</code>, <code class="mono">hun/hende</code>, <code class="mono">de/dem</code>, <code class="mono">den/det</code></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 5 ======================== -->
+  <article class="opgave-block" id="op5">
+    <div class="op-header">
+      <span class="op-badge">Opgave 5</span>
+      <h2 class="op-title">Skriv personlige pronomener i dialogen</h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án — Hội thoại</span>
+        <div class="dialog-block">
+          <p><span class="dialog-speaker">Judith:</span> Hej, hvordan har <span class="hl">du</span> det?</p>
+          <p><span class="dialog-speaker">Joe:</span> Fint. Hvad med <span class="hl">dig</span>? Går <span class="hl">det</span> godt?</p>
+          <p><span class="dialog-speaker">Judith:</span> Ja fint. <span class="hl">Jeg</span> mødte for resten Dave i går. Kan <span class="hl">du</span> huske <span class="hl">ham</span>? <span class="hl">Han</span> gik i samme klasse som <span class="hl">os</span>, da <span class="hl">vi</span> begyndte på sprogskolen.</p>
+          <p><span class="dialog-speaker">Joe:</span> Ja, det er <span class="hl">ham</span>, fra Australien, ikke? Hvordan har <span class="hl">han</span> det?</p>
+          <p><span class="dialog-speaker">Judith:</span> <span class="hl">Han</span> kommer vist fra New Zealand. <span class="hl">Jeg</span> tror, at <span class="hl">han</span> har det strålende.</p>
+          <p><span class="dialog-speaker">Joe:</span> Bor <span class="hl">han</span> stadig væk sammen med <span class="hl">hende</span> den lyshårede fra Polen?</p>
+          <p><span class="dialog-speaker">Judith:</span> Ja, og <span class="hl">de</span> har fået et barn. <span class="hl">Han</span> sagde, at <span class="hl">de</span> begge to vil komme forbi på skolen og besøge <span class="hl">os</span> en dag.</p>
+          <p><span class="dialog-speaker">Joe:</span> Det lyder hyggeligt.</p>
+        </div>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Áp dụng</h3>
+        <p>Sử dụng đại từ phù hợp với vai trò trong câu và ngữ cảnh hội thoại.</p>
+        <ul>
+          <li>Chủ ngữ: jeg, du, han, de, vi</li>
+          <li>Tân ngữ: mig, dig, ham, hende, os, dem</li>
+          <li>Sau giới từ → dùng dạng tân ngữ</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 6 ======================== -->
+  <article class="opgave-block" id="op6">
+    <div class="op-header">
+      <span class="op-badge">Opgave 6</span>
+      <h2 class="op-title">Match personlige og refleksive pronomener</h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án</span>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Personlige</th><th>Refleksive</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>jeg</td><td>mig</td></tr>
+              <tr><td>du</td><td>dig</td></tr>
+              <tr><td>han/hun</td><td><strong>sig</strong></td></tr>
+              <tr><td>vi</td><td>os</td></tr>
+              <tr><td>I</td><td>jer</td></tr>
+              <tr><td>de</td><td><strong>sig</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Quy tắc — Mục 2.1.3</h3>
+        <div class="quote-box">
+          <p>"Đại từ phản thân được sử dụng với các động từ phản thân (refleksive verber) để chỉ hành động quay ngược lại chủ ngữ. Dạng phản thân chính là '<strong>sig</strong>' cho ngôi thứ ba."</p>
+          <p>"Các dạng: mig, dig, <strong>sig</strong>, os, jer."</p>
+        </div>
+        <h3>Điểm đặc biệt</h3>
+        <ul>
+          <li>Ngôi 1, 2 số ít và số nhiều: dạng phản thân giống dạng tân ngữ (mig, dig, os, jer)</li>
+          <li><strong>Ngôi 3</strong> (cả số ít và số nhiều): dùng <span class="hl">sig</span> (đặc biệt!)</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 7 ======================== -->
+  <article class="opgave-block" id="op7">
+    <div class="op-header">
+      <span class="op-badge">Opgave 7</span>
+      <h2 class="op-title">Interview hinanden — Brug refleksive pronomener</h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án (ví dụ)</span>
+        <ol>
+          <li>Jeg føler <span class="hl">mig</span> frisk, når jeg dyrker motion.</li>
+          <li>Jeg føler <span class="hl">mig</span> trist, når jeg er alene.</li>
+          <li>Jeg keder <span class="hl">mig</span>, når jeg sidder hjemme hele dagen.</li>
+          <li>Jeg hviler <span class="hl">mig</span>, når jeg ligger på sofaen.</li>
+          <li>Vi hygger <span class="hl">os</span>, når vi er sammen med venner.</li>
+          <li>Vi morer <span class="hl">os</span>, når vi ser en god film.</li>
+          <li>Vi gifter <span class="hl">os</span>, når vi elsker hinanden.</li>
+          <li>Vi skal skynde <span class="hl">os</span>, når vi kommer for sent.</li>
+        </ol>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Lý thuyết — Động từ phản thân</h3>
+        <div class="quote-box">
+          <p>"at glæde sig (vui mừng), at sætte sig (ngồi xuống)"</p>
+          <p>"Jeg sætter mig. (Tôi ngồi xuống.)"</p>
+          <p>"Hun sætter sig. (Cô ấy ngồi xuống.)"</p>
+        </div>
+        <h3>Chia theo ngôi</h3>
+        <ul>
+          <li>Jeg føler <span class="hl">mig</span></li>
+          <li>Du føler <span class="hl">dig</span></li>
+          <li>Han/hun føler <span class="hl">sig</span></li>
+          <li>Vi føler <span class="hl">os</span></li>
+          <li>I føler <span class="hl">jer</span></li>
+          <li>De føler <span class="hl">sig</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 8 ======================== -->
+  <article class="opgave-block" id="op8">
+    <div class="op-header">
+      <span class="op-badge">Opgave 8</span>
+      <h2 class="op-title">Indsæt refleksive verber i sætningerne</h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án</span>
+        <ol>
+          <li>Jeg <span class="hl">føler mig</span> lidt utilpas, måske er jeg ved at blive syg.</li>
+          <li>Mia har haft en hård arbejdsdag, så hun ligger på sofaen og <span class="hl">hviler sig</span>.</li>
+          <li>Vi kan sagtens <span class="hl">more os</span> uden at drikke, når vi er til fest.</li>
+          <li>Hvad <span class="hl">ønsker du dig</span> til din fødselsdag?</li>
+          <li>I kommer for sent, hvis I ikke <span class="hl">skynder jer</span>.</li>
+          <li>De skal <span class="hl">rejse</span> til Thailand på lørdag og <span class="hl">glæder sig</span> selvfølgelig meget.</li>
+          <li>Inden koncerten skal koret <span class="hl">øve sig</span> hver dag.</li>
+          <li>Mine børn falder altid og <span class="hl">slår sig</span>, når de leger ude i haven.</li>
+          <li>Skal vi ikke <span class="hl">sætte os</span> ind på en café og drikke en kop kaffe?</li>
+          <li>Det var en lang og uinteressant teaterforestilling, så jeg <span class="hl">kedede mig</span> det meste af forestillingen.</li>
+        </ol>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Áp dụng</h3>
+        <p>Chọn động từ phản thân phù hợp với ngữ cảnh và chia đúng theo chủ ngữ.</p>
+        <ul>
+          <li><code class="mono">at føle sig</code> — cảm thấy</li>
+          <li><code class="mono">at hvile sig</code> — nghỉ ngơi</li>
+          <li><code class="mono">at more sig</code> — vui chơi</li>
+          <li><code class="mono">at skynde sig</code> — vội vàng</li>
+          <li><code class="mono">at glæde sig</code> — háo hức, vui mừng</li>
+          <li><code class="mono">at kede sig</code> — chán</li>
+          <li><code class="mono">at sætte sig</code> — ngồi xuống</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 9 ======================== -->
+  <article class="opgave-block" id="op9">
+    <div class="op-header">
+      <span class="op-badge">Opgave 9</span>
+      <h2 class="op-title">Kategorisering — Possessive pronomener</h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án</span>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th></th><th></th><th>Possessive pronomener</th></tr>
+            </thead>
+            <tbody>
+              <tr><td rowspan="3"><strong>ENTAL</strong></td><td>1. pers.</td><td>min / <strong>mit</strong> / <strong>mine</strong></td></tr>
+              <tr><td>2. pers.</td><td><strong>din</strong> / <strong>dit</strong> / <strong>dine</strong></td></tr>
+              <tr><td>3. pers.</td><td>hans / sin / <strong>sit</strong> / sine / dens / <strong>dets</strong></td></tr>
+              <tr><td rowspan="3"><strong>FLERTAL</strong></td><td>1. pers.</td><td><strong>vores</strong></td></tr>
+              <tr><td>2. pers.</td><td><strong>jeres</strong></td></tr>
+              <tr><td>3. pers.</td><td><strong>deres</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Lý thuyết — Mục 2.1.2</h3>
+        <div class="quote-box">
+          <p>"Đại từ sở hữu được dùng để chỉ sự sở hữu. Chúng phải hòa hợp về giống (en/et) và số (số ít/số nhiều) với danh từ mà chúng bổ nghĩa."</p>
+        </div>
+        <h3>Dạng hòa hợp</h3>
+        <ul>
+          <li><strong>n-form</strong> (en-ord số ít): min, din, sin, hans, hendes, dens</li>
+          <li><strong>t-form</strong> (et-ord số ít): mit, dit, sit, hans, hendes, dets</li>
+          <li><strong>e-form</strong> (số nhiều): mine, dine, sine, hans, hendes</li>
+          <li><strong>Không thay đổi:</strong> vores, jeres, deres</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 10 ======================== -->
+  <article class="opgave-block" id="op10">
+    <div class="op-header">
+      <span class="op-badge">Opgave 10</span>
+      <h2 class="op-title">Match substantiver og possessive pronomener</h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án (ví dụ)</span>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>n-form (en-ord)</th><th>t-form (et-ord)</th><th>e-form (số nhiều)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>min taske, min bog</td><td>mit job, mit hus</td><td>mine bøger, mine sko</td></tr>
+              <tr><td>din ven, din nabo</td><td>dit barn, dit ur</td><td>dine børn, dine øjne</td></tr>
+              <tr><td>sin mor, sin søster</td><td>sit arbejde, sit hjem</td><td>sine forældre, sine venner</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Quy tắc hòa hợp</h3>
+        <ul>
+          <li>Danh từ <strong>en-ord số ít</strong> → dùng <span class="hl">min, din, sin</span></li>
+          <li>Danh từ <strong>et-ord số ít</strong> → dùng <span class="hl">mit, dit, sit</span></li>
+          <li>Danh từ <strong>số nhiều</strong> → dùng <span class="hl">mine, dine, sine</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 11 ======================== -->
+  <article class="opgave-block" id="op11">
+    <div class="op-header">
+      <span class="op-badge">Opgave 11</span>
+      <h2 class="op-title">Indsæt possessive pronomener</h2>
+    </div>
+    <div class="op-body full">
+      <div class="op-answers">
+        <span class="col-label">Đáp án — Phần 1: min/mit/mine — din/dit/dine — hans/hendes</span>
+        <ol>
+          <li>Husk at tage <span class="hl">dit</span> pas med, når du skal rejse.</li>
+          <li>Min søster er på ferie, så jeg passer <span class="hl">hendes</span> kat.</li>
+          <li>Jeg har sagt <span class="hl">mit</span> job op, fordi jeg er træt af <span class="hl">min</span> chef.</li>
+          <li>Josef og <span class="hl">hans</span> kone skal snart have et barn.</li>
+          <li>Må jeg låne <span class="hl">din</span> ordbog og <span class="hl">dit</span> viskelæder?</li>
+          <li>Må jeg bede om <span class="hl">dit</span> navn, <span class="hl">din</span> adresse og <span class="hl">dit</span> telefonnummer?</li>
+          <li>Cigaretterne er <span class="hl">mine</span>, men du må godt få en.</li>
+          <li>Jeg har fundet et par briller, er det <span class="hl">dine</span> eller din mands?</li>
+          <li>Jeg taler kun engelsk med <span class="hl">min</span> familie og <span class="hl">mine</span> venner.</li>
+          <li>Taler du dansk med <span class="hl">dine</span> kolleger på <span class="hl">dit</span> arbejde?</li>
+          <li>Anja kom med bus i morges. <span class="hl">Hendes</span> cykel er punkteret.</li>
+          <li>Vil du have <span class="hl">min</span> gamle sofa og <span class="hl">mine</span> to lænestole. Jeg har købt nye møbler.</li>
+          <li>Jeg kan godt lide <span class="hl">dine</span> nye bukser. Hvor har du købt dem?</li>
+          <li>Jeg ved ikke, hvad klokken er, for <span class="hl">mit</span> ur er gået i stå. Hvor meget er klokken på <span class="hl">dit</span> ur?</li>
+          <li>Jeg kender Adam, men jeg kender ikke <span class="hl">hans</span> kone og <span class="hl">hans</span> børn.</li>
+        </ol>
+        <br>
+        <span class="col-label">Đáp án — Phần 2: vores — jeres — deres</span>
+        <ol>
+          <li>Vi skal flytte, så vi skal sælge <span class="hl">vores</span> hus.</li>
+          <li>Jens og Inge har en søn, som bor i USA, så de besøger tit <span class="hl">deres</span> søn.</li>
+          <li>Jeg vil gerne invitere jer og <span class="hl">jeres</span> børn til middag.</li>
+          <li>Vi har fået nye naboer. <span class="hl">Vores</span> nye naboer kommer fra Indien.</li>
+          <li>Mine søskende og jeg bor stadig hjemme hos <span class="hl">vores</span> forældre.</li>
+          <li>De har inviteret mig til <span class="hl">deres</span> bryllup.</li>
+          <li>Hvis I har cykler med, skal I parkere <span class="hl">jeres</span> cykler inde i skuret.</li>
+          <li>Vi har været på ferie og haft indbrud i <span class="hl">vores</span> lejlighed.</li>
+          <li>Asger og Luna og <span class="hl">deres</span> tre børn har lejet et sommerhus i <span class="hl">deres</span> ferie.</li>
+          <li>Hvis I passer <span class="hl">jeres</span> børn, så passer vi <span class="hl">vores</span>!</li>
+        </ol>
+        <div class="op-explanation" style="border-top:1px solid var(--line);margin-top:16px;padding-top:16px;">
+          <h3>Áp dụng</h3>
+          <ul>
+            <li>Chọn n-form, t-form hoặc e-form tùy theo danh từ đi kèm</li>
+            <li><span class="hl">vores, jeres, deres</span> không thay đổi hình thức</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 12 ======================== -->
+  <article class="opgave-block" id="op12">
+    <div class="op-header">
+      <span class="op-badge">Opgave 12</span>
+      <h2 class="op-title">Indsæt pronomener i dialogen <span class="spicy">🌶️</span></h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án — Dialog Rosa & Kevin</span>
+        <div class="dialog-block">
+          <p><span class="dialog-speaker">Rosa:</span> Hej Kevin, hvordan går det?</p>
+          <p><span class="dialog-speaker">Kevin:</span> Fint. <span class="hl">Jeg</span> er lige flyttet ind til byen. Hvad med <span class="hl">dig</span>? Har <span class="hl">du</span> det godt?</p>
+          <p><span class="dialog-speaker">Rosa:</span> Ja, selvom jeg har travlt på <span class="hl">mit</span> studie og glæder <span class="hl">mig</span> til juleferien. Men skønt at <span class="hl">du</span> endelig er flyttet. Har du fået <span class="hl">din</span> egen lejlighed?</p>
+          <p><span class="dialog-speaker">Kevin:</span> Nej, jeg er flyttet ind hos <span class="hl">min</span> bror. Det er <span class="hl">hans</span> lejlighed. Men jeg har fået <span class="hl">mit</span> eget værelse.</p>
+          <p><span class="dialog-speaker">Rosa:</span> Så kommer jeg snart og besøger <span class="hl">jer</span> begge to.</p>
+          <p><span class="dialog-speaker">Kevin:</span> Ja, måske vil du komme og besøge <span class="hl">os</span> på lørdag? Vi holder faktisk en lille fest for nogle af <span class="hl">vores</span> fælles venner.</p>
+          <p><span class="dialog-speaker">Rosa:</span> Jeg skal være sammen med Peter, <span class="hl">min</span> nye kæreste, i weekenden.</p>
+          <p><span class="dialog-speaker">Kevin:</span> Jamen du kan da bare tage <span class="hl">ham</span> med. Der kommer nogle af <span class="hl">vores</span> gamle venner, som du også kender.</p>
+          <p><span class="dialog-speaker">Rosa:</span> Det lyder hyggeligt. Jeg skal lige spørge Peter, om han har lyst til at tage med <span class="hl">mig</span> til <span class="hl">jeres</span> fest, og så ringer jeg til <span class="hl">dig</span> og giver besked.</p>
+          <p><span class="dialog-speaker">Kevin:</span> Super! Jeg håber, vi ses.</p>
+        </div>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Áp dụng</h3>
+        <p>Tổng hợp tất cả các loại đại từ — nhân xưng, phản thân, sở hữu.</p>
+        <ul>
+          <li><code class="mono">mit studie</code> — et-ord → mit</li>
+          <li><code class="mono">glæder mig</code> — động từ phản thân, ngôi 1</li>
+          <li><code class="mono">hans lejlighed</code> — sở hữu của bror (≠ chủ ngữ)</li>
+          <li><code class="mono">vores fælles venner</code> — vi + du, số nhiều</li>
+          <li><code class="mono">jeres fest</code> — fest của I (Kevin og bror)</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 13 ======================== -->
+  <article class="opgave-block" id="op13">
+    <div class="op-header">
+      <span class="op-badge">Opgave 13</span>
+      <h2 class="op-title">Indsæt hans/hendes eller sin/sit/sine <span class="spicy">🌶️</span></h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án</span>
+        <div class="quote-box">
+          <p>a. Frode drikker <span class="hl">sin</span> mælk. → Mælk thuộc về Frode (người uống)</p>
+          <p>b. Frode drikker <span class="hl">hans</span> mælk. → Mælk thuộc về một người đàn ông khác</p>
+        </div>
+        <ol>
+          <li>Når Maria er på ferie, låner Emma <span class="hl">hendes</span> lejlighed. <em>(Marias)</em></li>
+          <li>Peter har købt nyt tøj, men Vera kan ikke lide <span class="hl">hans</span> tøjsmag. <em>(Peters)</em></li>
+          <li>Ali kan godt lide <span class="hl">sit</span> nye job som pædagogisk konsulent. <em>(Alis)</em></li>
+          <li>Michael er træt af <span class="hl">sin</span> chef, men han er glad for <span class="hl">sine</span> kolleger. <em>(Michaels, Michaels)</em></li>
+          <li>Allan og <span class="hl">hans</span> kæreste skal flytte til Hillerød tæt på <span class="hl">hendes</span> forældre. <em>(Allans, kærestens)</em></li>
+          <li>Sara besøger <span class="hl">sin</span> veninde og <span class="hl">hendes</span> familie i weekenden. <em>(Saras, venindens)</em></li>
+          <li>Lea arbejder somme tider om aftenen, og så passer Katja <span class="hl">hendes</span> børn. <em>(Leas)</em></li>
+          <li>Dina henter altid <span class="hl">sin</span> datter sent i børnehaven. <em>(Dinas)</em></li>
+          <li>Frederik er på ferie med <span class="hl">sin</span> kone og <span class="hl">sine</span> tre børn. <em>(Frederiks, Frederiks)</em></li>
+          <li>Louise spørger tit <span class="hl">sin</span> far, om hun må låne <span class="hl">hans</span> bil. <em>(Louises, farens)</em></li>
+        </ol>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Quy tắc — Mục 2.1.2</h3>
+        <div class="quote-box">
+          <p>"Dùng <strong>sin, sit, sine</strong> khi người sở hữu chính là chủ ngữ của cùng mệnh đề đó."</p>
+          <p>"Dùng <strong>hans, hendes, deres</strong> khi người sở hữu không phải là chủ ngữ của mệnh đề đó."</p>
+        </div>
+        <h3>Quy tắc vàng</h3>
+        <ul>
+          <li>Chủ ngữ = Người sở hữu → <span class="hl">sin/sit/sine</span></li>
+          <li>Chủ ngữ ≠ Người sở hữu → <span class="hl">hans/hendes/deres</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 14 ======================== -->
+  <article class="opgave-block" id="op14">
+    <div class="op-header">
+      <span class="op-badge">Opgave 14</span>
+      <h2 class="op-title">Tekst: Sally — sin/sit/sine vs hans/hendes <span class="spicy">🌶️</span></h2>
+    </div>
+    <div class="op-body full">
+      <div class="op-answers">
+        <span class="col-label">Đáp án — Văn bản về Sally</span>
+        <div class="letter-block">
+          <p>Sally er på vej til USA for at besøge <span class="hl">sine</span> forældre. <span class="hl">Hendes</span> forældre er skilt, og <span class="hl">hendes</span> far bor i Los Angeles. <span class="hl">Hendes</span> far lever for <span class="hl">sit</span> liv som kunstner. Han er rytmeguitarist og har spillet i et rockband i mange år. <span class="hl">Hendes</span> far er en rigtig rockstjerne!</p>
+          <p>Efter besøget hos <span class="hl">sin</span> far, skal Sally bo hos <span class="hl">sin</span> mor. <span class="hl">Hendes</span> mor bor i New York sammen med <span class="hl">sin</span> nye mand og <span class="hl">hans</span> to børn fra et tidligere ægteskab. Moren og <span class="hl">hendes</span> mand er begge kunstnere. Moren er musiker og har <span class="hl">sit</span> eget band, og <span class="hl">hendes</span> mand er kunstmaler. Han er kendt i hele USA for <span class="hl">sine</span> abstrakte malerier.</p>
+        </div>
+        <div class="op-explanation" style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;">
+          <h3>Phân tích từng trường hợp</h3>
+          <ul>
+            <li><span class="hl">sine</span> forældre — Chủ ngữ: Sally, forældre thuộc về Sally → sin</li>
+            <li><span class="hl">Hendes</span> forældre — Bắt đầu câu mới, forældre là chủ ngữ mới → Hendes</li>
+            <li><span class="hl">sit</span> liv — Chủ ngữ: Han (far), liv thuộc về anh ấy → sit</li>
+            <li><span class="hl">sin</span> far — Chủ ngữ: Sally, far thuộc về Sally → sin</li>
+            <li><span class="hl">sin</span> nye mand — Chủ ngữ: Hendes mor, mand thuộc về mor → sin</li>
+            <li><span class="hl">hans</span> to børn — Børn thuộc về manden, không phải mor → hans</li>
+            <li><span class="hl">sit</span> eget band — Chủ ngữ: Moren, band thuộc về moren → sit</li>
+            <li><span class="hl">sine</span> abstrakte malerier — Chủ ngữ: Han (manden), malerier thuộc về anh ấy → sine</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 15 ======================== -->
+  <article class="opgave-block" id="op15">
+    <div class="op-header">
+      <span class="op-badge">Opgave 15</span>
+      <h2 class="op-title">Erstat med pronomener i 3. person <span class="spicy">🌶️</span></h2>
+    </div>
+    <div class="op-body full">
+      <div class="op-answers">
+        <span class="col-label">Đáp án — Paul fra Frankrig (chuyển sang ngôi 3)</span>
+        <div class="letter-block">
+          <p><span class="hl">Han</span> hedder Paul og kommer fra Frankrig. <span class="hl">Han</span> kom til Danmark på grund af <span class="hl">sin</span> kone Ida. <span class="hl">De</span> mødtes hinanden i Frankrig for fire år siden. <span class="hl">Han</span> er uddannet fotograf, og på det tidspunkt arbejdede <span class="hl">han</span> som fotograf på en avis. Ida var i Paris for at studere. <span class="hl">De</span> mødtes helt tilfældigt på en cafe, og det var kærlighed ved første blik!</p>
+          <p>Kort tid efter giftede <span class="hl">de sig</span>, og så boede <span class="hl">de</span> sammen i Paris i et par år. Men da Ida blev gravid, besluttede <span class="hl">de sig</span> for at flytte til Danmark. <span class="hl">De</span> rejste til Danmark lige før <span class="hl">deres</span> søn Emil blev født, og nu bor <span class="hl">de</span> i Aarhus. <span class="hl">Han</span> har ikke noget arbejde endnu, så <span class="hl">han</span> går hjemme og passer <span class="hl">deres</span> lille søn. <span class="hl">De</span> hygger <span class="hl">sig</span>, indtil Ida kommer hjem fra arbejde.</p>
+          <p>Men <span class="hl">han</span> savner <span class="hl">sit</span> liv i Frankrig, især <span class="hl">sine</span> venner og <span class="hl">sit</span> gamle job som fotograf. Til sommer skal <span class="hl">de</span> en måned derned, og det glæder <span class="hl">han sig</span> meget til.</p>
+        </div>
+        <span class="col-label" style="margin-top:18px;">Đáp án — Annas eftermiddag (chuyển sang ngôi 3)</span>
+        <div class="letter-block">
+          <p><span class="hl">Hun</span> skyndte <span class="hl">sig</span> hjem efter en hård arbejdsdag i eftermiddags. <span class="hl">Hun</span> satte <span class="hl">sig</span> ud i haven med <span class="hl">sin</span> avis for at hvile <span class="hl">sig</span>. <span class="hl">Hun</span> havde glædet <span class="hl">sig</span> til at skulle hygge <span class="hl">sig</span> helt alene. <span class="hl">Hendes</span> børn blev nemlig passet af <span class="hl">deres</span> farmor, så <span class="hl">hun</span> havde hele eftermiddagen for <span class="hl">sig</span> selv. Men pludselig kom <span class="hl">hendes</span> nabo løbende. <span class="hl">Han</span> bad <span class="hl">hende</span> om at passe <span class="hl">sine</span> 3-årige tvillinger, mens <span class="hl">han</span> kørte til lægen med <span class="hl">sin</span> ældste datter, der var blevet syg. Så der røg <span class="hl">hendes</span> hyggestund!</p>
+        </div>
+        <div class="op-explanation" style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;">
+          <h3>Quy tắc chuyển đổi</h3>
+          <ul>
+            <li><code class="mono">jeg</code> → <code class="mono">han/hun</code></li>
+            <li><code class="mono">mig</code> → <code class="mono">ham/hende</code> hoặc <code class="mono">sig</code> (nếu phản thân)</li>
+            <li><code class="mono">min/mit/mine</code> → <code class="mono">sin/sit/sine</code> (thuộc về chủ ngữ) hoặc <code class="mono">hans/hendes</code></li>
+            <li><code class="mono">vi</code> → <code class="mono">de</code> / <code class="mono">os</code> → <code class="mono">dem</code> hoặc <code class="mono">sig</code> (phản thân) / <code class="mono">vores</code> → <code class="mono">deres</code></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 16 ======================== -->
+  <article class="opgave-block" id="op16">
+    <div class="op-header">
+      <span class="op-badge">Opgave 16</span>
+      <h2 class="op-title">Indsæt pronomener og skriv en svarmail <span class="spicy">🌶️</span></h2>
+    </div>
+    <div class="op-body full">
+      <div class="op-answers">
+        <span class="col-label">Đáp án — Mail fra Terry</span>
+        <div class="letter-block">
+          <p><strong>Til:</strong> Min gode ven &nbsp; <strong>Emne:</strong> En feriehilsen</p>
+          <br>
+          <p>Hej min ven. Hvordan går det med <span class="hl">dig</span>? <span class="hl">Jeg</span> håber <span class="hl">du</span> har haft en god vinterferie. Var <span class="hl">du</span> ude og rejse? <span class="hl">Vi</span> har det alle fint. <span class="hl">Vi</span> havde en skøn skiferie i Norge. Børnene lærte at stå på ski, og <span class="hl">de</span> blev rigtig gode til det – faktisk bedre end <span class="hl">os</span>! Kommer <span class="hl">du</span> ikke snart og besøger <span class="hl">os</span>? Hvad med til påske? Der kommer <span class="hl">min</span> bror og <span class="hl">hans</span> familie, og så det kunne være hyggeligt. Skriv snart. Mange hilsner fra Terry.</p>
+        </div>
+        <span class="col-label" style="margin-top:18px;">Svarmail (ví dụ)</span>
+        <div class="letter-block">
+          <p>Kære Terry</p>
+          <br>
+          <p>Tak for din mail! <span class="hl">Jeg</span> har det rigtig godt. <span class="hl">Min</span> vinterferie var fantastisk. <span class="hl">Jeg</span> var i Frankrig med <span class="hl">min</span> familie. <span class="hl">Vi</span> havde en dejlig tid sammen.</p>
+          <p>Det lyder som en skøn skiferie, <span class="hl">I</span> har haft! Det er flot, at <span class="hl">jeres</span> børn lærte at stå på ski så hurtigt.</p>
+          <p><span class="hl">Jeg</span> vil meget gerne komme og besøge <span class="hl">jer</span> til påske. Det bliver hyggeligt at møde <span class="hl">din</span> bror og <span class="hl">hans</span> familie. <span class="hl">Jeg</span> glæder <span class="hl">mig</span> meget til at se <span class="hl">jer</span> alle sammen.</p>
+          <p><span class="hl">Jeg</span> ringer til <span class="hl">dig</span> i næste uge for at tale om detaljerne.</p>
+          <p>Kærlig hilsen [Dit navn]</p>
+        </div>
+        <div class="op-explanation" style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;">
+          <h3>Áp dụng</h3>
+          <p>Sử dụng tất cả các loại đại từ phù hợp với ngữ cảnh viết thư.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 17 ======================== -->
+  <article class="opgave-block" id="op17">
+    <div class="op-header">
+      <span class="op-badge">Opgave 17</span>
+      <h2 class="op-title">Indsæt nogen, noget eller nogle <span class="spicy">🌶️</span></h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án</span>
+        <div class="quote-box">
+          <p>Han har ikke <span class="hl">nogen</span> computer. Han har heller ikke <span class="hl">noget</span> fjernsyn.</p>
+          <p>Jeg har snart <span class="hl">nogle</span> fridage, så kan vi gå ud og høre <span class="hl">noget</span> god musik.</p>
+        </div>
+        <ol>
+          <li>Jeg skal i Netto og købe <span class="hl">noget</span> kaffe, <span class="hl">noget</span> smør og <span class="hl">nogle</span> cigaretter.</li>
+          <li>Ken har aldrig fået <span class="hl">nogen</span> uddannelse. Han har heller aldrig haft <span class="hl">noget</span> arbejde.</li>
+          <li>Jeg har købt <span class="hl">noget</span> tøj på udsalg, bl.a. <span class="hl">nogle</span> flotte støvler.</li>
+          <li>Jeg har købt <span class="hl">noget</span> mad og <span class="hl">nogle</span> kager, som vi kan spise i aften.</li>
+          <li>Har du <span class="hl">nogle</span> problemer med dine naboer? Ja, jeg har <span class="hl">nogle</span> problemer med den ene. Jeg har ellers aldrig før haft <span class="hl">nogle</span> problemer med mine naboer.</li>
+          <li>Har du <span class="hl">nogle</span> søskende? Ja, jeg har en bror, der er <span class="hl">nogle</span> år ældre.</li>
+          <li>Jeg ville gerne have haft <span class="hl">nogle</span> søskende og måske også <span class="hl">nogle</span> børn.</li>
+          <li>Jeg synes, bandet laver <span class="hl">noget</span> god musik og skriver <span class="hl">nogle</span> fede tekster.</li>
+          <li>Er der <span class="hl">nogen</span>, der vil hjælpe med at rydde op?</li>
+          <li>Jeg køber <span class="hl">nogle</span> æg, for der er ikke <span class="hl">nogen</span> tilbage.</li>
+          <li>Jeg gider ikke lave <span class="hl">noget</span> eller være sammen med <span class="hl">nogen</span> i dag.</li>
+        </ol>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Lý thuyết — Mục 2.1.4</h3>
+        <div class="quote-box">
+          <p>"Đại từ bất định dùng để chỉ người hoặc vật không xác định. <strong>nogen</strong> được dùng với danh từ đếm được, <strong>noget</strong> được dùng với danh từ không đếm được."</p>
+        </div>
+        <h3>Bảng quy tắc</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Loại danh từ</th><th>Dùng</th></tr></thead>
+            <tbody>
+              <tr><td>Đếm được số ít (en-ord)</td><td><span class="hl">nogen</span></td></tr>
+              <tr><td>Không đếm được</td><td><span class="hl">noget</span></td></tr>
+              <tr><td>Số nhiều</td><td><span class="hl">nogle</span></td></tr>
+              <tr><td>Người (ai đó)</td><td><span class="hl">nogen</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Phân tích ví dụ</h3>
+        <ul>
+          <li>kaffe, smør (không đếm được) → <span class="hl">noget</span></li>
+          <li>cigaretter, støvler (số nhiều) → <span class="hl">nogle</span></li>
+          <li>uddannelse (en-ord đếm được) → <span class="hl">nogen</span></li>
+          <li>arbejde, tøj (không đếm được) → <span class="hl">noget</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 18 ======================== -->
+  <article class="opgave-block" id="op18">
+    <div class="op-header">
+      <span class="op-badge">Opgave 18</span>
+      <h2 class="op-title">Omskriv med ingen eller intet <span class="spicy">🌶️</span></h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án</span>
+        <ul>
+          <li>Der er <strong>ikke nogen</strong> af mine venner, der ryger. → Der er <span class="hl">ingen</span> af mine venner, der ryger. → <span class="hl">Ingen</span> af mine venner ryger.</li>
+          <li>Der er ikke nogen af de ansatte, der kan lide chefen. → Der er <span class="hl">ingen</span> af de ansatte, der kan lide chefen. → <span class="hl">Ingen</span> af de ansatte kan lide chefen.</li>
+          <li>Jeg vil gerne rejse til sommer, men jeg har ikke nogen penge. → jeg har <span class="hl">ingen</span> penge.</li>
+          <li>Der kom ikke noget sne i vinters. → Der kom <span class="hl">intet</span> sne i vinters.</li>
+          <li>Jeg har ikke nogen appetit i dag. → Jeg har <span class="hl">ingen</span> appetit i dag.</li>
+          <li>Jeg ringede i går, men der var ikke nogen hjemme. → der var <span class="hl">ingen</span> hjemme.</li>
+          <li>Joe kan ikke noget dansk. → Joe kan <span class="hl">intet</span> dansk.</li>
+          <li>Der er ikke nogen af mine børn, der ligner mig. → Der er <span class="hl">ingen</span> af mine børn, der ligner mig. → <span class="hl">Ingen</span> af mine børn ligner mig.</li>
+          <li>Han brokker sig altid, for der er ikke noget, der er godt nok til ham. → der er <span class="hl">intet</span>, der er godt nok. → <span class="hl">intet</span> er godt nok til ham.</li>
+          <li>der var ikke noget galt med den. → der var <span class="hl">intet</span> galt med den.</li>
+          <li>Hun har ikke fået noget svar på sin ansøgning. → Hun har <span class="hl">intet</span> svar fået på sin ansøgning.</li>
+          <li>Jeg har ikke hørt noget fra mine forældre i to uger. → Jeg har hørt <span class="hl">intet</span> fra mine forældre i to uger.</li>
+          <li>Middagen blev aflyst, fordi der næsten ikke kunne komme nogen. → fordi der næsten <span class="hl">ingen</span> kunne komme. → fordi næsten <span class="hl">ingen</span> kunne komme.</li>
+        </ul>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Lý thuyết chuyển đổi</h3>
+        <div class="quote-box">
+          <p>"Cấu trúc phủ định <strong>ikke nogen</strong> có thể được thay thế bằng <strong>ingen</strong>, và <strong>ikke noget</strong> có thể được thay thế bằng <strong>intet</strong> để câu văn tự nhiên hơn."</p>
+        </div>
+        <h3>Công thức</h3>
+        <ul>
+          <li><code class="mono">ikke nogen</code> = <span class="hl">ingen</span> (với danh từ đếm được)</li>
+          <li><code class="mono">ikke noget</code> = <span class="hl">intet</span> (với danh từ không đếm được)</li>
+          <li>Văn viết/chính thức → dùng ingen/intet</li>
+          <li>Nói chuyện → dùng ikke nogen/ikke noget</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 19 ======================== -->
+  <article class="opgave-block" id="op19">
+    <div class="op-header">
+      <span class="op-badge">Opgave 19</span>
+      <h2 class="op-title">Omskriv med ikke nogen eller ikke noget <span class="spicy">🌶️</span></h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án</span>
+        <ul>
+          <li><strong>Næsten ingen</strong> af mine venner ryger. = Der er <span class="hl">næsten ikke nogen</span> af mine venner, der ryger.</li>
+          <li>Ingen af kursisterne kommer for sent. = Der er <span class="hl">ikke nogen</span> af kursisterne, der kommer for sent.</li>
+          <li>Ingen i familien har talt med onkel Rolf. = Der er <span class="hl">ikke nogen</span> i familien, der har talt med onkel Rolf.</li>
+          <li>Intet er godt nok til ham. = Der er <span class="hl">ikke noget</span>, der er godt nok til ham.</li>
+          <li>På mit arbejde taler næsten ingen dansk. = På mit arbejde er der næsten <span class="hl">ikke nogen</span>, der taler dansk.</li>
+          <li>Der var ingen hjemme. = Der var <span class="hl">ikke nogen</span> hjemme.</li>
+          <li>Ingen af børnene kom i skole i går. = Der var <span class="hl">ikke nogen</span> af børnene, der kom i skole i går.</li>
+          <li>heldigvis blev intet stjålet. = heldigvis blev der <span class="hl">ikke noget</span> stjålet.</li>
+          <li>Mødet blev aflyst, fordi næsten ingen kunne komme. = fordi der næsten <span class="hl">ikke var nogen</span>, der kunne komme.</li>
+          <li>Næsten intet er blevet ødelagt under stormen. = Der er næsten <span class="hl">ikke noget</span>, der er blevet ødelagt under stormen.</li>
+          <li>Intet tyder på, at det bliver regnvejr i morgen. = Der er <span class="hl">ikke noget</span>, der tyder på, at det bliver regnvejr i morgen.</li>
+          <li>Ingen opdagede, at hun kom for sent til festen. = Der var <span class="hl">ikke nogen</span>, der opdagede, at hun kom for sent til festen.</li>
+          <li>Lægen siger, at der normalt intet sker under operationen. = Lægen siger, at der normalt <span class="hl">ikke sker noget</span> under operationen.</li>
+        </ul>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Công thức chuyển đổi</h3>
+        <ul>
+          <li><span class="hl">Ingen/Intet</span> + động từ → <span class="hl">Der er ikke nogen/noget</span>, der + động từ</li>
+          <li>Hoặc: <span class="hl">Der</span> + động từ + <span class="hl">ikke nogen/noget</span></li>
+        </ul>
+        <p>Chuyển đổi ngược lại từ văn viết (ingen/intet) sang văn nói (ikke nogen/ikke noget).</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 20 ======================== -->
+  <article class="opgave-block" id="op20">
+    <div class="op-header">
+      <span class="op-badge">Opgave 20</span>
+      <h2 class="op-title">Det eller der? <span class="spicy">🌶️</span></h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án</span>
+        <ol start="0">
+          <li><span class="hl">Der</span> står en cykel ude på gaden, er <span class="hl">det</span> din?</li>
+          <li>Hvor mange mennesker bor <span class="hl">der</span> i Grønland?</li>
+          <li><span class="hl">Der</span> ringer på døren. Hvem mon <span class="hl">det</span> er?</li>
+          <li><span class="hl">Det</span> har sneet hele dagen, så <span class="hl">der</span> ligger en masse sne på vejene.</li>
+          <li><span class="hl">Det</span> er skønt vejr i dag, så <span class="hl">der</span> er mange mennesker på stranden.</li>
+          <li><span class="hl">Der</span> går mange gode film i biografen for tiden.</li>
+          <li>Hvornår er <span class="hl">der</span> møde i kantinen? <span class="hl">Det</span> er på fredag kl. 15.</li>
+          <li>Jeg har lige været til fitness, så <span class="hl">det</span> gør ondt i hele min krop.</li>
+          <li>Jeg har lige købt et dyrt sommerhus. Men <span class="hl">det</span> ligger også tæt på stranden, og så er <span class="hl">der</span> en lille udendørs swimmingpool.</li>
+          <li>Nu går <span class="hl">det</span> godt for firmaet, men sidste år var <span class="hl">der</span> mange problemer.</li>
+          <li><span class="hl">Det</span> er ærgerligt, at <span class="hl">der</span> ikke må komme børn med til festen.</li>
+          <li>Om sommeren er <span class="hl">der</span> mange, som rejser sydpå, hvor <span class="hl">det</span> er varmt.</li>
+          <li><span class="hl">Det</span> regner nu, og <span class="hl">der</span> kommer mere regn i aften.</li>
+        </ol>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>Dùng DER (Câu hiện hữu)</h3>
+        <ul>
+          <li>Der + động từ + chủ ngữ thực</li>
+          <li>Der står en cykel (Có một chiếc xe đứng đó)</li>
+          <li>Der bor mange mennesker (Có nhiều người sống)</li>
+          <li>Der er mange problemer (Có nhiều vấn đề)</li>
+        </ul>
+        <h3>Dùng DET</h3>
+        <ul>
+          <li>Thời tiết: Det regner / Det er koldt / Det har sneet</li>
+          <li>Thời gian: Det er på fredag</li>
+          <li>Cảm giác: Det gør ondt</li>
+          <li>Thay thế danh từ đã nhắc: et sommerhus → det</li>
+          <li>Đánh giá: Det er ærgerligt / Det er skønt</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== OPGAVE 21 ======================== -->
+  <article class="opgave-block" id="op21">
+    <div class="op-header">
+      <span class="op-badge">Opgave 21</span>
+      <h2 class="op-title">Den, det, de eller der? <span class="spicy">🌶️</span></h2>
+    </div>
+    <div class="op-body">
+      <div class="op-answers">
+        <span class="col-label">Đáp án</span>
+        <ol>
+          <li>Jeg kan godt lide mit nye job. <span class="hl">Det</span> er meget udfordrende.</li>
+          <li>Vi vil gerne flytte på landet, for <span class="hl">det</span> er godt for børn med frisk luft.</li>
+          <li>Vil du ikke købe bukserne? <span class="hl">De</span> passer godt til dig.</li>
+          <li>Vi sidder tit ude på altanen. <span class="hl">Der</span> er sol hele dagen.</li>
+          <li><span class="hl">Det</span> er et problem, at <span class="hl">der</span> ikke kører tog til Brønshøj.</li>
+          <li>Har du hørt, at <span class="hl">der</span> har åbnet en ny biograf i Vanløse? <span class="hl">Den</span> ligger tæt på stationen.</li>
+          <li><span class="hl">Der</span> er kommet mange turister til byen i år. <span class="hl">De</span> synes, <span class="hl">det</span> er dejligt i byen, selvom <span class="hl">det</span> er dyrt at bo på hotel og gå ud og spise.</li>
+          <li><span class="hl">Det</span> var vigtigt for chefen, at <span class="hl">der</span> var tillid til hende.</li>
+          <li><span class="hl">De</span> besluttede, at firmaet skulle holde en stor fest. <span class="hl">Den</span> skulle holdes i kantinen, og <span class="hl">der</span> skulle komme en stand-up-komiker og underholde om aftenen.</li>
+          <li><span class="hl">Der</span> ligger et tæppe ude i haven. Bliver <span class="hl">det</span> ikke ødelagt?</li>
+          <li>Kursisterne synes, <span class="hl">det</span> er svært at lære dansk, selvom <span class="hl">de</span> er dygtige.</li>
+          <li>Hvor lyder <span class="hl">det</span> skønt, at I har fået hund! Er <span class="hl">det/den</span> en hanhund, og hvor gammel er <span class="hl">den</span>?</li>
+        </ol>
+      </div>
+      <div class="op-explanation">
+        <span class="col-label">Giải thích</span>
+        <h3>DEN/DET/DE — Thay thế danh từ</h3>
+        <ul>
+          <li><span class="hl">den</span> → thay en-ord số ít: "en biograf" → den</li>
+          <li><span class="hl">det</span> → thay et-ord số ít: "mit job" → det, "et tæppe" → det</li>
+          <li><span class="hl">de</span> → thay danh từ số nhiều: "turister" → de</li>
+        </ul>
+        <h3>DER — Câu hiện hữu</h3>
+        <ul>
+          <li>Der er sol (Có ánh nắng)</li>
+          <li>Der kører tog (Có tàu chạy)</li>
+          <li>Der har åbnet (Đã có... mở)</li>
+        </ul>
+        <h3>Trường hợp đặc biệt — Câu 12</h3>
+        <p>Er <span class="hl">det</span> en hanhund → det (chung chung) hoặc den (nếu đã biết là en-ord "en hund"). Gammel er <span class="hl">den</span> → dùng den vì đã xác định con chó cụ thể.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== REPETITION ======================== -->
+  <article class="opgave-block" id="repetition">
+    <div class="op-header">
+      <span class="op-badge">Repetition</span>
+      <h2 class="op-title">Fejlretning — Pronomener</h2>
+    </div>
+    <div class="op-body full">
+      <div class="op-answers">
+        <span class="col-label">Đáp án — Sửa lỗi</span>
+        <ol>
+          <li>
+            <p><span class="hl-err">❌ Sai:</span> Vi vil meget gerne tage i sommerhus og hygge <strong>sig</strong> sammen med <strong>I</strong>.</p>
+            <p><span class="hl-ok">✅ Đúng:</span> Vi vil meget gerne tage i sommerhus og hygge <span class="hl">os</span> sammen med <span class="hl">jer</span>.</p>
+            <p><em>Chủ ngữ "vi" → phản thân phải là os; sau giới từ dùng tân ngữ jer (không phải I)</em></p>
+          </li>
+          <li>
+            <p><span class="hl-err">❌ Sai:</span> Vil I komme og besøge mig og <strong>mine</strong> familie i <strong>deres</strong> sommerhus?</p>
+            <p><span class="hl-ok">✅ Đúng:</span> Vil I komme og besøge mig og <span class="hl">min</span> familie i <span class="hl">vores</span> sommerhus?</p>
+            <p><em>"familie" là en-ord số ít → min; sommerhus của "mig og min familie" (= vi) → vores</em></p>
+          </li>
+          <li>
+            <p><span class="hl-err">❌ Sai:</span> Der er mange som har mistet <strong>sit</strong> arbejde.</p>
+            <p><span class="hl-ok">✅ Đúng:</span> Der er mange som har mistet <span class="hl">deres</span> arbejde.</p>
+            <p><em>Chủ ngữ: mange (= de - số nhiều ngôi 3) → deres (không phải sit)</em></p>
+          </li>
+          <li>
+            <p><span class="hl-err">❌ Sai:</span> Jeg har hørt om <strong>din</strong> problemer med <strong>sine</strong> forældre.</p>
+            <p><span class="hl-ok">✅ Đúng:</span> Jeg har hørt om <span class="hl">dine</span> problemer med <span class="hl">dine</span> forældre.</p>
+            <p><em>"problemer" là số nhiều → dine; forældre thuộc về "du" nhưng chủ ngữ là "jeg" → dine (không phải sine)</em></p>
+          </li>
+          <li>
+            <p><span class="hl-err">❌ Sai:</span> Du skal have <strong>din</strong> penge for <strong>din</strong> arbejde.</p>
+            <p><span class="hl-ok">✅ Đúng:</span> Du skal have <span class="hl">dine</span> penge for <span class="hl">dit</span> arbejde.</p>
+            <p><em>"penge" luôn là số nhiều → dine; "arbejde" là et-ord → dit</em></p>
+          </li>
+          <li>
+            <p><span class="hl-err">❌ Sai:</span> Min nabo og <strong>sin</strong> kone passer <strong>min</strong> børn på lørdag.</p>
+            <p><span class="hl-ok">✅ Đúng:</span> Min nabo og <span class="hl">hans</span> kone passer <span class="hl">mine</span> børn på lørdag.</p>
+            <p><em>Chủ ngữ là số nhiều (nabo og kone) → không thể dùng sin, phải dùng hans; "børn" là số nhiều → mine</em></p>
+          </li>
+          <li>
+            <p><span class="hl-err">❌ Sai:</span> Min søster har lige født <strong>hendes</strong> første barn. <strong>Sin</strong> mand var med til fødslen.</p>
+            <p><span class="hl-ok">✅ Đúng:</span> Min søster har lige født <span class="hl">sit</span> første barn. <span class="hl">Hendes</span> mand var med til fødslen.</p>
+            <p><em>Câu 1: chủ ngữ "Min søster", barn thuộc về hende → sit; Câu 2 bắt đầu mới → Hendes (không phải Sin)</em></p>
+          </li>
+          <li>
+            <p><span class="hl-err">❌ Sai:</span> Jeg skyndte <strong>hjem</strong> fra arbejde for at hente min barnebarn.</p>
+            <p><span class="hl-ok">✅ Đúng:</span> Jeg skyndte <span class="hl">mig</span> hjem fra arbejde for at hente min barnebarn.</p>
+            <p><em>"at skynde sig" là động từ phản thân → phải có đại từ phản thân mig</em></p>
+          </li>
+          <li>
+            <p><span class="hl-err">❌ Sai:</span> Jeg trænger til at få <strong>nogle</strong> motion, så jeg kan få <strong>nogen</strong> mere energi.</p>
+            <p><span class="hl-ok">✅ Đúng:</span> Jeg trænger til at få <span class="hl">noget</span> motion, så jeg kan få <span class="hl">noget</span> mere energi.</p>
+            <p><em>"motion" và "energi" là danh từ không đếm được → dùng noget</em></p>
+          </li>
+          <li>
+            <p><span class="hl-err">❌ Sai:</span> Om vinteren er <strong>mange</strong>, som rejser på skiferie til Norge, fordi <strong>det</strong> er sne.</p>
+            <p><span class="hl-ok">✅ Đúng:</span> Om vinteren er <span class="hl">der mange</span>, som rejser på skiferie til Norge, fordi <span class="hl">der</span> er sne.</p>
+            <p><em>Câu hiện hữu "có nhiều người" → der er mange; "fordi der er sne" (vì có tuyết) → dùng der</em></p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </article>
+
+  <!-- ======================== KONKLUSION ======================== -->
+  <section id="konklusion">
+    <div class="opgave-block">
+      <div class="op-header">
+        <span class="op-badge">Kết luận</span>
+        <h2 class="op-title">📚 Các điểm ngữ pháp quan trọng</h2>
+      </div>
+      <div class="op-body full">
+        <div class="op-answers">
+          <span class="col-label">1. Đại từ nhân xưng (Personlige pronomener)</span>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Ngôi</th><th>Chủ ngữ</th><th>Tân ngữ</th></tr></thead>
+              <tbody>
+                <tr><td>1 sg</td><td>jeg</td><td>mig</td></tr>
+                <tr><td>2 sg</td><td>du</td><td>dig</td></tr>
+                <tr><td>3 sg</td><td>han/hun/den/det</td><td>ham/hende/den/det</td></tr>
+                <tr><td>1 pl</td><td>vi</td><td>os</td></tr>
+                <tr><td>2 pl</td><td>I</td><td>jer</td></tr>
+                <tr><td>3 pl</td><td>de</td><td>dem</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
+          <span class="col-label">2. Đại từ phản thân (Refleksive pronomener)</span>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Ngôi</th><th>Phản thân</th></tr></thead>
+              <tbody>
+                <tr><td>1 sg</td><td>mig</td></tr>
+                <tr><td>2 sg</td><td>dig</td></tr>
+                <tr><td>3 sg</td><td><strong>sig ⚠️</strong></td></tr>
+                <tr><td>1 pl</td><td>os</td></tr>
+                <tr><td>2 pl</td><td>jer</td></tr>
+                <tr><td>3 pl</td><td><strong>sig ⚠️</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:0.88rem;margin-top:8px;color:var(--muted);">Đặc biệt: Ngôi 3 dùng <strong>sig</strong> (không phải ham/hende/dem)</p>
+          <br>
+          <span class="col-label">Động từ phản thân phổ biến</span>
+          <ul>
+            <li><code class="mono">at glæde sig</code> — vui mừng</li>
+            <li><code class="mono">at sætte sig</code> — ngồi xuống</li>
+            <li><code class="mono">at hvile sig</code> — nghỉ ngơi</li>
+            <li><code class="mono">at kede sig</code> — chán</li>
+            <li><code class="mono">at skynde sig</code> — vội vàng</li>
+            <li><code class="mono">at hygge sig</code> — tận hưởng</li>
+            <li><code class="mono">at føle sig</code> — cảm thấy</li>
+            <li><code class="mono">at more sig</code> — vui chơi</li>
+          </ul>
+          <br>
+          <span class="col-label">3. Đại từ sở hữu (Possessive pronomener)</span>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Ngôi</th><th>en-ord (n)</th><th>et-ord (t)</th><th>Số nhiều (e)</th></tr></thead>
+              <tbody>
+                <tr><td>1 sg</td><td>min</td><td>mit</td><td>mine</td></tr>
+                <tr><td>2 sg</td><td>din</td><td>dit</td><td>dine</td></tr>
+                <tr><td>3 sg</td><td>hans/hendes/sin</td><td>hans/hendes/sit</td><td>hans/hendes/sine</td></tr>
+                <tr><td>1 pl</td><td>vores</td><td>vores</td><td>vores</td></tr>
+                <tr><td>2 pl</td><td>jeres</td><td>jeres</td><td>jeres</td></tr>
+                <tr><td>3 pl</td><td>deres</td><td>deres</td><td>deres</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
+          <span class="col-label">4. Quy tắc vàng: SIN/SIT/SINE vs HANS/HENDES/DERES ⭐⭐⭐</span>
+          <pre class="code-block">Chủ ngữ = Người sở hữu?
+   ↓
+  YES → sin/sit/sine
+   NO → hans/hendes/deres</pre>
+          <p style="font-size:0.9rem;">✅ Peter elsker <span class="hl">sin</span> kone. (Peter yêu vợ của anh ấy)</p>
+          <p style="font-size:0.9rem;">✅ Peter elsker <span class="hl">hans</span> kone. (Peter yêu vợ của người đàn ông khác)</p>
+          <br>
+          <span class="col-label">5. Đại từ bất định: NOGEN/NOGET/NOGLE</span>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Loại danh từ</th><th>Dùng</th></tr></thead>
+              <tbody>
+                <tr><td>Đếm được số ít (en-ord)</td><td><span class="hl">nogen</span></td></tr>
+                <tr><td>Không đếm được</td><td><span class="hl">noget</span></td></tr>
+                <tr><td>Số nhiều</td><td><span class="hl">nogle</span></td></tr>
+                <tr><td>Người (ai đó)</td><td><span class="hl">nogen</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
+          <span class="col-label">6. Phủ định: INGEN/INTET</span>
+          <pre class="code-block">ikke nogen = ingen (đếm được)
+ikke noget = intet (không đếm được)</pre>
+          <br>
+          <span class="col-label">7. DET vs DER — Quy tắc phân biệt 🔥</span>
+          <pre class="code-block">DER + động từ + chủ ngữ thực   (câu hiện hữu)
+→ Der er et problem / Der bor mange / Der kommer regn
+
+DET   (chủ ngữ giả/đánh giá/thời tiết)
+→ Det regner / Det er koldt / Det er mandag / Det gør ondt</pre>
+          <pre class="code-block">So sánh:
+Der er mange mennesker på stranden. (Hiện hữu)
+Det er skønt vejr i dag. (Đánh giá)</pre>
+          <br>
+          <span class="col-label">8. DEN/DET/DE — Thay thế danh từ cụ thể</span>
+          <ul>
+            <li><span class="hl">den</span> → thay en-ord số ít: en bog → Jeg læser <span class="hl">den</span></li>
+            <li><span class="hl">det</span> → thay et-ord số ít: et hus → Jeg køber <span class="hl">det</span></li>
+            <li><span class="hl">de/dem</span> → thay số nhiều: bøger → <span class="hl">dem</span> (tân ngữ) / <span class="hl">de</span> er gode (chủ ngữ)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== CHECKLIST ======================== -->
+  <section class="checklist-block" id="checklist">
+    <h2 class="checklist-title"><span class="emoji">🎯</span> Checklist kiểm tra lỗi đại từ</h2>
+    <p style="font-size:0.9rem;color:var(--muted);margin-bottom:20px;">Khi viết đại từ, hãy tự hỏi:</p>
+
+    <div class="check-item">
+      <strong>✅ Chủ ngữ hay tân ngữ?</strong>
+      <ul>
+        <li>Chủ ngữ: jeg, du, han, vi, I, de</li>
+        <li>Tân ngữ: mig, dig, ham, os, jer, dem</li>
+      </ul>
+    </div>
+
+    <div class="check-item">
+      <strong>✅ Có phải động từ phản thân không?</strong>
+      <ul>
+        <li>Nếu có → cần đại từ phản thân: mig, dig, <span class="hl">sig</span>, os, jer</li>
+      </ul>
+    </div>
+
+    <div class="check-item">
+      <strong>✅ Đại từ sở hữu hòa hợp chưa?</strong>
+      <ul>
+        <li>en-ord → min, din, sin, hans...</li>
+        <li>et-ord → mit, dit, sit, hans...</li>
+        <li>Số nhiều → mine, dine, sine, hans...</li>
+      </ul>
+    </div>
+
+    <div class="check-item">
+      <strong>✅ Sin/sit/sine hay hans/hendes?</strong>
+      <ul>
+        <li>Người sở hữu = Chủ ngữ? → sin/sit/sine</li>
+        <li>Người sở hữu ≠ Chủ ngữ? → hans/hendes/deres</li>
+      </ul>
+    </div>
+
+    <div class="check-item">
+      <strong>✅ Nogen, noget hay nogle?</strong>
+      <ul>
+        <li>Đếm được số ít → nogen</li>
+        <li>Không đếm được → noget</li>
+        <li>Số nhiều → nogle</li>
+      </ul>
+    </div>
+
+    <div class="check-item">
+      <strong>✅ Det hay der?</strong>
+      <ul>
+        <li>Câu hiện hữu → der</li>
+        <li>Thời tiết/đánh giá/thay thế → det</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================== COMMON ERRORS (DARK) ======================== -->
+  <div class="stative-block" id="errors">
+    <div class="stative-accent"></div>
+    <div class="stative-inner">
+      <span class="stative-badge">⚠️ Lưu ý quan trọng</span>
+      <h2 class="stative-title">Các lỗi phổ biến nhất</h2>
+
+      <div class="stative-section">
+        <div class="stative-section-title">1. Nhầm sin/sit/sine với hans/hendes</div>
+        <table class="error-table">
+          <tr>
+            <td class="err-label">❌</td>
+            <td><span class="err-wrong">Peter elsker hans kone.</span></td>
+            <td class="err-reason">(nếu muốn nói vợ của Peter)</td>
+          </tr>
+          <tr>
+            <td class="err-label">✅</td>
+            <td><span class="err-right">Peter elsker sin kone.</span></td>
+            <td class="err-reason">Chủ ngữ = người sở hữu → sin</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="stative-section">
+        <div class="stative-section-title">2. Quên đại từ phản thân</div>
+        <table class="error-table">
+          <tr><td class="err-label">❌</td><td><span class="err-wrong">Jeg skyndte hjem.</span></td><td class="err-reason">(thiếu mig)</td></tr>
+          <tr><td class="err-label">✅</td><td><span class="err-right">Jeg skyndte mig hjem.</span></td><td class="err-reason">at skynde sig là động từ phản thân</td></tr>
+        </table>
+      </div>
+
+      <div class="stative-section">
+        <div class="stative-section-title">3. Dùng sai sig cho ngôi 1, 2</div>
+        <table class="error-table">
+          <tr><td class="err-label">❌</td><td><span class="err-wrong">Vi hygger sig.</span></td><td class="err-reason">(chủ ngữ là vi)</td></tr>
+          <tr><td class="err-label">✅</td><td><span class="err-right">Vi hygger os.</span></td><td class="err-reason">vi → os (không phải sig)</td></tr>
+        </table>
+      </div>
+
+      <div class="stative-section">
+        <div class="stative-section-title">4. Không hòa hợp đại từ sở hữu</div>
+        <table class="error-table">
+          <tr><td class="err-label">❌</td><td><span class="err-wrong">min problemer, dit bøger</span></td><td class="err-reason">(sai dạng)</td></tr>
+          <tr><td class="err-label">✅</td><td><span class="err-right">mine problemer, dine bøger</span></td><td class="err-reason">số nhiều → e-form</td></tr>
+        </table>
+      </div>
+
+      <div class="stative-section">
+        <div class="stative-section-title">5. Nhầm det và der</div>
+        <table class="error-table">
+          <tr><td class="err-label">❌</td><td><span class="err-wrong">Det bor mange mennesker her.</span></td><td class="err-reason"></td></tr>
+          <tr><td class="err-label">✅</td><td><span class="err-right">Der bor mange mennesker her.</span></td><td class="err-reason">Câu hiện hữu → der</td></tr>
+          <tr><td class="err-label">❌</td><td><span class="err-wrong">Der regner i dag.</span></td><td class="err-reason"></td></tr>
+          <tr><td class="err-label">✅</td><td><span class="err-right">Det regner i dag.</span></td><td class="err-reason">Thời tiết → det</td></tr>
+        </table>
+      </div>
+
+      <div class="stative-section">
+        <div class="stative-section-title">6. Dùng nogen/noget sai</div>
+        <table class="error-table">
+          <tr><td class="err-label">❌</td><td><span class="err-wrong">nogle mælk, nogen musik</span></td><td class="err-reason">(không đếm được)</td></tr>
+          <tr><td class="err-label">✅</td><td><span class="err-right">noget mælk, noget musik</span></td><td class="err-reason">không đếm được → noget</td></tr>
+        </table>
+      </div>
+
+      <div class="stative-section">
+        <div class="stative-section-title">7. Dùng I thay vì jer sau giới từ</div>
+        <table class="error-table">
+          <tr><td class="err-label">❌</td><td><span class="err-wrong">sammen med I</span></td><td class="err-reason">(sau giới từ)</td></tr>
+          <tr><td class="err-label">✅</td><td><span class="err-right">sammen med jer</span></td><td class="err-reason">sau giới từ → dạng tân ngữ jer</td></tr>
+        </table>
+      </div>
+
+      <div class="stative-section">
+        <div class="stative-section-title">8. Dùng sin cho số nhiều ngôi 3</div>
+        <table class="error-table">
+          <tr><td class="err-label">❌</td><td><span class="err-wrong">De elsker sit land.</span></td><td class="err-reason">(de = số nhiều)</td></tr>
+          <tr><td class="err-label">✅</td><td><span class="err-right">De elsker deres land.</span></td><td class="err-reason">de → deres (không phải sin/sit/sine)</td></tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================== BONUS GRID ======================== -->
+  <section class="bonus-section" id="bonus">
+    <h2 class="bonus-section-title">📖 Bài tập ôn tập bổ sung</h2>
+    <p style="font-size:0.92rem;color:var(--muted);margin-bottom:22px;">Để củng cố kiến thức đại từ:</p>
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="bonus-card-top"><span class="bonus-num">1</span></div>
+        <p><strong>Học thuộc bảng đại từ</strong> (Opgave 1) — Viết ra 10 lần!</p>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-card-top"><span class="bonus-num">2</span></div>
+        <p><strong>Luyện sin/sit/sine:</strong> Viết 20 câu với cấu trúc:</p>
+        <code class="mono">[Người] + động từ + sin/sit/sine + danh từ</code><br>
+        <code class="mono">[Người] + động từ + hans/hendes + danh từ (của người khác)</code>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-card-top"><span class="bonus-num">3</span></div>
+        <p><strong>Luyện động từ phản thân:</strong> Chia tất cả 6 ngôi với mỗi động từ phản thân đã học.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-card-top"><span class="bonus-num">4</span></div>
+        <p><strong>Luyện det/der:</strong> Tìm 10 câu trong văn bản và phân tích tại sao dùng det hoặc der.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-card-top"><span class="bonus-num">5</span></div>
+        <p><strong>Viết đoạn văn:</strong> Kể về gia đình bạn, dùng tất cả các loại đại từ đã học.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-card-top"><span class="bonus-num">6</span></div>
+        <p><strong>Chuyển đổi ngôi:</strong> Lấy một đoạn văn ngôi 1, chuyển sang ngôi 3 (như Opgave 15).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FORMULA SUMMARY ======================== -->
+  <div class="summary-block" id="formula">
+    <h2 class="summary-title"><span class="emoji">🏆</span> Tóm tắt công thức nhanh</h2>
+    <pre class="code-block">NHÂN XƯNG:     jeg → mig,  du → dig,  han → ham,  vi → os,  I → jer,  de → dem
+
+PHẢN THÂN:     jeg → mig,  du → dig,  han/hun/de → SIG ⚠️
+
+SỞ HỮU:        min/mit/mine,  din/dit/dine,  sin/sit/sine (= chủ ngữ)
+               hans/hendes/deres (≠ chủ ngữ),  vores, jeres
+
+BẤT ĐỊNH:      nogen (đếm được),  noget (không đếm được),  nogle (số nhiều)
+               ingen = ikke nogen,  intet = ikke noget
+
+DET/DER:       DER = hiện hữu (Der er...)
+               DET = thời tiết/đánh giá (Det er...)
+
+DEN/DET/DE:    den (en-ord),  det (et-ord),  de/dem (số nhiều)</pre>
+  </div>
+
+  <!-- ======================== CONCLUSION CARD ======================== -->
+  <div class="conclusion-block">
+    <h2>✅ Hoàn thành — Toàn bộ 21 bài tập + Repetition</h2>
+    <ul class="conclusion-list">
+      <li>Đáp án chi tiết cho từng câu</li>
+      <li>Giải thích dựa trên lý thuyết từ file chính</li>
+      <li>Trích dẫn các mục tương ứng</li>
+      <li>Phân tích sâu các quy tắc khó (sin/sit/sine, det/der)</li>
+      <li>Tổng hợp checklist và lỗi phổ biến</li>
+    </ul>
+    <p class="conclusion-cta">Nếu bạn cần giải thích sâu hơn, thêm bài tập, hoặc chuyển sang Chương 3: Động từ (Verber) — hãy tiếp tục! 🇩🇰📚</p>
+  </div>
+
+</div>
+</main>
+
+<!-- ======================== FOOTER ======================== -->
+<footer>
+  CHƯƠNG 2 · PRONOMENER (STEDORD) · TIẾNG ĐAN MẠCH
+</footer>
+
+</body>
+</html>

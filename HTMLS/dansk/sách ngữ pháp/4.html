@@ -1,0 +1,3173 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương 4: Tính từ (Adjektiver) — Đáp án & Giải thích</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ===========================
+     DESIGN TOKENS — Theme B: Green (Adjectives)
+  =========================== */
+        :root {
+            --primary: #2E9E68;
+            --primary-light: #C8F0DE;
+            --primary-mid: #5EC996;
+            --primary-dark: #144D31;
+
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F7FAF8;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #DDE8E3;
+            --shadow: rgba(20, 19, 28, 0.05);
+            --shadow-hover: rgba(46, 158, 104, 0.13);
+
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'DM Mono', monospace;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--ink);
+            background: var(--paper);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===========================
+     LAYOUT
+  =========================== */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===========================
+     HERO
+  =========================== */
+        header {
+            background-color: var(--ink);
+            color: #fff;
+            padding: 72px 24px 64px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 25% 60%, rgba(46, 158, 104, 0.16) 0%, transparent 58%),
+                radial-gradient(ellipse at 78% 25%, rgba(94, 201, 150, 0.10) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1px solid rgba(94, 201, 150, 0.35);
+            padding: 6px 18px;
+            border-radius: 2px;
+            margin-bottom: 28px;
+        }
+
+        header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(30px, 6vw, 56px);
+            font-weight: 700;
+            line-height: 1.15;
+            color: #fff;
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        header h1 em {
+            color: var(--primary-mid);
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.50);
+            max-width: 560px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* ===========================
+     TABLE OF CONTENTS
+  =========================== */
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            padding: 28px 32px;
+            margin: 40px 0;
+        }
+
+        .toc-title {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .toc ol {
+            padding-left: 20px;
+            columns: 2;
+            column-gap: 32px;
+        }
+
+        @media (max-width: 600px) {
+            .toc ol {
+                columns: 1;
+            }
+        }
+
+        .toc li {
+            font-size: 0.88rem;
+            margin-bottom: 5px;
+            break-inside: avoid;
+        }
+
+        .toc a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        /* ===========================
+     MAIN
+  =========================== */
+        main {
+            padding: 48px 0 80px;
+        }
+
+        /* ===========================
+     OPGAVE BLOCKS
+  =========================== */
+        .opgave-block {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            margin-bottom: 48px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px var(--shadow);
+            transition: box-shadow 0.25s;
+        }
+
+        .opgave-block:hover {
+            box-shadow: 0 4px 24px var(--shadow-hover);
+        }
+
+        .op-header {
+            padding: 28px 32px 24px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .op-badge {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 5px 12px;
+            border-radius: 2px;
+            white-space: nowrap;
+            margin-top: 6px;
+        }
+
+        .op-title {
+            font-family: var(--font-display);
+            font-size: 1.42rem;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.3;
+        }
+
+        .op-title .spicy {
+            font-size: 1rem;
+            margin-left: 6px;
+        }
+
+        .op-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 768px) {
+            .op-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .op-answers {
+            background: #F9FBFA;
+            border-right: 1px solid var(--line);
+            padding: 28px 32px;
+        }
+
+        @media (max-width: 768px) {
+            .op-answers {
+                border-right: none;
+                border-bottom: 1px solid var(--line);
+            }
+        }
+
+        .col-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .op-answers ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .op-answers ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 7px;
+            font-size: 0.94rem;
+            line-height: 1.62;
+        }
+
+        .op-answers ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .op-answers ol {
+            padding-left: 22px;
+        }
+
+        .op-answers ol li {
+            font-size: 0.94rem;
+            margin-bottom: 6px;
+            line-height: 1.65;
+        }
+
+        .op-answers p {
+            font-size: 0.94rem;
+            margin-bottom: 8px;
+            line-height: 1.65;
+        }
+
+        .op-explanation {
+            padding: 28px 32px;
+            background: var(--surface);
+        }
+
+        .op-explanation h3 {
+            font-family: var(--font-display);
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 20px 0 8px;
+            padding-left: 14px;
+            border-left: 3px solid var(--primary-mid);
+            line-height: 1.3;
+        }
+
+        .op-explanation h3:first-child {
+            margin-top: 0;
+        }
+
+        .op-explanation p {
+            font-size: 0.92rem;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.68;
+        }
+
+        .op-explanation ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .op-explanation ul li {
+            position: relative;
+            padding-left: 18px;
+            font-size: 0.91rem;
+            margin-bottom: 5px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .op-explanation ul li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 0.8rem;
+        }
+
+        /* Full width layout */
+        .op-body.full {
+            grid-template-columns: 1fr;
+        }
+
+        .op-body.full .op-answers {
+            border-right: none;
+        }
+
+        /* ===========================
+     QUOTE BOX
+  =========================== */
+        .quote-box {
+            border-left: 4px solid var(--primary);
+            background: var(--primary-light);
+            padding: 14px 20px;
+            border-radius: 0 4px 4px 0;
+            margin: 12px 0;
+            font-style: italic;
+            font-size: 0.91rem;
+            color: var(--primary-dark);
+            line-height: 1.7;
+        }
+
+        .quote-box p {
+            margin: 0 0 6px;
+        }
+
+        .quote-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===========================
+     TABLES
+  =========================== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 14px 0;
+            border-radius: 6px;
+            border: 1px solid var(--line);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.87rem;
+        }
+
+        thead tr {
+            background: var(--primary-light);
+        }
+
+        thead th {
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 0.82rem;
+            letter-spacing: 0.02em;
+            border-bottom: 2px solid var(--primary);
+            white-space: nowrap;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--line);
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f7fbf8;
+        }
+
+        tbody td {
+            padding: 9px 14px;
+            vertical-align: top;
+            color: #2a2833;
+            line-height: 1.55;
+        }
+
+        /* ===========================
+     INLINE HIGHLIGHTS
+  =========================== */
+        .hl {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .hl-err {
+            color: var(--error);
+            font-weight: 600;
+        }
+
+        .hl-ok {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        code.mono {
+            font-family: var(--font-mono);
+            font-size: 0.84em;
+            background: #f0f4f2;
+            border: 1px solid var(--line);
+            border-radius: 3px;
+            padding: 1px 6px;
+            color: var(--primary-dark);
+        }
+
+        pre.code-block {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            background: #f3f7f5;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            overflow-x: auto;
+            line-height: 1.65;
+            color: var(--ink);
+            white-space: pre-wrap;
+        }
+
+        /* ===========================
+     TEXT / LETTER BLOCKS
+  =========================== */
+        .text-block {
+            padding: 24px 32px;
+            font-size: 0.93rem;
+            line-height: 1.72;
+            color: #333;
+        }
+
+        .text-block p {
+            margin-bottom: 10px;
+        }
+
+        .letter-block {
+            background: #f8faf9;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 18px 22px;
+            margin: 12px 0;
+            font-size: 0.92rem;
+            line-height: 1.72;
+        }
+
+        .letter-block .letter-title {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .poem-block {
+            font-style: italic;
+            background: #f6faf7;
+            border-left: 4px solid var(--primary-mid);
+            border-radius: 0 6px 6px 0;
+            padding: 18px 22px;
+            margin: 12px 0;
+            font-size: 0.9rem;
+            line-height: 1.85;
+            color: #2d3a30;
+        }
+
+        /* ===========================
+     STATIVE / ERROR DARK PANEL
+  =========================== */
+        .stative-block {
+            background: var(--surface-alt);
+            border-radius: 10px;
+            margin-bottom: 48px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(20, 19, 28, 0.22);
+        }
+
+        .stative-accent {
+            height: 5px;
+            background: linear-gradient(90deg, var(--error) 0%, var(--primary-mid) 100%);
+        }
+
+        .stative-inner {
+            padding: 36px 36px 40px;
+        }
+
+        .stative-badge {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.42);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stative-title {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 28px;
+            line-height: 1.25;
+        }
+
+        .stative-title em {
+            color: var(--primary-mid);
+            font-style: italic;
+        }
+
+        .stative-section {
+            margin-bottom: 26px;
+        }
+
+        .stative-section-title {
+            font-family: var(--font-mono);
+            font-size: 0.77rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .error-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.87rem;
+        }
+
+        .error-table tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .error-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .error-table td {
+            padding: 10px 10px;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        .err-wrong {
+            color: #ff6b7a;
+            text-decoration: line-through;
+            font-family: var(--font-mono);
+            font-size: 0.83rem;
+        }
+
+        .err-right {
+            color: #5de0a0;
+            font-weight: 600;
+            font-family: var(--font-mono);
+            font-size: 0.83rem;
+        }
+
+        .err-reason {
+            color: rgba(255, 255, 255, 0.48);
+            font-size: 0.81rem;
+            font-style: italic;
+        }
+
+        .err-label {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            color: rgba(255, 255, 255, 0.3);
+            white-space: nowrap;
+            padding-right: 6px;
+        }
+
+        /* ===========================
+     GRAMMAR SUMMARY TABLES (conclusion area)
+  =========================== */
+        .summary-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            margin-bottom: 28px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .summary-card-header {
+            background: var(--primary-light);
+            padding: 14px 22px;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .summary-card-body {
+            padding: 20px 22px;
+        }
+
+        /* ===========================
+     CHECKLIST SECTION
+  =========================== */
+        .checklist-block {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 48px;
+            box-shadow: 0 2px 12px var(--shadow);
+        }
+
+        .checklist-title {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 24px;
+        }
+
+        .check-item {
+            border-left: 3px solid var(--primary-light);
+            padding: 12px 0 12px 20px;
+            margin-bottom: 10px;
+            transition: border-color 0.2s;
+        }
+
+        .check-item:hover {
+            border-left-color: var(--primary);
+        }
+
+        .check-item strong {
+            display: block;
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .check-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .check-item ul li {
+            font-size: 0.9rem;
+            color: var(--muted);
+            padding-left: 14px;
+            position: relative;
+            margin-bottom: 3px;
+        }
+
+        .check-item ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 0.8rem;
+        }
+
+        /* ===========================
+     BONUS GRID
+  =========================== */
+        .bonus-section {
+            margin-bottom: 48px;
+        }
+
+        .bonus-section-title {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .bonus-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 22px 20px 18px;
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .bonus-card:hover {
+            box-shadow: 0 6px 22px var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .bonus-card-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .bonus-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .bonus-card p {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .bonus-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===========================
+     SUMMARY / FORMULA DARK BLOCK
+  =========================== */
+        .summary-dark {
+            background: var(--surface-alt);
+            border-radius: 10px;
+            padding: 36px;
+            margin-bottom: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-dark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-mid), var(--primary-dark));
+        }
+
+        .summary-dark h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .summary-dark pre.code-block {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #a8e6c5;
+        }
+
+        .summary-dark .summary-sub {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin: 22px 0 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .summary-dark p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            line-height: 1.65;
+        }
+
+        .summary-dark ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .summary-dark ul li {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.9rem;
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .summary-dark ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 0.75rem;
+        }
+
+        /* ===========================
+     CONCLUSION CARD
+  =========================== */
+        .conclusion-block {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 10px;
+            padding: 40px 36px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .conclusion-block h2 {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .conclusion-list {
+            list-style: none;
+            padding: 0;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: left;
+        }
+
+        .conclusion-list li {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            padding-left: 8px;
+        }
+
+        .conclusion-list li::before {
+            content: '✅ ';
+        }
+
+        .conclusion-cta {
+            margin-top: 24px;
+            font-size: 0.92rem;
+            color: rgba(255, 255, 255, 0.60);
+            font-style: italic;
+        }
+
+        /* ===========================
+     DIVIDER
+  =========================== */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--line);
+            margin: 24px 0;
+        }
+
+        /* ===========================
+     FOOTER
+  =========================== */
+        footer {
+            background: var(--ink);
+            color: rgba(255, 255, 255, 0.35);
+            text-align: center;
+            padding: 32px 24px;
+            font-size: 0.82rem;
+            font-family: var(--font-mono);
+            letter-spacing: 0.05em;
+        }
+
+        /* ===========================
+     RESPONSIVE
+  =========================== */
+        @media (max-width: 640px) {
+            .op-header {
+                padding: 18px 18px;
+                gap: 10px;
+            }
+
+            .op-answers,
+            .op-explanation {
+                padding: 18px 18px;
+            }
+
+            .stative-inner {
+                padding: 22px 18px 26px;
+            }
+
+            .checklist-block {
+                padding: 20px 16px;
+            }
+
+            .summary-dark {
+                padding: 24px 18px;
+            }
+
+            .conclusion-block {
+                padding: 28px 18px;
+            }
+
+            .toc {
+                padding: 18px 18px;
+            }
+
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ======================== HERO ======================== -->
+    <header>
+        <div class="hero-badge">Chương 4 · Adjektiver · Tillægsord</div>
+        <h1>Đáp Án &amp; Bài Giảng Chi Tiết<br><em>Tính Từ (Adjektiver)</em></h1>
+        <p class="hero-sub">Giải toàn bộ 27 bài tập + Repetition — Tiếng Đan Mạch</p>
+    </header>
+
+    <!-- ======================== MAIN ======================== -->
+    <main>
+        <div class="container">
+
+            <!-- TABLE OF CONTENTS -->
+            <nav class="toc">
+                <div class="toc-title">Mục lục bài tập</div>
+                <ol>
+                    <li><a href="#op1">Opgave 1 — Brainstorm</a></li>
+                    <li><a href="#op2">Opgave 2 — Find adjektiver og antonymer</a></li>
+                    <li><a href="#op3">Opgave 3 — Find synonymer</a></li>
+                    <li><a href="#op4">Opgave 4 — Skriv antonymer med u-</a></li>
+                    <li><a href="#op5">Opgave 5 — Adjektivers bøjning</a></li>
+                    <li><a href="#op6">Opgave 6 — Bøj adjektiver og substantiver</a></li>
+                    <li><a href="#op7">Opgave 7 — Bøj adjektiver</a></li>
+                    <li><a href="#op8">Opgave 8 — Indsæt adjektivet</a></li>
+                    <li><a href="#op9">Opgave 9 — Datingprofiler</a></li>
+                    <li><a href="#op10">Opgave 10 — Adjektiver i annoncer</a></li>
+                    <li><a href="#op11">Opgave 11 — Sorter adjektiver i e-form</a></li>
+                    <li><a href="#op12">Opgave 12 — Indsæt adjektiver i tekst</a></li>
+                    <li><a href="#op13">Opgave 13 — Bestemt form med adjektiver</a></li>
+                    <li><a href="#op14">Opgave 14 — Skriv sætninger med adjektivet</a></li>
+                    <li><a href="#op15">Opgave 15 — Skriv med adjektiver 🌶️</a></li>
+                    <li><a href="#op16">Opgave 16 — Find det modsatte adjektiv 🌶️</a></li>
+                    <li><a href="#op17">Opgave 17 — Adjektiver i digtet 🌶️🔒</a></li>
+                    <li><a href="#op18">Opgave 18 — Uregelmæssige adjektiver 🌶️</a></li>
+                    <li><a href="#op19">Opgave 19 — Skriv &amp; ret</a></li>
+                    <li><a href="#op20">Opgave 20 — Gradbøjning</a></li>
+                    <li><a href="#op21">Opgave 21 — Komparativ</a></li>
+                    <li><a href="#op22">Opgave 22 — Quiz: Komparativ</a></li>
+                    <li><a href="#op23">Opgave 23 — Quiz: Superlativ</a></li>
+                    <li><a href="#op24">Opgave 24 — Sammenlign tre søskende</a></li>
+                    <li><a href="#op25">Opgave 25 — Komparativ eller superlativ? 🌶️</a></li>
+                    <li><a href="#op26">Opgave 26 — Modsatte adjektiv i komparativ/superlativ 🌶️</a></li>
+                    <li><a href="#op27">Opgave 27 — Specielle adjektiver 🌶️</a></li>
+                    <li><a href="#repetition">Repetition — Fejlretning</a></li>
+                    <li><a href="#konklusion">Kết luận &amp; Quy tắc quan trọng</a></li>
+                    <li><a href="#checklist">Checklist kiểm tra lỗi</a></li>
+                    <li><a href="#errors">Các lỗi phổ biến nhất</a></li>
+                </ol>
+            </nav>
+
+            <!-- ======================== OPGAVE 1 ======================== -->
+            <article class="opgave-block" id="op1">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 1</span>
+                    <h2 class="op-title">Brainstorm</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <p>Đây là bài tập mở, học viên tự nghĩ ra các tính từ và viết vào danh sách
+                            <em>Adjektivlisten</em> ở trang 152. Không có đáp án cố định.</p>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc được kiểm tra</h3>
+                        <p>Nhận biết tính từ (adjektiver/tillægsord) và từ trái nghĩa (antonymer).</p>
+                        <h3>Lý thuyết — Chương 4</h3>
+                        <div class="quote-box">
+                            <p>"Tính từ (adjektiver/tillægsord) là những từ dùng để mô tả hoặc bổ nghĩa cho danh từ và
+                                đại từ. Chúng đóng vai trò chiến lược trong việc thêm chi tiết, màu sắc và sự phong phú
+                                cho ngôn ngữ."</p>
+                        </div>
+                        <div class="quote-box">
+                            <p>"Từ trái nghĩa là những cặp từ có ý nghĩa đối lập nhau. Ví dụ: varm - kold (nóng - lạnh),
+                                gammel - ung (già - trẻ)."</p>
+                        </div>
+                        <h3>Áp dụng</h3>
+                        <p>Bài tập này giúp học viên làm quen với các tính từ phổ biến trong tiếng Đan Mạch và khả năng
+                            ghép cặp các tính từ trái nghĩa. Học viên cần viết mỗi tính từ một lần trong danh sách theo
+                            thứ tự bảng chữ cái cùng với từ trái nghĩa của nó.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 2 ======================== -->
+            <article class="opgave-block" id="op2">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 2</span>
+                    <h2 class="op-title">Find adjektiver og antonymer</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <p><strong>Các tính từ trong bảng (18 tính từ):</strong></p>
+                        <p>smuk, høj, gavmild, langsom, flittig, blød, snavset, forskellig, sulten, træt, rigtig, syg,
+                            stresset, barnlig, bange, spændende, konkret, åbne, levende, opmærksom</p>
+                        <p><strong>Đuôi phổ biến của tính từ:</strong> <code class="mono">-ig</code>, <code
+                                class="mono">-lig</code>, <code class="mono">-et</code>, <code class="mono">-som</code>,
+                            <code class="mono">-end</code></p>
+                        <hr class="section-divider">
+                        <p><strong>Ghép cặp trái nghĩa:</strong></p>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Từ gốc</th>
+                                        <th>Trái nghĩa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>grim</td>
+                                        <td>smuk</td>
+                                    </tr>
+                                    <tr>
+                                        <td>rask</td>
+                                        <td>syg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>mæt</td>
+                                        <td>sulten</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lav</td>
+                                        <td>høj</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ens</td>
+                                        <td>forskellig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>tom</td>
+                                        <td>fuld</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hård</td>
+                                        <td>blød</td>
+                                    </tr>
+                                    <tr>
+                                        <td>frisk</td>
+                                        <td>træt</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ledig</td>
+                                        <td>optaget</td>
+                                    </tr>
+                                    <tr>
+                                        <td>doven</td>
+                                        <td>flittig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ren</td>
+                                        <td>snavset</td>
+                                    </tr>
+                                    <tr>
+                                        <td>abstrakt</td>
+                                        <td>konkret</td>
+                                    </tr>
+                                    <tr>
+                                        <td>moden</td>
+                                        <td>barnlig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>nærig</td>
+                                        <td>gavmild</td>
+                                    </tr>
+                                    <tr>
+                                        <td>distræt</td>
+                                        <td>opmærksom</td>
+                                    </tr>
+                                    <tr>
+                                        <td>afslappet</td>
+                                        <td>stresset</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hurtig</td>
+                                        <td>langsom</td>
+                                    </tr>
+                                    <tr>
+                                        <td>modig</td>
+                                        <td>bange</td>
+                                    </tr>
+                                    <tr>
+                                        <td>forkert</td>
+                                        <td>rigtig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>død</td>
+                                        <td>levende</td>
+                                    </tr>
+                                    <tr>
+                                        <td>kedelig</td>
+                                        <td>spændende</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc được kiểm tra</h3>
+                        <p>Nhận biết tính từ thông qua đuôi đặc trưng và tìm từ trái nghĩa.</p>
+                        <h3>Lý thuyết — Chương 4</h3>
+                        <div class="quote-box">
+                            <p>"Tính từ (adjektiver/tillægsord) là những từ dùng để mô tả hoặc bổ nghĩa cho danh từ và
+                                đại từ."</p>
+                            <p>"Từ trái nghĩa là những cặp từ có ý nghĩa đối lập nhau."</p>
+                        </div>
+                        <h3>Áp dụng</h3>
+                        <p>Nhiều tính từ trong tiếng Đan Mạch có các đuôi đặc trưng:</p>
+                        <ul>
+                            <li><code class="mono">-ig</code> → flittig, rigtig</li>
+                            <li><code class="mono">-lig</code> → hyggelig, barnlig</li>
+                            <li><code class="mono">-et</code> → snavset, stresset</li>
+                            <li><code class="mono">-som</code> → langsom</li>
+                            <li><code class="mono">-end</code> → levende, spændende</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 3 ======================== -->
+            <article class="opgave-block" id="op3">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 3</span>
+                    <h2 class="op-title">Matching — Find synonymer</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Từ gốc</th>
+                                        <th>Từ đồng nghĩa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>sød</td>
+                                        <td>rar</td>
+                                    </tr>
+                                    <tr>
+                                        <td>tyk</td>
+                                        <td>overvægtig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>gal</td>
+                                        <td>mærkelig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>nem</td>
+                                        <td>let</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lun</td>
+                                        <td>varm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>flot</td>
+                                        <td>smuk</td>
+                                    </tr>
+                                    <tr>
+                                        <td>rig</td>
+                                        <td>velhavende</td>
+                                    </tr>
+                                    <tr>
+                                        <td>svær</td>
+                                        <td>vanskelig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>stille</td>
+                                        <td>rolig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>sjov</td>
+                                        <td>morsom</td>
+                                    </tr>
+                                    <tr>
+                                        <td>trist</td>
+                                        <td>sørgelig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>umoden</td>
+                                        <td>barnlig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>snavset</td>
+                                        <td>beskidt</td>
+                                    </tr>
+                                    <tr>
+                                        <td>udmattet</td>
+                                        <td>træt</td>
+                                    </tr>
+                                    <tr>
+                                        <td>underlig</td>
+                                        <td>anderledes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>interessant</td>
+                                        <td>spændende</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vidunderlig</td>
+                                        <td>pragtfuld</td>
+                                    </tr>
+                                    <tr>
+                                        <td>forfærdelig</td>
+                                        <td>skrækkelig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>intelligent</td>
+                                        <td>klog</td>
+                                    </tr>
+                                    <tr>
+                                        <td>forskellig</td>
+                                        <td>anderledes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>arbejdsom</td>
+                                        <td>flittig</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc được kiểm tra</h3>
+                        <p>Nhận biết từ đồng nghĩa (synonymer) của tính từ.</p>
+                        <h3>Lý thuyết — Mục 4.4</h3>
+                        <div class="quote-box">
+                            <p>"Từ đồng nghĩa là những từ có ý nghĩa tương tự hoặc gần giống nhau. Ví dụ: sød (dễ
+                                thương) có thể có nghĩa tương tự như rar (tử tế, dễ mến)."</p>
+                        </div>
+                        <h3>Áp dụng</h3>
+                        <p>Bài tập này giúp học viên mở rộng vốn từ vựng bằng cách học các tính từ có ý nghĩa gần giống
+                            nhau. Việc nắm được các từ đồng nghĩa giúp học viên diễn đạt linh hoạt và tránh lặp từ khi
+                            viết hoặc nói.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 4 ======================== -->
+            <article class="opgave-block" id="op4">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 4</span>
+                    <h2 class="op-title">Skriv antonymer med u-</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Tính từ CÓ THỂ thêm "u-"</span>
+                        <ul>
+                            <li><strong>u</strong>sikker (không chắc chắn)</li>
+                            <li><strong>u</strong>stabil (không ổn định)</li>
+                            <li><strong>u</strong>høflig (bất lịch sự)</li>
+                            <li><strong>u</strong>hyggelig (không dễ chịu)</li>
+                            <li><strong>u</strong>retfærdig (bất công)</li>
+                            <li><strong>u</strong>venlig (không thân thiện)</li>
+                            <li><strong>u</strong>ærlig (không trung thực)</li>
+                            <li><strong>u</strong>dejlig (không dễ chịu)</li>
+                            <li><strong>u</strong>farlig (không nguy hiểm)</li>
+                            <li><strong>u</strong>erfaren (thiếu kinh nghiệm)</li>
+                            <li><strong>u</strong>tålmodig (thiếu kiên nhẫn)</li>
+                            <li><strong>u</strong>praktisk (không thực tế)</li>
+                            <li><strong>u</strong>moderne (lỗi thời)</li>
+                            <li><strong>u</strong>gyldig (không hợp lệ)</li>
+                            <li><strong>u</strong>kritisk (thiếu phê phán)</li>
+                            <li><strong>u</strong>almindelig (không bình thường)</li>
+                            <li><strong>u</strong>korrekt (không chính xác)</li>
+                            <li><strong>u</strong>sund (không lành mạnh)</li>
+                            <li><strong>u</strong>heldig (không may mắn)</li>
+                            <li><strong>u</strong>beboet (không có người ở)</li>
+                            <li><strong>u</strong>sædvanlig (không bình thường)</li>
+                            <li><strong>u</strong>enkel (phức tạp)</li>
+                            <li><strong>u</strong>demokratisk (không dân chủ)</li>
+                            <li><strong>u</strong>bevidst (vô thức)</li>
+                            <li><strong>u</strong>kendt (không nổi tiếng)</li>
+                        </ul>
+                        <hr class="section-divider" style="margin:16px 0;">
+                        <span class="col-label">Tính từ KHÔNG thể thêm "u-"</span>
+                        <ul>
+                            <li>sød → sur / ond</li>
+                            <li>hård → blød</li>
+                            <li>høj → lav</li>
+                            <li>lækker → klam / ulækker</li>
+                            <li>dum → klog</li>
+                            <li>stille → larmende</li>
+                            <li>lykkelig → ulykkelig (có thể dùng u-!)</li>
+                            <li>mæt → sulten</li>
+                            <li>gift → ugift (có thể!) / single</li>
+                            <li>sjov → kedelig</li>
+                            <li>ren → snavset</li>
+                            <li>tilfreds → utilfreds (có thể!)</li>
+                            <li>enig → uenig (có thể!)</li>
+                            <li>afgjort → uafgjort (có thể!)</li>
+                            <li>lovlig → ulovlig (có thể!)</li>
+                            <li>faglært → ufaglært (có thể!)</li>
+                        </ul>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc được kiểm tra</h3>
+                        <p>Tạo từ trái nghĩa bằng cách thêm tiền tố "u-" vào tính từ.</p>
+                        <h3>Lý thuyết — Mục 4.3</h3>
+                        <div class="quote-box">
+                            <p>"Từ trái nghĩa là những cặp từ có ý nghĩa đối lập nhau."</p>
+                        </div>
+                        <h3>Áp dụng</h3>
+                        <p>Tiền tố "<strong>u-</strong>" (tương đương với "un-" trong tiếng Anh hoặc "không-" trong
+                            tiếng Việt) được thêm vào nhiều tính từ để tạo từ trái nghĩa. Tuy nhiên, không phải tính từ
+                            nào cũng có thể dùng "u-". Một số tính từ có từ trái nghĩa hoàn toàn khác (như høj → lav,
+                            sød → sur).</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 5 ======================== -->
+            <article class="opgave-block" id="op5">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 5</span>
+                    <h2 class="op-title">Adjektivers bøjning</h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Gạch chân tính từ</span>
+                        <ol start="0">
+                            <li>Det var en <span class="hl">kold</span> og <span class="hl">mørk</span> vinteraften.
+                            </li>
+                            <li>De boede i et <span class="hl">gammelt</span>, <span class="hl">faldefærdigt</span> hus.
+                            </li>
+                            <li>Vi boede på et <span class="hl">stort</span> hotel i en <span class="hl">smuk</span> by
+                                med vores to <span class="hl">smukke</span> børn.</li>
+                            <li>Hvis vejret er <span class="hl">godt</span>, drikker vi en <span class="hl">kold</span>
+                                øl eller et <span class="hl">stort</span> glas <span class="hl">hvid</span> vin ude i
+                                haven.</li>
+                            <li>Han var <span class="hl">træt</span> og <span class="hl">tørstig</span>, og vi var <span
+                                    class="hl">trætte</span> og <span class="hl">sultne</span>.</li>
+                            <li>Den <span class="hl">rige</span> kvinde købte det <span class="hl">dyre</span> ur.</li>
+                            <li>Jeg har glemt min <span class="hl">nye</span>, <span class="hl">flotte</span> mobil
+                                derhjemme.</li>
+                            <li>Jeg besøgte min <span class="hl">gamle</span>, <span class="hl">syge</span> mor.</li>
+                            <li>Peters <span class="hl">nye</span> tv er gået i stykker.</li>
+                        </ol>
+                        <hr class="section-divider" style="margin:16px 0;">
+                        <span class="col-label">Bảng phân loại</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Grundform (en-ord)</th>
+                                        <th>T-form (et-ord)</th>
+                                        <th>E-form</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>en kold, mørk (vinteraften)</td>
+                                        <td>et gammelt, faldefærdigt (hus)</td>
+                                        <td>to smukke (børn)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>en kold (øl)</td>
+                                        <td>et stort (hotel)</td>
+                                        <td>den rige (kvinde)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>en smuk (by)</td>
+                                        <td>et stort (glas)</td>
+                                        <td>min nye, flotte (mobil)</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>et dyre (ur)</td>
+                                        <td>min gamle, syge (mor)</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>godt (vejret — vị ngữ với "er")</td>
+                                        <td>trætte, sultne (vi — số nhiều)</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>hvid (vin — grundform + et-ord)</td>
+                                        <td>Peters nye (tv)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr class="section-divider" style="margin:16px 0;">
+                        <span class="col-label">Quy tắc chính</span>
+                        <ul>
+                            <li><strong>Grundform:</strong> Dùng với danh từ số ít không xác định loại "en"</li>
+                            <li><strong>T-form:</strong> Dùng với danh từ số ít không xác định loại "et"</li>
+                            <li><strong>E-form:</strong> (1) Danh từ số nhiều; (2) Danh từ xác định; (3) Sau đại từ sở
+                                hữu; (4) Sau genitiv</li>
+                        </ul>
+                        <div class="op-explanation"
+                            style="border-top:1px solid var(--line);margin-top:16px;padding-top:16px;padding-left:0;padding-right:0;">
+                            <h3>Lý thuyết — Mục 4.1</h3>
+                            <div class="quote-box">
+                                <p>"Trong tiếng Đan Mạch, tính từ phải được biến cách (bøjes) để hòa hợp về giống và số
+                                    với danh từ mà nó bổ nghĩa. Một tính từ thường có ba dạng chính."</p>
+                                <p>"Dạng cơ bản (Grundform): dùng với danh từ số ít, không xác định, loại 'en'. Ví dụ:
+                                    en kold vinter."</p>
+                                <p>"Dạng T-form: thêm -t vào dạng cơ bản, dùng với danh từ số ít, không xác định, loại
+                                    'et'. Ví dụ: et stort hus."</p>
+                                <p>"Dạng E-form: thêm -e vào dạng cơ bản. Dùng với tất cả danh từ số nhiều và tất cả
+                                    danh từ ở dạng xác định. Ví dụ: det store dyre hus."</p>
+                            </div>
+                            <h3>Áp dụng</h3>
+                            <ul>
+                                <li>"en kold vinteraften" → Grundform: vinteraften là en-ord, ental, ubestemt</li>
+                                <li>"et gammelt hus" → T-form: hus là et-ord, ental, ubestemt</li>
+                                <li>"to smukke børn" → E-form: børn là số nhiều</li>
+                                <li>"min nye mobil" → E-form: sau đại từ sở hữu "min"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 6 ======================== -->
+            <article class="opgave-block" id="op6">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 6</span>
+                    <h2 class="op-title">Bøj adjektiver og substantiver</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Ental</th>
+                                        <th>Flertal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>et</strong> stort hus</td>
+                                        <td>mange store huse</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>en</strong> dygtig læge</td>
+                                        <td>mange dygtige læger</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>et</strong> godt land</td>
+                                        <td>mange gode lande</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>et</strong> hårdt år</td>
+                                        <td>mange hårde år</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>en</strong> billig bluse</td>
+                                        <td>mange billige bluser</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>et</strong> mørkt rum</td>
+                                        <td>mange mørke rum</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>et</strong> ærligt svar</td>
+                                        <td>mange ærlige svar</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc được kiểm tra</h3>
+                        <p>Biến cách đồng thời của danh từ và tính từ (số ít/số nhiều, en-ord/et-ord).</p>
+                        <h3>Áp dụng</h3>
+                        <ul>
+                            <li>"en dygtig læge" (Grundform) → "mange <span class="hl">dygtige</span> læger" (E-form vì
+                                số nhiều)</li>
+                            <li>"et godt land" (T-form) → "mange <span class="hl">gode</span> lande" (E-form vì số
+                                nhiều)</li>
+                            <li>"et ærligt svar" (T-form) → "mange <span class="hl">ærlige</span> svar" (E-form vì số
+                                nhiều)</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 7 ======================== -->
+            <article class="opgave-block" id="op7">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 7</span>
+                    <h2 class="op-title">Bøj adjektiver</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Grundform</th>
+                                        <th>T-form</th>
+                                        <th>E-form</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>sur</strong></td>
+                                        <td>en sur mand</td>
+                                        <td>et surt æble</td>
+                                        <td>mange sure børn</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>rød</strong></td>
+                                        <td>en rød rose</td>
+                                        <td>et rødt flag</td>
+                                        <td>mange røde biler</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>farlig</strong></td>
+                                        <td>en farlig hund</td>
+                                        <td>et farligt dyr</td>
+                                        <td>mange farlige situationer</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>kedelig</strong></td>
+                                        <td>en kedelig film</td>
+                                        <td>et kedeligt job</td>
+                                        <td>mange kedelige bøger</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>blød</strong></td>
+                                        <td>en blød sofa</td>
+                                        <td>et blødt tæppe</td>
+                                        <td>mange bløde puder</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>hyggelig</strong></td>
+                                        <td>en hyggelig café</td>
+                                        <td>et hyggeligt hjem</td>
+                                        <td>mange hyggelige steder</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Ba dạng biến cách</h3>
+                        <ul>
+                            <li><strong>Grundform:</strong> Dùng với en-ord, ental, ubestemt</li>
+                            <li><strong>T-form:</strong> Thêm <code class="mono">-t</code>, dùng với et-ord, ental,
+                                ubestemt</li>
+                            <li><strong>E-form:</strong> Thêm <code class="mono">-e</code>, dùng với flertal hoặc
+                                bestemt form</li>
+                        </ul>
+                        <h3>Áp dụng</h3>
+                        <p>Học viên cần nhận biết loại danh từ (en/et) và số lượng (ental/flertal) để chia tính từ đúng.
+                            Ví dụ: "sur" (chua) → "surt" với et-ord, "sure" với số nhiều.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 8 ======================== -->
+            <article class="opgave-block" id="op8">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 8</span>
+                    <h2 class="op-title">Indsæt adjektivet i sætningerne</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol>
+                            <li>Jeg har lige købt en <span class="hl">ny</span> frakke, et <span class="hl">nyt</span>
+                                tørklæde og nogle <span class="hl">nye</span> sko.</li>
+                            <li>Jeg fik en <span class="hl">smuk</span> ring og nogle <span class="hl">smukke</span>
+                                øreringe i fødselsdagsgave.</li>
+                            <li>Vi spiste et <span class="hl">godt</span> måltid på en <span class="hl">god</span>
+                                japansk restaurant.</li>
+                            <li>Vejret er <span class="hl">dejligt</span> i dag, så vi skal spise mange <span
+                                    class="hl">dejlige</span> is.</li>
+                            <li>Sørens lejlighed er <span class="hl">gammel</span>. Hans sommerhus er også <span
+                                    class="hl">gammelt</span>.</li>
+                            <li>Træerne i haven er ikke så <span class="hl">høje</span>, men æbletræet er meget <span
+                                    class="hl">højt</span>.</li>
+                            <li>Tæppet i gangen er <span class="hl">rødt</span>, og puderne i sofaen er også <span
+                                    class="hl">røde</span>.</li>
+                            <li>Tasken, der står henne på bordet, er <span class="hl">åben</span>.</li>
+                            <li>Alt det fedt, man bruger i madlavningen, er <span class="hl">usundt</span>.</li>
+                            <li>Alle kursisterne på holdet var <span class="hl">trætte</span> efter en lang skoledag.
+                            </li>
+                            <li>Min bror er ikke så <span class="hl">sjov</span>, men mine to søstre er <span
+                                    class="hl">sjove</span>.</li>
+                            <li>Sikke en <span class="hl">lækker</span> bluse og et par <span class="hl">lækre</span>
+                                bukser du har.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc được kiểm tra</h3>
+                        <p>Áp dụng quy tắc biến cách tính từ trong câu thực tế.</p>
+                        <h3>Áp dụng chi tiết</h3>
+                        <ul>
+                            <li>Câu 1: en ny frakke (Grundform), et nyt tørklæde (T-form), nogle nye sko (E-form, số
+                                nhiều)</li>
+                            <li>Câu 5: "lejlighed" là en-ord → <span class="hl">gammel</span>; "sommerhus" là et-ord →
+                                <span class="hl">gammelt</span></li>
+                            <li>Câu 8: "åben" là tính từ vị ngữ (predicative), không cần biến cách thêm</li>
+                            <li>Câu 10: "alle kursisterne" là số nhiều → <span class="hl">trætte</span> (E-form)</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 9 ======================== -->
+            <article class="opgave-block" id="op9">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 9</span>
+                    <h2 class="op-title">Ordjagt — Datingprofiler</h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Các tính từ trong profile</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Grundform</th>
+                                        <th>T-form</th>
+                                        <th>E-form</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>sød lysblond (kvinde)<br>slank (mand)<br>Frisk (pige)<br>Moden
+                                            (mand)<br>skøn (kvinde)<br>udadvendt, aktiv (du)</td>
+                                        <td>nært, varmt, stabilt (forhold)<br>hyggeligt (samvær)<br>godt (job)<br>pænt
+                                            (udseende)<br>godt (humør)<br>nyt vellignende (foto)</td>
+                                        <td><strong>1. i flertal:</strong> eksotiske (rejser)<br>lange (gåture), gode
+                                            dybe (samtaler)<br>fremmedartede (navne)<br><strong>2. efter
+                                                den/det:</strong> grønne (natur)<br>store (kærlighed)<br><strong>3.
+                                                efter possessiv:</strong> store (interesse — efter "Min")<br>varme (sol
+                                            — efter "Sydens")<br>humoristiske, livskloge (efter "vi")</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="op-explanation"
+                            style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;padding-left:0;padding-right:0;">
+                            <h3>Áp dụng</h3>
+                            <ul>
+                                <li>E-form sau đại từ sở hữu: Min <span class="hl">store</span> interesse</li>
+                                <li>E-form sau genitiv: Sydens <span class="hl">varme</span> sol</li>
+                                <li>E-form với số nhiều: <span class="hl">eksotiske</span> rejser, <span
+                                        class="hl">lange</span> gåture</li>
+                                <li>E-form với danh từ xác định: den <span class="hl">grønne</span> natur, den <span
+                                        class="hl">store</span> kærlighed</li>
+                                <li>T-form với et-ord số ít: et <span class="hl">nært</span> forhold, et <span
+                                        class="hl">hyggeligt</span> samvær</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 10 ======================== -->
+            <article class="opgave-block" id="op10">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 10</span>
+                    <h2 class="op-title">Skriv adjektiver i annoncer</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án (gợi ý)</span>
+                        <p><strong>Hundehvalp savnes:</strong></p>
+                        <ul>
+                            <li>en <span class="hl">lille/sød</span> hundehvalp</li>
+                            <li>med <span class="hl">sorte/brune/hvide</span> pletter</li>
+                            <li>Den er meget <span class="hl">venlig/tam</span></li>
+                        </ul>
+                        <p><strong>Møbler sælges:</strong></p>
+                        <ul>
+                            <li>en <span class="hl">brugt/billig/pæn</span> 3-personers sofa</li>
+                            <li>et <span class="hl">gammelt/solidt/flot</span> sofabord</li>
+                            <li>2 <span class="hl">behagelige/store/lækre</span> lænestole</li>
+                        </ul>
+                        <p><strong>Kok søges:</strong></p>
+                        <ul>
+                            <li><span class="hl">dygtige/erfarne</span> medarbejdere</li>
+                            <li><span class="hl">Kendt/populær/hyggelig</span> restaurant</li>
+                            <li>en <span class="hl">talentfuld/kreativ/erfaren</span> kok</li>
+                            <li><span class="hl">god/lækker/moderne</span> mad</li>
+                            <li><span class="hl">høj/god</span> kvalitet</li>
+                            <li><span class="hl">friske/lokale</span> råvarer</li>
+                            <li><span class="hl">hektiske/travle/lange</span> arbejdsdage</li>
+                            <li><span class="hl">godt/stærkt/professionelt</span> team</li>
+                        </ul>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc được kiểm tra</h3>
+                        <p>Sử dụng tính từ phù hợp với ngữ cảnh và biến cách đúng.</p>
+                        <div class="quote-box">
+                            <p>"Tính từ là những từ dùng để mô tả hoặc bổ nghĩa cho danh từ và đại từ. Chúng đóng vai
+                                trò chiến lược trong việc thêm chi tiết, màu sắc và sự phong phú cho ngôn ngữ."</p>
+                        </div>
+                        <h3>Áp dụng</h3>
+                        <p>Học viên cần chọn tính từ phù hợp với ngữ cảnh (mô tả chó → sød, lille; mô tả đầu bếp →
+                            dygtig, erfaren) và biến cách đúng theo danh từ đi kèm.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 11 ======================== -->
+            <article class="opgave-block" id="op11">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 11</span>
+                    <h2 class="op-title">Ordjagt — Sorter adjektiver i e-form</h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Tính từ trong e-form: "Verdensborger i Danmark"</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Loại</th>
+                                        <th>E-form</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>1. i flertal</strong></td>
+                                        <td>gode gamle danske (børnedanse), fremmedartede (navne), latinske (bogstaver),
+                                            grønlandske, arabiske (các từ ngôn ngữ), italienske (sko)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2. efter den/det</strong></td>
+                                        <td>den kværnende (klode)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>3. efter possessive pronomener</strong></td>
+                                        <td>mine første (kærlighedsbreve), de gamle (nordboere), min magelløse (mund)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>4. efter genitiv</strong></td>
+                                        <td>(Không có ví dụ rõ ràng trong bài thơ này)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr class="section-divider" style="margin:14px 0;">
+                        <span class="col-label">Tất cả tính từ trong bài thơ</span>
+                        <p style="font-size:0.88rem;line-height:1.7;">gode, gamle, danske, fremmedartede, Engelsk,
+                            argentinsk, brasiliansk, dansk, vidunderlige, hvide, første, gamle, latinske, Ceylonsk,
+                            fransk, spansk, skotsk, vestindisk, russisk, dansk, hele, grønlandske, Tyrkisk, Finsk,
+                            Arabisk, Kinesisk, Mexicansk, Australsk, Sydafrikansk, Japansk, Malajisk, Indisk, kværnende,
+                            magelløse, mere og mere danske, indisk, italienske, pæredansk, godt, rystet</p>
+                        <div class="op-explanation"
+                            style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;padding-left:0;padding-right:0;">
+                            <h3>Lý thuyết — Mục 4.1.3</h3>
+                            <div class="quote-box">
+                                <p>"Dạng E-form được hình thành bằng cách thêm -e vào dạng cơ bản. Dùng với tất cả các
+                                    danh từ ở dạng số nhiều và với tất cả các danh từ ở dạng xác định."</p>
+                            </div>
+                            <h3>Áp dụng</h3>
+                            <ul>
+                                <li>"gode gamle danske børnedanse" → E-form vì số nhiều</li>
+                                <li>"mine første kærlighedsbreve" → E-form vì sau đại từ sở hữu "mine"</li>
+                                <li>"den kværnende klode" → E-form vì sau mạo từ xác định "den"</li>
+                                <li>"de gamle nordboere" → E-form vì sau "de" (mạo từ số nhiều xác định)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 12 ======================== -->
+            <article class="opgave-block" id="op12">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 12</span>
+                    <h2 class="op-title">Indsæt adjektiver i teksten</h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Marcus</span>
+                        <div class="letter-block">
+                            <p>Marcus har lige fået et <span class="hl">nyt</span> (ny) job som informationsmedarbejder
+                                i kommunen. Han er meget <span class="hl">glad</span> (glad) for sit <span
+                                    class="hl">nye</span> (ny) arbejde. Chefen er <span class="hl">flink</span> (flink),
+                                kollegaerne er <span class="hl">søde</span> (sød) og <span class="hl">hjælpsomme</span>
+                                (hjælpsom), og lønnen er forholdsvis <span class="hl">god</span> (god). Men det bedste
+                                er, at han kan gå hjem klokken 16.</p>
+                            <p>Før arbejdede han i et <span class="hl">stort</span> (stor) reklamefirma. Lønnen var
+                                meget <span class="hl">høj</span> (høj), men så havde han til gengæld også meget <span
+                                    class="hl">lange</span> (lang) arbejdsdage. Tit kom han så sent hjem, at han ikke
+                                kunne nå at spise sammen med familien. Det var hans kone og børn <span
+                                    class="hl">trætte</span> (træt) af. Marcus var mest <span class="hl">træt</span>
+                                (træt) af sin chef, der altid var <span class="hl">sur</span> (sur) og <span
+                                    class="hl">utilfreds</span> (utilfreds). Til sidst sagde Marcus sit <span
+                                    class="hl">gamle</span> (gammel) job op, og nu har han <span class="hl">god</span>
+                                (god) tid til familien og sin <span class="hl">store</span> (stor) hobby golf.</p>
+                        </div>
+                        <div class="op-explanation"
+                            style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;padding-left:0;padding-right:0;">
+                            <h3>Phân tích từng trường hợp</h3>
+                            <ul>
+                                <li>et <span class="hl">nyt</span> job → T-form: "job" là et-ord, ental, ubestemt</li>
+                                <li>sit <span class="hl">nye</span> arbejde → E-form: sau đại từ sở hữu "sit"</li>
+                                <li>Chefen er <span class="hl">flink</span> → Grundform: tính từ vị ngữ (predicative)
+                                </li>
+                                <li>kollegaerne er <span class="hl">søde</span> → E-form: "kollegaerne" là số nhiều xác
+                                    định</li>
+                                <li>et <span class="hl">stort</span> reklamefirma → T-form: "firma" là et-ord</li>
+                                <li>meget <span class="hl">lange</span> arbejdsdage → E-form: số nhiều</li>
+                                <li>hans kone og børn <span class="hl">trætte</span> → E-form: chủ ngữ số nhiều</li>
+                                <li>sit <span class="hl">gamle</span> job → E-form: sau đại từ sở hữu "sit"</li>
+                                <li>sin <span class="hl">store</span> hobby → E-form: sau đại từ sở hữu "sin"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 13 ======================== -->
+            <article class="opgave-block" id="op13">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 13</span>
+                    <h2 class="op-title">Skriv sætninger i bestemt form med adjektiver</h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Ental bestemt</span>
+                        <ol start="0">
+                            <li>Familien købte <span class="hl">det store dyre hus</span>.</li>
+                            <li>Hvem har malet <span class="hl">det smukke maleri</span>?</li>
+                            <li><span class="hl">Den lille hvide hund</span> gør altid, når nogen går forbi ude på
+                                gaden.</li>
+                            <li>Hun købte <span class="hl">det gamle / lille skab</span> i genbrugsbutikken.</li>
+                            <li>Hvad er <span class="hl">det rigtige svar</span> på <span class="hl">det svære
+                                    spørgsmål</span>?</li>
+                            <li>Jeg har arvet <span class="hl">det fine dyre sølvtøj</span> fra mine bedsteforældre.
+                            </li>
+                            <li>Hvor har du lagt <span class="hl">den sorte slidte pung</span>?</li>
+                            <li>Jeg tror <span class="hl">den stribede kat</span> på vejen er stukket af.</li>
+                            <li>Jeg synes <span class="hl">den amerikanske præsident</span> er på besøg hos <span
+                                    class="hl">den danske dronning</span>.</li>
+                        </ol>
+                        <hr class="section-divider" style="margin:14px 0;">
+                        <span class="col-label">Đáp án — Flertal bestemt</span>
+                        <ol start="0">
+                            <li>Ali købte <span class="hl">de dyre smukke blomster</span>.</li>
+                            <li>Jeg kunne ikke fjerne <span class="hl">de mørke pletter</span> på <span class="hl">de
+                                    nye bukser</span>.</li>
+                            <li>Jeg kan ikke finde ud af at løse <span class="hl">de svære opgaver</span>.</li>
+                            <li>Hun tog <span class="hl">de pæne hvide bukser</span> på til alle <span class="hl">de
+                                    store fester</span>.</li>
+                            <li>Har du <span class="hl">de rigtige svar</span> på alle <span class="hl">de svære
+                                    spørgsmål</span>?</li>
+                            <li>Vi har inviteret <span class="hl">de nye søde naboer</span> til kaffe og kage i
+                                eftermiddag.</li>
+                            <li>Har du vasket <span class="hl">de blomstrede tekoppper</span> og <span class="hl">de
+                                    lille tallerkener</span>?</li>
+                            <li>Jeg har tabt to af <span class="hl">de smukke gamle glas</span>, så de er gået i
+                                stykker.</li>
+                            <li><span class="hl">De nyvalgte politikere</span> i folketinget har vedtaget en ny
+                                finanslov.</li>
+                        </ol>
+                        <div class="op-explanation"
+                            style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;padding-left:0;padding-right:0;">
+                            <h3>Lý thuyết — Mục 4.1.3</h3>
+                            <div class="quote-box">
+                                <p>"Dạng E-form dùng với tất cả các danh từ ở dạng xác định (cả số ít và số nhiều). Ví
+                                    dụ: det store dyre hus."</p>
+                            </div>
+                            <h3>Cấu trúc</h3>
+                            <p>Khi danh từ ở dạng xác định, tính từ LUÔN dùng e-form, bất kể là en-ord hay et-ord:</p>
+                            <ul>
+                                <li>den/det/de + <span class="hl">tính từ-e</span> + danh từ</li>
+                                <li>"huset" (xác định) → "det <span class="hl">store dyre</span> hus"</li>
+                                <li>"hunden" (xác định) → "den <span class="hl">lille hvide</span> hund"</li>
+                                <li>"blomsterne" (số nhiều xác định) → "de <span class="hl">dyre smukke</span> blomster"
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 14 ======================== -->
+            <article class="opgave-block" id="op14">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 14</span>
+                    <h2 class="op-title">Skriv sætninger med adjektivet</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol start="0">
+                            <li>Signe har købt et nyt skrivebord.</li>
+                            <li>Julie bor i et <span class="hl">hvidt</span> hus på en <span class="hl">hvid</span>
+                                villavej i Brønshøj.</li>
+                            <li>Jeg har lige skrevet et <span class="hl">langt</span> brev til dig.</li>
+                            <li>Du har glemt din <span class="hl">sorte</span> taske hjemme hos mig.</li>
+                            <li>Mine <span class="hl">polske</span> naboer er meget venlige.</li>
+                            <li>Jeg elsker byens <span class="hl">grønne</span> parker.</li>
+                            <li>Naboens <span class="hl">urolige</span> børn larmer igen.</li>
+                            <li>Børnenes <span class="hl">stribede</span> kat er løbet væk.</li>
+                            <li>Hun vasker sin <span class="hl">snavsede</span> bil.</li>
+                            <li>Vores 3 <span class="hl">store</span> børn er flyttet hjemmefra.</li>
+                            <li>Livas <span class="hl">gamle</span> veninde er lige blevet gift.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Áp dụng</h3>
+                        <ul>
+                            <li>Câu 1: "et <span class="hl">hvidt</span> hus" (T-form, et-ord) / "en <span
+                                    class="hl">hvid</span> villavej" (Grundform, en-ord)</li>
+                            <li>Câu 3: "din <span class="hl">sorte</span> taske" → E-form sau đại từ sở hữu "din"</li>
+                            <li>Câu 4: "Mine <span class="hl">polske</span> naboer" → E-form sau "mine" và số nhiều</li>
+                            <li>Câu 5: "byens <span class="hl">grønne</span> parker" → E-form sau genitiv "byens" và số
+                                nhiều</li>
+                            <li>Câu 7: "Børnenes <span class="hl">stribede</span> kat" → E-form sau genitiv "Børnenes"
+                            </li>
+                            <li>Câu 8: "sin <span class="hl">snavsede</span> bil" → E-form sau đại từ sở hữu phản thân
+                                "sin"</li>
+                            <li>Câu 9: "Livas <span class="hl">gamle</span> veninde" → E-form sau genitiv "Livas"</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 15 ======================== -->
+            <article class="opgave-block" id="op15">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 15</span>
+                    <h2 class="op-title">Skriv med adjektiver <span class="spicy">🌶️</span></h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án (gợi ý sáng tạo)</span>
+                        <ol start="0">
+                            <li><span class="hl">Det smukke røde hus</span> har 5 <span class="hl">store lyse</span>
+                                værelser.</li>
+                            <li>Julie bor i et <span class="hl">stort hvidt</span> hus på en <span class="hl">stille
+                                    grøn</span> villavej i Brønshøj.</li>
+                            <li>Julie har tre <span class="hl">søde små</span> børn. <span class="hl">De glade energiske
+                                    børn</span> leger ude i <span class="hl">den store dejlige</span> haven.</li>
+                            <li>Vi har købt en <span class="hl">lys moderne</span> lejlighed med en <span
+                                    class="hl">lille hyggelig</span> gård.</li>
+                            <li><span class="hl">Den nye billige lejlighed</span> har 3 <span class="hl">rumlige
+                                    behagelige</span> værelser og en <span class="hl">solrig stor</span> altan.</li>
+                            <li>Jeg arbejder i et <span class="hl">travlt moderne</span> køkken og har to <span
+                                    class="hl">dygtige venlige</span> kollegaer.</li>
+                            <li>Min <span class="hl">smukke kærlige kæreste</span> giver mig en <span class="hl">dyr
+                                    overraskende</span> gave.</li>
+                            <li>Der sidder en <span class="hl">gammel ensom</span> dame på <span class="hl">den grønne
+                                    slidte</span> bænk.</li>
+                            <li>Jeg kan godt lide <span class="hl">byens grønne hyggelige</span> parker og <span
+                                    class="hl">byens populære charmerende</span> cafeer.</li>
+                        </ol>
+                        <hr class="section-divider" style="margin:14px 0;">
+                        <p><strong>Omskrivning af "Manden giver kvinden en buket roser":</strong></p>
+                        <p><span class="hl">Den galante ældre mand</span> giver <span class="hl">den smukke unge
+                                kvinde</span> <span class="hl">en stor duftende buket</span> <span class="hl">røde
+                                friske roser</span>.</p>
+                        <div class="op-explanation"
+                            style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;padding-left:0;padding-right:0;">
+                            <h3>Áp dụng</h3>
+                            <ul>
+                                <li>Nhận diện loại danh từ (en/et)</li>
+                                <li>Xác định số lượng (ental/flertal)</li>
+                                <li>Xác định tính xác định (bestemt/ubestemt)</li>
+                                <li>Kiểm tra xem có đứng sau đại từ sở hữu hoặc genitiv không</li>
+                                <li>Ví dụ: "Det smukke røde hus" → E-form vì bestemt form (det...hus)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 16 ======================== -->
+            <article class="opgave-block" id="op16">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 16</span>
+                    <h2 class="op-title">Find det modsatte adjektiv <span class="spicy">🌶️</span></h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol>
+                            <li>Mange tvillinger har ens tøj på, men jeg har altid klædt mine i <span
+                                    class="hl">forskelligt</span> tøj.</li>
+                            <li>Mit hår var krøllet, da jeg var barn, men nu er det næsten helt <span
+                                    class="hl">glat/lige</span>.</li>
+                            <li>Der er ikke nogen ledig parkeringsplads, de er alle <span
+                                    class="hl">optaget/optagne</span>.</li>
+                            <li>Jeg kom til at klippe mit hår helt skævt, så nu må frisøren klippe det <span
+                                    class="hl">lige/ligeligt/symmetrisk</span>.</li>
+                            <li>Der kom mange både nære og <span class="hl">fjerne</span> slægtninge til festen.</li>
+                            <li>Anna er min forhenværende kæreste, Liva er min <span class="hl">nuværende</span>.</li>
+                            <li>Jeg skal til øjenlægen for at få undersøgt, om jeg er nærsynet eller <span
+                                    class="hl">langsynet</span>.</li>
+                            <li>Da jeg fik blomsterne, var de friske, men nu er de desværre <span
+                                    class="hl">visnede/visne</span>.</li>
+                            <li>Jeg har haft mange kortvarige og <span class="hl">langvarige</span> forhold.</li>
+                            <li>Når vi mødes snakker vi både om løst og <span class="hl">fast</span>.</li>
+                            <li>Jeg køber ikke nyt tøj, men næsten kun <span class="hl">brugt</span> i genbrugsbutikker.
+                            </li>
+                            <li>Er det en privat eller <span class="hl">offentlig</span> vej?</li>
+                            <li>De fleste planter i min have er helt almindelige, men der er én <span
+                                    class="hl">usædvanlig/sjælden</span>, nemlig en brændeskærm.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc được kiểm tra</h3>
+                        <p>Tìm từ trái nghĩa trong ngữ cảnh và biến cách đúng.</p>
+                        <div class="quote-box">
+                            <p>"Từ trái nghĩa là những cặp từ có ý nghĩa đối lập nhau."</p>
+                        </div>
+                        <h3>Áp dụng</h3>
+                        <ul>
+                            <li>"forskelligt tøj" → T-form vì "tøj" là et-ord</li>
+                            <li>"fjerne slægtninge" → E-form vì số nhiều</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 17 ======================== -->
+            <article class="opgave-block" id="op17">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 17</span>
+                    <h2 class="op-title">Skriv adjektiver i digtet <span class="spicy">🌶️🔒</span></h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Bản gốc của Dan Turèll</span>
+                        <div class="poem-block">
+                            <p><strong>GENNEM BYEN SIDSTE GANG</strong></p>
+                            <br>
+                            <p>Før jeg dør vil jeg gerne slentre byen igennem en sidste gang<br>
+                                det skal være mit sidste <span class="hl">udtalte</span> ønske<br>
+                                jeg vil gå på mine fødder igennem min by<br>
+                                igennem København<br>
+                                som jeg har gjort så mange gange før<br>
+                                og jeg vil vide det er den sidste gang<br>
+                                og jeg vil vælge min rute med omhu<br>
+                                og jeg vil gå ned ad Istedgade eller Vesterbrogade<br>
+                                og gå ned ad alle de <span class="hl">små skumle</span> sidegader<br>
+                                med alle deres <span class="hl">mærkelige små</span> butikker<br>
+                                og jeg vil se på alle antikvar-udstillingerne<br>
+                                af <span class="hl">hullede gamle</span> gardiner og <span class="hl">rustne
+                                    gamle</span> gasapparater<br>
+                                og jeg vil mærke lugten i næsen af kål og frikadeller og kartofler<br>
+                                i hver eneste trappeopgang<br>
+                                og jeg vil rode i bogkasserne og jeg vil ingenting købe<br>
+                                og ikke fordi det er sidste gang<br>
+                                men fordi jeg aldrig roder i bogkasserne for at købe<br>
+                                men for at rode i dem og tænke på<br>
+                                hvor <span class="hl">underligt</span> og <span class="hl">besynderligt</span> livet
+                                er<br>
+                                og jeg vil se børnene lege i de <span class="hl">små grå</span> baggårde<br>
+                                og jeg vil høre dem råbe til og efter hinanden<br>
+                                og jeg vil se mødrene læne sig ud af køkkenvinduerne<br>
+                                med deres <span class="hl">varme</span> barme (...)</p>
+                        </div>
+                        <div class="op-explanation"
+                            style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;padding-left:0;padding-right:0;">
+                            <h3>Áp dụng</h3>
+                            <p>Trong bài thơ, các tính từ được dùng để:</p>
+                            <ul>
+                                <li>Tạo không khí: <span class="hl">små skumle</span> sidegader</li>
+                                <li>Mô tả chi tiết: <span class="hl">hullede gamle</span> gardiner, <span
+                                        class="hl">rustne gamle</span> gasapparater</li>
+                                <li>Thể hiện cảm xúc: <span class="hl">underligt</span> og <span
+                                        class="hl">besynderligt</span></li>
+                            </ul>
+                            <p>Tất cả đều phải biến cách đúng theo danh từ đi kèm.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 18 ======================== -->
+            <article class="opgave-block" id="op18">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 18</span>
+                    <h2 class="op-title">Indsæt uregelmæssige adjektiver <span class="spicy">🌶️</span></h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol>
+                            <li>Lejligheden lå på 5. sal og var svær at indrette på grund af de <span
+                                    class="hl">skrå</span> vægge.</li>
+                            <li>Vi drak ikke til festen i går, så vi var <span class="hl">ædru</span>, da vi kørte hjem.
+                            </li>
+                            <li>Mange ældre synes ikke, at børn i dag er så <span class="hl">velopdragede</span> som i
+                                gamle dage.</li>
+                            <li>På Tingbjerg skole går der over 90 procent <span class="hl">to-sprogede</span> børn.
+                            </li>
+                            <li>Der er meget forurening i København pga. de mange <span class="hl">trafikerede</span>
+                                gader.</li>
+                            <li>It-firmaet søger to <span class="hl">erfarne</span> datamatikere til deres nye afdeling
+                                i Odense.</li>
+                            <li>Jeg bliver altid vaccineret om vinteren for at være på den <span class="hl">sikre</span>
+                                side.</li>
+                            <li>Selvom Peter er 17 år, er han mere <span class="hl">umoden</span> end sin søster på 14.
+                            </li>
+                            <li>Jeg smed æblet ud, da det var helt <span class="hl">råddent</span>.</li>
+                            <li>De kunne ikke passe deres børn og var helt <span class="hl">uegnede</span> som forældre.
+                            </li>
+                            <li>Mange hjemløse lever på gaden under <span class="hl">ussle</span> forhold.</li>
+                            <li>Nu er <span class="hl">strikkede</span> bluser og sweatre igen blevet moderne.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Tính từ bất quy tắc — Mục 4.2.4</h3>
+                        <div class="quote-box">
+                            <p>"Một số tính từ phổ biến có dạng so sánh bất quy tắc và cần được ghi nhớ."</p>
+                        </div>
+                        <h3>Quy tắc đặc biệt</h3>
+                        <ul>
+                            <li><code class="mono">skrå</code> → không thay đổi trong e-form</li>
+                            <li><code class="mono">råden</code> → "råddent" (t-form bất quy tắc)</li>
+                            <li><code class="mono">ædru</code> → không thay đổi</li>
+                            <li>Tính từ ghép: to-sproget, velopdragen, trafikeret biến cách theo quy tắc thông thường
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 19 ======================== -->
+            <article class="opgave-block" id="op19">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 19</span>
+                    <h2 class="op-title">Skriv &amp; ret — Mô tả người bạn yêu quý</h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Bài tập viết tự do (gợi ý cấu trúc)</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Chủ đề</th>
+                                        <th>Gợi ý tính từ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Udseende (Ngoại hình)</strong></td>
+                                        <td>høj/lav, slank/kraftig, langt/kort/krøllet/glat hår, blå/brune/grønne øjne,
+                                            venligt/åbent/smilende ansigt</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Egenskaber (Tính cách)</strong></td>
+                                        <td>venlig, hjælpsom, intelligent, morsom, glad, positiv, opmærksom, tålmodig,
+                                            forstående</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Adfærd (Hành vi)</strong></td>
+                                        <td>altid god mad, interesseret i musik/sport/læsning</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Hvorfor (Lý do)</strong></td>
+                                        <td>dejlig, tæt relation, glad/lykkelig</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="op-explanation"
+                            style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;padding-left:0;padding-right:0;">
+                            <h3>Áp dụng</h3>
+                            <ul>
+                                <li>Chọn tính từ phù hợp với đối tượng mô tả</li>
+                                <li>Biến cách đúng theo danh từ</li>
+                                <li>Kiểm tra lại tất cả các tính từ đã dùng</li>
+                                <li>Trao đổi với bạn để phát hiện lỗi</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 20 ======================== -->
+            <article class="opgave-block" id="op20">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 20</span>
+                    <h2 class="op-title">Gradbøjning — Bøj adjektiverne i skemaet</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>1. grad (positiv)</th>
+                                        <th>2. grad (komparativ)</th>
+                                        <th>3. grad (superlativ)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>glad</td>
+                                        <td>gladere</td>
+                                        <td>gladest</td>
+                                    </tr>
+                                    <tr>
+                                        <td>dyr</td>
+                                        <td>dyrere</td>
+                                        <td>dyrest</td>
+                                    </tr>
+                                    <tr>
+                                        <td>klog</td>
+                                        <td>klogere</td>
+                                        <td>klogest</td>
+                                    </tr>
+                                    <tr>
+                                        <td>varm</td>
+                                        <td>varmere</td>
+                                        <td>varmest</td>
+                                    </tr>
+                                    <tr>
+                                        <td>sjov</td>
+                                        <td>sjovere</td>
+                                        <td>sjovest</td>
+                                    </tr>
+                                    <tr>
+                                        <td>sund</td>
+                                        <td>sundere</td>
+                                        <td>sundest</td>
+                                    </tr>
+                                    <tr>
+                                        <td>tidlig</td>
+                                        <td>tidligere</td>
+                                        <td>tidligst</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Lý thuyết — Mục 4.2</h3>
+                        <div class="quote-box">
+                            <p>"Tính từ có thể thay đổi hình thức để so sánh các cấp độ của một đặc tính."</p>
+                            <p>"Cấp 2 (Komparativ): thêm -(e)re, dùng để so sánh hai đối tượng."</p>
+                            <p>"Cấp 3 (Superlativ): thêm -(e)st, dùng để chỉ mức độ cao nhất trong nhóm từ ba đối tượng
+                                trở lên."</p>
+                        </div>
+                        <h3>Công thức</h3>
+                        <ul>
+                            <li>Komparativ: Thêm <code class="mono">-(e)re</code> → glad<strong>ere</strong>,
+                                dyr<strong>ere</strong></li>
+                            <li>Superlativ: Thêm <code class="mono">-(e)st</code> → glad<strong>est</strong>,
+                                dyr<strong>est</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 21 ======================== -->
+            <article class="opgave-block" id="op21">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 21</span>
+                    <h2 class="op-title">Skriv adjektiverne i komparativ</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol start="0">
+                            <li>Evas cykel er <span class="hl">dyrere</span> end Ibs. / Ibs cykel er <span
+                                    class="hl">billigere</span> end Evas.</li>
+                            <li>Stefan er <span class="hl">ældre</span> end Harry. / Harry er <span
+                                    class="hl">yngre</span> end Stefan.</li>
+                            <li>Det tager <span class="hl">kortere</span> tid med tog. / Det tager <span
+                                    class="hl">længere</span> tid med bus.</li>
+                            <li>Pers lejlighed er <span class="hl">mindre</span> end Oles. / Oles lejlighed er <span
+                                    class="hl">større</span> end Pers.</li>
+                            <li>Tor er <span class="hl">renere</span> end Ida. / Ida er <span class="hl">mere
+                                    beskidt</span> end Tor.</li>
+                            <li>Tom taler <span class="hl">bedre</span> dansk end Ana. / Ana taler <span
+                                    class="hl">dårligere</span> dansk end Tom.</li>
+                            <li>Jing har <span class="hl">færre</span> søskende end Joe. / Joe har <span
+                                    class="hl">flere</span> søskende end Jing.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Lý thuyết — Mục 4.2.2 & 4.2.4</h3>
+                        <div class="quote-box">
+                            <p>"Cấp so sánh hơn dùng để so sánh hai đối tượng và thường đi kèm với từ 'end' (hơn)."</p>
+                            <p>"Một số tính từ phổ biến có dạng so sánh bất quy tắc: god → bedre, gammel → ældre."</p>
+                        </div>
+                        <h3>Tính từ bất quy tắc</h3>
+                        <ul>
+                            <li>gammel → <span class="hl">ældre</span> (không phải "gammelare")</li>
+                            <li>ung → <span class="hl">yngre</span></li>
+                            <li>god → <span class="hl">bedre</span></li>
+                            <li>mange → <span class="hl">flere</span></li>
+                            <li>få → <span class="hl">færre</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 22 ======================== -->
+            <article class="opgave-block" id="op22">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 22</span>
+                    <h2 class="op-title">Quiz — Indsæt det rigtige adjektiv i komparativ</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol>
+                            <li>Det er meget <span class="hl">mørkere</span> om vinteren end om sommeren i Danmark.</li>
+                            <li>Mænd tjener stadig <span class="hl">mere</span> i gennemsnit end kvinder.</li>
+                            <li>Kronprins Frederik er et år <span class="hl">ældre</span> end Prins Joachim.</li>
+                            <li>Fra Danmark er der <span class="hl">kortere</span> til Berlin end til Paris.</li>
+                            <li>Unge begynder at drikke <span class="hl">tidligere</span>, end de gjorde før i tiden.
+                            </li>
+                            <li>Kvinders gennemsnitslevealder er normalt <span class="hl">længere</span> end mænds.</li>
+                            <li>Der bor <span class="hl">flere</span> mennesker i Aarhus end i Odense.</li>
+                            <li>Uddannelsen til socialrådgiver er <span class="hl">kortere</span> end uddannelsen til
+                                datamatiker.</li>
+                            <li>Danmark er <span class="hl">mindre</span> end Sverige.</li>
+                            <li>Det er <span class="hl">dyrere</span> at købe en bolig i byen end på landet.</li>
+                            <li>Dadler er <span class="hl">sundere</span> end slik.</li>
+                            <li>Hvis man ønsker at tabe sig, skal man indtage <span class="hl">færre</span> kalorier,
+                                end man forbrænder.</li>
+                            <li>Lolland Kommune er <span class="hl">fattigere</span> end Gentofte Kommune.</li>
+                            <li>Der er <span class="hl">mere stille/stillere</span> ude på landet end inde i byen.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc được kiểm tra</h3>
+                        <p>Chọn tính từ phù hợp và chia ở dạng komparativ trong ngữ cảnh thực tế.</p>
+                        <h3>Lưu ý quan trọng</h3>
+                        <ul>
+                            <li>mange → <span class="hl">flere</span> (không phải "mangere")</li>
+                            <li>få → <span class="hl">færre</span></li>
+                            <li>gammel → <span class="hl">ældre</span></li>
+                            <li>lang → <span class="hl">længere</span></li>
+                            <li>tidlig → <span class="hl">tidligere</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 23 ======================== -->
+            <article class="opgave-block" id="op23">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 23</span>
+                    <h2 class="op-title">Quiz — Indsæt det rigtige adjektiv i superlativ</h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Danmarks rekorder</span>
+                        <ol>
+                            <li>Furesø, der ligger i Nordsjælland, er Danmarks <span class="hl">dybeste</span> sø.</li>
+                            <li>I skovene mellem Horsens og Silkeborg findes det <span class="hl">højeste</span> punkt i
+                                Danmark, nemlig Yding Skovhøj på 172,54 meter.</li>
+                            <li>Skanderborg Musikfestival kaldes også Danmarks <span class="hl">hyggeligste</span>
+                                Festival og blev afholdt første gang den 5. juli 1980.</li>
+                            <li>Gudenåen er Danmarks <span class="hl">længste</span> å.</li>
+                            <li>Svendborg på Fyn er blevet kåret som Danmarks <span class="hl">smukkeste</span> by.</li>
+                            <li>Ribe i Sydvestjylland er Danmarks <span class="hl">ældste</span> by.</li>
+                            <li>Skagen, som ligger i Frederikshavn Kommune, er Danmarks <span
+                                    class="hl">nordligste</span> by.</li>
+                            <li>Flåten kaldes ofte for Danmarks <span class="hl">farligste</span> dyr, fordi den kan
+                                overføre alvorlig sygdom til mennesker.</li>
+                            <li>Fuglekongen er Danmarks <span class="hl">mindste</span> fugl. Vingefanget er på kun
+                                13,5-15,5 cm.</li>
+                            <li>Kontorbygningen Østerport II i København er blevet kåret som Danmarks <span
+                                    class="hl">grimeste</span> bygning.</li>
+                            <li><em>Druk</em> fra 2020 blev en af dansk films <span class="hl">største</span>
+                                internationale succeser.</li>
+                            <li>I 2021 vandt <em>Druk</em> en Oscar for årets <span class="hl">bedste</span> udenlandske
+                                film.</li>
+                            <li>Citroen C1 er kåret som Danmarks <span class="hl">billigste</span> bil.</li>
+                            <li>Frederiksberg er den kommune, hvor borgerne betaler den <span class="hl">laveste</span>
+                                skat i hele landet.</li>
+                        </ol>
+                        <div class="op-explanation"
+                            style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;padding-left:0;padding-right:0;">
+                            <h3>Lý thuyết — Mục 4.2.3 & 4.2.4</h3>
+                            <div class="quote-box">
+                                <p>"Cấp so sánh nhất được hình thành bằng cách thêm hậu tố -(e)st. Dùng để chỉ mức độ
+                                    cao nhất của một phẩm chất trong nhóm từ ba đối tượng trở lên."</p>
+                            </div>
+                            <h3>Áp dụng</h3>
+                            <ul>
+                                <li>Có quy tắc: dyb → <span class="hl">dybest</span>, høj → <span
+                                        class="hl">højest</span>, hyggelig → <span class="hl">hyggeligst</span></li>
+                                <li>Bất quy tắc: god → <span class="hl">bedst</span>, gammel → <span
+                                        class="hl">ældst</span>, lille → <span class="hl">mindst</span>, stor → <span
+                                        class="hl">størst</span></li>
+                                <li>Superlativ thường đi với mạo từ xác định: Danmarks <span class="hl">dybeste</span>
+                                    sø</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 24 ======================== -->
+            <article class="opgave-block" id="op24">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 24</span>
+                    <h2 class="op-title">Sammenlign de tre søskende</h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án (gợi ý các câu so sánh)</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Chủ đề</th>
+                                        <th>Komparativ (2 người)</th>
+                                        <th>Superlativ (nhất trong 3)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Tuổi</strong></td>
+                                        <td>Johan er yngre end Emma.<br>Emma er ældre end Pelle.</td>
+                                        <td>Pelle er yngst af de tre søskende.<br>Emma er ældst.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Chiều cao</strong></td>
+                                        <td>Pelle er højere end Emma.</td>
+                                        <td>Johan er kortest/lavest.<br>Pelle er højest.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Cân nặng</strong></td>
+                                        <td>Emma er lettere end Johan.</td>
+                                        <td>Pelle er tungeste/sværest.<br>Emma er lettest.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Giáo dục</strong></td>
+                                        <td>Emmas uddannelse er længere end Johans.</td>
+                                        <td>Pelles uddannelse er kortest.<br>Emma har den længste uddannelse.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Nhà ở</strong></td>
+                                        <td>Emmas lejlighed er større end Pelles.</td>
+                                        <td>Johans lejlighed er mindst.<br>Emma har den største lejlighed.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Tiền thuê</strong></td>
+                                        <td>Johan betaler mindre i husleje end Pelle.</td>
+                                        <td>Emma betaler mest i husleje.<br>Johan betaler mindst.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="op-explanation"
+                            style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;padding-left:0;padding-right:0;">
+                            <h3>Áp dụng</h3>
+                            <ul>
+                                <li>So sánh 2 người: dùng komparativ + "end"</li>
+                                <li>Người có đặc điểm nhất trong nhóm 3: dùng superlativ</li>
+                                <li>Cấu trúc: "X er [superlativ]" hoặc "X er den/det [superlativ] af de tre"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 25 ======================== -->
+            <article class="opgave-block" id="op25">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 25</span>
+                    <h2 class="op-title">Komparativ eller superlativ? <span class="spicy">🌶️</span></h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol start="0">
+                            <li>Jing og Adnan er <span class="hl">de dygtigste</span> kursister på holdet.</li>
+                            <li>Poul er <span class="hl">den yngste</span> af de fire søskende.</li>
+                            <li>Hvad kan du <span class="hl">bedst</span> lide, te eller kaffe?</li>
+                            <li>Min storesøster er kun et år <span class="hl">ældre</span> end mig.</li>
+                            <li>Kan du tale lidt <span class="hl">langsommere</span>, så jeg kan forstå, hvad du siger?
+                            </li>
+                            <li>Jeg synes, Louisiana er <span class="hl">det smukkeste</span> museum i Danmark.</li>
+                            <li>Tørklædet jeg lige har købt er <span class="hl">det pæneste</span>, jeg nogensinde har
+                                haft.</li>
+                            <li>Holland er <span class="hl">det fladeste</span> land i Europa.</li>
+                            <li>Skorpionen er et af <span class="hl">de giftigste</span> dyr, der findes.</li>
+                            <li>Forkølelse er en af <span class="hl">de mest smitsomme</span> sygdomme, der findes.</li>
+                            <li>I dag spiser man <span class="hl">mere varieret</span> end i gamle dage.</li>
+                            <li>H.C. Andersen er Danmarks <span class="hl">mest berømte</span> forfatter.</li>
+                            <li>Jeg synes, det er <span class="hl">nemmere</span> at lære svensk end dansk.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc phân biệt</h3>
+                        <ul>
+                            <li><strong>Komparativ:</strong> So sánh 2 đối tượng → <span class="hl">ældre</span>, <span
+                                    class="hl">langsommere</span>, <span class="hl">nemmere</span></li>
+                            <li><strong>Superlativ:</strong> Nhất trong nhóm ≥3 → <span class="hl">dygtigste</span>,
+                                <span class="hl">smukkeste</span></li>
+                        </ul>
+                        <h3>Dùng "mere/mest" với tính từ dài</h3>
+                        <ul>
+                            <li>smitsom → <span class="hl">mere smitsom / mest smitsom</span></li>
+                            <li>berømt → <span class="hl">mere berømt / mest berømt</span></li>
+                            <li>varieret → <span class="hl">mere varieret</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 26 ======================== -->
+            <article class="opgave-block" id="op26">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 26</span>
+                    <h2 class="op-title">Skriv det modsatte adjektiv i komparativ eller superlativ <span
+                            class="spicy">🌶️</span></h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol>
+                            <li>Mine forældre er så gammeldags. Jeg ville ønske de var <span class="hl">mere
+                                    moderne</span>.</li>
+                            <li>Mit hår er blevet så langt. Jeg vil gerne klippe det <span class="hl">kortere</span>.
+                            </li>
+                            <li>Da jeg startede i skole var jeg dårlig til matematik, men nu er jeg <span class="hl">den
+                                    bedste</span> i hele klassen.</li>
+                            <li>Jeg synes, testen var nem. Jeg troede, den ville være meget <span
+                                    class="hl">sværere/vanskeligere</span>.</li>
+                            <li>Vejret var dårligt i går, men i dag er det <span class="hl">bedre</span>.</li>
+                            <li>Min bror var i mange år en fattig studerende. Nu er han <span class="hl">den
+                                    rigeste</span> i vores familie.</li>
+                            <li>Jeg kunne ikke finde en p-plads tæt på, så nu parkerer jeg lidt <span
+                                    class="hl">længere</span> væk.</li>
+                            <li>Mine nye naboer er meget larmende. Jeg har bedt dem om at være <span class="hl">mere
+                                    stille</span>.</li>
+                            <li>For mange år siden var han en ukendt maler. I dag er han en af Danmarks <span
+                                    class="hl">mest kendte</span> malere.</li>
+                            <li>Det er en kompliceret tekst, du har skrevet. Kan du gøre den lidt <span
+                                    class="hl">enklere/simplere</span>?</li>
+                            <li>Jeg var helt ædru til festen, men min kæreste var <span class="hl">den mest fulde</span>
+                                af alle gæsterne.</li>
+                            <li>Jeg har lige læst to bøger, den ene var virkelig kedelig, den anden er <span
+                                    class="hl">den sjoveste/mest interessante</span> bog, jeg har læst i år.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Áp dụng</h3>
+                        <ul>
+                            <li>Câu 1: gammeldags ↔ moderne → "<span class="hl">mere moderne</span>" (tính từ dài → dùng
+                                "mere")</li>
+                            <li>Câu 3: dårlig ↔ god → <span class="hl">bedst</span> (superlativ vì "nhất trong lớp")
+                            </li>
+                            <li>Câu 5: dårligt ↔ godt → <span class="hl">bedre</span> (komparativ vì so sánh 2 ngày)
+                            </li>
+                            <li>Câu 11: ædru ↔ fuld → "<span class="hl">den mest fulde</span>" (superlativ vì nhất trong
+                                số khách)</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 27 ======================== -->
+            <article class="opgave-block" id="op27">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 27</span>
+                    <h2 class="op-title">Specielle adjektiver: al/alt/alle og hel/helt/hele <span
+                            class="spicy">🌶️</span></h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol>
+                            <li>Jeg var syg en <span class="hl">hel</span> uge.</li>
+                            <li>De boede i Canada i et <span class="hl">helt</span> år.</li>
+                            <li>Jeg havde fødselsdag og inviterede <span class="hl">hele</span> familien.</li>
+                            <li><span class="hl">Alle</span> bestod testen.</li>
+                            <li>Jeg vil gøre <span class="hl">alt</span>, hvad jeg kan for at hjælpe dig.</li>
+                            <li><span class="hl">Alle</span> børnene i børnehaven var på tur i Zoologisk Have.</li>
+                            <li>I går gjorde jeg rent i <span class="hl">hele</span> huset.</li>
+                            <li>Jeg har ondt i <span class="hl">alle</span> mine muskler.</li>
+                            <li>Jeg har ondt i <span class="hl">hele</span> kroppen.</li>
+                            <li><span class="hl">Al</span> parkering er forbudt mellem kl. 9 og 15.</li>
+                            <li>Jeg kan ikke finde mine nøgler. Jeg har ledt <span class="hl">alle</span> vegne.</li>
+                            <li>Jeg har læst <span class="hl">alt</span> af Tove Ditlevsen, både hendes digte, noveller
+                                og romaner.</li>
+                            <li>Ulla bruger <span class="hl">al</span> sin fritid på sin hest.</li>
+                            <li>De var på diskotek og dansede <span class="hl">hele</span> aftenen.</li>
+                            <li>Ida brugte <span class="hl">alle</span> pengene, hun vandt i lotto, på en
+                                Strandvejsvilla.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>al/alt/alle (tất cả)</h3>
+                        <ul>
+                            <li><span class="hl">al</span> + danh từ không đếm được en-ord → al parkering, al fritid
+                            </li>
+                            <li><span class="hl">alt</span> + danh từ không đếm được et-ord → alt jeg kan, alt af Tove
+                                Ditlevsen</li>
+                            <li><span class="hl">alle</span> + danh từ số nhiều → alle børnene, alle muskler</li>
+                        </ul>
+                        <h3>hel/helt/hele (cả, toàn bộ)</h3>
+                        <ul>
+                            <li><span class="hl">hel</span> + en-ord không xác định → en hel uge</li>
+                            <li><span class="hl">helt</span> + et-ord không xác định → et helt år</li>
+                            <li><span class="hl">hele</span> + danh từ xác định → hele familien, hele huset, hele
+                                aftenen, hele kroppen</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== REPETITION / ERROR DARK PANEL ======================== -->
+            <div class="stative-block" id="repetition">
+                <div class="stative-accent"></div>
+                <div class="stative-inner">
+                    <span class="stative-badge">⚠️ Repetition — Fejlretning</span>
+                    <h2 class="stative-title">Sửa lỗi biến cách <em>Tính Từ</em></h2>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">1. Lỗi số nhiều — quên e-form với flertal</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg har to god lærere og mange dejlig
+                                        klassekammerater.</span></td>
+                                <td class="err-reason">(số nhiều → phải dùng e-form)</td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg har to gode lærere og mange dejlige
+                                        klassekammerater.</span></td>
+                                <td class="err-reason">flertal → e-form</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">2. Lỗi en-ord/et-ord — dùng sai t-form</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Det er en godt ide at gå i biografen og se en sjovt
+                                        film.</span></td>
+                                <td class="err-reason">(ide/film là en-ord — không thêm -t)</td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Det er en god ide at gå i biografen og se en sjov
+                                        film.</span></td>
+                                <td class="err-reason">en-ord → Grundform</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">3. Lỗi chính tả + ny/nye</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg bor på et lækkert værelse på det ny kollegium i
+                                        Odense.</span></td>
+                                <td class="err-reason">(bestemt form → e-form: "nye")</td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg bor på et lækert værelse på det nye kollegium i
+                                        Odense.</span></td>
+                                <td class="err-reason">det [nye] kollegium → bestemt → e-form</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">4. Lỗi sau đại từ sở hữu</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Mit stort hus er til salg. Det er ikke så dyr.</span></td>
+                                <td class="err-reason">(sau "mit" → e-form; "huset er dyr" → t-form)</td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Mit store hus er til salg. Det er ikke så dyrt.</span></td>
+                                <td class="err-reason">mit [store] → e-form; hus er [dyrt] → t-form</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">5. Lỗi e-form sau possessiv</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Familien vil gerne sælge deres gammel rød bil.</span></td>
+                                <td class="err-reason">(sau "deres" → e-form)</td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Familien vil gerne sælge deres gamle røde bil.</span></td>
+                                <td class="err-reason">deres [gamle røde] → e-form</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">6. Lỗi tính từ vị ngữ với số nhiều</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Vi er meget glad for vores billig lejlighed.</span></td>
+                                <td class="err-reason">(vi = số nhiều → glade; vores → billige)</td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Vi er meget glade for vores billige lejlighed.</span></td>
+                                <td class="err-reason">vi er [glade]; vores [billige]</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">7. Lỗi tính từ vị ngữ với et-ord</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Huset er gammel og meget faldefærdig.</span></td>
+                                <td class="err-reason">(hus là et-ord → t-form)</td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Huset er gammelt og meget faldefærdigt.</span></td>
+                                <td class="err-reason">et-ord vị ngữ → t-form</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">8. Lỗi e-form sau "internationalt"</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg arbejder på et lille kontor i et international firma og
+                                        har mange sød kollegaer.</span></td>
+                                <td class="err-reason">(firma = et-ord → internationalt; kollegaer = số nhiều → søde)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg arbejder på et lille kontor i et internationalt firma og
+                                        har mange søde kollegaer.</span></td>
+                                <td class="err-reason">et [internationalt]; mange [søde]</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">9. Lỗi e-form với 2 danh từ số nhiều</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">It-firmaet søger to erfaren medarbejdere til deres ny
+                                        afdeling i Slagelse.</span></td>
+                                <td class="err-reason">(số nhiều → erfarne; bestemt → nye)</td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">It-firmaet søger to erfarne medarbejdere til deres nye
+                                        afdeling i Slagelse.</span></td>
+                                <td class="err-reason">to [erfarne]; deres [nye]</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">10. Lỗi superlativ bất quy tắc</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg synes, Skagen er et smukst sted i Danmark.</span></td>
+                                <td class="err-reason">(không phải superlativ hoặc dùng sai form)</td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg synes, Skagen er et smukt sted i Danmark.</span></td>
+                                <td class="err-reason">Hoặc: "...det smukkeste sted..." nếu dùng superlativ</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section" style="margin-top:28px;">
+                        <div class="stative-section-title">📚 Tổng hợp các loại lỗi</div>
+                        <table class="error-table">
+                            <tr>
+                                <td style="color:rgba(255,255,255,0.8);font-size:0.86rem;padding:8px 10px;">1. Lỗi số
+                                    nhiều: to god → <span class="err-right">gode</span></td>
+                                <td style="color:rgba(255,255,255,0.8);font-size:0.86rem;padding:8px 10px;">2. Lỗi
+                                    en-ord: en godt ide → <span class="err-right">en god ide</span></td>
+                            </tr>
+                            <tr>
+                                <td style="color:rgba(255,255,255,0.8);font-size:0.86rem;padding:8px 10px;">3. Lỗi sau
+                                    possessiv: min stor → <span class="err-right">min store</span></td>
+                                <td style="color:rgba(255,255,255,0.8);font-size:0.86rem;padding:8px 10px;">4. Lỗi vị
+                                    ngữ: Vi er glad → <span class="err-right">Vi er glade</span></td>
+                            </tr>
+                            <tr>
+                                <td style="color:rgba(255,255,255,0.8);font-size:0.86rem;padding:8px 10px;">5. Lỗi
+                                    superlativ: mere god → <span class="err-right">bedre</span></td>
+                                <td style="color:rgba(255,255,255,0.8);font-size:0.86rem;padding:8px 10px;">6. Lỗi
+                                    den/det + superlativ: Han er ældst dreng → <span class="err-right">den ældste
+                                        dreng</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ======================== CONCLUSION / GRAMMAR RULES ======================== -->
+            <section id="konklusion">
+                <div class="summary-dark">
+                    <h2>📚 Kết luận — Các quy tắc quan trọng nhất</h2>
+
+                    <div class="summary-sub">1. Ba dạng biến cách cơ bản</div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Dạng</th>
+                                    <th>Khi nào dùng</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Grundform</strong></td>
+                                    <td>en-ord, ental, ubestemt</td>
+                                    <td>en <span class="hl">stor</span> bil</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>T-form</strong></td>
+                                    <td>et-ord, ental, ubestemt</td>
+                                    <td>et <span class="hl">stort</span> hus</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>E-form</strong></td>
+                                    <td>Flertal (tất cả)</td>
+                                    <td>mange <span class="hl">store</span> biler</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Bestemt form (tất cả)</td>
+                                    <td>den <span class="hl">store</span> bil</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Sau possessiv (min, din...)</td>
+                                    <td>min <span class="hl">store</span> bil</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Sau genitiv (Peters...)</td>
+                                    <td>Peters <span class="hl">store</span> bil</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="summary-sub">2. So sánh (Gradbøjning)</div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Cấp độ</th>
+                                    <th>Hình thức</th>
+                                    <th>Ví dụ</th>
+                                    <th>Khi nào dùng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Positiv</td>
+                                    <td>(gốc)</td>
+                                    <td>glad</td>
+                                    <td>Không so sánh</td>
+                                </tr>
+                                <tr>
+                                    <td>Komparativ</td>
+                                    <td>-(e)re</td>
+                                    <td>glad<strong>ere</strong></td>
+                                    <td>So sánh 2 đối tượng</td>
+                                </tr>
+                                <tr>
+                                    <td>Superlativ</td>
+                                    <td>-(e)st</td>
+                                    <td>glad<strong>est</strong></td>
+                                    <td>Cao nhất trong nhóm ≥3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="summary-sub">Tính từ bất quy tắc phổ biến</div>
+                    <pre class="code-block">god      → bedre     → bedst
+gammel   → ældre     → ældst
+lille    → mindre    → mindst
+stor     → større    → størst
+mange    → flere     → flest
+få       → færre     → færrest
+lang     → længere   → længst</pre>
+
+                    <div class="summary-sub">3. Tính từ vị ngữ (sau "være")</div>
+                    <p>Khi tính từ đứng sau động từ "være", nó vẫn phải hòa hợp về số:</p>
+                    <pre class="code-block">Han er glad.   (số ít — Grundform)
+De er glade.   (số nhiều — E-form, thêm -e)
+Huset er stort. (et-ord — T-form)</pre>
+
+                    <div class="summary-sub">4. al/alt/alle và hel/helt/hele</div>
+                    <pre class="code-block">al/alt/alle (tất cả):
+  al   + en-ord không đếm được  →  al parkering
+  alt  + et-ord không đếm được  →  alt jeg kan
+  alle + số nhiều               →  alle børnene
+
+hel/helt/hele (cả, toàn bộ):
+  hel  + en-ord ubestemt  →  en hel uge
+  helt + et-ord ubestemt  →  et helt år
+  hele + bestemt form     →  hele familien / hele huset</pre>
+                </div>
+            </section>
+
+            <!-- ======================== CHECKLIST ======================== -->
+            <section class="checklist-block" id="checklist">
+                <h2 class="checklist-title">🎯 Checklist kiểm tra lỗi tính từ</h2>
+                <p style="font-size:0.9rem;color:var(--muted);margin-bottom:20px;">Khi viết câu có tính từ, hãy tự hỏi:
+                </p>
+
+                <div class="check-item">
+                    <strong>✅ 1. Danh từ là en-ord hay et-ord?</strong>
+                    <ul>
+                        <li>Nếu en-ord → Grundform (en stor bil)</li>
+                        <li>Nếu et-ord → T-form (et stort hus)</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 2. Danh từ là số ít hay số nhiều?</strong>
+                    <ul>
+                        <li>Nếu số nhiều → E-form (mange store biler)</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 3. Danh từ có ở dạng xác định không?</strong>
+                    <ul>
+                        <li>Nếu bestemt → E-form (den store bil, det store hus)</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 4. Tính từ có đứng sau đại từ sở hữu không?</strong>
+                    <ul>
+                        <li>Sau min, din, sin, hans, hendes, vores, deres → E-form (min store bil)</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 5. Tính từ có đứng sau genitiv không?</strong>
+                    <ul>
+                        <li>Sau Peters, Annas... → E-form (Peters store bil)</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 6. Tính từ có là vị ngữ (sau "er/var") không?</strong>
+                    <ul>
+                        <li>Nếu chủ ngữ số nhiều → thêm -e (De er glade)</li>
+                        <li>Nếu chủ ngữ số ít + et-ord → thêm -t (Huset er stort)</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 7. Có phải là so sánh không?</strong>
+                    <ul>
+                        <li>So sánh 2 → Komparativ + end (større end)</li>
+                        <li>Cao nhất → Superlativ (størst / den største)</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 8. Có phải tính từ bất quy tắc không?</strong>
+                    <ul>
+                        <li>Kiểm tra: god → bedre/bedst, gammel → ældre/ældst, lille → mindre/mindst, stor →
+                            større/størst, mange → flere/flest, få → færre/færrest, lang → længere/længst</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ======================== ERRORS BONUS GRID ======================== -->
+            <section class="bonus-section" id="errors">
+                <h2 class="bonus-section-title">⚠️ Các lỗi phổ biến nhất</h2>
+                <div class="bonus-grid">
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">1</span></div>
+                        <p><span class="hl-err">Sai:</span> mange god biler</p>
+                        <p><span class="hl-ok">Đúng:</span> mange <strong>gode</strong> biler</p>
+                        <p style="color:var(--muted);font-size:0.83rem;">Quên e-form với số nhiều</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">2</span></div>
+                        <p><span class="hl-err">Sai:</span> en godt bil</p>
+                        <p><span class="hl-ok">Đúng:</span> en <strong>god</strong> bil</p>
+                        <p style="color:var(--muted);font-size:0.83rem;">Dùng sai t-form với en-ord</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">3</span></div>
+                        <p><span class="hl-err">Sai:</span> min stor bil</p>
+                        <p><span class="hl-ok">Đúng:</span> min <strong>store</strong> bil</p>
+                        <p style="color:var(--muted);font-size:0.83rem;">Quên e-form sau đại từ sở hữu</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">4</span></div>
+                        <p><span class="hl-err">Sai:</span> det stort hus</p>
+                        <p><span class="hl-ok">Đúng:</span> det <strong>store</strong> hus</p>
+                        <p style="color:var(--muted);font-size:0.83rem;">Quên e-form với bestemt form</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">5</span></div>
+                        <p><span class="hl-err">Sai:</span> Vi er glad</p>
+                        <p><span class="hl-ok">Đúng:</span> Vi er <strong>glade</strong></p>
+                        <p style="color:var(--muted);font-size:0.83rem;">Quên hòa hợp số với tính từ vị ngữ</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">6</span></div>
+                        <p><span class="hl-err">Sai:</span> mere god</p>
+                        <p><span class="hl-ok">Đúng:</span> <strong>bedre</strong></p>
+                        <p style="color:var(--muted);font-size:0.83rem;">Dùng sai dạng so sánh bất quy tắc</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">7</span></div>
+                        <p><span class="hl-err">Nhầm komparativ/superlativ:</span></p>
+                        <p>Komparativ (2 đối tượng): <strong>ældre end</strong></p>
+                        <p>Superlativ (nhất trong nhóm): <strong>den ældste</strong> i klassen</p>
+                        <p style="color:var(--muted);font-size:0.83rem;">Phân biệt khi nào dùng mỗi loại</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">8</span></div>
+                        <p><span class="hl-err">Sai:</span> Han er ældst dreng.</p>
+                        <p><span class="hl-ok">Đúng:</span> Han er <strong>den ældste</strong> dreng.</p>
+                        <p style="color:var(--muted);font-size:0.83rem;">Quên "den/det/de" với superlativ xác định</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================== CONCLUSION ======================== -->
+            <div class="conclusion-block">
+                <h2>✅ Hoàn thành — Toàn bộ 27 bài tập + Repetition</h2>
+                <ul class="conclusion-list">
+                    <li>Nhận biết tính từ (Opgave 1–2)</li>
+                    <li>Từ trái nghĩa và từ đồng nghĩa (Opgave 2–4)</li>
+                    <li>Ba dạng biến cách: Grundform / T-form / E-form (Opgave 5–19)</li>
+                    <li>So sánh (Gradbøjning): Komparativ, Superlativ (Opgave 20–26)</li>
+                    <li>Tính từ đặc biệt: al/alt/alle và hel/helt/hele (Opgave 27)</li>
+                    <li>Sửa lỗi biến cách tính từ (Repetition)</li>
+                </ul>
+                <p class="conclusion-cta">Nếu cần giải thích sâu hơn hoặc luyện thêm bài tập, hãy tiếp tục! 🇩🇰📚</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ======================== FOOTER ======================== -->
+    <footer>
+        CHƯƠNG 4 · ADJEKTIVER (TILLÆGSORD) · TIẾNG ĐAN MẠCH
+    </footer>
+
+</body>
+
+</html>

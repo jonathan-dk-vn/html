@@ -57,52 +57,61 @@
     header {
       flex-shrink: 0;
       background-color: #14131C;
-      height: 1000vh;
+      width: 100%;
+      /* Trải dài màu nền đen ra toàn màn hình */
+      /* Đã xóa dòng height: 1000vh; */
     }
 
-    /* ── LAYOUT: SIDEBAR + MULTI-COLUMN (Ultrawide Optimized) ── */
+    /* ── LAYOUT: TOP HEADER (Máy tính) ── */
     @media (min-width: 1024px) {
       body {
-        flex-direction: row;
-        align-items: flex-start;
+        flex-direction: column;
+        /* Đẩy hero lên trên page */
+        align-items: center;
       }
 
       .hero {
-        flex: 0 0 380px;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        text-align: left !important;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 60px 40px !important;
-        overflow-y: auto;
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        flex: none;
+        width: 100%;
+        max-width: 960px;
+        /* Giới hạn chiều ngang để thu nhỏ hero */
+        margin: 0 auto;
+        /* Căn giữa hero */
+        height: auto;
+        position: relative;
+        /* Bỏ position: fixed để không bị đè lên chữ */
+        text-align: center !important;
+        /* Căn giữa nội dung */
+        padding: 80px 20px 60px !important;
+        border-right: none;
       }
 
       .hero-sub {
-        margin: 0 0 40px 0 !important;
+        margin: 0 auto 40px auto !important;
+        /* Căn giữa đoạn mô tả */
       }
 
       .legend {
-        justify-content: flex-start !important;
+        justify-content: center !important;
+        /* Căn giữa các nút bấm */
       }
 
       .page {
         flex: 1;
-        max-width: none !important;
-        padding: 60px 80px 100px !important;
+        width: 100%;
+        max-width: 960px !important;
+        /* Chiều ngang page bằng với chiều ngang hero */
+        padding: 60px 20px 100px !important;
         min-width: 0;
-        /* Prevent layout breakage */
       }
     }
 
     /* 3440x1440 Ultrawide Specific Adjustments */
     @media (min-width: 2560px) {
       .hero {
-        flex: 0 0 480px;
-        padding: 80px 10px !important;
+        max-width: 3400px;
+        /* Thu nhỏ chiều ngang trên màn hình siêu lớn */
+        padding: 100px 20px 80px !important;
       }
 
       .hero h1 {
@@ -110,7 +119,8 @@
       }
 
       .page {
-        padding: 80px 120px 120px !important;
+        max-width: 2400px !important;
+        padding: 80px 20px 120px !important;
       }
 
       .tense-grid {
@@ -1038,7 +1048,8 @@
             <li>Nhấn mạnh quá trình, để lại dấu vết</li>
           </ul>
           <div class="card-ex">"She <strong>had been running</strong> for six miles when you saw us."<br>"She
-            <strong>looked</strong> tired because she <strong>had been exercising</strong> all morning."</div>
+            <strong>looked</strong> tired because she <strong>had been exercising</strong> all morning."
+          </div>
           <div class="card-signals">
             <span class="sig">for</span><span class="sig">all morning</span><span class="sig">before</span>
           </div>
@@ -1190,7 +1201,8 @@
             <li>Mệt mỏi sau một quá trình dài</li>
           </ul>
           <div class="card-ex">"She <strong>has been studying</strong> all day."<br>"I'm out of breath because I
-            <strong>'ve been running</strong>."</div>
+            <strong>'ve been running</strong>."
+          </div>
           <div class="card-signals">
             <span class="sig">all day</span><span class="sig">for hours</span><span class="sig">since
               morning</span><span class="sig">just</span>
@@ -1266,7 +1278,8 @@
             <li>Dự đoán có bằng chứng hiện tại</li>
           </ul>
           <div class="card-ex">"I<strong>'m going to be</strong> a famous doctor one day!"<br>"It
-            <strong>sounds</strong> like the plane<strong>'s going to take off</strong> soon."</div>
+            <strong>sounds</strong> like the plane<strong>'s going to take off</strong> soon."
+          </div>
           <div class="card-signals">
             <span class="sig">plan to</span><span class="sig">intend to</span><span class="sig">look at those
               clouds!</span>
@@ -1337,7 +1350,8 @@
             <li><strong>Future Perfect Continuous:</strong> Nhấn mạnh thời gian liên tục đến mốc tương lai</li>
           </ul>
           <div class="card-ex">"I<strong>'ll have finished</strong> by the time you come home."<br>"At 7 PM, I
-            <strong>'ll have been doing</strong> homework for 3 hours!"</div>
+            <strong>'ll have been doing</strong> homework for 3 hours!"
+          </div>
           <div class="card-signals">
             <span class="sig">by the time</span><span class="sig">by tomorrow</span><span class="sig">by next
               week</span>
