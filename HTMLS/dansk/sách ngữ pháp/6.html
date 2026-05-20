@@ -1,0 +1,2552 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương 6: Giới Từ (Præpositioner) — Đáp án & Giải thích</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ===========================
+     DESIGN TOKENS — Theme C: Orange/Amber (Prepositions / Syntax)
+  =========================== */
+        :root {
+            --primary: #C86B1A;
+            --primary-light: #FFE4C4;
+            --primary-mid: #F5A45A;
+            --primary-dark: #6E3605;
+
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #FDF8F3;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #EDE0D4;
+            --shadow: rgba(20, 19, 28, 0.05);
+            --shadow-hover: rgba(200, 107, 26, 0.13);
+
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'DM Mono', monospace;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--ink);
+            background: var(--paper);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===========================
+     LAYOUT
+  =========================== */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===========================
+     HERO
+  =========================== */
+        header {
+            background-color: var(--ink);
+            color: #fff;
+            padding: 72px 24px 64px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 55%, rgba(200, 107, 26, 0.18) 0%, transparent 58%),
+                radial-gradient(ellipse at 80% 20%, rgba(245, 164, 90, 0.11) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1px solid rgba(245, 164, 90, 0.38);
+            padding: 6px 18px;
+            border-radius: 2px;
+            margin-bottom: 28px;
+        }
+
+        header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(30px, 6vw, 56px);
+            font-weight: 700;
+            line-height: 1.15;
+            color: #fff;
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        header h1 em {
+            color: var(--primary-mid);
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.50);
+            max-width: 580px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* ===========================
+     TOC
+  =========================== */
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            padding: 28px 32px;
+            margin: 40px 0;
+        }
+
+        .toc-title {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .toc ol {
+            padding-left: 20px;
+            columns: 2;
+            column-gap: 32px;
+        }
+
+        @media (max-width: 600px) {
+            .toc ol {
+                columns: 1;
+            }
+        }
+
+        .toc li {
+            font-size: 0.88rem;
+            margin-bottom: 5px;
+            break-inside: avoid;
+        }
+
+        .toc a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        /* ===========================
+     MAIN
+  =========================== */
+        main {
+            padding: 48px 0 80px;
+        }
+
+        /* ===========================
+     OPGAVE BLOCKS
+  =========================== */
+        .opgave-block {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            margin-bottom: 48px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px var(--shadow);
+            transition: box-shadow 0.25s;
+        }
+
+        .opgave-block:hover {
+            box-shadow: 0 4px 24px var(--shadow-hover);
+        }
+
+        .op-header {
+            padding: 28px 32px 24px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .op-badge {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 5px 12px;
+            border-radius: 2px;
+            white-space: nowrap;
+            margin-top: 6px;
+        }
+
+        .op-title {
+            font-family: var(--font-display);
+            font-size: 1.42rem;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.3;
+        }
+
+        .op-title .spicy {
+            font-size: 1rem;
+            margin-left: 6px;
+        }
+
+        .op-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 768px) {
+            .op-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .op-answers {
+            background: #FEFAF6;
+            border-right: 1px solid var(--line);
+            padding: 28px 32px;
+        }
+
+        @media (max-width: 768px) {
+            .op-answers {
+                border-right: none;
+                border-bottom: 1px solid var(--line);
+            }
+        }
+
+        .col-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .op-answers ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .op-answers ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 7px;
+            font-size: 0.94rem;
+            line-height: 1.62;
+        }
+
+        .op-answers ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .op-answers ol {
+            padding-left: 22px;
+        }
+
+        .op-answers ol li {
+            font-size: 0.94rem;
+            margin-bottom: 6px;
+            line-height: 1.65;
+        }
+
+        .op-answers p {
+            font-size: 0.94rem;
+            margin-bottom: 8px;
+            line-height: 1.65;
+        }
+
+        .op-explanation {
+            padding: 28px 32px;
+            background: var(--surface);
+        }
+
+        .op-explanation h3 {
+            font-family: var(--font-display);
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 20px 0 8px;
+            padding-left: 14px;
+            border-left: 3px solid var(--primary-mid);
+            line-height: 1.3;
+        }
+
+        .op-explanation h3:first-child {
+            margin-top: 0;
+        }
+
+        .op-explanation p {
+            font-size: 0.92rem;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.68;
+        }
+
+        .op-explanation ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .op-explanation ul li {
+            position: relative;
+            padding-left: 18px;
+            font-size: 0.91rem;
+            margin-bottom: 5px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .op-explanation ul li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 0.8rem;
+        }
+
+        /* Full width */
+        .op-body.full {
+            grid-template-columns: 1fr;
+        }
+
+        .op-body.full .op-answers {
+            border-right: none;
+        }
+
+        /* ===========================
+     QUOTE BOX
+  =========================== */
+        .quote-box {
+            border-left: 4px solid var(--primary);
+            background: var(--primary-light);
+            padding: 14px 20px;
+            border-radius: 0 4px 4px 0;
+            margin: 12px 0;
+            font-style: italic;
+            font-size: 0.91rem;
+            color: var(--primary-dark);
+            line-height: 1.7;
+        }
+
+        .quote-box p {
+            margin: 0 0 6px;
+        }
+
+        .quote-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===========================
+     TABLES
+  =========================== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 14px 0;
+            border-radius: 6px;
+            border: 1px solid var(--line);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.87rem;
+        }
+
+        thead tr {
+            background: var(--primary-light);
+        }
+
+        thead th {
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 0.82rem;
+            letter-spacing: 0.02em;
+            border-bottom: 2px solid var(--primary);
+            white-space: nowrap;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--line);
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #fdf8f3;
+        }
+
+        tbody td {
+            padding: 9px 14px;
+            vertical-align: top;
+            color: #2a2833;
+            line-height: 1.55;
+        }
+
+        /* ===========================
+     HIGHLIGHTS
+  =========================== */
+        .hl {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .hl-err {
+            color: var(--error);
+            font-weight: 600;
+        }
+
+        .hl-ok {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        code.mono {
+            font-family: var(--font-mono);
+            font-size: 0.84em;
+            background: #f5ede3;
+            border: 1px solid var(--line);
+            border-radius: 3px;
+            padding: 1px 6px;
+            color: var(--primary-dark);
+        }
+
+        pre.code-block {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            background: #faf3ec;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            overflow-x: auto;
+            line-height: 1.65;
+            color: var(--ink);
+            white-space: pre-wrap;
+        }
+
+        /* ===========================
+     LETTER / TEXT BLOCKS
+  =========================== */
+        .letter-block {
+            background: #fdf9f5;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 18px 22px;
+            margin: 12px 0;
+            font-size: 0.92rem;
+            line-height: 1.78;
+        }
+
+        .letter-block .letter-title {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* ===========================
+     PREP TAG PILL
+  =========================== */
+        .prep-pill {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 500;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 20px;
+            padding: 2px 10px;
+            margin: 1px 2px;
+        }
+
+        .prep-pill-sm {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.73rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border: 1px solid var(--primary-mid);
+            border-radius: 20px;
+            padding: 1px 8px;
+            margin: 1px 2px;
+        }
+
+        /* ===========================
+     STATIVE / ERROR DARK PANEL
+  =========================== */
+        .stative-block {
+            background: var(--surface-alt);
+            border-radius: 10px;
+            margin-bottom: 48px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(20, 19, 28, 0.22);
+        }
+
+        .stative-accent {
+            height: 5px;
+            background: linear-gradient(90deg, var(--error) 0%, var(--primary-mid) 100%);
+        }
+
+        .stative-inner {
+            padding: 36px 36px 40px;
+        }
+
+        .stative-badge {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.42);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stative-title {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 28px;
+            line-height: 1.25;
+        }
+
+        .stative-title em {
+            color: var(--primary-mid);
+            font-style: italic;
+        }
+
+        .stative-section {
+            margin-bottom: 26px;
+        }
+
+        .stative-section-title {
+            font-family: var(--font-mono);
+            font-size: 0.77rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .error-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.87rem;
+        }
+
+        .error-table tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .error-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .error-table td {
+            padding: 10px 10px;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        .err-wrong {
+            color: #ff6b7a;
+            text-decoration: line-through;
+            font-family: var(--font-mono);
+            font-size: 0.83rem;
+        }
+
+        .err-right {
+            color: #5de0a0;
+            font-weight: 600;
+            font-family: var(--font-mono);
+            font-size: 0.83rem;
+        }
+
+        .err-reason {
+            color: rgba(255, 255, 255, 0.48);
+            font-size: 0.81rem;
+            font-style: italic;
+        }
+
+        .err-label {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            color: rgba(255, 255, 255, 0.3);
+            white-space: nowrap;
+            padding-right: 6px;
+        }
+
+        /* ===========================
+     SUMMARY DARK BLOCK
+  =========================== */
+        .summary-dark {
+            background: var(--surface-alt);
+            border-radius: 10px;
+            padding: 36px;
+            margin-bottom: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-dark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-mid), var(--primary-dark));
+        }
+
+        .summary-dark h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .summary-dark .summary-sub {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin: 22px 0 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .summary-dark p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            line-height: 1.65;
+        }
+
+        .summary-dark ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .summary-dark ul li {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.9rem;
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .summary-dark ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 0.75rem;
+        }
+
+        .summary-dark pre.code-block {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #ffd5a8;
+        }
+
+        /* ===========================
+     CHECKLIST
+  =========================== */
+        .checklist-block {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 48px;
+            box-shadow: 0 2px 12px var(--shadow);
+        }
+
+        .checklist-title {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 24px;
+        }
+
+        .check-item {
+            border-left: 3px solid var(--primary-light);
+            padding: 12px 0 12px 20px;
+            margin-bottom: 10px;
+            transition: border-color 0.2s;
+        }
+
+        .check-item:hover {
+            border-left-color: var(--primary);
+        }
+
+        .check-item strong {
+            display: block;
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .check-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .check-item ul li {
+            font-size: 0.9rem;
+            color: var(--muted);
+            padding-left: 14px;
+            position: relative;
+            margin-bottom: 3px;
+        }
+
+        .check-item ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 0.8rem;
+        }
+
+        /* ===========================
+     BONUS GRID
+  =========================== */
+        .bonus-section {
+            margin-bottom: 48px;
+        }
+
+        .bonus-section-title {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .bonus-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 22px 20px 18px;
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .bonus-card:hover {
+            box-shadow: 0 6px 22px var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .bonus-card-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .bonus-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .bonus-card p {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .bonus-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===========================
+     CONCLUSION
+  =========================== */
+        .conclusion-block {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 10px;
+            padding: 40px 36px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .conclusion-block h2 {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .conclusion-list {
+            list-style: none;
+            padding: 0;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: left;
+        }
+
+        .conclusion-list li {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            padding-left: 8px;
+        }
+
+        .conclusion-list li::before {
+            content: '✅ ';
+        }
+
+        .conclusion-cta {
+            margin-top: 24px;
+            font-size: 0.92rem;
+            color: rgba(255, 255, 255, 0.60);
+            font-style: italic;
+        }
+
+        /* ===========================
+     DIVIDER
+  =========================== */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--line);
+            margin: 16px 0;
+        }
+
+        /* ===========================
+     FOOTER
+  =========================== */
+        footer {
+            background: var(--ink);
+            color: rgba(255, 255, 255, 0.35);
+            text-align: center;
+            padding: 32px 24px;
+            font-size: 0.82rem;
+            font-family: var(--font-mono);
+            letter-spacing: 0.05em;
+        }
+
+        /* ===========================
+     RESPONSIVE
+  =========================== */
+        @media (max-width: 640px) {
+            .op-header {
+                padding: 18px;
+                gap: 10px;
+            }
+
+            .op-answers,
+            .op-explanation {
+                padding: 18px;
+            }
+
+            .stative-inner {
+                padding: 22px 18px 26px;
+            }
+
+            .checklist-block {
+                padding: 20px 16px;
+            }
+
+            .summary-dark {
+                padding: 24px 18px;
+            }
+
+            .conclusion-block {
+                padding: 28px 18px;
+            }
+
+            .toc {
+                padding: 18px;
+            }
+
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ======================== HERO ======================== -->
+    <header>
+        <div class="hero-badge">Chương 6 · Præpositioner · Forholdsord</div>
+        <h1>Đáp Án &amp; Bài Giảng Chi Tiết<br><em>Giới Từ (Præpositioner)</em></h1>
+        <p class="hero-sub">Giải toàn bộ 13 bài tập + Repetition — Tiếng Đan Mạch</p>
+    </header>
+
+    <!-- ======================== MAIN ======================== -->
+    <main>
+        <div class="container">
+
+            <!-- TABLE OF CONTENTS -->
+            <nav class="toc">
+                <div class="toc-title">Mục lục bài tập</div>
+                <ol>
+                    <li><a href="#op1">Opgave 1 — Matching: Giới từ không gian</a></li>
+                    <li><a href="#op2">Opgave 2 — Indsæt præpositioner (vị trí)</a></li>
+                    <li><a href="#op3">Opgave 3 — Match giới từ với danh từ xác định</a></li>
+                    <li><a href="#op4">Opgave 4 — Indsæt i eller på (địa điểm)</a></li>
+                    <li><a href="#op5">Opgave 5 — Matching: i, på, til (stedsudtryk)</a></li>
+                    <li><a href="#op6">Opgave 6 — Sorter tidsudtryk</a></li>
+                    <li><a href="#op7">Opgave 7 — Lav tidsudtryk</a></li>
+                    <li><a href="#op8">Opgave 8 — Indsæt giới từ trong văn bản</a></li>
+                    <li><a href="#op9">Opgave 9 — Faste udtryk med præpositioner</a></li>
+                    <li><a href="#op10">Opgave 10 — Lav faste udtryk 🌶️</a></li>
+                    <li><a href="#op11">Opgave 11 — Faste udtryk: til, for, med 🌶️</a></li>
+                    <li><a href="#op12">Opgave 12 &amp; 13 — Indsæt i sætninger/dialog 🌶️</a></li>
+                    <li><a href="#repetition">Repetition — Fejlretning</a></li>
+                    <li><a href="#konklusion">Kết luận &amp; Quy tắc quan trọng</a></li>
+                    <li><a href="#checklist">Checklist kiểm tra lỗi</a></li>
+                    <li><a href="#errors">Các lỗi phổ biến nhất</a></li>
+                </ol>
+            </nav>
+
+            <!-- ======================== OPGAVE 1 ======================== -->
+            <article class="opgave-block" id="op1">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 1</span>
+                    <h2 class="op-title">Matching — Giới từ không gian</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol>
+                            <li>Hunden ligger <span class="hl">under</span> bordet.</li>
+                            <li>Hunden ligger <span class="hl">på</span> bordet.</li>
+                            <li>Hunden ligger <span class="hl">i</span> hundekurven.</li>
+                            <li>Hunden ligger <span class="hl">bagved</span> sofaen.</li>
+                            <li>Hunden løber ud <span class="hl">ad</span> døren.</li>
+                            <li>Hunden springer <span class="hl">over</span> hegnet.</li>
+                            <li>Hunden løber <span class="hl">efter</span> katten.</li>
+                            <li>Hunden går tur <span class="hl">med</span> manden.</li>
+                            <li>Hunden løber rundt <span class="hl">om</span> bolden.</li>
+                            <li>Hunden løber <span class="hl">gennem</span> hækken.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc được kiểm tra</h3>
+                        <p>Nhận biết giới từ (præpositioner) và ý nghĩa không gian của chúng.</p>
+                        <h3>Lý thuyết — Chương 6</h3>
+                        <div class="quote-box">
+                            <p>"Giới từ (præpositioner/forholdsord) là những từ ngắn có chức năng cực kỳ quan trọng:
+                                chúng thể hiện mối quan hệ giữa một danh từ (hoặc đại từ) với các thành phần khác trong
+                                câu. Mối quan hệ này thường liên quan đến vị trí, hướng, thời gian, hoặc các mối quan hệ
+                                logic khác."</p>
+                        </div>
+                        <h3>Ý nghĩa từng giới từ</h3>
+                        <ul>
+                            <li><code class="mono">under</code> = dưới (vị trí phía dưới)</li>
+                            <li><code class="mono">på</code> = trên (bề mặt)</li>
+                            <li><code class="mono">i</code> = trong (bên trong không gian)</li>
+                            <li><code class="mono">bagved</code> = phía sau</li>
+                            <li><code class="mono">ad</code> = qua (cửa, lối ra)</li>
+                            <li><code class="mono">over</code> = vượt qua, phía trên</li>
+                            <li><code class="mono">efter</code> = theo sau, đuổi theo</li>
+                            <li><code class="mono">med</code> = cùng với</li>
+                            <li><code class="mono">om</code> = xung quanh</li>
+                            <li><code class="mono">gennem</code> = xuyên qua</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 2 ======================== -->
+            <article class="opgave-block" id="op2">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 2</span>
+                    <h2 class="op-title">Indsæt præpositioner i sætningerne</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol>
+                            <li>Min mobiltelefon ligger nede <span class="hl">i</span> min taske.</li>
+                            <li>Det store flotte maleri hænger <span class="hl">på</span> væggen.</li>
+                            <li>Der hænger en dyr PH-lampe <span class="hl">over</span> bordet.</li>
+                            <li>Der ligger en krøllet frakke på gulvet <span class="hl">ved siden af</span> sofabordet.
+                            </li>
+                            <li>Da de legede skjul, gemte hun sig <span class="hl">bagved</span> bilen.</li>
+                            <li>Lise parkerede sin nye cykel ude på gaden <span class="hl">foran</span> huset.</li>
+                            <li>Der er en bank <span class="hl">mellem</span> Føtex.</li>
+                            <li>Fyn ligger <span class="hl">mellem</span> Sjælland og Jylland.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc được kiểm tra</h3>
+                        <p>Sử dụng giới từ chỉ vị trí trong không gian.</p>
+                        <h3>Lý thuyết — Mục 6.1</h3>
+                        <div class="quote-box">
+                            <p>"Ý nghĩa cốt lõi của giới từ là xác định vị trí tương đối của các đối tượng trong không
+                                gian. Ví dụ: Hunden ligger på bordet. / Hunden ligger i hundekurven."</p>
+                        </div>
+                        <h3>Phân biệt các giới từ vị trí</h3>
+                        <ul>
+                            <li><code class="mono">i</code> = trong (i min taske — bên trong túi)</li>
+                            <li><code class="mono">på</code> = trên (på væggen — trên tường, gắn vào)</li>
+                            <li><code class="mono">over</code> = phía trên, lơ lửng (over bordet — không chạm bàn)</li>
+                            <li><code class="mono">ved siden af</code> = bên cạnh</li>
+                            <li><code class="mono">bagved</code> = phía sau</li>
+                            <li><code class="mono">foran</code> = phía trước</li>
+                            <li><code class="mono">mellem</code> = ở giữa (Fyn ligger mellem Sjælland og Jylland)</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 3 ======================== -->
+            <article class="opgave-block" id="op3">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 3</span>
+                    <h2 class="op-title">Match præpositioner med substantiver</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol start="0">
+                            <li>Jeg har spist for meget og har ondt i <span class="hl">maven</span>.</li>
+                            <li>Man må ikke cykle på <span class="hl">fortovet</span>.</li>
+                            <li>Læreren skrev alle regnestykkerne på <span class="hl">tavlen</span>.</li>
+                            <li>Lukas har feber og ondt i <span class="hl">hovedet</span>.</li>
+                            <li>Det var koldt, så hun tog et varmt tørklæde om <span class="hl">halsen</span>.</li>
+                            <li>Pas på når du cykler over <span class="hl">broen</span>.</li>
+                            <li>Der var et flot bånd rundt om <span class="hl">gaven</span>.</li>
+                            <li>Hunden ligger under <span class="hl">bordet</span> og sover.</li>
+                            <li>Vi kører over <span class="hl">broen</span>, når vi skal til Sverige.</li>
+                            <li>Cyklerne står ude i <span class="hl">garagen</span>.</li>
+                            <li>Vi har en pejsekakkelovn i <span class="hl">stuen</span>.</li>
+                            <li>Han sidder og læser i <span class="hl">stuen</span>.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc được kiểm tra</h3>
+                        <p>Sử dụng giới từ với danh từ ở dạng xác định (bestemt form).</p>
+                        <h3>Áp dụng</h3>
+                        <ul>
+                            <li><code class="mono">i + maven/hovedet</code> = trong bụng/đầu</li>
+                            <li><code class="mono">på + fortovet/tavlen</code> = trên vỉa hè/bảng</li>
+                            <li><code class="mono">om + halsen</code> = quanh cổ</li>
+                            <li><code class="mono">over + broen</code> = qua cầu</li>
+                            <li><code class="mono">rundt om + gaven</code> = xung quanh món quà</li>
+                            <li><code class="mono">under + bordet</code> = dưới bàn</li>
+                            <li><code class="mono">i + garagen/stuen</code> = trong ga-ra/phòng khách</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 4 ======================== -->
+            <article class="opgave-block" id="op4">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 4</span>
+                    <h2 class="op-title">Indsæt i eller på i sætningerne</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol start="0">
+                            <li>Lea holder fest <span class="hl">på</span> Amerikavej <span class="hl">på</span>
+                                Vesterbro.</li>
+                            <li>Dorte bor <span class="hl">på</span> Frederikssundsvej <span class="hl">på</span>
+                                Nørrebro <span class="hl">i</span> København.</li>
+                            <li>Sam bor <span class="hl">på</span> Kærhøgevej <span class="hl">i</span> Stege <span
+                                    class="hl">på</span> øen Møn.</li>
+                            <li>Limie arbejder <span class="hl">på</span> Holms Allé <span class="hl">i</span> Odense
+                                <span class="hl">på</span> Fyn.</li>
+                            <li>Tanya går i skole <span class="hl">på</span> Bredgade <span class="hl">i</span> Vejle
+                                <span class="hl">i</span> Jylland.</li>
+                            <li>Ammorn besøger sine forældre <span class="hl">på</span> øen Koh Samui <span
+                                    class="hl">i</span> Sydthailand.</li>
+                            <li>Først boede familien <span class="hl">på</span> Amager, så flyttede de rundt <span
+                                    class="hl">på</span> Sjælland, og nu bor de <span class="hl">på</span> Bornholm.
+                            </li>
+                            <li>De rejste rundt <span class="hl">i</span> Europa og <span class="hl">i</span>
+                                Australien.</li>
+                        </ol>
+                        <hr class="section-divider">
+                        <p><strong>Quy tắc nhanh:</strong></p>
+                        <ul>
+                            <li>Dùng <span class="hl">på</span> với: tên đường, khu vực thành phố, đảo</li>
+                            <li>Dùng <span class="hl">i</span> với: tên thành phố, quốc gia, lục địa, vùng lớn</li>
+                        </ul>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Lý thuyết — Mục 6.2</h3>
+                        <div class="quote-box">
+                            <p>"Giới từ là thành phần không thể thiếu trong các cụm từ chỉ địa điểm. Việc sử dụng đúng
+                                các giới từ như 'i', 'på', và 'til' phụ thuộc nhiều vào quy ước và cần được ghi nhớ theo
+                                từng trường hợp."</p>
+                        </div>
+                        <h3>Bảng quy tắc</h3>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Dùng PÅ</th>
+                                        <th>Dùng I</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Tên đường: <em>på Amerikavej</em></td>
+                                        <td>Thành phố: <em>i København</em></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Khu vực/quận: <em>på Vesterbro</em></td>
+                                        <td>Quốc gia: <em>i Danmark</em></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Đảo: <em>på Fyn, på Bornholm</em></td>
+                                        <td>Lục địa: <em>i Europa</em></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sjælland, Amager: <em>på</em></td>
+                                        <td>Vùng lớn: <em>i Jylland</em></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 5 ======================== -->
+            <article class="opgave-block" id="op5">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 5</span>
+                    <h2 class="op-title">Matching — Lav stedsudtryk med i, på og til</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Quy tắc chung</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th><code class="mono">i</code> = ở trong (tĩnh)</th>
+                                        <th><code class="mono">på</code> = tham gia/tại</th>
+                                        <th><code class="mono">til</code> = đi đến (động)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>i byen (ở trong thành phố)</td>
+                                        <td>på byen (đi chơi phố)</td>
+                                        <td>til byen (đi đến thành phố)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>i biblioteket</td>
+                                        <td>på biblioteket (làm tại đó)</td>
+                                        <td>til biblioteket (đi đến)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>i biografen</td>
+                                        <td>på museum</td>
+                                        <td>til koncert</td>
+                                    </tr>
+                                    <tr>
+                                        <td>i banken</td>
+                                        <td>på arbejde</td>
+                                        <td>til fest</td>
+                                    </tr>
+                                    <tr>
+                                        <td>i skolen</td>
+                                        <td>på restaurant</td>
+                                        <td>til lægen</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="quote-box" style="margin-top:14px;">
+                            <p><strong>Ví dụ so sánh:</strong><br>
+                                <strong>i byen</strong> = đang ở trong thành phố<br>
+                                <strong>på byen</strong> = đi chơi trong thành phố (hoạt động)<br>
+                                <strong>til byen</strong> = đi đến thành phố (hướng di chuyển)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Lý thuyết — Mục 6.2</h3>
+                        <div class="quote-box">
+                            <p>"Giới từ là thành phần không thể thiếu trong các cụm từ chỉ địa điểm. Việc sử dụng đúng
+                                phụ thuộc nhiều vào quy ước và cần được ghi nhớ."</p>
+                        </div>
+                        <h3>Áp dụng</h3>
+                        <ul>
+                            <li><code class="mono">i + địa điểm</code> = đang ở bên trong (trạng thái tĩnh)</li>
+                            <li><code class="mono">på + địa điểm/hoạt động</code> = làm việc tại / tham gia</li>
+                            <li><code class="mono">til + hướng</code> = đi đến (chuyển động có hướng)</li>
+                        </ul>
+                        <p>Lưu ý: một số địa điểm có thể dùng cả ba giới từ nhưng nghĩa khác nhau!</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 6 ======================== -->
+            <article class="opgave-block" id="op6">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 6</span>
+                    <h2 class="op-title">Sorter tidsudtryk</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fortid (Quá khứ)</th>
+                                        <th>Fremtid (Tương lai)</th>
+                                        <th>Generelt (Lặp lại)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>i forgårs</td>
+                                        <td>i aften</td>
+                                        <td>om mandagen</td>
+                                    </tr>
+                                    <tr>
+                                        <td>for et år siden</td>
+                                        <td>i overmorgen</td>
+                                        <td>om formiddagen</td>
+                                    </tr>
+                                    <tr>
+                                        <td>i mandags</td>
+                                        <td>på mandag</td>
+                                        <td>om eftermiddagen</td>
+                                    </tr>
+                                    <tr>
+                                        <td>i går</td>
+                                        <td>i morgen tidlig</td>
+                                        <td>om sommeren</td>
+                                    </tr>
+                                    <tr>
+                                        <td>sidste år</td>
+                                        <td>til juli</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>i morges</td>
+                                        <td>til sommer</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Lý thuyết — Mục 6.3</h3>
+                        <div class="quote-box">
+                            <p>"Giới từ cũng được sử dụng để hình thành các cụm từ chỉ thời gian. Ví dụ: om morgenen
+                                (vào buổi sáng), i aften (vào tối nay), på mandag (vào thứ Hai), til sommer (vào mùa
+                                hè)."</p>
+                        </div>
+                        <h3>Phân loại</h3>
+                        <ul>
+                            <li><strong>Fortid:</strong> i forgårs, i går, i mandags, i morges, for...siden, sidste...
+                            </li>
+                            <li><strong>Fremtid:</strong> i aften, i morgen, i overmorgen, på + ngày, til + mùa/tháng
+                            </li>
+                            <li><strong>Generelt:</strong> om + buổi trong ngày, om + mùa, om + ngày tuần</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 7 ======================== -->
+            <article class="opgave-block" id="op7">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 7</span>
+                    <h2 class="op-title">Lav tidsudtryk</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Câu</th>
+                                        <th>Giới từ</th>
+                                        <th>Thời gian</th>
+                                        <th>Loại</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td>
+                                        <td><span class="hl">om</span></td>
+                                        <td>morgenen</td>
+                                        <td>generelt</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span class="hl">på</span></td>
+                                        <td>søndag</td>
+                                        <td>fremtid</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><span class="hl">i</span></td>
+                                        <td>flere mdr.</td>
+                                        <td>en periode</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><span class="hl">til</span></td>
+                                        <td>sommer</td>
+                                        <td>fremtid</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td><span class="hl">om</span></td>
+                                        <td>vinteren</td>
+                                        <td>generelt</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><span class="hl">I</span></td>
+                                        <td>aften</td>
+                                        <td>fremtid</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td><span class="hl">om</span></td>
+                                        <td>året</td>
+                                        <td>generelt</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td><span class="hl">om</span></td>
+                                        <td>natten</td>
+                                        <td>generelt</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td><span class="hl">i</span></td>
+                                        <td>året</td>
+                                        <td>generelt</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td><span class="hl">om</span></td>
+                                        <td>lidt</td>
+                                        <td>fremtid</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td><span class="hl">i</span></td>
+                                        <td>2 uger</td>
+                                        <td>en periode</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                        <td><span class="hl">om</span></td>
+                                        <td>lidt</td>
+                                        <td>fremtid</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td><span class="hl">fra/til</span></td>
+                                        <td>kl. 9-12</td>
+                                        <td>en periode</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Quy tắc thời gian</h3>
+                        <ul>
+                            <li><code class="mono">om</code> + buổi trong ngày (thói quen): <em>om morgenen, om
+                                    natten</em></li>
+                            <li><code class="mono">på</code> + thứ (tương lai cụ thể): <em>på søndag</em></li>
+                            <li><code class="mono">i</code> + khoảng thời gian: <em>i flere måneder, i 2 uger, i
+                                    aften</em></li>
+                            <li><code class="mono">til</code> + mùa/tháng (tương lai): <em>til sommer, til juli</em>
+                            </li>
+                            <li><code class="mono">fra...til</code> = từ...đến: <em>fra kl. 9 til 12</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 8 ======================== -->
+            <article class="opgave-block" id="op8">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 8</span>
+                    <h2 class="op-title">Indsæt præpositioner i teksten</h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Văn bản Mateo</span>
+                        <div class="letter-block">
+                            <p>Jeg hedder Mateo og kommer <span class="hl">fra</span> Spanien. Jeg kom <span
+                                    class="hl">til</span> Danmark <span class="hl">for</span> 4 måneder siden, så jeg er
+                                ikke så god <span class="hl">til</span> dansk endnu. Men jeg går <span
+                                    class="hl">på</span> dansk to gange <span class="hl">om</span> ugen <span
+                                    class="hl">på</span> en sprogskole <span class="hl">på</span> Nørrebro <span
+                                    class="hl">i</span> København. Jeg arbejder også <span class="hl">på</span> en café
+                                <span class="hl">om</span> eftermiddagen og nogle gange <span class="hl">i</span>
+                                weekenden. <span class="hl">På</span> fredagen har jeg altid fri, og så har jeg tid
+                                <span class="hl">til</span> at spille musik <span class="hl">sammen med</span> mit band.
+                                Jeg bor <span class="hl">på</span> Frederiksberg <span class="hl">sammen med</span> min
+                                kæreste. Jeg er glad <span class="hl">for</span> at bo der, fordi det er tæt <span
+                                    class="hl">på</span> centrum. Jeg elsker nemlig at gå <span class="hl">i</span>
+                                byen, <span class="hl">på</span> restaurant og koncerter.</p>
+                        </div>
+                        <div class="op-explanation"
+                            style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;padding-left:0;padding-right:0;">
+                            <h3>Phân tích từng giới từ</h3>
+                            <ul>
+                                <li><code class="mono">fra</code> = từ (xuất xứ: fra Spanien)</li>
+                                <li><code class="mono">til</code> Danmark = đến (di chuyển)</li>
+                                <li><code class="mono">for</code> + thời gian + <code class="mono">siden</code> = cách
+                                    đây (for 4 måneder siden)</li>
+                                <li><code class="mono">god til</code> = giỏi về (cụm cố định)</li>
+                                <li><code class="mono">på</code> sprogskole = tại trường ngôn ngữ</li>
+                                <li><code class="mono">om</code> ugen / om eftermiddagen = mỗi tuần / buổi chiều (thói
+                                    quen)</li>
+                                <li><code class="mono">i</code> weekenden = vào cuối tuần (không dùng "om"!)</li>
+                                <li><code class="mono">på</code> Frederiksberg / <code class="mono">på</code> Nørrebro =
+                                    khu vực/quận → dùng "på"</li>
+                                <li><code class="mono">i</code> København = thành phố → dùng "i"</li>
+                                <li><code class="mono">sammen med</code> = cùng với (cụm cố định)</li>
+                                <li><code class="mono">glad for</code> = vui về (cụm cố định)</li>
+                                <li><code class="mono">tæt på</code> = gần</li>
+                                <li><code class="mono">gå i</code> byen = đi chơi phố (thành ngữ)</li>
+                                <li><code class="mono">gå på</code> restaurant = đi nhà hàng</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 9 ======================== -->
+            <article class="opgave-block" id="op9">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 9</span>
+                    <h2 class="op-title">Slå op i ordbogen — Faste udtryk med præpositioner</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Verbum + præposition</th>
+                                        <th>Adjektiv + præposition</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>at slappe <span class="hl">af</span></td>
+                                        <td>at være skuffet <span class="hl">over</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>at tænke <span class="hl">på</span></td>
+                                        <td>at være sur <span class="hl">på</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>at vente <span class="hl">på</span></td>
+                                        <td>at være træt <span class="hl">af</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>at rydde <span class="hl">op</span></td>
+                                        <td>at være dygtig <span class="hl">til</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>at skælde <span class="hl">ud</span></td>
+                                        <td>at være interesseret <span class="hl">i</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>at glæde sig <span class="hl">til</span></td>
+                                        <td>at være forelsket <span class="hl">i</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Lý thuyết — Mục 6.4</h3>
+                        <div class="quote-box">
+                            <p>"Trong tiếng Đan Mạch, có rất nhiều cụm từ cố định, trong đó một động từ hoặc tính từ cụ
+                                thể luôn đi kèm với một giới từ nhất định."</p>
+                            <p>"Verbum + Præposition — Ví dụ: længes efter (mong mỏi), bestå af (bao gồm), finde ud af
+                                (tìm ra)."</p>
+                            <p>"Adjektiv + Præposition — Ví dụ: glad for (vui về), afhængig af (phụ thuộc vào)."</p>
+                        </div>
+                        <h3>Lưu ý</h3>
+                        <p>Đây là các cụm cố định phải học thuộc lòng vì không có quy tắc logic rõ ràng. Cần tra từ điển
+                            để biết giới từ nào đi với động từ/tính từ nào.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 10 ======================== -->
+            <article class="opgave-block" id="op10">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 10</span>
+                    <h2 class="op-title">Lav faste udtryk med præpositioner <span class="spicy">🌶️</span></h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Verbum + præposition</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>+ af</th>
+                                        <th>+ efter</th>
+                                        <th>+ for</th>
+                                        <th>+ i</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>finde ud</td>
+                                        <td>lede</td>
+                                        <td>sørge</td>
+                                        <td>deltage</td>
+                                    </tr>
+                                    <tr>
+                                        <td>bestå</td>
+                                        <td>længes</td>
+                                        <td>stræbe</td>
+                                        <td>undervise</td>
+                                    </tr>
+                                    <tr>
+                                        <td>beslutte sig</td>
+                                        <td></td>
+                                        <td>kæmpe</td>
+                                        <td>finde sig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>koble</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="table-wrap" style="margin-top:12px;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>+ om</th>
+                                        <th>+ over</th>
+                                        <th>+ med</th>
+                                        <th>+ på</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>synes</td>
+                                        <td>klage</td>
+                                        <td>følges</td>
+                                        <td>stole</td>
+                                    </tr>
+                                    <tr>
+                                        <td>spørge</td>
+                                        <td>græde</td>
+                                        <td>hilse</td>
+                                        <td>passe</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>gifte sig</td>
+                                        <td>skamme sig</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>hjælpe</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr class="section-divider">
+                        <span class="col-label">Adjektiv + præposition</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>+ af</th>
+                                        <th>+ for</th>
+                                        <th>+ til</th>
+                                        <th>+ på</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ked</td>
+                                        <td>glad</td>
+                                        <td>god</td>
+                                        <td>sur</td>
+                                    </tr>
+                                    <tr>
+                                        <td>træt</td>
+                                        <td>begejstret</td>
+                                        <td>dårlig</td>
+                                        <td>vred</td>
+                                    </tr>
+                                    <tr>
+                                        <td>afhængig</td>
+                                        <td>bange</td>
+                                        <td>dygtig</td>
+                                        <td>sikker</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="op-explanation"
+                            style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;padding-left:0;padding-right:0;">
+                            <h3>Áp dụng</h3>
+                            <ul>
+                                <li><code class="mono">+ af</code>: finde ud <strong>af</strong> (tìm ra), bestå
+                                    <strong>af</strong> (gồm có), ked <strong>af</strong> (buồn về), træt
+                                    <strong>af</strong></li>
+                                <li><code class="mono">+ efter</code>: lede <strong>efter</strong> (tìm kiếm), længes
+                                    <strong>efter</strong> (khao khát)</li>
+                                <li><code class="mono">+ for</code>: sørge <strong>for</strong> (lo cho), kæmpe
+                                    <strong>for</strong>, glad <strong>for</strong>, bange <strong>for</strong></li>
+                                <li><code class="mono">+ i</code>: deltage <strong>i</strong> (tham gia), undervise
+                                    <strong>i</strong>, interesseret <strong>i</strong>, forelsket <strong>i</strong>
+                                </li>
+                                <li><code class="mono">+ til</code>: god <strong>til</strong> (giỏi về), dygtig
+                                    <strong>til</strong>, glæde sig <strong>til</strong></li>
+                                <li><code class="mono">+ på</code>: sur <strong>på</strong> (tức giận ai), stole
+                                    <strong>på</strong> (tin tưởng), tænke <strong>på</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 11 ======================== -->
+            <article class="opgave-block" id="op11">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 11</span>
+                    <h2 class="op-title">Matching — Lav faste udtryk với til, for, med <span class="spicy">🌶️</span>
+                    </h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>til</th>
+                                        <th>for</th>
+                                        <th>med</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>trænge til</td>
+                                        <td>være bekymret for</td>
+                                        <td>fortsætte med</td>
+                                    </tr>
+                                    <tr>
+                                        <td>have råd til</td>
+                                        <td>have respekt for</td>
+                                        <td>være tilfreds med</td>
+                                    </tr>
+                                    <tr>
+                                        <td>have brug til</td>
+                                        <td>være færdig med</td>
+                                        <td>have problemer med</td>
+                                    </tr>
+                                    <tr>
+                                        <td>have lyst til</td>
+                                        <td>have ansvar for</td>
+                                        <td>holde op med</td>
+                                    </tr>
+                                    <tr>
+                                        <td>være nødt til</td>
+                                        <td>være god til</td>
+                                        <td>regne med</td>
+                                    </tr>
+                                    <tr>
+                                        <td>være vant til</td>
+                                        <td>være glad for</td>
+                                        <td>tage hensyn til</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>være bange for</td>
+                                        <td>have tillid til</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <span class="col-label">Giải thích</span>
+                        <h3>Lý thuyết — Mục 6.4</h3>
+                        <div class="quote-box">
+                            <p>"Đây là những cụm từ cố định cần học thuộc."</p>
+                        </div>
+                        <h3>Nghĩa từng cụm</h3>
+                        <ul>
+                            <li><code class="mono">trænge til</code> = cần</li>
+                            <li><code class="mono">have råd til</code> = có khả năng tài chính</li>
+                            <li><code class="mono">have lyst til</code> = muốn, có hứng</li>
+                            <li><code class="mono">være nødt til</code> = phải (bắt buộc)</li>
+                            <li><code class="mono">være vant til</code> = quen với</li>
+                            <li><code class="mono">være bekymret for</code> = lo lắng về</li>
+                            <li><code class="mono">have ansvar for</code> = có trách nhiệm với</li>
+                            <li><code class="mono">være tilfreds med</code> = hài lòng với</li>
+                            <li><code class="mono">holde op med</code> = ngừng làm gì</li>
+                            <li><code class="mono">have problemer med</code> = gặp vấn đề với</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== OPGAVE 12 & 13 ======================== -->
+            <article class="opgave-block" id="op12">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 12 &amp; 13</span>
+                    <h2 class="op-title">Indsæt præpositioner i sætningerne og dialogen <span class="spicy">🌶️</span>
+                    </h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Opgave 12, Phần 1</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Giới từ</th>
+                                        <th>#</th>
+                                        <th>Giới từ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span class="hl">fra</span></td>
+                                        <td>6</td>
+                                        <td><span class="hl">ved</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><span class="hl">på</span></td>
+                                        <td>7</td>
+                                        <td><span class="hl">med</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><span class="hl">om</span></td>
+                                        <td>8</td>
+                                        <td><span class="hl">af</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td><span class="hl">til</span></td>
+                                        <td>9</td>
+                                        <td><span class="hl">efter</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><span class="hl">i</span></td>
+                                        <td>10</td>
+                                        <td><span class="hl">for</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr class="section-divider">
+                        <span class="col-label">Đáp án — Opgave 12, Phần 2</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Giới từ</th>
+                                        <th>#</th>
+                                        <th>Giới từ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span class="hl">til</span></td>
+                                        <td>6</td>
+                                        <td><span class="hl">af</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><span class="hl">for</span></td>
+                                        <td>7</td>
+                                        <td><span class="hl">over</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><span class="hl">på</span></td>
+                                        <td>8</td>
+                                        <td><span class="hl">i</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td><span class="hl">om</span></td>
+                                        <td>9</td>
+                                        <td><span class="hl">ud</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><span class="hl">med</span></td>
+                                        <td>10</td>
+                                        <td><span class="hl">op</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr class="section-divider">
+                        <span class="col-label">Đáp án — Opgave 13, Dialog</span>
+                        <pre
+                            class="code-block">i — til — på — i — i — i — af — til — på — i — med — i — på — med — på — i — til</pre>
+                        <div class="op-explanation"
+                            style="border-top:1px solid var(--line);margin-top:14px;padding-top:16px;padding-left:0;padding-right:0;">
+                            <h3>Áp dụng — Cần phân biệt</h3>
+                            <ul>
+                                <li><code class="mono">gå til</code> + hoạt động = tham gia đều đặn</li>
+                                <li><code class="mono">interessere sig for</code> = quan tâm đến</li>
+                                <li><code class="mono">tænke på</code> = nghĩ về</li>
+                                <li><code class="mono">synes om</code> = nghĩ gì về</li>
+                                <li><code class="mono">diskutere med</code> = thảo luận với</li>
+                                <li><code class="mono">lavet af</code> = làm từ (vật liệu)</li>
+                                <li><code class="mono">klage over</code> = phàn nàn về</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================== REPETITION ======================== -->
+            <div class="stative-block" id="repetition">
+                <div class="stative-accent"></div>
+                <div class="stative-inner">
+                    <span class="stative-badge">⚠️ Repetition — Fejlretning</span>
+                    <h2 class="stative-title">Sửa lỗi sử dụng <em>Giới Từ</em></h2>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">1. Nhầm "for" và "i" với thời gian</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg har ikke boet i Danmark for lang tid. Jeg kom hertil i 7
+                                        måneder siden.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg har ikke boet i Danmark i lang tid. Jeg kom hertil for 7
+                                        måneder siden.</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="err-reason">"i + thời gian" = trong suốt &nbsp;|&nbsp; "for + thời gian +
+                                    siden" = cách đây</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">2. Dùng "i" thay vì "på" với văn phòng / tầng</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Han arbejder i et kontor i 4. sal.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Han arbejder på et kontor på 4. sal.</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="err-reason">"på kontor" = tại văn phòng &nbsp;|&nbsp; "på 4. sal" = ở tầng 4
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">3. Dùng "i" thay vì "om" với tần suất</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg går til gymnastik tre gange i ugen.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg går til gymnastik tre gange om ugen.</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="err-reason">"om ugen" = mỗi tuần (lặp lại thường xuyên)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">4. Nhầm "på" + khu vực và "i" + weekenden</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg skal besøge min ven i Østerbro på weekenden.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg skal besøge min ven på Østerbro i weekenden.</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="err-reason">"på + khu vực" (Østerbro là quận) &nbsp;|&nbsp; "i +
+                                    weekenden/ferien"</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">5. Nhầm "glad for" và "glæde sig til"</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg er glad til at høre dig og glæder mig for at se
+                                        dig.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg er glad for at høre dig og glæder mig til at se
+                                        dig.</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="err-reason">"glad for" = vui về (hiện tại) &nbsp;|&nbsp; "glæde sig til" =
+                                    mong chờ (tương lai)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">6. Nhầm "for" và "i" + "god med" thay "god til"</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg har boet i Danmark for to år nu, og jeg er blevet god
+                                        med at snakke dansk.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg har boet i Danmark i to år nu, og jeg er blevet god til
+                                        at snakke dansk.</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="err-reason">"i + thời gian" (không dùng "for") &nbsp;|&nbsp; "god til" = giỏi
+                                    về</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">7. Sai "på fest", "sammen" thiếu "med", "om weekenden"</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg går tit på fest eller koncert sammen mine venner om
+                                        weekenden.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg går tit til fest eller koncert sammen med mine venner i
+                                        weekenden.</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="err-reason">"til fest" = đi đến bữa tiệc &nbsp;|&nbsp; "sammen med"
+                                    &nbsp;|&nbsp; "i weekenden"</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">8. Nhầm "tænke om" — phải là "tænke på"</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg savner mine venner i mit hjemland og tænker tit om
+                                        dem.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg savner mine venner i mit hjemland og tænker tit på
+                                        dem.</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="err-reason">"tænke på" = nghĩ về (cụm cố định, không dùng "om")</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">9. Nhầm "være enig for" — phải là "enig med + người"</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg er enig for dig i, at det er en god ide.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg er enig med dig i, at det er en god ide.</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="err-reason">"være enig med + người" = đồng ý với ai &nbsp;|&nbsp; "være enig
+                                    i + ý kiến" = đồng ý về điều gì</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">10. Nhầm "sikker om" và "til/i sommer"</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg er ikke sikker om, at jeg kan holde ferie om
+                                        sommer.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg er ikke sikker på, at jeg kan holde ferie til sommer / i
+                                        sommer.</span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="err-reason">"sikker på" = chắc chắn về &nbsp;|&nbsp; "til sommer" (tương lai,
+                                    kế hoạch) / "i sommer" (thời điểm cụ thể)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ======================== CONCLUSION / SUMMARY ======================== -->
+            <section id="konklusion">
+                <div class="summary-dark">
+                    <h2>📚 Kết luận — Các quy tắc quan trọng nhất</h2>
+
+                    <div class="summary-sub">1. Giới từ chỉ vị trí không gian</div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Giới từ</th>
+                                    <th>Nghĩa</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>i</strong></td>
+                                    <td>trong</td>
+                                    <td>i tasken, i stuen</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>på</strong></td>
+                                    <td>trên (bề mặt)</td>
+                                    <td>på bordet, på væggen</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>under</strong></td>
+                                    <td>dưới</td>
+                                    <td>under bordet</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>over</strong></td>
+                                    <td>phía trên (lơ lửng)</td>
+                                    <td>over bordet</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ved</strong></td>
+                                    <td>bên, gần</td>
+                                    <td>ved siden af</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>foran</strong></td>
+                                    <td>phía trước</td>
+                                    <td>foran huset</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>bagved</strong></td>
+                                    <td>phía sau</td>
+                                    <td>bagved bilen</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>mellem</strong></td>
+                                    <td>giữa</td>
+                                    <td>mellem sofaen og stolen</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>gennem</strong></td>
+                                    <td>xuyên qua</td>
+                                    <td>gennem hækken</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>om</strong></td>
+                                    <td>xung quanh</td>
+                                    <td>rundt om bolden</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="summary-sub">2. Phân biệt I và PÅ trong địa điểm</div>
+                    <pre class="code-block">Dùng I:
+  Thành phố:  i København, i Odense, i Vejle
+  Quốc gia:   i Danmark, i Spanien, i Thailand
+  Lục địa:    i Europa, i Australien, i Asien
+  Vùng lớn:   i Jylland, i Sydthailand
+
+Dùng PÅ:
+  Tên đường:  på Amerikavej, på Bredgade
+  Khu vực:    på Vesterbro, på Nørrebro, på Østerbro
+  Đảo:        på Fyn, på Bornholm, på Amager, på Sjælland
+  Nơi làm:    på kontor, på biblioteket, på університet
+  Tầng:       på 4. sal
+
+Dùng TIL:
+  Hướng di chuyển: til byen, til biblioteket, til koncert</pre>
+
+                    <div class="summary-sub">3. Cụm từ chỉ thời gian (Tidsudtryk)</div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Giới từ</th>
+                                    <th>Dùng với</th>
+                                    <th>Ví dụ</th>
+                                    <th>Nghĩa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>i</strong></td>
+                                    <td>Buổi/ngày cụ thể</td>
+                                    <td>i aften, i går</td>
+                                    <td>tối nay, hôm qua</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>i</strong></td>
+                                    <td>Khoảng thời gian</td>
+                                    <td>i 2 uger</td>
+                                    <td>trong 2 tuần</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>på</strong></td>
+                                    <td>Thứ (tương lai)</td>
+                                    <td>på mandag</td>
+                                    <td>vào thứ Hai</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>om</strong></td>
+                                    <td>Buổi (lặp lại)</td>
+                                    <td>om morgenen</td>
+                                    <td>vào buổi sáng</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>om</strong></td>
+                                    <td>Tần suất</td>
+                                    <td>tre gange om ugen</td>
+                                    <td>3 lần/tuần</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>til</strong></td>
+                                    <td>Mùa/tháng (tương lai)</td>
+                                    <td>til sommer</td>
+                                    <td>vào mùa hè</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>for...siden</strong></td>
+                                    <td>Quá khứ</td>
+                                    <td>for 2 år siden</td>
+                                    <td>cách đây 2 năm</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>fra...til</strong></td>
+                                    <td>Khoảng</td>
+                                    <td>fra kl. 9 til 12</td>
+                                    <td>từ 9h đến 12h</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="summary-sub">4. Cụm cố định quan trọng nhất</div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Cụm</th>
+                                    <th>Nghĩa</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>glad for</strong></td>
+                                    <td>vui về</td>
+                                    <td>Jeg er glad for at høre dig</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>glæde sig til</strong></td>
+                                    <td>mong chờ</td>
+                                    <td>Jeg glæder mig til ferien</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>god til</strong></td>
+                                    <td>giỏi về</td>
+                                    <td>Hun er god til dansk</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>tænke på</strong></td>
+                                    <td>nghĩ về</td>
+                                    <td>Jeg tænker på dig</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>synes om</strong></td>
+                                    <td>nghĩ gì về</td>
+                                    <td>Hvad synes du om filmen?</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>være enig i</strong></td>
+                                    <td>đồng ý về</td>
+                                    <td>Jeg er enig i det</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>stole på</strong></td>
+                                    <td>tin tưởng</td>
+                                    <td>Jeg stoler på dig</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>sammen med</strong></td>
+                                    <td>cùng với</td>
+                                    <td>Jeg bor sammen med...</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>lede efter</strong></td>
+                                    <td>tìm kiếm</td>
+                                    <td>Jeg leder efter mine nøgler</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>klage over</strong></td>
+                                    <td>phàn nàn về</td>
+                                    <td>Han klager over støjen</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>vente på</strong></td>
+                                    <td>đợi</td>
+                                    <td>Jeg venter på bussen</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>holde op med</strong></td>
+                                    <td>ngừng làm</td>
+                                    <td>Hun holdt op med at ryge</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="summary-sub">5. Gå + giới từ (quan trọng)</div>
+                    <pre class="code-block">gå til  + hoạt động = tham gia đều đặn
+  → gå til gymnastik, gå til badminton
+
+gå i    + địa điểm giải trí = đi chơi
+  → gå i byen, gå i biografen
+
+gå på   + địa điểm cụ thể = đi đến
+  → gå på restaurant, gå på museum</pre>
+
+                    <div class="summary-sub">6. Cụm với FOR, TIL, MED</div>
+                    <pre class="code-block">+ FOR:   være bekymret for, have respekt for, have ansvar for
+         være glad for, være bange for
+
++ TIL:   trænge til, have råd til, have lyst til
+         være nødt til, være vant til, have brug til
+
++ MED:   være tilfreds med, have problemer med
+         holde op med, fortsætte med, regne med</pre>
+                </div>
+            </section>
+
+            <!-- ======================== CHECKLIST ======================== -->
+            <section class="checklist-block" id="checklist">
+                <h2 class="checklist-title">🎯 Checklist kiểm tra lỗi giới từ</h2>
+                <p style="font-size:0.9rem;color:var(--muted);margin-bottom:20px;">Khi sử dụng giới từ, hãy tự hỏi:</p>
+
+                <div class="check-item">
+                    <strong>✅ 1. Đây là địa điểm hay thời gian?</strong>
+                    <ul>
+                        <li>Địa điểm → Kiểm tra quy tắc i/på/til</li>
+                        <li>Thời gian → Kiểm tra quy tắc i/på/om/til</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 2. Với địa điểm: Loại gì?</strong>
+                    <ul>
+                        <li>Thành phố/quốc gia/vùng lớn → <strong>i</strong></li>
+                        <li>Tên đường/khu vực/đảo → <strong>på</strong></li>
+                        <li>Hướng di chuyển → <strong>til</strong></li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 3. Với thời gian: Loại gì?</strong>
+                    <ul>
+                        <li>Khoảng thời gian → <strong>i</strong> (i 2 uger)</li>
+                        <li>Thời điểm quá khứ → <strong>for...siden</strong></li>
+                        <li>Lặp lại / thói quen → <strong>om</strong> (om morgenen)</li>
+                        <li>Ngày cụ thể tương lai → <strong>på</strong> (på mandag)</li>
+                        <li>Mùa tương lai → <strong>til</strong> (til sommer)</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 4. Đây có phải cụm cố định không?</strong>
+                    <ul>
+                        <li>Kiểm tra động từ/tính từ có đi với giới từ nào không</li>
+                        <li>Tra từ điển nếu không chắc chắn</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 5. "i" hay "om" với thời gian lặp lại?</strong>
+                    <ul>
+                        <li><strong>om</strong> = lặp lại (om morgenen, tre gange om ugen)</li>
+                        <li><strong>i</strong> = một lần cụ thể (i morges, i weekenden)</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 6. "for" hay "i" với thời gian?</strong>
+                    <ul>
+                        <li><strong>i + thời gian</strong> = trong suốt (i 2 år)</li>
+                        <li><strong>for + thời gian + siden</strong> = cách đây (for 2 år siden)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ======================== COMMON ERRORS GRID ======================== -->
+            <section class="bonus-section" id="errors">
+                <h2 class="bonus-section-title">⚠️ Các lỗi phổ biến nhất</h2>
+                <div class="bonus-grid">
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">1</span></div>
+                        <p><span class="hl-err">Sai:</span> i Vesterbro, i Amerikavej</p>
+                        <p><span class="hl-ok">Đúng:</span> <strong>på</strong> Vesterbro, <strong>på</strong>
+                            Amerikavej</p>
+                        <p style="color:var(--muted);font-size:0.82rem;">Tên đường và khu vực dùng "på"</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">2</span></div>
+                        <p><span class="hl-err">Sai:</span> tre gange <em>i</em> ugen</p>
+                        <p><span class="hl-ok">Đúng:</span> tre gange <strong>om</strong> ugen</p>
+                        <p style="color:var(--muted);font-size:0.82rem;">Tần suất lặp lại dùng "om"</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">3</span></div>
+                        <p><span class="hl-err">Sai:</span> boet i Danmark <em>for</em> 2 år</p>
+                        <p><span class="hl-ok">Đúng:</span> boet i Danmark <strong>i</strong> 2 år</p>
+                        <p style="color:var(--muted);font-size:0.82rem;">"i + thời gian" = trong suốt</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">4</span></div>
+                        <p><span class="hl-err">Sai:</span> Jeg kom <em>for</em> 2 år</p>
+                        <p><span class="hl-ok">Đúng:</span> Jeg kom <strong>for</strong> 2 år <strong>siden</strong></p>
+                        <p style="color:var(--muted);font-size:0.82rem;">Quên "siden" sau "for + thời gian"</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">5</span></div>
+                        <p><span class="hl-err">Sai:</span> glad <em>til</em> / glæde sig <em>for</em></p>
+                        <p><span class="hl-ok">Đúng:</span> glad <strong>for</strong> / glæde sig <strong>til</strong>
+                        </p>
+                        <p style="color:var(--muted);font-size:0.82rem;">Cụm cố định — hai hướng nghĩa khác nhau</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">6</span></div>
+                        <p><span class="hl-err">Sai:</span> Jeg er god <em>med</em> dansk</p>
+                        <p><span class="hl-ok">Đúng:</span> Jeg er god <strong>til</strong> dansk</p>
+                        <p style="color:var(--muted);font-size:0.82rem;">"god til" = giỏi về (cụm cố định)</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">7</span></div>
+                        <p><span class="hl-err">Sai:</span> Jeg tænker <em>om</em> dig</p>
+                        <p><span class="hl-ok">Đúng:</span> Jeg tænker <strong>på</strong> dig</p>
+                        <p style="color:var(--muted);font-size:0.82rem;">"tænke på" = nghĩ về (cố định)</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">8</span></div>
+                        <p><span class="hl-err">Sai:</span> gå på fest <em>om</em> weekenden</p>
+                        <p><span class="hl-ok">Đúng:</span> til fest <strong>i</strong> weekenden</p>
+                        <p style="color:var(--muted);font-size:0.82rem;">"til fest" &amp; "i weekenden" (không dùng
+                            "om")</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">9</span></div>
+                        <p><span class="hl-err">Sai:</span> Jeg bor sammen min kæreste</p>
+                        <p><span class="hl-ok">Đúng:</span> Jeg bor <strong>sammen med</strong> min kæreste</p>
+                        <p style="color:var(--muted);font-size:0.82rem;">"sammen med" = cùng với (cụm cố định)</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">10</span></div>
+                        <p><span class="hl-err">Sai:</span> Jeg er enig <em>for</em> dig</p>
+                        <p><span class="hl-ok">Đúng:</span> Jeg er enig <strong>med</strong> dig <strong>i</strong>,
+                            at...</p>
+                        <p style="color:var(--muted);font-size:0.82rem;">"enig med + người" / "enig i + ý kiến"</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">11</span></div>
+                        <p><span class="hl-err">Sai:</span> på ferie <em>i</em> sommer (nếu ý là tương lai)</p>
+                        <p><span class="hl-ok">Đúng:</span> på ferie <strong>til</strong> sommer</p>
+                        <p style="color:var(--muted);font-size:0.82rem;">"til sommer" = tương lai &nbsp;|&nbsp; "i
+                            sommer" = thời điểm cụ thể</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">12</span></div>
+                        <p>Phân biệt:</p>
+                        <p><strong>på arbejde</strong> = đang làm việc (tại nơi làm)</p>
+                        <p><strong>i arbejde</strong> = có việc làm (có công ăn)</p>
+                        <p style="color:var(--muted);font-size:0.82rem;">Cả hai đúng nhưng nghĩa khác nhau</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================== CONCLUSION ======================== -->
+            <div class="conclusion-block">
+                <h2>✅ Hoàn thành — Toàn bộ 13 bài tập + Repetition</h2>
+                <ul class="conclusion-list">
+                    <li>Nhận biết giới từ không gian: under, på, i, bagved, foran, over, mellem, gennem (Opgave 1–3)
+                    </li>
+                    <li>Phân biệt "i" và "på" trong địa điểm (Opgave 4–5)</li>
+                    <li>Cụm từ chỉ thời gian: fortid, fremtid, generelt (Opgave 6–7)</li>
+                    <li>Sử dụng giới từ trong văn bản thực tế (Opgave 8)</li>
+                    <li>Cụm cố định: verbum + præposition, adjektiv + præposition (Opgave 9–11)</li>
+                    <li>Sử dụng trong hội thoại (Opgave 12–13)</li>
+                    <li>Sửa lỗi sử dụng giới từ (Repetition)</li>
+                </ul>
+                <p class="conclusion-cta">Giới từ là một trong những chủ đề khó nhất trong tiếng Đan Mạch — có rất nhiều
+                    cụm cố định cần học thuộc lòng! 🇩🇰📚</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ======================== FOOTER ======================== -->
+    <footer>
+        CHƯƠNG 6 · PRÆPOSITIONER (FORHOLDSORD) · TIẾNG ĐAN MẠCH
+    </footer>
+
+</body>
+
+</html>

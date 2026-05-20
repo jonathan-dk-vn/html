@@ -1,0 +1,2342 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương 5: Trạng từ (Adverbier) — Đáp án &amp; Giải thích</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ===========================
+     DESIGN TOKENS & VARIABLES
+  =========================== */
+        :root {
+            /* Theme C: Orange/Amber — Adverbs / Trạng từ */
+            --primary: #C86B1A;
+            --primary-light: #FFE4C4;
+            --primary-mid: #F5A45A;
+            --primary-dark: #6E3605;
+
+            /* Neutrals */
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F8F8F6;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #E2E0DB;
+            --shadow: rgba(20, 19, 28, 0.05);
+            --shadow-hover: rgba(200, 107, 26, 0.15);
+
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'DM Mono', monospace;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--ink);
+            background: var(--paper);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===========================
+     LAYOUT
+  =========================== */
+        .container {
+            max-width: 3000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===========================
+     HERO / HEADER
+  =========================== */
+        header {
+            background-color: var(--ink);
+            color: #fff;
+            padding: 72px 24px 64px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(200, 107, 26, 0.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(245, 164, 90, 0.12) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1px solid rgba(245, 164, 90, 0.35);
+            padding: 6px 18px;
+            border-radius: 2px;
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 6vw, 58px);
+            font-weight: 700;
+            line-height: 1.15;
+            color: #fff;
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        header h1 em {
+            color: var(--primary-mid);
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.52);
+            max-width: 560px;
+            margin: 0 auto;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+            position: relative;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 44px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .hero-stat-num {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--primary-mid);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .hero-stat-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.38);
+        }
+
+        /* ===========================
+     TABLE OF CONTENTS
+  =========================== */
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            padding: 28px 32px;
+            margin: 40px 0;
+        }
+
+        .toc-title {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .toc ol {
+            padding-left: 20px;
+            columns: 2;
+            column-gap: 32px;
+        }
+
+        @media (max-width: 600px) {
+            .toc ol {
+                columns: 1;
+            }
+        }
+
+        .toc li {
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            break-inside: avoid;
+        }
+
+        .toc a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        /* ===========================
+     MAIN
+  =========================== */
+        main {
+            padding: 48px 0 80px;
+        }
+
+        /* ===========================
+     OPGAVE BLOCKS
+  =========================== */
+        .opgave-block {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            margin-bottom: 48px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px var(--shadow);
+            transition: box-shadow 0.25s;
+        }
+
+        .opgave-block:hover {
+            box-shadow: 0 4px 24px var(--shadow-hover);
+        }
+
+        .op-header {
+            padding: 28px 32px 24px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .op-badge {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: 5px 12px;
+            border-radius: 2px;
+            white-space: nowrap;
+            margin-top: 6px;
+        }
+
+        .op-badge.spicy {
+            background: rgba(232, 52, 74, 0.1);
+            color: var(--error);
+        }
+
+        .op-title {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.3;
+        }
+
+        .op-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 120px;
+        }
+
+        @media (max-width: 768px) {
+            .op-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .op-answers {
+            background: #FAFAFA;
+            border-right: 1px solid var(--line);
+            padding: 28px 32px;
+        }
+
+        @media (max-width: 768px) {
+            .op-answers {
+                border-right: none;
+                border-bottom: 1px solid var(--line);
+            }
+        }
+
+        .col-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .op-answers ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .op-answers ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 7px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .op-answers ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .op-answers p {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .op-answers ol {
+            padding-left: 22px;
+        }
+
+        .op-answers ol li {
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            line-height: 1.65;
+        }
+
+        .op-explanation {
+            padding: 28px 32px;
+            background: var(--surface);
+        }
+
+        .op-explanation h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 20px 0 8px;
+            padding-left: 14px;
+            border-left: 3px solid var(--primary-mid);
+            line-height: 1.3;
+        }
+
+        .op-explanation h3:first-child {
+            margin-top: 0;
+        }
+
+        .op-explanation p {
+            font-size: 0.93rem;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.68;
+        }
+
+        .op-explanation ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .op-explanation ul li {
+            position: relative;
+            padding-left: 18px;
+            font-size: 0.92rem;
+            margin-bottom: 5px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .op-explanation ul li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+        }
+
+        .op-body.full {
+            grid-template-columns: 1fr;
+        }
+
+        .op-body.full .op-answers {
+            border-right: none;
+        }
+
+        /* ===========================
+     QUOTE BOX
+  =========================== */
+        .quote-box {
+            border-left: 4px solid var(--primary);
+            background: var(--primary-light);
+            padding: 14px 20px;
+            border-radius: 0 4px 4px 0;
+            margin: 12px 0;
+            font-style: italic;
+            font-size: 0.91rem;
+            color: var(--primary-dark);
+            line-height: 1.7;
+        }
+
+        .quote-box p {
+            margin: 0 0 6px;
+        }
+
+        .quote-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===========================
+     TABLES
+  =========================== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 14px 0;
+            border-radius: 6px;
+            border: 1px solid var(--line);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            font-family: var(--font-body);
+        }
+
+        thead tr {
+            background: var(--primary-light);
+        }
+
+        thead th {
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 0.83rem;
+            letter-spacing: 0.02em;
+            border-bottom: 2px solid var(--primary);
+            white-space: nowrap;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--line);
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #fdf9f5;
+        }
+
+        tbody td {
+            padding: 9px 14px;
+            vertical-align: top;
+            color: #2a2833;
+            line-height: 1.55;
+        }
+
+        td strong,
+        th strong {
+            color: var(--primary-dark);
+        }
+
+        /* ===========================
+     INLINE HELPERS
+  =========================== */
+        .hl {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .hl-err {
+            color: var(--error);
+            font-weight: 600;
+        }
+
+        .hl-ok {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        code.mono {
+            font-family: var(--font-mono);
+            font-size: 0.84em;
+            background: #f5ece0;
+            border: 1px solid #e8cca8;
+            border-radius: 3px;
+            padding: 1px 6px;
+            color: var(--primary-dark);
+        }
+
+        pre.code-block {
+            font-family: var(--font-mono);
+            font-size: 0.83rem;
+            background: #f4f3f1;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin: 12px 0;
+            overflow-x: auto;
+            line-height: 1.65;
+            color: var(--ink);
+            white-space: pre-wrap;
+        }
+
+        /* ===========================
+     TEXT / LETTER / DIALOG BLOCKS
+  =========================== */
+        .letter-block {
+            background: #fdf9f5;
+            border: 1px solid #e8cca8;
+            border-radius: 6px;
+            padding: 18px 22px;
+            margin: 12px 0;
+            font-size: 0.92rem;
+            line-height: 1.75;
+        }
+
+        .letter-block .letter-title {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .dialog-block {
+            padding: 20px 24px;
+            background: #fff8f1;
+            border-radius: 6px;
+            border: 1px solid rgba(200, 107, 26, 0.15);
+            font-size: 0.93rem;
+            line-height: 1.75;
+            margin: 10px 0;
+        }
+
+        .dialog-block p {
+            margin-bottom: 4px;
+        }
+
+        .dialog-speaker {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 0.88rem;
+        }
+
+        /* ===========================
+     DIRECTION/POSITION CARD
+  =========================== */
+        .dir-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 12px 0;
+        }
+
+        @media (max-width: 540px) {
+            .dir-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .dir-card {
+            border-radius: 6px;
+            padding: 12px 14px;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .dir-card.motion {
+            background: rgba(200, 107, 26, 0.08);
+            border: 1px solid rgba(200, 107, 26, 0.25);
+        }
+
+        .dir-card.position {
+            background: rgba(46, 158, 104, 0.07);
+            border: 1px solid rgba(46, 158, 104, 0.22);
+        }
+
+        .dir-card-label {
+            font-family: var(--font-mono);
+            font-size: 0.67rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 500;
+        }
+
+        .dir-card.motion .dir-card-label {
+            color: var(--primary-dark);
+        }
+
+        .dir-card.position .dir-card-label {
+            color: #144D31;
+        }
+
+        /* ===========================
+     STATIVE / ERROR DARK PANEL
+  =========================== */
+        .stative-block {
+            background: var(--surface-alt);
+            border-radius: 10px;
+            margin-bottom: 48px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(20, 19, 28, 0.22);
+        }
+
+        .stative-accent {
+            height: 5px;
+            background: linear-gradient(90deg, var(--error) 0%, var(--primary-mid) 100%);
+        }
+
+        .stative-inner {
+            padding: 36px 36px 40px;
+        }
+
+        .stative-badge {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.42);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stative-title {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 28px;
+            line-height: 1.25;
+        }
+
+        .stative-title em {
+            color: var(--primary-mid);
+            font-style: italic;
+        }
+
+        .stative-section {
+            margin-bottom: 28px;
+        }
+
+        .stative-section-title {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .error-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+
+        .error-table tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .error-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .error-table td {
+            padding: 11px 10px;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        .err-wrong {
+            color: #ff6b7a;
+            text-decoration: line-through;
+            font-family: var(--font-mono);
+            font-size: 0.84rem;
+        }
+
+        .err-right {
+            color: #5de0a0;
+            font-weight: 600;
+            font-family: var(--font-mono);
+            font-size: 0.84rem;
+        }
+
+        .err-reason {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.82rem;
+            font-style: italic;
+        }
+
+        .err-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.35);
+            white-space: nowrap;
+            padding-right: 6px;
+        }
+
+        /* ===========================
+     CHECKLIST SECTION
+  =========================== */
+        .checklist-block {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 48px;
+            box-shadow: 0 2px 12px var(--shadow);
+        }
+
+        .checklist-title {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checklist-title .emoji {
+            font-size: 1.3rem;
+        }
+
+        .check-item {
+            border-left: 3px solid var(--primary-light);
+            padding: 14px 0 14px 20px;
+            margin-bottom: 10px;
+            transition: border-color 0.2s;
+        }
+
+        .check-item:hover {
+            border-left-color: var(--primary);
+        }
+
+        .check-item strong {
+            display: block;
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+
+        .check-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .check-item ul li {
+            font-size: 0.9rem;
+            color: var(--muted);
+            padding-left: 14px;
+            position: relative;
+            margin-bottom: 3px;
+        }
+
+        .check-item ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 0.8rem;
+        }
+
+        /* ===========================
+     SUMMARY / FORMULA SECTION
+  =========================== */
+        .summary-block {
+            background: var(--surface-alt);
+            border-radius: 10px;
+            padding: 36px;
+            margin-bottom: 48px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .summary-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-mid), var(--primary-dark));
+        }
+
+        .summary-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .summary-title .emoji {
+            margin-right: 8px;
+        }
+
+        .summary-block pre.code-block {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #ffd6a5;
+        }
+
+        /* ===========================
+     BONUS GRID
+  =========================== */
+        .bonus-section {
+            margin-bottom: 48px;
+        }
+
+        .bonus-section-title {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .bonus-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 22px 22px 18px;
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .bonus-card:hover {
+            box-shadow: 0 6px 22px var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .bonus-card-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .bonus-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .bonus-card p {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .bonus-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===========================
+     CONCLUSION BLOCK
+  =========================== */
+        .conclusion-block {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 10px;
+            padding: 40px 36px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .conclusion-block h2 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .conclusion-list {
+            list-style: none;
+            padding: 0;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: left;
+        }
+
+        .conclusion-list li {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            padding-left: 8px;
+        }
+
+        .conclusion-list li::before {
+            content: '✅ ';
+        }
+
+        .conclusion-cta {
+            margin-top: 24px;
+            font-size: 0.92rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ===========================
+     FOOTER
+  =========================== */
+        footer {
+            background: var(--ink);
+            color: rgba(255, 255, 255, 0.3);
+            text-align: center;
+            padding: 28px 24px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* ===========================
+     SCROLL-TO-TOP
+  =========================== */
+        .back-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--primary);
+            color: #fff;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            border-radius: 100px;
+            padding: 10px 16px;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(200, 107, 26, 0.35);
+            transition: background 0.2s;
+            z-index: 99;
+        }
+
+        .back-top:hover {
+            background: var(--primary-dark);
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+
+            .op-header,
+            .op-answers,
+            .op-explanation {
+                padding: 18px;
+            }
+
+            .stative-inner,
+            .checklist-block,
+            .summary-block,
+            .conclusion-block {
+                padding: 24px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- ===== HERO ===== -->
+    <header>
+        <div class="container">
+            <div class="hero-badge">Chương 5 · Tiếng Đan Mạch · Ngữ pháp</div>
+            <h1>GIẢI TOÀN BỘ BÀI TẬP<br><em>Trạng Từ (Adverbier)</em></h1>
+            <p class="hero-sub">13 bài tập + Repetition — đáp án chi tiết, trích dẫn lý thuyết, phân tích áp dụng từng
+                câu</p>
+            <div class="hero-stats">
+                <div><span class="hero-stat-num">13</span><span class="hero-stat-label">Bài tập chính</span></div>
+                <div><span class="hero-stat-num">4</span><span class="hero-stat-label">Loại trạng từ</span></div>
+                <div><span class="hero-stat-num">11</span><span class="hero-stat-label">Cặp ngắn/dài</span></div>
+                <div><span class="hero-stat-num">8</span><span class="hero-stat-label">Lỗi phổ biến</span></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <!-- ===== TOC ===== -->
+            <div class="toc">
+                <div class="toc-title">📋 Mục lục nội dung</div>
+                <ol>
+                    <li><a href="#op1">Opgave 1 – Odd-one-out: Nhận biết trạng từ</a></li>
+                    <li><a href="#op2">Opgave 2 – Cặp trái nghĩa của trạng từ</a></li>
+                    <li><a href="#op3">Opgave 3 – Trạng từ thái độ (modaladverbier)</a></li>
+                    <li><a href="#op4">Opgave 4 – Trạng từ thời gian (tidsadverbier)</a></li>
+                    <li><a href="#op5">Opgave 5 &amp; 6 – Quiz: Nghĩa trạng từ trong ngữ cảnh</a></li>
+                    <li><a href="#op7">Opgave 7 – Trạng từ mức độ + tính từ</a></li>
+                    <li><a href="#op8">Opgave 8 – Sáng tạo câu với gradsadverbier</a></li>
+                    <li><a href="#op9">Opgave 9 – Điền trạng từ phù hợp ngữ cảnh</a></li>
+                    <li><a href="#op10">Opgave 10 – Stedsadverbier: Ngắn hay dài?</a></li>
+                    <li><a href="#op11">Opgave 11 – Cụm cố định với stedsadverbier 🌶️</a></li>
+                    <li><a href="#op12">Opgave 12 – Vị trí trạng từ trong câu</a></li>
+                    <li><a href="#op13">Opgave 13 – Trạng từ trong văn bản tranh luận 🌶️</a></li>
+                    <li><a href="#rep">Repetition – Fejlretning</a></li>
+                    <li><a href="#summary">Tóm tắt &amp; Checklist</a></li>
+                </ol>
+            </div>
+
+            <!-- ===========================
+       OPGAVE 1
+  =========================== -->
+            <div class="opgave-block" id="op1">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 1</span>
+                    <h2 class="op-title">Odd-one-out — Nhận biết trạng từ</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Các từ KHÔNG phải trạng từ (gạch bỏ)</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Hàng</th>
+                                        <th>Từ bị loại</th>
+                                        <th>Loại từ</th>
+                                        <th>Các trạng từ còn lại</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td>
+                                        <td><del>hus</del></td>
+                                        <td>Danh từ</td>
+                                        <td>lidt, gerne, sjovt</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><del>hos</del></td>
+                                        <td>Giới từ</td>
+                                        <td>godt, også, ikke</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><del>selvom</del></td>
+                                        <td>Liên từ phụ</td>
+                                        <td>ofte, altid, aldrig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><del>hvis</del></td>
+                                        <td>Liên từ phụ</td>
+                                        <td>først, måske, senere</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td><del>rolig</del></td>
+                                        <td>Tính từ</td>
+                                        <td>kun, igen, sjældent</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><del>lide</del></td>
+                                        <td>Động từ</td>
+                                        <td>lige, nemlig, alligevel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td><del>fordi</del></td>
+                                        <td>Liên từ phụ</td>
+                                        <td>nok, snart, derfor</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td><del>lang</del></td>
+                                        <td>Tính từ</td>
+                                        <td>længe, endelig, desværre</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td><del>hurtig</del></td>
+                                        <td>Tính từ</td>
+                                        <td>lavt, langt, langsomt</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Trích dẫn lý thuyết — Chương 5</h3>
+                        <div class="quote-box">Trạng từ (adverbier/biord) là những từ dùng để bổ nghĩa cho động từ, tính
+                            từ, trạng từ khác, hoặc thậm chí cả một câu. Chức năng chính của chúng là cung cấp thêm
+                            thông tin chi tiết về cách thức, thời gian, địa điểm và mức độ của hành động hoặc đặc điểm
+                            được đề cập.</div>
+                        <h3>Phân biệt với các loại từ khác</h3>
+                        <ul>
+                            <li><strong>Trạng từ:</strong> bổ nghĩa cho động từ/tính từ/trạng từ — godt, altid, meget
+                            </li>
+                            <li><strong>Giới từ (præpositioner):</strong> chỉ quan hệ — hos, over, med</li>
+                            <li><strong>Liên từ (konjunktioner):</strong> nối mệnh đề — selvom, hvis, fordi</li>
+                            <li><strong>Tính từ (adjektiver):</strong> bổ nghĩa danh từ — rolig, lang, hurtig</li>
+                        </ul>
+                        <h3>Lưu ý hàng 8</h3>
+                        <p><span class="hl">hurtig</span> (tính từ) → <span class="hl-ok">hurtigt</span> (trạng từ).
+                            Thêm <code class="mono">-t</code> vào tính từ để tạo trạng từ cách thức!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===========================
+       OPGAVE 2
+  =========================== -->
+            <div class="opgave-block" id="op2">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 2</span>
+                    <h2 class="op-title">Find adverbier — Cặp trái nghĩa của trạng từ</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Cặp đối lập</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Từ gốc</th>
+                                        <th>Trái nghĩa</th>
+                                        <th>Nghĩa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>lidt</td>
+                                        <td><strong>meget</strong></td>
+                                        <td>ít ↔ nhiều</td>
+                                    </tr>
+                                    <tr>
+                                        <td>gerne</td>
+                                        <td><strong>ikke</strong></td>
+                                        <td>muốn ↔ không</td>
+                                    </tr>
+                                    <tr>
+                                        <td>først</td>
+                                        <td><strong>sidst</strong></td>
+                                        <td>đầu tiên ↔ cuối cùng</td>
+                                    </tr>
+                                    <tr>
+                                        <td>aldrig</td>
+                                        <td><strong>altid</strong></td>
+                                        <td>không bao giờ ↔ luôn luôn</td>
+                                    </tr>
+                                    <tr>
+                                        <td>godt</td>
+                                        <td><strong>dårligt</strong></td>
+                                        <td>tốt ↔ tệ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>sjældent</td>
+                                        <td><strong>tit</strong></td>
+                                        <td>hiếm khi ↔ thường xuyên</td>
+                                    </tr>
+                                    <tr>
+                                        <td>langsomt</td>
+                                        <td><strong>hurtigt</strong></td>
+                                        <td>chậm ↔ nhanh</td>
+                                    </tr>
+                                    <tr>
+                                        <td>heldigvis</td>
+                                        <td><strong>desværre</strong></td>
+                                        <td>may mắn thay ↔ tiếc thay</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>4 nhóm trạng từ theo chức năng</h3>
+                        <ul>
+                            <li><strong>Thời gian:</strong> altid, aldrig, tit, sjældent, først, sidst</li>
+                            <li><strong>Cách thức:</strong> godt, dårligt, hurtigt, langsomt</li>
+                            <li><strong>Mức độ:</strong> meget, lidt, gerne, ikke</li>
+                            <li><strong>Thái độ:</strong> heldigvis, desværre</li>
+                        </ul>
+                        <h3>Tần suất từ cao đến thấp</h3>
+                        <pre class="code-block">altid (100%) → tit → sjældent → aldrig (0%)</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===========================
+       OPGAVE 3
+  =========================== -->
+            <div class="opgave-block" id="op3">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 3</span>
+                    <h2 class="op-title">Omskriv sætningerne med adverbier — Trạng từ thái độ (Modaladverbier)</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol>
+                            <li>Jeg blev <strong>desværre</strong> fyret.</li>
+                            <li>Jeg fik <strong>heldigvis</strong> løn i går.</li>
+                            <li>Vi har <strong>nok</strong> fri kl. 16.</li>
+                            <li>Jeg har <strong>endelig</strong> fundet et job.</li>
+                            <li>Jeg bliver <strong>selvfølgelig</strong> god til dansk.</li>
+                            <li>Jeg kan <strong>sagtens</strong> forstå dansk.</li>
+                            <li>Huset koster <strong>kun</strong> 3 mio. kr.</li>
+                            <li>Opgaven er <strong>simpelthen</strong> for svær.</li>
+                            <li>Han dyrker <strong>jo</strong> aldrig sport.</li>
+                            <li>Gæsterne gik <strong>allerede</strong> kl. 22.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Nghĩa các modaladverbier</h3>
+                        <ul>
+                            <li><span class="hl">desværre</span> — tiếc thay (cảm xúc tiêu cực)</li>
+                            <li><span class="hl">heldigvis</span> — may mắn thay (cảm xúc tích cực)</li>
+                            <li><span class="hl">nok</span> — có lẽ, chắc là (không chắc chắn)</li>
+                            <li><span class="hl">endelig</span> — cuối cùng (nhẹ nhõm sau chờ đợi)</li>
+                            <li><span class="hl">selvfølgelig</span> — tất nhiên (tự tin, chắc chắn)</li>
+                            <li><span class="hl">sagtens</span> — dễ dàng (có thể làm được)</li>
+                            <li><span class="hl">kun</span> — chỉ (hạn chế số lượng)</li>
+                            <li><span class="hl">simpelthen</span> — đơn giản là (nhấn mạnh)</li>
+                            <li><span class="hl">jo</span> — mà (nhắc điều hiển nhiên)</li>
+                            <li><span class="hl">allerede</span> — đã (sớm hơn dự kiến)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===========================
+       OPGAVE 4
+  =========================== -->
+            <div class="opgave-block" id="op4">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 4</span>
+                    <h2 class="op-title">Indsæt tidsadverbier i sætningerne — Trạng từ thời gian</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol>
+                            <li>Jeg er kun 42, men jeg er <strong>allerede</strong> gråhåret.</li>
+                            <li>Jeg har boet i Danmark i 6 år, men det er <strong>først</strong> nu, jeg har vænnet mig
+                                til vejret.</li>
+                            <li>Emil kommer <strong>tit</strong> for sent i skole.</li>
+                            <li>De går <strong>tit</strong> på restaurant, måske to-tre gange om ugen.</li>
+                            <li>Efter Allan og Lis har fået børn, går de <strong>sjældent</strong> i biografen.</li>
+                            <li>Sandra er blevet vegetar, så hun spiser <strong>aldrig</strong> kød mere.</li>
+                            <li>Min søn skal <strong>snart</strong> i gymnasiet, og <strong>derefter</strong> skal han
+                                studere medicin.</li>
+                            <li>Statsministerens popularitet er i dag større end <strong>nogensinde</strong>.</li>
+                            <li>Selvom Ole er gået på pension, arbejder han <strong>stadigvæk</strong> lidt engang
+                                imellem.</li>
+                            <li>Nadia er <strong>lige</strong> flyttet, og derfor har hun skiftet job.</li>
+                            <li>Sæt falaflerne i ovnen i ca. 10 minutter, og server dem <strong>straks</strong>.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Trích dẫn — Mục 5.3.1</h3>
+                        <div class="quote-box">Những trạng từ thời gian trả lời cho câu hỏi "Khi nào?" (Hvornår?). Ví
+                            dụ: nogensinde, altid, aldrig, snart, tit.</div>
+                        <h3>Phân tích tidsadverbier</h3>
+                        <ul>
+                            <li><span class="hl">allerede</span> — đã (sớm hơn mong đợi)</li>
+                            <li><span class="hl">først</span> — chỉ mới (muộn hơn mong đợi)</li>
+                            <li><span class="hl">tit</span> — thường xuyên (nhiều lần)</li>
+                            <li><span class="hl">sjældent</span> — hiếm khi (ít lần)</li>
+                            <li><span class="hl">aldrig</span> — không bao giờ (0%)</li>
+                            <li><span class="hl">snart</span> — sắp thôi (tương lai gần)</li>
+                            <li><span class="hl">derefter</span> — sau đó (thứ tự thời gian)</li>
+                            <li><span class="hl">nogensinde</span> — bao giờ (trong lịch sử)</li>
+                            <li><span class="hl">stadigvæk</span> — vẫn còn (tiếp tục từ trước)</li>
+                            <li><span class="hl">lige</span> — vừa mới (quá khứ rất gần)</li>
+                            <li><span class="hl">straks</span> — ngay lập tức (không chậm trễ)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===========================
+       OPGAVE 5 & 6
+  =========================== -->
+            <div class="opgave-block" id="op5">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 5 &amp; 6</span>
+                    <h2 class="op-title">Quiz — Adverbiers betydning i kontekst</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Opgave 5 — Đáp án</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Đáp án</th>
+                                        <th>Giải thích ngắn</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td>
+                                        <td><strong>b</strong></td>
+                                        <td>Han kommer <em>mange gange</em> for sent → tit = nhiều lần</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><strong>c</strong></td>
+                                        <td>Hun rejser i morgen, og det er jeg ked af → desværre = tiếc</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><strong>c</strong></td>
+                                        <td>Jeg er sikker på, at de skal giftes → nok = chắc chắn</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><strong>a</strong></td>
+                                        <td>Hun er næsten aldrig syg → sjældent ≈ næsten aldrig</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td><strong>b</strong></td>
+                                        <td>Han løber hver morgen, fordi han er på slankekur → nemlig = bởi vì</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><strong>c</strong></td>
+                                        <td>Han var syg, men gik i skole → alligevel = dù vậy</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td><strong>a</strong></td>
+                                        <td>Marcus og Sofia er kærester nu og var det også før → stadigvæk = vẫn còn
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <span class="col-label" style="margin-top:16px">Opgave 6 — Đáp án</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Đáp án</th>
+                                        <th>Giải thích ngắn</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>7</td>
+                                        <td><strong>c</strong></td>
+                                        <td>Vi har fået en ny chef, og det er jeg glad for → heldigvis = may mắn</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td><strong>c</strong></td>
+                                        <td>Han fik meget medicin, og det var ikke godt → for = quá (tiêu cực)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td><strong>a</strong></td>
+                                        <td>Jeg betaler 5.500 kr. i husleje, og det synes jeg er billigt → kun = chỉ
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td><strong>c</strong></td>
+                                        <td>Han er gået, og det er jeg glad for → endelig = cuối cùng</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                        <td><strong>a</strong></td>
+                                        <td>Politikerne har ikke <em>før nu</em> fået øjnene op → først = chỉ mới</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td><strong>b</strong></td>
+                                        <td>Det nye byggeri begyndte i november, og det var <em>tidligere end
+                                                forventet</em> → allerede = đã (sớm)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13</td>
+                                        <td><strong>b</strong></td>
+                                        <td>Undervisningen er <em>måske</em> aflyst → muligvis = có thể</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Các cặp dễ nhầm lẫn</h3>
+                        <ul>
+                            <li><span class="hl">allerede</span> (sớm hơn dự kiến) ≠ <span class="hl">endelig</span>
+                                (muộn hơn, sau khi chờ lâu)</li>
+                            <li><span class="hl">nemlig</span> (giải thích nguyên nhân) ≠ <span class="hl">derfor</span>
+                                (chỉ kết quả)</li>
+                            <li><span class="hl">nok</span> (có lẽ/chắc chắn — tùy ngữ cảnh)</li>
+                            <li><span class="hl">sjældent</span> ≈ næsten aldrig</li>
+                            <li><span class="hl">alligevel</span> = tuy nhiên, dù vậy</li>
+                            <li><span class="hl">muligvis</span> = có thể (không chắc chắn)</li>
+                        </ul>
+                        <h3>Quy tắc nhớ</h3>
+                        <pre class="code-block">allerede = SỚM hơn mong đợi  (Wohoo, already?!)
+endelig  = MUỘN hơn mong đợi  (Finally! At last!)</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===========================
+       OPGAVE 7
+  =========================== -->
+            <div class="opgave-block" id="op7">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 7</span>
+                    <h2 class="op-title">Indsæt gradsadverbier og adjektiver — Trạng từ mức độ</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol start="0">
+                            <li>Mine bedsteforældre er blevet <strong>for gamle</strong> til at rejse udenlands.</li>
+                            <li>Min ven og jeg er begge <strong>lige gamle</strong>.</li>
+                            <li>Vi var <strong>helt ædru</strong>, da vi kørte hjem.</li>
+                            <li>Der var <strong>meget stille</strong> under middagen.</li>
+                            <li>Vi var <strong>for unge</strong> til at købe alkohol.</li>
+                            <li>Min nabo er <strong>ret irriterende</strong>.</li>
+                            <li>Jeg synes, det er <strong>virkelig ulækkert</strong>, når du smasker.</li>
+                            <li>Peter og Anna er <strong>så uenige</strong> politisk.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Trích dẫn — Mục 5.3.3</h3>
+                        <div class="quote-box">Gradsadverbier trả lời câu hỏi "Đến mức độ nào?" (I hvilken grad?). Chúng
+                            bổ nghĩa cho tính từ hoặc trạng từ khác để nhấn mạnh hoặc giảm nhẹ mức độ. Ví dụ: meget,
+                            for, virkelig, helt.</div>
+                        <h3>Bảng mức độ</h3>
+                        <ul>
+                            <li><span class="hl">for</span> + adj = quá (tiêu cực)</li>
+                            <li><span class="hl">lige</span> + adj = bằng nhau, giống hệt</li>
+                            <li><span class="hl">helt</span> + adj = hoàn toàn</li>
+                            <li><span class="hl">meget</span> + adj = rất</li>
+                            <li><span class="hl">ret</span> + adj = khá, tương đối</li>
+                            <li><span class="hl">virkelig</span> + adj = thực sự</li>
+                            <li><span class="hl">så</span> + adj = quá, đến mức</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===========================
+       OPGAVE 8
+  =========================== -->
+            <div class="opgave-block" id="op8">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 8</span>
+                    <h2 class="op-title">Skriv sætninger med gradsadverbier — Luyện tập sáng tạo</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án (Ví dụ)</span>
+                        <ol start="0">
+                            <li>Min veninde blev <strong>enormt sur</strong> på sin kæreste i går.</li>
+                            <li>Jeg synes, filmen var <strong>virkelig kedelig</strong>.</li>
+                            <li>Hun er <strong>utrolig tynd</strong> efter sin slankekur.</li>
+                            <li>Han blev <strong>rigtig jaloux</strong>, da hun dansede med en anden.</li>
+                            <li>Min bror er <strong>temmelig doven</strong> og hjælper aldrig til.</li>
+                            <li>Jeg er <strong>så træt</strong> i dag, at jeg måske må gå tidligt hjem.</li>
+                            <li>Vi blev <strong>helt glade</strong> over den gode nyhed.</li>
+                            <li>Du er <strong>vildt heldig</strong> at have vundet i lotto.</li>
+                            <li>Gulvet er <strong>ret snavset</strong>, så det skal vaskes.</li>
+                            <li>Jeg er <strong>for bange</strong> til at hoppe i faldskærm.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Thang mức độ nhấn mạnh</h3>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Mức độ</th>
+                                        <th>Trạng từ</th>
+                                        <th>Ví dụ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Cực cao</strong></td>
+                                        <td>enormt, utrolig, vildt</td>
+                                        <td>utrolig dyr</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Cao</strong></td>
+                                        <td>virkelig, rigtig, meget</td>
+                                        <td>meget glad</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Trung bình</strong></td>
+                                        <td>ret, temmelig, så</td>
+                                        <td>ret billig</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Tuyệt đối</strong></td>
+                                        <td>helt</td>
+                                        <td>helt sikker</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Quá mức</strong></td>
+                                        <td>for</td>
+                                        <td>for dyr (xấu)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===========================
+       OPGAVE 9
+  =========================== -->
+            <div class="opgave-block" id="op9">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 9</span>
+                    <h2 class="op-title">Indsæt adverbier i sætningerne — Phù hợp ngữ cảnh</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án</span>
+                        <ol>
+                            <li>Du kan <strong>sagtens</strong> låne min bil. Det er ikke noget problem.</li>
+                            <li>Vejret var <strong>heldigvis</strong> godt det meste af ferien.</li>
+                            <li>Vi havde <strong>desværre</strong> ikke råd til at rejse i år.</li>
+                            <li>Det er <strong>simpelthen</strong> umuligt for mig at løse opgaven. Den er alt for svær.
+                            </li>
+                            <li>Jeg taler ikke kun dansk og engelsk. Jeg taler <strong>faktisk</strong> mange sprog.
+                            </li>
+                            <li>Vi må <strong>jo</strong> begrænse CO₂ udslippet.</li>
+                            <li>Selvom De er rare at have, er penge <strong>jo</strong> ikke alt her i livet.</li>
+                            <li>Der har <strong>heldigvis</strong> ikke været nogen syge lærere i dag.</li>
+                            <li>Parret delte husarbejdet, de boede <strong>jo</strong> sammen.</li>
+                            <li>Jeg har lavet havearbejde hele weekenden, så jeg har <strong>desværre</strong> så ondt i
+                                ryggen.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Áp dụng</h3>
+                        <ul>
+                            <li><span class="hl">sagtens</span> = dễ dàng, không vấn đề gì</li>
+                            <li><span class="hl">heldigvis</span> = may mắn thay (tích cực)</li>
+                            <li><span class="hl">desværre</span> = tiếc thay (tiêu cực)</li>
+                            <li><span class="hl">simpelthen</span> = đơn giản là (nhấn mạnh)</li>
+                            <li><span class="hl">faktisk</span> = thực ra (làm rõ sự thật ngạc nhiên)</li>
+                            <li><span class="hl">jo</span> = mà (nhắc điều hiển nhiên, người nghe đã biết)</li>
+                        </ul>
+                        <h3>Jo — dùng khi nào?</h3>
+                        <p><span class="hl">Jo</span> dùng khi người nói muốn nhắc nhở điều mà người nghe đã biết hoặc
+                            nên biết, thường mang ý nghĩa "đương nhiên rồi", "ai cũng biết cả".</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===========================
+       OPGAVE 10
+  =========================== -->
+            <div class="opgave-block" id="op10">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 10</span>
+                    <h2 class="op-title">Stedsadverbier — Dạng ngắn (hướng) hay dạng dài (vị trí)?</h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers">
+                        <span class="col-label">Quy tắc cốt lõi</span>
+                        <div class="dir-grid">
+                            <div class="dir-card motion">
+                                <span class="dir-card-label">🏃 Dạng ngắn = Chuyển động / Hướng</span>
+                                <p><strong>ind</strong> — vào trong &nbsp;|&nbsp; <strong>ud</strong> — ra ngoài</p>
+                                <p><strong>op</strong> — lên trên &nbsp;|&nbsp; <strong>ned</strong> — xuống dưới</p>
+                                <p><strong>hjem</strong> — về nhà &nbsp;|&nbsp; <strong>hen</strong> — đi đến</p>
+                                <p><strong>over</strong> — qua &nbsp;|&nbsp; <strong>frem</strong> — tiến lên</p>
+                                <p><strong>bort</strong> — đi xa &nbsp;|&nbsp; <strong>om</strong> — vòng qua</p>
+                            </div>
+                            <div class="dir-card position">
+                                <span class="dir-card-label">🪑 Dạng dài = Vị trí / Trạng thái tĩnh</span>
+                                <p><strong>inde</strong> — ở trong &nbsp;|&nbsp; <strong>ude</strong> — ở ngoài</p>
+                                <p><strong>oppe</strong> — ở trên &nbsp;|&nbsp; <strong>nede</strong> — ở dưới</p>
+                                <p><strong>hjemme</strong> — ở nhà &nbsp;|&nbsp; <strong>henne</strong> — ở đó</p>
+                                <p><strong>ovre</strong> — ở bên kia &nbsp;|&nbsp; <strong>fremme</strong> — ở phía
+                                    trước</p>
+                                <p><strong>borte</strong> — mất, vắng &nbsp;|&nbsp; <strong>omme</strong> — ở phía sau
+                                </p>
+                            </div>
+                        </div>
+
+                        <span class="col-label" style="margin-top:18px">Đáp án — Điền vào chỗ trống</span>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Cặp</th>
+                                        <th>Hướng (ngắn)</th>
+                                        <th>Vị trí (dài)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>ind/inde</strong></td>
+                                        <td>Kom <strong>ind</strong>! / Gå <strong>ind</strong> til byen</td>
+                                        <td>Lone står <strong>inde</strong> i stuen / inde i byen</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ud/ude</strong></td>
+                                        <td>Hun kører <strong>ud</strong> til sin bror</td>
+                                        <td>Han bor <strong>ude</strong> på landet / bilen er <strong>ude</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>op/oppe</strong></td>
+                                        <td>Pia går <strong>op</strong> i bussen</td>
+                                        <td>Jens sidder <strong>oppe</strong> i bussen / bor <strong>oppe</strong> på 4.
+                                            sal</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ned/nede</strong></td>
+                                        <td>De tager <strong>ned</strong> til Spanien / kælker <strong>ned</strong></td>
+                                        <td>Martha har værelse <strong>nede</strong> i kælderen</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>over/ovre</strong></td>
+                                        <td>Børnene skal <strong>over</strong> til deres onkel</td>
+                                        <td>De sover <strong>ovre</strong> hos ham / briller <strong>ovre</strong> hos
+                                            naboen</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>om/omme</strong></td>
+                                        <td>Hun stillede cyklen <strong>om</strong> bag huset</td>
+                                        <td>Cyklen står <strong>omme</strong> bag huset</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>hen/henne</strong></td>
+                                        <td>Jeg skal <strong>hen</strong> til kiosken / løber <strong>hen</strong> til
+                                            bussen</td>
+                                        <td>Han venter <strong>henne</strong> ved stoppestedet</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>derhen/derhenne</strong></td>
+                                        <td>Han cykler <strong>derhen</strong></td>
+                                        <td>Togstationen ligger <strong>derhenne</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>hjem/hjemme</strong></td>
+                                        <td>Bo tager toget <strong>hjem</strong> / Hvornår rejser du
+                                            <strong>hjem</strong>?</td>
+                                        <td>Er først <strong>hjemme</strong> kl. 19 / blive <strong>hjemme</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>frem/fremme</strong></td>
+                                        <td>Manden masede sig <strong>frem</strong> / Tårerne sprang
+                                            <strong>frem</strong></td>
+                                        <td>Hun stod helt <strong>fremme</strong> i bussen</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>bort/borte</strong></td>
+                                        <td>De kørte <strong>bort</strong> i en hvid varebil</td>
+                                        <td>Drengen var <strong>borte</strong> / briller er <strong>borte</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===========================
+       OPGAVE 11
+  =========================== -->
+            <div class="opgave-block" id="op11">
+                <div class="op-header">
+                    <span class="op-badge spicy">Opgave 11 🌶️</span>
+                    <h2 class="op-title">Faste forbindelser med stedsadverbier — Cụm từ cố định</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">ind / inde / ud / ude — Đáp án</span>
+                        <ol>
+                            <li>Asta var <strong>ude</strong> for et trafikuheld, men kom ikke til skade.</li>
+                            <li>Partiet Venstre går <strong>ind</strong> for liberale værdier.</li>
+                            <li>To medlemmer stopper og træder <strong>ud</strong> af bestyrelsen.</li>
+                            <li>Han har studeret jura, så han er godt <strong>inde</strong> i lovgivningen.</li>
+                            <li>Manden var <strong>ude</strong> af sig selv af raseri.</li>
+                            <li>Alle mulige skældsord røg <strong>ud</strong> af munden på hende.</li>
+                            <li>Frode har siddet <strong>inde</strong> i 2 år. (ngồi tù)</li>
+                            <li>Vi var desværre alt for sent <strong>ude</strong>.</li>
+                            <li>Da Ruth blev fyret, blev hun slået helt <strong>ud</strong>.</li>
+                            <li>Jeg synes, det er langt <strong>ude</strong>, at man vil bygge den motorvej.</li>
+                            <li>Advokaten ligger <strong>ude</strong> med alle de vigtige dokumenter.</li>
+                            <li>Mange arbejdsløse føler sig lukket <strong>ude</strong> af samfundet.</li>
+                            <li>Mens vi var på ferie, brød tyve <strong>ind</strong> i vores lejlighed.</li>
+                            <li>Jeg stødte <strong>ind</strong> i min gamle klassekammerat Ida på gaden.</li>
+                        </ol>
+                        <span class="col-label" style="margin-top:16px">op / oppe / ned / nede — Đáp án</span>
+                        <ol>
+                            <li>Mette er arrogant og ser <strong>ned</strong> på andre mennesker.</li>
+                            <li>Klassen skal <strong>op</strong> til eksamen i morgen.</li>
+                            <li>Klassen var <strong>oppe</strong> i skriftlig dansk i går.</li>
+                            <li>Han prøver at holde humøret <strong>oppe</strong>.</li>
+                            <li>Hendes mor var lige død, så hun var langt <strong>nede</strong>.</li>
+                            <li>Jeg blev sur på min chef og sagde mit job <strong>op</strong>.</li>
+                            <li>De tre søskende er tit <strong>oppe</strong> at skændes.</li>
+                            <li>Vi bør skære <strong>ned</strong> på vores forbrug.</li>
+                            <li>Du kan slå ordet <strong>op</strong> i ordbogen.</li>
+                            <li>Selvom hun er berømt, er hun helt <strong>nede</strong> på jorden.</li>
+                            <li>Jeppe stiller <strong>op</strong> som kandidat til formandsposten.</li>
+                            <li>Da jeg så den lille dreng løbe ud på vejen, løb det mig koldt <strong>ned</strong> ad
+                                ryggen.</li>
+                            <li>I dag står solen <strong>op</strong> kl. 7.36 og går <strong>ned</strong> kl. 18.15.
+                            </li>
+                            <li>Regeringen prøvede at holde de offentlige udgifter <strong>nede</strong>.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Cụm cố định — ind/inde/ud/ude</h3>
+                        <ul>
+                            <li><code class="mono">være ude for</code> = gặp phải (sự cố, tai nạn)</li>
+                            <li><code class="mono">gå ind for</code> = ủng hộ</li>
+                            <li><code class="mono">træde ud af</code> = rút lui khỏi</li>
+                            <li><code class="mono">være inde i</code> = hiểu rõ về</li>
+                            <li><code class="mono">være ude af sig selv</code> = mất bình tĩnh</li>
+                            <li><code class="mono">sidde inde</code> = ngồi tù</li>
+                            <li><code class="mono">være sent ude</code> = muộn màng</li>
+                            <li><code class="mono">langt ude</code> = quá đáng, vô lý</li>
+                            <li><code class="mono">bryde ind</code> = đột nhập</li>
+                            <li><code class="mono">støde ind i</code> = tình cờ gặp</li>
+                        </ul>
+                        <h3>Cụm cố định — op/oppe/ned/nede</h3>
+                        <ul>
+                            <li><code class="mono">se ned på</code> = coi thường</li>
+                            <li><code class="mono">op til eksamen</code> = thi (lên phòng thi)</li>
+                            <li><code class="mono">holde humøret oppe</code> = giữ tinh thần</li>
+                            <li><code class="mono">være nede</code> = buồn bã, chán nản</li>
+                            <li><code class="mono">sige op</code> = từ chức, nghỉ việc</li>
+                            <li><code class="mono">skære ned på</code> = cắt giảm</li>
+                            <li><code class="mono">slå op (i ordbogen)</code> = tra từ điển</li>
+                            <li><code class="mono">nede på jorden</code> = khiêm tốn, giản dị</li>
+                            <li><code class="mono">stille op</code> = ứng cử</li>
+                            <li><code class="mono">løbe koldt ned ad ryggen</code> = rùng mình sợ hãi</li>
+                            <li><code class="mono">stå op</code> = mọc (mặt trời) / <code class="mono">gå ned</code> =
+                                lặn</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===========================
+       OPGAVE 12
+  =========================== -->
+            <div class="opgave-block" id="op12">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 12</span>
+                    <h2 class="op-title">Indsæt adverbier i sætningerne — Vị trí trạng từ trong câu</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Karl og Maria vil flytte — Đáp án</span>
+                        <div class="letter-block">
+                            <span class="letter-title">Văn bản hoàn chỉnh</span>
+                            <p>Karl og Maria er lige blevet gift og skal <strong>snart</strong> have deres første barn.
+                                Maria er <strong>nemlig</strong> gravid i 7. måned. Karl og Maria bor i en lille
+                                lejlighed i København. De har to små værelser, så de har meget <strong>lidt</strong>
+                                plads. Derfor vil de gerne flytte til noget større, fx en 3- eller 4-værelsers
+                                lejlighed. De vil <strong>gerne</strong> have en altan, og de vil <strong>også</strong>
+                                gerne have en grøn gård med en lille legeplads. De har længe ledt efter en større
+                                lejlighed inde i byen, men de kan <strong>kun</strong> betale maks. 8.000 kr. i husleje
+                                pr. måned, så de har ikke fundet nogen lejlighed, de har råd til at bo i.</p>
+                            <p>Karl synes, de skal flytte ud på landet, for han er opvokset på landet, og han er
+                                <strong>ikke</strong> så glad for at bo inde i byen. Han tror heller ikke, at de
+                                <strong>nogensinde</strong> vil få råd til en god bolig inde i byen. Maria elsker at bo
+                                i byen, men hun er <strong>jo</strong> begyndt at tænke på at flytte ud af byen, fordi
+                                man <strong>alligevel</strong> får meget mere for pengene ude på landet.</p>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Trích dẫn — Chương 8: Ordstilling</h3>
+                        <div class="quote-box">
+                            <p><strong>Mệnh đề chính (S-V-A):</strong> Trật tự từ tiêu chuẩn là Chủ ngữ - Động từ -
+                                Trạng ngữ.</p>
+                            <p><strong>Mệnh đề phụ (S-A-V):</strong> Đây là quy tắc vàng — Trạng từ đứng <em>trước</em>
+                                động từ hữu hạn. Cấu trúc: (Liên từ phụ) - S-A-V...</p>
+                        </div>
+                        <h3>So sánh trực tiếp</h3>
+                        <pre class="code-block">HOOFDSÆTNING (S-V-A):
+De vil GERNE have en altan.
+(S)  (V)  (A)
+
+LEDSÆTNING (S-A-V):
+...at de NOGENSINDE vil få råd...
+(S)  (A)           (V)
+
+...fordi man ALLIGEVEL får mere...
+(S)          (A)       (V)</pre>
+                        <h3>Quy tắc vàng</h3>
+                        <p>Đây là <strong>điểm khác biệt lớn nhất</strong> giữa mệnh đề chính và mệnh đề phụ trong tiếng
+                            Đan Mạch. Trạng từ phủ định <span class="hl">ikke</span> và các trạng từ ngắn khác luôn đứng
+                            TRƯỚC động từ trong ledsætning.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===========================
+       OPGAVE 13
+  =========================== -->
+            <div class="opgave-block" id="op13">
+                <div class="op-header">
+                    <span class="op-badge spicy">Opgave 13 🌶️</span>
+                    <h2 class="op-title">Indsæt adverbier i teksterne — Tranh luận về điện thoại ở trường</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-label">Đáp án — Mobilforbud i skolen?</span>
+                        <div class="letter-block">
+                            <span class="letter-title">Bài viết của chủ đề</span>
+                            <p>Der raser en diskussion, om elever skal have lov til at have mobiltelefoner med i skolen,
+                                og der er <strong>jo</strong> en række skoler, der har indført et forbud. Jeg synes,
+                                børn bruger ALT for meget tid på deres telefoner i stedet for at lære, lege og snakke
+                                med hinanden. I undervisningen har de <strong>selvfølgelig</strong> deres computere, men
+                                gør skolen mobilfri!</p>
+                        </div>
+                        <div class="letter-block">
+                            <span class="letter-title">Kommentarer</span>
+                            <p><strong>MissMary:</strong> Helt uenig! Jeg synes <strong>ikke</strong>, der bør være
+                                nogen begrænsning. Børnene må selv styre deres mobilbrug, og det lærer de
+                                <strong>jo</strong>, hvis man ikke laver restriktioner.</p>
+                            <p><strong>Supermom:</strong> Mobilen ud af skolerne — den gør <strong>ikke</strong>
+                                eleverne asociale! Eleverne skal bevæge sig og udvikle sociale kompetencer frem for at
+                                sidde med telefonen.</p>
+                            <p><strong>ClausC:</strong> Brug af mobiltelefoner er ikke skolens ansvar, men forældrenes.
+                                Så forældrene må <strong>selvfølgelig</strong> gå forrest og lægge mobilen væk.</p>
+                            <p><strong>StinaStorm:</strong> Forbyd dem ved lov NU! Telefonerne bimler og bamler i
+                                timerne. Det forstyrrer undervisningen. De har <strong>hele tiden</strong> blikket
+                                rettet mod den lille, lysende skærm.</p>
+                            <p><strong>Simon68:</strong> Mobilen skal bruges med omtanke i skolen, men
+                                <strong>ikke</strong> forbydes. Mobiler kan <strong>heldigvis</strong> inddrages
+                                meningsfuldt i undervisningen.</p>
+                            <p><strong>AliceM:</strong> Et mobilforbud er en hjælp — og <strong>ikke</strong> en straf —
+                                til skolebørnene. Mobilen frister <strong>derfor</strong> både børn og voksne.</p>
+                            <p><strong>Zigzag:</strong> Folkeskolerne kan <strong>godt</strong> selv finde ud af at lave
+                                regler for brug af mobiler.</p>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Trạng từ trong văn bản tranh luận</h3>
+                        <ul>
+                            <li><span class="hl">jo</span> = nhắc nhở điều hiển nhiên, người nghe đã biết</li>
+                            <li><span class="hl">selvfølgelig</span> = tất nhiên (quan điểm rõ ràng, mạnh)</li>
+                            <li><span class="hl">ikke</span> = phủ định (quan điểm phản đối)</li>
+                            <li><span class="hl">heldigvis</span> = may mắn thay (quan điểm tích cực)</li>
+                            <li><span class="hl">derfor</span> = vì vậy (rút ra kết luận)</li>
+                            <li><span class="hl">godt</span> = được, có thể (khả năng)</li>
+                        </ul>
+                        <h3>Chức năng trong tranh luận</h3>
+                        <p>Trong văn bản tranh luận, trạng từ đóng vai trò quan trọng: <span class="hl">jo</span> và
+                            <span class="hl">selvfølgelig</span> tạo ra hiệu ứng thuyết phục mạnh mẽ, trong khi <span
+                                class="hl">heldigvis/desværre</span> thể hiện rõ lập trường của người viết.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===========================
+       REPETITION — ERROR DARK PANEL
+  =========================== -->
+            <div class="stative-block" id="rep">
+                <div class="stative-accent"></div>
+                <div class="stative-inner">
+                    <span class="stative-badge">⚠️ REPETITION · SỬA LỖI TRẠNG TỪ</span>
+                    <h2 class="stative-title">Fejlretning — <em>Adverbier</em></h2>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">1. Đúng — Không có lỗi</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Han taler og skriver virkelig godt dansk.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">Đúng: virkelig (trạng từ mức độ) + godt (trạng
+                                        từ cách thức từ "god" + -t). Cả hai đều đúng dạng và vị trí.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">2. Thiếu "for" + dùng tính từ thay vì trạng từ</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">De kører alt hurtig i deres nye bil.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">De kører alt for hurtigt i deres nye bil.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">Cần "for" sau "alt" (alt for = quá); "hurtig"
+                                        là tính từ, phải dùng trạng từ "hurtigt" khi bổ nghĩa cho động từ kører.</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">3. Trạng từ không phù hợp ngữ cảnh</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg blev stadigvæk fyret, så jeg skal finde et nyt
+                                        job.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg blev desværre fyret, så jeg skal finde et nyt
+                                        job.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">"stadigvæk" (vẫn còn — tiếp tục) không phù hợp
+                                        với sự kiện bị sa thải xảy ra một lần. "desværre" (tiếc thay) thể hiện cảm xúc
+                                        đúng với ngữ cảnh.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">4. Logic mâu thuẫn trong câu</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Sanna kommer aldrig for sent i skole, fordi hun står for
+                                        sent op.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Sanna kommer aldrig for sent i skole, fordi hun står tidligt
+                                        op.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">Logic mâu thuẫn: không thể đến đúng giờ VÌ dậy
+                                        muộn. Phải là "tidligt" (sớm) để giải thích tại sao không bao giờ đến
+                                        muộn.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">5. Sai dạng ngắn/dài stedsadverbier với "blive"</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Han er syg og må blive hjem i et par dage.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Han er syg og må blive hjemme i et par dage.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">"hjem" = dạng ngắn chỉ hướng di chuyển về nhà.
+                                        "hjemme" = dạng dài chỉ vị trí ở nhà. Sau "blive" (ở lại) luôn dùng dạng
+                                        dài.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">6. Sai dạng ngắn/dài với "bor"</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg besøger tit mine forældre, som bor ud på landet.</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg besøger tit mine forældre, som bor ude på landet.</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">"ud" = hướng (đang đi ra ngoài). "ude" = vị trí
+                                        cố định (đang sống ở ngoài). Sau "bor" luôn dùng dạng dài.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">7. Sai logic thời gian (tương lai vs. quá khứ gần)</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg er snart begyndt at læse på universitetet, det er
+                                        allerede to uger siden.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg er lige begyndt at læse på universitetet, det er
+                                        allerede to uger siden.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">"snart" chỉ tương lai (sắp sửa), nhưng "for to
+                                        uger siden" xác nhận sự việc đã xảy ra. "lige" (vừa mới) chỉ quá khứ rất gần →
+                                        đúng ngữ cảnh.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">8. Trạng từ mâu thuẫn với phần còn lại của câu</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Du kan desværre låne nogle penge af mig. Det er ikke noget
+                                        problem.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Du kan sagtens låne nogle penge af mig. Det er ikke noget
+                                        problem.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">"desværre" (tiếc thay — tiêu cực) mâu thuẫn với
+                                        "ikke noget problem" (không vấn đề gì — tích cực). "sagtens" (dễ dàng) phù hợp
+                                        khi muốn nói cho mượn tiền là OK.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">9. Nhầm nemlig (nguyên nhân) với så (kết quả)</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg har arbejdet hårdt hele ugen, nemlig trænger jeg til at
+                                        slappe af.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg har arbejdet hårdt hele ugen, så jeg trænger til at
+                                        slappe af.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">"nemlig" giải thích nguyên nhân (đứng sau dấu
+                                        phẩy, trong mệnh đề cùng câu). Ở đây cần "så" (vì vậy) để chỉ kết quả của việc
+                                        làm việc vất vả.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">10. Sai hướng ind/ud và vị trí inde/ude</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg kører ud til byen hver morgen, fordi jeg arbejder ind i
+                                        byen.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg kører ind til byen hver morgen, fordi jeg arbejder inde
+                                        i byen.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">Nếu làm việc "trong thành phố" thì phải lái xe
+                                        "vào" (ind) thành phố, không phải "ra ngoài" (ud). "inde i byen" = ở trong thành
+                                        phố (vị trí tĩnh).</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===========================
+       CHECKLIST
+  =========================== -->
+            <section class="checklist-block" id="summary">
+                <h2 class="checklist-title"><span class="emoji">🎯</span> Checklist kiểm tra lỗi trạng từ</h2>
+                <p style="font-size:0.9rem;color:var(--muted);margin-bottom:20px;">Khi sử dụng trạng từ, hãy tự hỏi:</p>
+
+                <div class="check-item">
+                    <strong>✅ 1. Đây là trạng từ hay tính từ?</strong>
+                    <ul>
+                        <li>Bổ nghĩa động từ → Trạng từ (thêm -t): Han kører <span class="hl">hurtigt</span></li>
+                        <li>Bổ nghĩa danh từ → Tính từ: en <span class="hl">hurtig</span> bil</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 2. Stedsadverbier: Chuyển động hay vị trí?</strong>
+                    <ul>
+                        <li>Chuyển động → Dạng ngắn: Gå <span class="hl">hjem</span>! Tag <span class="hl">ind</span>!
+                        </li>
+                        <li>Vị trí cố định → Dạng dài: Bliv <span class="hl">hjemme</span>! Jeg er <span
+                                class="hl">inde</span>.</li>
+                        <li>Sau "bor" / "blive" → luôn dùng dạng dài</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 3. Vị trí trạng từ đúng chưa?</strong>
+                    <ul>
+                        <li>Mệnh đề chính (S-V-A) → SAU động từ: Han spiser <span class="hl">altid</span> frokost</li>
+                        <li>Mệnh đề phụ (S-A-V) → TRƯỚC động từ: ...fordi han <span class="hl">altid</span> spiser
+                            frokost</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 4. Trạng từ có phù hợp ngữ cảnh không?</strong>
+                    <ul>
+                        <li><span class="hl">desværre</span> (tiêu cực) ≠ <span class="hl">heldigvis</span> (tích cực)
+                        </li>
+                        <li><span class="hl">snart</span> (tương lai) ≠ <span class="hl">lige</span> (quá khứ gần)</li>
+                        <li><span class="hl">nemlig</span> (nguyên nhân) ≠ <span class="hl">så</span> / <span
+                                class="hl">derfor</span> (kết quả)</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 5. "Alt for" — Thiếu "for" không?</strong>
+                    <ul>
+                        <li>Sai: Det er <span class="hl-err">alt dyrt</span></li>
+                        <li>Đúng: Det er <span class="hl-ok">alt for dyrt</span></li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 6. Cụm cố định (faste forbindelser) với trạng từ nơi chốn?</strong>
+                    <ul>
+                        <li><code class="mono">gå ind for</code> = ủng hộ &nbsp;|&nbsp; <code
+                                class="mono">være inde i</code> = hiểu rõ</li>
+                        <li><code class="mono">være ude for</code> = gặp phải &nbsp;|&nbsp; <code
+                                class="mono">sige op</code> = từ chức</li>
+                        <li><code class="mono">slå op</code> = tra từ điển &nbsp;|&nbsp; <code
+                                class="mono">skære ned på</code> = cắt giảm</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ===========================
+       SUMMARY FORMULA BLOCK
+  =========================== -->
+            <div class="summary-block" id="formula">
+                <h2 class="summary-title"><span class="emoji">🏆</span> Tóm tắt các quy tắc quan trọng nhất</h2>
+
+                <pre class="code-block">BA LOẠI TRẠNG TỪ CHÍNH:
+
+  A. ÆGTE ADVERBIER (trạng từ thuần túy):
+     Thời gian:  altid, aldrig, snart, nu, tit, sjældent, nogensinde, allerede, endelig
+     Nơi chốn:   her, der, ind/inde, ud/ude, op/oppe, ned/nede, hjem/hjemme
+     Khác:       også, ikke, måske, gerne, jo, nemlig, alligevel, desværre, heldigvis
+
+  B. T-ADVERBIER (tính từ + -t = trạng từ cách thức):
+     hurtig → hurtigt  |  langsom → langsomt  |  dårlig → dårligt
+
+  C. GRADSADVERBIER (trạng từ mức độ, trước tính từ/trạng từ):
+     Cực cao:    enormt, utrolig, vildt, virkelig
+     Cao:        meget, rigtig, ret, temmelig
+     Tuyệt đối:  helt (hoàn toàn)
+     Bằng nhau:  lige
+     Quá mức:    for, alt for (tiêu cực)
+
+STEDSADVERBIER — Ngắn vs Dài:
+  Ngắn (hướng):   ind  ud  op  ned  hjem  hen  over  frem  bort  om
+  Dài (vị trí):   inde ude oppe nede hjemme henne ovre fremme borte omme
+
+  ⚡ Quy tắc: "bor" + dài | "blive" + dài | "gå/køre/tage" + ngắn
+
+VỊ TRÍ TRẠNG TỪ — QUY TẮC VÀNG:
+  Mệnh đề chính:  S + V + [ADVERBIUM] + ...
+  Mệnh đề phụ:    (Konj) + S + [ADVERBIUM] + V + ...
+
+  ĐÚNG: ...fordi han ALTID spiser frokost.
+  SAI:  ...fordi han spiser ALTID frokost.</pre>
+
+                <div style="margin-top:20px">
+                    <h3 style="color:#fff;font-family:var(--font-display);font-size:1.1rem;margin-bottom:14px">❌ Các lỗi
+                        phổ biến nhất</h3>
+                    <div class="table-wrap">
+                        <table style="background:transparent">
+                            <thead>
+                                <tr>
+                                    <th>Sai ❌</th>
+                                    <th>Đúng ✅</th>
+                                    <th>Lý do</th>
+                                </tr>
+                            </thead>
+                            <tbody style="color:#ffd6a5">
+                                <tr>
+                                    <td><span class="err-wrong">Han kører hurtig</span></td>
+                                    <td><span class="err-right">Han kører hurtigt</span></td>
+                                    <td class="err-reason">Bổ nghĩa động từ → trạng từ +t</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="err-wrong">Bliv hjem!</span></td>
+                                    <td><span class="err-right">Bliv hjemme!</span></td>
+                                    <td class="err-reason">Sau "blive" → dạng dài</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="err-wrong">Han bor ud på landet</span></td>
+                                    <td><span class="err-right">Han bor ude på landet</span></td>
+                                    <td class="err-reason">Sau "bor" → dạng dài</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="err-wrong">...fordi han spiser altid</span></td>
+                                    <td><span class="err-right">...fordi han altid spiser</span></td>
+                                    <td class="err-reason">Ledsætning: A trước V</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="err-wrong">Det er alt dyrt</span></td>
+                                    <td><span class="err-right">Det er alt for dyrt</span></td>
+                                    <td class="err-reason">Phải có "for" sau "alt"</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="err-wrong">Jeg er snart begyndt</span></td>
+                                    <td><span class="err-right">Jeg er lige begyndt</span></td>
+                                    <td class="err-reason">snart = tương lai, lige = vừa mới</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="err-wrong">nemlig trænger jeg til...</span></td>
+                                    <td><span class="err-right">så trænger jeg til...</span></td>
+                                    <td class="err-reason">nemlig = nguyên nhân, så = kết quả</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="err-wrong">Han er godt ind i lovgivningen</span></td>
+                                    <td><span class="err-right">Han er godt inde i lovgivningen</span></td>
+                                    <td class="err-reason">Cụm cố định: være inde i</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===========================
+       BONUS GRID
+  =========================== -->
+            <section class="bonus-section" id="bonus">
+                <h2 class="bonus-section-title">📖 Bài tập ôn tập bổ sung</h2>
+                <p style="font-size:0.92rem;color:var(--muted);margin-bottom:22px;">Để củng cố kiến thức trạng từ tiếng
+                    Đan Mạch:</p>
+                <div class="bonus-grid">
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">1</span></div>
+                        <p><strong>Học thuộc bảng stedsadverbier</strong> (Opgave 10) — Viết từng cặp ngắn/dài và tự tạo
+                            câu ví dụ cho mỗi cặp.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">2</span></div>
+                        <p><strong>Luyện vị trí trạng từ:</strong> Viết 10 câu với mệnh đề phụ, gạch dưới trạng từ và
+                            kiểm tra xem nó có đứng đúng chỗ không.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">3</span></div>
+                        <p><strong>Học cụm cố định:</strong> Tạo flashcard cho 20 cụm từ cố định (Opgave 11) — một mặt
+                            tiếng Đan Mạch, một mặt nghĩa tiếng Việt.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">4</span></div>
+                        <p><strong>Luyện gradsadverbier:</strong> Mô tả 5 người/vật xung quanh bạn bằng cách dùng ít
+                            nhất 3 gradsadverbier khác nhau.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">5</span></div>
+                        <p><strong>Viết đoạn tranh luận</strong> (như Opgave 13) về một chủ đề bạn quan tâm, sử dụng ít
+                            nhất 6 modaladverbier khác nhau.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">6</span></div>
+                        <p><strong>Truy cập <a href="https://praxisonline.dk"
+                                    target="_blank">praxisonline.dk</a></strong> để làm thêm bài tập trực tuyến về trạng
+                            từ với phản hồi tức thì.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===========================
+       CONCLUSION CARD
+  =========================== -->
+            <div class="conclusion-block">
+                <h2>✅ Hoàn thành — Toàn bộ 13 bài tập + Repetition</h2>
+                <ul class="conclusion-list">
+                    <li>Nhận biết trạng từ và phân biệt với các loại từ khác</li>
+                    <li>Trạng từ thái độ, thời gian, nơi chốn, mức độ</li>
+                    <li>Stedsadverbier: dạng ngắn (hướng) và dạng dài (vị trí)</li>
+                    <li>Cụm từ cố định với ind/ude/op/ned và các biến thể</li>
+                    <li>Quy tắc vàng: vị trí trạng từ trong mệnh đề chính &amp; phụ</li>
+                    <li>Sửa 10 lỗi phổ biến nhất trong Repetition</li>
+                </ul>
+                <p class="conclusion-cta">Nếu bạn cần giải thích sâu hơn, thêm bài tập, hoặc chuyển sang <strong>Chương
+                        6: Giới từ (Præpositioner)</strong> — hãy tiếp tục! 🇩🇰📚</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        CHƯƠNG 5 · ADVERBIER (BIORD) · TIẾNG ĐAN MẠCH
+    </footer>
+
+    <a href="#top" class="back-top">↑ Top</a>
+
+</body>
+
+</html>
