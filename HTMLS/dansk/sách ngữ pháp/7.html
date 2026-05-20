@@ -1,0 +1,2451 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương 7: Liên từ (Konjunktioner) — Đáp án &amp; Giải thích</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Theme C — Orange/Amber: Conjunctions / Word Order / Syntax */
+            --primary: #C86B1A;
+            --primary-light: #FFE4C4;
+            --primary-mid: #F5A45A;
+            --primary-dark: #6E3605;
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F8F8F6;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #E2E0DB;
+            --shadow: rgba(20, 19, 28, .05);
+            --shadow-hover: rgba(200, 107, 26, .15);
+            --fd: 'Playfair Display', Georgia, serif;
+            --fs: 'DM Sans', sans-serif;
+            --fm: 'DM Mono', monospace;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: var(--fs);
+            font-size: 16px;
+            line-height: 1.72;
+            color: var(--ink);
+            background: var(--paper);
+            -webkit-font-smoothing: antialiased
+        }
+
+        /* ── LAYOUT ── */
+        .wrap {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 22px
+        }
+
+        main {
+            padding: 48px 0 88px
+        }
+
+        /* ── HERO ── */
+        header {
+            background: var(--ink);
+            color: #fff;
+            padding: 70px 22px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 25% 55%, rgba(200, 107, 26, .18) 0%, transparent 60%), radial-gradient(ellipse at 80% 15%, rgba(245, 164, 90, .11) 0%, transparent 55%);
+            pointer-events: none
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: var(--fm);
+            font-size: .72rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1px solid rgba(245, 164, 90, .35);
+            padding: 6px 18px;
+            border-radius: 2px;
+            margin-bottom: 26px;
+            position: relative
+        }
+
+        header h1 {
+            font-family: var(--fd);
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: #fff;
+            margin-bottom: 16px;
+            position: relative
+        }
+
+        header h1 em {
+            color: var(--primary-mid);
+            font-style: italic
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, .52);
+            max-width: 560px;
+            margin: 0 auto;
+            font-weight: 300;
+            position: relative
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 44px;
+            margin-top: 42px;
+            flex-wrap: wrap;
+            position: relative
+        }
+
+        .stat-num {
+            display: block;
+            font-family: var(--fm);
+            font-size: 1.75rem;
+            font-weight: 500;
+            color: var(--primary-mid);
+            line-height: 1;
+            margin-bottom: 4px
+        }
+
+        .stat-lbl {
+            font-size: .72rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .38)
+        }
+
+        /* ── TOC ── */
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            padding: 26px 30px;
+            margin: 38px 0
+        }
+
+        .toc-title {
+            font-family: var(--fm);
+            font-size: .78rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 14px
+        }
+
+        .toc ol {
+            padding-left: 20px;
+            columns: 2;
+            column-gap: 30px
+        }
+
+        @media(max-width:560px) {
+            .toc ol {
+                columns: 1
+            }
+        }
+
+        .toc li {
+            font-size: .88rem;
+            margin-bottom: 5px;
+            break-inside: avoid
+        }
+
+        .toc a {
+            color: var(--primary-dark);
+            text-decoration: none
+        }
+
+        .toc a:hover {
+            color: var(--primary);
+            text-decoration: underline
+        }
+
+        /* ── OPGAVE BLOCK ── */
+        .opgave-block {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            margin-bottom: 44px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px var(--shadow);
+            transition: box-shadow .25s
+        }
+
+        .opgave-block:hover {
+            box-shadow: 0 4px 24px var(--shadow-hover)
+        }
+
+        .op-header {
+            padding: 26px 30px 22px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            flex-wrap: wrap
+        }
+
+        .op-badge {
+            font-family: var(--fm);
+            font-size: .72rem;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: 5px 12px;
+            border-radius: 2px;
+            white-space: nowrap;
+            margin-top: 5px
+        }
+
+        .op-badge.spicy {
+            background: rgba(232, 52, 74, .1);
+            color: var(--error)
+        }
+
+        .op-title {
+            font-family: var(--fd);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.3
+        }
+
+        .op-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr
+        }
+
+        @media(max-width:768px) {
+            .op-body {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .op-body.full {
+            grid-template-columns: 1fr
+        }
+
+        .op-answers {
+            background: #FAFAFA;
+            border-right: 1px solid var(--line);
+            padding: 26px 30px
+        }
+
+        @media(max-width:768px) {
+            .op-answers {
+                border-right: none;
+                border-bottom: 1px solid var(--line)
+            }
+        }
+
+        .op-answers.full {
+            border-right: none
+        }
+
+        .col-lbl {
+            font-family: var(--fm);
+            font-size: .7rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 13px;
+            display: block
+        }
+
+        .op-answers ul {
+            list-style: none;
+            padding: 0
+        }
+
+        .op-answers ul li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 6px;
+            font-size: .94rem;
+            line-height: 1.62
+        }
+
+        .op-answers ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700
+        }
+
+        .op-answers p {
+            font-size: .94rem;
+            margin-bottom: 8px
+        }
+
+        .op-answers ol {
+            padding-left: 20px
+        }
+
+        .op-answers ol li {
+            font-size: .94rem;
+            margin-bottom: 6px;
+            line-height: 1.65
+        }
+
+        .op-explanation {
+            padding: 26px 30px;
+            background: var(--surface)
+        }
+
+        .op-explanation h3 {
+            font-family: var(--fd);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 18px 0 8px;
+            padding-left: 13px;
+            border-left: 3px solid var(--primary-mid);
+            line-height: 1.3
+        }
+
+        .op-explanation h3:first-child {
+            margin-top: 0
+        }
+
+        .op-explanation p {
+            font-size: .92rem;
+            color: #333;
+            margin-bottom: 9px;
+            line-height: 1.68
+        }
+
+        .op-explanation ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 10px
+        }
+
+        .op-explanation ul li {
+            position: relative;
+            padding-left: 16px;
+            font-size: .91rem;
+            margin-bottom: 5px;
+            color: #444;
+            line-height: 1.62
+        }
+
+        .op-explanation ul li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid)
+        }
+
+        /* ── QUOTE BOX ── */
+        .quote-box {
+            border-left: 4px solid var(--primary);
+            background: var(--primary-light);
+            padding: 13px 18px;
+            border-radius: 0 4px 4px 0;
+            margin: 11px 0;
+            font-style: italic;
+            font-size: .9rem;
+            color: var(--primary-dark);
+            line-height: 1.7
+        }
+
+        .quote-box p {
+            margin: 0 0 5px
+        }
+
+        .quote-box p:last-child {
+            margin-bottom: 0
+        }
+
+        /* ── TABLES ── */
+        .tbl-wrap {
+            overflow-x: auto;
+            margin: 13px 0;
+            border-radius: 6px;
+            border: 1px solid var(--line)
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .87rem;
+            font-family: var(--fs)
+        }
+
+        thead tr {
+            background: var(--primary-light)
+        }
+
+        thead th {
+            padding: 9px 13px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: .82rem;
+            letter-spacing: .02em;
+            border-bottom: 2px solid var(--primary);
+            white-space: nowrap
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--line)
+        }
+
+        tbody tr:last-child {
+            border-bottom: none
+        }
+
+        tbody tr:nth-child(even) {
+            background: #fdf9f5
+        }
+
+        tbody td {
+            padding: 8px 13px;
+            vertical-align: top;
+            color: #2a2833;
+            line-height: 1.55
+        }
+
+        td strong,
+        th strong {
+            color: var(--primary-dark)
+        }
+
+        /* ── INLINE HELPERS ── */
+        .hl {
+            color: var(--primary-dark);
+            font-weight: 600
+        }
+
+        .hl-err {
+            color: var(--error);
+            font-weight: 600
+        }
+
+        .hl-ok {
+            color: var(--success);
+            font-weight: 600
+        }
+
+        code.mono {
+            font-family: var(--fm);
+            font-size: .83em;
+            background: #f5ece0;
+            border: 1px solid #e8cca8;
+            border-radius: 3px;
+            padding: 1px 6px;
+            color: var(--primary-dark)
+        }
+
+        pre.code-block {
+            font-family: var(--fm);
+            font-size: .82rem;
+            background: #f4f3f1;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 15px 18px;
+            margin: 11px 0;
+            overflow-x: auto;
+            line-height: 1.65;
+            color: var(--ink);
+            white-space: pre-wrap
+        }
+
+        /* ── LETTER / DIALOG / STORY BLOCKS ── */
+        .letter-block {
+            background: #fdf9f5;
+            border: 1px solid #e8cca8;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin: 11px 0;
+            font-size: .91rem;
+            line-height: 1.78
+        }
+
+        .letter-block .ltitle {
+            font-family: var(--fm);
+            font-size: .7rem;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 9px;
+            display: block
+        }
+
+        .dialog-block {
+            padding: 18px 22px;
+            background: #fff8f1;
+            border-radius: 6px;
+            border: 1px solid rgba(200, 107, 26, .15);
+            font-size: .92rem;
+            line-height: 1.78;
+            margin: 10px 0
+        }
+
+        .dialog-block p {
+            margin-bottom: 4px
+        }
+
+        .dspeaker {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: .87rem
+        }
+
+        /* ── COMPARISON CARDS ── */
+        .cmp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 13px 0
+        }
+
+        @media(max-width:540px) {
+            .cmp-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .cmp-card {
+            border-radius: 6px;
+            padding: 14px 16px;
+            font-size: .87rem;
+            line-height: 1.6
+        }
+
+        .cmp-card.hs {
+            background: rgba(200, 107, 26, .07);
+            border: 1px solid rgba(200, 107, 26, .22)
+        }
+
+        .cmp-card.ls {
+            background: rgba(46, 158, 104, .07);
+            border: 1px solid rgba(46, 158, 104, .22)
+        }
+
+        .cmp-card-label {
+            font-family: var(--fm);
+            font-size: .67rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 500
+        }
+
+        .cmp-card.hs .cmp-card-label {
+            color: var(--primary-dark)
+        }
+
+        .cmp-card.ls .cmp-card-label {
+            color: #144D31
+        }
+
+        /* ── DARK PANEL (Repetition / Errors) ── */
+        .stative-block {
+            background: var(--surface-alt);
+            border-radius: 10px;
+            margin-bottom: 44px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(20, 19, 28, .22)
+        }
+
+        .stative-accent {
+            height: 5px;
+            background: linear-gradient(90deg, var(--error) 0%, var(--primary-mid) 100%)
+        }
+
+        .stative-inner {
+            padding: 34px 34px 38px
+        }
+
+        .stative-badge {
+            font-family: var(--fm);
+            font-size: .72rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .42);
+            margin-bottom: 9px;
+            display: block
+        }
+
+        .stative-title {
+            font-family: var(--fd);
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 26px;
+            line-height: 1.25
+        }
+
+        .stative-title em {
+            color: var(--primary-mid);
+            font-style: italic
+        }
+
+        .stative-section {
+            margin-bottom: 26px
+        }
+
+        .stative-section-title {
+            font-family: var(--fm);
+            font-size: .76rem;
+            font-weight: 500;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: 13px;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(255, 255, 255, .1)
+        }
+
+        .error-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .87rem
+        }
+
+        .error-table tr {
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .error-table tr:last-child {
+            border-bottom: none
+        }
+
+        .error-table td {
+            padding: 10px 9px;
+            vertical-align: top;
+            line-height: 1.6
+        }
+
+        .err-wrong {
+            color: #ff6b7a;
+            text-decoration: line-through;
+            font-family: var(--fm);
+            font-size: .83rem
+        }
+
+        .err-right {
+            color: #5de0a0;
+            font-weight: 600;
+            font-family: var(--fm);
+            font-size: .83rem
+        }
+
+        .err-reason {
+            color: rgba(255, 255, 255, .5);
+            font-size: .81rem;
+            font-style: italic
+        }
+
+        .err-label {
+            font-family: var(--fm);
+            font-size: .74rem;
+            color: rgba(255, 255, 255, .35);
+            white-space: nowrap;
+            padding-right: 6px
+        }
+
+        /* ── CHECKLIST BLOCK ── */
+        .checklist-block {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 44px;
+            box-shadow: 0 2px 12px var(--shadow)
+        }
+
+        .checklist-title {
+            font-family: var(--fd);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 11px
+        }
+
+        .check-item {
+            border-left: 3px solid var(--primary-light);
+            padding: 13px 0 13px 18px;
+            margin-bottom: 9px;
+            transition: border-color .2s
+        }
+
+        .check-item:hover {
+            border-left-color: var(--primary)
+        }
+
+        .check-item strong {
+            display: block;
+            color: var(--primary-dark);
+            font-size: .94rem;
+            margin-bottom: 5px
+        }
+
+        .check-item ul {
+            list-style: none;
+            padding: 0
+        }
+
+        .check-item ul li {
+            font-size: .89rem;
+            color: var(--muted);
+            padding-left: 13px;
+            position: relative;
+            margin-bottom: 3px
+        }
+
+        .check-item ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: .79rem
+        }
+
+        /* ── SUMMARY / FORMULA DARK ── */
+        .summary-block {
+            background: var(--surface-alt);
+            border-radius: 10px;
+            padding: 34px;
+            margin-bottom: 44px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .summary-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-mid), var(--primary-dark))
+        }
+
+        .summary-title {
+            font-family: var(--fd);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 18px
+        }
+
+        .summary-block pre.code-block {
+            background: rgba(255, 255, 255, .05);
+            border-color: rgba(255, 255, 255, .1);
+            color: #ffd6a5
+        }
+
+        /* ── BONUS GRID ── */
+        .bonus-section {
+            margin-bottom: 44px
+        }
+
+        .bonus-section-title {
+            font-family: var(--fd);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+            gap: 16px
+        }
+
+        .bonus-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 20px 20px 16px;
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: box-shadow .2s, transform .2s
+        }
+
+        .bonus-card:hover {
+            box-shadow: 0 6px 22px var(--shadow-hover);
+            transform: translateY(-2px)
+        }
+
+        .bonus-card-top {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            margin-bottom: 11px
+        }
+
+        .bonus-num {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-family: var(--fm);
+            font-size: .84rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .bonus-card p {
+            font-size: .89rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 7px
+        }
+
+        .bonus-card p:last-child {
+            margin-bottom: 0
+        }
+
+        /* ── CONCLUSION ── */
+        .conclusion-block {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 10px;
+            padding: 38px 34px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 44px
+        }
+
+        .conclusion-block h2 {
+            font-family: var(--fd);
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-bottom: 18px
+        }
+
+        .conclusion-list {
+            list-style: none;
+            padding: 0;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 7px;
+            text-align: left
+        }
+
+        .conclusion-list li {
+            font-size: .93rem;
+            color: rgba(255, 255, 255, .85);
+            padding-left: 6px
+        }
+
+        .conclusion-list li::before {
+            content: '✅ '
+        }
+
+        .conclusion-cta {
+            margin-top: 22px;
+            font-size: .91rem;
+            color: rgba(255, 255, 255, .6)
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--ink);
+            color: rgba(255, 255, 255, .3);
+            text-align: center;
+            padding: 26px 22px;
+            font-family: var(--fm);
+            font-size: .74rem;
+            letter-spacing: .1em;
+            text-transform: uppercase
+        }
+
+        /* ── BACK-TO-TOP ── */
+        .back-top {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            background: var(--primary);
+            color: #fff;
+            font-family: var(--fm);
+            font-size: .71rem;
+            letter-spacing: .06em;
+            border-radius: 100px;
+            padding: 9px 15px;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(200, 107, 26, .35);
+            transition: background .2s;
+            z-index: 99
+        }
+
+        .back-top:hover {
+            background: var(--primary-dark);
+            color: #fff
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:600px) {
+
+            .op-header,
+            .op-answers,
+            .op-explanation {
+                padding: 16px
+            }
+
+            .stative-inner,
+            .checklist-block,
+            .summary-block,
+            .conclusion-block {
+                padding: 22px 16px
+            }
+
+            .hero-stats {
+                gap: 28px
+            }
+        }
+
+        /* ── SECTION LABEL PILL ── */
+        .section-pill {
+            display: inline-block;
+            font-family: var(--fm);
+            font-size: .68rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 20px;
+            padding: 3px 10px;
+            margin-bottom: 18px;
+            margin-top: 6px
+        }
+
+        /* ── SUB-OPGAVE HEADING (within a block) ── */
+        .sub-op {
+            font-family: var(--fd);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 20px 0 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed var(--line)
+        }
+
+        .sub-op:first-of-type {
+            margin-top: 0
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <header>
+        <div class="wrap">
+            <div class="hero-badge">Chương 7 · Tiếng Đan Mạch · Ngữ pháp</div>
+            <h1>GIẢI TOÀN BỘ BÀI TẬP<br><em>Liên từ (Konjunktioner)</em></h1>
+            <p class="hero-sub">22 bài tập + Repetition + Bảng tóm tắt toàn diện — đáp án chi tiết, trích dẫn lý thuyết,
+                phân tích từng câu</p>
+            <div class="hero-stats">
+                <div><span class="stat-num">22</span><span class="stat-lbl">Bài tập</span></div>
+                <div><span class="stat-num">5</span><span class="stat-lbl">HS-konjunktioner</span></div>
+                <div><span class="stat-num">10+</span><span class="stat-lbl">LS-konjunktioner</span></div>
+                <div><span class="stat-num">10</span><span class="stat-lbl">Lỗi Repetition</span></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrap">
+
+            <!-- ═══════════════ TOC ═══════════════ -->
+            <div class="toc">
+                <div class="toc-title">📋 Mục lục nội dung</div>
+                <ol>
+                    <li><a href="#op1">Opgave 1 – Brainstorm: Phân loại liên từ</a></li>
+                    <li><a href="#op2">Opgave 2 – Ordjagt: Tìm liên từ trong truyện</a></li>
+                    <li><a href="#op3">Opgave 3 – Matching: Nghĩa 5 HS-konjunktioner</a></li>
+                    <li><a href="#op4">Opgave 4 – Matching: Nối câu với HS-konjunktioner</a></li>
+                    <li><a href="#op5">Opgave 5 – Điền HS-konjunktioner</a></li>
+                    <li><a href="#op6">Opgave 6 – Matching: Nghĩa LS-konjunktioner</a></li>
+                    <li><a href="#op7">Opgave 7 – Matching: Nối câu với LS-konjunktioner</a></li>
+                    <li><a href="#op8">Opgave 8 – Fordi hay Selvom?</a></li>
+                    <li><a href="#op9">Opgave 9 – Hvis hay Om?</a></li>
+                    <li><a href="#op10">Opgave 10 – Mens, Idet, Før/Inden</a></li>
+                    <li><a href="#op11">Opgave 11 – Når hay Da?</a></li>
+                    <li><a href="#op12">Opgave 12 – Der và Som (mệnh đề quan hệ)</a></li>
+                    <li><a href="#op13">Opgave 13 – Som hay Hvor? 🌶️</a></li>
+                    <li><a href="#op1422">Opgave 14–22 – Bài tập tổng hợp và văn bản</a></li>
+                    <li><a href="#rep">Repetition – Fejlretning (10 lỗi)</a></li>
+                    <li><a href="#summary">Bảng tóm tắt &amp; Checklist toàn diện</a></li>
+                </ol>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 1 ═══════════════ -->
+            <div class="opgave-block" id="op1">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 1</span>
+                    <h2 class="op-title">Brainstorm — Phân loại liên từ</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-lbl">HS-konjunktioner (nối 2 mệnh đề chính)</span>
+                        <ul>
+                            <li><strong>og</strong> — và</li>
+                            <li><strong>men</strong> — nhưng</li>
+                            <li><strong>eller</strong> — hoặc</li>
+                            <li><strong>for</strong> — vì (giải thích)</li>
+                            <li><strong>så</strong> — vì vậy (kết quả)</li>
+                        </ul>
+                        <span class="col-lbl" style="margin-top:16px">LS-konjunktioner (tạo mệnh đề phụ)</span>
+                        <ul>
+                            <li><strong>at</strong> — rằng</li>
+                            <li><strong>fordi</strong> — bởi vì</li>
+                            <li><strong>hvis</strong> — nếu</li>
+                            <li><strong>når</strong> — khi (thói quen/tương lai)</li>
+                            <li><strong>da</strong> — khi (quá khứ một lần)</li>
+                            <li><strong>mens</strong> — trong khi</li>
+                            <li><strong>selvom</strong> — mặc dù</li>
+                            <li><strong>som / der</strong> — mà (đại từ quan hệ)</li>
+                            <li><strong>hvor</strong> — nơi mà / lúc mà</li>
+                            <li><strong>før / inden</strong> — trước khi</li>
+                        </ul>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Trích dẫn lý thuyết — Chương 7</h3>
+                        <div class="quote-box">Liên từ (konjunktioner/bindeord) là những từ nối, có chức năng kết nối
+                            các từ, cụm từ, và quan trọng nhất là các mệnh đề lại với nhau. Chúng tạo ra các câu phức
+                            tạp hơn về mặt cấu trúc và mạch lạc hơn về mặt logic. Có hai loại liên từ chính trong tiếng
+                            Đan Mạch.</div>
+                        <h3>Sự khác biệt then chốt</h3>
+                        <div class="cmp-grid">
+                            <div class="cmp-card hs">
+                                <span class="cmp-card-label">🔶 HS-konjunktion</span>
+                                <p>Nối 2 mệnh đề chính ngang hàng. Mệnh đề sau vẫn giữ trật tự <strong>S-V-A</strong>.
+                                </p>
+                                <p><em>Jeg er træt, <strong>så</strong> jeg <u>går</u> hjem.</em></p>
+                            </div>
+                            <div class="cmp-card ls">
+                                <span class="cmp-card-label">🔷 LS-konjunktion</span>
+                                <p>Tạo mệnh đề phụ phụ thuộc. Mệnh đề phụ đổi thành <strong>S-A-V</strong>.</p>
+                                <p><em>...fordi jeg <u>ikke</u> <u>går</u> hjem.</em></p>
+                            </div>
+                        </div>
+                        <p>Đây là điểm QUAN TRỌNG NHẤT của chương này — ảnh hưởng trực tiếp đến trật tự từ!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 2 ═══════════════ -->
+            <div class="opgave-block" id="op2">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 2</span>
+                    <h2 class="op-title">Ordjagt — Tìm liên từ trong truyện <em>Prinsessen på ærten</em></h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-lbl">Đáp án — Phân loại</span>
+                        <div class="tbl-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>HS-konjunktioner</th>
+                                        <th>LS-konjunktioner</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>og</strong></td>
+                                        <td><strong>at</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>men</strong></td>
+                                        <td><strong>fordi</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>for</strong></td>
+                                        <td><strong>hvis</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>så</strong></td>
+                                        <td><strong>da</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><strong>som</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><strong>når</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Trích dẫn — Mục 7.1 &amp; 7.2</h3>
+                        <div class="quote-box">
+                            <p><strong>HS-konjunktioner (Mục 7.1):</strong> og, men, eller, for, så</p>
+                            <p><strong>LS-konjunktioner (Mục 7.2):</strong> at, fordi, hvis, når, da, mens, selvom, som,
+                                der</p>
+                        </div>
+                        <h3>Nhận biết trong văn bản</h3>
+                        <p>Lưu ý: "eller" không xuất hiện trong truyện cổ tích này. Văn bản tường thuật thường dùng
+                            nhiều <span class="hl">da</span> (quá khứ một lần) và <span class="hl">og</span> (nối tiếp
+                            sự kiện). Truyện cổ tích Đan Mạch chủ yếu viết ở thì datid.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 3 ═══════════════ -->
+            <div class="opgave-block" id="op3">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 3</span>
+                    <h2 class="op-title">Matching — Nghĩa của 5 HS-konjunktioner</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-lbl">Đáp án</span>
+                        <div class="tbl-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Liên từ</th>
+                                        <th>Chức năng</th>
+                                        <th>Nghĩa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>og</strong></td>
+                                        <td>Thêm thông tin</td>
+                                        <td>và</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>men</strong></td>
+                                        <td>Tương phản / Đối lập</td>
+                                        <td>nhưng</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>eller</strong></td>
+                                        <td>Lựa chọn</td>
+                                        <td>hoặc</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>for</strong></td>
+                                        <td>Giải thích nguyên nhân</td>
+                                        <td>vì</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>så</strong></td>
+                                        <td>Kết quả / Hệ quả</td>
+                                        <td>vì vậy</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Trích dẫn — Mục 7.1</h3>
+                        <div class="quote-box">Liên từ chính (hay liên từ kết hợp) nối hai hoặc nhiều mệnh đề độc lập có
+                            giá trị ngữ pháp ngang bằng nhau. "for" và "så" là HS-konjunktioner — điểm khác biệt quan
+                            trọng: "for" nối hai mệnh đề chính và mệnh đề thứ hai vẫn giữ trật tự từ S-V-A.</div>
+                        <h3>Ví dụ minh hoạ</h3>
+                        <ul>
+                            <li><span class="hl">og</span>: Jeg er sulten, <strong>og</strong> jeg er tørstig.</li>
+                            <li><span class="hl">men</span>: Jeg er træt, <strong>men</strong> jeg er glad.</li>
+                            <li><span class="hl">eller</span>: Kaffe <strong>eller</strong> te?</li>
+                            <li><span class="hl">for</span>: Jeg går hjem, <strong>for</strong> jeg er træt.
+                                <em>(S-V-A!)</em></li>
+                            <li><span class="hl">så</span>: Jeg er træt, <strong>så</strong> jeg går hjem.
+                                <em>(S-V-A!)</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 4 ═══════════════ -->
+            <div class="opgave-block" id="op4">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 4</span>
+                    <h2 class="op-title">Matching — Nối câu với HS-konjunktioner đúng</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-lbl">Đáp án</span>
+                        <div class="tbl-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Mệnh đề 1</th>
+                                        <th>Konj.</th>
+                                        <th>Mệnh đề 2</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>Jeg vil gerne hjælpe dig,</td>
+                                        <td><strong>men</strong></td>
+                                        <td>jeg har desværre ikke tid i dag.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Jeg er ikke sulten,</td>
+                                        <td><strong>men</strong></td>
+                                        <td>jeg er meget tørstig.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>I aften spiser jeg måske hjemme,</td>
+                                        <td><strong>eller</strong></td>
+                                        <td>jeg går på restaurant.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Jeg er meget sulten,</td>
+                                        <td><strong>for</strong></td>
+                                        <td>jeg har ikke spist frokost.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Jeg er tørstig,</td>
+                                        <td><strong>og</strong></td>
+                                        <td>jeg er også sulten.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Jeg har lige spist,</td>
+                                        <td><strong>så</strong></td>
+                                        <td>jeg er ikke sulten nu.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Logic chọn liên từ</h3>
+                        <ul>
+                            <li>Câu 0, 1: <span class="hl">men</span> — tương phản (muốn giúp NHƯNG không có thời gian)
+                            </li>
+                            <li>Câu 2: <span class="hl">eller</span> — lựa chọn (ăn nhà HOẶC nhà hàng)</li>
+                            <li>Câu 3: <span class="hl">for</span> — giải thích (đói VÌ chưa ăn trưa)</li>
+                            <li>Câu 4: <span class="hl">og</span> — thêm thông tin (khát VÀ đói)</li>
+                            <li>Câu 5: <span class="hl">så</span> — kết quả (vừa ăn VÌ VẬY không đói)</li>
+                        </ul>
+                        <h3>Phân biệt "for" và "så"</h3>
+                        <pre class="code-block">Mệnh đề 1 (kết quả)  + FOR  + Mệnh đề 2 (nguyên nhân)
+Jeg er sulten,         for    jeg ikke har spist.
+
+Mệnh đề 1 (nguyên nhân) + SÅ + Mệnh đề 2 (kết quả)
+Jeg har spist,           så    jeg er ikke sulten nu.</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 5 ═══════════════ -->
+            <div class="opgave-block" id="op5">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 5</span>
+                    <h2 class="op-title">Indsæt HS-konjunktioner — 18 câu luyện tập</h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers full">
+                        <span class="col-lbl">Đáp án đầy đủ</span>
+                        <ol>
+                            <li>Vi kan gå i biografen, <strong>eller</strong> vi kan gå i teatret.</li>
+                            <li>Jeg har lige fået løn, <strong>så</strong> jeg har købt en dyr jakke.</li>
+                            <li>Jeg drikker kaffe, <strong>og</strong> jeg spiser også en kage.</li>
+                            <li>Jeg ringede til dig, <strong>men</strong> du var ikke hjemme.</li>
+                            <li>Jeg er sulten, <strong>men</strong> jeg er ikke tørstig.</li>
+                            <li>Jeg er sulten, <strong>og</strong> jeg er også tørstig.</li>
+                            <li>Jeg er sulten, <strong>så</strong> jeg vil gerne spise nu.</li>
+                            <li>Jeg kan ikke betale, <strong>for</strong> jeg har ingen penge.</li>
+                            <li>Jeg har ingen penge, <strong>så</strong> jeg kan ikke betale.</li>
+                            <li>Jeg har ingen penge, <strong>men</strong> jeg betaler selvfølgelig mine regninger.</li>
+                            <li>Jeg er træt, <strong>for</strong> jeg har gjort rent hele dagen.</li>
+                            <li>Jeg er træt, <strong>så</strong> jeg går i seng.</li>
+                            <li>De kom for sent, <strong>for</strong> der var meget trafik.</li>
+                            <li>Der var meget trafik, <strong>så</strong> de kom for sent.</li>
+                            <li>Jeg har travlt, <strong>men</strong> jeg kan godt hjælpe dig med at flytte alligevel.
+                            </li>
+                            <li>Jeg har travlt, <strong>så</strong> jeg kan ikke hjælpe dig med at flytte.</li>
+                            <li>Jeg vil gerne hjælpe dig med at flytte, <strong>men</strong> jeg har travlt.</li>
+                            <li>Jeg kan hjælpe dig med at flytte nu, <strong>eller</strong> vi kan vente til i morgen.
+                            </li>
+                        </ol>
+                        <div class="quote-box" style="margin-top:14px">
+                            <p><strong>Ghi nhớ quy tắc "for" và "så" trong cùng chủ đề:</strong></p>
+                            <p>Câu 8: Jeg kan ikke betale, <strong>for</strong> jeg <u>har</u> ingen penge. → Nguyên
+                                nhân theo sau (S-V-A)</p>
+                            <p>Câu 9: Jeg har ingen penge, <strong>så</strong> jeg <u>kan</u> ikke betale. → Kết quả
+                                theo sau (S-V-A)</p>
+                            <p>Câu 13–14: Tương tự với "trafik" và "for sent".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 6 ═══════════════ -->
+            <div class="opgave-block" id="op6">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 6</span>
+                    <h2 class="op-title">Matching — Nghĩa của các LS-konjunktioner</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-lbl">Đáp án</span>
+                        <div class="tbl-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Liên từ</th>
+                                        <th>Nghĩa / Chức năng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>så</strong> (LS)</td>
+                                        <td>Mục đích — để mà (for at)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>når</strong></td>
+                                        <td>Khi — thói quen / tương lai</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>da</strong></td>
+                                        <td>Khi — quá khứ một lần cụ thể</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>fordi</strong></td>
+                                        <td>Nguyên nhân (bởi vì)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>mens</strong></td>
+                                        <td>Đồng thời — hai việc cùng xảy ra</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>hvis</strong></td>
+                                        <td>Điều kiện — nếu</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>selvom</strong></td>
+                                        <td>Nhượng bộ — mặc dù (logic không hợp lý)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Trích dẫn — Mục 7.2.1 – 7.2.5</h3>
+                        <div class="quote-box">
+                            <p><strong>Thời gian (7.2.1):</strong> når — thói quen/tương lai; da — quá khứ một lần; mens
+                                — đồng thời; før/inden — trước khi.</p>
+                            <p><strong>Nguyên nhân (7.2.2):</strong> fordi — bởi vì (S-A-V).</p>
+                            <p><strong>Điều kiện (7.2.4):</strong> hvis — nếu.</p>
+                            <p><strong>Nhượng bộ (7.2.5):</strong> selvom — mặc dù.</p>
+                        </div>
+                        <h3>Tất cả LS-konjunktioner → S-A-V</h3>
+                        <p>Mệnh đề phụ sau <em>bất kỳ</em> LS-konjunktion nào cũng có trật tự <span
+                                class="hl">S-A-V</span> (chủ ngữ — trạng từ — động từ).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 7 ═══════════════ -->
+            <div class="opgave-block" id="op7">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 7</span>
+                    <h2 class="op-title">Matching — Nối câu với LS-konjunktioner đúng</h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers full">
+                        <span class="col-lbl">Đáp án</span>
+                        <div class="tbl-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Mệnh đề chính</th>
+                                        <th>LS-konj.</th>
+                                        <th>Mệnh đề phụ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Vi kan ikke rejse i år,</td>
+                                        <td><strong>fordi</strong></td>
+                                        <td>vi ikke har råd til det.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jeg ringer til dig,</td>
+                                        <td><strong>når</strong></td>
+                                        <td>jeg er hjemme.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vi fik ikke hjælp,</td>
+                                        <td><strong>selvom</strong></td>
+                                        <td>vi bad om det mange gange.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jeg kan godt lide,</td>
+                                        <td><strong>at</strong></td>
+                                        <td>du fortæller vittigheder.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Han lyttede til musik,</td>
+                                        <td><strong>mens</strong></td>
+                                        <td>han lavede mad.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jeg mistede min pung,</td>
+                                        <td><strong>da</strong></td>
+                                        <td>jeg tog bussen i morges.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vi sætter musik på,</td>
+                                        <td><strong>så</strong></td>
+                                        <td>vi kan danse.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jeg tager med til festen,</td>
+                                        <td><strong>hvis</strong></td>
+                                        <td>der er en god grund til det.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 8 ═══════════════ -->
+            <div class="opgave-block" id="op8">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 8</span>
+                    <h2 class="op-title">Fordi eller Selvom? — Nguyên nhân vs. Nhượng bộ</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-lbl">Đáp án</span>
+                        <ol>
+                            <li>Han er i godt humør, <strong>fordi</strong> han har fået fri.</li>
+                            <li>Han er i godt humør, <strong>selvom</strong> han <em>ikke</em> har fået fri.</li>
+                            <li>Jeg har masser af penge, <strong>fordi</strong> jeg lige har fået løn.</li>
+                            <li>Jeg har ingen penge, <strong>selvom</strong> jeg lige har fået løn.</li>
+                            <li>Hun cykler i skole, <strong>selvom</strong> hun ikke kan lide at cykle.</li>
+                            <li>Hun cykler i skole, <strong>fordi</strong> hun godt kan lide at cykle.</li>
+                            <li>Min kæreste og jeg skændes tit, <strong>selvom</strong> vi elsker hinanden.</li>
+                            <li>Hun fik ikke jobbet, <strong>selvom</strong> hun havde erfaring og gode kvalifikationer.
+                            </li>
+                            <li>Han fik en bøde, <strong>fordi</strong> han kørte uden busbillet.</li>
+                            <li>Vi er flyttet ud på landet, <strong>fordi</strong> vi var trætte af støjen i byen.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Quy tắc vàng</h3>
+                        <div class="cmp-grid">
+                            <div class="cmp-card hs">
+                                <span class="cmp-card-label">fordi — Nguyên nhân hợp lý</span>
+                                <p>Kết quả <em>hợp lý</em> từ nguyên nhân.</p>
+                                <p><em>Er glad <strong>fordi</strong> han har fri.</em><br>(Vui VÌ được nghỉ ✓ logic)
+                                </p>
+                            </div>
+                            <div class="cmp-card ls">
+                                <span class="cmp-card-label">selvom — Nhượng bộ, không logic</span>
+                                <p>Kết quả <em>ngược</em> với điều người ta nghĩ.</p>
+                                <p><em>Er glad <strong>selvom</strong> han ikke har fri.</em><br>(Vui MẶC DÙ không nghỉ
+                                    ✓ không logic)</p>
+                            </div>
+                        </div>
+                        <h3>Bài kiểm tra nhanh</h3>
+                        <p>Hỏi: "Điều này có logic không?" → Có → <span class="hl">fordi</span>. Không → <span
+                                class="hl">selvom</span>.</p>
+                        <ul>
+                            <li>Có tiền MẶC DÙ vừa nhận lương → vô lý → <span class="hl-err">selvom</span> ✗</li>
+                            <li>Có tiền VÌ vừa nhận lương → hợp lý → <span class="hl-ok">fordi</span> ✓</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 9 ═══════════════ -->
+            <div class="opgave-block" id="op9">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 9</span>
+                    <h2 class="op-title">Indsæt Hvis eller Om — Điều kiện vs. Câu hỏi gián tiếp</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-lbl">Đáp án</span>
+                        <ol>
+                            <li>Han spørger, <strong>om</strong> hun vil med i biografen.</li>
+                            <li>Han går i biografen, <strong>hvis</strong> der er en god film.</li>
+                            <li>Jeg tager bussen, <strong>hvis</strong> det regner i dag.</li>
+                            <li>Jeg ved ikke, <strong>om</strong> vi får råd til at rejse i år.</li>
+                            <li>Hun er ikke sikker på, <strong>om</strong> han kommer til festen.</li>
+                            <li>Hun bliver hjemme, <strong>hvis</strong> hun er syg.</li>
+                            <li>Jeg vil gerne vide, <strong>om</strong> undervisningen er aflyst.</li>
+                            <li>Jeg kan ikke huske, <strong>om</strong> han har bestået modultesten.</li>
+                            <li>Vi kan ikke rejse, <strong>hvis</strong> vi ikke sparer op.</li>
+                            <li>Vi kan mødes kl. 16, <strong>hvis</strong> du får tidligt fri i dag.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Trích dẫn — Mục 7.2.4</h3>
+                        <div class="quote-box">
+                            <p><strong>hvis</strong> (nếu) = điều kiện</p>
+                            <p><strong>om</strong> (liệu, có...không) = câu hỏi gián tiếp</p>
+                        </div>
+                        <h3>Dấu hiệu nhận biết</h3>
+                        <ul>
+                            <li>Trước <span class="hl">om</span> thường có: <strong>spørge</strong>,
+                                <strong>vide</strong>, <strong>være sikker på</strong>, <strong>huske</strong>,
+                                <strong>gerne vide</strong></li>
+                            <li><span class="hl">hvis</span> dùng khi có điều kiện "nếu...thì..."</li>
+                        </ul>
+                        <pre class="code-block">HVIS = IF (condition):
+  Jeg tager bussen, HVIS det regner.
+  (Tôi đi xe buýt, NẾU trời mưa)
+
+OM = WHETHER/IF (indirect question):
+  Jeg ved ikke, OM det regner.
+  (Tôi không biết LIỆU trời có mưa không)</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 10 ═══════════════ -->
+            <div class="opgave-block" id="op10">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 10</span>
+                    <h2 class="op-title">Indsæt Mens, Idet eller Før/Inden — Liên từ thời gian đồng thời</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-lbl">Đáp án</span>
+                        <ol>
+                            <li>Vi havde indbrud i vores lejlighed, <strong>mens</strong> vi var på ferie.</li>
+                            <li>Jeg børster altid tænder, <strong>før/inden</strong> jeg går i seng.</li>
+                            <li>Drengen faldt af cyklen, <strong>idet</strong> han bremsede hårdt op.</li>
+                            <li>Mine børn ser tit tv om eftermiddagen, men aldrig <strong>mens</strong> vi spiser
+                                aftensmad.</li>
+                            <li>Jeg glemte at låse døren, <strong>før/inden</strong> jeg gik på arbejde.</li>
+                            <li>Jeg taler tit i telefon, <strong>mens</strong> jeg kører bil.</li>
+                            <li>Vasen røg på gulvet, <strong>idet</strong> han smækkede døren.</li>
+                            <li>Hun arbejdede som ingeniør i USA, <strong>før/inden</strong> hun flyttede til Danmark.
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Trích dẫn — Mục 7.2.1</h3>
+                        <div class="quote-box">
+                            <p><strong>mens</strong> (trong khi): hai hành động diễn ra cùng lúc, kéo dài song song.</p>
+                            <p><strong>før / inden</strong> (trước khi): hành động tuần tự, hành động A xảy ra trước B.
+                            </p>
+                        </div>
+                        <h3>Phân biệt ba liên từ</h3>
+                        <ul>
+                            <li><span class="hl">mens</span> = trong khi (hai hành động cùng lúc, kéo dài): bị trộm
+                                <em>trong khi</em> đi nghỉ</li>
+                            <li><span class="hl">før/inden</span> = trước khi (tuần tự): đánh răng <em>trước khi</em> đi
+                                ngủ</li>
+                            <li><span class="hl">idet</span> = ngay đúng lúc đó (tức thì, đồng thời): ngã <em>ngay
+                                    lúc</em> phanh gấp</li>
+                        </ul>
+                        <p style="font-size:.85rem;color:var(--muted);margin-top:8px"><em>Lưu ý: "idet" không có trong
+                                file lý thuyết nhưng xuất hiện trong bài tập.</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 11 ═══════════════ -->
+            <div class="opgave-block" id="op11">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 11</span>
+                    <h2 class="op-title">Indsæt Når eller Da — Thói quen/Tương lai vs. Quá khứ một lần</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-lbl">Đáp án</span>
+                        <ol>
+                            <li>Vi spiser ude i haven, <strong>når</strong> det er godt vejr. <em>(thói quen, lặp
+                                    lại)</em></li>
+                            <li>Vi spiste ude i haven, <strong>da</strong> det begyndte at regne. <em>(quá khứ, một
+                                    lần)</em></li>
+                            <li>Peter boede i Farum, <strong>da</strong> han var barn. <em>(giai đoạn cụ thể trong quá
+                                    khứ)</em></li>
+                            <li>Han arbejdede på et plejehjem, <strong>mens</strong> han studerede. <em>(đồng thời)</em>
+                            </li>
+                            <li>Hun står op klokken 6, <strong>når</strong> hun skal på arbejde. <em>(thói quen)</em>
+                            </li>
+                            <li>Jeg løb altid en tur, <strong>når</strong> jeg kom hjem fra arbejde. <em>(thói quen quá
+                                    khứ)</em></li>
+                            <li>Da jeg var lille, blev jeg altid glad, <strong>når</strong> jeg fik ros af mine
+                                forældre. <em>(thói quen)</em></li>
+                            <li>Hun var aldrig hjemme, <strong>da</strong> jeg ringede til hende. <em>(một lần cụ
+                                    thể)</em></li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Trích dẫn — Mục 7.2.1</h3>
+                        <div class="quote-box">
+                            <p><strong>når</strong> (khi): Dùng cho các sự kiện lặp đi lặp lại hoặc trong tương lai.</p>
+                            <p><strong>da</strong> (khi): Dùng cho một sự kiện cụ thể, duy nhất trong quá khứ.</p>
+                        </div>
+                        <h3>Quy tắc vàng</h3>
+                        <div class="tbl-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Ngữ cảnh</th>
+                                        <th>Liên từ</th>
+                                        <th>Dấu hiệu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Quá khứ + <strong>một lần</strong></td>
+                                        <td><strong>da</strong></td>
+                                        <td>"i går", "en dag", "pludselig"</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quá khứ + <strong>thói quen</strong></td>
+                                        <td><strong>når</strong></td>
+                                        <td>"altid", "tit", "plejer"</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Tương lai</strong></td>
+                                        <td><strong>når</strong></td>
+                                        <td>"i morgen", "snart"</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Đồng thời</td>
+                                        <td><strong>mens</strong></td>
+                                        <td>hai việc song song</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>Câu 7 đặc biệt: "Da jeg var lille" (da = giai đoạn cụ thể trong quá khứ), nhưng bên trong lại
+                            dùng "når jeg fik ros" (thói quen lặp lại).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 12 ═══════════════ -->
+            <div class="opgave-block" id="op12">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 12</span>
+                    <h2 class="op-title">Lav ledsætninger med Der / Som — Đại từ quan hệ</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-lbl">Chuyển đổi câu</span>
+                        <ol>
+                            <li>Jeg har en lærer, <strong>der</strong> kommer fra Ukraine.</li>
+                            <li>Min mand arbejder i et firma, <strong>som</strong> er italiensk og hedder Peliconi.</li>
+                            <li>Jeg taler aldrig med dem, <strong>der</strong> bor i min opgang.</li>
+                            <li>Jeg har en søn på 13 år, <strong>der</strong> går til fodbold.</li>
+                            <li>Jeg har en bror, <strong>som</strong> jeg savner meget.</li>
+                            <li>Mine forældre har en butik, <strong>som</strong> de har haft i 15 år.</li>
+                            <li>Jeg har en veninde, <strong>som</strong> jeg har kendt i over 20 år.</li>
+                            <li>Jeg har fået et ur i fødselsdagsgave, <strong>som</strong> jeg vil bytte til et smykke.
+                            </li>
+                        </ol>
+                        <span class="col-lbl" style="margin-top:14px">Mệnh đề quan hệ xen giữa</span>
+                        <ol>
+                            <li>Min bror, <strong>der</strong> bor i London, er civilingeniør.</li>
+                            <li>Filmen, <strong>som</strong> vi så i går, var ikke særlig god.</li>
+                            <li>Maden, <strong>som</strong> kokken lavede, smager dejligt.</li>
+                            <li>Hunden, <strong>der</strong> løb efter bolden, har bidt mig.</li>
+                            <li>Vores gamle bil, <strong>som</strong> min far købte i 2010, er til salg.</li>
+                            <li>Huspriserne, <strong>der</strong> er steget meget i år, stiger fortsat.</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Trích dẫn — Mục 7.2.6</h3>
+                        <div class="quote-box">Khi làm chủ ngữ trong mệnh đề quan hệ, "der" và "som" hầu như có thể thay
+                            thế cho nhau. Tuy nhiên, "der" không thể làm tân ngữ.</div>
+                        <h3>Quy tắc der / som</h3>
+                        <div class="tbl-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Chức năng</th>
+                                        <th>der</th>
+                                        <th>som</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Làm <strong>chủ ngữ</strong></td>
+                                        <td>✅ được</td>
+                                        <td>✅ được</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Làm <strong>tân ngữ</strong></td>
+                                        <td>❌ không được</td>
+                                        <td>✅ được</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h3>Cách kiểm tra</h3>
+                        <ul>
+                            <li>Câu 5: "jeg savner <strong>som</strong>" → "bror" là tân ngữ của "savner" → <span
+                                    class="hl-ok">som</span> ✓</li>
+                            <li>Câu 1: "<strong>der</strong> kommer" → "lærer" là chủ ngữ của "kommer" → <span
+                                    class="hl-ok">der</span> hoặc som ✓</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 13 ═══════════════ -->
+            <div class="opgave-block" id="op13">
+                <div class="op-header">
+                    <span class="op-badge spicy">Opgave 13 🌶️</span>
+                    <h2 class="op-title">Indsæt Som eller Hvor — Đại từ vs. Trạng từ quan hệ</h2>
+                </div>
+                <div class="op-body">
+                    <div class="op-answers">
+                        <span class="col-lbl">Đáp án</span>
+                        <ol>
+                            <li>Min kæreste arbejder i et firma, <strong>som</strong> har mange udenlandske ansatte.
+                            </li>
+                            <li>Min kæreste arbejder i et firma, <strong>hvor</strong> der er mange udenlandske ansatte.
+                            </li>
+                            <li>Amina rejser tit til Pakistan, <strong>hvor</strong> hun er født og opvokset.</li>
+                            <li>Amina rejser tit til Pakistan, <strong>som</strong> er hendes hjemland.</li>
+                            <li>Familien har lige købt et sommerhus, <strong>som</strong> de skal renovere.</li>
+                            <li>Familien har lige købt et sommerhus, <strong>hvor</strong> de skal bo hele sommeren.
+                            </li>
+                            <li>Det land, <strong>som</strong> jeg bedst kan lide at holde ferie i, er Italien.</li>
+                            <li>Det land, <strong>hvor</strong> jeg bedst kan lide at holde ferie, er Italien.</li>
+                            <li>Jeg glæder mig til på onsdag, <strong>som</strong> er min fridag.</li>
+                            <li>Jeg glæder mig til på onsdag, <strong>hvor</strong> jeg har fri.</li>
+                            <li>Vi købte en masse tøj i sidste uge, <strong>hvor</strong> der var udsalg.</li>
+                            <li>I sidste uge købte vi en masse tøj, <strong>som</strong> var på udsalg.</li>
+                            <li>Kender du en god frisør, <strong>som</strong> jeg kan blive klippet hos?</li>
+                            <li>Kender du en god frisør, <strong>hvor</strong> jeg kan blive klippet?</li>
+                        </ol>
+                    </div>
+                    <div class="op-explanation">
+                        <h3>Phân biệt som và hvor</h3>
+                        <div class="cmp-grid">
+                            <div class="cmp-card hs">
+                                <span class="cmp-card-label">som — thay thế danh từ</span>
+                                <p>Mệnh đề quan hệ <em>thiếu</em> chủ ngữ hoặc tân ngữ.</p>
+                                <p><em>et firma, <strong>som</strong> <u>har</u> ansatte</em><br>(firma = chủ ngữ của
+                                    "har")</p>
+                            </div>
+                            <div class="cmp-card ls">
+                                <span class="cmp-card-label">hvor — thay thế nơi/thời gian</span>
+                                <p>Mệnh đề quan hệ <em>đã đủ</em> chủ ngữ và tân ngữ.</p>
+                                <p><em>et firma, <strong>hvor</strong> <u>der</u> <u>er</u> ansatte</em><br>(đã có "der"
+                                    làm chủ ngữ)</p>
+                            </div>
+                        </div>
+                        <h3>Bài kiểm tra nhanh</h3>
+                        <ul>
+                            <li>Bỏ "som/hvor" ra → mệnh đề còn thiếu chủ ngữ/tân ngữ? → <span class="hl">som</span></li>
+                            <li>Bỏ ra → mệnh đề đã hoàn chỉnh? → <span class="hl">hvor</span></li>
+                        </ul>
+                        <p>Câu 13 vs 14 — so sánh: "hos frisøren" (nơi chốn) → <span class="hl">hvor</span>; "frisøren"
+                            thiếu tân ngữ → <span class="hl">som</span>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ OPGAVE 14–22 ═══════════════ -->
+            <div class="opgave-block" id="op1422">
+                <div class="op-header">
+                    <span class="op-badge">Opgave 14 – 22</span>
+                    <h2 class="op-title">Bài tập tổng hợp — Liên từ trong văn bản thực tế</h2>
+                </div>
+                <div class="op-body full">
+                    <div class="op-answers full">
+
+                        <!-- OP 14 -->
+                        <div class="sub-op">Opgave 14 — Điền liên từ phù hợp</div>
+                        <ol>
+                            <li>Peter spørger, <strong>om</strong> han må låne 200 kr.</li>
+                            <li>Jeg kan ikke forstå, <strong>at</strong> det er så svært at lære dansk.</li>
+                            <li>Børnene legede ude i haven, <strong>mens</strong> de voksne sad og snakkede inde i
+                                stuen.</li>
+                            <li>Vi tager på stranden, <strong>hvis</strong> det bliver godt vejr i morgen.</li>
+                            <li>Vi går en tur, <strong>når</strong> vi har spist.</li>
+                            <li>Jeg gik tidligt hjem, <strong>fordi</strong> jeg var træt.</li>
+                            <li>Jeg købte støvlerne, <strong>selvom</strong> de var meget dyre.</li>
+                            <li>Jeg gik tidligt i seng, <strong>så</strong> jeg var frisk næste morgen.</li>
+                        </ol>
+
+                        <!-- OP 15 -->
+                        <div class="sub-op">Opgave 15 — "Så" như HS-konjunktion (kết quả) hay LS-konjunktion (mục đích)?
+                        </div>
+                        <p><strong>Så = HS (vì vậy/kết quả) → S-V-A:</strong></p>
+                        <ol>
+                            <li>Joe stoppede på sprogskolen, <strong>så</strong> han har aldrig taget den afsluttende
+                                prøve.</li>
+                            <li>Der var mange problemer på mit arbejde, <strong>så</strong> jeg sagde op.</li>
+                            <li>Det begyndte at regne, <strong>så</strong> vi blev hjemme.</li>
+                            <li>Han har ondt i ryggen, <strong>så</strong> han er begyndt at træne hver dag.</li>
+                            <li>Familien havde for lidt plads, <strong>så</strong> de flyttede til en større lejlighed.
+                            </li>
+                        </ol>
+                        <p style="margin-top:10px"><strong>Så = LS (để mà/mục đích) → S-A-V:</strong></p>
+                        <ol>
+                            <li>Guang stoppede på sprogskolen, <strong>så</strong> han <em>havde</em> mere tid til at
+                                arbejde.</li>
+                            <li>Jeg sagde mit job op, <strong>så</strong> jeg <em>kunne</em> begynde at studere igen.
+                            </li>
+                            <li>Jeg skyndte mig på arbejde, <strong>så</strong> jeg <em>ikke kom</em> for sent.</li>
+                            <li>Jeg var helt stille, <strong>så</strong> jeg <em>ikke vækkede</em> børnene.</li>
+                            <li>Han begyndte at træne, <strong>så</strong> han <em>ikke fik</em> ondt i ryggen.</li>
+                            <li>Familien flyttede til en større lejlighed, <strong>så</strong> de <em>fik</em> mere
+                                plads.</li>
+                        </ol>
+                        <div class="quote-box" style="margin-top:12px">
+                            <p><strong>SÅ (HS — "vì vậy"):</strong> Mệnh đề sau → trật tự S-V-A bình thường: <em>...så
+                                    de <u>blev</u> hjemme.</em></p>
+                            <p><strong>SÅ (LS — "để mà"):</strong> Mệnh đề sau → trật tự S-A-V: <em>...så vi <u>ikke</u>
+                                    <u>fryser</u>.</em></p>
+                        </div>
+
+                        <!-- OP 16 -->
+                        <div class="sub-op">Opgave 16 — Điền liên từ</div>
+                        <ol>
+                            <li>Jeg spiser aldrig morgenmad, <strong>før</strong> jeg tager på arbejde.</li>
+                            <li>De voksne sad og drak kaffe, <strong>mens</strong> børnene løb og legede ude i haven.
+                            </li>
+                            <li>Hun mangler altid penge, <strong>selvom</strong> hun prøver at spare op.</li>
+                            <li>Jeg bliver altid så glad, <strong>når</strong> jeg besøger mine venner.</li>
+                            <li>Min kæreste gjorde rent i weekenden, <strong>mens</strong> jeg lavede havearbejde.</li>
+                            <li>Jeg er ikke spor træt, <strong>selvom</strong> jeg har arbejdet hårdt hele dagen.</li>
+                            <li>Jeg er dødstræt, <strong>fordi</strong> jeg kun har sovet et par timer i nat.</li>
+                            <li>Jeg inviterer tit mine svigerforældre til middag, <strong>fordi</strong> jeg kan lide
+                                dem.</li>
+                            <li>Jeg var lige gået ud for at bade, <strong>da</strong> det begyndte pludselig at lyne og
+                                tordne.</li>
+                            <li>Vi kan ikke få en hund, <strong>fordi</strong> min søn har allergi og ikke kan tåle dyr.
+                            </li>
+                            <li>Jeg er ked af, <strong>at</strong> min søn flytter snart hjemmefra.</li>
+                        </ol>
+
+                        <!-- OP 18 -->
+                        <div class="sub-op">Opgave 18 — Biografturen (điền liên từ vào văn bản)</div>
+                        <div class="letter-block">
+                            <span class="ltitle">Văn bản hoàn chỉnh</span>
+                            <p>Tina spørger Tom, <strong>om</strong> han vil med i biografen på lørdag. Der går en
+                                kærlighedsfilm, <strong>som</strong> hun gerne vil se lørdag aften. Tom vil meget gerne
+                                med, <strong>selvom</strong> han ikke kan lide kærlighedsfilm. Han siger ja,
+                                <strong>fordi</strong> han godt kan lide Tina. Han har nemlig længe håbet på,
+                                <strong>at</strong> de snart skulle ud på en date sammen.</p>
+                            <p>Om lørdagen kører Tom ind til byen for at møde Tina. Hun står og venter foran biografen
+                                og ser lidt trist ud. Hun fortæller, <strong>at</strong> der desværre er udsolgt. Tom
+                                forsøger at skjule sin glæde. Måske kan de finde en café, <strong>hvor</strong> de kan
+                                snakke. Og <strong>hvis</strong> han straks bestiller billetter til om søndagen, kan de
+                                være sammen hele weekenden.</p>
+                        </div>
+
+                        <!-- OP 19 -->
+                        <div class="sub-op">Opgave 19 — H.C. Andersen (điền liên từ)</div>
+                        <div class="letter-block">
+                            <span class="ltitle">Văn bản hoàn chỉnh</span>
+                            <p>H.C. Andersen er født i Odense i 1805. Han er opvokset i et fattigt hjem. Faren var
+                                skomager, <strong>og</strong> moren var vaskekone. <strong>Da</strong> H.C. Andersen var
+                                11 år, døde hans elskede far. Moren var nu alene <strong>om</strong> at forsørge
+                                familien.</p>
+                            <p>Som 14-årig rejste H.C. Andersen til København, <strong>hvor</strong> hans store drøm var
+                                at blive til noget ved teatret. Han prøvede at blive balletdanser, sanger og
+                                skuespiller, <strong>men</strong> det gik ikke særlig godt.</p>
+                            <p>Til gengæld mødte H.C. Andersen nogle kulturpersoner, <strong>som</strong> troede på,
+                                <strong>at</strong> han kunne blive til noget. De hjalp ham, <strong>så</strong> han
+                                kunne få en studentereksamen.</p>
+                            <p>I 1829 udgav H.C. Andersen sin første bog. Han skrev både romaner, skuespil og digte, men
+                                det var hans eventyr, <strong>der</strong> gjorde ham verdensberømt. I 1875 døde H.C.
+                                Andersen som 70-årig. Han giftede sig aldrig <strong>og</strong> fik heller ingen børn.
+                            </p>
+                        </div>
+
+                        <!-- OP 20 -->
+                        <div class="sub-op">Opgave 20 — Antonia fra Brasilien (điền liên từ)</div>
+                        <div class="letter-block">
+                            <span class="ltitle">Văn bản hoàn chỉnh</span>
+                            <p><strong>Da</strong> jeg kom til Danmark, gjorde det et stort indtryk på mig,
+                                <strong>at</strong> der er så mange danskere, <strong>som/der</strong> går utrolig meget
+                                op i tid. De bruger deres kalender hele tiden, <strong>fordi</strong> ellers kan de ikke
+                                huske alle deres aftaler. <strong>Når</strong> de skal ses med familien eller vennerne,
+                                tjekker de altid kalenderen for at finde en dag og et tidspunkt, <strong>hvor</strong>
+                                de kan lave en aftale. De er åbenbart nødt til at planlægge alting,
+                                <strong>fordi</strong> de altid har så travlt. Derfor kommer man heller aldrig uanmeldt
+                                hjem til sine venner, <strong>for</strong> man ved jo ikke, <strong>om</strong> de er
+                                hjemme eller har tid til at få besøg. De fleste går også meget op i, <strong>at</strong>
+                                man overholder tiden, <strong>når</strong> man skal mødes, også <strong>selvom</strong>
+                                man bare skal på besøg til en kop kaffe. Man kommer præcis det aftalte tidspunkt,
+                                <strong>og</strong> hvis man kommer for sent, skriver man, <strong>at</strong> man er
+                                blevet forsinket. Sådan er det slet ikke i Brasilien, <strong>hvor</strong> vi ikke
+                                behøver at planlægge alting. Vi er generelt meget mere åbne og impulsive,
+                                <strong>så</strong> vi kommer tit på uanmeldt besøg hos hinanden, både hos familie,
+                                venner og naboer. Jeg kan godt lide, <strong>at</strong> det hele er mere uformelt og
+                                uforpligtende, <strong>fordi</strong> så kan man også gå igen, <strong>når</strong> man
+                                har lyst til det.</p>
+                        </div>
+
+                        <!-- OP 21 -->
+                        <div class="sub-op">Opgave 21 — For at / Uden at (mục đích &amp; không có)</div>
+                        <p><strong>Với ledsætning (S-A-V):</strong></p>
+                        <ol>
+                            <li>Drengen tog penge i sin mors pung, <strong>uden at</strong> hun vidste det.</li>
+                            <li>Mine forældre skændes tit, <strong>uden at</strong> det betyder noget.</li>
+                            <li>Børnene kom op og slås, <strong>uden at</strong> læreren så det.</li>
+                            <li>Mine forældre knoklede, <strong>for at</strong> jeg kunne få en uddannelse.</li>
+                            <li>Vi er flyttet til en større lejlighed, <strong>for at</strong> børnene kan få mere
+                                plads.</li>
+                            <li>Min søn kom sent hjem, <strong>uden at</strong> jeg opdagede det.</li>
+                            <li>Der afholdes mange rygestopkurser, <strong>for at</strong> rygere skal stoppe med at
+                                ryge.</li>
+                            <li>Regeringen vil sænke dagpengene, <strong>for at</strong> de nyuddannede skal hurtigt
+                                finde et arbejde.</li>
+                            <li>Regeringen vil sænke elafgiften, <strong>for at</strong> det bliver billigere at opvarme
+                                med vedvarende energi.</li>
+                            <li>Patienten blev udskrevet fra hospitalet, <strong>uden at</strong> lægen havde tilset
+                                ham.</li>
+                            <li>Statsministeren var til koncert, <strong>uden at</strong> nogen bemærkede det.</li>
+                        </ol>
+                        <p style="margin-top:10px"><strong>Với infinitiv:</strong></p>
+                        <ol>
+                            <li>Mange er blevet vegetarer <strong>for at</strong> leve mere bæredygtigt.</li>
+                            <li>Jeg cykler på arbejde <strong>for at</strong> tabe mig.</li>
+                            <li>Man kan godt have en kønssygdom <strong>uden at</strong> vide det.</li>
+                            <li>Min kæreste var sammen med en anden <strong>uden at</strong> sige det til mig.</li>
+                            <li>Familien har købt en elbil <strong>for at</strong> påvirke miljøet i en mere positiv
+                                retning.</li>
+                            <li>Hun kører tidligt på arbejde <strong>for at</strong> undgå myldretiden.</li>
+                            <li>Firmaet har prøvet at stabilisere økonomien <strong>uden at</strong> kunne forhindre et
+                                stort underskud.</li>
+                            <li>Læger udskriver nogle gange medicin <strong>uden at</strong> fortælle om bivirkningerne.
+                            </li>
+                            <li>Min kæreste gav mig en flot gave <strong>for at</strong> gøre mig glad.</li>
+                        </ol>
+                        <div class="quote-box" style="margin-top:12px">
+                            <p><strong>for at</strong> (để mà) + infinitiv HOẶC + S-A-V</p>
+                            <p><strong>uden at</strong> (mà không) + infinitiv HOẶC + S-A-V</p>
+                        </div>
+
+                        <!-- OP 22 -->
+                        <div class="sub-op">Opgave 22 — E-mail của Emma (điền liên từ)</div>
+                        <div class="letter-block">
+                            <span class="ltitle">E-mail hoàn chỉnh</span>
+                            <p>Hej! Hvordan går det? Jeg er lige startet på mit nye job på et plejehjem,
+                                <strong>som</strong> ligger midt i Vejle. Jeg er meget glad for jobbet,
+                                <strong>selvom/men</strong> det også er superhårdt, <strong>fordi</strong> jeg har lange
+                                arbejdsdage <strong>og</strong> får sent fri. Nogle gange arbejder jeg også om aftenen,
+                                <strong>så</strong> jeg er dødstræt, <strong>når</strong> jeg kommer hjem. Peter kommer
+                                hjem før mig nu, <strong>men</strong> han har hverken købt ind <strong>eller</strong>
+                                lavet mad, <strong>for</strong> det orker han ikke. Problemet er faktisk,
+                                <strong>at</strong> han INTET laver herhjemme. <strong>Når</strong> han kommer hjem fra
+                                arbejde, smider han sig i sofaen <strong>og</strong> tænder for computeren.
+                                <strong>Så</strong> det er mig, <strong>der</strong> skal lave mad,
+                                <strong>hvis</strong> vi skal have noget at spise. Det gør mig virkelig sur! Hvad synes
+                                du, <strong>at</strong> jeg skal gøre? Hvordan er det hjemme hos dig? Hav det godt,
+                                skriv snart!</p>
+                            <p>Kærlig hilsen Emma</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ REPETITION ═══════════════ -->
+            <div class="stative-block" id="rep">
+                <div class="stative-accent"></div>
+                <div class="stative-inner">
+                    <span class="stative-badge">⚠️ REPETITION · SỬA LỖI LIÊN TỪ</span>
+                    <h2 class="stative-title">Fejlretning — <em>Konjunktioner</em></h2>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">Lỗi 1 — Nhầm når và da (thói quen vs. quá khứ một lần)</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg drak for meget, når jeg var til fest i går.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg drak for meget, da jeg var til fest i går.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">"i går" = quá khứ một lần cụ thể → phải dùng
+                                        "da", không phải "når".</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">Lỗi 2 — Nhầm hvis và om (điều kiện vs. câu hỏi gián tiếp)
+                        </div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Han spørger, hvis han må låne min bil.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Han spørger, om han må låne min bil.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">Sau "spørge" = câu hỏi gián tiếp → "om". "hvis"
+                                        chỉ dùng cho điều kiện.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">Lỗi 3 — Nhầm men và fordi (tương phản vs. nguyên nhân)</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg er træt, men jeg har gjort rent hele dagen.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg er træt, fordi jeg har gjort rent hele dagen.</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">"men" = tương phản (HS). Đây là quan hệ nguyên
+                                        nhân → "fordi" (LS). Chú ý: trật tự từ thay đổi!</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">Lỗi 4 — Nhầm fordi và selvom (nguyên nhân vs. nhượng bộ)
+                        </div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg er ikke så glad for mit job, fordi lønnen er god.</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg er ikke så glad for mit job, selvom lønnen er
+                                        god.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">Logic không hợp lý: không vui MẶC DÙ lương tốt
+                                        → "selvom". "fordi" dùng khi logic hợp lý.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">Lỗi 5 — Nhầm da và når (quá khứ một lần vs. thói quen)</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg er altid nervøs, da jeg skal flyve.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg er altid nervøs, når jeg skal flyve.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">"altid" (luôn luôn) = thói quen lặp lại →
+                                        "når". "da" không dùng cho thói quen hay tương lai.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">Lỗi 6 — Nhầm hvis và om (câu hỏi gián tiếp)</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg ved ikke, hvis han kommer til festen.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg ved ikke, om han kommer til festen.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">Sau "vide" = câu hỏi gián tiếp (liệu
+                                        có...không) → "om", không phải "hvis".</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">Lỗi 7 — Dùng der làm tân ngữ (chỉ som được phép)</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">De har en elbil, der de købte den sidste år.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">De har en elbil, som de købte sidste år.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">"de" là chủ ngữ → đại từ quan hệ làm tân ngữ →
+                                        chỉ dùng "som". "der" không thể làm tân ngữ. Bỏ đại từ "den" trùng lặp.</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">Lỗi 8 — Nhầm som và hvor (danh từ vs. nơi chốn)</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Jeg har en stor altan, som man kan sidde og spise.</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Jeg har en stor altan, hvor man kan sidde og spise.</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">"sidde på altanen" = nơi chốn → mệnh đề đã đủ
+                                        chủ-vị → dùng "hvor". "som" sẽ tạo lỗi nghĩa (altan ngồi ăn?).</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">Lỗi 9 — Nhầm der và som (thực ra cả hai đều được, nhưng der
+                            tự nhiên hơn)</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">⚠️</td>
+                                <td><span class="err-wrong">Hun bor i en lejlighed, som ligger i Valby.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Hun bor i en lejlighed, der ligger i Valby.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">"lejligheden" là chủ ngữ của "ligger" → cả
+                                        "der" lẫn "som" đều đúng về ngữ pháp, nhưng "der" tự nhiên và phổ biến hơn trong
+                                        văn nói.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="stative-section">
+                        <div class="stative-section-title">Lỗi 10 — Đặt sai vị trí mệnh đề quan hệ (gây hiểu nhầm)</div>
+                        <table class="error-table">
+                            <tr>
+                                <td class="err-label">❌</td>
+                                <td><span class="err-wrong">Tjeneren serverede maden, som ikke talte dansk.</span></td>
+                            </tr>
+                            <tr>
+                                <td class="err-label">✅</td>
+                                <td><span class="err-right">Tjeneren, som serverede maden, talte ikke dansk.</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><span class="err-reason">Logic sai: "som ikke talte dansk" bổ nghĩa cho
+                                        "maden" (thức ăn không nói được tiếng Đan Mạch!). Phải đặt mệnh đề quan hệ ngay
+                                        sau "Tjeneren" và thêm dấu phẩy.</span></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ═══════════════ CHECKLIST & SUMMARY ═══════════════ -->
+            <section class="checklist-block" id="summary">
+                <h2 class="checklist-title"><span class="emoji">🎯</span> Checklist kiểm tra lỗi liên từ</h2>
+                <p style="font-size:.9rem;color:var(--muted);margin-bottom:20px">Khi sử dụng liên từ, hãy tự hỏi:</p>
+
+                <div class="check-item">
+                    <strong>✅ 1. HS-konjunktion hay LS-konjunktion?</strong>
+                    <ul>
+                        <li>HS (og, men, eller, for, så-kết quả) → mệnh đề sau S-V-A</li>
+                        <li>LS (at, fordi, hvis, når, da, mens, selvom…) → mệnh đề phụ S-A-V</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 2. "Når" hay "da"?</strong>
+                    <ul>
+                        <li>Quá khứ + một lần ("i går", "pludselig") → <span class="hl">da</span></li>
+                        <li>Quá khứ + thói quen ("altid", "tit") → <span class="hl">når</span></li>
+                        <li>Tương lai → <span class="hl">når</span></li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 3. "Hvis" hay "om"?</strong>
+                    <ul>
+                        <li>Điều kiện "nếu...thì" → <span class="hl">hvis</span></li>
+                        <li>Câu hỏi gián tiếp sau spørge/vide/huske/være sikker på → <span class="hl">om</span></li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 4. "Fordi" hay "selvom"?</strong>
+                    <ul>
+                        <li>Nguyên nhân hợp lý → <span class="hl">fordi</span></li>
+                        <li>Nhượng bộ, trái ngược logic → <span class="hl">selvom</span></li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 5. "Der" hay "som"?</strong>
+                    <ul>
+                        <li>Đại từ quan hệ làm chủ ngữ → có thể dùng cả hai</li>
+                        <li>Đại từ quan hệ làm tân ngữ → CHỈ dùng <span class="hl">som</span></li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 6. "Som" hay "hvor"?</strong>
+                    <ul>
+                        <li>Mệnh đề thiếu chủ ngữ/tân ngữ → <span class="hl">som</span></li>
+                        <li>Mệnh đề đã đủ, thay thế nơi/thời gian → <span class="hl">hvor</span></li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 7. "Så" nghĩa gì?</strong>
+                    <ul>
+                        <li>"vì vậy" (kết quả) = HS → mệnh đề sau S-V-A</li>
+                        <li>"để mà" (mục đích) = LS → mệnh đề sau S-A-V</li>
+                    </ul>
+                </div>
+
+                <div class="check-item">
+                    <strong>✅ 8. Trật tự từ trong ledsætning đúng chưa?</strong>
+                    <ul>
+                        <li>Sai: <span class="hl-err">...fordi jeg går ikke hjem.</span></li>
+                        <li>Đúng: <span class="hl-ok">...fordi jeg ikke går hjem.</span> (A trước V)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ═══════════════ FORMULA SUMMARY ═══════════════ -->
+            <div class="summary-block">
+                <h2 class="summary-title">🏆 Bảng tóm tắt toàn diện — Konjunktioner</h2>
+
+                <pre class="code-block">══════════════════════════════════════════════════════════
+HS-KONJUNKTIONER  →  Mệnh đề sau: S-V-A
+══════════════════════════════════════════════════════════
+og       và         Jeg er sulten, OG jeg er tørstig.
+men      nhưng      Jeg er træt, MEN jeg er glad.
+eller    hoặc       Kaffe ELLER te?
+for      vì         Jeg er træt, FOR jeg HAR arbejdet. (S-V!)
+så       vì vậy     Jeg er træt, SÅ jeg GÅR hjem.   (S-V!)
+
+══════════════════════════════════════════════════════════
+LS-KONJUNKTIONER  →  Mệnh đề phụ: S-A-V
+══════════════════════════════════════════════════════════
+A. THỜI GIAN
+  når    khi (thói quen/TL)  ...når jeg ALTID spiser.
+  da     khi (quá khứ 1 lần) ...da jeg SPISTE i går.
+  mens   trong khi           ...mens hun LÆSTE.
+  før/inden  trước khi       ...før jeg GÅR.
+
+B. NGUYÊN NHÂN / NHƯỢNG BỘ
+  fordi   bởi vì (logic ✓)   ...fordi jeg IKKE har tid.
+  selvom  mặc dù (logic ✗)   ...selvom jeg IKKE er træt.
+
+C. ĐIỀU KIỆN / CÂU HỎI
+  hvis    nếu (điều kiện)     ...hvis jeg HAR tid.
+  om      liệu (câu hỏi g.t)  ...om han KOMMER.
+
+D. ĐẠI TỪ QUAN HỆ
+  der     chủ ngữ             ...der BOR i Paris.
+  som     chủ/tân ngữ         ...som jeg KENDER.
+  hvor    nơi/thời gian       ...hvor jeg BOR.
+
+E. MỤC ĐÍCH / KHÔNG CÓ
+  for at   để mà (+V / S-A-V)
+  uden at  mà không (+V / S-A-V)
+  så (LS)  để mà → S-A-V: ...så vi IKKE fryser.
+
+══════════════════════════════════════════════════════════
+TRƯỜNG HỢP ĐẶC BIỆT: SÅ
+══════════════════════════════════════════════════════════
+SÅ (HS = "vì vậy"):  Jeg er træt, så jeg GÅR hjem.  → S-V-A
+SÅ (LS = "để mà"):   Luk døren, så vi IKKE FRYSER.  → S-A-V</pre>
+
+                <div style="margin-top:20px">
+                    <h3 style="color:#fff;font-family:var(--fd);font-size:1.1rem;margin-bottom:13px">📊 Bảng so sánh
+                        quan trọng nhất</h3>
+                    <div class="tbl-wrap">
+                        <table style="background:transparent">
+                            <thead>
+                                <tr>
+                                    <th>Cặp nhầm lẫn</th>
+                                    <th>Liên từ 1</th>
+                                    <th>Liên từ 2</th>
+                                    <th>Cách phân biệt</th>
+                                </tr>
+                            </thead>
+                            <tbody style="color:#ffd6a5">
+                                <tr>
+                                    <td>NÅR / DA</td>
+                                    <td>når = thói quen / TL</td>
+                                    <td>da = quá khứ 1 lần</td>
+                                    <td>altid/tit → når; i går → da</td>
+                                </tr>
+                                <tr>
+                                    <td>HVIS / OM</td>
+                                    <td>hvis = nếu (điều kiện)</td>
+                                    <td>om = liệu (gián tiếp)</td>
+                                    <td>sau spørge/vide → om</td>
+                                </tr>
+                                <tr>
+                                    <td>FORDI / SELVOM</td>
+                                    <td>fordi = vì (logic ✓)</td>
+                                    <td>selvom = mặc dù (✗)</td>
+                                    <td>logic hợp lý? → fordi</td>
+                                </tr>
+                                <tr>
+                                    <td>FOR / FORDI</td>
+                                    <td>for = HS → S-V-A</td>
+                                    <td>fordi = LS → S-A-V</td>
+                                    <td>...for jeg ER; ...fordi jeg IKKE ER</td>
+                                </tr>
+                                <tr>
+                                    <td>SOM / HVOR</td>
+                                    <td>som = thay danh từ</td>
+                                    <td>hvor = thay nơi/thời gian</td>
+                                    <td>thiếu S/O? → som; đủ rồi? → hvor</td>
+                                </tr>
+                                <tr>
+                                    <td>DER / SOM</td>
+                                    <td>der = chỉ chủ ngữ</td>
+                                    <td>som = chủ/tân ngữ</td>
+                                    <td>làm tân ngữ → chỉ som</td>
+                                </tr>
+                                <tr>
+                                    <td>SÅ (HS / LS)</td>
+                                    <td>vì vậy → S-V-A</td>
+                                    <td>để mà → S-A-V</td>
+                                    <td>kết quả/mục đích?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ BONUS GRID ═══════════════ -->
+            <section class="bonus-section" id="bonus">
+                <h2 class="bonus-section-title">📖 Bài tập ôn tập bổ sung</h2>
+                <div class="bonus-grid">
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">1</span></div>
+                        <p><strong>Học thuộc 5 HS-konjunktioner</strong> kèm ví dụ cho mỗi cái. Ghi nhớ: "for" và "så"
+                            tuy là HS nhưng hay bị nhầm với LS!</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">2</span></div>
+                        <p><strong>Luyện trật tự từ S-A-V:</strong> Viết 10 ledsætning với "ikke" và tự kiểm tra xem
+                            trạng từ có đứng trước động từ không.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">3</span></div>
+                        <p><strong>Luyện når/da:</strong> Kể lại một ngày trong quá khứ, dùng "da" cho sự kiện một lần
+                            và "når" cho thói quen.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">4</span></div>
+                        <p><strong>Luyện som/hvor/der:</strong> Viết 8 câu mô tả bạn bè/gia đình bằng mệnh đề quan hệ,
+                            bao gồm cả trường hợp tân ngữ.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">5</span></div>
+                        <p><strong>Viết email</strong> về một chủ đề bạn quan tâm, sử dụng ít nhất 8 liên từ khác nhau
+                            (cả HS và LS). Gạch dưới từng liên từ.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">6</span></div>
+                        <p><strong>Luyện "så" hai chức năng:</strong> Viết 5 câu "så = vì vậy" (S-V-A) và 5 câu "så = để
+                            mà" (S-A-V), so sánh trật tự từ.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">7</span></div>
+                        <p><strong>Luyện for at / uden at:</strong> Mô tả 5 việc bạn làm hàng ngày và giải thích mục
+                            đích hoặc cách thức không có ý định.</p>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-card-top"><span class="bonus-num">8</span></div>
+                        <p>Truy cập <a href="https://praxisonline.dk" target="_blank">praxisonline.dk</a> để luyện thêm
+                            bài tập về liên từ và trật tự từ với phản hồi tức thì.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════ CONCLUSION ═══════════════ -->
+            <div class="conclusion-block">
+                <h2>✅ Hoàn thành — Chương 7: Konjunktioner</h2>
+                <ul class="conclusion-list">
+                    <li>5 HS-konjunktioner (og, men, eller, for, så) và logic dùng</li>
+                    <li>10+ LS-konjunktioner và trật tự từ S-A-V quan trọng</li>
+                    <li>Phân biệt når/da, hvis/om, fordi/selvom, for/fordi</li>
+                    <li>Đại từ quan hệ der/som/hvor và cách dùng chính xác</li>
+                    <li>Hai chức năng của "så": HS (vì vậy) và LS (để mà)</li>
+                    <li>For at / Uden at trong mệnh đề và infinitiv</li>
+                    <li>Sửa 10 lỗi phổ biến nhất trong Repetition</li>
+                    <li>Bảng tóm tắt toàn diện với ví dụ minh hoạ</li>
+                </ul>
+                <p class="conclusion-cta">Liên từ ảnh hưởng trực tiếp đến trật tự từ — một trong những điểm khó nhất của
+                    tiếng Đan Mạch. Nắm vững chương này là nền tảng vững chắc! 🇩🇰📚</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>CHƯƠNG 7 · KONJUNKTIONER (BINDEORD) · TIẾNG ĐAN MẠCH</footer>
+    <a href="#top" class="back-top">↑ Top</a>
+
+</body>
+
+</html>
