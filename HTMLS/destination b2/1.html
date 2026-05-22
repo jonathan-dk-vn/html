@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 1 – Các Thì Hiện Tại | Destination B2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ─── THEME: BLUE (Tenses) ─── */
+        :root {
+            --primary: #3B6FBF;
+            --primary-light: #D6E4FF;
+            --primary-mid: #7AAAF5;
+            --primary-dark: #1A3F80;
+            --primary-rgb: 59, 111, 191;
+
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F8F8F6;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #E2E0DB;
+            --shadow: rgba(20, 19, 28, .05);
+            --shadow-hover: rgba(59, 111, 191, .15);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        /* ─── LAYOUT ─── */
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* ─── HERO / H1 ─── */
+        .hero {
+            background-color: var(--ink);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 55% at 20% 30%, rgba(59, 111, 191, .25) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 45% at 80% 70%, rgba(122, 170, 245, .15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1.5px solid rgba(122, 170, 245, .4);
+            border-radius: 40px;
+            padding: .35rem 1.1rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 5vw, 54px);
+            font-weight: 700;
+            line-height: 1.2;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--primary-mid);
+        }
+
+        .hero-intro {
+            max-width: 680px;
+            margin: 1.4rem auto 0;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, .72);
+            line-height: 1.75;
+            position: relative;
+        }
+
+        .hero-intro strong {
+            color: var(--primary-mid);
+            font-weight: 600;
+        }
+
+        /* ─── SECTION DIVIDER ─── */
+        hr.section-rule {
+            border: none;
+            border-top: 2px solid var(--line);
+            margin: 3rem 0;
+        }
+
+        /* ─── GRAMMAR BLOCK ─── */
+        .grammar-block {
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 2px 20px var(--shadow);
+            margin: 2.5rem 0;
+            overflow: hidden;
+        }
+
+        .grammar-block-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 1.75rem 1.25rem;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .section-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 8px;
+            padding: .3rem .75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .grammar-block-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(18px, 2.5vw, 24px);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+
+        .grammar-block-body {
+            padding: 1.75rem;
+        }
+
+        /* ─── INTRO PARAGRAPH ─── */
+        .intro-para {
+            background: var(--paper);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-para strong {
+            color: var(--primary-dark);
+        }
+
+        /* sub-headings inside blocks */
+        .grammar-block-body h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 1.75rem 0 .75rem;
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        /* ─── FORMULA BOX ─── */
+        .formula-box {
+            font-family: 'DM Mono', monospace;
+            font-size: 1rem;
+            text-align: center;
+            background: var(--paper);
+            border: 2px dashed var(--primary-mid);
+            border-radius: 12px;
+            padding: .9rem 1.5rem;
+            margin: .75rem 0 1.25rem;
+            color: var(--primary-dark);
+            letter-spacing: .03em;
+        }
+
+        /* ─── TABLES ─── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: .75rem 0 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 12px var(--shadow);
+        }
+
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .95rem;
+        }
+
+        table.grammar-table thead th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-align: left;
+            padding: .75rem 1rem;
+            white-space: nowrap;
+        }
+
+        table.grammar-table tbody td {
+            padding: .7rem 1rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        table.grammar-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.grammar-table tbody tr:hover td {
+            background: rgba(214, 228, 255, .22);
+        }
+
+        table.grammar-table em {
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+
+        table.grammar-table strong {
+            font-weight: 600;
+        }
+
+        /* ─── USAGE LIST ─── */
+        .usage-list {
+            list-style: none;
+            margin: .5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .usage-list li {
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .usage-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .55rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .usage-list li strong {
+            display: block;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .usage-list li em {
+            display: block;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: .2rem;
+            font-size: 1rem;
+        }
+
+        .usage-note {
+            font-size: .88rem;
+            color: var(--muted);
+            font-style: normal;
+        }
+
+        .usage-note strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ─── KEYWORD CHIPS ─── */
+        .kw-chip {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 6px;
+            padding: .1rem .45rem;
+            margin: .1rem .15rem;
+        }
+
+        /* ─── ERROR BLOCK ─── */
+        .error-block {
+            background: var(--surface-alt);
+            border-radius: 14px;
+            margin: 1.75rem 0;
+            overflow: hidden;
+        }
+
+        .error-block-header {
+            background: linear-gradient(90deg, var(--error), var(--primary-mid));
+            padding: .65rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .error-block-header span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .error-block-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .error-item {}
+
+        .error-item-label {
+            font-size: .8rem;
+            font-family: 'DM Mono', monospace;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .4rem;
+        }
+
+        .err-wrong {
+            color: var(--error);
+            font-style: italic;
+            font-size: .97rem;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            margin-bottom: .3rem;
+        }
+
+        .err-wrong .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-wrong .txt {
+            text-decoration: line-through;
+            opacity: .85;
+        }
+
+        .err-right {
+            color: var(--success);
+            font-weight: 600;
+            font-size: .97rem;
+            font-style: italic;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+        }
+
+        .err-right .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-context {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .38);
+            font-style: normal;
+            margin-top: .25rem;
+            padding-left: 1.4rem;
+        }
+
+        /* ─── ALERT BOX (Tips / Watch out / US-UK) ─── */
+        .alert-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .alert-box .alert-title {
+            font-weight: 700;
+            font-size: .88rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--primary-dark);
+            margin-bottom: .45rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .alert-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+
+        .alert-box ul li {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box ul li::before {
+            content: '→ ';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .alert-box p {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        /* US-UK diff boxes */
+        .flag-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .flag-card {
+            background: var(--surface);
+            border-radius: 10px;
+            padding: .85rem 1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .flag-card .flag-label {
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--muted);
+            margin-bottom: .35rem;
+            display: flex;
+            align-items: center;
+            gap: .3rem;
+        }
+
+        .flag-card .flag-ex {
+            font-style: italic;
+            color: var(--primary-dark);
+            font-size: .97rem;
+        }
+
+        .flag-card .flag-note {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-top: .2rem;
+        }
+
+        /* ─── SPECIAL FEATURE BOX ─── */
+        .feature-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            color: #fff;
+        }
+
+        .feature-box .feature-title {
+            font-size: .82rem;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: .5rem;
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+        }
+
+        .feature-box em {
+            font-style: italic;
+            color: var(--primary-mid);
+        }
+
+        .feature-box strong {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* ─── DUAL-VERB TABLE ─── */
+        .dual-verb-note {
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            color: var(--muted);
+        }
+
+        /* ─── COMPARISON TABLE ─── */
+        .compare-banner {
+            background: var(--paper);
+            border-radius: 10px;
+            padding: .6rem 1rem;
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .75rem;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* ─── SELF-CHECK ─── */
+        .self-check {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .self-check .sc-title {
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .6rem;
+        }
+
+        .self-check ol {
+            padding-left: 1.25rem;
+            color: var(--ink);
+            font-size: .97rem;
+        }
+
+        .self-check ol li {
+            margin-bottom: .3rem;
+        }
+
+        /* ─── SUMMARY BLOCK ─── */
+        .summary-block {
+            background: var(--ink);
+            color: #fff;
+            border-radius: 16px;
+            padding: 2rem 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .summary-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 1.25rem;
+            color: var(--primary-mid);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1.5px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+        }
+
+        .summary-card .sc-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary-mid);
+            margin-bottom: .3rem;
+        }
+
+        .summary-card .sc-desc {
+            font-size: .95rem;
+            color: rgba(255, 255, 255, .78);
+        }
+
+        .summary-outro {
+            margin-top: 1.25rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, .5);
+            font-size: .95rem;
+        }
+
+        /* ─── READING PASSAGE ─── */
+        .reading-passage {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 2rem 2.25rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .reading-passage .rp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .75rem;
+        }
+
+        .reading-passage p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.08rem;
+            line-height: 1.85;
+            margin-bottom: 1.4rem;
+            color: #2a2934;
+        }
+
+        .reading-passage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reading-passage strong {
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: .05em .2em;
+            border-radius: 3px;
+        }
+
+        /* grammar features note section */
+        .grammar-features {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .grammar-features h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .6rem;
+        }
+
+        .grammar-features p {
+            font-size: .97rem;
+            line-height: 1.72;
+            margin-bottom: .9rem;
+            color: var(--ink);
+        }
+
+        .grammar-features p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grammar-features strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--muted);
+            font-size: .85rem;
+            border-top: 1px solid var(--line);
+            margin-top: 3rem;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 640px) {
+            .page-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .grammar-block-body {
+                padding: 1.25rem;
+            }
+
+            .grammar-block-header {
+                padding: 1.1rem 1.25rem 1rem;
+            }
+
+            .flag-compare {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-passage {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .summary-block {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .grammar-features {
+                padding: 1.25rem;
+            }
+
+            table.grammar-table {
+                font-size: .87rem;
+            }
+
+            table.grammar-table thead th,
+            table.grammar-table tbody td {
+                padding: .6rem .75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <header class="hero">
+        <div class="hero-badge">Unit 1 · Destination B2</div>
+        <h1>CÁC THÌ HIỆN TẠI<br><em>Present Tenses</em></h1>
+        <p class="hero-intro">Bạn có biết rằng trong giao tiếp hàng ngày, chúng ta sử dụng các thì hiện tại tới
+            <strong>70%</strong> thời gian? Từ việc giới thiệu bản thân <em>"I work as a teacher"</em> đến việc kể về
+            những trải nghiệm <em>"I have lived here for 5 years"</em>, các thì hiện tại chính là <strong>"xương
+                sống"</strong> của tiếng Anh!</p>
+    </header>
+
+    <main>
+        <div class="page-container">
+
+            <!-- ═══════════════════════════════════════
+     1.1 PRESENT SIMPLE
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">1.1</span>
+                    <h2>Present Simple — <em style="font-style:italic;color:var(--primary);">Thì Hiện Tại Đơn</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Khi nào bạn nói <em>"I go to work at 8 AM"</em> thay vì <em>"I am
+                            going to work at 8 AM"</em>?<br>
+                        <strong>Bản chất của Present Simple:</strong> Đây là thì dùng để nói về những việc
+                        <strong>thường xuyên, lặp đi lặp lại</strong> hoặc <strong>sự thật không thay đổi</strong>.
+                    </div>
+
+                    <h3>📝 Công thức cơ bản:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Loại câu</th>
+                                    <th>Chủ ngữ I/You/We/They</th>
+                                    <th>Chủ ngữ He/She/It</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Khẳng định</strong></td>
+                                    <td>I/You/We/They + V (nguyên mẫu)</td>
+                                    <td>He/She/It + V-s/es</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Phủ định</strong></td>
+                                    <td>I/You/We/They + don't + V</td>
+                                    <td>He/She/It + doesn't + V</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nghi vấn</strong></td>
+                                    <td>Do + I/You/We/They + V?</td>
+                                    <td>Does + He/She/It + V?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Các cách dùng chi tiết:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>1. Thói quen hiện tại:</strong>
+                            <em>Toby walks to work.</em>
+                            <span class="usage-note"><strong>Phân tích:</strong> Không phải hôm nay Toby đi bộ, mà anh
+                                ấy LUÔN đi bộ!</span>
+                        </li>
+                        <li>
+                            <strong>2. Tần suất:</strong>
+                            <em>Angela doesn't visit us very often.</em>
+                            <span class="usage-note"><strong>Dấu hiệu:</strong>
+                                <span class="kw-chip">often</span>
+                                <span class="kw-chip">usually</span>
+                                <span class="kw-chip">always</span>
+                                <span class="kw-chip">never</span>
+                                <span class="kw-chip">sometimes</span>
+                                <span class="kw-chip">rarely</span>
+                            </span>
+                        </li>
+                        <li>
+                            <strong>3. Tình huống cố định:</strong>
+                            <em>Carlo works in a travel agent's.</em>
+                            <span class="usage-note">Carlo làm việc tại một công ty du lịch — đây là công việc cố định
+                                của anh ấy.</span>
+                        </li>
+                        <li>
+                            <strong>4. Trạng thái:</strong>
+                            <em>Do you have an up-to-date passport?</em>
+                            <span class="usage-note">Bạn có hộ chiếu còn hạn không?</span>
+                        </li>
+                        <li>
+                            <strong>5. Sự thật hiển nhiên:</strong>
+                            <em>Poland is in the European Union.</em>
+                            <span class="usage-note">Ba Lan thuộc Liên minh châu Âu — đây là một sự thật địa lý không
+                                thay đổi.</span>
+                        </li>
+                    </ul>
+
+                    <div class="error-block">
+                        <div class="error-block-header">
+                            <span>⚠️ LỖI SAI THƯỜNG GẶP (Từ kinh nghiệm 10 năm)</span>
+                        </div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Quên thêm -s/es cho ngôi thứ 3 số ít:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">He work in a
+                                        bank.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>He works in a bank.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng sai trợ động từ:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">Does you like
+                                        coffee?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>Do you like coffee?</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 3 — Nhầm lẫn với Present Continuous:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I am working in this
+                                        company.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I work in this company.</span>
+                                </div>
+                                <div class="err-context">(khi muốn nói về công việc cố định)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Dấu hiệu nhận biết:</strong>
+                                <span class="kw-chip">always</span>
+                                <span class="kw-chip">usually</span>
+                                <span class="kw-chip">often</span>
+                                <span class="kw-chip">sometimes</span>
+                                <span class="kw-chip">rarely</span>
+                                <span class="kw-chip">never</span>
+                                <span class="kw-chip">every day/week/month</span>
+                            </li>
+                            <li><strong>Quy tắc vàng:</strong> Nếu là việc lặp đi lặp lại hoặc sự thật → Present Simple!
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Tính Năng Đặc Biệt — Nhấn Mạnh (Emphatic do/does)</div>
+                        <p><em>"You don't like going by bus, do you?" "Actually, I DO like going by bus!"</em></p>
+                        <p style="margin-top:.5rem"><strong>Giải thích:</strong> Khi muốn nhấn mạnh, ta thêm DO/DOES vào
+                            câu khẳng định!</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     1.2 PRESENT CONTINUOUS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">1.2</span>
+                    <h2>Present Continuous — <em style="font-style:italic;color:var(--primary);">Thì Hiện Tại Tiếp
+                            Diễn</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Tại sao nói <em>"I am working"</em> thay vì <em>"I work"</em>?<br>
+                        <strong>Bản chất của Present Continuous:</strong> Thì này như một "máy quay phim" — nó chụp lại
+                        hành động <strong>đang diễn ra</strong> tại thời điểm nói hoặc <strong>tạm thời</strong> trong
+                        giai đoạn hiện tại.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Loại câu</th>
+                                    <th>I</th>
+                                    <th>You/We/They</th>
+                                    <th>He/She/It</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Khẳng định</strong></td>
+                                    <td>I am + V-ing</td>
+                                    <td>You/We/They are + V-ing</td>
+                                    <td>He/She/It is + V-ing</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Phủ định</strong></td>
+                                    <td>I am not + V-ing</td>
+                                    <td>You/We/They aren't + V-ing</td>
+                                    <td>He/She/It isn't + V-ing</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nghi vấn</strong></td>
+                                    <td>Am I + V-ing?</td>
+                                    <td>Are you/we/they + V-ing?</td>
+                                    <td>Is he/she/it + V-ing?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Các cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>1. Hành động đang xảy ra:</strong>
+                            <em>Mike is driving to work at the moment.</em>
+                            <span class="usage-note"><strong>Phân tích:</strong> NGAY LÚC NÀY Mike đang lái xe!</span>
+                        </li>
+                        <li>
+                            <strong>2. Chuỗi hành động tạm thời:</strong>
+                            <em>Taxi drivers aren't stopping at the train station because of the roadworks.</em>
+                        </li>
+                        <li>
+                            <strong>3. Tình huống tạm thời:</strong>
+                            <em>Are they staying in a hotel near the Olympic stadium?</em>
+                        </li>
+                        <li>
+                            <strong>4. Xu hướng thay đổi:</strong>
+                            <em>Holidays abroad are becoming increasingly popular.</em>
+                        </li>
+                        <li>
+                            <strong>5. Thói quen khó chịu (với "always"):</strong>
+                            <em>Dad is always cleaning the car when I want to use it!</em>
+                            <span class="usage-note"><strong>Ý nghĩa:</strong> Thể hiện sự bực bội!</span>
+                        </li>
+                    </ul>
+
+                    <div class="error-block">
+                        <div class="error-block-header">
+                            <span>⚠️ LỖI SAI THƯỜNG GẶP</span>
+                        </div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Dùng với động từ trạng thái:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I am knowing the
+                                        answer.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I know the answer.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Nhầm lẫn "now" và thói quen:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I am going to work
+                                        by bus.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I go to work by bus.</span>
+                                </div>
+                                <div class="err-context">(khi nói về thói quen)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Dấu hiệu:</strong>
+                                <span class="kw-chip">now</span>
+                                <span class="kw-chip">at the moment</span>
+                                <span class="kw-chip">currently</span>
+                                <span class="kw-chip">today</span>
+                                <span class="kw-chip">this week</span>
+                            </li>
+                            <li><strong>Quy tắc:</strong> Nếu hành động có tính "tạm thời" hoặc "đang diễn ra" → Present
+                                Continuous!</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     1.3 PRESENT PERFECT SIMPLE
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">1.3</span>
+                    <h2>Present Perfect Simple — <em style="font-style:italic;color:var(--primary);">Thì Hiện Tại Hoàn
+                            Thành</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Tại sao người Anh nói <em>"I have seen that movie"</em> thay vì
+                        <em>"I saw that movie"</em>?<br>
+                        <strong>Bản chất của Present Perfect:</strong> Đây là "cây cầu nối" giữa quá khứ và hiện tại.
+                        Hành động xảy ra trong quá khứ nhưng <strong>kết quả vẫn còn ảnh hưởng đến hiện tại</strong>.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="formula-box">have / has + Past Participle (V3)</div>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Loại câu</th>
+                                    <th>I/You/We/They</th>
+                                    <th>He/She/It</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Khẳng định</strong></td>
+                                    <td>have + V3</td>
+                                    <td>has + V3</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Phủ định</strong></td>
+                                    <td>haven't + V3</td>
+                                    <td>hasn't + V3</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nghi vấn</strong></td>
+                                    <td>Have + S + V3?</td>
+                                    <td>Has + S + V3?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Các cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>1. Trạng thái bắt đầu từ quá khứ, kéo dài đến hiện tại:</strong>
+                            <em>She's had her motorbike for over six years.</em>
+                            <span class="usage-note"><strong>Phân tích:</strong> Cô ấy mua xe 6 năm trước, và BÂY GIỜ
+                                vẫn còn!</span>
+                        </li>
+                        <li>
+                            <strong>2. Chuỗi hành động liên tiếp đến hiện tại:</strong>
+                            <em>We've travelled by taxi, bus, plane and train - all in the last twenty-four hours!</em>
+                        </li>
+                        <li>
+                            <strong>3. Hành động trong quá khứ, không rõ thời gian:</strong>
+                            <em>Have you ever flown in a helicopter?</em>
+                            <span class="usage-note"><strong>Chú ý:</strong> EVER = bao giờ (trong đời)</span>
+                        </li>
+                        <li>
+                            <strong>4. Hành động vừa xong, quan trọng là kết quả:</strong>
+                            <em>I've booked the coach tickets.</em>
+                            <span class="usage-note">Tôi đã đặt vé rồi → Bây giờ chúng ta có vé!</span>
+                        </li>
+                    </ul>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Điểm Đặc Biệt</div>
+                        <p><em>It's the first/second time I've been on a plane.</em></p>
+                        <p style="margin-top:.5rem"><strong>Quy tắc:</strong> "It's the + số thứ tự + time" + Present
+                            Perfect</p>
+                    </div>
+
+                    <h3>🇺🇸🇬🇧 Khác biệt Mỹ – Anh:</h3>
+                    <div class="flag-compare">
+                        <div class="flag-card">
+                            <div class="flag-label">🇺🇸 Tiếng Anh Mỹ</div>
+                            <div class="flag-ex">We already saw the Sphinx.</div>
+                            <div class="flag-note">gotten (past participle của "get")</div>
+                        </div>
+                        <div class="flag-card">
+                            <div class="flag-label">🇬🇧 Tiếng Anh Anh</div>
+                            <div class="flag-ex">We've already seen the Sphinx.</div>
+                            <div class="flag-note">got (past participle của "get")</div>
+                        </div>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header">
+                            <span>⚠️ LỖI SAI THƯỜNG GẶP</span>
+                        </div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Dùng với thời gian cụ thể trong quá khứ:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I have seen him
+                                        yesterday.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I saw him yesterday. / I have
+                                        seen him recently.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Nhầm lẫn với Past Simple:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I lived here for 5
+                                        years.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I have lived here for 5
+                                        years.</span></div>
+                                <div class="err-context">(khi vẫn đang sống ở đây)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Dấu hiệu:</strong>
+                                <span class="kw-chip">already</span>
+                                <span class="kw-chip">yet</span>
+                                <span class="kw-chip">just</span>
+                                <span class="kw-chip">ever</span>
+                                <span class="kw-chip">never</span>
+                                <span class="kw-chip">recently</span>
+                                <span class="kw-chip">lately</span>
+                                <span class="kw-chip">so far</span>
+                                <span class="kw-chip">up to now</span>
+                                <span class="kw-chip">since</span>
+                                <span class="kw-chip">for</span>
+                            </li>
+                            <li><strong>Công thức vàng:</strong> Quá khứ + Ảnh hưởng hiện tại = Present Perfect!</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     1.4 PRESENT PERFECT CONTINUOUS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">1.4</span>
+                    <h2>Present Perfect Continuous — <em style="font-style:italic;color:var(--primary);">Thì Hiện Tại
+                            Hoàn Thành Tiếp Diễn</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"I have been studying"</em> vs <em>"I have studied"</em> — Sự
+                        khác biệt tinh tế?<br>
+                        <strong>Bản chất:</strong> Nhấn mạnh vào <strong>quá trình liên tục</strong> từ quá khứ đến hiện
+                        tại, thường kèm theo <strong>sự mệt mỏi</strong> hoặc <strong>kết quả có thể nhìn thấy</strong>.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="formula-box">have / has + been + V-ing</div>
+
+                    <h3>🎯 Các cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>1. Hành động liên tục đến hiện tại:</strong>
+                            <em>We have been driving for hours. Can't we have a break soon?</em>
+                            <span class="usage-note"><strong>Phân tích:</strong> Nhấn mạnh việc lái xe LIÊN TỤC và cảm
+                                giác mệt mỏi!</span>
+                        </li>
+                        <li>
+                            <strong>2. Hành động vừa dừng, để lại dấu vết:</strong>
+                            <em>I'm out of breath because I've been running to get here in time.</em>
+                            <span class="usage-note"><strong>Dẫn chứng:</strong> Thở không ra hơi = bằng chứng của việc
+                                chạy!</span>
+                        </li>
+                    </ul>
+
+                    <h3>🔄 So sánh Present Perfect Simple vs Continuous:</h3>
+                    <div class="compare-banner">🔄 Bảng so sánh</div>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Present Perfect Simple</th>
+                                    <th>Present Perfect Continuous</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em>I have read that book.</em><br><span class="usage-note">Đã đọc xong</span>
+                                    </td>
+                                    <td><em>I have been reading that book.</em><br><span class="usage-note">Chưa đọc
+                                            xong</span></td>
+                                </tr>
+                                <tr>
+                                    <td><em>I have worked here for 4 years.</em><br><span class="usage-note">Cả hai đều
+                                            đúng - ít khác biệt</span></td>
+                                    <td><em>I have been working here for 4 years.</em><br><span class="usage-note">Nhấn
+                                            mạnh quá trình hơn</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header">
+                            <span>⚠️ LỖI SAI THƯỜNG GẶP</span>
+                        </div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Dùng với "ever/never":</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">Have you ever been
+                                        flying in a helicopter?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>Have you ever flown in a
+                                        helicopter?</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng với động từ trạng thái:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I have been knowing
+                                        him for years.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I have known him for
+                                        years.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Dấu hiệu:</strong>
+                                <span class="kw-chip">all day/week/year</span>
+                                <span class="kw-chip">for</span>
+                                <span class="kw-chip">since</span>
+                                <span class="kw-chip">just</span>
+                            </li>
+                            <li><strong>Quy tắc:</strong> Muốn nhấn mạnh "quá trình liên tục" → Present Perfect
+                                Continuous!</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     1.5 STATIVE VERBS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">1.5</span>
+                    <h2>Stative Verbs — <em style="font-style:italic;color:var(--primary);">Động Từ Trạng Thái</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Tại sao không thể nói <em>"I am knowing you"</em>?<br>
+                        <strong>Bản chất:</strong> Các động từ này không mô tả <strong>hành động</strong> mà mô tả
+                        <strong>trạng thái, cảm xúc, suy nghĩ</strong> — những thứ không thể "đang diễn ra".
+                    </div>
+
+                    <h3>📝 Các nhóm động từ trạng thái:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Nhóm</th>
+                                    <th>Động từ</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Suy nghĩ</strong></td>
+                                    <td><span class="kw-chip">believe</span> <span class="kw-chip">imagine</span> <span
+                                            class="kw-chip">know</span> <span class="kw-chip">mean</span> <span
+                                            class="kw-chip">think</span> <span class="kw-chip">understand</span></td>
+                                    <td><em>I see what you mean.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tồn tại</strong></td>
+                                    <td><span class="kw-chip">be</span> <span class="kw-chip">exist</span></td>
+                                    <td><em>It is beautiful.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cảm xúc</strong></td>
+                                    <td><span class="kw-chip">hate</span> <span class="kw-chip">like</span> <span
+                                            class="kw-chip">love</span> <span class="kw-chip">need</span> <span
+                                            class="kw-chip">prefer</span> <span class="kw-chip">want</span></td>
+                                    <td><em>I love chocolate.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Giác quan</strong></td>
+                                    <td><span class="kw-chip">hear</span> <span class="kw-chip">see</span> <span
+                                            class="kw-chip">smell</span> <span class="kw-chip">sound</span> <span
+                                            class="kw-chip">taste</span></td>
+                                    <td><em>I hear music.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ngoại hình</strong></td>
+                                    <td><span class="kw-chip">appear</span> <span class="kw-chip">look</span> <span
+                                            class="kw-chip">resemble</span> <span class="kw-chip">seem</span></td>
+                                    <td><em>She looks tired.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sở hữu / Quan hệ</strong></td>
+                                    <td><span class="kw-chip">belong to</span> <span class="kw-chip">consist of</span>
+                                        <span class="kw-chip">have</span> <span class="kw-chip">include</span> <span
+                                            class="kw-chip">own</span></td>
+                                    <td><em>I have a car.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Động Từ "Hai Mặt" — Vừa Trạng Thái Vừa Hành Động</div>
+                        <p style="margin-bottom:.75rem">Một số động từ có nghĩa khác nhau tùy theo ngữ cảnh:</p>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Động từ</th>
+                                    <th>Nghĩa trạng thái</th>
+                                    <th>Nghĩa hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>have</strong></td>
+                                    <td><em>Do you have your ticket?</em><br><span class="usage-note">(sở hữu)</span>
+                                    </td>
+                                    <td><em>Are you having lunch?</em><br><span class="usage-note">(ăn)</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>think</strong></td>
+                                    <td><em>I think he's right.</em><br><span class="usage-note">(quan điểm)</span></td>
+                                    <td><em>I'm thinking about it.</em><br><span class="usage-note">(đang suy
+                                            nghĩ)</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>see</strong></td>
+                                    <td><em>I see what you mean.</em><br><span class="usage-note">(hiểu)</span></td>
+                                    <td><em>I'm seeing the doctor.</em><br><span class="usage-note">(gặp)</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>taste</strong></td>
+                                    <td><em>This tastes good.</em><br><span class="usage-note">(có vị)</span></td>
+                                    <td><em>I'm tasting the soup.</em><br><span class="usage-note">(nếm thử)</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header">
+                            <span>⚠️ LỖI SAI THƯỜNG GẶP</span>
+                        </div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Dùng continuous với stative verbs:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I am loving this
+                                        song.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I love this song.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Nhầm lẫn nghĩa của động từ:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I am having a
+                                        car.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I have a car.</span></div>
+                                <div class="err-context">(muốn nói về sở hữu)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Quy tắc vàng:</strong> Hỏi bản thân "Có thể nhìn thấy hành động này không?" Nếu
+                                KHÔNG → Stative verb!</li>
+                            <li><strong>Thủ thuật:</strong> Các động từ về cảm xúc, suy nghĩ, giác quan thường là
+                                stative.</li>
+                        </ul>
+                    </div>
+
+                    <div class="self-check">
+                        <div class="sc-title">🎯 Câu hỏi tự kiểm tra</div>
+                        <ol>
+                            <li>Phân biệt: "I think" vs "I'm thinking"</li>
+                            <li>Khi nào dùng "I have" vs "I'm having"?</li>
+                            <li>Tại sao không nói "I am loving you" trong tiếng Anh?</li>
+                        </ol>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     TỔNG KẾT
+══════════════════════════════════════════ -->
+            <div class="summary-block">
+                <h2>Tổng Kết Unit 1</h2>
+                <p style="color:rgba(255,255,255,.65);margin-bottom:1.25rem;font-size:.97rem"><strong
+                        style="color:var(--primary-mid)">Bí quyết thành công:</strong> Hãy nhớ rằng mỗi thì hiện tại có
+                    một "sứ mệnh" riêng:</p>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="sc-label">1.1 · Present Simple</div>
+                        <div class="sc-desc">Thói quen &amp; sự thật không thay đổi</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">1.2 · Present Continuous</div>
+                        <div class="sc-desc">Hành động tạm thời &amp; đang diễn ra</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">1.3 · Present Perfect</div>
+                        <div class="sc-desc">Cầu nối quá khứ-hiện tại</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">1.4 · Pres. Perf. Continuous</div>
+                        <div class="sc-desc">Quá trình liên tục với kết quả</div>
+                    </div>
+                </div>
+                <p class="summary-outro">Chúng ta vừa hoàn thành "nền móng" quan trọng nhất của tiếng Anh! Tiếp theo,
+                    hãy cùng khám phá thế giới quá khứ đầy thú vị…</p>
+            </div>
+
+            <!-- ═══════════════════════════════════════
+     READING PASSAGE
+══════════════════════════════════════════ -->
+            <section class="reading-passage">
+                <div class="rp-title">📖 My Daily Life and Achievements</div>
+
+                <p>I wake up at 6:30 every morning, and this routine <strong>has been</strong> part of my life for over
+                    three years now. While many people struggle with early mornings, I actually <strong>do love</strong>
+                    watching the sunrise – it's one of those simple pleasures that <strong>makes</strong> each day feel
+                    special. My roommate, however, <strong>doesn't share</strong> this enthusiasm; she
+                    <strong>prefers</strong> sleeping in whenever possible.</p>
+
+                <p>Currently, I <strong>am working</strong> as a digital marketing specialist at a tech startup
+                    downtown. It's a demanding job, but I <strong>have always wanted</strong> to work in technology. The
+                    industry <strong>is constantly evolving</strong>, which <strong>means</strong> I <strong>am always
+                        learning</strong> something new. Just this week, I <strong>have been studying</strong>
+                    artificial intelligence applications in marketing, and the possibilities <strong>seem</strong>
+                    endless. My colleagues often say that technology <strong>is becoming</strong> more integrated into
+                    every aspect of business, and I completely agree. Poland <strong>is</strong> in the European Union,
+                    and this international connection <strong>has opened</strong> many opportunities for tech companies
+                    like ours to expand globally.</p>
+
+                <p>My typical workday <strong>begins</strong> at 8:30 AM. I usually <strong>take</strong> the subway to
+                    work, though today I <strong>am driving</strong> because I <strong>have</strong> a client meeting
+                    across town later. The commute <strong>doesn't bother</strong> me much – I <strong>have been
+                        commuting</strong> for years, first as a student and now as a professional. During the ride, I
+                    often <strong>think</strong> about my projects, though right now I <strong>am thinking</strong>
+                    specifically about a presentation I <strong>need</strong> to finish. It's the third time this month
+                    I <strong>have prepared</strong> a major presentation, and each one <strong>has helped</strong> me
+                    improve my public speaking skills.</p>
+
+                <p>At work, our team <strong>consists of</strong> twelve talented individuals from different
+                    backgrounds. We <strong>belong to</strong> the marketing department, but we <strong>are currently
+                        collaborating</strong> with the development team on a new app launch. The project <strong>has
+                        been running</strong> for six months, and we <strong>have already achieved</strong> several
+                    milestones. My manager <strong>believes</strong> in agile methodology, so we <strong>have</strong>
+                    daily stand-up meetings. Sometimes I <strong>hear</strong> people complaining about too many
+                    meetings, but I <strong>understand</strong> their importance for team coordination. The coffee in
+                    our office <strong>tastes</strong> terrible, though – I <strong>am always bringing</strong> my own
+                    from home! Yes, I know it <strong>sounds</strong> picky, but good coffee <strong>matters</strong> to
+                    me.</p>
+
+                <p>Speaking of achievements, I <strong>have recently completed</strong> my professional certification in
+                    digital marketing. The course <strong>included</strong> intensive training modules, and I
+                    <strong>have been applying</strong> the knowledge immediately in my work. My portfolio <strong>has
+                        grown</strong> significantly this year – I <strong>have designed</strong> five successful
+                    campaigns, and each one <strong>has taught</strong> me something valuable. Success <strong>doesn't
+                        come</strong> overnight; it <strong>requires</strong> consistent effort and dedication. I
+                    <strong>have learned</strong> that persistence <strong>is</strong> key to professional growth.</p>
+
+                <p>After work, I <strong>am currently taking</strong> Spanish classes twice a week. Languages
+                    <strong>have always fascinated</strong> me, and I <strong>have been studying</strong> Spanish for
+                    eight months now. My teacher <strong>says</strong> my pronunciation <strong>is improving</strong>,
+                    though I still <strong>struggle</strong> with irregular verbs. The class <strong>includes</strong>
+                    students from various countries, which <strong>makes</strong> it even more interesting. We
+                    <strong>have become</strong> good friends, and we often <strong>practice</strong> together outside
+                    of class. Tonight, we <strong>are meeting</strong> at a Spanish restaurant to practice conversation
+                    – it's becoming our tradition!</p>
+
+                <p>On weekends, I <strong>volunteer</strong> at a local community center where I <strong>teach</strong>
+                    basic computer skills to seniors. This experience <strong>has been</strong> incredibly rewarding.
+                    Many of my students <strong>have never used</strong> a computer before, but they <strong>are
+                        learning</strong> quickly. Their enthusiasm <strong>reminds</strong> me that learning
+                    <strong>never stops</strong>, regardless of age. One of my students, Mrs. Johnson, <strong>is always
+                        asking</strong> questions – sometimes it <strong>feels</strong> overwhelming, but her curiosity
+                    <strong>is</strong> inspiring. She <strong>has just bought</strong> her first laptop, and she
+                    <strong>has been practicing</strong> typing every day.</p>
+
+                <p>Fitness <strong>plays</strong> an important role in my life too. I <strong>go</strong> to the gym
+                    three times a week and <strong>have been following</strong> the same workout routine for months. My
+                    trainer <strong>wants</strong> me to try new exercises, so this month I <strong>am
+                        experimenting</strong> with CrossFit. The workouts <strong>are</strong> intense – I <strong>have
+                        been feeling</strong> sore after every session! But the results <strong>speak</strong> for
+                    themselves: I <strong>have lost</strong> ten pounds and <strong>feel</strong> stronger than ever.
+                    Exercise <strong>helps</strong> me manage stress and <strong>keeps</strong> me energized throughout
+                    the day.</p>
+
+                <p>Looking at my life now, I <strong>realize</strong> how much I <strong>have accomplished</strong> in
+                    recent years. Success <strong>means</strong> different things to different people, but for me, it
+                    <strong>represents</strong> continuous growth and learning. I <strong>don't believe</strong> in
+                    perfection, but I <strong>do believe</strong> in progress. Every small step <strong>counts</strong>,
+                    and every experience <strong>shapes</strong> who we <strong>become</strong>. My journey
+                    <strong>continues</strong>, and while I <strong>don't know</strong> what the future
+                    <strong>holds</strong>, I <strong>am excited</strong> about the possibilities that
+                    <strong>lie</strong> ahead.</p>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+     GRAMMAR FEATURES HIGHLIGHTED
+══════════════════════════════════════════ -->
+            <section class="grammar-features">
+                <h2>Grammar Features Highlighted</h2>
+
+                <p><strong>Present Simple:</strong> Used throughout for habits (<em>I wake up at 6:30</em>), facts
+                    (<em>Poland is in the European Union</em>), and states (<em>I have a client meeting</em>).</p>
+
+                <p><strong>Present Continuous:</strong> Demonstrated for temporary situations (<em>I am working as a
+                        specialist</em>), current projects (<em>I am driving today</em>), and changing situations
+                    (<em>technology is becoming more integrated</em>).</p>
+
+                <p><strong>Present Perfect Simple:</strong> Shown for experiences (<em>I have designed five
+                        campaigns</em>), unfinished time periods (<em>I have recently completed</em>), and states
+                    continuing to present (<em>has been part of my life for three years</em>).</p>
+
+                <p><strong>Present Perfect Continuous:</strong> Used for ongoing activities with duration (<em>I have
+                        been studying Spanish for eight months</em>), recent activities with visible results (<em>I have
+                        been feeling sore</em>).</p>
+
+                <p><strong>Stative Verbs:</strong> Correctly used in simple form (<em>I believe</em>, <em>it seems</em>,
+                    <em>I understand</em>) and distinguished from action meanings (<em>I think</em> vs <em>I am
+                        thinking</em>, <em>I have a car</em> vs <em>I am having a meeting</em>).</p>
+
+                <p><strong>Special Features:</strong> Emphatic do/does for emphasis (<em>I actually do love</em>, <em>I
+                        do believe</em>), and the pattern "It's the third time I have prepared" using Present Perfect
+                    after ordinal numbers.</p>
+
+                <p><strong>Common Errors Avoided:</strong> Proper use of -s/-es with third person singular, correct
+                    auxiliary verbs in questions, appropriate tense selection based on context, and proper handling of
+                    stative verbs.</p>
+            </section>
+
+        </div><!-- /page-container -->
+    </main>
+
+    <footer>
+        <p>Destination B2 · Unit 1 — Các Thì Hiện Tại &nbsp;|&nbsp; Present Tenses</p>
+    </footer>
+
+</body>
+
+</html>

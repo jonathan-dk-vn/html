@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 2 – Các Thì Quá Khứ | Destination B2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ══════════════════════════════════════
+   THEME: BLUE — Tenses / Past Tenses
+══════════════════════════════════════ */
+        :root {
+            --primary: #3B6FBF;
+            --primary-light: #D6E4FF;
+            --primary-mid: #7AAAF5;
+            --primary-dark: #1A3F80;
+            --primary-rgb: 59, 111, 191;
+
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F8F8F6;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #E2E0DB;
+            --shadow: rgba(20, 19, 28, .05);
+            --shadow-hover: rgba(59, 111, 191, .15);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.72;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        /* ── CONTAINER ── */
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+        .hero {
+            background-color: var(--ink);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 60% at 15% 25%, rgba(59, 111, 191, .28) 0%, transparent 65%),
+                radial-gradient(ellipse 55% 50% at 85% 75%, rgba(122, 170, 245, .18) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        /* decorative timeline line in hero */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(to bottom, rgba(122, 170, 245, .5), transparent);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1.5px solid rgba(122, 170, 245, .4);
+            border-radius: 40px;
+            padding: .35rem 1.1rem;
+            margin-bottom: 1.4rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 5vw, 54px);
+            font-weight: 700;
+            line-height: 1.18;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--primary-mid);
+        }
+
+        .hero-intro {
+            max-width: 680px;
+            margin: 1.4rem auto 0;
+            font-size: 1.03rem;
+            color: rgba(255, 255, 255, .72);
+            line-height: 1.75;
+            position: relative;
+        }
+
+        .hero-intro strong {
+            color: var(--primary-mid);
+            font-weight: 600;
+        }
+
+        /* ══════════════════════════════════════
+   GRAMMAR BLOCK
+══════════════════════════════════════ */
+        .grammar-block {
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 2px 20px var(--shadow);
+            margin: 2.5rem 0;
+            overflow: hidden;
+        }
+
+        .grammar-block-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 1.75rem 1.25rem;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .section-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 8px;
+            padding: .3rem .75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .grammar-block-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(17px, 2.4vw, 23px);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+
+        .grammar-block-body {
+            padding: 1.75rem;
+        }
+
+        /* ── INTRO PARA ── */
+        .intro-para {
+            background: var(--paper);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-para strong {
+            color: var(--primary-dark);
+        }
+
+        /* ── SUB-HEADINGS ── */
+        .grammar-block-body h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 1.75rem 0 .75rem;
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        /* ── FORMULA BOX ── */
+        .formula-box {
+            font-family: 'DM Mono', monospace;
+            font-size: 1rem;
+            text-align: center;
+            background: var(--paper);
+            border: 2px dashed var(--primary-mid);
+            border-radius: 12px;
+            padding: .9rem 1.5rem;
+            margin: .75rem 0 1.25rem;
+            color: var(--primary-dark);
+            letter-spacing: .03em;
+        }
+
+        /* ── TABLES ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: .75rem 0 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 12px var(--shadow);
+        }
+
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .95rem;
+        }
+
+        table.grammar-table thead th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-align: left;
+            padding: .75rem 1rem;
+            white-space: nowrap;
+        }
+
+        table.grammar-table tbody td {
+            padding: .7rem 1rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        table.grammar-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.grammar-table tbody tr:hover td {
+            background: rgba(214, 228, 255, .22);
+        }
+
+        table.grammar-table em {
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+
+        table.grammar-table strong {
+            font-weight: 600;
+        }
+
+        /* ── USAGE LIST ── */
+        .usage-list {
+            list-style: none;
+            margin: .5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .usage-list li {
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .usage-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .57rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .usage-list li strong {
+            display: block;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .usage-list li em {
+            display: block;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: .2rem;
+            font-size: 1rem;
+        }
+
+        .usage-note {
+            font-size: .88rem;
+            color: var(--muted);
+            font-style: normal;
+        }
+
+        .usage-note strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ── KEYWORD CHIPS ── */
+        .kw-chip {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 6px;
+            padding: .1rem .45rem;
+            margin: .1rem .15rem;
+        }
+
+        /* ── ERROR BLOCK ── */
+        .error-block {
+            background: var(--surface-alt);
+            border-radius: 14px;
+            margin: 1.75rem 0;
+            overflow: hidden;
+        }
+
+        .error-block-header {
+            background: linear-gradient(90deg, var(--error), var(--primary-mid));
+            padding: .65rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .error-block-header span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .error-block-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .error-item-label {
+            font-size: .8rem;
+            font-family: 'DM Mono', monospace;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .4rem;
+        }
+
+        .err-wrong {
+            color: var(--error);
+            font-style: italic;
+            font-size: .97rem;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            margin-bottom: .3rem;
+        }
+
+        .err-wrong .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-wrong .txt {
+            text-decoration: line-through;
+            opacity: .85;
+        }
+
+        .err-right {
+            color: var(--success);
+            font-weight: 600;
+            font-size: .97rem;
+            font-style: italic;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+        }
+
+        .err-right .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-context {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .38);
+            font-style: normal;
+            margin-top: .25rem;
+            padding-left: 1.4rem;
+        }
+
+        /* ── ALERT BOX ── */
+        .alert-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .alert-box .alert-title {
+            font-weight: 700;
+            font-size: .88rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--primary-dark);
+            margin-bottom: .45rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .alert-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+
+        .alert-box ul li {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box ul li::before {
+            content: '→ ';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .alert-box p {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        /* ── FEATURE BOX (dark gradient) ── */
+        .feature-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            color: #fff;
+        }
+
+        .feature-box .feature-title {
+            font-size: .82rem;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: .5rem;
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+        }
+
+        .feature-box em {
+            font-style: italic;
+            color: var(--primary-mid);
+        }
+
+        .feature-box strong {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* ── GOLDEN FORMULA BOX (special) ── */
+        .golden-formula {
+            background: linear-gradient(135deg, rgba(59, 111, 191, .12), rgba(122, 170, 245, .12));
+            border: 2px solid var(--primary-mid);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .golden-formula .gf-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--primary);
+            margin-bottom: .4rem;
+        }
+
+        .golden-formula .gf-formula {
+            font-family: 'DM Mono', monospace;
+            font-size: 1.05rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        .golden-formula .gf-example {
+            font-style: italic;
+            font-size: .97rem;
+            color: var(--ink);
+            margin-top: .5rem;
+        }
+
+        .golden-formula .gf-note {
+            font-size: .85rem;
+            color: var(--muted);
+            margin-top: .3rem;
+        }
+
+        /* ── STORY TECHNIQUE BOX ── */
+        .story-box {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1.1rem 1.3rem;
+            margin: 1.25rem 0;
+        }
+
+        .story-box .sb-title {
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .5rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .story-box p {
+            font-size: .97rem;
+            color: var(--ink);
+            line-height: 1.72;
+        }
+
+        .story-box em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        .story-box strong {
+            font-weight: 600;
+        }
+
+        /* ── COMPARE BANNER ── */
+        .compare-banner {
+            background: var(--paper);
+            border-radius: 10px;
+            padding: .6rem 1rem;
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .75rem;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* ── MINDMAP BLOCK ── */
+        .mindmap-block {
+            background: var(--ink);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .mindmap-block .mm-title {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--primary-mid);
+            margin-bottom: .85rem;
+        }
+
+        .mindmap-block ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        .mindmap-block ul li {
+            font-size: .95rem;
+            color: rgba(255, 255, 255, .82);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .mindmap-block ul li::before {
+            content: '├──';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: .85rem;
+        }
+
+        .mindmap-block ul li:last-child::before {
+            content: '└──';
+        }
+
+        .mindmap-block ul li .mm-key {
+            color: var(--primary-mid);
+            font-weight: 500;
+        }
+
+        /* ── SELF CHECK ── */
+        .self-check {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .self-check .sc-title {
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .6rem;
+        }
+
+        .self-check ol {
+            padding-left: 1.25rem;
+            color: var(--ink);
+            font-size: .97rem;
+        }
+
+        .self-check ol li {
+            margin-bottom: .35rem;
+        }
+
+        /* ── SUMMARY BLOCK ── */
+        .summary-block {
+            background: var(--ink);
+            color: #fff;
+            border-radius: 16px;
+            padding: 2rem 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .summary-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 1.25rem;
+            color: var(--primary-mid);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1rem;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1.5px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+        }
+
+        .summary-card .sc-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            color: var(--primary-mid);
+            margin-bottom: .3rem;
+        }
+
+        .summary-card .sc-desc {
+            font-size: .92rem;
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .summary-outro {
+            margin-top: 1.25rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, .5);
+            font-size: .95rem;
+        }
+
+        /* ── READING PASSAGE ── */
+        .reading-passage {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 2rem 2.25rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .reading-passage .rp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .75rem;
+        }
+
+        .reading-passage p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.08rem;
+            line-height: 1.88;
+            margin-bottom: 1.4rem;
+            color: #2a2934;
+        }
+
+        .reading-passage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reading-passage strong {
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: .05em .2em;
+            border-radius: 3px;
+        }
+
+        /* ── GRAMMAR FEATURES ── */
+        .grammar-features {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .grammar-features h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .6rem;
+        }
+
+        .grammar-features p {
+            font-size: .97rem;
+            line-height: 1.72;
+            margin-bottom: .9rem;
+            color: var(--ink);
+        }
+
+        .grammar-features p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grammar-features strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .grammar-features em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--muted);
+            font-size: .85rem;
+            border-top: 1px solid var(--line);
+            margin-top: 3rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:640px) {
+            .page-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .grammar-block-body {
+                padding: 1.25rem;
+            }
+
+            .grammar-block-header {
+                padding: 1.1rem 1.25rem 1rem;
+            }
+
+            .reading-passage {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .summary-block {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .grammar-features {
+                padding: 1.25rem;
+            }
+
+            table.grammar-table {
+                font-size: .87rem;
+            }
+
+            table.grammar-table thead th,
+            table.grammar-table tbody td {
+                padding: .6rem .75rem;
+            }
+
+            .golden-formula .gf-formula {
+                font-size: .92rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <header class="hero">
+        <div class="hero-badge">Unit 2 · Destination B2</div>
+        <h1>CÁC THÌ QUÁ KHỨ<br><em>Past Tenses</em></h1>
+        <p class="hero-intro">
+            Bạn có nhận ra rằng mỗi khi kể về kỳ nghỉ, chia sẻ kinh nghiệm, hay thậm chí viết CV, chúng ta đều phải sử
+            dụng các thì quá khứ? Đây chính là <strong>"công cụ kể chuyện"</strong> mạnh mẽ nhất trong tiếng Anh!
+        </p>
+    </header>
+
+    <main>
+        <div class="page-container">
+
+            <!-- ═══════════════════════════════════════
+     2.1 PAST SIMPLE
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">2.1</span>
+                    <h2>Past Simple — <em style="font-style:italic;color:var(--primary);">Thì Quá Khứ Đơn</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"I went to Paris last year"</em> — Tại sao lại đơn giản vậy?<br>
+                        <strong>Bản chất của Past Simple:</strong> Đây là thì "chụp ảnh" — nó ghi lại những hành động đã
+                        <strong>hoàn tất</strong> trong quá khứ, như những bức ảnh trong album kỷ niệm.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Loại câu</th>
+                                    <th>Tất cả chủ ngữ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Khẳng định</strong></td>
+                                    <td>S + V-ed / V2</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Phủ định</strong></td>
+                                    <td>S + didn't + V (nguyên mẫu)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nghi vấn</strong></td>
+                                    <td>Did + S + V (nguyên mẫu)?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Các cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>1. Hành động đơn lẻ đã hoàn thành:</strong>
+                            <em>Tom and I played a game of chess and he won.</em>
+                            <span class="usage-note"><strong>Phân tích:</strong> Hai hành động liên tiếp: chơi cờ →
+                                thắng thua</span>
+                        </li>
+                        <li>
+                            <strong>2. Thói quen trong quá khứ:</strong>
+                            <em>Did you collect stamps when you were younger?</em>
+                            <span class="usage-note"><strong>So sánh:</strong> Bây giờ không sưu tập nữa!</span>
+                        </li>
+                        <li>
+                            <strong>3. Tình huống cố định trong quá khứ:</strong>
+                            <em>A famous footballer lived in our house before we bought it.</em>
+                        </li>
+                        <li>
+                            <strong>4. Sự thật trong quá khứ:</strong>
+                            <em>Crosswords didn't become popular until the 1930s.</em>
+                        </li>
+                        <li>
+                            <strong>5. Chuỗi sự kiện chính trong câu chuyện:</strong>
+                            <em>The referee blew the whistle and Simon passed the ball to James, who ran towards the
+                                goal.</em>
+                            <span class="usage-note"><strong>Đặc điểm:</strong> Như một bộ phim — sự kiện nối tiếp sự
+                                kiện!</span>
+                        </li>
+                    </ul>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Tính Năng Đặc Biệt — Nhấn Mạnh Với "did"</div>
+                        <p><em>"Why didn't you win yesterday?" "I DID win. Who told you I didn't?"</em></p>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Quên biến đổi động từ bất quy tắc:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I goed to the
+                                        store.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I went to the store.</span>
+                                </div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng sai trợ động từ:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">Did he went
+                                        there?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>Did he go there?</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 3 — Nhầm lẫn với Present Perfect:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I have seen him
+                                        yesterday.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I saw him yesterday.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Dấu hiệu:</strong>
+                                <span class="kw-chip">yesterday</span>
+                                <span class="kw-chip">last week/month/year</span>
+                                <span class="kw-chip">ago</span>
+                                <span class="kw-chip">in 1990</span>
+                                <span class="kw-chip">when I was young</span>
+                            </li>
+                            <li><strong>Quy tắc:</strong> Có thời gian cụ thể trong quá khứ → Past Simple!</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     2.2 PAST CONTINUOUS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">2.2</span>
+                    <h2>Past Continuous — <em style="font-style:italic;color:var(--primary);">Thì Quá Khứ Tiếp Diễn</em>
+                    </h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"I was sleeping when you called"</em> — Tại sao không phải
+                        <em>"I slept"</em>?<br>
+                        <strong>Bản chất:</strong> Giống như "camera quay phim" trong quá khứ — ghi lại hành động
+                        <strong>đang diễn ra</strong> tại một thời điểm cụ thể trong quá khứ.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Loại câu</th>
+                                    <th>I / He / She / It</th>
+                                    <th>You / We / They</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Khẳng định</strong></td>
+                                    <td>was + V-ing</td>
+                                    <td>were + V-ing</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Phủ định</strong></td>
+                                    <td>wasn't + V-ing</td>
+                                    <td>weren't + V-ing</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nghi vấn</strong></td>
+                                    <td>Was + S + V-ing?</td>
+                                    <td>Were + S + V-ing?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Các cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>1. Hành động tại thời điểm cụ thể:</strong>
+                            <em>At five o'clock, I was reading my new book.</em>
+                            <span class="usage-note"><strong>Hình dung:</strong> Lúc 5h, bạn "đông cứng" trong tư thế
+                                đọc sách!</span>
+                        </li>
+                        <li>
+                            <strong>2. Tình huống tạm thời trong quá khứ:</strong>
+                            <em>Greg was living in London at the time.</em>
+                        </li>
+                        <li>
+                            <strong>3. Thói quen khó chịu (với "always"):</strong>
+                            <em>My brother was always borrowing my toys.</em>
+                            <span class="usage-note"><strong>Ý nghĩa:</strong> Thể hiện sự bực bội trong quá khứ!</span>
+                        </li>
+                        <li>
+                            <strong>4. Hành động kéo dài:</strong>
+                            <em>Daniel was playing video games all morning yesterday.</em>
+                        </li>
+                        <li>
+                            <strong>5. Hai hành động song song:</strong>
+                            <em>Were Ulla and her friends playing Monopoly while we were playing Draughts?</em>
+                        </li>
+                        <li>
+                            <strong>6. Bối cảnh câu chuyện:</strong>
+                            <em>The sun was shining and the birds were singing. Lise opened the window and looked
+                                out.</em>
+                            <span class="usage-note"><strong>Phân tích:</strong> Past Continuous = bối cảnh, Past Simple
+                                = hành động chính</span>
+                        </li>
+                    </ul>
+
+                    <div class="golden-formula">
+                        <div class="gf-label">🔥 Công Thức Vàng — Hành Động Bị Gián Đoạn</div>
+                        <div class="gf-formula">Past Continuous + when + Past Simple</div>
+                        <div class="gf-example">I was playing on my computer when it suddenly crashed.</div>
+                        <div class="gf-note">Đang chơi (liên tục) thì máy bị hỏng (đột ngột)!</div>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Dùng cho thói quen thường xuyên:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">When we were on
+                                        holiday, we were playing volleyball every day.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>When we were on holiday, we
+                                        played volleyball every day.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng với stative verbs:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I was knowing the
+                                        answer.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I knew the answer.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Dấu hiệu:</strong>
+                                <span class="kw-chip">at that time</span>
+                                <span class="kw-chip">while</span>
+                                <span class="kw-chip">when</span>
+                                <span class="kw-chip">all day yesterday</span>
+                            </li>
+                            <li><strong>Quy tắc:</strong> Hành động "đang diễn ra" trong quá khứ → Past Continuous!</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     2.3 PAST PERFECT SIMPLE
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">2.3</span>
+                    <h2>Past Perfect Simple — <em style="font-style:italic;color:var(--primary);">Thì Quá Khứ Hoàn
+                            Thành</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> "Quá khứ của quá khứ" — Nghe có vẻ phức tạp?<br>
+                        <strong>Bản chất:</strong> Đây là thì "du hành thời gian" — nó đưa chúng ta về
+                        <strong>trước</strong> một thời điểm trong quá khứ. Như xem phim "flashback"!
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="formula-box">had + Past Participle (V3)</div>
+
+                    <h3>🎯 Các cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>1. Trạng thái trước một thời điểm quá khứ:</strong>
+                            <em>We'd lived next to the gym for a couple of months before I decided to join.</em>
+                            <span class="usage-note"><strong>Timeline:</strong> Sống bên gym (trước) → Quyết định tham
+                                gia (sau)</span>
+                        </li>
+                        <li>
+                            <strong>2. Hành động hoàn thành trước thời điểm quá khứ:</strong>
+                            <em>I'd already bought the computer game when I saw it was cheaper in another shop.</em>
+                            <span class="usage-note"><strong>Thời gian:</strong> Mua game (trước) → Thấy chỗ khác rẻ hơn
+                                (sau)</span>
+                        </li>
+                        <li>
+                            <strong>3. Kết quả tại thời điểm quá khứ:</strong>
+                            <em>We didn't feel like playing Scrabble because we had just finished a long game of
+                                Monopoly.</em>
+                        </li>
+                    </ul>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Điểm Đặc Biệt</div>
+                        <p><em>It was the second time I'd been on a plane.</em></p>
+                        <p style="margin-top:.5rem"><strong>Quy tắc:</strong> "It was the + số thứ tự + time" + Past
+                            Perfect</p>
+                    </div>
+
+                    <div class="story-box">
+                        <div class="sb-title">🎬 Cách Sử Dụng Trong Câu Chuyện</div>
+                        <p>Sau khi dùng Past Perfect một lần, ta thường chuyển sang Past Simple:</p>
+                        <p style="margin-top:.6rem"><em>I felt pleased when I <strong>had had</strong> one flying
+                                lesson, which <strong>was</strong> great fun, and I <strong>knew</strong> immediately
+                                that I <strong>wanted</strong> to get my pilot's licence.</em></p>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Lạm dụng Past Perfect:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">After I had finished
+                                        homework, I had watched TV, then I had gone to bed.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>After I had finished homework, I
+                                        watched TV, then I went to bed.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng khi không cần thiết:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I had lunch
+                                        yesterday. (thêm "had had" không cần thiết)</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I had lunch yesterday.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Dấu hiệu:</strong>
+                                <span class="kw-chip">before</span>
+                                <span class="kw-chip">after</span>
+                                <span class="kw-chip">when</span>
+                                <span class="kw-chip">by the time</span>
+                                <span class="kw-chip">already</span>
+                                <span class="kw-chip">just</span>
+                            </li>
+                            <li><strong>Quy tắc:</strong> Cần phân biệt "trước-sau" trong quá khứ → Past Perfect!</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     2.4 PAST PERFECT CONTINUOUS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">2.4</span>
+                    <h2>Past Perfect Continuous — <em style="font-style:italic;color:var(--primary);">Thì Quá Khứ Hoàn
+                            Thành Tiếp Diễn</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Nhấn mạnh "quá trình" trong quá khứ?<br>
+                        <strong>Bản chất:</strong> Kết hợp Past Perfect + Continuous — nhấn mạnh <strong>quá trình liên
+                            tục</strong> trước một thời điểm trong quá khứ.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="formula-box">had been + V-ing</div>
+
+                    <h3>🎯 Các cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>1. Hành động liên tục đến thời điểm quá khứ:</strong>
+                            <em>When you saw us, we had been running for six miles – and we still had a mile to go!</em>
+                        </li>
+                        <li>
+                            <strong>2. Hành động vừa dừng trước thời điểm quá khứ:</strong>
+                            <em>Sârân looked tired because she had been exercising all morning.</em>
+                            <span class="usage-note"><strong>Dẫn chứng:</strong> Mệt mỏi = bằng chứng của việc tập thể
+                                dục!</span>
+                        </li>
+                    </ul>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li>Ít dùng hơn các thì khác.</li>
+                            <li>Chỉ dùng khi cần nhấn mạnh "quá trình liên tục" trong quá khứ.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     2.5 WOULD
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">2.5</span>
+                    <h2>Would — <em style="font-style:italic;color:var(--primary);">Thói Quen Trong Quá Khứ</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> "Would" không chỉ dùng trong câu điều kiện?<br>
+                        <strong>Bản chất:</strong> "Would" có thể diễn tả thói quen trong quá khứ, đặc biệt là
+                        <strong>quá khứ xa xôi</strong>, mang tính hoài niệm.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="formula-box">would + V (nguyên mẫu)</div>
+
+                    <h3>🎯 Cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Thói quen hoài niệm trong quá khứ:</strong>
+                            <em>When I was very young, my grandfather would take me to the park to play.</em>
+                            <span class="usage-note"><strong>Cảm giác:</strong> Hoài niệm, ấm áp về kỷ niệm xưa</span>
+                        </li>
+                    </ul>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Dùng trong câu hỏi và phủ định:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">Would you play games
+                                        together?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>Did you use to play games
+                                        together?</span></div>
+                                <div class="err-context">Ngoại lệ: "We would never play games together." (được phép)
+                                </div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng với trạng thái:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">We would have a big
+                                        house.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>We used to have a big
+                                        house.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Would:</strong> Chỉ dùng cho <strong>hành động</strong> trong quá khứ, mang tính
+                                hoài niệm.</li>
+                            <li><strong>Used to:</strong> Dùng cho cả hành động và trạng thái.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     2.6 USED TO
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">2.6</span>
+                    <h2>Used to — <em style="font-style:italic;color:var(--primary);">Thói Quen &amp; Trạng Thái Quá
+                            Khứ</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"I used to be shy"</em> vs <em>"I would be shy"</em> — Cái nào
+                        đúng?<br>
+                        <strong>Bản chất:</strong> "Used to" là "chuyên gia" nói về những điều <strong>đã từng</strong>
+                        xảy ra nhưng <strong>không còn nữa</strong>.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Loại câu</th>
+                                    <th>Công thức</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Khẳng định</strong></td>
+                                    <td>S + used to + V</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Phủ định</strong></td>
+                                    <td>S + didn't use to + V</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nghi vấn</strong></td>
+                                    <td>Did + S + use to + V?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Thói quen / trạng thái đã từng có:</strong>
+                            <em>My mother used to play a lot of squash before I was born.</em>
+                            <span class="usage-note"><strong>Ý nghĩa:</strong> Trước kia mẹ chơi squash, bây giờ không
+                                còn!</span>
+                        </li>
+                    </ul>
+
+                    <h3>🔄 So sánh Would vs Used To:</h3>
+                    <div class="compare-banner">🔄 Bảng so sánh</div>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Điểm khác biệt</th>
+                                    <th>Would</th>
+                                    <th>Used to</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Hành động</strong></td>
+                                    <td>✅</td>
+                                    <td>✅</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Trạng thái</strong></td>
+                                    <td>❌</td>
+                                    <td>✅</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Câu hỏi / Phủ định</strong></td>
+                                    <td>Hạn chế</td>
+                                    <td>✅</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cảm xúc</strong></td>
+                                    <td>Hoài niệm</td>
+                                    <td>Trung tính</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p style="margin-bottom:.75rem;font-weight:600;">Ví dụ minh hoạ:</p>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>✅ Đúng (used to — trạng thái):</strong>
+                            <em>We used to have a house near the park.</em>
+                        </li>
+                        <li>
+                            <strong>❌ Sai (would — trạng thái):</strong>
+                            <em style="color:var(--error);text-decoration:line-through;">We would have a house near the
+                                park.</em>
+                        </li>
+                    </ul>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Nhầm lẫn với "be used to":</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I used to wake up
+                                        early.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I'm used to waking up
+                                        early.</span></div>
+                                <div class="err-context">(khi muốn nói đã quen với việc dậy sớm)</div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Viết sai trong câu hỏi:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">Did you used to play
+                                        football?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>Did you use to play
+                                        football?</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     2.7 BE/GET USED TO
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">2.7</span>
+                    <h2>Be / Get Used To — <em style="font-style:italic;color:var(--primary);">Quen Với Điều Gì Đó</em>
+                    </h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"I'm used to it"</em> — Khác gì với <em>"I used to do
+                            it"</em>?<br>
+                        <strong>Bản chất:</strong> Diễn tả việc <strong>đã quen</strong> hoặc <strong>đang quen</strong>
+                        với một tình huống.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="formula-box">be / get used to + V-ing / noun</div>
+
+                    <h3>🎯 Cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>1. Be used to — Đã quen (trạng thái):</strong>
+                            <em>I didn't like being the goalkeeper at first but now I'm used to it.</em>
+                        </li>
+                        <li>
+                            <strong>2. Get used to — Đang quen dần (quá trình):</strong>
+                            <em>I'm gradually getting used to being in a new team.</em>
+                        </li>
+                    </ul>
+
+                    <h3>🔄 So sánh ba cấu trúc:</h3>
+                    <div class="compare-banner">🔄 Ba cấu trúc — nhìn một lần, nhớ mãi</div>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Cấu trúc</th>
+                                    <th>Ý nghĩa</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>used to + V</strong></td>
+                                    <td>Đã từng (quá khứ)</td>
+                                    <td><em>I used to smoke.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>be used to + V-ing</strong></td>
+                                    <td>Đã quen với</td>
+                                    <td><em>I'm used to smoking.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>get used to + V-ing</strong></td>
+                                    <td>Đang quen dần</td>
+                                    <td><em>I'm getting used to not smoking.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Nhầm lẫn ba cấu trúc:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I used to
+                                        smoking.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I'm used to smoking.</span>
+                                </div>
+                                <div class="err-context">(đã quen)</div>
+                                <div class="err-right" style="margin-top:.3rem"><span class="icon">✅</span><span>I used
+                                        to smoke.</span></div>
+                                <div class="err-context">(đã từng)</div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Quên dùng V-ing:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I'm used to wake up
+                                        early.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I'm used to waking up
+                                        early.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Used to:</strong> Quá khứ (đã từng)</li>
+                            <li><strong>Be used to:</strong> Hiện tại (đã quen)</li>
+                            <li><strong>Get used to:</strong> Quá trình (đang quen)</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     TỔNG KẾT
+══════════════════════════════════════════ -->
+            <div class="summary-block">
+                <h2>Tổng Kết Unit 2</h2>
+
+                <div class="mindmap-block" style="margin-bottom:1.5rem;">
+                    <div class="mm-title">🎯 Bản Đồ Tư Duy Các Thì Quá Khứ</div>
+                    <ul>
+                        <li><span class="mm-key">Past Simple</span> — Hành động hoàn thành ✓</li>
+                        <li><span class="mm-key">Past Continuous</span> — Hành động đang diễn ra 📹</li>
+                        <li><span class="mm-key">Past Perfect</span> — "Quá khứ của quá khứ" ⏪</li>
+                        <li><span class="mm-key">Past Perfect Continuous</span> — Quá trình liên tục ⏪📹</li>
+                        <li><span class="mm-key">Would</span> — Thói quen hoài niệm 💭</li>
+                        <li><span class="mm-key">Used to</span> — Đã từng (không còn nữa) ❌</li>
+                        <li><span class="mm-key">Be / Get used to</span> — Quen với 🔄</li>
+                    </ul>
+                </div>
+
+                <div class="self-check" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);">
+                    <div class="sc-title" style="color:var(--primary-mid);">📚 Câu Hỏi Tự Kiểm Tra</div>
+                    <ol style="color:rgba(255,255,255,.8);">
+                        <li>Khi nào dùng "I was doing" thay vì "I did"?</li>
+                        <li>Phân biệt: "I used to smoke" vs "I'm used to smoking"</li>
+                        <li>Tại sao nói "I had eaten before you came" chứ không phải "I ate"?</li>
+                    </ol>
+                </div>
+
+                <p class="summary-outro">Excellent! Chúng ta vừa "du hành thời gian" qua tất cả các thì quá khứ. Bây
+                    giờ, hãy nhìn về phía trước và khám phá cách diễn đạt tương lai!</p>
+            </div>
+
+            <!-- ═══════════════════════════════════════
+     READING PASSAGE
+══════════════════════════════════════════ -->
+            <section class="reading-passage">
+                <div class="rp-title">📖 A Memorable Childhood Experience</div>
+
+                <p>When I was twelve years old, something extraordinary <strong>happened</strong> that completely
+                    <strong>changed</strong> my perspective on life. My grandfather <strong>used to tell</strong> me
+                    stories about his adventures, and he <strong>would always end</strong> each tale with the same
+                    advice: "Life rewards the brave." I <strong>didn't use to understand</strong> what he meant until
+                    that summer when I <strong>had</strong> my own adventure. It was the second time I <strong>'d
+                        been</strong> to summer camp, but this experience <strong>turned out</strong> to be nothing like
+                    the first.</p>
+
+                <p>The morning <strong>started</strong> like any other at Camp Wildwood. The sun <strong>was
+                        shining</strong> brilliantly, and birds <strong>were singing</strong> in the tall pine trees
+                    surrounding our cabins. I <strong>had already packed</strong> my backpack for the day's hiking
+                    expedition when our counselor, Jake, <strong>announced</strong> something unexpected. "Today," he
+                    <strong>said</strong>, "we're going to try something different." My friends and I <strong>were
+                        eating</strong> breakfast in the dining hall when he <strong>revealed</strong> the plan: a
+                    wilderness survival challenge. We <strong>had been preparing</strong> for a regular hike all week,
+                    but this <strong>was</strong> something entirely new. The camp <strong>had just introduced</strong>
+                    this program, and we <strong>were</strong> going to be the first group to try it.</p>
+
+                <p>I <strong>remembered</strong> how nervous I <strong>felt</strong> at that moment. Before coming to
+                    camp, I <strong>had never spent</strong> a night outdoors without proper camping equipment. My
+                    parents <strong>would often take</strong> me camping when I was younger, but we <strong>always
+                        had</strong> tents, sleeping bags, and plenty of food. This challenge <strong>meant</strong>
+                    building our own shelters and finding water sources. My teammate Sarah <strong>was looking</strong>
+                    worried too – she <strong>had been attending</strong> the camp for three years, but she
+                    <strong>hadn't expected</strong> anything like this. "I <strong>used to be</strong> afraid of the
+                    dark," she <strong>whispered</strong> to me, "and honestly, I still am." I
+                    <strong>understood</strong> her fear because I <strong>was feeling</strong> the same way.</p>
+
+                <p>The instructors <strong>divided</strong> us into teams of four. My team <strong>consisted</strong> of
+                    Sarah, two boys named Mike and David, and myself. Mike <strong>had grown</strong> up in the
+                    countryside and <strong>used to go</strong> fishing with his father every weekend. David, on the
+                    other hand, <strong>had lived</strong> in New York City his whole life and <strong>had never
+                        built</strong> anything outdoors before. We <strong>were discussing</strong> our strategy when
+                    Jake <strong>approached</strong> us. "You guys <strong>have been working</strong> well together all
+                    week," he <strong>said</strong> encouragingly. "I know you can do this." His words
+                    <strong>helped</strong>, but we <strong>were</strong> still anxious about what <strong>lay</strong>
+                    ahead.</p>
+
+                <p>We <strong>set off</strong> into the woods around noon. The trail <strong>was</strong> steep and
+                    challenging, and we <strong>were carrying</strong> only basic supplies: a knife, rope, a water
+                    purification kit, and emergency whistles. After we <strong>had been hiking</strong> for about two
+                    hours, we <strong>reached</strong> our designated area. Other teams <strong>had already
+                        arrived</strong> and <strong>were beginning</strong> to scout for good shelter locations. Mike
+                    immediately <strong>took</strong> charge – he <strong>had watched</strong> countless survival videos
+                    before coming to camp and <strong>knew</strong> exactly what to look for. While he and David
+                    <strong>were searching</strong> for the perfect spot, Sarah and I <strong>started</strong> gathering
+                    materials. We <strong>were collecting</strong> branches and leaves when suddenly it
+                    <strong>began</strong> to rain.</p>
+
+                <p>The rain <strong>caught</strong> us completely off guard. We <strong>hadn't checked</strong> the
+                    weather forecast that morning, and the instructors <strong>hadn't mentioned</strong> any possibility
+                    of rain. Everyone <strong>was running</strong> around, trying to work faster. I
+                    <strong>remembered</strong> something my grandfather <strong>used to say</strong>: "When things get
+                    tough, that's when you discover who you really are." Those words <strong>echoed</strong> in my mind
+                    as we <strong>struggled</strong> to build our shelter. We <strong>had been working</strong> for
+                    almost an hour in the rain when Mike <strong>had</strong> a brilliant idea. He <strong>had
+                        noticed</strong> a fallen tree that <strong>created</strong> a natural lean-to structure. We
+                    quickly <strong>modified</strong> our plan and <strong>used</strong> it as the foundation for our
+                    shelter.</p>
+
+                <p>By evening, we <strong>had completed</strong> our basic shelter, and the rain <strong>had
+                        stopped</strong>. We <strong>were</strong> exhausted but proud. David, who <strong>had been
+                        complaining</strong> earlier, <strong>was now smiling</strong> broadly. "I <strong>never
+                        thought</strong> I could do something like this," he <strong>admitted</strong>. "Back home, I
+                    <strong>would spend</strong> all my time playing video games. I <strong>didn't use to like</strong>
+                    outdoor activities at all." Sarah <strong>was building</strong> a fire using the dry wood we
+                    <strong>had collected</strong> and stored under our shelter earlier. She <strong>had
+                        learned</strong> the technique just that morning, but she <strong>was doing</strong> it
+                    perfectly. The fire <strong>crackled</strong> to life just as darkness <strong>was falling</strong>.
+                </p>
+
+                <p>That night <strong>was</strong> magical. We <strong>were sitting</strong> around our small fire, and
+                    Mike <strong>was teaching</strong> us about constellations. He <strong>used to study</strong>
+                    astronomy with his grandmother, who <strong>had been</strong> a science teacher. The stars
+                    <strong>seemed</strong> brighter than I <strong>'d ever seen</strong> them before. We <strong>were
+                        sharing</strong> stories and laughing when we <strong>heard</strong> something moving in the
+                    bushes nearby. My heart <strong>was racing</strong>, and Sarah <strong>grabbed</strong> my arm. It
+                    <strong>turned</strong> out to be just a curious raccoon, but for a moment, we <strong>had
+                        been</strong> genuinely scared. After the raccoon <strong>had left</strong>, we <strong>couldn't
+                        stop</strong> laughing at ourselves.</p>
+
+                <p>The next morning, Jake <strong>came</strong> to check on us. He <strong>was</strong> impressed with
+                    what we <strong>had accomplished</strong>. "You kids <strong>did</strong> better than groups twice
+                    your age," he <strong>told</strong> us. I <strong>felt</strong> incredibly proud. Before this
+                    experience, I <strong>had never pushed</strong> myself so hard or <strong>worked</strong> so well in
+                    a team. My parents <strong>didn't use to believe</strong> I could handle real challenges – they
+                    <strong>would always protect</strong> me from difficult situations. But that weekend
+                    <strong>proved</strong> that I <strong>was</strong> capable of much more than anyone <strong>had
+                        imagined</strong>.</p>
+
+                <p>When my parents <strong>picked</strong> me up from camp, they immediately <strong>noticed</strong>
+                    something different about me. "You <strong>look</strong> more confident," my mother
+                    <strong>observed</strong>. I <strong>told</strong> them about our adventure, and they
+                    <strong>were</strong> amazed. That experience <strong>taught</strong> me that I <strong>was</strong>
+                    stronger than I <strong>used to think</strong>. I <strong>had been living</strong> in my comfort
+                    zone for too long, but that summer <strong>changed</strong> everything. Now, whenever I face a
+                    challenge, I remember that rainy afternoon when four kids <strong>built</strong> a shelter together
+                    and <strong>discovered</strong> what they <strong>were</strong> truly capable of. I <strong>did
+                        win</strong> against my fears that day – not just the fear of the wilderness, but the fear of my
+                    own limitations.</p>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+     GRAMMAR FEATURES
+══════════════════════════════════════════ -->
+            <section class="grammar-features">
+                <h2>Grammar Features Highlighted</h2>
+
+                <p><strong>Past Simple:</strong> Used throughout for completed actions (<em>happened</em>,
+                    <em>changed</em>, <em>started</em>), story sequences (<em>divided</em>, <em>set off</em>,
+                    <em>reached</em>), and past facts (<em>consisted</em>, <em>meant</em>).</p>
+
+                <p><strong>Past Continuous:</strong> Demonstrated for ongoing actions (<em>was shining</em>, <em>were
+                        singing</em>), interrupted actions (<em>were eating when he revealed</em>), parallel actions
+                    (<em>were discussing</em>, <em>were collecting</em>), and background descriptions (<em>was
+                        falling</em>, <em>was racing</em>).</p>
+
+                <p><strong>Past Perfect Simple:</strong> Shown for actions before past moments (<em>had already
+                        packed</em>, <em>had never spent</em>, <em>had grown up</em>), states before past time (<em>had
+                        been a science teacher</em>), and experiences (<em>I'd ever seen</em>).</p>
+
+                <p><strong>Past Perfect Continuous:</strong> Used for continuous actions before past moments (<em>had
+                        been preparing</em>, <em>had been attending</em>, <em>had been working</em>).</p>
+
+                <p><strong>Would:</strong> Used for past habits with nostalgic feeling (<em>would always end</em>,
+                    <em>would often take</em>, <em>would spend</em>, <em>would always protect</em>).</p>
+
+                <p><strong>Used to:</strong> Correctly used for past habits and states (<em>used to tell</em>, <em>used
+                        to study</em>, <em>didn't use to like</em>, <em>used to be afraid</em>).</p>
+
+                <p><strong>Be / Get used to:</strong> While not heavily featured (as the story is set in the past), the
+                    distinction is clear through context.</p>
+
+                <p><strong>Special Features:</strong> Emphatic "did" (<em>I did win</em>); "It was the second time I'd
+                    been" pattern with Past Perfect; story progression using Past Continuous for background and Past
+                    Simple for main events.</p>
+
+                <p><strong>Common Errors Avoided:</strong> Correct irregular verb forms (<em>caught</em>,
+                    <em>taught</em>, <em>built</em>); proper auxiliary usage (<em>Did you use to</em> not <em>Did you
+                        used to</em>); appropriate tense selection based on context; no Past Continuous with stative
+                    verbs.</p>
+            </section>
+
+        </div><!-- /page-container -->
+    </main>
+
+    <footer>
+        <p>Destination B2 · Unit 2 — Các Thì Quá Khứ &nbsp;|&nbsp; Past Tenses</p>
+    </footer>
+
+</body>
+
+</html>

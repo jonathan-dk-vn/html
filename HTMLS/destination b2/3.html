@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 3 – Các Cách Diễn Đạt Tương Lai | Destination B2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ══════════════════════════════════════
+   THEME A · BLUE — Future / Tenses
+══════════════════════════════════════ */
+        :root {
+            --primary: #3B6FBF;
+            --primary-light: #D6E4FF;
+            --primary-mid: #7AAAF5;
+            --primary-dark: #1A3F80;
+            --primary-rgb: 59, 111, 191;
+
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F8F8F6;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #E2E0DB;
+            --shadow: rgba(20, 19, 28, .05);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.72;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        /* ── LAYOUT ── */
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+        .hero {
+            background-color: var(--ink);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 65% 55% at 80% 20%, rgba(59, 111, 191, .26) 0%, transparent 68%),
+                radial-gradient(ellipse 55% 50% at 20% 80%, rgba(122, 170, 245, .16) 0%, transparent 68%);
+            pointer-events: none;
+        }
+
+        /* subtle forward-arrow motif */
+        .hero::after {
+            content: '›';
+            position: absolute;
+            bottom: 1rem;
+            right: 2rem;
+            font-size: 3rem;
+            color: rgba(122, 170, 245, .15);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1.5px solid rgba(122, 170, 245, .4);
+            border-radius: 40px;
+            padding: .35rem 1.1rem;
+            margin-bottom: 1.4rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 5vw, 54px);
+            font-weight: 700;
+            line-height: 1.18;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--primary-mid);
+        }
+
+        .hero-intro {
+            max-width: 700px;
+            margin: 1.4rem auto 0;
+            font-size: 1.03rem;
+            color: rgba(255, 255, 255, .72);
+            line-height: 1.78;
+            position: relative;
+        }
+
+        .hero-intro strong {
+            color: var(--primary-mid);
+            font-weight: 600;
+        }
+
+        .hero-intro em {
+            font-style: italic;
+            color: rgba(255, 255, 255, .85);
+        }
+
+        /* ══════════════════════════════════════
+   GRAMMAR BLOCK
+══════════════════════════════════════ */
+        .grammar-block {
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 2px 20px var(--shadow);
+            margin: 2.5rem 0;
+            overflow: hidden;
+        }
+
+        .grammar-block-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 1.75rem 1.25rem;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .section-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 8px;
+            padding: .3rem .75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .grammar-block-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(17px, 2.4vw, 23px);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+
+        .grammar-block-body {
+            padding: 1.75rem;
+        }
+
+        /* ── INTRO PARA ── */
+        .intro-para {
+            background: var(--paper);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-para strong {
+            color: var(--primary-dark);
+        }
+
+        .intro-para em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── SUB-HEADINGS inside blocks ── */
+        .grammar-block-body h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 1.75rem 0 .75rem;
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .grammar-block-body h4 {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 1.2rem 0 .5rem;
+        }
+
+        /* ── FORMULA BOX ── */
+        .formula-box {
+            font-family: 'DM Mono', monospace;
+            font-size: 1rem;
+            text-align: center;
+            background: var(--paper);
+            border: 2px dashed var(--primary-mid);
+            border-radius: 12px;
+            padding: .9rem 1.5rem;
+            margin: .75rem 0 1.25rem;
+            color: var(--primary-dark);
+            letter-spacing: .03em;
+        }
+
+        /* ── TABLES ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: .75rem 0 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 12px var(--shadow);
+        }
+
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .95rem;
+        }
+
+        table.grammar-table thead th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-align: left;
+            padding: .75rem 1rem;
+            white-space: nowrap;
+        }
+
+        table.grammar-table tbody td {
+            padding: .7rem 1rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        table.grammar-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.grammar-table tbody tr:hover td {
+            background: rgba(214, 228, 255, .22);
+        }
+
+        table.grammar-table em {
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+
+        table.grammar-table strong {
+            font-weight: 600;
+        }
+
+        /* ── USAGE LIST ── */
+        .usage-list {
+            list-style: none;
+            margin: .5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .usage-list li {
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .usage-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .57rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .usage-list li strong {
+            display: block;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .usage-list li em {
+            display: block;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: .2rem;
+            font-size: 1rem;
+        }
+
+        .usage-note {
+            font-size: .88rem;
+            color: var(--muted);
+            font-style: normal;
+        }
+
+        .usage-note strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ── INLINE LIST (for compare bullets) ── */
+        .plain-list {
+            list-style: none;
+            padding: 0;
+            margin: .5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        .plain-list li {
+            font-size: .97rem;
+            padding-left: 1.2rem;
+            position: relative;
+            color: var(--ink);
+        }
+
+        .plain-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .plain-list li em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        .plain-list li strong {
+            font-weight: 600;
+        }
+
+        /* ── KEYWORD CHIPS ── */
+        .kw-chip {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 6px;
+            padding: .1rem .45rem;
+            margin: .1rem .15rem;
+        }
+
+        /* ── ERROR BLOCK ── */
+        .error-block {
+            background: var(--surface-alt);
+            border-radius: 14px;
+            margin: 1.75rem 0;
+            overflow: hidden;
+        }
+
+        .error-block-header {
+            background: linear-gradient(90deg, var(--error), var(--primary-mid));
+            padding: .65rem 1.25rem;
+        }
+
+        .error-block-header span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .error-block-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .error-item-label {
+            font-size: .8rem;
+            font-family: 'DM Mono', monospace;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .4rem;
+        }
+
+        .err-wrong {
+            color: var(--error);
+            font-style: italic;
+            font-size: .97rem;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            margin-bottom: .3rem;
+        }
+
+        .err-wrong .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-wrong .txt {
+            text-decoration: line-through;
+            opacity: .85;
+        }
+
+        .err-right {
+            color: var(--success);
+            font-weight: 600;
+            font-size: .97rem;
+            font-style: italic;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+        }
+
+        .err-right .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-context {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .38);
+            font-style: normal;
+            margin-top: .25rem;
+            padding-left: 1.4rem;
+        }
+
+        /* ── ALERT BOX ── */
+        .alert-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .alert-box .alert-title {
+            font-weight: 700;
+            font-size: .88rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--primary-dark);
+            margin-bottom: .45rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .alert-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+
+        .alert-box ul li {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box ul li::before {
+            content: '→ ';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .alert-box p {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box .formula-inline {
+            font-family: 'DM Mono', monospace;
+            font-size: .95rem;
+            color: var(--primary-dark);
+            background: rgba(255, 255, 255, .55);
+            border-radius: 6px;
+            padding: .2rem .5rem;
+            display: inline-block;
+            margin-top: .35rem;
+        }
+
+        /* ── FEATURE BOX ── */
+        .feature-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            color: #fff;
+        }
+
+        .feature-box .feature-title {
+            font-size: .82rem;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: .55rem;
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            margin-bottom: .4rem;
+        }
+
+        .feature-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-box em {
+            font-style: italic;
+            color: var(--primary-mid);
+        }
+
+        .feature-box strong {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* ── SHALL SPECIAL CALLOUT ── */
+        .shall-box {
+            background: rgba(59, 111, 191, .08);
+            border: 1.5px solid var(--primary-mid);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.1rem 0;
+        }
+
+        .shall-box .sb-title {
+            font-size: .8rem;
+            font-family: 'DM Mono', monospace;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .5rem;
+        }
+
+        .shall-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+        }
+
+        .shall-box ul li {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .shall-box ul li em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── COMPARE BOX ── */
+        .compare-banner {
+            background: var(--paper);
+            border-radius: 10px;
+            padding: .6rem 1rem;
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .75rem;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* ── DECISION FLOWCHART ── */
+        .decision-block {
+            background: var(--ink);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .decision-block .db-title {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--primary-mid);
+            margin-bottom: 1rem;
+        }
+
+        .decision-block ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .55rem;
+        }
+
+        .decision-block ul li {
+            font-size: .93rem;
+            color: rgba(255, 255, 255, .78);
+            display: flex;
+            align-items: baseline;
+            gap: .6rem;
+        }
+
+        .decision-block ul li .q {
+            color: rgba(255, 255, 255, .45);
+            flex-shrink: 0;
+        }
+
+        .decision-block ul li .arrow {
+            color: var(--primary-mid);
+            flex-shrink: 0;
+        }
+
+        .decision-block ul li .ans {
+            color: var(--primary-mid);
+            font-weight: 500;
+        }
+
+        /* ── SELF CHECK ── */
+        .self-check {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .self-check .sc-title {
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .6rem;
+        }
+
+        .self-check ol {
+            padding-left: 1.25rem;
+            color: var(--ink);
+            font-size: .97rem;
+        }
+
+        .self-check ol li {
+            margin-bottom: .35rem;
+        }
+
+        /* ── SUMMARY BLOCK ── */
+        .summary-block {
+            background: var(--ink);
+            color: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .summary-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 1.25rem;
+            color: var(--primary-mid);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1.5px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+        }
+
+        .summary-card .sc-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .73rem;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            color: var(--primary-mid);
+            margin-bottom: .3rem;
+        }
+
+        .summary-card .sc-desc {
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .summary-outro {
+            font-style: italic;
+            color: rgba(255, 255, 255, .5);
+            font-size: .95rem;
+            margin-top: .75rem;
+        }
+
+        /* ── US-UK DIFF ── */
+        .flag-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .flag-card {
+            background: var(--surface);
+            border-radius: 10px;
+            padding: .85rem 1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .flag-card .flag-label {
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--muted);
+            margin-bottom: .35rem;
+            display: flex;
+            align-items: center;
+            gap: .3rem;
+        }
+
+        .flag-card .flag-ex {
+            font-style: italic;
+            color: var(--primary-dark);
+            font-size: .97rem;
+        }
+
+        /* ── READING PASSAGE ── */
+        .reading-passage {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 2rem 2.25rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .reading-passage .rp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .75rem;
+        }
+
+        .reading-passage p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.08rem;
+            line-height: 1.88;
+            margin-bottom: 1.4rem;
+            color: #2a2934;
+        }
+
+        .reading-passage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reading-passage strong {
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: .05em .2em;
+            border-radius: 3px;
+        }
+
+        /* ── GRAMMAR FEATURES ── */
+        .grammar-features {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .grammar-features h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .6rem;
+        }
+
+        .grammar-features p {
+            font-size: .97rem;
+            line-height: 1.72;
+            margin-bottom: .9rem;
+            color: var(--ink);
+        }
+
+        .grammar-features p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grammar-features strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .grammar-features em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--muted);
+            font-size: .85rem;
+            border-top: 1px solid var(--line);
+            margin-top: 3rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:640px) {
+            .page-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .grammar-block-body {
+                padding: 1.25rem;
+            }
+
+            .grammar-block-header {
+                padding: 1.1rem 1.25rem 1rem;
+            }
+
+            .flag-compare {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-passage {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .summary-block {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .grammar-features {
+                padding: 1.25rem;
+            }
+
+            table.grammar-table {
+                font-size: .87rem;
+            }
+
+            table.grammar-table thead th,
+            table.grammar-table tbody td {
+                padding: .6rem .75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <header class="hero">
+        <div class="hero-badge">Unit 3 · Destination B2</div>
+        <h1>CÁC CÁCH DIỄN ĐẠT TƯƠNG LAI<br><em>Future Expressions</em></h1>
+        <p class="hero-intro">
+            Hãy tưởng tượng bạn đang lên kế hoạch cho kỳ nghỉ: <em>"I <strong>will go</strong> to Bali"</em> (quyết định
+            ngay lúc nói), <em>"I <strong>am going to visit</strong> Bali"</em> (đã có kế hoạch), <em>"I <strong>am
+                    flying</strong> to Bali tomorrow"</em> (đã đặt vé)… Mỗi cách có một sắc thái riêng!
+        </p>
+    </header>
+
+    <main>
+        <div class="page-container">
+
+            <!-- ═══════════════════════════════════════
+     3.1 WILL vs BE GOING TO
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">3.1</span>
+                    <h2>Will vs Be Going To — <em style="font-style:italic;color:var(--primary);">Cùng Nói Về Tương Lai,
+                            Tại Sao Lại Khác Nhau?</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>Nguyên tắc chung:</strong><br>
+                        <strong>Will</strong> — Thường <strong>trang trọng</strong> hơn &nbsp;·&nbsp;
+                        <strong>Be going to</strong> — Thường <strong>thân thiện</strong> hơn
+                    </div>
+
+                    <h3>📝 Các trường hợp dùng chung (ít khác biệt):</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Cách dùng</th>
+                                    <th>Will</th>
+                                    <th>Be going to</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Sự thật về tương lai</strong></td>
+                                    <td><em>The website will come online next week.</em></td>
+                                    <td><em>The website is going to come online next week.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Dự đoán không có bằng chứng</strong></td>
+                                    <td><em>Everyone will have flying cars.</em></td>
+                                    <td><em>Everyone is going to have flying cars.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Quyết định tại thời điểm nói</strong></td>
+                                    <td><em>I won't get a new DVD player.</em><br><span class="usage-note">(nhấn mạnh
+                                            quyết định)</span></td>
+                                    <td><em>I'm not going to get a new DVD player.</em><br><span
+                                            class="usage-note">(nhấn mạnh ý định)</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🔥 Khi phải dùng WILL:</h3>
+
+                    <h4>1. Lời đề nghị và gợi ý:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Tự nguyện đề nghị:</strong>
+                            <em>I'll help you with your physics homework, if you like.</em>
+                            <span class="usage-note"><strong>Đặc điểm:</strong> Tự nhiên, thân thiện</span>
+                        </li>
+                    </ul>
+
+                    <h4>2. Lời yêu cầu:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Nhờ vả lịch sự:</strong>
+                            <em>Will you help me with my physics homework?</em>
+                        </li>
+                    </ul>
+
+                    <h4>3. Câu điều kiện loại 1:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>If-clause → Will:</strong>
+                            <em>If we get a computer, we'll be able to surf the Internet.</em>
+                        </li>
+                    </ul>
+
+                    <div class="shall-box">
+                        <div class="sb-title">⚠️ Đặc Biệt Với SHALL</div>
+                        <ul>
+                            <li>✅ <em>Shall I help you?</em> — đề nghị lịch sự (dùng với I/we)</li>
+                            <li>❌ <em>Will I help you?</em> — không dùng với I/we trong đề nghị</li>
+                        </ul>
+                    </div>
+
+                    <h3>🔥 Khi phải dùng BE GOING TO:</h3>
+
+                    <h4>1. Kế hoạch và ý định có từ trước:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Đã lên kế hoạch trước:</strong>
+                            <em>I'm going to be a famous doctor one day!</em>
+                            <span class="usage-note"><strong>Đặc điểm:</strong> Đã suy nghĩ, lên kế hoạch từ
+                                trước</span>
+                        </li>
+                    </ul>
+
+                    <h4>2. Dự đoán có bằng chứng hiện tại:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Có bằng chứng trực quan:</strong>
+                            <em>It sounds like the plane's going to take off in a few minutes.</em>
+                            <span class="usage-note"><strong>Phân tích:</strong> Nghe thấy tiếng động cơ = bằng
+                                chứng!</span>
+                        </li>
+                    </ul>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Dùng will cho kế hoạch có sẵn:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">A: "Why are you
+                                        turning on the TV?" B: "I will watch the news."</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>B: "I'm going to watch the
+                                        news."</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng be going to cho lời đề nghị:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I'm going to help
+                                        you.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I'll help you.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Will:</strong> Quyết định BÂY GIỜ, lời đề nghị, dự đoán</li>
+                            <li><strong>Be going to:</strong> Kế hoạch CÓ SẴN, dự đoán có bằng chứng</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     3.2 PRESENT CONTINUOUS for future
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">3.2</span>
+                    <h2>Present Continuous — <em style="font-style:italic;color:var(--primary);">Dùng Cho Tương Lai</em>
+                    </h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"I am meeting John tomorrow"</em> — Sao không phải thì tương
+                        lai?<br>
+                        <strong>Bản chất:</strong> Dùng cho các <strong>cuộc hẹn, sắp xếp cụ thể</strong> đã được thu
+                        xếp trước đó.
+                    </div>
+
+                    <h3>🎯 Cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Lịch hẹn đã sắp xếp:</strong>
+                            <em>Are they installing the new computers next week?</em>
+                            <span class="usage-note"><strong>Đặc điểm:</strong> Đã sắp xếp, có lịch trình cụ thể</span>
+                        </li>
+                    </ul>
+
+                    <h3>🔄 So sánh ba cách diễn đạt:</h3>
+                    <div class="compare-banner">🔄 Bảng so sánh — cùng 1 tình huống, 3 sắc thái khác nhau</div>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Câu</th>
+                                    <th>Nghĩa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em>I'm meeting Tom at 3 PM.</em></td>
+                                    <td>Đã hẹn trước, có lịch cụ thể</td>
+                                </tr>
+                                <tr>
+                                    <td><em>I'm going to meet Tom.</em></td>
+                                    <td>Có ý định, đã lên kế hoạch</td>
+                                </tr>
+                                <tr>
+                                    <td><em>I'll meet Tom.</em></td>
+                                    <td>Quyết định ngay lúc nói</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     3.3 PRESENT SIMPLE for future
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">3.3</span>
+                    <h2>Present Simple — <em style="font-style:italic;color:var(--primary);">Dùng Cho Tương Lai</em>
+                    </h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Khi nào hiện tại lại nói về tương lai?<br>
+                        <strong>Bản chất:</strong> Dùng cho lịch trình <strong>cố định, không thể thay đổi</strong>.
+                    </div>
+
+                    <h3>🎯 Các cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>1. Lịch trình, thời gian biểu:</strong>
+                            <em>The bus to the science museum leaves at 8 o'clock tomorrow morning.</em>
+                            <span class="usage-note"><strong>Đặc điểm:</strong> Người nói không thể thay đổi!</span>
+                        </li>
+                        <li>
+                            <strong>2. Sau "if" trong câu điều kiện:</strong>
+                            <em>If technology continues to advance, what will life be like?</em>
+                        </li>
+                        <li>
+                            <strong>3. Sau các cụm từ chỉ thời gian:</strong>
+                            <em>We'll find out as soon as we get to the lab.</em>
+                            <span class="usage-note"><strong>Chú ý:</strong>
+                                <span class="kw-chip">as soon as</span>
+                                <span class="kw-chip">when</span>
+                                <span class="kw-chip">before</span>
+                                <span class="kw-chip">after</span>
+                                <span class="kw-chip">until</span>
+                                <span class="kw-chip">while</span>
+                                <span class="kw-chip">once</span>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi — Dùng will trong mệnh đề thời gian:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I'll call you when I
+                                        will arrive.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I'll call you when I
+                                        arrive.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     3.4 FUTURE PERFECT SIMPLE
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">3.4</span>
+                    <h2>Future Perfect Simple — <em style="font-style:italic;color:var(--primary);">Tương Lai Hoàn
+                            Thành</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> "Tương lai hoàn thành" — Nghe phức tạp?<br>
+                        <strong>Bản chất:</strong> Nói về việc sẽ <strong>hoàn thành</strong> trước một thời điểm trong
+                        tương lai.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="formula-box">will + have + V3</div>
+
+                    <h3>🎯 Cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Hoàn thành trước điểm mốc tương lai:</strong>
+                            <em>I'll have finished my chemistry homework by the time you come home.</em>
+                            <span class="usage-note"><strong>Timeline:</strong> Làm xong bài (trước) ← Bạn về nhà
+                                (sau)</span>
+                        </li>
+                    </ul>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Dấu hiệu:</strong>
+                                <span class="kw-chip">by the time</span>
+                                <span class="kw-chip">by tomorrow</span>
+                                <span class="kw-chip">by next week</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     3.5 FUTURE CONTINUOUS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">3.5</span>
+                    <h2>Future Continuous — <em style="font-style:italic;color:var(--primary);">Hành Động Đang Diễn Ra
+                            Trong Tương Lai</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Hành động "đang diễn ra" trong tương lai?<br>
+                        <strong>Bản chất:</strong> Diễn tả hành động sẽ <strong>đang diễn ra</strong> tại một thời điểm
+                        cụ thể trong tương lai.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="formula-box">will + be + V-ing</div>
+
+                    <h3>🎯 Các cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>1. Hành động đang diễn ra tại thời điểm tương lai:</strong>
+                            <em>This time next week, I'll be taking my biology exam.</em>
+                            <span class="usage-note"><strong>Hình dung:</strong> Tuần sau lúc này, tôi sẽ đang làm bài
+                                thi!</span>
+                        </li>
+                        <li>
+                            <strong>2. Thói quen trong tương lai:</strong>
+                            <em>In the future, we'll all be flying around using jet-packs.</em>
+                        </li>
+                    </ul>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     3.6 FUTURE PERFECT CONTINUOUS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">3.6</span>
+                    <h2>Future Perfect Continuous — <em style="font-style:italic;color:var(--primary);">Tương Lai Hoàn
+                            Thành Tiếp Diễn</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Thì "khó nhất" trong tiếng Anh?<br>
+                        <strong>Bản chất:</strong> Nhấn mạnh <strong>thời gian liên tục</strong> của hành động đến một
+                        thời điểm trong tương lai.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="formula-box">will + have been + V-ing</div>
+
+                    <h3>🎯 Cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Nhấn mạnh khoảng thời gian liên tục đến điểm mốc tương lai:</strong>
+                            <em>At seven o'clock, I'll have been doing my chemistry homework for three hours!</em>
+                            <span class="usage-note"><strong>Ý nghĩa:</strong> Lúc 7h, tôi sẽ đã làm bài được 3 tiếng
+                                liên tục!</span>
+                        </li>
+                    </ul>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li>Ít dùng nhất trong các thì tương lai.</li>
+                            <li>Chỉ dùng khi cần nhấn mạnh "thời gian liên tục" đến một điểm mốc trong tương lai.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     3.7 TIME CLAUSES
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">3.7</span>
+                    <h2>Mệnh Đề Thời Gian — <em style="font-style:italic;color:var(--primary);">Time Clauses</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Tại sao không nói <em>"when I will arrive"</em>?<br>
+                        <strong>Quy tắc vàng:</strong> Trong mệnh đề thời gian, <strong>KHÔNG dùng WILL</strong> mà dùng
+                        thì hiện tại để nói về tương lai!
+                    </div>
+
+                    <h3>📝 Các từ nối quan trọng:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Từ nối</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>when</strong></td>
+                                    <td><em>It'll be wonderful when scientists find a cure for cancer.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>as soon as</strong></td>
+                                    <td><em>Let me know as soon as your computer arrives.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>before</strong></td>
+                                    <td><em>It'll be years before we send a mission to Mars.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>after</strong></td>
+                                    <td><em>Let's go for pizza after we go to the museum.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>until / till</strong></td>
+                                    <td><em>The rocket won't launch until they do a final check.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>while</strong></td>
+                                    <td><em>Think of me while you travel to the Moon!</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>once</strong></td>
+                                    <td><em>We'll stop for petrol once we pass Cambridge.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Dùng will sau "when":</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I'll call you when I
+                                        will arrive.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I'll call you when I
+                                        arrive.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng will sau "after":</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">We'll leave after we
+                                        will finish dinner.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>We'll leave after we finish
+                                        dinner.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ — Công Thức Vàng</div>
+                        <p><span class="formula-inline">Main clause (will) + Time clause (present tense)</span></p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     3.8 PREPOSITIONS OF TIME & PLACE
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">3.8</span>
+                    <h2>Giới Từ Thời Gian &amp; Nơi Chốn — <em
+                            style="font-style:italic;color:var(--primary);">Prepositions of Time &amp; Place</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <h3>🕐 Giới từ thời gian:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Giới từ</th>
+                                    <th>Cách dùng</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>on</strong></td>
+                                    <td>Ngày, thứ</td>
+                                    <td><em>on Monday, on my birthday</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>in</strong></td>
+                                    <td>Tháng, năm, mùa</td>
+                                    <td><em>in July, in 2005, in summer</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>at</strong></td>
+                                    <td>Giờ cụ thể</td>
+                                    <td><em>at 3 o'clock, at night, at the weekend</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>from…to</strong></td>
+                                    <td>Khoảng thời gian</td>
+                                    <td><em>from Monday to Friday</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🗺️ Giới từ nơi chốn:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Giới từ</th>
+                                    <th>Cách dùng</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>at</strong></td>
+                                    <td>Điểm cụ thể</td>
+                                    <td><em>at the station, at the corner</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>in</strong></td>
+                                    <td>Không gian rộng</td>
+                                    <td><em>in London, in the building</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>on</strong></td>
+                                    <td>Bề mặt</td>
+                                    <td><em>on the street, on the table</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🇺🇸🇬🇧 Khác biệt Mỹ – Anh:</h3>
+                    <div class="flag-compare">
+                        <div class="flag-card">
+                            <div class="flag-label">🇺🇸 Tiếng Anh Mỹ</div>
+                            <div class="flag-ex">We have a test Friday.</div>
+                            <div class="flag-ex" style="margin-top:.4rem">Monday through Friday</div>
+                        </div>
+                        <div class="flag-card">
+                            <div class="flag-label">🇬🇧 Tiếng Anh Anh</div>
+                            <div class="flag-ex">We have a test on Friday.</div>
+                            <div class="flag-ex" style="margin-top:.4rem">from Monday to Friday</div>
+                        </div>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Nhầm lẫn at / in / on:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">in 3 o'clock</span>
+                                </div>
+                                <div class="err-right"><span class="icon">✅</span><span>at 3 o'clock</span></div>
+                                <div class="err-wrong" style="margin-top:.5rem"><span class="icon">❌</span><span
+                                        class="txt">at Monday</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>on Monday</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Quên giới từ (tiếng Anh Anh):</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I'll see you
+                                        Monday.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I'll see you on Monday.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     TỔNG KẾT
+══════════════════════════════════════════ -->
+            <div class="summary-block">
+                <h2>Tổng Kết Unit 3</h2>
+
+                <div class="decision-block" style="margin-bottom:1.5rem;">
+                    <div class="db-title">🎯 Sơ Đồ Lựa Chọn Thì Tương Lai</div>
+                    <ul>
+                        <li><span class="q">Quyết định ngay bây giờ?</span> <span class="arrow">→</span> <span
+                                class="ans">WILL</span></li>
+                        <li><span class="q">Đã có kế hoạch từ trước?</span> <span class="arrow">→</span> <span
+                                class="ans">BE GOING TO</span></li>
+                        <li><span class="q">Có bằng chứng hiện tại?</span> <span class="arrow">→</span> <span
+                                class="ans">BE GOING TO</span></li>
+                        <li><span class="q">Cuộc hẹn đã sắp xếp?</span> <span class="arrow">→</span> <span
+                                class="ans">PRESENT CONTINUOUS</span></li>
+                        <li><span class="q">Lịch trình cố định?</span> <span class="arrow">→</span> <span
+                                class="ans">PRESENT SIMPLE</span></li>
+                        <li><span class="q">Hoàn thành trước thời điểm X?</span> <span class="arrow">→</span> <span
+                                class="ans">FUTURE PERFECT</span></li>
+                        <li><span class="q">Đang diễn ra tại thời điểm X?</span> <span class="arrow">→</span> <span
+                                class="ans">FUTURE CONTINUOUS</span></li>
+                    </ul>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="sc-label">3.1 · Will / Be going to</div>
+                        <div class="sc-desc">Quyết định bây giờ vs kế hoạch có sẵn</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">3.2 · Pres. Continuous</div>
+                        <div class="sc-desc">Cuộc hẹn đã sắp xếp cụ thể</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">3.3 · Pres. Simple</div>
+                        <div class="sc-desc">Lịch trình cố định &amp; mệnh đề thời gian</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">3.4 · Future Perfect</div>
+                        <div class="sc-desc">Hoàn thành trước điểm mốc tương lai</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">3.5 · Future Continuous</div>
+                        <div class="sc-desc">Đang diễn ra tại điểm mốc tương lai</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">3.6 · Future Perf. Cont.</div>
+                        <div class="sc-desc">Nhấn mạnh thời gian liên tục đến điểm mốc</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">3.7 · Time Clauses</div>
+                        <div class="sc-desc">KHÔNG dùng will sau when/after/before…</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">3.8 · Prepositions</div>
+                        <div class="sc-desc">on/in/at cho thời gian &amp; nơi chốn</div>
+                    </div>
+                </div>
+
+                <div class="self-check"
+                    style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);margin-top:1.25rem;">
+                    <div class="sc-title" style="color:var(--primary-mid);">📚 Câu Hỏi Tự Kiểm Tra</div>
+                    <ol style="color:rgba(255,255,255,.8);">
+                        <li>"I will help you" vs "I am going to help you" — Khi nào dùng cái nào?</li>
+                        <li>Tại sao nói "when I arrive" chứ không phải "when I will arrive"?</li>
+                        <li>Phân biệt: "in the morning" vs "on Monday morning"</li>
+                    </ol>
+                </div>
+
+                <p class="summary-outro">Tuyệt vời! Chúng ta vừa làm chủ được tất cả cách diễn đạt tương lai. Tiếp theo,
+                    hãy khám phá thế giới Articles và Quantifiers — những "từ nhỏ" có sức mạnh lớn!</p>
+            </div>
+
+            <!-- ═══════════════════════════════════════
+     READING PASSAGE
+══════════════════════════════════════════ -->
+            <section class="reading-passage">
+                <div class="rp-title">📖 My Dreams for the Future</div>
+
+                <p>Technology <strong>is advancing</strong> at an incredible pace, and I believe it <strong>will
+                        transform</strong> our lives in ways we can barely imagine. Next month, I <strong>am
+                        starting</strong> my master's degree in artificial intelligence, and by this time next year, I
+                    <strong>will have been studying</strong> AI for twelve months. The program <strong>begins</strong>
+                    on September 15th, and I <strong>am going to dedicate</strong> myself completely to this field.
+                    Looking at the rapid developments in technology today, it's clear that AI <strong>is going to
+                        revolutionize</strong> every industry – the evidence is everywhere around us.</p>
+
+                <p>My immediate plans are already set in motion. Tomorrow afternoon at 3 o'clock, I <strong>am
+                        meeting</strong> with my academic advisor to finalize my course selection. The orientation
+                    <strong>starts</strong> at 9 AM sharp on Monday, and I <strong>won't miss</strong> it for anything.
+                    Once I <strong>arrive</strong> at the campus, I <strong>will register</strong> for all the required
+                    seminars. As soon as the semester <strong>begins</strong>, I <strong>am going to join</strong> the
+                    robotics club – I've been planning this since last year. By the end of the first week, I
+                    <strong>will have attended</strong> five different introductory lectures, and I <strong>will be
+                        working</strong> on my first research project.</p>
+
+                <p>In five years' time, I <strong>will be developing</strong> innovative AI solutions for healthcare.
+                    This isn't just a random thought – I <strong>am going to specialize</strong> in medical AI
+                    applications because my grandmother's illness showed me how technology could save lives. When I
+                    <strong>graduate</strong>, I <strong>will have completed</strong> at least three internships at
+                    leading tech companies. The future <strong>will bring</strong> amazing opportunities, and I
+                    <strong>shall make</strong> the most of every single one. Before the decade <strong>ends</strong>, I
+                    hope I <strong>will have contributed</strong> to creating an AI system that can detect diseases
+                    earlier than current methods. The bus to Silicon Valley <strong>leaves</strong> every hour from
+                    here, and one day I <strong>will be taking</strong> that journey as a professional, not just a
+                    visitor.</p>
+
+                <p>My long-term vision extends beyond just career success. By the time I <strong>turn</strong>
+                    thirty-five, I <strong>will have established</strong> my own AI startup. The business world
+                    <strong>is becoming</strong> increasingly dependent on artificial intelligence, and companies that
+                    don't adapt <strong>won't survive</strong>. I <strong>am going to build</strong> a company that
+                    prioritizes ethical AI development. After I <strong>secure</strong> initial funding, I <strong>will
+                        hire</strong> a diverse team of brilliant minds. The office <strong>will be</strong> located in
+                    a tech hub, probably in California or Boston. While other companies <strong>are focusing</strong>
+                    solely on profits, we <strong>will be developing</strong> solutions that truly benefit humanity.</p>
+
+                <p>This summer, before my program <strong>starts</strong>, I <strong>am traveling</strong> to Japan for
+                    a technology conference. My flight <strong>departs</strong> on August 1st at 10 PM, and I
+                    <strong>will be flying</strong> for over fourteen hours! By the time I <strong>land</strong> in
+                    Tokyo, I <strong>will have been traveling</strong> for nearly twenty hours including the layover.
+                    The conference schedule shows that the keynote speech <strong>begins</strong> at 9 AM on August 3rd.
+                    I <strong>won't understand</strong> everything since some presentations <strong>will be</strong> in
+                    Japanese, but I <strong>will learn</strong> so much from the experience. Once the conference
+                    <strong>finishes</strong>, I <strong>am going to visit</strong> several robotics laboratories. The
+                    tour <strong>is happening</strong> on August 7th – it's all arranged already.</p>
+
+                <p>Personal growth matters just as much as professional development. Next year, I <strong>will be
+                        learning</strong> Mandarin Chinese because China <strong>is going to play</strong> a crucial
+                    role in AI development. The evidence suggests that collaboration between East and West <strong>will
+                        define</strong> the future of technology. I <strong>am also going to improve</strong> my public
+                    speaking skills – <strong>shall I</strong> join Toastmasters or take a formal course? I think
+                    Toastmasters <strong>will offer</strong> more practical experience. By 2030, I <strong>will have
+                        given</strong> presentations at major international conferences. It sounds ambitious, but I
+                    <strong>won't achieve</strong> my dreams by thinking small.</p>
+
+                <p>Family and relationships <strong>will remain</strong> important throughout this journey. My parents
+                    <strong>are retiring</strong> next year, and I <strong>am going to ensure</strong> they have
+                    everything they need. When they <strong>need</strong> support, I <strong>will be</strong> there for
+                    them. My younger sister <strong>is graduating</strong> from high school this June, and I
+                    <strong>will help</strong> her choose the right university. <strong>Will you help</strong> me
+                    organize her graduation party? I know she <strong>will appreciate</strong> the gesture. We
+                    <strong>are having</strong> a family reunion this Thanksgiving – everyone <strong>is
+                        coming</strong>, and it <strong>will be</strong> wonderful to see them all before I
+                    <strong>get</strong> too busy with studies.</p>
+
+                <p>Financial planning is crucial for these dreams. I <strong>am going to save</strong> aggressively over
+                    the next few years. By the time I <strong>launch</strong> my startup, I <strong>will have
+                        saved</strong> enough for initial operations. The bank <strong>opens</strong> at 9 AM tomorrow,
+                    and I <strong>am opening</strong> a dedicated savings account for my business fund. Interest rates
+                    <strong>will probably rise</strong> again, but I <strong>won't let</strong> that discourage me.
+                    After I <strong>establish</strong> a steady income, I <strong>will invest</strong> in emerging
+                    technologies. The market <strong>is going to experience</strong> volatility, but long-term thinking
+                    <strong>will pay</strong> off.</p>
+
+                <p>Health and wellness <strong>won't take</strong> a backseat during this journey. Every morning at 6
+                    AM, I <strong>will be exercising</strong> before my classes start. The gym <strong>opens</strong> at
+                    5:30 AM on weekdays, perfect for my schedule. I <strong>am going to maintain</strong> a balanced
+                    diet even when things get hectic. Once I <strong>develop</strong> these habits, they <strong>will
+                        become</strong> second nature. By next summer, I <strong>will have been practicing</strong>
+                    meditation for a full year – I'm starting next week. Mental health <strong>is going to be</strong>
+                    just as important as physical health in our fast-paced future.</p>
+
+                <p>Looking ahead, I see a future where technology and humanity <strong>will work</strong> in harmony. We
+                    <strong>won't replace</strong> human creativity and compassion with machines; instead, we
+                    <strong>will enhance</strong> our capabilities. Before this century <strong>ends</strong>, we
+                    <strong>will have solved</strong> many of today's biggest challenges. Climate change solutions
+                    <strong>are going to emerge</strong> from AI research. Medical breakthroughs <strong>will
+                        extend</strong> human life significantly. Education <strong>will become</strong> personalized
+                    and accessible to everyone. These aren't just dreams – looking at current trends, it's clear these
+                    changes <strong>are going to happen</strong>.</p>
+
+                <p>Until these dreams <strong>become</strong> reality, I <strong>will keep</strong> working hard every
+                    single day. The future <strong>won't wait</strong> for anyone, and neither <strong>will</strong> I.
+                    Tomorrow <strong>will bring</strong> new challenges, but it <strong>will also bring</strong> new
+                    opportunities. I <strong>will face</strong> whatever comes with determination and optimism. After
+                    all, the future <strong>belongs</strong> to those who prepare for it today.</p>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+     GRAMMAR FEATURES
+══════════════════════════════════════════ -->
+            <section class="grammar-features">
+                <h2>Grammar Features Highlighted</h2>
+
+                <p><strong>Will:</strong> Used for predictions (<em>will transform</em>), spontaneous decisions
+                    (<em>will help</em>), future facts (<em>will bring</em>), requests (<em>Will you help</em>), and
+                    first conditional contexts.</p>
+
+                <p><strong>Be going to:</strong> Demonstrated for pre-existing plans (<em>am going to dedicate</em>),
+                    intentions (<em>am going to build</em>), and predictions with evidence (<em>is going to
+                        revolutionize</em>, <em>are going to emerge</em>).</p>
+
+                <p><strong>Present Continuous for future:</strong> Used for arranged appointments (<em>am meeting
+                        tomorrow</em>), fixed arrangements (<em>am traveling</em>, <em>is happening</em>).</p>
+
+                <p><strong>Present Simple for future:</strong> Used for timetables (<em>begins on September 15th</em>,
+                    <em>starts at 9 AM</em>, <em>opens at 5:30</em>) and time clauses (<em>when I graduate</em>,
+                    <em>once I arrive</em>, <em>after I secure</em>).</p>
+
+                <p><strong>Future Perfect Simple:</strong> Shown for completed actions before future points (<em>will
+                        have completed</em>, <em>will have saved</em>, <em>will have been studying</em>).</p>
+
+                <p><strong>Future Continuous:</strong> Used for ongoing future actions (<em>will be developing</em>,
+                    <em>will be working</em>, <em>will be flying</em>).</p>
+
+                <p><strong>Future Perfect Continuous:</strong> Demonstrated for duration emphasis (<em>will have been
+                        studying for twelve months</em>, <em>will have been traveling for nearly twenty hours</em>).</p>
+
+                <p><strong>Time Clauses:</strong> Correctly using present tense after when/once/after/before/until/as
+                    soon as (<em>when I graduate</em>, <em>once the conference finishes</em>, <em>before the decade
+                        ends</em>).</p>
+
+                <p><strong>Shall:</strong> Used appropriately for polite offers/suggestions with I/we (<em>shall I
+                        join</em>, <em>shall make</em>).</p>
+
+                <p><strong>Prepositions:</strong> Correct usage of time prepositions (<em>on Monday</em>, <em>at 3
+                        o'clock</em>, <em>in five years</em>) and place prepositions (<em>at the campus</em>, <em>in
+                        Tokyo</em>, <em>on August 3rd</em>).</p>
+
+                <p><strong>Common Errors Avoided:</strong> No will in time clauses, appropriate choice between will/be
+                    going to based on context, correct preposition usage, proper tense selection for schedules vs.
+                    arrangements.</p>
+            </section>
+
+        </div><!-- /page-container -->
+    </main>
+
+    <footer>
+        <p>Destination B2 · Unit 3 — Các Cách Diễn Đạt Tương Lai &nbsp;|&nbsp; Future Expressions</p>
+    </footer>
+
+</body>
+
+</html>
