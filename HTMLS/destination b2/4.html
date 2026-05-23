@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 4 – Articles &amp; Quantifiers | Destination B2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ══════════════════════════════════════
+   THEME C · ORANGE/AMBER
+   Articles, Nouns, Quantifiers
+══════════════════════════════════════ */
+        :root {
+            --primary: #C86B1A;
+            --primary-light: #FFE4C4;
+            --primary-mid: #F5A45A;
+            --primary-dark: #6E3605;
+            --primary-rgb: 200, 107, 26;
+
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F8F8F6;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #E2E0DB;
+            --shadow: rgba(20, 19, 28, .05);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.72;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        /* ── LAYOUT ── */
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+        .hero {
+            background-color: var(--ink);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 65% 55% at 20% 30%, rgba(200, 107, 26, .3) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 45% at 80% 70%, rgba(245, 164, 90, .18) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1.5px solid rgba(245, 164, 90, .45);
+            border-radius: 40px;
+            padding: .35rem 1.1rem;
+            margin-bottom: 1.4rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.18;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--primary-mid);
+        }
+
+        .hero-intro {
+            max-width: 700px;
+            margin: 1.4rem auto 0;
+            font-size: 1.03rem;
+            color: rgba(255, 255, 255, .72);
+            line-height: 1.78;
+            position: relative;
+        }
+
+        .hero-intro strong {
+            color: var(--primary-mid);
+            font-weight: 600;
+        }
+
+        .hero-intro em {
+            font-style: italic;
+            color: rgba(255, 255, 255, .85);
+        }
+
+        /* ══════════════════════════════════════
+   GRAMMAR BLOCK
+══════════════════════════════════════ */
+        .grammar-block {
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 2px 20px var(--shadow);
+            margin: 2.5rem 0;
+            overflow: hidden;
+        }
+
+        .grammar-block-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 1.75rem 1.25rem;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .section-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 8px;
+            padding: .3rem .75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .grammar-block-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(17px, 2.4vw, 23px);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+
+        .grammar-block-body {
+            padding: 1.75rem;
+        }
+
+        /* ── INTRO PARA ── */
+        .intro-para {
+            background: var(--paper);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-para strong {
+            color: var(--primary-dark);
+        }
+
+        .intro-para em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── SUB-HEADINGS ── */
+        .grammar-block-body h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 1.75rem 0 .75rem;
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .grammar-block-body h4 {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 1.2rem 0 .5rem;
+        }
+
+        /* ── FORMULA BOX ── */
+        .formula-box {
+            font-family: 'DM Mono', monospace;
+            font-size: 1rem;
+            text-align: center;
+            background: var(--paper);
+            border: 2px dashed var(--primary-mid);
+            border-radius: 12px;
+            padding: .9rem 1.5rem;
+            margin: .75rem 0 1.25rem;
+            color: var(--primary-dark);
+            letter-spacing: .03em;
+        }
+
+        /* ── TABLES ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: .75rem 0 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 12px var(--shadow);
+        }
+
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .95rem;
+        }
+
+        table.grammar-table thead th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-align: left;
+            padding: .75rem 1rem;
+            white-space: nowrap;
+        }
+
+        table.grammar-table tbody td {
+            padding: .7rem 1rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        table.grammar-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.grammar-table tbody tr:hover td {
+            background: rgba(255, 228, 196, .25);
+        }
+
+        table.grammar-table em {
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+
+        table.grammar-table strong {
+            font-weight: 600;
+        }
+
+        /* ── USAGE LIST ── */
+        .usage-list {
+            list-style: none;
+            margin: .5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .usage-list li {
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .usage-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .57rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .usage-list li strong {
+            display: block;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .usage-list li em {
+            display: block;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: .2rem;
+            font-size: 1rem;
+        }
+
+        .usage-note {
+            font-size: .88rem;
+            color: var(--muted);
+            font-style: normal;
+        }
+
+        .usage-note strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ── KEYWORD CHIPS ── */
+        .kw-chip {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 6px;
+            padding: .1rem .45rem;
+            margin: .1rem .15rem;
+        }
+
+        /* large article chip for A/AN/THE */
+        .article-chip {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 500;
+            background: linear-gradient(135deg, var(--primary), var(--primary-mid));
+            color: #fff;
+            border-radius: 8px;
+            padding: .15rem .65rem;
+            margin: .15rem .2rem;
+            letter-spacing: .04em;
+        }
+
+        /* ── ERROR BLOCK ── */
+        .error-block {
+            background: var(--surface-alt);
+            border-radius: 14px;
+            margin: 1.75rem 0;
+            overflow: hidden;
+        }
+
+        .error-block-header {
+            background: linear-gradient(90deg, var(--error), var(--primary-mid));
+            padding: .65rem 1.25rem;
+        }
+
+        .error-block-header span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .error-block-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .error-item-label {
+            font-size: .8rem;
+            font-family: 'DM Mono', monospace;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .4rem;
+        }
+
+        .err-wrong {
+            color: var(--error);
+            font-style: italic;
+            font-size: .97rem;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            margin-bottom: .3rem;
+        }
+
+        .err-wrong .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-wrong .txt {
+            text-decoration: line-through;
+            opacity: .85;
+        }
+
+        .err-right {
+            color: var(--success);
+            font-weight: 600;
+            font-size: .97rem;
+            font-style: italic;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+        }
+
+        .err-right .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-context {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .38);
+            font-style: normal;
+            margin-top: .25rem;
+            padding-left: 1.4rem;
+        }
+
+        /* ── ALERT BOX ── */
+        .alert-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .alert-box .alert-title {
+            font-weight: 700;
+            font-size: .88rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--primary-dark);
+            margin-bottom: .45rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .alert-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+
+        .alert-box ul li {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box ul li::before {
+            content: '→ ';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .alert-box p {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        /* ── FEATURE / DARK BOX ── */
+        .feature-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            color: #fff;
+        }
+
+        .feature-box .feature-title {
+            font-size: .82rem;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: .55rem;
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            margin-bottom: .4rem;
+        }
+
+        .feature-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-box em {
+            font-style: italic;
+            color: var(--primary-mid);
+        }
+
+        .feature-box strong {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .feature-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+        }
+
+        .feature-box ul li {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .feature-box ul li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 1.3rem;
+            line-height: .9;
+        }
+
+        /* ── PHONETICS BOX ── */
+        .phonetic-box {
+            display: flex;
+            gap: .75rem;
+            flex-wrap: wrap;
+            margin: .75rem 0 1.25rem;
+        }
+
+        .ph-card {
+            flex: 1;
+            min-width: 200px;
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: .85rem 1.1rem;
+        }
+
+        .ph-card .ph-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--muted);
+            margin-bottom: .35rem;
+        }
+
+        .ph-card .ph-sym {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: .25rem;
+        }
+
+        .ph-card .ph-ex {
+            font-style: italic;
+            color: var(--primary-dark);
+            font-size: .93rem;
+        }
+
+        /* ── CONTRAST PAIR ── */
+        .contrast-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .contrast-card {
+            border-radius: 12px;
+            padding: .9rem 1.1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .contrast-card.pos {
+            background: rgba(46, 158, 104, .07);
+            border-color: rgba(46, 158, 104, .3);
+        }
+
+        .contrast-card.neg {
+            background: rgba(232, 52, 74, .05);
+            border-color: rgba(232, 52, 74, .25);
+        }
+
+        .contrast-card .cc-label {
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: .4rem;
+        }
+
+        .contrast-card.pos .cc-label {
+            color: var(--success);
+        }
+
+        .contrast-card.neg .cc-label {
+            color: var(--error);
+        }
+
+        .contrast-card .cc-ex {
+            font-style: italic;
+            font-size: .97rem;
+            color: var(--ink);
+            margin-bottom: .25rem;
+        }
+
+        .contrast-card .cc-note {
+            font-size: .83rem;
+            color: var(--muted);
+        }
+
+        /* ── DECISION FLOWCHART ── */
+        .decision-block {
+            background: var(--ink);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .decision-block .db-title {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--primary-mid);
+            margin-bottom: 1rem;
+        }
+
+        .decision-block pre {
+            background: transparent;
+            color: rgba(255, 255, 255, .78);
+            font-family: 'DM Mono', monospace;
+            font-size: .88rem;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .decision-block pre .hl {
+            color: var(--primary-mid);
+            font-weight: 500;
+        }
+
+        /* ── PRONOUN TAGS (fixed expressions lists) ── */
+        .fixed-expr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: .6rem;
+            margin: .75rem 0 1.25rem;
+        }
+
+        .fe-item {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: .55rem .85rem;
+            font-size: .92rem;
+            color: var(--ink);
+        }
+
+        .fe-item em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        .fe-item .fe-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .72rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 5px;
+            padding: .05rem .35rem;
+            margin-right: .3rem;
+        }
+
+        /* ── FLAG COMPARE ── */
+        .flag-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .flag-card {
+            background: var(--surface);
+            border-radius: 10px;
+            padding: .85rem 1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .flag-card .flag-label {
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--muted);
+            margin-bottom: .35rem;
+        }
+
+        .flag-card .flag-ex {
+            font-style: italic;
+            color: var(--primary-dark);
+            font-size: .97rem;
+        }
+
+        .flag-card .flag-note {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-top: .2rem;
+        }
+
+        /* ── DUAL-NOUN TABLE ── */
+        .dual-noun-note {
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            color: var(--muted);
+        }
+
+        /* ── SPECIAL PLURAL BOX ── */
+        .special-plural {
+            background: var(--paper);
+            border: 1.5px dashed var(--primary-mid);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .special-plural .sp-title {
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .5rem;
+        }
+
+        .special-plural p {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .special-plural em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        .special-plural strong {
+            font-weight: 600;
+        }
+
+        /* ── SELF CHECK ── */
+        .self-check {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .self-check .sc-title {
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .6rem;
+        }
+
+        .self-check ol {
+            padding-left: 1.25rem;
+            color: var(--ink);
+            font-size: .97rem;
+        }
+
+        .self-check ol li {
+            margin-bottom: .35rem;
+        }
+
+        /* ── SUMMARY BLOCK ── */
+        .summary-block {
+            background: var(--ink);
+            color: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .summary-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 1.25rem;
+            color: var(--primary-mid);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1.5px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+        }
+
+        .summary-card .sc-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .73rem;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            color: var(--primary-mid);
+            margin-bottom: .3rem;
+        }
+
+        .summary-card .sc-desc {
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .summary-outro {
+            font-style: italic;
+            color: rgba(255, 255, 255, .5);
+            font-size: .95rem;
+            margin-top: .75rem;
+        }
+
+        /* ── READING PASSAGE ── */
+        .reading-passage {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 2rem 2.25rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .reading-passage .rp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .75rem;
+        }
+
+        .reading-passage p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.08rem;
+            line-height: 1.88;
+            margin-bottom: 1.4rem;
+            color: #2a2934;
+        }
+
+        .reading-passage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reading-passage strong {
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: .05em .2em;
+            border-radius: 3px;
+        }
+
+        /* ── GRAMMAR FEATURES ── */
+        .grammar-features {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .grammar-features h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .6rem;
+        }
+
+        .grammar-features p {
+            font-size: .97rem;
+            line-height: 1.72;
+            margin-bottom: .9rem;
+            color: var(--ink);
+        }
+
+        .grammar-features p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grammar-features strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .grammar-features em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--muted);
+            font-size: .85rem;
+            border-top: 1px solid var(--line);
+            margin-top: 3rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:640px) {
+            .page-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .grammar-block-body {
+                padding: 1.25rem;
+            }
+
+            .grammar-block-header {
+                padding: 1.1rem 1.25rem 1rem;
+            }
+
+            .flag-compare {
+                grid-template-columns: 1fr;
+            }
+
+            .contrast-pair {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-passage {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .summary-block {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .grammar-features {
+                padding: 1.25rem;
+            }
+
+            .phonetic-box {
+                flex-direction: column;
+            }
+
+            table.grammar-table {
+                font-size: .87rem;
+            }
+
+            table.grammar-table thead th,
+            table.grammar-table tbody td {
+                padding: .6rem .75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <header class="hero">
+        <div class="hero-badge">Unit 4 · Destination B2</div>
+        <h1>ARTICLES &amp; QUANTIFIERS<br><em>"Từ Nhỏ, Sức Mạnh Lớn"</em></h1>
+        <p class="hero-intro">
+            Bạn có biết rằng việc dùng sai <strong>"a"</strong> hay <strong>"the"</strong> có thể khiến câu nói từ
+            <em>"chuyên nghiệp"</em> thành <em>"nghiệp dư"</em>? Đây chính là những "chi tiết nhỏ" tạo nên sự khác biệt
+            lớn!
+        </p>
+    </header>
+
+    <main>
+        <div class="page-container">
+
+            <!-- ═══════════════════════════════════════
+     4.1 INDEFINITE ARTICLE (A / AN)
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">4.1</span>
+                    <h2>Indefinite Article — <em style="font-style:italic;color:var(--primary);">Mạo Từ Không Xác Định A
+                            / AN</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"A book"</em> hay <em>"An book"</em>?<br>
+                        <strong>Bản chất:</strong> A/An như <strong>"ngón tay chỉ"</strong> — chỉ vào
+                        <strong>một</strong> cái gì đó không cụ thể, lần đầu nhắc đến.
+                    </div>
+
+                    <h3>📝 Quy tắc cơ bản:</h3>
+                    <div class="phonetic-box">
+                        <div class="ph-card">
+                            <div class="ph-label">Dùng A</div>
+                            <div class="ph-sym"><span class="article-chip">A</span></div>
+                            <div class="ph-ex">Trước âm <strong>phụ âm</strong></div>
+                            <div class="ph-ex" style="margin-top:.4rem"><em>a university</em> — /ju:/ là phụ âm!</div>
+                            <div class="ph-ex"><em>a one-way street</em> — /wʌn/ là phụ âm!</div>
+                        </div>
+                        <div class="ph-card">
+                            <div class="ph-label">Dùng AN</div>
+                            <div class="ph-sym"><span class="article-chip">AN</span></div>
+                            <div class="ph-ex">Trước âm <strong>nguyên âm</strong></div>
+                            <div class="ph-ex" style="margin-top:.4rem"><em>an hour</em> — /aʊə/ là nguyên âm!</div>
+                            <div class="ph-ex"><em>an honest person</em> — /ɒn/ là nguyên âm!</div>
+                        </div>
+                    </div>
+
+                    <h3>🎯 Cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Với danh từ đếm được số ít (không cụ thể hoặc lần đầu nhắc đến):</strong>
+                            <em>There's <strong>a</strong> good film on TV tonight.</em>
+                            <span class="usage-note"><strong>Phân tích:</strong> Lần đầu nhắc đến bộ phim này!</span>
+                        </li>
+                    </ul>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Nhầm lẫn âm và chữ cái:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">an unique
+                                        experience</span></div>
+                                <div class="err-context">(âm /ju:/ là phụ âm — dùng A)</div>
+                                <div class="err-right"><span class="icon">✅</span><span>a unique experience</span></div>
+                                <div class="err-right" style="margin-top:.4rem"><span class="icon">✅</span><span>an
+                                        hour</span></div>
+                                <div class="err-context">(âm /aʊə/ là nguyên âm — dùng AN)</div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng với danh từ không đếm được:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I need a
+                                        water.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I need some water.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ — Nghe Âm, Không Nhìn Chữ!</div>
+                        <ul>
+                            <li>Đọc to từ đó ra → Âm đầu <strong>phụ âm</strong> = <span class="kw-chip">A</span>, âm
+                                đầu <strong>nguyên âm</strong> = <span class="kw-chip">AN</span></li>
+                            <li>Không phụ thuộc vào chữ cái — phụ thuộc vào <strong>âm phát ra</strong>!</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     4.2 DEFINITE ARTICLE (THE)
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">4.2</span>
+                    <h2>Definite Article — <em style="font-style:italic;color:var(--primary);">Mạo Từ Xác Định THE</em>
+                    </h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Khi nào <em>"the"</em> trở thành <em>"thần kỳ"</em>?<br>
+                        <strong>Bản chất:</strong> "The" như <strong>"ngón tay chỉ chính xác"</strong> — chỉ vào thứ
+                        <strong>cụ thể</strong>, cả người nói và nghe đều biết.
+                    </div>
+
+                    <h3>🎯 Các cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>1. Với danh từ đếm được số ít (cụ thể):</strong>
+                            <em>Where's <strong>the</strong> DVD you were talking about?</em>
+                            <span class="usage-note"><strong>Phân tích:</strong> DVD cụ thể mà chúng ta đã nói
+                                đến!</span>
+                        </li>
+                        <li>
+                            <strong>2. Nói chung về một loại (số ít):</strong>
+                            <em><strong>The</strong> radio seemed amazing to people at first.</em>
+                            <span class="usage-note"><strong>Ý nghĩa:</strong> Radio nói chung, như một phát minh</span>
+                        </li>
+                        <li>
+                            <strong>3. Với danh từ đếm được số nhiều (cụ thể):</strong>
+                            <em>I didn't believe <strong>the</strong> rumours about the prime minister.</em>
+                        </li>
+                        <li>
+                            <strong>4. Với danh từ không đếm được (cụ thể):</strong>
+                            <em>I followed <strong>the</strong> advice my lawyer gave me.</em>
+                        </li>
+                    </ul>
+
+                    <h3>🔊 Cách phát âm:</h3>
+                    <div class="phonetic-box">
+                        <div class="ph-card">
+                            <div class="ph-label">Trước phụ âm</div>
+                            <div class="ph-sym" style="font-size:1.1rem;font-family:'DM Mono',monospace;">/ðə/</div>
+                            <div class="ph-ex" style="margin-top:.35rem"><em>the media, the programme</em></div>
+                        </div>
+                        <div class="ph-card">
+                            <div class="ph-label">Trước nguyên âm</div>
+                            <div class="ph-sym" style="font-size:1.1rem;font-family:'DM Mono',monospace;">/ði:/</div>
+                            <div class="ph-ex" style="margin-top:.35rem"><em>the announcer, the editor</em></div>
+                        </div>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🌟 Những Thứ Duy Nhất Trên Thế Giới — Luôn Dùng "THE"</div>
+                        <ul>
+                            <li><em>the sky, the sun, the moon</em></li>
+                            <li><em>the Prince of Wales, the World Cup</em></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     4.3 ZERO ARTICLE
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">4.3</span>
+                    <h2>Zero Article — <em style="font-style:italic;color:var(--primary);">"Không Mạo Từ"</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Khi nào <em>"không có gì"</em> lại là <em>"tất cả"</em>?<br>
+                        <strong>Bản chất:</strong> Đôi khi không dùng mạo từ nào cả — điều này cũng có ý nghĩa!
+                    </div>
+
+                    <h3>🎯 Các cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>1. Danh từ đếm được số nhiều (nói chung):</strong>
+                            <em>Journalists often face dangerous situations.</em>
+                            <span class="usage-note"><strong>Ý nghĩa:</strong> Các nhà báo nói chung — không cụ
+                                thể</span>
+                        </li>
+                        <li>
+                            <strong>2. Danh từ không đếm được (nói chung):</strong>
+                            <em>News travels fast these days.</em>
+                            <span class="usage-note"><strong>Ý nghĩa:</strong> Tin tức nói chung</span>
+                        </li>
+                    </ul>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     4.4 FIXED EXPRESSIONS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">4.4</span>
+                    <h2>Articles Trong Các Cụm Từ Cố Định — <em style="font-style:italic;color:var(--primary);">Fixed
+                            Expressions</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <h3>🕐 Thời gian:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Có "the"</th>
+                                    <th>Không có mạo từ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em>in <strong>the</strong> 1990s</em></td>
+                                    <td><em>in 2008</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>in <strong>the</strong> summer</em></td>
+                                    <td><em>in June</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>in <strong>the</strong> morning</em></td>
+                                    <td><em>on Friday</em></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><em>at night</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>👥 Người và công việc:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Có "a/an"</th>
+                                    <th>Có "the"</th>
+                                    <th>Không có mạo từ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em>have <strong>a</strong> job</em></td>
+                                    <td><em><strong>the</strong> queen</em></td>
+                                    <td><em>become president</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>work as <strong>a</strong> teacher</em></td>
+                                    <td><em><strong>the</strong> French</em> (người Pháp)</td>
+                                    <td><em>go to work</em></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td><em>he's French</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🏔️ Địa danh:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Có "the"</th>
+                                    <th>Không có mạo từ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em><strong>the</strong> Alps</em> (dãy núi)</td>
+                                    <td><em>Mount Everest</em> (đỉnh núi)</td>
+                                </tr>
+                                <tr>
+                                    <td><em><strong>the</strong> River Thames</em></td>
+                                    <td><em>Paris</em> (thành phố)</td>
+                                </tr>
+                                <tr>
+                                    <td><em><strong>the</strong> USA, <strong>the</strong> UK</em></td>
+                                    <td><em>America</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em><strong>the</strong> Cyclades</em> (quần đảo)</td>
+                                    <td><em>Crete</em> (đảo đơn lẻ)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎵 Giải trí và thể thao:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Có "the"</th>
+                                    <th>Không có mạo từ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em><strong>the</strong> media</em></td>
+                                    <td><em>listen to music</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>on <strong>the</strong> radio</em></td>
+                                    <td><em>on television</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>play <strong>the</strong> guitar</em></td>
+                                    <td><em>play tennis</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>go to <strong>the</strong> cinema</em></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><em>watch (<strong>the</strong>) TV</em></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🇺🇸🇬🇧 Khác biệt Mỹ – Anh:</h3>
+                    <div class="flag-compare">
+                        <div class="flag-card">
+                            <div class="flag-label">🇺🇸 Tiếng Anh Mỹ</div>
+                            <div class="flag-ex">to the hospital</div>
+                            <div class="flag-note">(luôn có "the")</div>
+                        </div>
+                        <div class="flag-card">
+                            <div class="flag-label">🇬🇧 Tiếng Anh Anh</div>
+                            <div class="flag-ex">to hospital</div>
+                            <div class="flag-note">(bệnh nhân nhập viện)</div>
+                            <div class="flag-ex" style="margin-top:.35rem">to the hospital</div>
+                            <div class="flag-note">(thăm bệnh nhân)</div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     4.5 COUNTABLE vs UNCOUNTABLE NOUNS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">4.5</span>
+                    <h2>Countable vs Uncountable Nouns — <em style="font-style:italic;color:var(--primary);">Danh Từ Đếm
+                            Được &amp; Không Đếm Được</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Làm sao biết danh từ nào đếm được, nào không?
+                    </div>
+
+                    <h3>📊 Bảng so sánh:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Đặc điểm</th>
+                                    <th>Countable (đếm được)</th>
+                                    <th>Uncountable (không đếm được)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Mạo từ</strong></td>
+                                    <td><span class="kw-chip">a</span> <span class="kw-chip">the</span> <span
+                                            class="kw-chip">some</span> <span class="kw-chip">many</span></td>
+                                    <td><span class="kw-chip">the</span> <span class="kw-chip">some</span> <span
+                                            class="kw-chip">much</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Động từ</strong></td>
+                                    <td>Số ít hoặc số nhiều</td>
+                                    <td>Chỉ số ít</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ví dụ</strong></td>
+                                    <td><em>a journalist, many articles</em></td>
+                                    <td><em>some news, much information</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>📝 Danh từ không đếm được thường gặp:</h3>
+                    <div style="margin:.5rem 0 1.25rem;line-height:2;">
+                        <span class="kw-chip">advice</span>
+                        <span class="kw-chip">coffee</span>
+                        <span class="kw-chip">furniture</span>
+                        <span class="kw-chip">glass</span>
+                        <span class="kw-chip">hair</span>
+                        <span class="kw-chip">homework</span>
+                        <span class="kw-chip">information</span>
+                        <span class="kw-chip">knowledge</span>
+                        <span class="kw-chip">luggage</span>
+                        <span class="kw-chip">money</span>
+                        <span class="kw-chip">news</span>
+                        <span class="kw-chip">paper</span>
+                        <span class="kw-chip">work</span>
+                    </div>
+
+                    <h3>🔄 Danh từ "hai mặt" — Vừa đếm được vừa không:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Đếm được</th>
+                                    <th>Không đếm được</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em>a glass</em> <span class="dual-noun-note">(cái ly)</span></td>
+                                    <td><em>glass</em> <span class="dual-noun-note">(chất thủy tinh)</span></td>
+                                </tr>
+                                <tr>
+                                    <td><em>a paper</em> <span class="dual-noun-note">(tờ báo)</span></td>
+                                    <td><em>paper</em> <span class="dual-noun-note">(giấy)</span></td>
+                                </tr>
+                                <tr>
+                                    <td><em>a work</em> <span class="dual-noun-note">(tác phẩm)</span></td>
+                                    <td><em>work</em> <span class="dual-noun-note">(công việc)</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="special-plural">
+                        <div class="sp-title">⚠️ Danh Từ Số Nhiều Đặc Biệt — Luôn Ở Dạng Số Nhiều</div>
+                        <p style="margin-bottom:.5rem">
+                            <span class="kw-chip">clothes</span>
+                            <span class="kw-chip">scissors</span>
+                            <span class="kw-chip">jeans</span>
+                            <span class="kw-chip">spectacles</span>
+                            <span class="kw-chip">trousers</span>
+                            <span class="kw-chip">groceries</span>
+                        </p>
+                        <p><em>My new clothes <strong>are</strong> dirty!</em></p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     4.6 QUANTIFIERS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">4.6</span>
+                    <h2>Quantifiers — <em style="font-style:italic;color:var(--primary);">Từ Chỉ Số Lượng</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"Much"</em> hay <em>"Many"</em>? <em>"Few"</em> hay
+                        <em>"Little"</em>?
+                    </div>
+
+                    <h3>📊 Bảng tổng hợp:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Quantifier</th>
+                                    <th>Dùng với</th>
+                                    <th>Câu</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>many</strong></td>
+                                    <td>Countable</td>
+                                    <td>Phủ định / Nghi vấn</td>
+                                    <td><em>There aren't <strong>many</strong> programmes I like.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>much</strong></td>
+                                    <td>Uncountable</td>
+                                    <td>Phủ định / Nghi vấn</td>
+                                    <td><em>He doesn't show <strong>much</strong> interest.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>a lot of / lots of</strong></td>
+                                    <td>Cả hai</td>
+                                    <td>Khẳng định</td>
+                                    <td><em>The film won <strong>a lot of</strong> awards.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>a few</strong></td>
+                                    <td>Countable</td>
+                                    <td>"Một vài" (tích cực)</td>
+                                    <td><em>There have been <strong>a few</strong> scandals.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>few</strong></td>
+                                    <td>Countable</td>
+                                    <td>"Ít, không đủ" (tiêu cực)</td>
+                                    <td><em>He has <strong>few</strong> interests.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>a little</strong></td>
+                                    <td>Uncountable</td>
+                                    <td>"Một chút" (tích cực)</td>
+                                    <td><em>They say <strong>a little</strong> knowledge is dangerous.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>little</strong></td>
+                                    <td>Uncountable</td>
+                                    <td>"Ít, không đủ" (tiêu cực)</td>
+                                    <td><em>The police have <strong>little</strong> information.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Phân biệt tinh tế:</h3>
+
+                    <h4>A FEW vs FEW:</h4>
+                    <div class="contrast-pair">
+                        <div class="contrast-card pos">
+                            <div class="cc-label">✅ A Few — Tích cực</div>
+                            <div class="cc-ex">I have <strong>a few</strong> friends.</div>
+                            <div class="cc-note">Tôi có một vài người bạn — đủ, tốt!</div>
+                        </div>
+                        <div class="contrast-card neg">
+                            <div class="cc-label">⚠️ Few — Tiêu cực</div>
+                            <div class="cc-ex">I have <strong>few</strong> friends.</div>
+                            <div class="cc-note">Tôi có ít bạn — cô đơn, không đủ!</div>
+                        </div>
+                    </div>
+
+                    <h4>A LITTLE vs LITTLE:</h4>
+                    <div class="contrast-pair">
+                        <div class="contrast-card pos">
+                            <div class="cc-label">✅ A Little — Tích cực</div>
+                            <div class="cc-ex">There's <strong>a little</strong> sugar left.</div>
+                            <div class="cc-note">Còn một chút đường — đủ dùng!</div>
+                        </div>
+                        <div class="contrast-card neg">
+                            <div class="cc-label">⚠️ Little — Tiêu cực</div>
+                            <div class="cc-ex">There's <strong>little</strong> sugar left.</div>
+                            <div class="cc-note">Còn rất ít đường — không đủ!</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Cụm Từ Đặc Biệt</div>
+                        <p><em>There are <strong>only a few</strong> programmes I like.</em> <span
+                                style="color:rgba(255,255,255,.5);">= not many</span></p>
+                        <p><em>There's <strong>only a little</strong> sugar left.</em> <span
+                                style="color:rgba(255,255,255,.5);">= not much</span></p>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Nhầm lẫn much / many:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">How much books do
+                                        you have?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>How many books do you
+                                        have?</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng much / many trong câu khẳng định (thân mật):
+                                </div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I have many
+                                        problems.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I have a lot of problems.</span>
+                                </div>
+                                <div class="err-context">I have many problems. (formal — văn viết trang trọng)</div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 3 — Nhầm lẫn few / a few:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I have few good
+                                        friends.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I have a few good
+                                        friends.</span></div>
+                                <div class="err-context">(khi muốn nói tích cực về số lượng)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ Siêu Nhanh</div>
+                        <ul>
+                            <li><strong>Much / Many:</strong> <span class="kw-chip">Much</span> — "u" giống
+                                "Uncountable" · <span class="kw-chip">Many</span> — "a" giống "mAny objects"</li>
+                            <li><strong>A few / A little:</strong> Có chữ <span class="kw-chip">A</span> = tích cực (có
+                                một ít — đủ dùng)</li>
+                            <li><strong>Few / Little:</strong> Không có <span class="kw-chip">A</span> = tiêu cực (quá
+                                ít — không đủ)</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     TỔNG KẾT
+══════════════════════════════════════════ -->
+            <div class="summary-block">
+                <h2>Tổng Kết Unit 4</h2>
+
+                <div class="decision-block" style="margin-bottom:1.5rem;">
+                    <div class="db-title">🎯 Sơ Đồ Quyết Định Articles</div>
+                    <pre>CHỌN ARTICLE 🤔
+
+Lần đầu nhắc đến?         → <span class="hl">A / AN</span>
+Cả hai đều biết cụ thể?   → <span class="hl">THE</span>
+Nói chung chung?           → <span class="hl">ZERO ARTICLE</span>
+Danh từ không đếm được?   → Cân nhắc THE hoặc ZERO</pre>
+                </div>
+
+                <div class="decision-block" style="margin-bottom:1.5rem;">
+                    <div class="db-title">🎯 Sơ Đồ Quyết Định Quantifiers</div>
+                    <pre>CHỌN QUANTIFIER 🤔
+
+Đếm được?
+├─ Yes → <span class="hl">many</span> (phủ định/nghi vấn), <span class="hl">a lot of</span> (khẳng định)
+└─ No  → <span class="hl">much</span> (phủ định/nghi vấn), <span class="hl">a lot of</span> (khẳng định)
+
+Một chút ít?
+├─ Tích cực → <span class="hl">a few</span> / <span class="hl">a little</span>
+└─ Tiêu cực → <span class="hl">few</span> / <span class="hl">little</span></pre>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="sc-label">4.1 · A / AN</div>
+                        <div class="sc-desc">Nghe âm, không nhìn chữ. Lần đầu nhắc đến</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">4.2 · THE</div>
+                        <div class="sc-desc">Cụ thể, cả hai đều biết. Thứ duy nhất</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">4.3 · Zero Article</div>
+                        <div class="sc-desc">Nói chung, không xác định cụ thể</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">4.4 · Fixed Expressions</div>
+                        <div class="sc-desc">in the morning / at night / play the guitar</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">4.5 · Nouns</div>
+                        <div class="sc-desc">Đếm được vs Không đếm được. Danh từ hai mặt</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">4.6 · Quantifiers</div>
+                        <div class="sc-desc">many/much · a few/few · a little/little</div>
+                    </div>
+                </div>
+
+                <div class="self-check"
+                    style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);margin-top:1.25rem;">
+                    <div class="sc-title" style="color:var(--primary-mid);">📚 Câu Hỏi Tự Kiểm Tra</div>
+                    <ol style="color:rgba(255,255,255,.8);">
+                        <li>"I need <strong>a / an / the</strong> advice" — Câu nào đúng?</li>
+                        <li>Phân biệt: "few friends" vs "a few friends"</li>
+                        <li>Khi nào dùng "go to hospital" vs "go to the hospital"?</li>
+                    </ol>
+                </div>
+
+                <p class="summary-outro">Excellent! Chúng ta vừa chinh phục được những "từ nhỏ" có sức mạnh lớn. Bây
+                    giờ, hãy đi sâu vào thế giới Conditionals — nơi mà "giả sử" trở thành hiện thực!</p>
+            </div>
+
+            <!-- ═══════════════════════════════════════
+     READING PASSAGE
+══════════════════════════════════════════ -->
+            <section class="reading-passage">
+                <div class="rp-title">📖 Exploring My City</div>
+
+                <p>Living in <strong>a</strong> vibrant metropolitan area has taught me that cities are more than just
+                    concrete and glass – they're living ecosystems where <strong>the</strong> past meets
+                    <strong>the</strong> future. My city, nestled between <strong>the</strong> Rocky Mountains and
+                    <strong>the</strong> Pacific coast, offers <strong>a lot of</strong> experiences that shape who we
+                    are as citizens. There's <strong>a</strong> unique energy here that you won't find in
+                    <strong>many</strong> other places. <strong>The</strong> diversity is remarkable, with people from
+                    all walks of life contributing to <strong>the</strong> cultural tapestry. I've discovered that
+                    <strong>few</strong> cities can match ours when it comes to balancing urban development with natural
+                    beauty.</p>
+
+                <p><strong>The</strong> downtown district tells <strong>a</strong> fascinating story of transformation.
+                    Twenty years ago, there were <strong>few</strong> reasons to visit this area – it had
+                    <strong>little</strong> appeal beyond <strong>the</strong> basic business functions. Now,
+                    <strong>journalists</strong> write about our urban renewal as <strong>a</strong> model for other
+                    cities. <strong>Information</strong> about our success travels fast through <strong>the</strong>
+                    media. We have <strong>a</strong> mayor who understands that <strong>progress</strong> requires
+                    vision, not just <strong>money</strong>. She's been <strong>president</strong> of
+                    <strong>the</strong> Urban Development Council for five years, and under her leadership, we've seen
+                    <strong>much</strong> improvement. <strong>The</strong> French architect who designed our new
+                    cultural center said he'd never seen such <strong>enthusiasm</strong> from <strong>a</strong>
+                    community before.</p>
+
+                <p>In <strong>the</strong> morning, I often walk through Central Park – not <strong>the</strong> famous
+                    one in New York, but our own green oasis. <strong>Coffee</strong> shops line <strong>the</strong>
+                    streets around it, and there's always <strong>a</strong> pleasant aroma in <strong>the</strong> air.
+                    I don't need <strong>much</strong> persuasion to stop for <strong>a</strong> cup at my favorite
+                    café. <strong>The</strong> owner, <strong>an</strong> honest and hardworking immigrant, has created
+                    <strong>a</strong> gathering place where <strong>locals</strong> share <strong>news</strong> and
+                    <strong>advice</strong>. He doesn't have <strong>many</strong> tables, just <strong>a few</strong>
+                    cozy corners where regulars sit with their laptops. There's <strong>little</strong> pretension here
+                    – just good coffee and genuine conversation. <strong>The</strong> atmosphere reminds me that
+                    <strong>happiness</strong> doesn't require <strong>wealth</strong>.</p>
+
+                <p>Our city has <strong>several</strong> distinct neighborhoods, each with its own character.
+                    <strong>The</strong> arts district attracts <strong>creative</strong> people who work as
+                    <strong>photographers</strong>, <strong>musicians</strong>, and <strong>writers</strong>. They don't
+                    earn <strong>much</strong> money, but they have <strong>a little</strong> studio space and <strong>a
+                        lot of</strong> passion. <strong>Few</strong> outsiders understand <strong>the</strong>
+                    dedication these artists show. In <strong>the</strong> 1990s, this area had <strong>few</strong>
+                    galleries and <strong>little</strong> cultural activity. Now, on <strong>Friday</strong> evenings,
+                    <strong>the</strong> streets come alive with <strong>music</strong> and <strong>art</strong>. You
+                    can play <strong>the</strong> guitar on street corners or listen to <strong>jazz</strong> in
+                    <strong>the</strong> clubs. We go to <strong>the</strong> cinema here too – it's <strong>an</strong>
+                    old theater that shows <strong>independent</strong> films.</p>
+
+                <p><strong>The</strong> university district brings <strong>a</strong> different energy entirely.
+                    <strong>Students</strong> from around <strong>the</strong> world come here seeking
+                    <strong>knowledge</strong> and <strong>opportunities</strong>. <strong>The</strong> library,
+                    <strong>a</strong> masterpiece of modern architecture, contains <strong>millions</strong> of books
+                    and provides <strong>information</strong> on every subject imaginable. There aren't
+                    <strong>many</strong> places where you can find such <strong>resources</strong>. <strong>A
+                        few</strong> professors have won Nobel Prizes, bringing <strong>prestige</strong> to our city.
+                    They give <strong>advice</strong> to young researchers who have <strong>little</strong> experience
+                    but <strong>much</strong> ambition. <strong>The</strong> campus spreads across
+                    <strong>several</strong> blocks, and in <strong>June</strong>, during graduation,
+                    <strong>families</strong> fill <strong>the</strong> streets with <strong>celebration</strong>.</p>
+
+                <p><strong>Transportation</strong> in our city has improved significantly. We have <strong>a</strong>
+                    subway system that, while not perfect, provides <strong>reliable</strong> service.
+                    <strong>The</strong> buses run frequently, though there's still <strong>room</strong> for
+                    improvement. <strong>Many</strong> residents prefer cycling – we have <strong>miles</strong> of bike
+                    lanes and <strong>a few</strong> bike-sharing programs. However, <strong>traffic</strong> remains
+                    <strong>a</strong> challenge during rush hours. There's <strong>little</strong> parking downtown,
+                    which encourages people to use <strong>public</strong> transport. <strong>The</strong> city council
+                    has <strong>plans</strong> to expand <strong>the</strong> light rail system, but they need
+                    <strong>more</strong> funding. <strong>Only a few</strong> neighborhoods currently have
+                    <strong>access</strong> to <strong>the</strong> rail lines.</p>
+
+                <p><strong>The</strong> culinary scene deserves special mention. We have <strong>restaurants</strong>
+                    representing <strong>cuisines</strong> from around <strong>the</strong> globe. <strong>The</strong>
+                    River District offers <strong>fine</strong> dining where <strong>a</strong> meal can cost
+                    <strong>a</strong> fortune, but there's also <strong>street</strong> food that provides
+                    <strong>delicious</strong> options for those with <strong>less</strong> money. <strong>The</strong>
+                    farmers' market on <strong>Saturday</strong> mornings brings <strong>fresh</strong> produce from
+                    <strong>local</strong> farms. <strong>Vegetables</strong>, <strong>fruit</strong>, and
+                    <strong>bread</strong> – everything has <strong>a</strong> quality you won't find in
+                    <strong>supermarkets</strong>. <strong>The</strong> vendors have <strong>a little</strong> space
+                    each, but they make <strong>the</strong> most of it. There's <strong>an</strong> elderly woman who
+                    sells <strong>honey</strong> from her own bees – she has <strong>few</strong> jars left by noon
+                    because <strong>the</strong> demand is so high.</p>
+
+                <p>Shopping here offers <strong>variety</strong> for every budget. <strong>The</strong> main shopping
+                    street has <strong>expensive</strong> boutiques where <strong>clothes</strong> cost more than
+                    <strong>many</strong> people earn in <strong>a</strong> month. However, there are also
+                    <strong>thrift</strong> stores where you can find <strong>bargains</strong>. I bought
+                    <strong>a</strong> pair of <strong>jeans</strong> last week for <strong>a</strong> fraction of their
+                    original price. <strong>The</strong> vintage shops have <strong>furniture</strong> and
+                    <strong>curiosities</strong> from past decades. <strong>Groceries</strong> are available everywhere,
+                    from <strong>small</strong> corner stores to <strong>large</strong> supermarkets. We have <strong>a
+                        little</strong> of everything, though <strong>prices</strong> have risen recently. There's
+                    <strong>much</strong> concern about <strong>inflation</strong> affecting <strong>families</strong>
+                    with <strong>limited</strong> income.</p>
+
+                <p><strong>The</strong> cultural offerings make our city special. <strong>The</strong> museum of natural
+                    history has <strong>an</strong> impressive collection, including <strong>fossils</strong> from
+                    <strong>the</strong> region. <strong>The</strong> art gallery showcases both <strong>local</strong>
+                    and <strong>international</strong> artists. We have <strong>a</strong> symphony orchestra that
+                    performs in <strong>the</strong> winter, and <strong>outdoor</strong> concerts in
+                    <strong>the</strong> summer. On <strong>television</strong>, our local stations provide
+                    <strong>news</strong> and <strong>entertainment</strong>, though <strong>many</strong> people now
+                    prefer streaming services. <strong>The</strong> radio still has <strong>loyal</strong> listeners,
+                    especially for <strong>morning</strong> shows. <strong>Sports</strong> are huge here – we play
+                    <strong>tennis</strong> in <strong>the</strong> public courts and <strong>football</strong> in
+                    <strong>the</strong> parks.</p>
+
+                <p>Environmental consciousness shapes our urban planning. <strong>The</strong> city has
+                    <strong>regulations</strong> about <strong>recycling</strong> and <strong>waste</strong> management.
+                    We don't have <strong>much</strong> pollution compared to <strong>other</strong> cities our size,
+                    but there's still <strong>work</strong> to do. <strong>A few</strong> neighborhoods have started
+                    <strong>community</strong> gardens where <strong>residents</strong> grow <strong>vegetables</strong>
+                    without <strong>pesticides</strong>. <strong>The</strong> river that runs through downtown was once
+                    polluted, but after <strong>years</strong> of cleanup, it now has <strong>fish</strong> again.
+                    <strong>Trees</strong> line <strong>many</strong> streets, providing <strong>shade</strong> and
+                    improving <strong>air</strong> quality. We have <strong>little</strong> heavy industry within city
+                    limits, which helps maintain <strong>the</strong> environment.</p>
+
+                <p>At <strong>night</strong>, <strong>the</strong> city transforms. <strong>The</strong> lights create
+                    <strong>a</strong> magical atmosphere, especially in <strong>December</strong> when
+                    <strong>decorations</strong> appear everywhere. <strong>The</strong> nightlife suits
+                    <strong>different</strong> tastes – from <strong>quiet</strong> wine bars to
+                    <strong>energetic</strong> dance clubs. However, <strong>safety</strong> remains <strong>a</strong>
+                    concern in <strong>certain</strong> areas. <strong>The</strong> police have <strong>little</strong>
+                    presence in <strong>some</strong> neighborhoods, leading to <strong>problems</strong>. Still,
+                    <strong>most</strong> areas are safe, and <strong>people</strong> walk freely after dark.
+                    <strong>The</strong> sense of <strong>community</strong> is strong – <strong>neighbors</strong> look
+                    out for each other.</p>
+
+                <p>In <strong>the</strong> end, what makes our city special isn't just <strong>the</strong> buildings or
+                    <strong>the</strong> infrastructure – it's <strong>the</strong> people. We have
+                    <strong>citizens</strong> from every background imaginable. <strong>Only a few</strong> cities can
+                    claim such <strong>diversity</strong>. Yes, we have <strong>problems</strong> – there's
+                    <strong>homelessness</strong>, <strong>inequality</strong>, and <strong>many</strong> challenges
+                    ahead. But we also have <strong>hope</strong>, <strong>determination</strong>, and
+                    <strong>a</strong> shared vision for <strong>the</strong> future. <strong>A little</strong> effort
+                    from each person creates <strong>much</strong> positive change. That's <strong>the</strong> lesson
+                    I've learned from exploring my city: <strong>progress</strong> happens when <strong>people</strong>
+                    work together, regardless of their differences.</p>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+     GRAMMAR FEATURES
+══════════════════════════════════════════ -->
+            <section class="grammar-features">
+                <h2>Grammar Features Highlighted</h2>
+
+                <p><strong>Indefinite Articles (a/an):</strong> Used correctly with singular countable nouns (<em>a
+                        vibrant metropolitan area</em>, <em>an honest immigrant</em>, <em>a unique energy</em>), paying
+                    attention to pronunciation (<em>a university</em> — /ju:/ sound).</p>
+
+                <p><strong>Definite Article (the):</strong> Used for specific references (<em>the past</em>, <em>the
+                        Rocky Mountains</em>, <em>the media</em>), unique things (<em>the mayor</em>), and in fixed
+                    expressions (<em>the</em> most).</p>
+
+                <p><strong>Zero Article:</strong> Correctly used with plural nouns in general (<em>journalists
+                        write</em>, <em>students come</em>), uncountable nouns in general (<em>information travels</em>,
+                    <em>money doesn't buy happiness</em>), and in fixed expressions (<em>at night</em>, <em>on
+                        Friday</em>, <em>in June</em>).</p>
+
+                <p><strong>Countable vs Uncountable:</strong> Proper distinction maintained (<em>many people</em> vs
+                    <em>much money</em>, <em>a few tables</em> vs <em>a little space</em>, <em>clothes are</em> not
+                    <em>clothes is</em>).</p>
+
+                <p><strong>Quantifiers — all forms used appropriately:</strong> <em>many/much</em> in negative/questions
+                    (<em>not many places</em>, <em>much improvement</em>); <em>a lot of/lots of</em> in affirmatives
+                    (<em>a lot of experiences</em>); <em>few/a few</em> showing negative/positive connotations (<em>few
+                        cities</em> = not many, <em>a few professors</em> = some); <em>little/a little</em> showing
+                    insufficient/sufficient (<em>little appeal</em> = not enough, <em>a little space</em> = some).</p>
+
+                <p><strong>Fixed Expressions:</strong> Correct usage of articles in set phrases (<em>in the
+                        morning</em>, <em>at night</em>, <em>play the guitar</em>, <em>play tennis</em>, <em>go to the
+                        cinema</em>, <em>on television</em>).</p>
+
+                <p><strong>Special Cases:</strong> Proper nouns correctly handled (<em>the Rocky Mountains</em> but
+                    <em>Central Park</em>), positions (<em>work as photographers</em>, <em>been president</em>), and
+                    American English preferences (<em>to the hospital</em>).</p>
+            </section>
+
+        </div><!-- /page-container -->
+    </main>
+
+    <footer>
+        <p>Destination B2 · Unit 4 — Articles &amp; Quantifiers &nbsp;|&nbsp; "Từ Nhỏ, Sức Mạnh Lớn"</p>
+    </footer>
+
+</body>
+
+</html>

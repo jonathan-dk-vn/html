@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 5 – Conditionals | Destination B2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ══════════════════════════════════════
+   THEME B · GREEN — Conditionals
+══════════════════════════════════════ */
+        :root {
+            --primary: #2E9E68;
+            --primary-light: #C8F0DE;
+            --primary-mid: #5EC996;
+            --primary-dark: #144D31;
+            --primary-rgb: 46, 158, 104;
+
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F8F8F6;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #E2E0DB;
+            --shadow: rgba(20, 19, 28, .05);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.72;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+        .hero {
+            background-color: var(--ink);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 55% at 15% 30%, rgba(46, 158, 104, .3) 0%, transparent 65%),
+                radial-gradient(ellipse 55% 50% at 85% 75%, rgba(94, 201, 150, .18) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1.5px solid rgba(94, 201, 150, .45);
+            border-radius: 40px;
+            padding: .35rem 1.1rem;
+            margin-bottom: 1.4rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.18;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--primary-mid);
+        }
+
+        .hero-intro {
+            max-width: 720px;
+            margin: 1.4rem auto 0;
+            font-size: 1.03rem;
+            color: rgba(255, 255, 255, .72);
+            line-height: 1.78;
+            position: relative;
+        }
+
+        .hero-intro strong {
+            color: var(--primary-mid);
+            font-weight: 600;
+        }
+
+        .hero-intro em {
+            font-style: italic;
+            color: rgba(255, 255, 255, .85);
+        }
+
+        /* ══════════════════════════════════════
+   GRAMMAR BLOCK
+══════════════════════════════════════ */
+        .grammar-block {
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 2px 20px var(--shadow);
+            margin: 2.5rem 0;
+            overflow: hidden;
+        }
+
+        .grammar-block-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 1.75rem 1.25rem;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .section-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 8px;
+            padding: .3rem .75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .grammar-block-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(17px, 2.4vw, 23px);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+
+        .grammar-block-body {
+            padding: 1.75rem;
+        }
+
+        /* ── INTRO PARA ── */
+        .intro-para {
+            background: var(--paper);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-para strong {
+            color: var(--primary-dark);
+        }
+
+        .intro-para em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── SUB-HEADINGS ── */
+        .grammar-block-body h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 1.75rem 0 .75rem;
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .grammar-block-body h4 {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 1.2rem 0 .5rem;
+        }
+
+        /* ── FORMULA BOX ── */
+        .formula-box {
+            font-family: 'DM Mono', monospace;
+            font-size: 1rem;
+            text-align: center;
+            background: var(--paper);
+            border: 2px dashed var(--primary-mid);
+            border-radius: 12px;
+            padding: .9rem 1.5rem;
+            margin: .75rem 0 1.25rem;
+            color: var(--primary-dark);
+            letter-spacing: .03em;
+        }
+
+        /* ── TABLES ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: .75rem 0 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 12px var(--shadow);
+        }
+
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .95rem;
+        }
+
+        table.grammar-table thead th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-align: left;
+            padding: .75rem 1rem;
+            white-space: nowrap;
+        }
+
+        table.grammar-table tbody td {
+            padding: .7rem 1rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        table.grammar-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.grammar-table tbody tr:hover td {
+            background: rgba(200, 240, 222, .22);
+        }
+
+        table.grammar-table em {
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+
+        table.grammar-table strong {
+            font-weight: 600;
+        }
+
+        /* ── USAGE LIST ── */
+        .usage-list {
+            list-style: none;
+            margin: .5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .usage-list li {
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .usage-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .57rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .usage-list li strong {
+            display: block;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .usage-list li em {
+            display: block;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: .2rem;
+            font-size: 1rem;
+        }
+
+        .usage-note {
+            font-size: .88rem;
+            color: var(--muted);
+            font-style: normal;
+        }
+
+        .usage-note strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ── KEYWORD CHIPS ── */
+        .kw-chip {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 6px;
+            padding: .1rem .45rem;
+            margin: .1rem .15rem;
+        }
+
+        /* ── CONDITIONAL TYPE BADGE ── */
+        .cond-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: #fff;
+            border-radius: 20px;
+            padding: .15rem .65rem;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        /* ── ERROR BLOCK ── */
+        .error-block {
+            background: var(--surface-alt);
+            border-radius: 14px;
+            margin: 1.75rem 0;
+            overflow: hidden;
+        }
+
+        .error-block-header {
+            background: linear-gradient(90deg, var(--error), var(--primary-mid));
+            padding: .65rem 1.25rem;
+        }
+
+        .error-block-header span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .error-block-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .error-item-label {
+            font-size: .8rem;
+            font-family: 'DM Mono', monospace;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .4rem;
+        }
+
+        .err-wrong {
+            color: var(--error);
+            font-style: italic;
+            font-size: .97rem;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            margin-bottom: .3rem;
+        }
+
+        .err-wrong .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-wrong .txt {
+            text-decoration: line-through;
+            opacity: .85;
+        }
+
+        .err-right {
+            color: var(--success);
+            font-weight: 600;
+            font-size: .97rem;
+            font-style: italic;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+        }
+
+        .err-right .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-context {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .38);
+            font-style: normal;
+            margin-top: .25rem;
+            padding-left: 1.4rem;
+        }
+
+        /* ── ALERT BOX ── */
+        .alert-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .alert-box .alert-title {
+            font-weight: 700;
+            font-size: .88rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--primary-dark);
+            margin-bottom: .45rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .alert-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+
+        .alert-box ul li {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box ul li::before {
+            content: '→ ';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .alert-box p {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box p+p {
+            margin-top: .45rem;
+        }
+
+        /* ── FEATURE BOX (dark gradient) ── */
+        .feature-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            color: #fff;
+        }
+
+        .feature-box .feature-title {
+            font-size: .82rem;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: .55rem;
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            margin-bottom: .45rem;
+        }
+
+        .feature-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-box em {
+            font-style: italic;
+            color: var(--primary-mid);
+        }
+
+        .feature-box strong {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .feature-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .45rem;
+        }
+
+        .feature-box ul li {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .feature-box ul li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 1.3rem;
+            line-height: .9;
+        }
+
+        /* ── TIMELINE ANALYSIS BOX ── */
+        .timeline-box {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        .timeline-box .tl-title {
+            font-size: .78rem;
+            font-family: 'DM Mono', monospace;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .2rem;
+        }
+
+        .timeline-row {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            font-size: .95rem;
+        }
+
+        .timeline-row .tl-time {
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 6px;
+            padding: .15rem .55rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .timeline-row .tl-fact {
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        .timeline-row .tl-arrow {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ── CONTRAST PAIR ── */
+        .contrast-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .contrast-card {
+            border-radius: 12px;
+            padding: .9rem 1.1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .contrast-card.first-cond {
+            background: rgba(46, 158, 104, .07);
+            border-color: rgba(46, 158, 104, .3);
+        }
+
+        .contrast-card.second-cond {
+            background: rgba(200, 107, 26, .06);
+            border-color: rgba(200, 107, 26, .25);
+        }
+
+        .contrast-card .cc-label {
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: .4rem;
+        }
+
+        .contrast-card.first-cond .cc-label {
+            color: var(--success);
+        }
+
+        .contrast-card.second-cond .cc-label {
+            color: #C86B1A;
+        }
+
+        .contrast-card .cc-ex {
+            font-style: italic;
+            font-size: .97rem;
+            color: var(--ink);
+            margin-bottom: .25rem;
+        }
+
+        .contrast-card .cc-note {
+            font-size: .83rem;
+            color: var(--muted);
+        }
+
+        /* ── INVERTED TABLE ── */
+        .inverted-example {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: .9rem 1.25rem;
+            margin: .6rem 0;
+        }
+
+        .inverted-example .ie-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--muted);
+            margin-bottom: .35rem;
+        }
+
+        .inverted-example .ie-formal {
+            font-style: italic;
+            color: var(--primary-dark);
+            font-size: 1rem;
+            margin-bottom: .2rem;
+        }
+
+        .inverted-example .ie-standard {
+            font-size: .88rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        /* ── DECISION FLOWCHART ── */
+        .decision-block {
+            background: var(--ink);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .decision-block .db-title {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--primary-mid);
+            margin-bottom: 1rem;
+        }
+
+        .decision-block pre {
+            background: transparent;
+            color: rgba(255, 255, 255, .78);
+            font-family: 'DM Mono', monospace;
+            font-size: .88rem;
+            line-height: 1.72;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .decision-block pre .hl {
+            color: var(--primary-mid);
+            font-weight: 500;
+        }
+
+        /* ── FLAG COMPARE ── */
+        .flag-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .flag-card {
+            background: var(--surface);
+            border-radius: 10px;
+            padding: .85rem 1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .flag-card .flag-label {
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--muted);
+            margin-bottom: .35rem;
+        }
+
+        .flag-card .flag-ex {
+            font-style: italic;
+            color: var(--primary-dark);
+            font-size: .97rem;
+        }
+
+        .flag-card .flag-note {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-top: .2rem;
+        }
+
+        /* ── SELF CHECK ── */
+        .self-check {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .self-check .sc-title {
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .6rem;
+        }
+
+        .self-check ol {
+            padding-left: 1.25rem;
+            color: var(--ink);
+            font-size: .97rem;
+        }
+
+        .self-check ol li {
+            margin-bottom: .35rem;
+        }
+
+        /* ── SUMMARY BLOCK ── */
+        .summary-block {
+            background: var(--ink);
+            color: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .summary-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 1.25rem;
+            color: var(--primary-mid);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1.5px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+        }
+
+        .summary-card .sc-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .73rem;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            color: var(--primary-mid);
+            margin-bottom: .3rem;
+        }
+
+        .summary-card .sc-desc {
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .summary-outro {
+            font-style: italic;
+            color: rgba(255, 255, 255, .5);
+            font-size: .95rem;
+            margin-top: .75rem;
+        }
+
+        /* ── READING PASSAGE ── */
+        .reading-passage {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 2rem 2.25rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .reading-passage .rp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .75rem;
+        }
+
+        .reading-passage p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.08rem;
+            line-height: 1.88;
+            margin-bottom: 1.4rem;
+            color: #2a2934;
+        }
+
+        .reading-passage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reading-passage strong {
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: .05em .22em;
+            border-radius: 3px;
+        }
+
+        /* ── GRAMMAR FEATURES ── */
+        .grammar-features {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .grammar-features h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .6rem;
+        }
+
+        .grammar-features p {
+            font-size: .97rem;
+            line-height: 1.72;
+            margin-bottom: .9rem;
+            color: var(--ink);
+        }
+
+        .grammar-features p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grammar-features strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .grammar-features em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--muted);
+            font-size: .85rem;
+            border-top: 1px solid var(--line);
+            margin-top: 3rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:640px) {
+            .page-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .grammar-block-body {
+                padding: 1.25rem;
+            }
+
+            .grammar-block-header {
+                padding: 1.1rem 1.25rem 1rem;
+            }
+
+            .flag-compare {
+                grid-template-columns: 1fr;
+            }
+
+            .contrast-pair {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-passage {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .summary-block {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .grammar-features {
+                padding: 1.25rem;
+            }
+
+            table.grammar-table {
+                font-size: .87rem;
+            }
+
+            table.grammar-table thead th,
+            table.grammar-table tbody td {
+                padding: .6rem .75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <header class="hero">
+        <div class="hero-badge">Unit 5 · Destination B2</div>
+        <h1>CONDITIONALS<br><em>Thế Giới "Giả Sử"</em></h1>
+        <p class="hero-intro">
+            Mỗi ngày, chúng ta nói hàng trăm câu "giả sử": <strong>"If it rains, I'll stay home"</strong>, <strong>"If I
+                were you, I would…"</strong>, <strong>"If I had studied harder, I would have…"</strong> Conditionals
+            chính là cách chúng ta mơ tưởng, hối tiếc, và lên kế hoạch!
+        </p>
+    </header>
+
+    <main>
+        <div class="page-container">
+
+            <!-- ═══════════════════════════════════════
+     5.1 ZERO CONDITIONAL
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">5.1</span>
+                    <h2>Zero Conditional — <em style="font-style:italic;color:var(--primary);">Điều Kiện "Luôn
+                            Đúng"</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Khi nào "If" không phải về giả sử?<br>
+                        <strong>Bản chất:</strong> Diễn tả <strong>sự thật khoa học, quy luật tự nhiên</strong> — điều
+                        gì LUÔN xảy ra khi có điều kiện.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="formula-box">If + Present Simple, Present Simple</div>
+
+                    <h3>🎯 Cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Định nghĩa / Sự thật không thay đổi:</strong>
+                            <em>If you have faith in something, you believe in something you cannot prove.</em>
+                            <span class="usage-note"><strong>Phân tích:</strong> Đây là định nghĩa, luôn đúng!</span>
+                        </li>
+                    </ul>
+
+                    <h3>🔬 Các ví dụ khoa học:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Quy luật vật lý:</strong>
+                            <em>If you heat water to 100°C, it boils.</em>
+                        </li>
+                        <li>
+                            <strong>Quy luật tự nhiên:</strong>
+                            <em>If you drop something, it falls.</em>
+                        </li>
+                    </ul>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Dấu hiệu:</strong> Câu nghe như "định nghĩa" hoặc "quy luật"</li>
+                            <li><strong>Thay thế:</strong> Có thể dùng <span class="kw-chip">when</span> thay cho <span
+                                    class="kw-chip">if</span> — ý nghĩa không đổi!</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     5.2 FIRST CONDITIONAL
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">5.2</span>
+                    <h2>First Conditional — <em style="font-style:italic;color:var(--primary);">Điều Kiện "Có Thể"</em>
+                    </h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"Nếu trời mưa, tôi sẽ…"</em> — Câu kinh điển!<br>
+                        <strong>Bản chất:</strong> Nói về <strong>khả năng thực tế</strong> trong hiện tại/tương lai và
+                        <strong>kết quả có thể xảy ra</strong>.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="formula-box">If + Present Tense, will + V (nguyên mẫu)</div>
+
+                    <h3>🎯 Các cách dùng:</h3>
+
+                    <h4>1. Điều kiện thực tế và kết quả:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Khả năng có thật:</strong>
+                            <em>If you have a birthday party, you'll get loads of cool presents!</em>
+                            <span class="usage-note"><strong>Phân tích:</strong> Có thể tổ chức sinh nhật → Có thể nhận
+                                quà</span>
+                        </li>
+                    </ul>
+
+                    <h4>2. Với các thì hiện tại khác trong mệnh đề "if":</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Present Continuous:</strong>
+                            <em>If you're working till 6:30, we'll have dinner at 8.</em>
+                        </li>
+                        <li>
+                            <strong>Present Perfect:</strong>
+                            <em>If you have revised properly, you won't have problems.</em>
+                        </li>
+                    </ul>
+
+                    <h4>3. Với modal verbs khác trong mệnh đề chính:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Might (có thể):</strong>
+                            <em>If you have a party, you <strong>might</strong> get presents!</em>
+                        </li>
+                        <li>
+                            <strong>Should (nên):</strong>
+                            <em>If it rains, you <strong>should</strong> take an umbrella.</em>
+                        </li>
+                    </ul>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Dạng Đặc Biệt</div>
+                        <p><strong>Should trong điều kiện (ít khả năng):</strong></p>
+                        <p><em>If you <strong>should</strong> dump Ben at the concert, you'll get a lift home.</em></p>
+                        <p style="margin-top:.5rem;color:rgba(255,255,255,.6);font-size:.9rem">Ý nghĩa: Nếu có trường
+                            hợp (không chắc lắm)…</p>
+                        <p style="margin-top:.8rem"><strong>Imperative (lời khuyên):</strong></p>
+                        <p><em>If you decide to have a party, <strong>tell</strong> me!</em></p>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi — Dùng "will" trong mệnh đề "if":</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">If it will rain, I
+                                        will stay home.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>If it rains, I will stay
+                                        home.</span></div>
+                                <div class="err-wrong" style="margin-top:.5rem"><span class="icon">❌</span><span
+                                        class="txt">If you will come, I will be happy.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>If you come, I will be
+                                        happy.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     5.3 ALTERNATIVE CONJUNCTIONS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">5.3</span>
+                    <h2>Các Từ Nối Thay Thế "If" — <em style="font-style:italic;color:var(--primary);">Alternative
+                            Conjunctions</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Không chỉ có "If"! Tiếng Anh có nhiều cách diễn đạt điều kiện hơn
+                        bạn nghĩ.
+                    </div>
+
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Từ nối</th>
+                                    <th>Nghĩa</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>unless</strong></td>
+                                    <td>"except if" / "if…not"</td>
+                                    <td><em>I'll be there at six <strong>unless</strong> I get delayed.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>in case</strong></td>
+                                    <td>"because…might"</td>
+                                    <td><em>Take wellies <strong>in case</strong> it's muddy.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>as long as</strong></td>
+                                    <td>"if" / "only if"</td>
+                                    <td><em><strong>As long as</strong> I'm happy, my parents don't care.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>provided (that)</strong></td>
+                                    <td>"if" / "only if"</td>
+                                    <td><em><strong>Provided</strong> I'm happy, my parents don't care.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Phân biệt IN CASE vs IF:</h3>
+                    <div class="contrast-pair">
+                        <div class="contrast-card first-cond">
+                            <div class="cc-label">IF — Phản ứng</div>
+                            <div class="cc-ex">I'll take an umbrella <strong>if</strong> it rains.</div>
+                            <div class="cc-note">Nếu trời mưa (rồi mới), tôi sẽ cầm ô</div>
+                        </div>
+                        <div class="contrast-card second-cond">
+                            <div class="cc-label">IN CASE — Chuẩn bị trước</div>
+                            <div class="cc-ex">I'll take an umbrella <strong>in case</strong> it rains.</div>
+                            <div class="cc-note">Tôi cầm ô phòng khi trời mưa (chuẩn bị sẵn!)</div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     5.4 SECOND CONDITIONAL
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">5.4</span>
+                    <h2>Second Conditional — <em style="font-style:italic;color:var(--primary);">Điều Kiện "Không
+                            Thể"</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"If I were a billionaire…"</em> — Giấc mơ hay thực tế?<br>
+                        <strong>Bản chất:</strong> Nói về tình huống <strong>không thể, không có thật</strong> hoặc
+                        <strong>khó xảy ra</strong> ở hiện tại/tương lai.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="formula-box">If + Past Simple / Continuous, would + V (nguyên mẫu)</div>
+
+                    <h3>🎯 Các cách dùng:</h3>
+
+                    <h4>1. Tình huống không thể (hiện tại):</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Điều không có thật:</strong>
+                            <em>If you had a beard, you would look just like Charles Dickens!</em>
+                            <span class="usage-note"><strong>Thực tế:</strong> Bạn không có râu!</span>
+                        </li>
+                    </ul>
+
+                    <h4>2. Tình huống giả định:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Giả định tưởng tượng:</strong>
+                            <em>If you were flying to Rio, would you get there quicker?</em>
+                        </li>
+                    </ul>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Điểm Quan Trọng — "Were" Cho Tất Cả Ngôi</div>
+                        <ul>
+                            <li><strong>Trang trọng:</strong> <em>If I <strong>were</strong> you, I would think
+                                    carefully.</em></li>
+                            <li><strong>Thân mật:</strong> <em>If I <strong>was</strong> you, I'd have a party!</em>
+                            </li>
+                            <li><strong>Could:</strong> <em>If we were older, we <strong>could</strong> go on holiday
+                                    alone.</em></li>
+                            <li><strong>Could = was/were able to:</strong> <em>If I <strong>could</strong> drive, I'd
+                                    buy a car.</em></li>
+                        </ul>
+                    </div>
+
+                    <h3>🔄 So sánh First vs Second Conditional:</h3>
+                    <div class="contrast-pair">
+                        <div class="contrast-card first-cond">
+                            <div class="cc-label">First — Có thể xảy ra</div>
+                            <div class="cc-ex">If I <strong>have</strong> time, I <strong>will</strong> call you.</div>
+                            <div class="cc-note">→ Có thể có thời gian (thực tế)</div>
+                        </div>
+                        <div class="contrast-card second-cond">
+                            <div class="cc-label">Second — Không có thật</div>
+                            <div class="cc-ex">If I <strong>had</strong> time, I <strong>would</strong> call you.</div>
+                            <div class="cc-note">→ Hiện tại không có thời gian</div>
+                        </div>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi — Dùng "would" trong mệnh đề "if":</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">If I would have
+                                        money, I would buy a car.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>If I had money, I would buy a
+                                        car.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     5.5 THIRD CONDITIONAL
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">5.5</span>
+                    <h2>Third Conditional — <em style="font-style:italic;color:var(--primary);">Điều Kiện "Hối
+                            Tiếc"</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"Giá như…"</em> — Câu của sự hối tiếc?<br>
+                        <strong>Bản chất:</strong> Nói về tình huống <strong>đã không xảy ra</strong> trong quá khứ và
+                        <strong>kết quả giả định</strong>.
+                    </div>
+
+                    <h3>📝 Công thức:</h3>
+                    <div class="formula-box">If + Past Perfect, would + have + V3</div>
+
+                    <h3>🎯 Cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Hối tiếc về quá khứ:</strong>
+                            <em>If you had worn a fake beard, no one would have known who you were.</em>
+                            <span class="usage-note"><strong>Thực tế:</strong> Bạn không đeo râu giả → Mọi người nhận ra
+                                bạn</span>
+                        </li>
+                    </ul>
+
+                    <div class="timeline-box">
+                        <div class="tl-title">📊 Phân tích Timeline</div>
+                        <div class="timeline-row">
+                            <span class="tl-time">QUÁ KHỨ</span>
+                            <span class="tl-arrow">→</span>
+                            <span class="tl-fact">Bạn không đeo râu giả</span>
+                        </div>
+                        <div class="timeline-row">
+                            <span class="tl-time">KẾT QUẢ</span>
+                            <span class="tl-arrow">→</span>
+                            <span class="tl-fact">Mọi người nhận ra bạn</span>
+                        </div>
+                        <div class="timeline-row">
+                            <span class="tl-time">GIẢ ĐỊNH</span>
+                            <span class="tl-arrow">→</span>
+                            <span class="tl-fact">Nếu đã đeo → Không ai nhận ra</span>
+                        </div>
+                    </div>
+
+                    <h3>🔄 Các ví dụ khác:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Kết quả khác nhau trong quá khứ:</strong>
+                            <em>If she'd been wearing her new glasses, I would have noticed them.</em>
+                            <span class="usage-note"><strong>Thực tế:</strong> Cô ấy không đeo kính → Tôi không để
+                                ý</span>
+                        </li>
+                    </ul>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Modal Verbs Khác Trong Third Conditional</div>
+                        <p><em>If I had done revision, I <strong>might/could/should</strong> have passed.</em></p>
+                        <ul>
+                            <li><em><strong>might have</strong></em> — có thể đã đậu (50%)</li>
+                            <li><em><strong>could have</strong></em> — có khả năng đậu (có năng lực)</li>
+                            <li><em><strong>should have</strong></em> — lẽ ra đã đậu (kỳ vọng)</li>
+                        </ul>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi — Dùng "would have" trong mệnh đề "if":</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">If I would have
+                                        studied, I would have passed.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>If I had studied, I would have
+                                        passed.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     5.6 MIXED CONDITIONALS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">5.6</span>
+                    <h2>Mixed Conditionals — <em style="font-style:italic;color:var(--primary);">Điều Kiện "Trộn
+                            Lẫn"</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Quá khứ ảnh hưởng hiện tại, hiện tại ảnh hưởng quá khứ?<br>
+                        <strong>Bản chất:</strong> Kết hợp các thời điểm khác nhau — quá khứ với hiện tại.
+                    </div>
+
+                    <h3>📝 Loại 1: Điều kiện quá khứ → Kết quả hiện tại</h3>
+                    <div class="formula-box">If + Past Perfect, would + V (nguyên mẫu)</div>
+
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Quá khứ → Hiện tại:</strong>
+                            <em>If I had listened to my parents, I wouldn't be in trouble now.</em>
+                        </li>
+                    </ul>
+
+                    <div class="timeline-box">
+                        <div class="tl-title">📊 Phân tích Timeline — Loại 1</div>
+                        <div class="timeline-row">
+                            <span class="tl-time">QUÁ KHỨ</span>
+                            <span class="tl-arrow">→</span>
+                            <span class="tl-fact">Không nghe lời bố mẹ</span>
+                        </div>
+                        <div class="timeline-row">
+                            <span class="tl-time">HIỆN TẠI</span>
+                            <span class="tl-arrow">→</span>
+                            <span class="tl-fact">Đang gặp rắc rối</span>
+                        </div>
+                    </div>
+
+                    <h3>📝 Loại 2: Điều kiện hiện tại → Kết quả quá khứ</h3>
+                    <div class="formula-box">If + Past Simple, would + have + V3</div>
+
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Hiện tại → Quá khứ:</strong>
+                            <em>If I had a mobile, I would have called you last night.</em>
+                        </li>
+                    </ul>
+
+                    <div class="timeline-box">
+                        <div class="tl-title">📊 Phân tích Timeline — Loại 2</div>
+                        <div class="timeline-row">
+                            <span class="tl-time">HIỆN TẠI</span>
+                            <span class="tl-arrow">→</span>
+                            <span class="tl-fact">Không có điện thoại</span>
+                        </div>
+                        <div class="timeline-row">
+                            <span class="tl-time">QUÁ KHỨ</span>
+                            <span class="tl-arrow">→</span>
+                            <span class="tl-fact">Không gọi được tối qua</span>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <p><strong>Nhìn vào thời gian:</strong> <span class="kw-chip">now</span> = hiện tại → Loại 2 ·
+                            <span class="kw-chip">last night</span> = quá khứ → Loại 1</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     5.7 INVERTED CONDITIONALS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">5.7</span>
+                    <h2>Inverted Conditionals — <em style="font-style:italic;color:var(--primary);">Điều Kiện "Đảo
+                            Ngữ"</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Làm sao để nói "If" mà không có "If"?<br>
+                        <strong>Bản chất:</strong> Cách diễn đạt <strong>trang trọng</strong> hơn, thường trong văn
+                        viết.
+                    </div>
+
+                    <h3>📝 Các dạng đảo ngữ:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Loại</th>
+                                    <th>Dạng đảo ngữ (Trang trọng)</th>
+                                    <th>Dạng thường</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="cond-badge">First</span></td>
+                                    <td><em>Should the situation worsen…</em></td>
+                                    <td><em>If the situation should worsen…</em></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="cond-badge">Second</span></td>
+                                    <td><em>Were the situation to worsen…</em></td>
+                                    <td><em>If the situation were to worsen…</em></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="cond-badge">Third</span></td>
+                                    <td><em>Had the situation worsened…</em></td>
+                                    <td><em>If the situation had worsened…</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Ví dụ ứng dụng:</h3>
+                    <div class="inverted-example">
+                        <div class="ie-label">First — Should</div>
+                        <div class="ie-formal">Should you need any help, please contact me.</div>
+                        <div class="ie-standard">= If you should need any help…</div>
+                    </div>
+                    <div class="inverted-example">
+                        <div class="ie-label">Second — Were</div>
+                        <div class="ie-formal">Were I in your position, I would resign.</div>
+                        <div class="ie-standard">= If I were in your position…</div>
+                    </div>
+                    <div class="inverted-example">
+                        <div class="ie-label">Third — Had</div>
+                        <div class="ie-formal">Had I known earlier, I would have come.</div>
+                        <div class="ie-standard">= If I had known earlier…</div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">⚠️ Chú Ý Về Dấu Phẩy</div>
+                        <ul>
+                            <li>✅ <em>If I had money, I would travel.</em> — điều kiện trước → <strong>có dấu
+                                    phẩy</strong></li>
+                            <li>✅ <em>I would travel if I had money.</em> — kết quả trước → <strong>không có dấu
+                                    phẩy</strong></li>
+                        </ul>
+                    </div>
+
+                    <h3>🇺🇸🇬🇧 Khác biệt Mỹ – Anh:</h3>
+                    <div class="flag-compare">
+                        <div class="flag-card">
+                            <div class="flag-label">🇺🇸 Tiếng Anh Mỹ (informal)</div>
+                            <div class="flag-ex">How would you feel if this would happen to you?</div>
+                            <div class="flag-note">Đôi khi dùng "would" trong mệnh đề "if"</div>
+                        </div>
+                        <div class="flag-card">
+                            <div class="flag-label">🇬🇧 Tiếng Anh Anh</div>
+                            <div class="flag-ex">How would you feel if this happened to you?</div>
+                            <div class="flag-note">Không bao giờ dùng "would" trong mệnh đề "if"</div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     TỔNG KẾT
+══════════════════════════════════════════ -->
+            <div class="summary-block">
+                <h2>Tổng Kết Unit 5</h2>
+
+                <div class="decision-block" style="margin-bottom:1.5rem;">
+                    <div class="db-title">🎯 Bản Đồ Tư Duy Conditionals</div>
+                    <pre>CONDITIONALS - Chọn loại nào? 🤔
+
+Sự thật / Quy luật?            → <span class="hl">ZERO</span>     (Present + Present)
+Có thể xảy ra?                  → <span class="hl">FIRST</span>    (Present + Will)
+Không thể / Giả định hiện tại? → <span class="hl">SECOND</span>   (Past + Would)
+Hối tiếc quá khứ?              → <span class="hl">THIRD</span>    (Past Perfect + Would have)
+Trộn thời gian?                 → <span class="hl">MIXED</span>
+Trang trọng?                    → <span class="hl">INVERTED</span></pre>
+                </div>
+
+                <h3
+                    style="color:var(--primary-mid);font-family:'DM Mono',monospace;font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.85rem;">
+                    📊 Bảng Tổng Hợp</h3>
+                <div class="table-wrap" style="margin-bottom:1.5rem;">
+                    <table class="grammar-table">
+                        <thead>
+                            <tr>
+                                <th>Loại</th>
+                                <th>If clause</th>
+                                <th>Main clause</th>
+                                <th>Ý nghĩa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="cond-badge">Zero</span></td>
+                                <td>Present</td>
+                                <td>Present</td>
+                                <td>Sự thật</td>
+                            </tr>
+                            <tr>
+                                <td><span class="cond-badge">First</span></td>
+                                <td>Present</td>
+                                <td>Will + V</td>
+                                <td>Có thể</td>
+                            </tr>
+                            <tr>
+                                <td><span class="cond-badge">Second</span></td>
+                                <td>Past</td>
+                                <td>Would + V</td>
+                                <td>Không thể</td>
+                            </tr>
+                            <tr>
+                                <td><span class="cond-badge">Third</span></td>
+                                <td>Past Perfect</td>
+                                <td>Would have + V3</td>
+                                <td>Hối tiếc</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="sc-label">5.1 · Zero</div>
+                        <div class="sc-desc">Sự thật khoa học — dùng when thay if được</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">5.2 · First</div>
+                        <div class="sc-desc">Khả năng thực tế — Present → Will</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">5.3 · Conjunctions</div>
+                        <div class="sc-desc">unless / in case / as long as / provided</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">5.4 · Second</div>
+                        <div class="sc-desc">Không có thật hiện tại — Past → Would</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">5.5 · Third</div>
+                        <div class="sc-desc">Hối tiếc quá khứ — Past Perfect → Would have</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">5.6 · Mixed</div>
+                        <div class="sc-desc">Trộn thời gian — quá khứ ↔ hiện tại</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">5.7 · Inverted</div>
+                        <div class="sc-desc">Đảo ngữ trang trọng — Should/Were/Had</div>
+                    </div>
+                </div>
+
+                <div class="self-check"
+                    style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);margin-top:1.25rem;">
+                    <div class="sc-title" style="color:var(--primary-mid);">📚 Câu Hỏi Tự Kiểm Tra</div>
+                    <ol style="color:rgba(255,255,255,.8);">
+                        <li>"If I have time" vs "If I had time" — Khác biệt gì?</li>
+                        <li>Khi nào dùng "unless" thay vì "if not"?</li>
+                        <li>"If I were you" hay "If I was you" — Cái nào đúng?</li>
+                    </ol>
+                </div>
+
+                <p class="summary-outro">Tuyệt vời! Chúng ta vừa làm chủ được tất cả các loại câu điều kiện. Tiếp theo,
+                    hãy khám phá Comparatives &amp; Superlatives — cách so sánh mọi thứ trong cuộc sống!</p>
+            </div>
+
+            <!-- ═══════════════════════════════════════
+     READING PASSAGE
+══════════════════════════════════════════ -->
+            <section class="reading-passage">
+                <div class="rp-title">📖 If I Could Change My Life</div>
+
+                <p>If you believe in the power of choice, you believe that every decision shapes your destiny. This is a
+                    universal truth – if someone takes responsibility for their life, they gain control over their
+                    future. Looking back at my journey, I often wonder how different things would be if I had made other
+                    choices. If I could change my life right now, I would start by transforming my mindset. If I had
+                    understood this earlier, I wouldn't have wasted so many years doubting myself. <strong>Were I to
+                        have</strong> one superpower, it would be the ability to see all possible futures – imagine the
+                    decisions we could make if we knew their outcomes!</p>
+
+                <p>If I win the lottery tomorrow, I'll quit my job immediately – well, that's what most people say. But
+                    if I'm being honest, I would handle it differently. If sudden wealth comes my way, I'll invest
+                    wisely first. <strong>Unless</strong> I develop financial literacy, money won't solve my problems.
+                    I'll take courses <strong>in case</strong> I need to manage significant assets someday. <strong>As
+                        long as</strong> I maintain my values, wealth won't corrupt me. <strong>Provided that</strong> I
+                    stay grounded, success will be meaningful. If my current investment strategies work out, I might
+                    achieve financial freedom within ten years. <strong>Should</strong> this happen, I'll focus on
+                    passion projects rather than profit.</p>
+
+                <p>If I were a different person – more outgoing, more confident – would my life be better? Sometimes I
+                    imagine if I had been born with natural charisma, I would have become a public speaker or
+                    politician. If I were giving advice to my younger self right now, I would say: "Your introversion is
+                    not a weakness." If people understood that quiet individuals often have the deepest thoughts, they
+                    would value silence more. If society weren't so biased toward extroverts, introverts could thrive
+                    without pretending. <strong>Were</strong> the world to appreciate different personality types
+                    equally, we would all benefit from diverse perspectives.</p>
+
+                <p>Looking at my career, if I had studied computer science instead of literature, I would probably be
+                    earning twice my current salary. If I had known how technology would dominate every industry, I
+                    might have made different educational choices. But here's the paradox: if I hadn't studied
+                    literature, I wouldn't have developed my critical thinking and writing skills, which are invaluable
+                    now. <strong>Had I taken</strong> the conventional path, I would have missed the unconventional
+                    opportunities that shaped me. If my parents had forced me into a "practical" field, I would have
+                    lost my passion for learning. <strong>Had</strong> they been less supportive, I couldn't have
+                    pursued my dreams.</p>
+
+                <p>If I could master any skill instantly, I would choose languages. If you speak multiple languages
+                    fluently, doors open worldwide. If I were fluent in Mandarin right now, I could work with Chinese
+                    companies. If I had started learning Spanish in elementary school, I would be trilingual by now.
+                    <strong>Were I to dedicate</strong> just one hour daily to language learning, I would achieve
+                    fluency within two years. If language learning apps didn't exist, this goal would be much harder.
+                    <strong>Should you decide</strong> to learn a new language, start with the most practical one for
+                    your career.</p>
+
+                <p>Relationships would transform if we communicated better. If people listened more than they spoke,
+                    misunderstandings would decrease dramatically. If I had been a better listener in my past
+                    relationships, they might have lasted longer. If my ex-partner and I had attended couples therapy,
+                    we could have saved our relationship – though if I'm honest, we weren't meant to be. <strong>Had we
+                        tried</strong> harder, would it have worked? Maybe, but if a relationship requires constant
+                    effort, it might not be right. If you find someone who accepts you completely, don't let them go.
+                </p>
+
+                <p>If I lived in a different country, my entire worldview would change. If I moved to Japan, I would
+                    experience a culture valuing harmony and respect. If I had grown up in Brazil, I would probably be
+                    more relaxed and social. <strong>Were</strong> I to relocate tomorrow, I would choose New Zealand
+                    for its natural beauty and quality of life. If immigration laws weren't so strict, people could
+                    explore different cultures more freely. <strong>Should</strong> the opportunity arise, I'll
+                    definitely live abroad for at least a year. If you never leave your comfort zone, you never truly
+                    grow.</p>
+
+                <p>Health is something we only value when we lose it. If people exercised regularly and ate well,
+                    healthcare costs would plummet. If I had started exercising in my twenties, I wouldn't struggle with
+                    fitness now. If I were more disciplined about my diet, I would have more energy. <strong>Had I
+                        known</strong> how much sugar affects mood, I would have quit it years ago. If my grandmother
+                    hadn't developed diabetes, she would still be with us today. <strong>Were</strong> everyone to
+                    prioritize prevention over treatment, we would live longer, healthier lives.</p>
+
+                <p>If technology continues advancing at this pace, humans might become obsolete in many fields. If
+                    artificial intelligence replaces most jobs, we'll need universal basic income. If I lose my job to
+                    automation, I'll retrain for something machines can't do – perhaps therapy or creative arts.
+                    <strong>Unless</strong> we adapt quickly, technological unemployment will cause social upheaval. If
+                    governments had prepared for this earlier, the transition would be smoother. <strong>Should</strong>
+                    robots take over mundane tasks, humans could focus on meaningful work.</p>
+
+                <p>Education would improve dramatically if we reformed the system. If schools taught practical life
+                    skills, graduates would be better prepared. If I had learned about taxes, investing, and mental
+                    health in school, adulting would be easier. <strong>Were</strong> teachers paid what they deserve,
+                    education quality would soar. If standardized testing didn't dominate education, creativity would
+                    flourish. <strong>Had</strong> my teachers encouraged questioning over memorization, I would have
+                    developed critical thinking earlier. If every child had access to quality education, poverty would
+                    decrease significantly.</p>
+
+                <p>Environmental issues demand immediate action. If we don't reduce carbon emissions now, future
+                    generations will suffer. If everyone made small changes, the collective impact would be enormous. If
+                    I had been more environmentally conscious earlier, my carbon footprint would be smaller.
+                    <strong>Should</strong> governments implement strict environmental policies, companies will innovate
+                    greener solutions. <strong>Unless</strong> we act now, it will be too late. If renewable energy were
+                    cheaper than fossil fuels, the transition would happen naturally.</p>
+
+                <p>Mixed feelings arise when I consider the past affecting the present. If I had saved more money in my
+                    twenties, I would be financially secure now. If I were naturally organized, I wouldn't have missed
+                    so many opportunities. But if I hadn't made those mistakes, I wouldn't have learned these lessons.
+                    <strong>Had</strong> everything come easily, I wouldn't appreciate success. If I were perfect, life
+                    would be boring.</p>
+
+                <p><strong>Were I to summarize</strong> my philosophy, it would be this: if you can change something,
+                    take action; if you can't, accept it peacefully. If life gives you lemons, you know what to do.
+                    <strong>Should</strong> you face challenges, remember they're opportunities in disguise. If we all
+                    lived by these principles, the world would be more peaceful. <strong>Had I understood</strong> this
+                    earlier, I would have suffered less. But if suffering teaches wisdom, perhaps everything happened as
+                    it should.</p>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+     GRAMMAR FEATURES
+══════════════════════════════════════════ -->
+            <section class="grammar-features">
+                <h2>Grammar Features Highlighted</h2>
+
+                <p><strong>Zero Conditional:</strong> Used for universal truths (<em>if someone takes responsibility,
+                        they gain control</em>; <em>if you believe in choice, you believe in destiny</em>).</p>
+
+                <p><strong>First Conditional:</strong> Demonstrated for real possibilities (<em>If I win the lottery,
+                        I'll quit</em>; <em>If sudden wealth comes, I'll invest</em>; <em>If my strategies work out, I
+                        might achieve freedom</em>).</p>
+
+                <p><strong>Second Conditional:</strong> Shown for hypothetical present/future (<em>If I were
+                        different</em>; <em>If I lived in Japan</em>; <em>If technology continues advancing</em>).</p>
+
+                <p><strong>Third Conditional:</strong> Used for past regrets (<em>If I had studied computer
+                        science</em>; <em>Had I known earlier</em>; <em>If I had started exercising</em>).</p>
+
+                <p><strong>Mixed Conditionals:</strong> Past affecting present (<em>If I had saved more, I would be
+                        secure now</em>) and present affecting past (<em>If I were organized, I wouldn't have missed
+                        opportunities</em>).</p>
+
+                <p><strong>Inverted Conditionals:</strong> Formal structures (<em>Were I to have</em>; <em>Had I
+                        taken</em>; <em>Should this happen</em>; <em>Were I to summarize</em>).</p>
+
+                <p><strong>Alternative conjunctions:</strong> <em>Unless</em>, <em>in case</em>, <em>as long as</em>,
+                    <em>provided that</em> used naturally throughout.</p>
+
+                <p><strong>Special Features:</strong> Correct use of <em>were</em> for all persons in formal Second
+                    Conditional; various modal verbs (might, could, should) in conditional structures; proper comma
+                    usage when "if" clause comes first.</p>
+
+                <p><strong>Common Errors Avoided:</strong> No <em>will</em> in "if" clauses; correct tense combinations
+                    for each conditional type; proper use of <em>were</em> vs <em>was</em> in hypothetical situations;
+                    no <em>would</em> in "if" clauses (avoiding the American informal usage).</p>
+            </section>
+
+        </div><!-- /page-container -->
+    </main>
+
+    <footer>
+        <p>Destination B2 · Unit 5 — Conditionals &nbsp;|&nbsp; Thế Giới "Giả Sử"</p>
+    </footer>
+
+</body>
+
+</html>

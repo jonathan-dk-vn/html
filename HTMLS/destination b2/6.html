@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 6 – Comparatives &amp; Superlatives | Destination B2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ══════════════════════════════════════
+   THEME C · ORANGE/AMBER
+   Comparatives, Superlatives, Adjectives
+══════════════════════════════════════ */
+        :root {
+            --primary: #C86B1A;
+            --primary-light: #FFE4C4;
+            --primary-mid: #F5A45A;
+            --primary-dark: #6E3605;
+            --primary-rgb: 200, 107, 26;
+
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F8F8F6;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #E2E0DB;
+            --shadow: rgba(20, 19, 28, .05);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.72;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+        .hero {
+            background-color: var(--ink);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 65% 55% at 20% 30%, rgba(200, 107, 26, .32) 0%, transparent 65%),
+                radial-gradient(ellipse 55% 50% at 80% 70%, rgba(245, 164, 90, .2) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1.5px solid rgba(245, 164, 90, .45);
+            border-radius: 40px;
+            padding: .35rem 1.1rem;
+            margin-bottom: 1.4rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.18;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--primary-mid);
+        }
+
+        .hero-intro {
+            max-width: 700px;
+            margin: 1.4rem auto 0;
+            font-size: 1.03rem;
+            color: rgba(255, 255, 255, .72);
+            line-height: 1.78;
+            position: relative;
+        }
+
+        .hero-intro strong {
+            color: var(--primary-mid);
+            font-weight: 600;
+        }
+
+        .hero-intro em {
+            font-style: italic;
+            color: rgba(255, 255, 255, .85);
+        }
+
+        /* ══════════════════════════════════════
+   GRAMMAR BLOCK
+══════════════════════════════════════ */
+        .grammar-block {
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 2px 20px var(--shadow);
+            margin: 2.5rem 0;
+            overflow: hidden;
+        }
+
+        .grammar-block-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 1.75rem 1.25rem;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .section-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 8px;
+            padding: .3rem .75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .grammar-block-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(17px, 2.4vw, 23px);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+
+        .grammar-block-body {
+            padding: 1.75rem;
+        }
+
+        /* ── INTRO PARA ── */
+        .intro-para {
+            background: var(--paper);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-para strong {
+            color: var(--primary-dark);
+        }
+
+        .intro-para em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── SUB-HEADINGS ── */
+        .grammar-block-body h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 1.75rem 0 .75rem;
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .grammar-block-body h4 {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 1.2rem 0 .5rem;
+        }
+
+        /* ── FORMULA BOX ── */
+        .formula-box {
+            font-family: 'DM Mono', monospace;
+            font-size: 1rem;
+            text-align: center;
+            background: var(--paper);
+            border: 2px dashed var(--primary-mid);
+            border-radius: 12px;
+            padding: .9rem 1.5rem;
+            margin: .75rem 0 1.25rem;
+            color: var(--primary-dark);
+            letter-spacing: .03em;
+        }
+
+        /* ── TABLES ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: .75rem 0 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 12px var(--shadow);
+        }
+
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .95rem;
+        }
+
+        table.grammar-table thead th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-align: left;
+            padding: .75rem 1rem;
+            white-space: nowrap;
+        }
+
+        table.grammar-table tbody td {
+            padding: .7rem 1rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        table.grammar-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.grammar-table tbody tr:hover td {
+            background: rgba(255, 228, 196, .25);
+        }
+
+        table.grammar-table em {
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+
+        table.grammar-table strong {
+            font-weight: 600;
+        }
+
+        /* ── USAGE LIST ── */
+        .usage-list {
+            list-style: none;
+            margin: .5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .usage-list li {
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .usage-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .57rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .usage-list li strong {
+            display: block;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .usage-list li em {
+            display: block;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: .2rem;
+            font-size: 1rem;
+        }
+
+        .usage-note {
+            font-size: .88rem;
+            color: var(--muted);
+            font-style: normal;
+        }
+
+        .usage-note strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ── KEYWORD CHIPS ── */
+        .kw-chip {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 6px;
+            padding: .1rem .45rem;
+            margin: .1rem .15rem;
+        }
+
+        /* ── ERROR BLOCK ── */
+        .error-block {
+            background: var(--surface-alt);
+            border-radius: 14px;
+            margin: 1.75rem 0;
+            overflow: hidden;
+        }
+
+        .error-block-header {
+            background: linear-gradient(90deg, var(--error), var(--primary-mid));
+            padding: .65rem 1.25rem;
+        }
+
+        .error-block-header span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .error-block-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .error-item-label {
+            font-size: .8rem;
+            font-family: 'DM Mono', monospace;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .4rem;
+        }
+
+        .err-wrong {
+            color: var(--error);
+            font-style: italic;
+            font-size: .97rem;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            margin-bottom: .3rem;
+        }
+
+        .err-wrong .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-wrong .txt {
+            text-decoration: line-through;
+            opacity: .85;
+        }
+
+        .err-right {
+            color: var(--success);
+            font-weight: 600;
+            font-size: .97rem;
+            font-style: italic;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+        }
+
+        .err-right .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-context {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .38);
+            font-style: normal;
+            margin-top: .25rem;
+            padding-left: 1.4rem;
+        }
+
+        /* ── ALERT BOX ── */
+        .alert-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .alert-box .alert-title {
+            font-weight: 700;
+            font-size: .88rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--primary-dark);
+            margin-bottom: .45rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .alert-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+
+        .alert-box ul li {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box ul li::before {
+            content: '→ ';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .alert-box p {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        /* ── FEATURE BOX ── */
+        .feature-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            color: #fff;
+        }
+
+        .feature-box .feature-title {
+            font-size: .82rem;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: .55rem;
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            margin-bottom: .4rem;
+        }
+
+        .feature-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-box em {
+            font-style: italic;
+            color: var(--primary-mid);
+        }
+
+        .feature-box strong {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* ── CONTRAST PAIR ── */
+        .contrast-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .contrast-card {
+            border-radius: 12px;
+            padding: .9rem 1.1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .contrast-card.pos {
+            background: rgba(46, 158, 104, .07);
+            border-color: rgba(46, 158, 104, .3);
+        }
+
+        .contrast-card.neg {
+            background: rgba(232, 52, 74, .05);
+            border-color: rgba(232, 52, 74, .25);
+        }
+
+        .contrast-card.neu {
+            background: rgba(200, 107, 26, .06);
+            border-color: rgba(200, 107, 26, .25);
+        }
+
+        .contrast-card .cc-label {
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: .4rem;
+        }
+
+        .contrast-card.pos .cc-label {
+            color: var(--success);
+        }
+
+        .contrast-card.neg .cc-label {
+            color: var(--error);
+        }
+
+        .contrast-card.neu .cc-label {
+            color: var(--primary);
+        }
+
+        .contrast-card .cc-ex {
+            font-style: italic;
+            font-size: .97rem;
+            color: var(--ink);
+            margin-bottom: .25rem;
+        }
+
+        .contrast-card .cc-note {
+            font-size: .83rem;
+            color: var(--muted);
+        }
+
+        /* ── SCALE BAR ── */
+        .scale-bar {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+
+        .scale-bar .sb-title {
+            font-family: 'DM Mono', monospace;
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--muted);
+            margin-bottom: .65rem;
+        }
+
+        .scale-track {
+            display: flex;
+            align-items: stretch;
+            gap: 2px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: .55rem;
+        }
+
+        .scale-seg {
+            flex: 1;
+            text-align: center;
+            padding: .5rem .4rem;
+            font-size: .82rem;
+            font-family: 'DM Mono', monospace;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .scale-seg.s1 {
+            background: #3B6FBF;
+        }
+
+        .scale-seg.s2 {
+            background: var(--primary);
+        }
+
+        .scale-seg.s3 {
+            background: #C86B1A;
+        }
+
+        .scale-seg.s4 {
+            background: var(--error);
+        }
+
+        .scale-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: .78rem;
+            color: var(--muted);
+        }
+
+        /* ── STRUCTURE CARD GRID ── */
+        .struct-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: .85rem;
+            margin: 1rem 0;
+        }
+
+        .struct-card {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: .9rem 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .struct-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .struct-card .scard-formula {
+            font-family: 'DM Mono', monospace;
+            font-size: .88rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+            margin-bottom: .35rem;
+        }
+
+        .struct-card .scard-ex {
+            font-style: italic;
+            font-size: .93rem;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .struct-card .scard-note {
+            font-size: .8rem;
+            color: var(--muted);
+        }
+
+        /* ── DECISION FLOWCHART ── */
+        .decision-block {
+            background: var(--ink);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .decision-block .db-title {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--primary-mid);
+            margin-bottom: 1rem;
+        }
+
+        .decision-block pre {
+            background: transparent;
+            color: rgba(255, 255, 255, .78);
+            font-family: 'DM Mono', monospace;
+            font-size: .88rem;
+            line-height: 1.72;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .decision-block pre .hl {
+            color: var(--primary-mid);
+            font-weight: 500;
+        }
+
+        /* ── SELF CHECK ── */
+        .self-check {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .self-check .sc-title {
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .6rem;
+        }
+
+        .self-check ol {
+            padding-left: 1.25rem;
+            color: var(--ink);
+            font-size: .97rem;
+        }
+
+        .self-check ol li {
+            margin-bottom: .35rem;
+        }
+
+        /* ── SUMMARY BLOCK ── */
+        .summary-block {
+            background: var(--ink);
+            color: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .summary-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 1.25rem;
+            color: var(--primary-mid);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1.5px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+        }
+
+        .summary-card .sc-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .73rem;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            color: var(--primary-mid);
+            margin-bottom: .3rem;
+        }
+
+        .summary-card .sc-desc {
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .summary-outro {
+            font-style: italic;
+            color: rgba(255, 255, 255, .5);
+            font-size: .95rem;
+            margin-top: .75rem;
+        }
+
+        /* ── READING PASSAGE ── */
+        .reading-passage {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 2rem 2.25rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .reading-passage .rp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .75rem;
+        }
+
+        .reading-passage p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.08rem;
+            line-height: 1.88;
+            margin-bottom: 1.4rem;
+            color: #2a2934;
+        }
+
+        .reading-passage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reading-passage strong {
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: .05em .22em;
+            border-radius: 3px;
+        }
+
+        /* ── GRAMMAR FEATURES ── */
+        .grammar-features {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .grammar-features h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .6rem;
+        }
+
+        .grammar-features p {
+            font-size: .97rem;
+            line-height: 1.72;
+            margin-bottom: .9rem;
+            color: var(--ink);
+        }
+
+        .grammar-features p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grammar-features strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .grammar-features em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--muted);
+            font-size: .85rem;
+            border-top: 1px solid var(--line);
+            margin-top: 3rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:640px) {
+            .page-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .grammar-block-body {
+                padding: 1.25rem;
+            }
+
+            .grammar-block-header {
+                padding: 1.1rem 1.25rem 1rem;
+            }
+
+            .contrast-pair {
+                grid-template-columns: 1fr;
+            }
+
+            .struct-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-passage {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .summary-block {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .grammar-features {
+                padding: 1.25rem;
+            }
+
+            .scale-seg {
+                font-size: .7rem;
+                padding: .45rem .2rem;
+            }
+
+            table.grammar-table {
+                font-size: .87rem;
+            }
+
+            table.grammar-table thead th,
+            table.grammar-table tbody td {
+                padding: .6rem .75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <header class="hero">
+        <div class="hero-badge">Unit 6 · Destination B2</div>
+        <h1>COMPARATIVES &amp; SUPERLATIVES<br><em>Nghệ Thuật So Sánh</em></h1>
+        <p class="hero-intro">
+            <em>"This phone is <strong>better</strong> than that one"</em>, <em>"She's the <strong>most
+                    beautiful</strong> girl I've ever seen"</em>, <em>"I'm <strong>as tall as</strong> my brother"</em>…
+            So sánh là bản năng tự nhiên của con người. Hãy cùng làm chủ nghệ thuật này!
+        </p>
+    </header>
+
+    <main>
+        <div class="page-container">
+
+            <!-- ═══════════════════════════════════════
+     6.1 COMPARATIVE & SUPERLATIVE ADJECTIVES
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">6.1</span>
+                    <h2>Comparative &amp; Superlative Adjectives — <em
+                            style="font-style:italic;color:var(--primary);">So Sánh Tính Từ</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> "Good, better, best" — Tại sao không phải "good, gooder, goodest"?
+                    </div>
+
+                    <h3>📝 Quy tắc biến đổi:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Loại tính từ</th>
+                                    <th>So sánh hơn</th>
+                                    <th>So sánh nhất</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>1 âm tiết</strong></td>
+                                    <td>black → <em>blacker</em></td>
+                                    <td>black → <em>blackest</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>1 âm tiết (nguyên âm + phụ âm)</strong></td>
+                                    <td>thin → <em>thinner</em></td>
+                                    <td>thin → <em>thinnest</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2 âm tiết (-y)</strong></td>
+                                    <td>funny → <em>funnier</em></td>
+                                    <td>funny → <em>funniest</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2+ âm tiết</strong></td>
+                                    <td><em>more / less</em> intelligent</td>
+                                    <td><em>most / least</em> intelligent</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🔥 Tính từ bất quy tắc:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Tính từ</th>
+                                    <th>So sánh hơn</th>
+                                    <th>So sánh nhất</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>good</strong></td>
+                                    <td><em>better</em></td>
+                                    <td><em>best</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>bad</strong></td>
+                                    <td><em>worse</em></td>
+                                    <td><em>worst</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>far</strong></td>
+                                    <td><em>farther / further</em></td>
+                                    <td><em>farthest / furthest</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>little</strong></td>
+                                    <td><em>less</em></td>
+                                    <td><em>least</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>much / many</strong></td>
+                                    <td><em>more</em></td>
+                                    <td><em>most</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Cách dùng:</h3>
+
+                    <h4>So sánh hơn (Comparative):</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Công thức: adj/adv + than</strong>
+                            <em>The crime rate in this area is <strong>higher than</strong> in other parts.</em>
+                        </li>
+                    </ul>
+
+                    <h4>So sánh nhất (Superlative):</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Công thức: the + adj + est/most</strong>
+                            <em>The robbery was <strong>the biggest</strong> in the bank's history.</em>
+                        </li>
+                    </ul>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Quên "than" trong so sánh hơn:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">This book is more
+                                        interesting that one.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>This book is more interesting
+                                        <strong>than</strong> that one.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Quên "the" trong so sánh nhất:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">She is most
+                                        beautiful girl.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>She is <strong>the</strong> most
+                                        beautiful girl.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 3 — Dùng sai quy tắc với 2 âm tiết:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">more easy</span>
+                                </div>
+                                <div class="err-right"><span class="icon">✅</span><span>easier</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>1–2 âm tiết ngắn:</strong> <span class="kw-chip">-er</span> / <span
+                                    class="kw-chip">-est</span></li>
+                            <li><strong>2+ âm tiết dài:</strong> <span class="kw-chip">more</span> / <span
+                                    class="kw-chip">most</span></li>
+                            <li><strong>Bất quy tắc nhớ:</strong> good → better → best &nbsp;·&nbsp; bad → worse → worst
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     6.2 COMPARATIVE & SUPERLATIVE ADVERBS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">6.2</span>
+                    <h2>Comparative &amp; Superlative Adverbs — <em style="font-style:italic;color:var(--primary);">So
+                            Sánh Trạng Từ</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"He runs fast"</em> vs <em>"He runs faster"</em> — Cách nào
+                        đúng?
+                    </div>
+
+                    <h3>📝 Quy tắc biến đổi:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Trạng từ</th>
+                                    <th>So sánh hơn</th>
+                                    <th>So sánh nhất</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Thường (kết thúc -ly)</strong></td>
+                                    <td>more / less <em>easily</em></td>
+                                    <td>most / least <em>easily</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>badly (bất quy tắc)</strong></td>
+                                    <td><em>worse</em></td>
+                                    <td><em>worst</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>early</strong></td>
+                                    <td><em>earlier</em></td>
+                                    <td><em>earliest</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>fast</strong></td>
+                                    <td><em>faster</em></td>
+                                    <td><em>fastest</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>hard</strong></td>
+                                    <td><em>harder</em></td>
+                                    <td><em>hardest</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>well</strong></td>
+                                    <td><em>better</em></td>
+                                    <td><em>best</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>So sánh hơn:</strong>
+                            <em>Lock your door <strong>more carefully</strong> next time!</em>
+                        </li>
+                        <li>
+                            <strong>So sánh nhất:</strong>
+                            <em>Only the criminal who ran <strong>fastest</strong> managed to escape.</em>
+                        </li>
+                    </ul>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi — Nhầm lẫn hard / hardly:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">He works more hardly
+                                        than me.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>He works <strong>harder</strong>
+                                        than me.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     6.3 SO — DIỄN TẢ KẾT QUẢ
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">6.3</span>
+                    <h2>So — <em style="font-style:italic;color:var(--primary);">Diễn Tả Kết Quả</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"So tired that I can't work"</em> — Mệt đến mức nào?<br>
+                        <strong>Bản chất:</strong> Diễn tả <strong>mức độ cao</strong> dẫn đến <strong>kết quả</strong>
+                        cụ thể.
+                    </div>
+
+                    <h3>📝 Các cấu trúc:</h3>
+                    <div class="struct-grid">
+                        <div class="struct-card">
+                            <div class="scard-formula">so + adj + that</div>
+                            <div class="scard-ex">The burglar was <strong>so clever that</strong> no one caught him.
+                            </div>
+                            <div class="scard-note">so + tính từ</div>
+                        </div>
+                        <div class="struct-card">
+                            <div class="scard-formula">so + adv + that</div>
+                            <div class="scard-ex">Jane took the money <strong>so quickly that</strong> no one saw.</div>
+                            <div class="scard-note">so + trạng từ</div>
+                        </div>
+                        <div class="struct-card">
+                            <div class="scard-formula">so + many/much + noun + that</div>
+                            <div class="scard-ex">There was <strong>so much money that</strong> he couldn't carry it.
+                            </div>
+                            <div class="scard-note">so + lượng từ + danh từ</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Đặc Điểm — Có Thể Bỏ "That"</div>
+                        <p><em>The crime rate is <strong>so high</strong> people are frightened.</em></p>
+                        <p style="color:rgba(255,255,255,.6);font-size:.9rem;margin-top:.3rem">"That" có thể được bỏ đi
+                            trong văn nói!</p>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi — Nhầm lẫn so much / so many:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">so much books</span>
+                                </div>
+                                <div class="err-right"><span class="icon">✅</span><span>so many books</span></div>
+                                <div class="err-context">(countable — đếm được)</div>
+                                <div class="err-right" style="margin-top:.3rem"><span class="icon">✅</span><span>so much
+                                        water</span></div>
+                                <div class="err-context">(uncountable — không đếm được)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     6.4 SUCH — DIỄN TẢ KẾT QUẢ
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">6.4</span>
+                    <h2>Such — <em style="font-style:italic;color:var(--primary);">Diễn Tả Kết Quả (Cách Khác)</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"So"</em> vs <em>"Such"</em> — Khi nào dùng cái nào?
+                    </div>
+
+                    <h3>📝 Các cấu trúc:</h3>
+                    <div class="struct-grid">
+                        <div class="struct-card">
+                            <div class="scard-formula">such + a/an + adj + noun + that</div>
+                            <div class="scard-ex">It was <strong>such a terrible crime that</strong> he got life
+                                sentence.</div>
+                            <div class="scard-note">danh từ đếm được số ít</div>
+                        </div>
+                        <div class="struct-card">
+                            <div class="scard-formula">such + adj + plural noun + that</div>
+                            <div class="scard-ex">He had <strong>such good hearing that</strong> he heard immediately.
+                            </div>
+                            <div class="scard-note">danh từ số nhiều / không đếm được</div>
+                        </div>
+                        <div class="struct-card">
+                            <div class="scard-formula">such + a lot of + noun + that</div>
+                            <div class="scard-ex">There is <strong>such a lot of crime</strong> that police can't cope.
+                            </div>
+                            <div class="scard-note">với "a lot of"</div>
+                        </div>
+                    </div>
+
+                    <h3>🔄 So vs Such — Bảng so sánh:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>SO</th>
+                                    <th>SUCH</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>so + <strong>adjective / adverb</strong></td>
+                                    <td>such + <strong>noun phrase</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><em>so clever</em></td>
+                                    <td><em>such a clever person</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>so quickly</em></td>
+                                    <td><em>such quick action</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>so much money</em></td>
+                                    <td><em>such a lot of money</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>SO:</strong> Đi với <span class="kw-chip">tính từ</span> / <span
+                                    class="kw-chip">trạng từ</span> — không có danh từ ngay sau</li>
+                            <li><strong>SUCH:</strong> Đi với <span class="kw-chip">cụm danh từ</span> — có danh từ ngay
+                                sau</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     6.5 ENOUGH
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">6.5</span>
+                    <h2>Enough — <em style="font-style:italic;color:var(--primary);">"Đủ"</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"Good enough"</em> hay <em>"Enough good"</em>?<br>
+                        <strong>Bản chất:</strong> Diễn tả <strong>đủ</strong> để làm việc gì đó.
+                    </div>
+
+                    <h3>📝 Các cấu trúc:</h3>
+                    <div class="struct-grid">
+                        <div class="struct-card">
+                            <div class="scard-formula">enough + noun</div>
+                            <div class="scard-ex">There aren't <strong>enough police officers</strong> on the streets.
+                            </div>
+                            <div class="scard-note">enough ĐI TRƯỚC danh từ</div>
+                        </div>
+                        <div class="struct-card">
+                            <div class="scard-formula">adj + enough</div>
+                            <div class="scard-ex">It wasn't <strong>dark enough</strong> for the burglar to start.</div>
+                            <div class="scard-note">enough ĐI SAU tính từ</div>
+                        </div>
+                        <div class="struct-card">
+                            <div class="scard-formula">adv + enough</div>
+                            <div class="scard-ex">Did the police respond <strong>quickly enough</strong>?</div>
+                            <div class="scard-note">enough ĐI SAU trạng từ</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Với To-Infinitive</div>
+                        <p><em>It wasn't dark enough <strong>for the burglar to start</strong> working.</em></p>
+                        <p><em>Did they respond quickly enough <strong>to help</strong>?</em></p>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Đặt sai vị trí:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">enough
+                                        dangerous</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>dangerous enough</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Nhầm lẫn với "quite":</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">It's enough
+                                        dangerous here.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>It's quite / fairly dangerous
+                                        here.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     6.6 TOO
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">6.6</span>
+                    <h2>Too — <em style="font-style:italic;color:var(--primary);">"Quá" (Tiêu Cực)</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"Too good"</em> có phải lúc nào cũng tốt?<br>
+                        <strong>Bản chất:</strong> Diễn tả <strong>quá mức</strong> gây ra <strong>kết quả tiêu
+                            cực</strong>.
+                    </div>
+
+                    <h3>📝 Các cấu trúc:</h3>
+                    <div class="struct-grid">
+                        <div class="struct-card">
+                            <div class="scard-formula">too + adj</div>
+                            <div class="scard-ex">The man was <strong>too young</strong> to go to prison.</div>
+                            <div class="scard-note">quá trẻ → không thể đi tù</div>
+                        </div>
+                        <div class="struct-card">
+                            <div class="scard-formula">too + adv</div>
+                            <div class="scard-ex">We arrived <strong>too late</strong> for the judge to see the trial.
+                            </div>
+                            <div class="scard-note">quá muộn → không kịp</div>
+                        </div>
+                        <div class="struct-card">
+                            <div class="scard-formula">too + many/much + noun</div>
+                            <div class="scard-ex">We send <strong>too many innocent people</strong> to prison.</div>
+                            <div class="scard-note">quá nhiều người vô tội</div>
+                        </div>
+                    </div>
+
+                    <h3>🔄 TOO vs VERY:</h3>
+                    <div class="contrast-pair">
+                        <div class="contrast-card neg">
+                            <div class="cc-label">⚠️ Too — Tiêu Cực</div>
+                            <div class="cc-ex">too expensive</div>
+                            <div class="cc-note">→ Quá đắt, không mua được!</div>
+                            <div class="cc-ex" style="margin-top:.4rem">too late</div>
+                            <div class="cc-note">→ Quá muộn, lỡ mất rồi!</div>
+                        </div>
+                        <div class="contrast-card pos">
+                            <div class="cc-label">✅ Very — Tích Cực/Trung Tính</div>
+                            <div class="cc-ex">very expensive</div>
+                            <div class="cc-note">→ Đắt, nhưng vẫn có thể mua</div>
+                            <div class="cc-ex" style="margin-top:.4rem">very late</div>
+                            <div class="cc-note">→ Khá muộn (chỉ mức độ)</div>
+                        </div>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi — Dùng "too" khi muốn khen:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">You were too
+                                        lucky.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>You were very / really /
+                                        extremely lucky.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>TOO:</strong> Luôn mang ý <span class="kw-chip">tiêu cực</span> — quá mức, gây
+                                vấn đề</li>
+                            <li><strong>VERY:</strong> Trung tính hoặc <span class="kw-chip">tích cực</span> — chỉ nhấn
+                                mạnh mức độ</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     TỔNG KẾT
+══════════════════════════════════════════ -->
+            <div class="summary-block">
+                <h2>Tổng Kết Unit 6</h2>
+
+                <div class="decision-block" style="margin-bottom:1.5rem;">
+                    <div class="db-title">🎯 Sơ Đồ Lựa Chọn Cấu Trúc</div>
+                    <pre>SO SÁNH & KẾT QUẢ 🤔
+
+So sánh 2 người/vật?     → <span class="hl">COMPARATIVE</span>  (adj + er/more + than)
+So sánh 1 vs nhóm?       → <span class="hl">SUPERLATIVE</span>  (the + adj + est/most)
+Mức độ → Kết quả?        → <span class="hl">SO / SUCH</span> …that
+Đủ để làm gì?            → <span class="hl">ENOUGH</span>       (adj/adv + enough; enough + noun)
+Quá mức (tiêu cực)?      → <span class="hl">TOO</span>          (too + adj/adv)</pre>
+                </div>
+
+                <h3
+                    style="color:var(--primary-mid);font-family:'DM Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.85rem;">
+                    📊 Bảng tổng hợp cấu trúc kết quả</h3>
+                <div class="table-wrap" style="margin-bottom:1.5rem;">
+                    <table class="grammar-table">
+                        <thead>
+                            <tr>
+                                <th>Cấu trúc</th>
+                                <th>Ý nghĩa</th>
+                                <th>Ví dụ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>so + adj / adv</strong></td>
+                                <td>Mức độ cao</td>
+                                <td><em>so clever, so quickly</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>such + noun phrase</strong></td>
+                                <td>Mức độ cao</td>
+                                <td><em>such a clever person</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>adj / adv + enough</strong></td>
+                                <td>Đủ (tích cực)</td>
+                                <td><em>good enough, quickly enough</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>too + adj / adv</strong></td>
+                                <td>Quá (tiêu cực)</td>
+                                <td><em>too expensive, too late</em></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="sc-label">6.1 · Comp. Adjectives</div>
+                        <div class="sc-desc">-er/more + than · the -est/most</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">6.2 · Comp. Adverbs</div>
+                        <div class="sc-desc">more + adv · -er cho fast/hard/early</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">6.3 · So…that</div>
+                        <div class="sc-desc">so + adj/adv → kết quả</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">6.4 · Such…that</div>
+                        <div class="sc-desc">such + noun phrase → kết quả</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">6.5 · Enough</div>
+                        <div class="sc-desc">adj/adv + enough · enough + noun</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">6.6 · Too</div>
+                        <div class="sc-desc">Luôn tiêu cực — quá mức</div>
+                    </div>
+                </div>
+
+                <div class="self-check"
+                    style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);margin-top:1.25rem;">
+                    <div class="sc-title" style="color:var(--primary-mid);">📚 Câu Hỏi Tự Kiểm Tra</div>
+                    <ol style="color:rgba(255,255,255,.8);">
+                        <li>"So interesting" vs "Such an interesting" — Khi nào dùng?</li>
+                        <li>"Good enough" vs "Too good" — Sự khác biệt?</li>
+                        <li>"More beautiful" vs "Beautifuler" — Cái nào đúng?</li>
+                    </ol>
+                </div>
+
+                <p class="summary-outro">Hoàn hảo! Chúng ta vừa thành thạo nghệ thuật so sánh. Giờ đây, hãy bước vào thế
+                    giới Modal Verbs — những "siêu anh hùng" của ngữ pháp!</p>
+            </div>
+
+            <!-- ═══════════════════════════════════════
+     READING PASSAGE
+══════════════════════════════════════════ -->
+            <section class="reading-passage">
+                <div class="rp-title">📖 City Life vs Countryside Life</div>
+
+                <p>Having lived in both urban and rural environments, I've discovered that each offers unique advantages
+                    and challenges. City life is <strong>faster</strong>, <strong>more exciting</strong>, and definitely
+                    <strong>more expensive than</strong> countryside living. However, rural areas provide <strong>the
+                        most peaceful</strong> environment I've ever experienced. The debate about which is
+                    <strong>better</strong> has no simple answer – it depends on what you value <strong>most</strong> in
+                    life. Some people find cities <strong>too crowded</strong> to enjoy, while others think the
+                    countryside is <strong>too quiet</strong> for their taste. There's <strong>such a significant
+                        difference</strong> between these lifestyles that choosing one over the other can completely
+                    transform your daily experience.</p>
+
+                <p>Cities are undeniably <strong>the most convenient</strong> places to live in terms of amenities. You
+                    can find <strong>more shops</strong>, <strong>better restaurants</strong>, and <strong>the
+                        widest</strong> variety of entertainment options. Public transportation runs <strong>more
+                        frequently than</strong> in rural areas, and services operate <strong>later</strong> into the
+                    night. The job market is <strong>much stronger</strong>, offering <strong>higher</strong> salaries
+                    and <strong>more diverse</strong> career opportunities. Educational institutions are <strong>more
+                        numerous</strong> and often <strong>better funded than</strong> their rural counterparts. Cities
+                    have <strong>such excellent</strong> healthcare facilities that people travel from
+                    <strong>farther</strong> regions just to access specialized treatments. The internet connectivity is
+                    <strong>so fast that</strong> you can work remotely without any issues. There are <strong>so
+                        many</strong> cultural events that you couldn't attend them all even if you tried.</p>
+
+                <p>However, urban living comes with significant drawbacks. The cost of living is <strong>so high
+                        that</strong> many people struggle to save money. Housing prices are <strong>the
+                        highest</strong> they've ever been, and they're rising <strong>faster than</strong> wages. The
+                    air quality is <strong>worse than</strong> in the countryside, and noise pollution is <strong>such a
+                        serious problem that</strong> it affects sleep quality. Traffic congestion has become <strong>so
+                        bad that</strong> commuting takes <strong>longer and longer</strong> each year. Crime rates are
+                    <strong>higher than</strong> in rural areas, making safety <strong>the biggest</strong> concern for
+                    many families. Competition for everything – jobs, schools, even parking spaces – is <strong>fiercer
+                        than</strong> anywhere else. The pace of life is <strong>too fast</strong> for some people to
+                    maintain their mental health. There are <strong>too many</strong> distractions and <strong>too
+                        much</strong> stress for those seeking simplicity.</p>
+
+                <p>Countryside living offers <strong>the freshest</strong> air and <strong>the cleanest</strong>
+                    environment you can find. The pace of life is <strong>slower</strong> and <strong>more relaxed
+                        than</strong> in cities. Communities are <strong>smaller</strong> but often <strong>closer-knit
+                        than</strong> urban neighborhoods. People are generally <strong>friendlier</strong> and
+                    <strong>more helpful than</strong> city dwellers who are always rushing. The natural beauty is
+                    <strong>so stunning that</strong> it never gets old – watching sunsets becomes
+                    <strong>easier</strong> when you're not surrounded by skyscrapers. Housing is <strong>much
+                        cheaper</strong>, allowing you to get <strong>bigger</strong> properties for
+                    <strong>less</strong> money. Gardens are <strong>larger</strong>, and many people grow <strong>the
+                        freshest</strong> vegetables you've ever tasted. Wildlife is <strong>more abundant</strong>, and
+                    you can hear birds singing <strong>more clearly than</strong> anywhere in the city.</p>
+
+                <p>Rural life isn't without challenges, though. Job opportunities are <strong>fewer</strong> and often
+                    pay <strong>less than</strong> urban positions. You need to travel <strong>farther</strong> for
+                    specialized services, and public transportation is <strong>less reliable than</strong> in cities.
+                    Internet connectivity might not be <strong>fast enough</strong> for certain modern requirements.
+                    Shopping options are <strong>more limited</strong>, and you might need to drive <strong>the
+                        farthest</strong> distances just for basic necessities. Entertainment venues are <strong>scarcer
+                        than</strong> in urban areas – there aren't <strong>enough</strong> restaurants or theaters for
+                    variety. Medical facilities might not be <strong>sophisticated enough</strong> for complex
+                    treatments. Educational choices are <strong>the most limited</strong> aspect, with
+                    <strong>fewer</strong> schools and <strong>less diverse</strong> programs. Social opportunities for
+                    young people are <strong>so few that</strong> many migrate to cities.</p>
+
+                <p>The environmental impact differs significantly between urban and rural living. Cities consume
+                    <strong>more</strong> resources per square mile but are actually <strong>more efficient</strong> per
+                    person due to shared infrastructure. Rural homes often have <strong>larger</strong> carbon
+                    footprints because of <strong>longer</strong> commutes and <strong>less efficient</strong> heating
+                    systems. However, countryside residents typically live <strong>more sustainably than</strong> city
+                    dwellers, growing their own food and consuming <strong>less</strong> overall. Urban areas generate
+                    <strong>so much waste that</strong> disposal becomes a major challenge. Rural communities often have
+                    <strong>better</strong> recycling habits and <strong>stronger</strong> connections to the land. The
+                    ecological footprint is <strong>such a complex issue that</strong> simple comparisons aren't
+                    <strong>accurate enough</strong> to declare a clear winner.</p>
+
+                <p>Social dynamics vary considerably between these environments. City relationships tend to be
+                    <strong>more numerous</strong> but <strong>less deep than</strong> rural friendships. Urban social
+                    circles are <strong>larger</strong> but often <strong>less stable than</strong> countryside
+                    communities. In cities, you can remain <strong>more anonymous than</strong> in small towns where
+                    everyone knows everyone. Privacy is <strong>easier</strong> to maintain in cities, but genuine
+                    connection might be <strong>harder</strong> to find. Rural communities offer <strong>such
+                        strong</strong> support networks that people rarely feel alone. However, social pressure can be
+                    <strong>stronger than</strong> in cities where diversity is <strong>better</strong> accepted. Dating
+                    pools are <strong>smaller</strong> in rural areas but potentially <strong>more meaningful
+                        than</strong> the endless options cities provide.</p>
+
+                <p>Career development follows different trajectories in each setting. Cities offer <strong>the
+                        fastest</strong> career growth and <strong>the most competitive</strong> salaries. Networking
+                    opportunities are <strong>so abundant that</strong> career changes become <strong>easier</strong>.
+                    Professional development resources are <strong>more accessible than</strong> in rural areas.
+                    However, work-life balance is often <strong>worse than</strong> in the countryside. Rural jobs might
+                    pay <strong>less</strong> but offer <strong>better</strong> quality of life. Remote work has made
+                    location <strong>less important than</strong> before, though reliable internet is still <strong>too
+                        scarce</strong> in some rural areas. Entrepreneurship can be <strong>more challenging</strong>
+                    in the countryside due to <strong>smaller</strong> customer bases, but overhead costs are
+                    <strong>lower than</strong> in cities.</p>
+
+                <p>Educational considerations are particularly important for families. Urban schools often have
+                    <strong>better</strong> resources and <strong>more experienced</strong> teachers. Class sizes might
+                    be <strong>larger</strong>, but program diversity is <strong>the greatest</strong> you'll find.
+                    Rural schools provide <strong>more personalized</strong> attention with <strong>smaller</strong>
+                    class sizes. The learning environment is often <strong>calmer</strong> and <strong>less competitive
+                        than</strong> urban schools. However, advanced placement courses and extracurricular activities
+                    are <strong>fewer than</strong> in city schools. Universities are <strong>more accessible</strong>
+                    from urban areas, making <strong>higher</strong> education <strong>easier</strong> to pursue. Rural
+                    students often need to travel <strong>the farthest</strong> distances for specialized education.</p>
+
+                <p>Health and wellness outcomes show interesting patterns. City dwellers often have
+                    <strong>worse</strong> mental health due to stress but <strong>better</strong> access to treatment.
+                    Rural residents typically enjoy <strong>better</strong> mental health but face
+                    <strong>longer</strong> wait times for specialists. Physical activity is <strong>easier</strong> to
+                    incorporate naturally in rural life through farming and outdoor work. However, gym facilities and
+                    fitness classes are <strong>more varied</strong> in cities. The food in rural areas is often
+                    <strong>fresher</strong> and <strong>less processed than</strong> urban alternatives. Yet cities
+                    offer <strong>such diverse</strong> dietary options that maintaining special diets becomes
+                    <strong>simpler</strong>. Air quality is <strong>so much better</strong> in the countryside that
+                    respiratory health improves significantly.</p>
+
+                <p>Ultimately, the choice between city and countryside isn't about which is <strong>the best</strong> –
+                    it's about which is <strong>better</strong> for your individual circumstances. Young professionals
+                    might find cities <strong>more suitable than</strong> rural areas for career growth. Families
+                    seeking <strong>the safest</strong> environment for children might prefer <strong>quieter</strong>
+                    rural communities. Retirees often discover that countryside living is <strong>peaceful
+                        enough</strong> for their needs but not <strong>too isolated</strong> for comfort. The
+                    <strong>wisest</strong> approach might be experiencing both – living in the city when you're
+                    <strong>younger</strong> and moving to the countryside when you're <strong>older</strong> and
+                    seeking <strong>such tranquility that</strong> only nature can provide. Neither option is
+                    <strong>too good</strong> to be true; each has <strong>enough</strong> benefits to attract millions
+                    of people worldwide.</p>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+     GRAMMAR FEATURES
+══════════════════════════════════════════ -->
+            <section class="grammar-features">
+                <h2>Grammar Features Highlighted</h2>
+
+                <p><strong>Comparative Adjectives:</strong> Regular (<em>faster</em>, <em>stronger</em>,
+                    <em>smaller</em>) and irregular (<em>better</em>, <em>worse</em>, <em>farther</em>) forms used
+                    throughout with "than" for comparison.</p>
+
+                <p><strong>Superlative Adjectives:</strong> Correctly used with "the" (<em>the most peaceful</em>,
+                    <em>the highest</em>, <em>the biggest</em>, <em>the freshest</em>).</p>
+
+                <p><strong>Comparative Adverbs:</strong> Both regular (<em>more frequently</em>, <em>more clearly</em>)
+                    and irregular (<em>better</em>, <em>worse</em>, <em>farther</em>) forms demonstrated.</p>
+
+                <p><strong>Superlative Adverbs:</strong> Used appropriately (<em>fastest</em>, <em>most
+                        competitively</em>).</p>
+
+                <p><strong>So…that:</strong> Expressing high degree leading to result (<em>so high that people
+                        struggle</em>, <em>so bad that commuting takes longer</em>).</p>
+
+                <p><strong>Such…that:</strong> With noun phrases (<em>such a serious problem that</em>, <em>such
+                        excellent facilities that</em>, <em>such strong support that</em>).</p>
+
+                <p><strong>Enough:</strong> Correctly positioned after adjectives/adverbs (<em>fast enough</em>,
+                    <em>peaceful enough</em>) and before nouns (<em>enough restaurants</em>, <em>enough benefits</em>).
+                </p>
+
+                <p><strong>Too:</strong> Expressing negative excess (<em>too crowded</em>, <em>too quiet</em>, <em>too
+                        many distractions</em>, <em>too much stress</em>).</p>
+
+                <p><strong>Special Features:</strong> Correct use of double comparatives (<em>longer and longer</em>);
+                    proper distinction between <em>farther</em> (distance) and <em>further</em> (abstract); Too vs Very
+                    distinction maintained (too = negative, very = neutral/positive).</p>
+
+                <p><strong>Common Errors Avoided:</strong> "Than" always included in comparatives; "The" always used
+                    with superlatives; correct adjective/adverb form selection; proper placement of "enough" (after
+                    adj/adv, before nouns); So + adj/adv vs Such + noun phrase distinction maintained.</p>
+            </section>
+
+        </div><!-- /page-container -->
+    </main>
+
+    <footer>
+        <p>Destination B2 · Unit 6 — Comparatives &amp; Superlatives &nbsp;|&nbsp; Nghệ Thuật So Sánh</p>
+    </footer>
+
+</body>
+
+</html>

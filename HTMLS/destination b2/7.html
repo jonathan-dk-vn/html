@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 7 – Modal Verbs | Destination B2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ══════════════════════════════════════
+   THEME B · GREEN — Modals
+══════════════════════════════════════ */
+        :root {
+            --primary: #2E9E68;
+            --primary-light: #C8F0DE;
+            --primary-mid: #5EC996;
+            --primary-dark: #144D31;
+            --primary-rgb: 46, 158, 104;
+
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F8F8F6;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #E2E0DB;
+            --shadow: rgba(20, 19, 28, .05);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.72;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+        .hero {
+            background-color: var(--ink);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 65% 55% at 15% 30%, rgba(46, 158, 104, .3) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 45% at 85% 75%, rgba(94, 201, 150, .18) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1.5px solid rgba(94, 201, 150, .45);
+            border-radius: 40px;
+            padding: .35rem 1.1rem;
+            margin-bottom: 1.4rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.18;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--primary-mid);
+        }
+
+        .hero-intro {
+            max-width: 720px;
+            margin: 1.4rem auto 0;
+            font-size: 1.03rem;
+            color: rgba(255, 255, 255, .72);
+            line-height: 1.78;
+            position: relative;
+        }
+
+        .hero-intro strong {
+            color: var(--primary-mid);
+            font-weight: 600;
+        }
+
+        .hero-intro em {
+            font-style: italic;
+            color: rgba(255, 255, 255, .85);
+        }
+
+        /* ══════════════════════════════════════
+   GRAMMAR BLOCK
+══════════════════════════════════════ */
+        .grammar-block {
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 2px 20px var(--shadow);
+            margin: 2.5rem 0;
+            overflow: hidden;
+        }
+
+        .grammar-block-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 1.75rem 1.25rem;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .section-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 8px;
+            padding: .3rem .75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .grammar-block-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(17px, 2.4vw, 23px);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+
+        .grammar-block-body {
+            padding: 1.75rem;
+        }
+
+        /* ── INTRO PARA ── */
+        .intro-para {
+            background: var(--paper);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-para strong {
+            color: var(--primary-dark);
+        }
+
+        .intro-para em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── SUB-HEADINGS ── */
+        .grammar-block-body h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 1.75rem 0 .75rem;
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .grammar-block-body h4 {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 1.2rem 0 .5rem;
+        }
+
+        /* ── FORMULA BOX ── */
+        .formula-box {
+            font-family: 'DM Mono', monospace;
+            font-size: 1rem;
+            text-align: center;
+            background: var(--paper);
+            border: 2px dashed var(--primary-mid);
+            border-radius: 12px;
+            padding: .9rem 1.5rem;
+            margin: .75rem 0 1.25rem;
+            color: var(--primary-dark);
+            letter-spacing: .03em;
+        }
+
+        /* ── TABLES ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: .75rem 0 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 12px var(--shadow);
+        }
+
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .95rem;
+        }
+
+        table.grammar-table thead th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-align: left;
+            padding: .75rem 1rem;
+            white-space: nowrap;
+        }
+
+        table.grammar-table tbody td {
+            padding: .7rem 1rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        table.grammar-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.grammar-table tbody tr:hover td {
+            background: rgba(200, 240, 222, .22);
+        }
+
+        table.grammar-table em {
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+
+        table.grammar-table strong {
+            font-weight: 600;
+        }
+
+        /* ── USAGE LIST ── */
+        .usage-list {
+            list-style: none;
+            margin: .5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .usage-list li {
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .usage-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .57rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .usage-list li strong {
+            display: block;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .usage-list li em {
+            display: block;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: .2rem;
+            font-size: 1rem;
+        }
+
+        .usage-note {
+            font-size: .88rem;
+            color: var(--muted);
+            font-style: normal;
+        }
+
+        .usage-note strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ── KEYWORD CHIPS ── */
+        .kw-chip {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 6px;
+            padding: .1rem .45rem;
+            margin: .1rem .15rem;
+        }
+
+        /* ── MODAL HERO CHIP ── */
+        .modal-chip {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .88rem;
+            font-weight: 500;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: #fff;
+            border-radius: 20px;
+            padding: .2rem .7rem;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+        }
+
+        /* ── ERROR BLOCK ── */
+        .error-block {
+            background: var(--surface-alt);
+            border-radius: 14px;
+            margin: 1.75rem 0;
+            overflow: hidden;
+        }
+
+        .error-block-header {
+            background: linear-gradient(90deg, var(--error), var(--primary-mid));
+            padding: .65rem 1.25rem;
+        }
+
+        .error-block-header span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .error-block-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .error-item-label {
+            font-size: .8rem;
+            font-family: 'DM Mono', monospace;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .4rem;
+        }
+
+        .err-wrong {
+            color: var(--error);
+            font-style: italic;
+            font-size: .97rem;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            margin-bottom: .3rem;
+        }
+
+        .err-wrong .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-wrong .txt {
+            text-decoration: line-through;
+            opacity: .85;
+        }
+
+        .err-right {
+            color: var(--success);
+            font-weight: 600;
+            font-size: .97rem;
+            font-style: italic;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+        }
+
+        .err-right .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-context {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .38);
+            font-style: normal;
+            margin-top: .25rem;
+            padding-left: 1.4rem;
+        }
+
+        /* ── ALERT BOX ── */
+        .alert-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .alert-box .alert-title {
+            font-weight: 700;
+            font-size: .88rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--primary-dark);
+            margin-bottom: .45rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .alert-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+
+        .alert-box ul li {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box ul li::before {
+            content: '→ ';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .alert-box p {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box p+p {
+            margin-top: .4rem;
+        }
+
+        /* ── FEATURE BOX ── */
+        .feature-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            color: #fff;
+        }
+
+        .feature-box .feature-title {
+            font-size: .82rem;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: .55rem;
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            margin-bottom: .4rem;
+        }
+
+        .feature-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-box em {
+            font-style: italic;
+            color: var(--primary-mid);
+        }
+
+        .feature-box strong {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .feature-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .45rem;
+        }
+
+        .feature-box ul li {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .feature-box ul li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 1.3rem;
+            line-height: .9;
+        }
+
+        /* ── GOLDEN RULES BLOCK ── */
+        .golden-rules {
+            background: var(--ink);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .golden-rules .gr-title {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--primary-mid);
+            margin-bottom: 1rem;
+        }
+
+        .golden-rules ol {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .65rem;
+            counter-reset: gr;
+        }
+
+        .golden-rules ol li {
+            color: rgba(255, 255, 255, .82);
+            font-size: .97rem;
+            padding-left: 2rem;
+            position: relative;
+            counter-increment: gr;
+        }
+
+        .golden-rules ol li::before {
+            content: counter(gr);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            background: var(--primary);
+            color: #fff;
+            width: 1.35rem;
+            height: 1.35rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .golden-rules ol li strong {
+            color: var(--primary-mid);
+            font-weight: 600;
+        }
+
+        .golden-rules ol li em {
+            color: rgba(255, 255, 255, .6);
+            font-style: italic;
+        }
+
+        /* ── CERTAINTY SCALE ── */
+        .certainty-scale {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .certainty-scale .cs-title {
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--muted);
+            margin-bottom: .85rem;
+        }
+
+        .certainty-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: .6rem;
+        }
+
+        .certainty-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .certainty-pct {
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            color: #fff;
+            border-radius: 6px;
+            padding: .2rem .5rem;
+            min-width: 3.2rem;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .certainty-pct.p95 {
+            background: var(--primary-dark);
+        }
+
+        .certainty-pct.p75 {
+            background: var(--primary);
+        }
+
+        .certainty-pct.p50 {
+            background: var(--primary-mid);
+            color: var(--primary-dark);
+        }
+
+        .certainty-pct.p0 {
+            background: var(--error);
+        }
+
+        .certainty-modals {
+            display: flex;
+            gap: .4rem;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .certainty-label {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-left: .25rem;
+        }
+
+        /* ── MUST VS HAVE TO ── */
+        .distinction-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .dist-card {
+            border-radius: 12px;
+            padding: .9rem 1.1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .dist-card.personal {
+            background: rgba(46, 158, 104, .07);
+            border-color: rgba(46, 158, 104, .3);
+        }
+
+        .dist-card.external {
+            background: rgba(59, 111, 191, .07);
+            border-color: rgba(59, 111, 191, .3);
+        }
+
+        .dist-card.forbidden {
+            background: rgba(232, 52, 74, .06);
+            border-color: rgba(232, 52, 74, .25);
+        }
+
+        .dist-card.notneed {
+            background: rgba(110, 107, 128, .06);
+            border-color: rgba(110, 107, 128, .25);
+        }
+
+        .dist-card .dc-label {
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: .4rem;
+        }
+
+        .dist-card.personal .dc-label {
+            color: var(--success);
+        }
+
+        .dist-card.external .dc-label {
+            color: #3B6FBF;
+        }
+
+        .dist-card.forbidden .dc-label {
+            color: var(--error);
+        }
+
+        .dist-card.notneed .dc-label {
+            color: var(--muted);
+        }
+
+        .dist-card .dc-modal {
+            font-family: 'DM Mono', monospace;
+            font-size: .92rem;
+            font-weight: 500;
+            margin-bottom: .3rem;
+            color: var(--ink);
+        }
+
+        .dist-card .dc-ex {
+            font-style: italic;
+            font-size: .93rem;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .dist-card .dc-note {
+            font-size: .82rem;
+            color: var(--muted);
+        }
+
+        /* ── NEEDN'T COMPARE ── */
+        .compare-banner {
+            background: var(--paper);
+            border-radius: 10px;
+            padding: .6rem 1rem;
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .75rem;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* ── DECISION FLOWCHART ── */
+        .decision-block {
+            background: var(--ink);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .decision-block .db-title {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--primary-mid);
+            margin-bottom: 1rem;
+        }
+
+        .decision-block pre {
+            background: transparent;
+            color: rgba(255, 255, 255, .78);
+            font-family: 'DM Mono', monospace;
+            font-size: .88rem;
+            line-height: 1.72;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .decision-block pre .hl {
+            color: var(--primary-mid);
+            font-weight: 500;
+        }
+
+        /* ── SELF CHECK ── */
+        .self-check {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .self-check .sc-title {
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .6rem;
+        }
+
+        .self-check ol {
+            padding-left: 1.25rem;
+            color: var(--ink);
+            font-size: .97rem;
+        }
+
+        .self-check ol li {
+            margin-bottom: .35rem;
+        }
+
+        /* ── SUMMARY BLOCK ── */
+        .summary-block {
+            background: var(--ink);
+            color: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .summary-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 1.25rem;
+            color: var(--primary-mid);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1.5px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+        }
+
+        .summary-card .sc-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .73rem;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            color: var(--primary-mid);
+            margin-bottom: .3rem;
+        }
+
+        .summary-card .sc-desc {
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .summary-outro {
+            font-style: italic;
+            color: rgba(255, 255, 255, .5);
+            font-size: .95rem;
+            margin-top: .75rem;
+        }
+
+        /* ── READING PASSAGE ── */
+        .reading-passage {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 2rem 2.25rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .reading-passage .rp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .75rem;
+        }
+
+        .reading-passage p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.08rem;
+            line-height: 1.88;
+            margin-bottom: 1.4rem;
+            color: #2a2934;
+        }
+
+        .reading-passage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reading-passage strong {
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: .05em .22em;
+            border-radius: 3px;
+        }
+
+        /* ── GRAMMAR FEATURES ── */
+        .grammar-features {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .grammar-features h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .6rem;
+        }
+
+        .grammar-features p {
+            font-size: .97rem;
+            line-height: 1.72;
+            margin-bottom: .9rem;
+            color: var(--ink);
+        }
+
+        .grammar-features p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grammar-features strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .grammar-features em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--muted);
+            font-size: .85rem;
+            border-top: 1px solid var(--line);
+            margin-top: 3rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:640px) {
+            .page-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .grammar-block-body {
+                padding: 1.25rem;
+            }
+
+            .grammar-block-header {
+                padding: 1.1rem 1.25rem 1rem;
+            }
+
+            .distinction-pair {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-passage {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .summary-block {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .grammar-features {
+                padding: 1.25rem;
+            }
+
+            .certainty-row {
+                flex-wrap: wrap;
+                gap: .5rem;
+            }
+
+            table.grammar-table {
+                font-size: .87rem;
+            }
+
+            table.grammar-table thead th,
+            table.grammar-table tbody td {
+                padding: .6rem .75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <header class="hero">
+        <div class="hero-badge">Unit 7 · Destination B2</div>
+        <h1>MODAL VERBS<br><em>"Siêu Anh Hùng" Của Ngữ Pháp</em></h1>
+        <p class="hero-intro">
+            Modal verbs giống như những "siêu anh hùng" — mỗi modal có một "siêu năng lực" riêng: <strong>can</strong>
+            (khả năng), <strong>must</strong> (bắt buộc), <strong>might</strong> (có thể), <strong>should</strong> (lời
+            khuyên)… Và điều đặc biệt: chúng <strong>không bao giờ thay đổi hình dạng</strong>!
+        </p>
+    </header>
+
+    <main>
+        <div class="page-container">
+
+            <!-- ═══════════════════════════════════════
+     GENERAL RULES
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">Quy Tắc Vàng</span>
+                    <h2>Đặc Điểm Chung Của Modal Verbs</h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="golden-rules">
+                        <div class="gr-title">📝 Ba Quy Tắc Vàng</div>
+                        <ol>
+                            <li><strong>Không biến đổi:</strong> <em>will, would, can, could, may, might, must, should,
+                                    ought to</em></li>
+                            <li><strong>Theo sau:</strong> bare infinitive (V nguyên mẫu — không có "to")</li>
+                            <li><strong>Không có:</strong> to, -s, -ed, -ing</li>
+                        </ol>
+                    </div>
+
+                    <h3>🎯 Ví dụ:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Đúng:</strong>
+                            <em>He <strong>can</strong> swim.</em>
+                        </li>
+                    </ul>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ Các dạng SAI hay gặp</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">He cans swim.</span>
+                                </div>
+                                <div class="err-context">Không thêm -s cho modal</div>
+                                <div class="err-wrong" style="margin-top:.4rem"><span class="icon">❌</span><span
+                                        class="txt">He can to swim.</span></div>
+                                <div class="err-context">Không thêm "to" sau modal (trừ ought to)</div>
+                                <div class="err-wrong" style="margin-top:.4rem"><span class="icon">❌</span><span
+                                        class="txt">He can swimming.</span></div>
+                                <div class="err-context">Không dùng V-ing sau modal</div>
+                                <div class="err-right" style="margin-top:.4rem"><span class="icon">✅</span><span>He can
+                                        swim.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     7.1 ABILITY
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">7.1</span>
+                    <h2>Ability — <em style="font-style:italic;color:var(--primary);">Khả Năng</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"I can swim"</em> vs <em>"I am able to swim"</em> — Khác gì
+                        nhau?
+                    </div>
+
+                    <h3>📊 Bảng tổng hợp khả năng:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Thời gian</th>
+                                    <th>Modal</th>
+                                    <th>Ví dụ</th>
+                                    <th>Ý nghĩa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Hiện tại / Chung</strong></td>
+                                    <td><span class="modal-chip">can</span></td>
+                                    <td><em>I <strong>can</strong> run 4 minutes per km.</em></td>
+                                    <td>Khả năng hiện tại</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Quyết định tương lai</strong></td>
+                                    <td><span class="modal-chip">can</span></td>
+                                    <td><em>We <strong>can</strong> meet tomorrow.</em></td>
+                                    <td>Sắp xếp được</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Quá khứ</strong></td>
+                                    <td><span class="modal-chip">could</span></td>
+                                    <td><em>I <strong>could</strong> do 50 push-ups when young.</em></td>
+                                    <td>Khả năng quá khứ</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Giả định hiện tại</strong></td>
+                                    <td><span class="modal-chip">could</span></td>
+                                    <td><em>If only I <strong>could</strong> quit smoking!</em></td>
+                                    <td>Ước muốn</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Giả định quá khứ</strong></td>
+                                    <td><span class="modal-chip">could + have + V3</span></td>
+                                    <td><em>I <strong>could have</strong> roasted potatoes.</em></td>
+                                    <td>Có thể đã làm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Be Able To — "Phiên Bản Đặc Biệt"</div>
+                        <p><strong>Khi nào phải dùng "be able to" thay vì "can/could":</strong></p>
+                        <ul>
+                            <li><strong>Infinitive:</strong> <em>I'd love <strong>to be able to</strong> fit into these
+                                    jeans!</em></li>
+                            <li><strong>Future:</strong> <em>I'll <strong>be able to</strong> leave hospital soon.</em>
+                            </li>
+                            <li><strong>Present Perfect:</strong> <em>I've <strong>been able to</strong> swim since I
+                                    was 5.</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Dùng "can" với infinitive:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I want to can
+                                        drive.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I want to be able to
+                                        drive.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Nhầm lẫn could (past) vs could (hypothetical):
+                                </div>
+                                <div class="err-right"><span class="icon">📌</span><span>I could swim when I was
+                                        5.</span></div>
+                                <div class="err-context">(quá khứ — thực tế)</div>
+                                <div class="err-right" style="margin-top:.3rem"><span class="icon">💭</span><span>I
+                                        could swim if I practiced.</span></div>
+                                <div class="err-context">(giả định — hiện tại)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>CAN:</strong> Hiện tại + tương lai</li>
+                            <li><strong>COULD:</strong> Quá khứ + giả định</li>
+                            <li><strong>BE ABLE TO:</strong> Khi cần infinitive hoặc các thì khác</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     7.2 PERMISSION
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">7.2</span>
+                    <h2>Permission — <em style="font-style:italic;color:var(--primary);">Xin Phép</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"Can I…?"</em> vs <em>"May I…?"</em> — Cái nào lịch sự hơn?
+                    </div>
+
+                    <h3>📊 Mức độ lịch sự (từ thấp đến cao):</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Modal</th>
+                                    <th>Mức độ</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="modal-chip">Can</span></td>
+                                    <td>Thân thiện</td>
+                                    <td><em>Can I see the doctor?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="modal-chip">Could</span></td>
+                                    <td>Lịch sự</td>
+                                    <td><em>Could I see the doctor?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="modal-chip">May</span></td>
+                                    <td>Rất lịch sự</td>
+                                    <td><em>May I see the doctor?</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Các tình huống thực tế:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Bạn bè (casual):</strong>
+                            <em>Can I borrow your pen?</em>
+                        </li>
+                        <li>
+                            <strong>Đồng nghiệp (neutral):</strong>
+                            <em>Could I use your computer?</em>
+                        </li>
+                        <li>
+                            <strong>Sếp / Khách hàng (formal):</strong>
+                            <em>May I interrupt you?</em>
+                        </li>
+                    </ul>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi — Dùng modal cho phép trong quá khứ:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I could wear uniform
+                                        yesterday.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I was allowed to wear uniform
+                                        yesterday.</span></div>
+                                <div class="err-right" style="margin-top:.3rem"><span class="icon">✅</span><span>The
+                                        teacher said I could wear a tie.</span></div>
+                                <div class="err-context">(ngoại lệ — trong câu tường thuật)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <p><span class="modal-chip">Can</span> &lt; <span class="modal-chip">Could</span> &lt; <span
+                                class="modal-chip">May</span> — mức độ lịch sự tăng dần!</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     7.3 ADVICE
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">7.3</span>
+                    <h2>Advice — <em style="font-style:italic;color:var(--primary);">Lời Khuyên</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"You should…"</em> — Lời khuyên hay mệnh lệnh?
+                    </div>
+
+                    <h3>📝 Cấu trúc lời khuyên:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Modal</th>
+                                    <th>Cách dùng</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="modal-chip">should</span></td>
+                                    <td>Lời khuyên chung</td>
+                                    <td><em>You <strong>should</strong> cut down on red meat.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="modal-chip">ought to</span></td>
+                                    <td>Lời khuyên (trang trọng hơn)</td>
+                                    <td><em>You <strong>ought to</strong> exercise more.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Should = Ought to</strong> về ý nghĩa</li>
+                            <li><strong>Should</strong> phổ biến hơn trong giao tiếp hàng ngày</li>
+                            <li><strong>Ought to</strong> trang trọng hơn, ít dùng hơn</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     7.4 CRITICISM
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">7.4</span>
+                    <h2>Criticism — <em style="font-style:italic;color:var(--primary);">Chỉ Trích Quá Khứ</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"You should have studied!"</em> — Hối tiếc hay chỉ trích?<br>
+                        <strong>Bản chất:</strong> Nói về điều <strong>đáng lẽ phải làm</strong> nhưng <strong>đã không
+                            làm</strong> trong quá khứ.
+                    </div>
+
+                    <h3>📝 Cấu trúc chỉ trích quá khứ:</h3>
+                    <div class="formula-box">should / ought to + have + V3</div>
+
+                    <h3>🎯 Ví dụ:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Chỉ trích / Hối tiếc:</strong>
+                            <em>He <strong>should have made</strong> more effort with his diet.</em>
+                        </li>
+                        <li>
+                            <strong>Trang trọng hơn:</strong>
+                            <em>You <strong>ought to have</strong> been more careful.</em>
+                        </li>
+                    </ul>
+
+                    <h3>🔄 So sánh Advice vs Criticism:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Loại</th>
+                                    <th>Câu</th>
+                                    <th>Ý nghĩa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Advice</strong></td>
+                                    <td><em>You should study.</em></td>
+                                    <td>Lời khuyên cho hiện tại</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Criticism</strong></td>
+                                    <td><em>You should have studied.</em></td>
+                                    <td>Chỉ trích về quá khứ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <p><strong>Should have + V3</strong> = Hối tiếc / Chỉ trích về điều đã <strong>không</strong>
+                            làm!</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     7.5 OBLIGATION & NECESSITY
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">7.5</span>
+                    <h2>Obligation &amp; Necessity — <em style="font-style:italic;color:var(--primary);">Bắt Buộc &amp;
+                            Không Cần Thiết</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"Must"</em> vs <em>"Have to"</em> — Cả hai đều có nghĩa là
+                        "phải"?
+                    </div>
+
+                    <h3>📊 Bảng tổng hợp:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Thời gian</th>
+                                    <th>Bắt buộc</th>
+                                    <th>Không bắt buộc</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Hiện tại</strong></td>
+                                    <td><span class="kw-chip">must</span> <span class="kw-chip">have to</span> <span
+                                            class="kw-chip">need to</span></td>
+                                    <td><span class="kw-chip">needn't</span> <span class="kw-chip">don't have to</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Quá khứ</strong></td>
+                                    <td><span class="kw-chip">had to</span></td>
+                                    <td><span class="kw-chip">needn't have</span> <span class="kw-chip">didn't have
+                                            to</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tương lai</strong></td>
+                                    <td><span class="kw-chip">will have to</span> <span class="kw-chip">need to</span>
+                                    </td>
+                                    <td><span class="kw-chip">won't have to</span> <span class="kw-chip">need to</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Ví dụ:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Bắt buộc hiện tại:</strong>
+                            <em>I <strong>must / have to / need to</strong> pick up that prescription.</em>
+                        </li>
+                        <li>
+                            <strong>Không bắt buộc hiện tại:</strong>
+                            <em>You <strong>needn't / don't have to</strong> pick it up — I'll get it.</em>
+                        </li>
+                        <li>
+                            <strong>Bắt buộc quá khứ:</strong>
+                            <em>I <strong>had to</strong> take pills three times a day.</em>
+                        </li>
+                    </ul>
+
+                    <h3>🔥 Phân biệt tinh tế — MUST vs HAVE TO:</h3>
+                    <div class="distinction-pair">
+                        <div class="dist-card personal">
+                            <div class="dc-label">MUST — Cá Nhân</div>
+                            <div class="dc-modal">must</div>
+                            <div class="dc-ex">I <strong>must</strong> call my mom.</div>
+                            <div class="dc-note">Quyết định từ bản thân</div>
+                        </div>
+                        <div class="dist-card external">
+                            <div class="dc-label">HAVE TO — Bên Ngoài</div>
+                            <div class="dc-modal">have to</div>
+                            <div class="dc-ex">I <strong>have to</strong> wear uniform.</div>
+                            <div class="dc-note">Quy định từ bên ngoài</div>
+                        </div>
+                    </div>
+
+                    <h3>🔥 Phân biệt tinh tế — MUSTN'T vs DON'T HAVE TO:</h3>
+                    <div class="distinction-pair">
+                        <div class="dist-card forbidden">
+                            <div class="dc-label">MUSTN'T — Cấm</div>
+                            <div class="dc-modal">mustn't</div>
+                            <div class="dc-ex">You <strong>mustn't</strong> smoke here!</div>
+                            <div class="dc-note">Tuyệt đối không được làm</div>
+                        </div>
+                        <div class="dist-card notneed">
+                            <div class="dc-label">DON'T HAVE TO — Không Cần</div>
+                            <div class="dc-modal">don't have to</div>
+                            <div class="dc-ex">You <strong>don't have to</strong> come.</div>
+                            <div class="dc-note">Không cần thiết (tùy ý)</div>
+                        </div>
+                    </div>
+
+                    <h3>🔄 Needn't have vs Didn't have to:</h3>
+                    <div class="compare-banner">🔄 Sắc thái tinh tế</div>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Cấu trúc</th>
+                                    <th>Ý nghĩa</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>needn't have + V3</strong></td>
+                                    <td>Đã làm nhưng không cần thiết</td>
+                                    <td><em>I needn't have gone.</em> <span
+                                            style="font-size:.82rem;color:var(--muted)">(đã đi nhưng không cần
+                                            đi)</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>didn't have to</strong></td>
+                                    <td>Không cần, và có thể làm hoặc không</td>
+                                    <td><em>I didn't have to go.</em> <span
+                                            style="font-size:.82rem;color:var(--muted)">(không cần đi)</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Dùng "must" làm infinitive:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I don't want to must
+                                        work.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I don't want to have to
+                                        work.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Nhầm lẫn "mustn't" và "don't have to":</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">You mustn't help
+                                        me.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>You don't have to help
+                                        me.</span></div>
+                                <div class="err-context">(khi muốn nói "không cần", không phải "cấm")</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     7.6 DEGREES OF CERTAINTY
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">7.6</span>
+                    <h2>Degrees of Certainty — <em style="font-style:italic;color:var(--primary);">Mức Độ Chắc Chắn</em>
+                    </h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Từ "chắc chắn" đến "có thể" — Modal nào cho mức độ nào?
+                    </div>
+
+                    <h3>📊 Thang mức độ chắc chắn:</h3>
+                    <div class="certainty-scale">
+                        <div class="cs-title">Thang đo mức độ chắc chắn</div>
+                        <div class="certainty-row">
+                            <span class="certainty-pct p95">90–95%</span>
+                            <div class="certainty-modals">
+                                <span class="modal-chip">must</span>
+                                <span class="modal-chip">can't</span>
+                                <span class="modal-chip">couldn't</span>
+                            </div>
+                            <span class="certainty-label">Chắc chắn (✅ / ❌)</span>
+                        </div>
+                        <div class="certainty-row">
+                            <span class="certainty-pct p75">75%</span>
+                            <div class="certainty-modals">
+                                <span class="modal-chip">should</span>
+                                <span class="modal-chip">ought to</span>
+                            </div>
+                            <span class="certainty-label">Có khả năng cao</span>
+                        </div>
+                        <div class="certainty-row">
+                            <span class="certainty-pct p50">50%</span>
+                            <div class="certainty-modals">
+                                <span class="modal-chip">could</span>
+                                <span class="modal-chip">may</span>
+                                <span class="modal-chip">might</span>
+                            </div>
+                            <span class="certainty-label">Có thể</span>
+                        </div>
+                        <div class="certainty-row">
+                            <span class="certainty-pct p0">0%</span>
+                            <div class="certainty-modals">
+                                <span class="modal-chip">can't be</span>
+                            </div>
+                            <span class="certainty-label">Không thể</span>
+                        </div>
+                    </div>
+
+                    <h3>🎯 Ví dụ hiện tại / tương lai:</h3>
+
+                    <h4>Chắc chắn (90–95%):</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Khẳng định — must be:</strong>
+                            <em>That <strong>must be</strong> the district nurse.</em>
+                            <span class="usage-note">Chắc là vậy (tích cực)</span>
+                        </li>
+                        <li>
+                            <strong>Phủ định — can't be:</strong>
+                            <em>These <strong>can't be</strong> the right pills.</em>
+                            <span class="usage-note">Chắc không phải (phủ định)</span>
+                        </li>
+                    </ul>
+
+                    <h4>Có khả năng (75%):</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Should feel:</strong>
+                            <em>You <strong>should feel</strong> better in a few days.</em>
+                        </li>
+                    </ul>
+
+                    <h4>Có thể (50%):</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Could/May/Might:</strong>
+                            <em>That diet <strong>could/may/might be</strong> dangerous.</em>
+                        </li>
+                    </ul>
+
+                    <h3>🎯 Ví dụ quá khứ:</h3>
+
+                    <h4>Chắc chắn:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Must have been (chắc đã là):</strong>
+                            <em>She <strong>must have been</strong> in pain.</em>
+                        </li>
+                        <li>
+                            <strong>Can't have been (chắc không thể):</strong>
+                            <em>His leg <strong>can't have been</strong> in plaster for 2 years!</em>
+                        </li>
+                    </ul>
+
+                    <h4>Có khả năng:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Should have disappeared:</strong>
+                            <em>The bruise <strong>should have disappeared</strong> days ago.</em>
+                        </li>
+                    </ul>
+
+                    <h4>Có thể:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Could/May/Might have been:</strong>
+                            <em>That <strong>could/may/might have been</strong> the doctor.</em>
+                        </li>
+                    </ul>
+
+                    <h3>🔄 Phân biệt quá khứ thực vs giả định:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Loại</th>
+                                    <th>Cấu trúc</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Quá khứ thực</strong></td>
+                                    <td>modal + have + V3</td>
+                                    <td><em>He may have called.</em> <span
+                                            style="font-size:.82rem;color:var(--muted)">(có thể đã gọi)</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Giả định quá khứ</strong></td>
+                                    <td>could/might + have + V3</td>
+                                    <td><em>You could have been killed!</em> <span
+                                            style="font-size:.82rem;color:var(--muted)">(may mắn không xảy ra)</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Nhầm "must" (chắc chắn) với "must" (bắt buộc):
+                                </div>
+                                <div class="err-right"><span class="icon">🔍</span><span>He must be tired.</span></div>
+                                <div class="err-context">(chắc là mệt — dự đoán)</div>
+                                <div class="err-right" style="margin-top:.3rem"><span class="icon">📋</span><span>He
+                                        must work harder.</span></div>
+                                <div class="err-context">(phải làm việc chăm hơn — bắt buộc)</div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng "maybe" với modal:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">He maybe can
+                                        come.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>Maybe he can come.</span></div>
+                                <div class="err-right" style="margin-top:.3rem"><span class="icon">✅</span><span>He may
+                                        come.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ — Thang Chắc Chắn</div>
+                        <ul>
+                            <li><strong>Must be:</strong> Chắc chắn dương tính (95%)</li>
+                            <li><strong>Can't be:</strong> Chắc chắn âm tính (95%)</li>
+                            <li><strong>Should be:</strong> Khả năng cao (75%)</li>
+                            <li><strong>Might / May / Could be:</strong> Có thể (50%)</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     TỔNG KẾT
+══════════════════════════════════════════ -->
+            <div class="summary-block">
+                <h2>Tổng Kết Unit 7</h2>
+
+                <div class="decision-block" style="margin-bottom:1.5rem;">
+                    <div class="db-title">🦸 Bản Đồ Tư Duy Modal Verbs</div>
+                    <pre>MODAL VERBS — Chọn "siêu anh hùng" nào? 🦸
+
+Khả năng?           → <span class="hl">CAN</span> (hiện tại), <span class="hl">COULD</span> (quá khứ/giả định)
+Xin phép?           → <span class="hl">CAN</span> (thân thiện) &lt; <span class="hl">COULD</span> &lt; <span class="hl">MAY</span> (lịch sự)
+Lời khuyên?         → <span class="hl">SHOULD / OUGHT TO</span>
+Chỉ trích quá khứ? → <span class="hl">SHOULD / OUGHT TO + HAVE + V3</span>
+Bắt buộc?           → <span class="hl">MUST / HAVE TO</span> · Cấm → <span class="hl">MUSTN'T</span>
+Không cần?          → <span class="hl">DON'T HAVE TO / NEEDN'T</span>
+Dự đoán?            → <span class="hl">MUST</span> (chắc) · <span class="hl">SHOULD</span> (có lẽ) · <span class="hl">MAY/MIGHT</span> (có thể)</pre>
+                </div>
+
+                <h3
+                    style="color:var(--primary-mid);font-family:'DM Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.85rem;">
+                    📊 Bảng tham khảo nhanh</h3>
+                <div class="table-wrap" style="margin-bottom:1.5rem;">
+                    <table class="grammar-table">
+                        <thead>
+                            <tr>
+                                <th>Modal</th>
+                                <th>Hiện tại</th>
+                                <th>Quá khứ</th>
+                                <th>Ý nghĩa chính</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="modal-chip">CAN</span></td>
+                                <td><em>can swim</em></td>
+                                <td>—</td>
+                                <td>Khả năng</td>
+                            </tr>
+                            <tr>
+                                <td><span class="modal-chip">COULD</span></td>
+                                <td><em>could help</em></td>
+                                <td><em>could swim</em></td>
+                                <td>Lịch sự / Quá khứ</td>
+                            </tr>
+                            <tr>
+                                <td><span class="modal-chip">MAY</span></td>
+                                <td><em>may rain</em></td>
+                                <td><em>may have rained</em></td>
+                                <td>Xin phép / Có thể</td>
+                            </tr>
+                            <tr>
+                                <td><span class="modal-chip">MIGHT</span></td>
+                                <td><em>might work</em></td>
+                                <td><em>might have worked</em></td>
+                                <td>Có thể (ít hơn may)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="modal-chip">MUST</span></td>
+                                <td><em>must go</em></td>
+                                <td>—</td>
+                                <td>Bắt buộc / Chắc chắn</td>
+                            </tr>
+                            <tr>
+                                <td><span class="modal-chip">SHOULD</span></td>
+                                <td><em>should try</em></td>
+                                <td><em>should have tried</em></td>
+                                <td>Lời khuyên / Chỉ trích</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="sc-label">7.1 · Ability</div>
+                        <div class="sc-desc">can / could / be able to</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">7.2 · Permission</div>
+                        <div class="sc-desc">Can &lt; Could &lt; May (lịch sự)</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">7.3 · Advice</div>
+                        <div class="sc-desc">should / ought to</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">7.4 · Criticism</div>
+                        <div class="sc-desc">should / ought to + have + V3</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">7.5 · Obligation</div>
+                        <div class="sc-desc">must / have to · mustn't vs don't have to</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">7.6 · Certainty</div>
+                        <div class="sc-desc">must (95%) → might (50%) → can't (0%)</div>
+                    </div>
+                </div>
+
+                <div class="self-check"
+                    style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);margin-top:1.25rem;">
+                    <div class="sc-title" style="color:var(--primary-mid);">📚 Câu Hỏi Tự Kiểm Tra</div>
+                    <ol style="color:rgba(255,255,255,.8);">
+                        <li>"You must be tired" vs "You must work" — Khác biệt gì?</li>
+                        <li>"Mustn't" vs "Don't have to" — Khi nào dùng?</li>
+                        <li>"Could have done" có mấy nghĩa? Là những nghĩa gì?</li>
+                    </ol>
+                </div>
+
+                <p class="summary-outro">Xuất sắc! Chúng ta vừa chinh phục được những "siêu anh hùng" Modal Verbs. Tiếp
+                    theo, hãy khám phá The Passive — cách "lật ngược" câu để tạo ra sự chuyên nghiệp!</p>
+            </div>
+
+            <!-- ═══════════════════════════════════════
+     READING PASSAGE
+══════════════════════════════════════════ -->
+            <section class="reading-passage">
+                <div class="rp-title">📖 Learning a New Language</div>
+
+                <p>When I decided to learn Spanish three years ago, I <strong>couldn't</strong> speak a single word
+                    beyond "hola" and "gracias." Now, I <strong>can</strong> hold conversations with native speakers,
+                    though I <strong>could</strong> certainly improve my accent. Learning a new language <strong>must
+                        be</strong> one of the most rewarding challenges anyone <strong>can</strong> undertake. You
+                    <strong>don't have to</strong> be naturally gifted – anyone <strong>can</strong> master a foreign
+                    language with dedication. I <strong>should have</strong> started earlier in life when my brain
+                    <strong>could</strong> absorb languages more easily, but it's never too late. You
+                    <strong>might</strong> think it's impossible at first, but that <strong>can't be</strong> true
+                    because millions of adults successfully learn new languages every year.</p>
+
+                <p>Before starting, you <strong>should</strong> understand why you want to learn. Some people
+                    <strong>have to</strong> learn for work, while others <strong>may</strong> simply love the culture.
+                    You <strong>needn't</strong> have a perfect reason – curiosity alone <strong>can</strong> be enough
+                    motivation. I <strong>had to</strong> learn Spanish for my job initially, but now I continue because
+                    I want to <strong>be able to</strong> communicate fluently when I travel. You <strong>ought
+                        to</strong> set clear goals from the beginning. Without goals, you <strong>might</strong> lose
+                    motivation quickly. I <strong>could have</strong> given up many times, but having specific targets
+                    kept me going. You <strong>mustn't</strong> underestimate the importance of having a strong "why" –
+                    it <strong>will</strong> sustain you through difficult moments.</p>
+
+                <p><strong>May I</strong> share what worked for me? First, you <strong>must</strong> establish a daily
+                    routine. You <strong>can't</strong> expect progress without consistency. Even fifteen minutes daily
+                    <strong>can</strong> make a significant difference. You <strong>don't have to</strong> study for
+                    hours – in fact, that <strong>might</strong> lead to burnout. I <strong>used to have to</strong>
+                    force myself to study, but now it's a habit I <strong>couldn't</strong> imagine breaking. You
+                    <strong>should</strong> find the time that works best for your brain. Some people
+                    <strong>can</strong> concentrate better in the morning, while others <strong>may</strong> prefer
+                    evening sessions. I discovered I <strong>could</strong> learn most effectively right after breakfast
+                    when my mind <strong>was able to</strong> focus completely.</p>
+
+                <p>Choosing the right resources <strong>can</strong> be overwhelming. You <strong>might</strong> think
+                    you <strong>need to</strong> buy expensive courses, but you <strong>don't have to</strong> spend a
+                    fortune. Free apps <strong>can</strong> be incredibly effective, though you <strong>should</strong>
+                    supplement them with other materials. I <strong>couldn't have</strong> progressed without online
+                    videos and podcasts. You <strong>ought to</strong> expose yourself to authentic content as soon as
+                    possible. Children's books <strong>might</strong> seem too simple, but they <strong>can</strong>
+                    build your confidence. You <strong>shouldn't</strong> avoid materials that seem challenging –
+                    stretching yourself <strong>must</strong> be part of the process. I <strong>had to</strong> look up
+                    every other word at first, but persistence paid off.</p>
+
+                <p>Speaking practice <strong>must be</strong> your top priority if you want fluency. You
+                    <strong>can't</strong> learn to speak without actually speaking – that <strong>should</strong> be
+                    obvious, yet many learners avoid it. You <strong>might</strong> feel embarrassed about making
+                    mistakes, but you <strong>shouldn't</strong> let fear hold you back. Native speakers
+                    <strong>can</strong> usually understand you even with errors. I <strong>couldn't</strong> pronounce
+                    the rolled 'r' for months, but people still understood me. You <strong>don't have to</strong> be
+                    perfect to communicate effectively. <strong>Could I</strong> suggest finding a language exchange
+                    partner? You <strong>can</strong> help each other, and it <strong>needn't</strong> cost anything.
+                    Online platforms <strong>have</strong> made this easier than ever.</p>
+
+                <p>Grammar <strong>can</strong> seem intimidating, but you <strong>needn't</strong> master every rule
+                    immediately. You <strong>should</strong> focus on high-frequency structures first. I <strong>used to
+                        have to</strong> memorize conjugation tables, which <strong>wasn't able to</strong> help me
+                    speak naturally. Instead, you <strong>ought to</strong> learn grammar in context through examples.
+                    Patterns <strong>will</strong> emerge naturally with enough exposure. You <strong>mustn't</strong>
+                    get too caught up in perfection – even native speakers <strong>can't</strong> explain all their
+                    grammar rules. I <strong>should have</strong> realized earlier that communication <strong>doesn't
+                        have to</strong> be grammatically perfect to be effective.</p>
+
+                <p>Vocabulary acquisition requires strategic thinking. You <strong>can't</strong> memorize every word
+                    you encounter, nor <strong>should</strong> you try. Focus on words you <strong>might</strong>
+                    actually use in conversation. I <strong>had to</strong> learn that quality beats quantity. You
+                    <strong>should</strong> use spaced repetition systems – they <strong>can</strong> dramatically
+                    improve retention. Creating personal connections to words <strong>can</strong> help too. You
+                    <strong>might</strong> associate "ventana" (window) with the view from your bedroom. I
+                    <strong>couldn't have</strong> remembered so many words without making them personally meaningful.
+                    You <strong>ought to have</strong> a system for reviewing; otherwise, you <strong>will</strong>
+                    forget what you've learned.</p>
+
+                <p>Listening comprehension <strong>may</strong> be the most frustrating skill initially. You
+                    <strong>might</strong> understand every word separately but <strong>can't</strong> follow natural
+                    conversation. This <strong>must</strong> be normal because everyone experiences it. You
+                    <strong>shouldn't</strong> give up when movies seem impossible to understand. Start with content for
+                    learners, then gradually increase difficulty. You <strong>don't have to</strong> understand
+                    everything – context <strong>can</strong> fill many gaps. I <strong>couldn't</strong> watch Spanish
+                    TV shows without subtitles for the first year. Now I <strong>can</strong> enjoy them without any
+                    aids, though I <strong>might</strong> still miss cultural references. You <strong>should
+                        have</strong> patience with yourself during this process.</p>
+
+                <p>Cultural understanding <strong>must</strong> accompany language learning. You <strong>can't</strong>
+                    truly speak a language without understanding its culture. Idioms <strong>might</strong> make no
+                    sense literally, but they <strong>can</strong> reveal cultural values. You <strong>should</strong>
+                    learn about traditions, humor, and social norms. I <strong>had to</strong> learn that directness
+                    levels vary between cultures. What <strong>might</strong> seem rude in English
+                    <strong>could</strong> be perfectly normal in Spanish. You <strong>ought to</strong> consume media
+                    from different Spanish-speaking countries – accents and expressions <strong>can</strong> vary
+                    significantly. I <strong>couldn't have</strong> anticipated how different Mexican Spanish
+                    <strong>would</strong> be from Argentinian Spanish.</p>
+
+                <p>Making mistakes <strong>must</strong> be embraced as part of learning. You <strong>can't</strong>
+                    improve without making errors – they <strong>shouldn't</strong> be feared but welcomed. I
+                    <strong>must have</strong> made thousands of mistakes, and each one taught me something. You
+                    <strong>might</strong> say something embarrassing occasionally – I once confused "embarrassed" with
+                    "pregnant" in Spanish! Native speakers <strong>will</strong> usually appreciate your effort
+                    regardless of mistakes. You <strong>shouldn't have to</strong> be reminded that even native speakers
+                    make errors. Perfectionism <strong>can</strong> be your worst enemy in language learning. You
+                    <strong>ought to</strong> celebrate attempts rather than dwelling on imperfections.</p>
+
+                <p>Maintaining motivation through plateaus <strong>can</strong> be challenging. There
+                    <strong>will</strong> be times when you feel you <strong>can't</strong> improve further. You
+                    <strong>might</strong> think you <strong>should have</strong> progressed faster. These plateaus
+                    <strong>must</strong> be temporary – everyone experiences them. You <strong>mustn't</strong> compare
+                    yourself to others; everyone's journey is unique. I <strong>had to</strong> learn that progress
+                    isn't always visible day-to-day. You <strong>should</strong> track your progress over months, not
+                    days. Looking back at old journal entries, I <strong>can</strong> see how far I've come. You
+                    <strong>couldn't</strong> imagine how rewarding it feels to realize you <strong>can</strong> now do
+                    things that once seemed impossible.</p>
+
+                <p>Technology has revolutionized language learning possibilities. You <strong>can</strong> have
+                    conversations with native speakers worldwide from your living room. Apps <strong>can</strong> gamify
+                    learning, making it enjoyable rather than tedious. You <strong>don't have to</strong> rely solely on
+                    textbooks anymore. AI tutors <strong>might</strong> soon provide personalized instruction 24/7.
+                    However, technology <strong>can't</strong> replace human interaction entirely. You <strong>still
+                        need to</strong> practice with real people for authentic communication. I <strong>couldn't
+                        have</strong> learned as quickly without technology, but I also <strong>couldn't have</strong>
+                    gained cultural insights without human teachers. You <strong>should</strong> use technology as a
+                    tool, not a complete solution.</p>
+
+                <p>In conclusion, anyone <strong>can</strong> learn a new language with the right approach and mindset.
+                    You <strong>don't have to</strong> be young or talented – you just <strong>need to</strong> be
+                    persistent. Yes, you <strong>should have</strong> started yesterday, but today is the next best
+                    option. The journey <strong>might</strong> be longer than expected, but it <strong>will</strong> be
+                    worth every moment of struggle. You <strong>can't</strong> know how learning a language
+                    <strong>will</strong> change your perspective until you try. It <strong>must</strong> be one of the
+                    best investments you <strong>can</strong> make in yourself. <strong>May</strong> your language
+                    learning journey be as transformative as mine has been!</p>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+     GRAMMAR FEATURES
+══════════════════════════════════════════ -->
+            <section class="grammar-features">
+                <h2>Grammar Features Highlighted</h2>
+
+                <p><strong>Ability:</strong> Can/Could/Be able to used for present, past, and infinitive forms (<em>can
+                        hold conversations</em>, <em>couldn't speak</em>, <em>to be able to communicate</em>).</p>
+
+                <p><strong>Permission:</strong> May/Can/Could showing different politeness levels (<em>May I share</em>,
+                    <em>Could I suggest</em>).</p>
+
+                <p><strong>Advice:</strong> Should/Ought to for recommendations (<em>should understand</em>, <em>ought
+                        to set goals</em>).</p>
+
+                <p><strong>Criticism:</strong> Should have + past participle for past regrets (<em>should have started
+                        earlier</em>, <em>ought to have had a system</em>).</p>
+
+                <p><strong>Obligation/Necessity:</strong> Must/Have to/Need to for requirements; Mustn't for
+                    prohibition; Don't have to/Needn't for lack of necessity (<em>must establish</em>, <em>had to
+                        learn</em>, <em>don't have to spend</em>, <em>mustn't underestimate</em>).</p>
+
+                <p><strong>Degrees of Certainty:</strong> Must be (95% certain), Should be (75% probable),
+                    Might/May/Could be (50% possible), Can't be (impossible) — all demonstrated with appropriate
+                    contexts.</p>
+
+                <p><strong>Past Modals:</strong> Could have/Should have/Might have/Must have + past participle for past
+                    possibilities and deductions (<em>could have given up</em>, <em>must have made thousands</em>,
+                    <em>couldn't have progressed</em>).</p>
+
+                <p><strong>Special Features:</strong> Correct use of bare infinitive after modals; be able to used where
+                    modals cannot work (infinitives, perfect tenses); distinction between must (personal) vs have to
+                    (external) obligation; mustn't (prohibition) vs don't have to (no necessity) clearly differentiated.
+                </p>
+
+                <p><strong>Common Errors Avoided:</strong> No modal + to + verb (except ought to); no -s, -ed, -ing
+                    endings on modals; correct use of be able to for infinitives and perfect tenses; proper distinction
+                    between certainty and obligation meanings of "must".</p>
+            </section>
+
+        </div><!-- /page-container -->
+    </main>
+
+    <footer>
+        <p>Destination B2 · Unit 7 — Modal Verbs &nbsp;|&nbsp; "Siêu Anh Hùng" Của Ngữ Pháp</p>
+    </footer>
+
+</body>
+
+</html>
