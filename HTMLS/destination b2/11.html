@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 11 – Reported Speech | Destination B2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ══════════════════════════════════════
+   THEME A · BLUE — Reported Speech / Tenses
+══════════════════════════════════════ */
+        :root {
+            --primary: #3B6FBF;
+            --primary-light: #D6E4FF;
+            --primary-mid: #7AAAF5;
+            --primary-dark: #1A3F80;
+            --primary-rgb: 59, 111, 191;
+
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F8F8F6;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #E2E0DB;
+            --shadow: rgba(20, 19, 28, .05);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.72;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+        .hero {
+            background-color: var(--ink);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 65% 55% at 20% 30%, rgba(59, 111, 191, .28) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 45% at 80% 70%, rgba(122, 170, 245, .18) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1.5px solid rgba(122, 170, 245, .4);
+            border-radius: 40px;
+            padding: .35rem 1.1rem;
+            margin-bottom: 1.4rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.18;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--primary-mid);
+        }
+
+        .hero-intro {
+            max-width: 720px;
+            margin: 1.4rem auto 0;
+            font-size: 1.03rem;
+            color: rgba(255, 255, 255, .72);
+            line-height: 1.78;
+            position: relative;
+        }
+
+        .hero-intro strong {
+            color: var(--primary-mid);
+            font-weight: 600;
+        }
+
+        .hero-intro em {
+            font-style: italic;
+            color: rgba(255, 255, 255, .85);
+        }
+
+        /* ══════════════════════════════════════
+   GRAMMAR BLOCK
+══════════════════════════════════════ */
+        .grammar-block {
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 2px 20px var(--shadow);
+            margin: 2.5rem 0;
+            overflow: hidden;
+        }
+
+        .grammar-block-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 1.75rem 1.25rem;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .section-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 8px;
+            padding: .3rem .75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .grammar-block-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(17px, 2.4vw, 23px);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+
+        .grammar-block-body {
+            padding: 1.75rem;
+        }
+
+        /* ── INTRO PARA ── */
+        .intro-para {
+            background: var(--paper);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-para strong {
+            color: var(--primary-dark);
+        }
+
+        .intro-para em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── SUB-HEADINGS ── */
+        .grammar-block-body h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 1.75rem 0 .75rem;
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .grammar-block-body h4 {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 1.2rem 0 .5rem;
+        }
+
+        /* ── FORMULA BOX ── */
+        .formula-box {
+            font-family: 'DM Mono', monospace;
+            font-size: 1rem;
+            text-align: center;
+            background: var(--paper);
+            border: 2px dashed var(--primary-mid);
+            border-radius: 12px;
+            padding: .9rem 1.5rem;
+            margin: .75rem 0 1.25rem;
+            color: var(--primary-dark);
+            letter-spacing: .03em;
+        }
+
+        /* ── TABLES ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: .75rem 0 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 12px var(--shadow);
+        }
+
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .95rem;
+        }
+
+        table.grammar-table thead th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-align: left;
+            padding: .75rem 1rem;
+            white-space: nowrap;
+        }
+
+        table.grammar-table tbody td {
+            padding: .7rem 1rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        table.grammar-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.grammar-table tbody tr:hover td {
+            background: rgba(214, 228, 255, .22);
+        }
+
+        table.grammar-table em {
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+
+        table.grammar-table strong {
+            font-weight: 600;
+        }
+
+        /* ── USAGE LIST ── */
+        .usage-list {
+            list-style: none;
+            margin: .5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .usage-list li {
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .usage-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .57rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .usage-list li strong {
+            display: block;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .usage-list li em {
+            display: block;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: .2rem;
+            font-size: 1rem;
+        }
+
+        .usage-note {
+            font-size: .88rem;
+            color: var(--muted);
+            font-style: normal;
+        }
+
+        .usage-note strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ── KEYWORD CHIPS ── */
+        .kw-chip {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 6px;
+            padding: .1rem .45rem;
+            margin: .1rem .15rem;
+        }
+
+        /* ── ERROR BLOCK ── */
+        .error-block {
+            background: var(--surface-alt);
+            border-radius: 14px;
+            margin: 1.75rem 0;
+            overflow: hidden;
+        }
+
+        .error-block-header {
+            background: linear-gradient(90deg, var(--error), var(--primary-mid));
+            padding: .65rem 1.25rem;
+        }
+
+        .error-block-header span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .error-block-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .error-item-label {
+            font-size: .8rem;
+            font-family: 'DM Mono', monospace;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .4rem;
+        }
+
+        .err-wrong {
+            color: var(--error);
+            font-style: italic;
+            font-size: .97rem;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            margin-bottom: .3rem;
+        }
+
+        .err-wrong .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-wrong .txt {
+            text-decoration: line-through;
+            opacity: .85;
+        }
+
+        .err-right {
+            color: var(--success);
+            font-weight: 600;
+            font-size: .97rem;
+            font-style: italic;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+        }
+
+        .err-right .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-context {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .38);
+            font-style: normal;
+            margin-top: .25rem;
+            padding-left: 1.4rem;
+        }
+
+        /* ── ALERT BOX ── */
+        .alert-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .alert-box .alert-title {
+            font-weight: 700;
+            font-size: .88rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--primary-dark);
+            margin-bottom: .45rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .alert-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+
+        .alert-box ul li {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box ul li::before {
+            content: '→ ';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .alert-box p {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box p+p {
+            margin-top: .4rem;
+        }
+
+        /* ── FEATURE BOX ── */
+        .feature-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            color: #fff;
+        }
+
+        .feature-box .feature-title {
+            font-size: .82rem;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: .55rem;
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            margin-bottom: .4rem;
+        }
+
+        .feature-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-box em {
+            font-style: italic;
+            color: var(--primary-mid);
+        }
+
+        .feature-box strong {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .feature-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+            margin-top: .45rem;
+        }
+
+        .feature-box ul li {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .feature-box ul li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 1.3rem;
+            line-height: .9;
+        }
+
+        /* ── VERB GROUP CARD ── */
+        .verb-group {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: .9rem 1.1rem;
+            margin: .6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verb-group::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .verb-group .vg-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .72rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--primary);
+            margin-bottom: .4rem;
+        }
+
+        .verb-group .vg-verbs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .35rem;
+            margin-bottom: .5rem;
+        }
+
+        .verb-group .vg-formula {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            color: var(--muted);
+            margin-bottom: .4rem;
+        }
+
+        .verb-group .vg-example {
+            font-style: italic;
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .verb-group .vg-example em {
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+
+        /* ── SAY vs TELL ── */
+        .say-tell-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .st-card {
+            border-radius: 12px;
+            padding: .9rem 1.1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .st-card.say-card {
+            background: rgba(59, 111, 191, .07);
+            border-color: rgba(59, 111, 191, .3);
+        }
+
+        .st-card.tell-card {
+            background: rgba(46, 158, 104, .07);
+            border-color: rgba(46, 158, 104, .3);
+        }
+
+        .st-card .stc-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: .4rem;
+        }
+
+        .st-card.say-card .stc-label {
+            color: var(--primary);
+        }
+
+        .st-card.tell-card .stc-label {
+            color: var(--success);
+        }
+
+        .st-card .stc-formula {
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            color: var(--muted);
+            margin-bottom: .35rem;
+        }
+
+        .st-card .stc-ex {
+            font-style: italic;
+            font-size: .95rem;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .st-card .stc-note {
+            font-size: .82rem;
+            color: var(--muted);
+        }
+
+        /* ── DECISION FLOWCHART ── */
+        .decision-block {
+            background: var(--ink);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .decision-block .db-title {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--primary-mid);
+            margin-bottom: 1rem;
+        }
+
+        .decision-block pre {
+            background: transparent;
+            color: rgba(255, 255, 255, .78);
+            font-family: 'DM Mono', monospace;
+            font-size: .88rem;
+            line-height: 1.72;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .decision-block pre .hl {
+            color: var(--primary-mid);
+            font-weight: 500;
+        }
+
+        /* ── SELF CHECK ── */
+        .self-check {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .self-check .sc-title {
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .6rem;
+        }
+
+        .self-check ol {
+            padding-left: 1.25rem;
+            color: var(--ink);
+            font-size: .97rem;
+        }
+
+        .self-check ol li {
+            margin-bottom: .35rem;
+        }
+
+        /* ── SUMMARY BLOCK ── */
+        .summary-block {
+            background: var(--ink);
+            color: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .summary-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 1.25rem;
+            color: var(--primary-mid);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1.5px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+        }
+
+        .summary-card .sc-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .73rem;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            color: var(--primary-mid);
+            margin-bottom: .3rem;
+        }
+
+        .summary-card .sc-desc {
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .summary-outro {
+            font-style: italic;
+            color: rgba(255, 255, 255, .5);
+            font-size: .95rem;
+            margin-top: .75rem;
+        }
+
+        /* ── READING PASSAGE ── */
+        .reading-passage {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 2rem 2.25rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .reading-passage .rp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .75rem;
+        }
+
+        .reading-passage p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.08rem;
+            line-height: 1.88;
+            margin-bottom: 1.4rem;
+            color: #2a2934;
+        }
+
+        .reading-passage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reading-passage strong {
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: .05em .22em;
+            border-radius: 3px;
+        }
+
+        /* ── GRAMMAR FEATURES ── */
+        .grammar-features {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .grammar-features h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .6rem;
+        }
+
+        .grammar-features p {
+            font-size: .97rem;
+            line-height: 1.72;
+            margin-bottom: .9rem;
+            color: var(--ink);
+        }
+
+        .grammar-features p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grammar-features strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .grammar-features em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--muted);
+            font-size: .85rem;
+            border-top: 1px solid var(--line);
+            margin-top: 3rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:640px) {
+            .page-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .grammar-block-body {
+                padding: 1.25rem;
+            }
+
+            .grammar-block-header {
+                padding: 1.1rem 1.25rem 1rem;
+            }
+
+            .say-tell-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-passage {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .summary-block {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .grammar-features {
+                padding: 1.25rem;
+            }
+
+            table.grammar-table {
+                font-size: .87rem;
+            }
+
+            table.grammar-table thead th,
+            table.grammar-table tbody td {
+                padding: .6rem .75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <header class="hero">
+        <div class="hero-badge">Unit 11 · Destination B2</div>
+        <h1>REPORTED SPEECH<br><em>Nghệ Thuật "Kể Lại"</em></h1>
+        <p class="hero-intro">
+            Hàng ngày, chúng ta đều "kể lại": <strong>"John said he was busy"</strong>, <strong>"She told me she would
+                come"</strong>, <strong>"He asked if I could help"</strong>… Reported Speech chính là cách chúng ta
+            truyền đạt thông tin một cách chính xác và tự nhiên!
+        </p>
+    </header>
+
+    <main>
+        <div class="page-container">
+
+            <!-- ═══════════════════════════════════════
+     11.1 TENSE & MODAL CHANGES
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">11.1</span>
+                    <h2>Thay Đổi Thì &amp; Modal — <em style="font-style:italic;color:var(--primary);">Backshift in
+                            Reported Speech</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Tại sao <em>"I am tired"</em> thành <em>"He said he
+                            <strong>was</strong> tired"</em>?<br>
+                        <strong>Bản chất:</strong> Khi kể lại, chúng ta <strong>"lùi thời gian"</strong> một bước — như
+                        xem lại một bộ phim cũ!
+                    </div>
+
+                    <h3>📊 Bảng chuyển đổi thì:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Direct Speech</th>
+                                    <th>Reported Speech</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Present Simple</strong></td>
+                                    <td><strong>Past Simple</strong></td>
+                                    <td><em>"I <strong>need</strong> help" → He said he <strong>needed</strong>
+                                            help.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Present Continuous</strong></td>
+                                    <td><strong>Past Continuous</strong></td>
+                                    <td><em>"I<strong>'m working</strong>" → She said she <strong>was
+                                                working</strong>.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Present Perfect</strong></td>
+                                    <td><strong>Past Perfect</strong></td>
+                                    <td><em>"I<strong>'ve finished</strong>" → He said he <strong>had
+                                                finished</strong>.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Present Perfect Continuous</strong></td>
+                                    <td><strong>Past Perfect Continuous</strong></td>
+                                    <td><em>"I<strong>'ve been waiting</strong>" → She said she <strong>had been
+                                                waiting</strong>.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Past Simple</strong></td>
+                                    <td><strong>Past Perfect</strong></td>
+                                    <td><em>"I <strong>went</strong> there" → He said he <strong>had gone</strong>
+                                            there.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Past Continuous</strong></td>
+                                    <td><strong>Past Perfect Continuous</strong></td>
+                                    <td><em>"I <strong>was sleeping</strong>" → She said she <strong>had been
+                                                sleeping</strong>.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>📊 Bảng chuyển đổi Modal:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Direct Speech</th>
+                                    <th>Reported Speech</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>will</strong></td>
+                                    <td><strong>would</strong></td>
+                                    <td><em>"I<strong>'ll help</strong>" → He said he <strong>would help</strong>.</em>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>can</strong></td>
+                                    <td><strong>could</strong></td>
+                                    <td><em>"I <strong>can swim</strong>" → She said she <strong>could
+                                                swim</strong>.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>may</strong></td>
+                                    <td><strong>might</strong></td>
+                                    <td><em>"I <strong>may come</strong>" → He said he <strong>might come</strong>.</em>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>must / have to</strong></td>
+                                    <td><strong>had to</strong></td>
+                                    <td><em>"I <strong>must go</strong>" → She said she <strong>had to go</strong>.</em>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Modal Không Đổi</div>
+                        <p><strong>would, could, might, should, ought to</strong> — giữ nguyên!</p>
+                        <ul>
+                            <li><em>"I <strong>would</strong> like coffee" → He said he <strong>would</strong> like
+                                    coffee.</em></li>
+                            <li><em>"You <strong>should</strong> rest" → She said I <strong>should</strong> rest.</em>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box"
+                        style="background:linear-gradient(135deg,#2a4a2a,#2E9E68);margin-top:.75rem;">
+                        <div class="feature-title">🌿 Ngoại Lệ — Không Cần Đổi Thì</div>
+                        <p><strong>1. Sự thật khoa học:</strong></p>
+                        <ul>
+                            <li><em>"Water <strong>boils</strong> at 100°C" → He said water <strong>boils</strong> at
+                                    100°C.</em></li>
+                        </ul>
+                        <p style="margin-top:.65rem"><strong>2. Vẫn còn đúng ở hiện tại:</strong></p>
+                        <ul>
+                            <li><em>"I <strong>live</strong> in Paris" → She said she <strong>lives</strong> in
+                                    Paris.</em> (nếu vẫn sống ở Paris)</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     11.2 PRONOUN & DETERMINER CHANGES
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">11.2</span>
+                    <h2>Thay Đổi Đại Từ &amp; Từ Hạn Định — <em style="font-style:italic;color:var(--primary);">Pronoun
+                            &amp; Determiner Shifts</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"My car"</em> thành <em>"his car"</em> hay <em>"her
+                            car"</em>?<br>
+                        <strong>Bản chất:</strong> Thay đổi <strong>quan điểm kể</strong> — từ góc nhìn người nói chuyển
+                        sang góc nhìn người kể lại.
+                    </div>
+
+                    <h3>📊 Bảng chuyển đổi đại từ:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Direct Speech</th>
+                                    <th>Reported Speech</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>I / me / my / mine</strong></td>
+                                    <td><strong>he/him/his</strong> (hoặc she/her/hers)</td>
+                                    <td><em>"<strong>My</strong> car" → He said <strong>his</strong> car</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>you / your / yours</strong></td>
+                                    <td><strong>I/me/my/mine</strong> (hoặc they/them/their)</td>
+                                    <td><em>"<strong>Your</strong> book" → He told me <strong>my</strong> book</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>this / these</strong></td>
+                                    <td><strong>that / those</strong></td>
+                                    <td><em>"<strong>This</strong> is nice" → She said <strong>that</strong> was
+                                            nice</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>we / us / our / ours</strong></td>
+                                    <td><strong>they / them / their / theirs</strong></td>
+                                    <td><em>"<strong>We</strong> are ready" → They said <strong>they</strong> were
+                                            ready</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Ví dụ chi tiết:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Direct → Reported (my → his):</strong>
+                            <em>Tim said, "I've lost <strong>my</strong> credit card."</em>
+                            <span class="usage-note">→ Tim said he had lost <strong>his</strong> credit card.</span>
+                        </li>
+                        <li>
+                            <strong>Direct → Reported (this → that):</strong>
+                            <em>"I love <strong>this</strong> sweater," said Tim.</em>
+                            <span class="usage-note">→ Tim said he loved <strong>that</strong> sweater.</span>
+                        </li>
+                    </ul>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>I/my → he/his</strong> hoặc <strong>she/her</strong> (tùy giới tính)</li>
+                            <li><strong>this/these → that/those</strong> (xa hơn về thời gian)</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     11.3 TIME & PLACE CHANGES
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">11.3</span>
+                    <h2>Thay Đổi Thời Gian &amp; Địa Điểm — <em style="font-style:italic;color:var(--primary);">Time
+                            &amp; Place Reference Shifts</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"Yesterday"</em> thành gì trong reported speech?<br>
+                        <strong>Bản chất:</strong> Thay đổi <strong>tham chiếu thời gian</strong> — từ thời điểm người
+                        nói sang thời điểm người kể lại.
+                    </div>
+
+                    <h3>📊 Bảng chuyển đổi thời gian:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Direct Speech</th>
+                                    <th>Reported Speech</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>now / at the moment</strong></td>
+                                    <td><strong>then / at that moment</strong></td>
+                                    <td><em>"I'm busy <strong>now</strong>" → He said he was busy
+                                            <strong>then</strong>.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>today</strong></td>
+                                    <td><strong>that day</strong></td>
+                                    <td><em>"I'm leaving <strong>today</strong>" → She said she was leaving <strong>that
+                                                day</strong>.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>tomorrow</strong></td>
+                                    <td><strong>the next / following day</strong></td>
+                                    <td><em>"I'll call <strong>tomorrow</strong>" → He said he would call <strong>the
+                                                next day</strong>.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>yesterday</strong></td>
+                                    <td><strong>the day before / the previous day</strong></td>
+                                    <td><em>"I went <strong>yesterday</strong>" → She said she had gone <strong>the day
+                                                before</strong>.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>last week / month / year</strong></td>
+                                    <td><strong>the week / month / year before</strong></td>
+                                    <td><em>"I traveled <strong>last month</strong>" → He said he had traveled
+                                            <strong>the month before</strong>.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>next week / month / year</strong></td>
+                                    <td><strong>the following week / month / year</strong></td>
+                                    <td><em>"I'll start <strong>next week</strong>" → She said she would start
+                                            <strong>the following week</strong>.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ago</strong></td>
+                                    <td><strong>before / previously</strong></td>
+                                    <td><em>"I met him <strong>2 days ago</strong>" → She said she had met him <strong>2
+                                                days before</strong>.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🏠 Bảng chuyển đổi địa điểm:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Direct Speech</th>
+                                    <th>Reported Speech</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>here</strong></td>
+                                    <td><strong>there</strong></td>
+                                    <td><em>"I live <strong>here</strong>" → He said he lived
+                                            <strong>there</strong>.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>this place</strong></td>
+                                    <td><strong>that place</strong></td>
+                                    <td><em>"I like <strong>this place</strong>" → She said she liked <strong>that
+                                                place</strong>.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Ngoại Lệ — Không Cần Thay Đổi</div>
+                        <p>Khi thông tin <strong>vẫn còn đúng</strong> tại thời điểm kể lại:</p>
+                        <p style="margin-top:.6rem"><em>Tim said to Ben: "I'm going shopping
+                                <strong>tomorrow</strong>."</em></p>
+                        <p><em>Ben immediately: "Tim said he's going shopping <strong>tomorrow</strong>."</em></p>
+                    </div>
+
+                    <h3>🎯 Ví dụ tổng hợp:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Direct → Reported (here+yesterday → there+the day before):</strong>
+                            <em>"I went shopping <strong>here yesterday</strong>," said Tim.</em>
+                            <span class="usage-note">→ Tim said he had gone shopping <strong>there the day
+                                    before</strong>.</span>
+                        </li>
+                    </ul>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     11.4 REPORTED QUESTIONS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">11.4</span>
+                    <h2>Reported Questions — <em style="font-style:italic;color:var(--primary);">Câu Hỏi Gián Tiếp</em>
+                    </h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Làm sao "kể lại" một câu hỏi?<br>
+                        <strong>Bản chất:</strong> Câu hỏi gián tiếp <strong>mất dấu hỏi chấm</strong> và <strong>trở về
+                            trật tự bình thường</strong>!
+                    </div>
+
+                    <h3>📝 Quy tắc chung:</h3>
+                    <div class="formula-box">Không có dấu hỏi chấm · Trật tự: S + V (không đảo ngữ) · Áp dụng tất cả quy
+                        tắc đổi thì, đại từ, thời gian</div>
+
+                    <h3>🎯 YES/NO Questions → IF / WHETHER:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Direct Question</th>
+                                    <th>Reported Question</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em>"<strong>Can</strong> you help me?" he asked.</em></td>
+                                    <td><em>He asked <strong>if / whether</strong> I could help him.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>"<strong>Are</strong> you coming?" she asked.</em></td>
+                                    <td><em>She asked <strong>if / whether</strong> I was coming.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>"<strong>Did</strong> you see the film?" he asked.</em></td>
+                                    <td><em>He asked <strong>if / whether</strong> I had seen the film.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 WH-Questions → Giữ nguyên từ hỏi:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Direct Question</th>
+                                    <th>Reported Question</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em>"<strong>Where</strong> do you live?" she asked.</em></td>
+                                    <td><em>She asked <strong>where</strong> I lived.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>"<strong>What</strong> time is it?" he asked.</em></td>
+                                    <td><em>He asked <strong>what</strong> time it was.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>"<strong>Why</strong> are you late?" she asked.</em></td>
+                                    <td><em>She asked <strong>why</strong> I was late.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🔄 So sánh trật tự từ:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Loại</th>
+                                    <th>Trật tự từ</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Direct Question</strong></td>
+                                    <td>Aux + S + V + ?</td>
+                                    <td><em>"Where <strong>do you</strong> live?"</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Reported Question</strong></td>
+                                    <td>S + V (no ?)</td>
+                                    <td><em>He asked where <strong>I lived</strong>.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Giữ nguyên trật tự câu hỏi:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">He asked where did I
+                                        live.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>He asked where I lived.</span>
+                                </div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Thêm dấu hỏi chấm:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">She asked if I was
+                                        coming?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>She asked if I was
+                                        coming.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 3 — Quên IF/WHETHER với Yes/No questions:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">He asked could I
+                                        help.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>He asked if I could help.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     11.5 REPORTING VERBS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">11.5</span>
+                    <h2>Reporting Verbs — <em style="font-style:italic;color:var(--primary);">Động Từ Tường Thuật</em>
+                    </h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Không chỉ có "said" và "told"!<br>
+                        <strong>Bản chất:</strong> Các động từ khác nhau thể hiện <strong>cách thức, thái độ</strong>
+                        khác nhau khi nói.
+                    </div>
+
+                    <h3>📝 Các nhóm Reporting Verbs:</h3>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Nhóm 1 · Verb + that clause</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">said</span><span class="kw-chip">told</span><span
+                                class="kw-chip">explained</span><span class="kw-chip">mentioned</span><span
+                                class="kw-chip">replied</span>
+                        </div>
+                        <div class="vg-formula">verb + (that) + S + V</div>
+                        <div class="vg-example">She <em><strong>said (that)</strong> she was tired.</em> &nbsp;·&nbsp;
+                            He <em><strong>told me (that)</strong> he would come.</em></div>
+                    </div>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Nhóm 2 · Verb + to-infinitive</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">agreed</span><span class="kw-chip">offered</span><span
+                                class="kw-chip">promised</span><span class="kw-chip">refused</span><span
+                                class="kw-chip">threatened</span>
+                        </div>
+                        <div class="vg-formula">verb + to + V</div>
+                        <div class="vg-example">She <em><strong>agreed to help</strong> me.</em> &nbsp;·&nbsp; He
+                            <em><strong>refused to come</strong>.</em></div>
+                    </div>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Nhóm 3 · Verb + object + to-infinitive</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">advised</span><span class="kw-chip">asked</span><span
+                                class="kw-chip">begged</span><span class="kw-chip">invited</span><span
+                                class="kw-chip">ordered</span><span class="kw-chip">reminded</span><span
+                                class="kw-chip">warned</span>
+                        </div>
+                        <div class="vg-formula">verb + object + to + V</div>
+                        <div class="vg-example">She <em><strong>advised me to study</strong> harder.</em> &nbsp;·&nbsp;
+                            He <em><strong>asked her to wait</strong>.</em></div>
+                    </div>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Nhóm 4 · Verb + -ing</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">admitted</span><span class="kw-chip">denied</span><span
+                                class="kw-chip">suggested</span>
+                        </div>
+                        <div class="vg-formula">verb + V-ing</div>
+                        <div class="vg-example">He <em><strong>admitted stealing</strong> the money.</em> &nbsp;·&nbsp;
+                            She <em><strong>suggested going</strong> to the cinema.</em></div>
+                    </div>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Nhóm 5 · Verb + preposition + -ing</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">accused…of</span><span class="kw-chip">apologised for</span><span
+                                class="kw-chip">insisted on</span>
+                        </div>
+                        <div class="vg-formula">verb + preposition + V-ing</div>
+                        <div class="vg-example">He <em><strong>accused me of lying</strong>.</em> &nbsp;·&nbsp; She
+                            <em><strong>apologised for being</strong> late.</em></div>
+                    </div>
+
+                    <h3>🎯 Ví dụ thực tế — Đa cấu trúc:</h3>
+
+                    <h4>DENY — 3 cách:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>deny + noun:</strong>
+                            <em>Katie <strong>denied</strong> the accusation.</em>
+                        </li>
+                        <li>
+                            <strong>deny + that clause:</strong>
+                            <em>Katie <strong>denied (that)</strong> she was a shoplifter.</em>
+                        </li>
+                        <li>
+                            <strong>deny + -ing:</strong>
+                            <em>Katie <strong>denied stealing</strong> the chocolate.</em>
+                        </li>
+                    </ul>
+
+                    <h4>SUGGEST — 2 cách:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>suggest + -ing:</strong>
+                            <em>He <strong>suggested going</strong> to the cinema.</em>
+                        </li>
+                        <li>
+                            <strong>suggest + that clause:</strong>
+                            <em>He <strong>suggested (that)</strong> we go to the cinema.</em>
+                        </li>
+                    </ul>
+
+                    <h3>🔄 So sánh SAY vs TELL:</h3>
+                    <div class="say-tell-grid">
+                        <div class="st-card say-card">
+                            <div class="stc-label">SAY</div>
+                            <div class="stc-formula">say (that)…</div>
+                            <div class="stc-ex">He <em>said</em> he was tired.</div>
+                            <div class="stc-note">Không cần đối tượng</div>
+                        </div>
+                        <div class="st-card tell-card">
+                            <div class="stc-label">TELL</div>
+                            <div class="stc-formula">tell + person + (that)…</div>
+                            <div class="stc-ex">He <em>told me</em> he was tired.</div>
+                            <div class="stc-note">Cần đối tượng (ai được nói)</div>
+                        </div>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Nhầm lẫn SAY vs TELL:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">He said me he was
+                                        busy.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>He told me he was busy.</span>
+                                </div>
+                                <div class="err-right" style="margin-top:.3rem"><span class="icon">✅</span><span>He said
+                                        he was busy.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng sai cấu trúc với SUGGEST:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">He suggested me to
+                                        go.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>He suggested that I go.</span>
+                                </div>
+                                <div class="err-right" style="margin-top:.3rem"><span class="icon">✅</span><span>He
+                                        suggested going.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 3 — Quên giới từ với ACCUSE:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">He accused me
+                                        lying.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>He accused me of lying.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>SAY:</strong> Nói gì (không cần nói với ai)</li>
+                            <li><strong>TELL:</strong> Nói với ai (cần có đối tượng)</li>
+                            <li><strong>Mỗi reporting verb có cấu trúc riêng</strong> — cần học thuộc!</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     TỔNG KẾT
+══════════════════════════════════════════ -->
+            <div class="summary-block">
+                <h2>Tổng Kết Unit 11</h2>
+
+                <div class="decision-block" style="margin-bottom:1.5rem;">
+                    <div class="db-title">📝 Sơ Đồ Chuyển Đổi Reported Speech</div>
+                    <pre>CÁC BƯỚC CHUYỂN ĐỔI:
+
+1️⃣  Lùi thì        → Present → Past, Past → Past Perfect…
+2️⃣  Đổi đại từ     → I → he/she, you → I/they…
+3️⃣  Đổi thời gian  → yesterday → the day before…
+4️⃣  Đổi địa điểm   → here → there…
+5️⃣  Câu hỏi        → bỏ dấu <span class="hl">?</span>, trật tự <span class="hl">S+V</span>, thêm <span class="hl">if/whether</span></pre>
+                </div>
+
+                <h3
+                    style="color:var(--primary-mid);font-family:'DM Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.85rem;">
+                    📊 Bảng tham khảo nhanh</h3>
+                <div class="table-wrap" style="margin-bottom:1.5rem;">
+                    <table class="grammar-table">
+                        <thead>
+                            <tr>
+                                <th>Loại thay đổi</th>
+                                <th>Quy tắc</th>
+                                <th>Ví dụ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Thì</strong></td>
+                                <td>Lùi 1 bước</td>
+                                <td><em>am → was, will → would</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Đại từ</strong></td>
+                                <td>Đổi góc nhìn</td>
+                                <td><em>I → he/she, my → his/her</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Thời gian</strong></td>
+                                <td>Lùi về quá khứ</td>
+                                <td><em>today → that day, tomorrow → the next day</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Câu hỏi</strong></td>
+                                <td>Mất dấu ?, S+V</td>
+                                <td><em>"Are you OK?" → asked if I was OK</em></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="sc-label">11.1 · Tense Changes</div>
+                        <div class="sc-desc">Lùi 1 bước · Modal: will→would, can→could, may→might</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">11.2 · Pronouns</div>
+                        <div class="sc-desc">I→he/she · you→I/they · this→that · we→they</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">11.3 · Time &amp; Place</div>
+                        <div class="sc-desc">today→that day · tomorrow→the next day · here→there</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">11.4 · Reported Questions</div>
+                        <div class="sc-desc">Không ? · S+V · Yes/No → if/whether</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">11.5 · Reporting Verbs</div>
+                        <div class="sc-desc">5 nhóm cấu trúc · say vs tell</div>
+                    </div>
+                </div>
+
+                <div class="self-check"
+                    style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);margin-top:1.25rem;">
+                    <div class="sc-title" style="color:var(--primary-mid);">📚 Câu Hỏi Tự Kiểm Tra</div>
+                    <ol style="color:rgba(255,255,255,.8);">
+                        <li>"I will come tomorrow" → Reported speech như thế nào?</li>
+                        <li>"Are you ready?" → Reported question ra sao?</li>
+                        <li>"He said me" vs "He told me" — Cái nào đúng?</li>
+                    </ol>
+                </div>
+
+                <p class="summary-outro">Tuyệt vời! Chúng ta vừa thành thạo nghệ thuật "kể lại". Tiếp theo, hãy khám phá
+                    Relative Clauses — cách nối câu một cách tinh tế và chuyên nghiệp!</p>
+            </div>
+
+            <!-- ═══════════════════════════════════════
+     READING PASSAGE
+══════════════════════════════════════════ -->
+            <section class="reading-passage">
+                <div class="rp-title">📖 News from an Old Friend: A Reported Conversation</div>
+
+                <p>Yesterday was one of those surprisingly wonderful days. While grabbing coffee, I ran into my old
+                    college friend, Mark, who I hadn't seen in years. We decided to sit down and catch up, and the
+                    conversation flowed for hours. He <strong>told me that</strong> he had been doing very well and
+                    <strong>said that</strong> he was happy to see me. Later, when I recounted the meeting to my sister,
+                    I realized how much of our communication relies on the art of reporting what others have said.</p>
+
+                <p>Mark started by giving me a summary of his life. He <strong>said he was working</strong> as a
+                    software developer for a tech startup downtown. He explained that although he had originally studied
+                    history, he <strong>had decided</strong> to change careers a few years before. When I asked about
+                    his living situation, he <strong>told me he had bought</strong> his apartment just last year, and he
+                    proudly <strong>added that that was</strong> his greatest personal achievement. His plans for the
+                    future sounded exciting; he mentioned he <strong>would travel</strong> to South Korea the following
+                    month for a conference. He also said he <strong>could already speak</strong> some basic Korean,
+                    which really impressed me. I remembered Mark always being a quick learner. He even brought up a
+                    universal truth, reminding me that the Earth <strong>revolves</strong> around the Sun, a fact that
+                    obviously required no tense change in reporting.</p>
+
+                <p>Of course, I was curious and had many questions for him. First, I <strong>asked where he was
+                        living</strong>. He smiled and told me he had moved to the Northwood district. I then
+                    <strong>asked if he still played</strong> the guitar, remembering our old college band. He laughed
+                    and replied that he rarely had time anymore. He then turned the questions on me, asking <strong>what
+                        I had been up to</strong>. He also <strong>asked whether I had seen</strong> our old friend,
+                    Sarah, recently. He explained that he <strong>had to call</strong> her soon because he had promised
+                    to help her with a project. His tone was so genuine, and it was clear he was still the same caring
+                    person.</p>
+
+                <p>The conversation was more than just an exchange of facts; it was full of offers, advice, and
+                    suggestions, which required a variety of reporting verbs to recount accurately. At one point, I
+                    mentioned a problem I was having with my website, and he immediately <strong>offered to take a
+                        look</strong> at it for me. He <strong>advised me to learn</strong> some basic coding, saying it
+                    was an essential skill in today's world. When talking about his recent vacation, he <strong>admitted
+                        spending</strong> way too much money. He <strong>suggested going</strong> on a trip together
+                    sometime, which I thought was a fantastic idea. He even <strong>apologized for not staying</strong>
+                    in touch more often. This part of the conversation really highlighted the difference between
+                    <em>say</em> and <em>tell</em>; he <strong>said</strong> many interesting things, but he
+                    <strong>told me</strong> specifically that I should be more confident in my career.</p>
+
+                <p>As we were about to leave, he <strong>invited me to a party</strong> he was hosting the following
+                    weekend at his place. He <strong>promised it would be</strong> fun and <strong>reminded me to
+                        bring</strong> a friend if I wanted to. I, in turn, <strong>agreed to be there</strong>.
+                    Reflecting on our conversation now, it's amazing how much ground we covered. He <strong>said he
+                        would call</strong> me later that week to finalize the details. It was a simple conversation,
+                    but recounting it makes me appreciate the nuances of language — the subtle shifts in time,
+                    perspective, and tone that allow us to share our experiences with others.</p>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+     GRAMMAR FEATURES
+══════════════════════════════════════════ -->
+            <section class="grammar-features">
+                <h2>Grammar Features Highlighted</h2>
+
+                <p><strong>Tense and Modal Changes:</strong> Present Continuous → Past Continuous (<em>was
+                        working</em>); Past Simple → Past Perfect (<em>had decided</em>, <em>had bought</em>); Will →
+                    Would (<em>would travel</em>); Can → Could (<em>could already speak</em>); Must/Have to → Had to
+                    (<em>had to call</em>). Exception: universal fact (<em>the Earth revolves</em> — no tense change).
+                </p>
+
+                <p><strong>Pronoun, Time, and Place Changes:</strong> Pronoun shift (<em>my → his</em>); Determiner
+                    shift (<em>this → that</em>); Time shift (<em>next month → the following month</em>, implied
+                    <em>last year</em> in past perfect).</p>
+
+                <p><strong>Reported Questions — WH-Question:</strong> Correctly uses statement word order (<em>I asked
+                        where he was living</em>), avoiding the inverted question form.</p>
+
+                <p><strong>Reported Questions — Yes/No Question:</strong> Correctly uses <em>if/whether</em> (<em>asked
+                        if he still played</em>; <em>asked whether I had seen</em>).</p>
+
+                <p><strong>Reported Questions — No Question Mark:</strong> All reported questions correctly end with a
+                    period.</p>
+
+                <p><strong>Reporting Verbs — say vs tell:</strong> Distinction explicitly shown (<em>He told me</em>
+                    with object vs <em>he said</em> without object).</p>
+
+                <p><strong>Reporting Verbs — All patterns:</strong> verb + that clause (<em>told, said, explained,
+                        added, mentioned, reminded</em>); verb + to-infinitive (<em>offered to take, agreed to be,
+                        promised it would be</em>); verb + object + to-infinitive (<em>advised me to learn, invited me
+                        to a party, reminded me to bring</em>); verb + -ing (<em>admitted spending, suggested
+                        going</em>); verb + preposition + -ing (<em>apologized for not staying</em>).</p>
+
+                <p><strong>Common Errors Avoided:</strong> No "said me"; correct use of <em>suggested going</em> not
+                    "suggested me to go"; correct preposition usage (<em>apologized for</em>); proper statement word
+                    order in reported questions; no question marks in reported speech.</p>
+            </section>
+
+        </div><!-- /page-container -->
+    </main>
+
+    <footer>
+        <p>Destination B2 · Unit 11 — Reported Speech &nbsp;|&nbsp; Nghệ Thuật "Kể Lại"</p>
+    </footer>
+
+</body>
+
+</html>
