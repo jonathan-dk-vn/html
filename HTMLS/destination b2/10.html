@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 10 – Questions &amp; Question Tags | Destination B2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ══════════════════════════════════════
+   THEME A · BLUE — Questions / Communication
+══════════════════════════════════════ */
+        :root {
+            --primary: #3B6FBF;
+            --primary-light: #D6E4FF;
+            --primary-mid: #7AAAF5;
+            --primary-dark: #1A3F80;
+            --primary-rgb: 59, 111, 191;
+
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F8F8F6;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #E2E0DB;
+            --shadow: rgba(20, 19, 28, .05);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.72;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+        .hero {
+            background-color: var(--ink);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 65% 55% at 20% 30%, rgba(59, 111, 191, .28) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 45% at 80% 70%, rgba(122, 170, 245, .18) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1.5px solid rgba(122, 170, 245, .4);
+            border-radius: 40px;
+            padding: .35rem 1.1rem;
+            margin-bottom: 1.4rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.18;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--primary-mid);
+        }
+
+        .hero-intro {
+            max-width: 720px;
+            margin: 1.4rem auto 0;
+            font-size: 1.03rem;
+            color: rgba(255, 255, 255, .72);
+            line-height: 1.78;
+            position: relative;
+        }
+
+        .hero-intro strong {
+            color: var(--primary-mid);
+            font-weight: 600;
+        }
+
+        .hero-intro em {
+            font-style: italic;
+            color: rgba(255, 255, 255, .85);
+        }
+
+        /* ══════════════════════════════════════
+   GRAMMAR BLOCK
+══════════════════════════════════════ */
+        .grammar-block {
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 2px 20px var(--shadow);
+            margin: 2.5rem 0;
+            overflow: hidden;
+        }
+
+        .grammar-block-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 1.75rem 1.25rem;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .section-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 8px;
+            padding: .3rem .75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .grammar-block-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(17px, 2.4vw, 23px);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+
+        .grammar-block-body {
+            padding: 1.75rem;
+        }
+
+        /* ── INTRO PARA ── */
+        .intro-para {
+            background: var(--paper);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-para strong {
+            color: var(--primary-dark);
+        }
+
+        .intro-para em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── SUB-HEADINGS ── */
+        .grammar-block-body h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 1.75rem 0 .75rem;
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .grammar-block-body h4 {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 1.2rem 0 .5rem;
+        }
+
+        /* ── FORMULA BOX ── */
+        .formula-box {
+            font-family: 'DM Mono', monospace;
+            font-size: 1rem;
+            text-align: center;
+            background: var(--paper);
+            border: 2px dashed var(--primary-mid);
+            border-radius: 12px;
+            padding: .9rem 1.5rem;
+            margin: .75rem 0 1.25rem;
+            color: var(--primary-dark);
+            letter-spacing: .03em;
+        }
+
+        /* ── TABLES ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: .75rem 0 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 12px var(--shadow);
+        }
+
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .95rem;
+        }
+
+        table.grammar-table thead th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-align: left;
+            padding: .75rem 1rem;
+            white-space: nowrap;
+        }
+
+        table.grammar-table tbody td {
+            padding: .7rem 1rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        table.grammar-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.grammar-table tbody tr:hover td {
+            background: rgba(214, 228, 255, .22);
+        }
+
+        table.grammar-table em {
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+
+        table.grammar-table strong {
+            font-weight: 600;
+        }
+
+        /* ── USAGE LIST ── */
+        .usage-list {
+            list-style: none;
+            margin: .5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .usage-list li {
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .usage-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .57rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .usage-list li strong {
+            display: block;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .usage-list li em {
+            display: block;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: .2rem;
+            font-size: 1rem;
+        }
+
+        .usage-note {
+            font-size: .88rem;
+            color: var(--muted);
+            font-style: normal;
+        }
+
+        .usage-note strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ── KEYWORD CHIPS ── */
+        .kw-chip {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 6px;
+            padding: .1rem .45rem;
+            margin: .1rem .15rem;
+        }
+
+        /* ── ERROR BLOCK ── */
+        .error-block {
+            background: var(--surface-alt);
+            border-radius: 14px;
+            margin: 1.75rem 0;
+            overflow: hidden;
+        }
+
+        .error-block-header {
+            background: linear-gradient(90deg, var(--error), var(--primary-mid));
+            padding: .65rem 1.25rem;
+        }
+
+        .error-block-header span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .error-block-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .error-item-label {
+            font-size: .8rem;
+            font-family: 'DM Mono', monospace;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .4rem;
+        }
+
+        .err-wrong {
+            color: var(--error);
+            font-style: italic;
+            font-size: .97rem;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            margin-bottom: .3rem;
+        }
+
+        .err-wrong .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-wrong .txt {
+            text-decoration: line-through;
+            opacity: .85;
+        }
+
+        .err-right {
+            color: var(--success);
+            font-weight: 600;
+            font-size: .97rem;
+            font-style: italic;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+        }
+
+        .err-right .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-context {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .38);
+            font-style: normal;
+            margin-top: .25rem;
+            padding-left: 1.4rem;
+        }
+
+        /* ── ALERT BOX ── */
+        .alert-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .alert-box .alert-title {
+            font-weight: 700;
+            font-size: .88rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--primary-dark);
+            margin-bottom: .45rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .alert-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+
+        .alert-box ul li {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box ul li::before {
+            content: '→ ';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .alert-box p {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box p+p {
+            margin-top: .4rem;
+        }
+
+        /* ── FEATURE BOX ── */
+        .feature-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            color: #fff;
+        }
+
+        .feature-box .feature-title {
+            font-size: .82rem;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: .55rem;
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            margin-bottom: .4rem;
+        }
+
+        .feature-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-box em {
+            font-style: italic;
+            color: var(--primary-mid);
+        }
+
+        .feature-box strong {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .feature-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+            margin-top: .45rem;
+        }
+
+        .feature-box ul li {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .feature-box ul li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 1.3rem;
+            line-height: .9;
+        }
+
+        /* ── SUBJECT vs OBJECT PAIR ── */
+        .so-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .so-card {
+            border-radius: 12px;
+            padding: .9rem 1.1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .so-card.subj {
+            background: rgba(59, 111, 191, .07);
+            border-color: rgba(59, 111, 191, .3);
+        }
+
+        .so-card.obj {
+            background: rgba(46, 158, 104, .07);
+            border-color: rgba(46, 158, 104, .3);
+        }
+
+        .so-card .sc-label {
+            font-size: .73rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            margin-bottom: .4rem;
+        }
+
+        .so-card.subj .sc-label {
+            color: var(--primary);
+        }
+
+        .so-card.obj .sc-label {
+            color: var(--success);
+        }
+
+        .so-card .sc-formula {
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            color: var(--muted);
+            margin-bottom: .35rem;
+        }
+
+        .so-card .sc-ex {
+            font-style: italic;
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .so-card .sc-note {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-top: .3rem;
+        }
+
+        /* ── SPECIAL CASES GRID ── */
+        .special-grid {
+            display: flex;
+            flex-direction: column;
+            gap: .55rem;
+            margin: .75rem 0;
+        }
+
+        .special-row {
+            display: flex;
+            align-items: baseline;
+            gap: .75rem;
+            background: var(--paper);
+            border-radius: 8px;
+            padding: .55rem .9rem;
+            border: 1px solid var(--line);
+        }
+
+        .special-row .sr-key {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+            white-space: nowrap;
+            flex-shrink: 0;
+            min-width: 7rem;
+        }
+
+        .special-row .sr-ex {
+            font-style: italic;
+            font-size: .97rem;
+            color: var(--ink);
+            flex: 1;
+        }
+
+        .special-row .sr-tag {
+            font-family: 'DM Mono', monospace;
+            font-size: .82rem;
+            font-weight: 500;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* ── INTONATION PAIR ── */
+        .intonation-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .inton-card {
+            border-radius: 12px;
+            padding: .9rem 1.1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .inton-card.down {
+            background: rgba(59, 111, 191, .07);
+            border-color: rgba(59, 111, 191, .3);
+        }
+
+        .inton-card.up {
+            background: rgba(245, 164, 90, .1);
+            border-color: rgba(200, 107, 26, .3);
+        }
+
+        .inton-card .ic-label {
+            font-size: .73rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            margin-bottom: .4rem;
+        }
+
+        .inton-card.down .ic-label {
+            color: var(--primary);
+        }
+
+        .inton-card.up .ic-label {
+            color: #C86B1A;
+        }
+
+        .inton-card .ic-arrow {
+            font-size: 1.4rem;
+            margin-bottom: .35rem;
+        }
+
+        .inton-card .ic-ex {
+            font-style: italic;
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .inton-card .ic-note {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-top: .25rem;
+        }
+
+        /* ── FLAG COMPARE ── */
+        .flag-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .flag-card {
+            background: var(--surface);
+            border-radius: 10px;
+            padding: .85rem 1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .flag-card .flag-label {
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--muted);
+            margin-bottom: .35rem;
+        }
+
+        .flag-card .flag-ex {
+            font-style: italic;
+            color: var(--primary-dark);
+            font-size: .97rem;
+        }
+
+        /* ── DECISION FLOWCHART ── */
+        .decision-block {
+            background: var(--ink);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .decision-block .db-title {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--primary-mid);
+            margin-bottom: 1rem;
+        }
+
+        .decision-block pre {
+            background: transparent;
+            color: rgba(255, 255, 255, .78);
+            font-family: 'DM Mono', monospace;
+            font-size: .88rem;
+            line-height: 1.72;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .decision-block pre .hl {
+            color: var(--primary-mid);
+            font-weight: 500;
+        }
+
+        /* ── SELF CHECK ── */
+        .self-check {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .self-check .sc-title {
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .6rem;
+        }
+
+        .self-check ol {
+            padding-left: 1.25rem;
+            color: var(--ink);
+            font-size: .97rem;
+        }
+
+        .self-check ol li {
+            margin-bottom: .35rem;
+        }
+
+        /* ── SUMMARY BLOCK ── */
+        .summary-block {
+            background: var(--ink);
+            color: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .summary-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 1.25rem;
+            color: var(--primary-mid);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1.5px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+        }
+
+        .summary-card .sc-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .73rem;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            color: var(--primary-mid);
+            margin-bottom: .3rem;
+        }
+
+        .summary-card .sc-desc {
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .summary-outro {
+            font-style: italic;
+            color: rgba(255, 255, 255, .5);
+            font-size: .95rem;
+            margin-top: .75rem;
+        }
+
+        /* ── READING PASSAGE ── */
+        .reading-passage {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 2rem 2.25rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .reading-passage .rp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .75rem;
+        }
+
+        .reading-passage p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.08rem;
+            line-height: 1.88;
+            margin-bottom: 1.4rem;
+            color: #2a2934;
+        }
+
+        .reading-passage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reading-passage strong {
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: .05em .22em;
+            border-radius: 3px;
+        }
+
+        /* ── GRAMMAR FEATURES ── */
+        .grammar-features {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .grammar-features h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .6rem;
+        }
+
+        .grammar-features p {
+            font-size: .97rem;
+            line-height: 1.72;
+            margin-bottom: .9rem;
+            color: var(--ink);
+        }
+
+        .grammar-features p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grammar-features strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .grammar-features em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--muted);
+            font-size: .85rem;
+            border-top: 1px solid var(--line);
+            margin-top: 3rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:640px) {
+            .page-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .grammar-block-body {
+                padding: 1.25rem;
+            }
+
+            .grammar-block-header {
+                padding: 1.1rem 1.25rem 1rem;
+            }
+
+            .so-pair {
+                grid-template-columns: 1fr;
+            }
+
+            .intonation-pair {
+                grid-template-columns: 1fr;
+            }
+
+            .flag-compare {
+                grid-template-columns: 1fr;
+            }
+
+            .special-row {
+                flex-direction: column;
+                gap: .3rem;
+            }
+
+            .reading-passage {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .summary-block {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .grammar-features {
+                padding: 1.25rem;
+            }
+
+            table.grammar-table {
+                font-size: .87rem;
+            }
+
+            table.grammar-table thead th,
+            table.grammar-table tbody td {
+                padding: .6rem .75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <header class="hero">
+        <div class="hero-badge">Unit 10 · Destination B2</div>
+        <h1>QUESTIONS &amp; QUESTION TAGS<br><em>Nghệ Thuật Đặt Câu Hỏi</em></h1>
+        <p class="hero-intro">
+            <em>"How are you?"</em>, <em>"Where are you from?"</em>, <em>"You're Vietnamese, <strong>aren't
+                    you</strong>?"</em> — Câu hỏi chính là cách chúng ta kết nối với thế giới. Nhưng làm sao để hỏi như
+            người bản xứ? Hãy cùng khám phá!
+        </p>
+    </header>
+
+    <main>
+        <div class="page-container">
+
+            <!-- ═══════════════════════════════════════
+     10.1 DIRECT QUESTIONS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">10.1</span>
+                    <h2>Direct Questions — <em style="font-style:italic;color:var(--primary);">Câu Hỏi Trực Tiếp</em>
+                    </h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Tại sao <em>"Where you are from?"</em> nghe sai sai?<br>
+                        <strong>Bản chất:</strong> Câu hỏi trong tiếng Anh có <strong>trật tự từ đặc biệt</strong> —
+                        không giống tiếng Việt!
+                    </div>
+
+                    <h3>📝 Các loại câu hỏi:</h3>
+
+                    <h4>1. Với BE làm động từ chính:</h4>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Thì</th>
+                                    <th>Câu hỏi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Hiện tại</strong></td>
+                                    <td><em>Are you tired?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Quá khứ</strong></td>
+                                    <td><em>Were they at home?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tiếp diễn</strong></td>
+                                    <td><em>Is he working?</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>2. Với HAVE làm động từ chính:</h4>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Cách dùng</th>
+                                    <th>Câu hỏi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Have got</strong></td>
+                                    <td><em>Have you got any money?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Have (khác)</strong></td>
+                                    <td><em>Do you have enough time?</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>3. Với Modal Verbs:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Modal + Subject + V:</strong>
+                            <em>Should I wait? / Could you help me? / Will Jay be here soon?</em>
+                        </li>
+                    </ul>
+
+                    <h4>4. Với động từ thường:</h4>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Thì</th>
+                                    <th>Câu hỏi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Hiện tại</strong></td>
+                                    <td><em>Do you like coffee?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Quá khứ</strong></td>
+                                    <td><em>Did they come yesterday?</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🔥 WH-Questions:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Từ hỏi</th>
+                                    <th>Hỏi về</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Who</strong></td>
+                                    <td>Người (chủ ngữ)</td>
+                                    <td><em>Who is taking the rubbish out?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Whose</strong></td>
+                                    <td>Sở hữu</td>
+                                    <td><em>Whose book is this?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Whom</strong></td>
+                                    <td>Người (tân ngữ)</td>
+                                    <td><em>To whom did you speak?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>What</strong></td>
+                                    <td>Vật / Việc</td>
+                                    <td><em>What is the weather like?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Which</strong></td>
+                                    <td>Lựa chọn</td>
+                                    <td><em>Which do you want?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Where</strong></td>
+                                    <td>Nơi chốn</td>
+                                    <td><em>Where did you go?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>When</strong></td>
+                                    <td>Thời gian</td>
+                                    <td><em>When is Terry starting work?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Why</strong></td>
+                                    <td>Lý do</td>
+                                    <td><em>Why did they leave?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>How</strong></td>
+                                    <td>Cách thức</td>
+                                    <td><em>How do you spell 'environment'?</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🔥 Phân biệt WHO chủ ngữ vs WHO tân ngữ:</h3>
+                    <div class="so-pair">
+                        <div class="so-card subj">
+                            <div class="sc-label">WHO = Chủ ngữ</div>
+                            <div class="sc-formula">WHO + V (không dùng DO)</div>
+                            <div class="sc-ex"><em>Who <strong>called</strong> you?</em></div>
+                            <div class="sc-note">Ai đã gọi bạn? → WHO tự là chủ ngữ</div>
+                        </div>
+                        <div class="so-card obj">
+                            <div class="sc-label">WHO = Tân ngữ</div>
+                            <div class="sc-formula">WHO + DO + S + V</div>
+                            <div class="sc-ex"><em>Who <strong>did</strong> you <strong>call</strong>?</em></div>
+                            <div class="sc-note">Bạn đã gọi ai? → WHO là tân ngữ, cần DO</div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ — Trật Tự Câu Hỏi</div>
+                        <ul>
+                            <li><strong>Công thức:</strong> WH-word + Auxiliary + Subject + Main Verb</li>
+                            <li><strong>Với BE/HAVE/Modal:</strong> Không cần trợ động từ thêm</li>
+                            <li><strong>WHO chủ ngữ:</strong> Không cần DO</li>
+                        </ul>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Quên đảo ngữ:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">Where you are
+                                        from?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>Where are you from?</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng sai trợ động từ:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">Did you went
+                                        there?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>Did you go there?</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 3 — Nhầm lẫn với "mean":</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">What means
+                                        'environment'?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>What does 'environment'
+                                        mean?</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     10.2 QUESTION TAGS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">10.2</span>
+                    <h2>Question Tags — <em style="font-style:italic;color:var(--primary);">"Đuôi" Câu Hỏi</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"You're from Vietnam, aren't you?"</em> — Tại sao có "aren't
+                        you"?<br>
+                        <strong>Bản chất:</strong> Question tags như <strong>"phần đuôi"</strong> — giúp câu nói thân
+                        thiện hơn và kiểm tra thông tin.
+                    </div>
+
+                    <h3>📝 Quy tắc vàng:</h3>
+                    <div class="formula-box">Câu KHẲNG ĐỊNH + question tag PHỦ ĐỊNH<br>Câu PHỦ ĐỊNH + question tag KHẲNG
+                        ĐỊNH</div>
+
+                    <h3>🎯 Các trường hợp cơ bản:</h3>
+
+                    <h4>1. Với BE:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Khẳng định → phủ định:</strong>
+                            <em>You are Canadian, <strong>aren't you</strong>?</em>
+                        </li>
+                        <li>
+                            <strong>Phủ định → khẳng định:</strong>
+                            <em>She isn't beautiful, <strong>is she</strong>?</em>
+                        </li>
+                    </ul>
+
+                    <h4>2. Với Auxiliary Verbs:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Have:</strong>
+                            <em>You haven't lost my CD, <strong>have you</strong>?</em>
+                        </li>
+                        <li>
+                            <strong>Continuous:</strong>
+                            <em>We are having lesson early, <strong>aren't we</strong>?</em>
+                        </li>
+                    </ul>
+
+                    <h4>3. Với Modal Verbs:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Should:</strong>
+                            <em>People should recycle, <strong>shouldn't they</strong>?</em>
+                        </li>
+                        <li>
+                            <strong>Will → won't:</strong>
+                            <em>There will be many people, <strong>won't there</strong>?</em>
+                        </li>
+                    </ul>
+
+                    <h4>4. Với HAVE sở hữu:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Cả hai đều đúng:</strong>
+                            <em>Tom has a car, <strong>hasn't he</strong> / <strong>doesn't he</strong>?</em>
+                            <span class="usage-note">Tiếng Anh Anh thường dùng "hasn't he", Mỹ dùng "doesn't he"</span>
+                        </li>
+                    </ul>
+
+                    <h4>5. Với động từ thường:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <em>You play guitar, <strong>don't you</strong>?</em>
+                        </li>
+                        <li>
+                            <em>Frank lives in Germany, <strong>doesn't he</strong>?</em>
+                        </li>
+                    </ul>
+
+                    <h3>🔥 Trường hợp đặc biệt:</h3>
+                    <div class="special-grid">
+                        <div class="special-row">
+                            <span class="sr-key">I am →</span>
+                            <span class="sr-ex"><em>I'm the best student, <strong>aren't I</strong>?</em></span>
+                            <span class="sr-tag">aren't I</span>
+                        </div>
+                        <div class="special-row">
+                            <span class="sr-key">I'm not →</span>
+                            <span class="sr-ex"><em>I'm not very tall, <strong>am I</strong>?</em></span>
+                            <span class="sr-tag">am I</span>
+                        </div>
+                        <div class="special-row">
+                            <span class="sr-key">Let's →</span>
+                            <span class="sr-ex"><em>Let's get a DVD tonight, <strong>shall we</strong>?</em></span>
+                            <span class="sr-tag">shall we</span>
+                        </div>
+                        <div class="special-row">
+                            <span class="sr-key">Imperatives →</span>
+                            <span class="sr-ex"><em>Pass me that book, <strong>will you</strong>? / Don't forget
+                                    tonight, <strong>will you</strong>?</em></span>
+                            <span class="sr-tag">will you</span>
+                        </div>
+                        <div class="special-row">
+                            <span class="sr-key">Everyone →</span>
+                            <span class="sr-ex"><em>Everyone's going, <strong>aren't they</strong>?</em></span>
+                            <span class="sr-tag">they</span>
+                        </div>
+                        <div class="special-row">
+                            <span class="sr-key">Someone →</span>
+                            <span class="sr-ex"><em>Someone's been here, <strong>haven't they</strong>?</em></span>
+                            <span class="sr-tag">they</span>
+                        </div>
+                        <div class="special-row">
+                            <span class="sr-key">No one →</span>
+                            <span class="sr-ex"><em>No one wants to go, <strong>do they</strong>?</em></span>
+                            <span class="sr-tag">positive!</span>
+                        </div>
+                        <div class="special-row">
+                            <span class="sr-key">There →</span>
+                            <span class="sr-ex"><em>There's no point calling, <strong>is there</strong>?</em></span>
+                            <span class="sr-tag">there</span>
+                        </div>
+                    </div>
+
+                    <h3>🔊 Ngữ điệu:</h3>
+                    <div class="intonation-pair">
+                        <div class="inton-card down">
+                            <div class="ic-label">Đồng ý / Xác nhận</div>
+                            <div class="ic-arrow">↘ Xuống</div>
+                            <div class="ic-ex"><em>It's hot, isn't it?</em> ↘</div>
+                            <div class="ic-note">Người nói gần như chắc chắn, tìm kiếm sự đồng ý</div>
+                        </div>
+                        <div class="inton-card up">
+                            <div class="ic-label">Kiểm tra / Không chắc</div>
+                            <div class="ic-arrow">↗ Lên</div>
+                            <div class="ic-ex"><em>You're Spanish, aren't you?</em> ↗</div>
+                            <div class="ic-note">Người nói không chắc, đang hỏi thật sự</div>
+                        </div>
+                    </div>
+
+                    <h3>🇺🇸🇬🇧 Khác biệt Mỹ – Anh:</h3>
+                    <div class="flag-compare">
+                        <div class="flag-card">
+                            <div class="flag-label">🇺🇸 Tiếng Anh Mỹ</div>
+                            <div class="flag-ex"><em>They've got money, <strong>don't they</strong>?</em></div>
+                        </div>
+                        <div class="flag-card">
+                            <div class="flag-label">🇬🇧 Tiếng Anh Anh</div>
+                            <div class="flag-ex"><em>They've got money, <strong>haven't they</strong>?</em></div>
+                        </div>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Sai quy tắc khẳng định/phủ định:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">You are tired, are
+                                        you?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>You are tired, aren't
+                                        you?</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Nhầm lẫn với từ phủ định (no one, nobody,
+                                    nothing):</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">No one came, didn't
+                                        they?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>No one came, did they?</span>
+                                </div>
+                                <div class="err-context">Từ phủ định → tag KHẲNG ĐỊNH!</div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 3 — Sai đại từ trong tag:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I'm the best, am not
+                                        I?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I'm the best, aren't I?</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     10.3 INDIRECT QUESTIONS
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">10.3</span>
+                    <h2>Indirect Questions — <em style="font-style:italic;color:var(--primary);">Câu Hỏi Gián Tiếp (Lịch
+                            Sự)</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Làm sao hỏi một cách <em>"lịch sự"</em>?<br>
+                        <strong>Bản chất:</strong> Cách hỏi <strong>lịch sự, trang trọng</strong> hơn — đặc biệt khi nói
+                        với người lạ hoặc trong môi trường formal.
+                    </div>
+
+                    <h3>📝 Cấu trúc:</h3>
+                    <div class="formula-box">Introductory phrase + clause (trật tự bình thường — như câu khẳng định)
+                    </div>
+
+                    <h3>🎯 Các cụm mở đầu:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Cụm mở đầu</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Could you tell me…?</strong></td>
+                                    <td><em>Could you tell me <strong>what time it is</strong>?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Could you let me know…?</strong></td>
+                                    <td><em>Could you let me know <strong>when it starts</strong>?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Do you know…?</strong></td>
+                                    <td><em>Do you know <strong>who that woman is</strong>?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>I wonder if you could tell me…</strong></td>
+                                    <td><em>I wonder if you could tell me <strong>how much this costs</strong>.</em>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>I would like to know…</strong></td>
+                                    <td><em>I would like to know <strong>what your company will do</strong>.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🔥 Điểm quan trọng:</h3>
+
+                    <h4>1. Trật tự từ bình thường (không đảo ngữ):</h4>
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ Lỗi phổ biến nhất</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">Could you tell me
+                                        where is the library?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>Could you tell me where
+                                        <strong>the library is</strong>?</span></div>
+                                <div class="err-context">Sau cụm mở đầu → trật tự bình thường (S + V)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>2. Yes/No questions → IF / WHETHER:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Direct:</strong>
+                            <em>Is he coming?</em>
+                        </li>
+                        <li>
+                            <strong>Indirect:</strong>
+                            <em>I wonder <strong>if / whether</strong> he is coming.</em>
+                        </li>
+                    </ul>
+
+                    <h4>3. Dấu hỏi chấm:</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Có dấu hỏi (câu hỏi):</strong>
+                            <em>Could you tell me where the library is<strong>?</strong></em>
+                        </li>
+                        <li>
+                            <strong>Không có dấu hỏi (câu trần thuật):</strong>
+                            <em>I wonder where the library is<strong>.</strong></em>
+                        </li>
+                    </ul>
+
+                    <h3>🔄 So sánh Direct vs Indirect:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Direct</th>
+                                    <th>Indirect</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em>Where is the bank?</em></td>
+                                    <td><em>Could you tell me <strong>where the bank is</strong>?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>What time does it start?</em></td>
+                                    <td><em>Do you know <strong>what time it starts</strong>?</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>Are you married?</em></td>
+                                    <td><em>I wonder <strong>if you are married</strong>.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Giữ nguyên trật tự câu hỏi:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I wonder when does
+                                        the train leave.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I wonder when the train
+                                        leaves.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Quên IF/WHETHER với Yes/No questions:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">Could you tell me
+                                        are you coming?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>Could you tell me if you are
+                                        coming?</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>Indirect questions:</strong> Trật tự như câu khẳng định (S + V)</li>
+                            <li><strong>Yes/No → IF/WHETHER</strong></li>
+                            <li><strong>Lịch sự hơn</strong> direct questions rất nhiều!</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     TỔNG KẾT
+══════════════════════════════════════════ -->
+            <div class="summary-block">
+                <h2>Tổng Kết Unit 10</h2>
+
+                <div class="decision-block" style="margin-bottom:1.5rem;">
+                    <div class="db-title">🎯 Sơ Đồ Quyết Định Loại Câu Hỏi</div>
+                    <pre>QUESTIONS — Chọn loại nào? 🤔
+
+Hỏi thông tin trực tiếp?                → <span class="hl">DIRECT QUESTIONS</span>
+Muốn lịch sự / trang trọng?              → <span class="hl">INDIRECT QUESTIONS</span>
+Kiểm tra thông tin / thân thiện?         → <span class="hl">QUESTION TAGS</span>
+Hỏi về người (chủ ngữ)?                 → <span class="hl">WHO (không dùng DO)</span>
+Hỏi về người (tân ngữ)?                 → <span class="hl">WHO + DO</span>
+Tag sau "No one" / từ phủ định?          → <span class="hl">TAG KHẲNG ĐỊNH</span></pre>
+                </div>
+
+                <h3
+                    style="color:var(--primary-mid);font-family:'DM Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.85rem;">
+                    📊 Bảng tham khảo nhanh</h3>
+                <div class="table-wrap" style="margin-bottom:1.5rem;">
+                    <table class="grammar-table">
+                        <thead>
+                            <tr>
+                                <th>Loại</th>
+                                <th>Cấu trúc</th>
+                                <th>Ví dụ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Direct</strong></td>
+                                <td><em>WH + Aux + S + V</em></td>
+                                <td><em>Where do you live?</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Indirect</strong></td>
+                                <td><em>Phrase + S + V</em></td>
+                                <td><em>Could you tell me where you live?</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Question Tags</strong></td>
+                                <td><em>Statement + opposite tag</em></td>
+                                <td><em>You're tired, aren't you?</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Yes/No Indirect</strong></td>
+                                <td><em>Phrase + if/whether + S + V</em></td>
+                                <td><em>I wonder if you're coming.</em></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="sc-label">10.1 · Direct Questions</div>
+                        <div class="sc-desc">WH + Aux + S + V · WHO chủ ngữ không dùng DO</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">10.2 · Question Tags</div>
+                        <div class="sc-desc">+/- → -/+ · Đặc biệt: aren't I, shall we, will you</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">10.3 · Indirect Questions</div>
+                        <div class="sc-desc">Phrase + S + V (bình thường) · Yes/No → if/whether</div>
+                    </div>
+                </div>
+
+                <div class="self-check"
+                    style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);margin-top:1.25rem;">
+                    <div class="sc-title" style="color:var(--primary-mid);">📚 Câu Hỏi Tự Kiểm Tra</div>
+                    <ol style="color:rgba(255,255,255,.8);">
+                        <li>"Where you live?" vs "Where do you live?" — Cái nào đúng?</li>
+                        <li>"You can swim, can you?" vs "You can swim, can't you?" — Cái nào đúng?</li>
+                        <li>"Could you tell me where is the bank?" vs "where the bank is?" — Cái nào đúng?</li>
+                    </ol>
+                </div>
+
+                <p class="summary-outro">Tuyệt vời! Chúng ta vừa thành thạo nghệ thuật đặt câu hỏi. Tiếp theo, hãy khám
+                    phá Reported Speech — cách "kể lại" những gì người khác đã nói một cách chuyên nghiệp!</p>
+            </div>
+
+            <!-- ═══════════════════════════════════════
+     READING PASSAGE
+══════════════════════════════════════════ -->
+            <section class="reading-passage">
+                <div class="rp-title">📖 The Art of Connection: Making New Friends</div>
+
+                <p>Making new friends as an adult can often feel like a challenge, can't it? The process fundamentally
+                    relies on the art of conversation, and the very soul of conversation is the question. <strong>How do
+                        you start a conversation with a stranger? What do you say?</strong> The way we ask questions
+                    determines whether a conversation blossoms or fades away. From direct inquiries to gentle,
+                    rapport-building tags, understanding the different forms of questions is essential for anyone
+                    looking to expand their social circle.</p>
+
+                <p>When you first meet someone, direct questions are the most common tool. The key is to remember the
+                    basic structure: (WH-word) + Auxiliary + Subject + Verb. It's a simple formula that prevents common
+                    mistakes, such as asking "<em>Where you are from?</em>" instead of the correct "<strong>Where are
+                        you from?</strong>" Basic questions like "<strong>Are you enjoying the party?</strong>" or
+                    "<strong>Have you got any plans for the weekend?</strong>" are great icebreakers. To delve deeper,
+                    one might ask, "<strong>What does your typical workday look like?</strong>" It's important to use
+                    the right auxiliary verb; you wouldn't ask "<em>Did you went to the concert last night?</em>", but
+                    rather "<strong>Did you go…?</strong>" A particularly interesting feature of English questions is
+                    the difference between asking about the subject and the object. You might ask, "<strong>Who
+                        introduced you to this group?</strong>" where 'Who' is the subject and no 'do' is needed. But if
+                    you wanted to know about their companion, you would ask, "<strong>Who did you come with?</strong>"
+                    where 'Who' is the object. Mastering these direct forms is the first step toward confident
+                    communication.</p>
+
+                <p>Once a conversation is flowing, question tags become invaluable for creating a friendly atmosphere.
+                    The golden rule is simple: a positive statement is followed by a negative tag, and vice versa.
+                    Saying, "<strong>You work in marketing, don't you?</strong>" with a rising intonation is a great way
+                    to check information you're unsure about. On the other hand, stating, "<strong>It's a beautiful day,
+                        isn't it?</strong>" with a falling intonation invites agreement and builds connection. English
+                    has some fascinating special cases. If you feel you're dominating the conversation, you might say,
+                    "<strong>I'm talking a lot, aren't I?</strong>" using the unique tag for "I am." To make a friendly
+                    suggestion, you could say, "<strong>Let's exchange numbers, shall we?</strong>" Even a simple
+                    request can be softened: "<strong>Don't forget to add me on social media, will you?</strong>" When
+                    observing a group, you might remark, "<strong>Everyone seems to be having a good time, don't
+                        they?</strong>" It's crucial to remember that words like 'no one' are negative, so they take a
+                    positive tag; for instance, "<strong>No one knows each other here, do they?</strong>" This avoids
+                    the common error of using a double negative.</p>
+
+                <p>While direct questions are useful, there are times when a softer, more polite approach is needed,
+                    especially when asking for personal information or speaking to someone in a more formal setting.
+                    This is where indirect questions excel. Instead of asking bluntly, "<strong>What time does the event
+                        end?</strong>" you could ask, "<strong>Do you know what time the event ends?</strong>" The
+                    essential trick is that after the introductory phrase, the word order returns to that of a normal
+                    statement. A frequent mistake is to keep the question's inverted order, like "<em>Could you tell me
+                        where is the nearest cafe?</em>" The correct, polite form is "<strong>Could you tell me where
+                        the nearest cafe is?</strong>" For Yes/No questions, 'if' or 'whether' is used. Rather than
+                    asking "<strong>Are you free for coffee next week?</strong>" a more considerate inquiry would be,
+                    "<strong>I was wondering if you are free for coffee next week.</strong>" This gentle approach shows
+                    respect and makes the other person feel more comfortable.</p>
+
+                <p>Ultimately, the ability to ask questions effectively is a social superpower. It allows us to learn
+                    about others, show interest, and build the foundations of a lasting friendship. Moving seamlessly
+                    between a direct "<strong>What kind of music do you like?</strong>" and a softer "<strong>I'd like
+                        to know what your favorite bands are</strong>" demonstrates social intelligence. Using tags
+                    helps transform a simple exchange into a shared experience. The art of making new friends isn't
+                    about having all the right answers; it's about asking all the right questions, <strong>isn't
+                        it?</strong></p>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+     GRAMMAR FEATURES
+══════════════════════════════════════════ -->
+            <section class="grammar-features">
+                <h2>Grammar Features Highlighted</h2>
+
+                <p><strong>Direct Questions — WH-Questions:</strong> Correctly formed with auxiliary verbs (<em>How do
+                        you start…?</em>, <em>What do you say?</em>, <em>Where are you from?</em>, <em>Who did you come
+                        with?</em>).</p>
+
+                <p><strong>Yes/No Questions:</strong> With 'be' (<em>Are you enjoying…?</em>), 'have got' (<em>Have you
+                        got…?</em>), and 'do' (<em>Did you go…?</em>).</p>
+
+                <p><strong>Subject vs Object Questions:</strong> Demonstrates the difference between <em>Who introduced
+                        you…?</em> (subject — no 'do') and <em>Who did you come with?</em> (object — needs 'do').</p>
+
+                <p><strong>Question Tags — Basic Rule:</strong> Demonstrates positive statement + negative tag (<em>It's
+                        a beautiful day, isn't it?</em>) and negative + positive (<em>No one knows…, do they?</em>).</p>
+
+                <p><strong>Question Tags — Special Cases:</strong> "I am" → "aren't I?"; "Let's" → "shall we?";
+                    Imperatives → "will you?"; Everyone/No one uses "they"; Negative words take positive tags.</p>
+
+                <p><strong>Intonation:</strong> Mentions the difference between rising (checking information) and
+                    falling (seeking agreement) intonation.</p>
+
+                <p><strong>Indirect Questions — Politeness:</strong> Framed as a more polite way to ask questions.</p>
+
+                <p><strong>Indirect Questions — Normal Word Order:</strong> Correctly uses statement word order after
+                    the introductory phrase (<em>…what time the event ends</em>, <em>…where the nearest cafe is</em>).
+                    Directly addresses and corrects the most common error.</p>
+
+                <p><strong>Indirect Questions — If/Whether:</strong> Correctly uses 'if' for a Yes/No indirect question
+                    (<em>I was wondering if you are free…</em>).</p>
+
+                <p><strong>Common Errors Avoided:</strong> No "Where you are from?"; correct past tense in questions
+                    (<em>Did you go</em> not <em>Did you went</em>); correct tag polarity; no double negatives; proper
+                    word order in indirect questions; 'if/whether' used for Yes/No indirect questions.</p>
+            </section>
+
+        </div><!-- /page-container -->
+    </main>
+
+    <footer>
+        <p>Destination B2 · Unit 10 — Questions &amp; Question Tags &nbsp;|&nbsp; Nghệ Thuật Đặt Câu Hỏi</p>
+    </footer>
+
+</body>
+
+</html>

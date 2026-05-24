@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 9 – -ING vs TO-Infinitive | Destination B2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ══════════════════════════════════════
+   THEME C · ORANGE/AMBER
+   -ING vs TO-Infinitive / Verb Forms
+══════════════════════════════════════ */
+        :root {
+            --primary: #C86B1A;
+            --primary-light: #FFE4C4;
+            --primary-mid: #F5A45A;
+            --primary-dark: #6E3605;
+            --primary-rgb: 200, 107, 26;
+
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F8F8F6;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #E2E0DB;
+            --shadow: rgba(20, 19, 28, .05);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.72;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+        .hero {
+            background-color: var(--ink);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 65% 55% at 20% 30%, rgba(200, 107, 26, .32) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 45% at 80% 70%, rgba(245, 164, 90, .2) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1.5px solid rgba(245, 164, 90, .45);
+            border-radius: 40px;
+            padding: .35rem 1.1rem;
+            margin-bottom: 1.4rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.18;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--primary-mid);
+        }
+
+        .hero-intro {
+            max-width: 720px;
+            margin: 1.4rem auto 0;
+            font-size: 1.03rem;
+            color: rgba(255, 255, 255, .72);
+            line-height: 1.78;
+            position: relative;
+        }
+
+        .hero-intro strong {
+            color: var(--primary-mid);
+            font-weight: 600;
+        }
+
+        .hero-intro em {
+            font-style: italic;
+            color: rgba(255, 255, 255, .85);
+        }
+
+        /* ══════════════════════════════════════
+   GRAMMAR BLOCK
+══════════════════════════════════════ */
+        .grammar-block {
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 2px 20px var(--shadow);
+            margin: 2.5rem 0;
+            overflow: hidden;
+        }
+
+        .grammar-block-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 1.75rem 1.25rem;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .section-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 8px;
+            padding: .3rem .75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .grammar-block-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(17px, 2.4vw, 23px);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+
+        .grammar-block-body {
+            padding: 1.75rem;
+        }
+
+        /* ── INTRO PARA ── */
+        .intro-para {
+            background: var(--paper);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-para strong {
+            color: var(--primary-dark);
+        }
+
+        .intro-para em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── SUB-HEADINGS ── */
+        .grammar-block-body h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 1.75rem 0 .75rem;
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .grammar-block-body h4 {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 1.2rem 0 .5rem;
+        }
+
+        /* ── FORMULA BOX ── */
+        .formula-box {
+            font-family: 'DM Mono', monospace;
+            font-size: 1rem;
+            text-align: center;
+            background: var(--paper);
+            border: 2px dashed var(--primary-mid);
+            border-radius: 12px;
+            padding: .9rem 1.5rem;
+            margin: .75rem 0 1.25rem;
+            color: var(--primary-dark);
+            letter-spacing: .03em;
+        }
+
+        /* ── TABLES ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: .75rem 0 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 12px var(--shadow);
+        }
+
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .95rem;
+        }
+
+        table.grammar-table thead th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-align: left;
+            padding: .75rem 1rem;
+            white-space: nowrap;
+        }
+
+        table.grammar-table tbody td {
+            padding: .7rem 1rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        table.grammar-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.grammar-table tbody tr:hover td {
+            background: rgba(255, 228, 196, .25);
+        }
+
+        table.grammar-table em {
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+
+        table.grammar-table strong {
+            font-weight: 600;
+        }
+
+        /* ── USAGE LIST ── */
+        .usage-list {
+            list-style: none;
+            margin: .5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .usage-list li {
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .usage-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .57rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .usage-list li strong {
+            display: block;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .usage-list li em {
+            display: block;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: .2rem;
+            font-size: 1rem;
+        }
+
+        .usage-note {
+            font-size: .88rem;
+            color: var(--muted);
+            font-style: normal;
+        }
+
+        .usage-note strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ── KEYWORD CHIPS ── */
+        .kw-chip {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 6px;
+            padding: .1rem .45rem;
+            margin: .1rem .15rem;
+        }
+
+        /* ── VERB GROUP CARD ── */
+        .verb-group {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: .9rem 1.1rem;
+            margin: .6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verb-group::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .verb-group .vg-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .72rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--primary);
+            margin-bottom: .4rem;
+        }
+
+        .verb-group .vg-verbs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .35rem;
+            margin-bottom: .5rem;
+        }
+
+        .verb-group .vg-example {
+            font-style: italic;
+            font-size: .95rem;
+            color: var(--ink);
+        }
+
+        .verb-group .vg-example em {
+            color: var(--primary-dark);
+        }
+
+        /* ── MEANING PAIR (for remember/stop/try) ── */
+        .meaning-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: .75rem 0;
+        }
+
+        .meaning-card {
+            border-radius: 12px;
+            padding: .9rem 1.1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .meaning-card.ing-card {
+            background: rgba(200, 107, 26, .06);
+            border-color: rgba(200, 107, 26, .3);
+        }
+
+        .meaning-card.to-card {
+            background: rgba(59, 111, 191, .06);
+            border-color: rgba(59, 111, 191, .3);
+        }
+
+        .meaning-card .mc-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .73rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: .4rem;
+        }
+
+        .meaning-card.ing-card .mc-label {
+            color: var(--primary);
+        }
+
+        .meaning-card.to-card .mc-label {
+            color: #3B6FBF;
+        }
+
+        .meaning-card .mc-meaning {
+            font-size: .85rem;
+            color: var(--muted);
+            margin-bottom: .3rem;
+        }
+
+        .meaning-card .mc-ex {
+            font-style: italic;
+            font-size: .95rem;
+            color: var(--ink);
+        }
+
+        /* ── ERROR BLOCK ── */
+        .error-block {
+            background: var(--surface-alt);
+            border-radius: 14px;
+            margin: 1.75rem 0;
+            overflow: hidden;
+        }
+
+        .error-block-header {
+            background: linear-gradient(90deg, var(--error), var(--primary-mid));
+            padding: .65rem 1.25rem;
+        }
+
+        .error-block-header span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .error-block-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .error-item-label {
+            font-size: .8rem;
+            font-family: 'DM Mono', monospace;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .4rem;
+        }
+
+        .err-wrong {
+            color: var(--error);
+            font-style: italic;
+            font-size: .97rem;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            margin-bottom: .3rem;
+        }
+
+        .err-wrong .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-wrong .txt {
+            text-decoration: line-through;
+            opacity: .85;
+        }
+
+        .err-right {
+            color: var(--success);
+            font-weight: 600;
+            font-size: .97rem;
+            font-style: italic;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+        }
+
+        .err-right .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-context {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .38);
+            font-style: normal;
+            margin-top: .25rem;
+            padding-left: 1.4rem;
+        }
+
+        /* ── ALERT BOX ── */
+        .alert-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .alert-box .alert-title {
+            font-weight: 700;
+            font-size: .88rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--primary-dark);
+            margin-bottom: .45rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .alert-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+
+        .alert-box ul li {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box ul li::before {
+            content: '→ ';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .alert-box p {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box p+p {
+            margin-top: .4rem;
+        }
+
+        /* ── FEATURE BOX ── */
+        .feature-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            color: #fff;
+        }
+
+        .feature-box .feature-title {
+            font-size: .82rem;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: .55rem;
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            margin-bottom: .4rem;
+        }
+
+        .feature-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-box em {
+            font-style: italic;
+            color: var(--primary-mid);
+        }
+
+        .feature-box strong {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .feature-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+            margin-top: .45rem;
+        }
+
+        .feature-box ul li {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .feature-box ul li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 1.3rem;
+            line-height: .9;
+        }
+
+        /* ── PREFER GRID ── */
+        .prefer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .prefer-card {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: .9rem 1.1rem;
+        }
+
+        .prefer-card .pc-title {
+            font-family: 'DM Mono', monospace;
+            font-size: .73rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .3rem;
+        }
+
+        .prefer-card .pc-formula {
+            font-family: 'DM Mono', monospace;
+            font-size: .82rem;
+            color: var(--muted);
+            margin-bottom: .4rem;
+        }
+
+        .prefer-card .pc-meaning {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-bottom: .3rem;
+            font-style: italic;
+        }
+
+        .prefer-card .pc-ex {
+            font-style: italic;
+            font-size: .95rem;
+            color: var(--ink);
+        }
+
+        /* ── PURPOSE TABLE ── */
+        .purpose-trio {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            margin: .75rem 0;
+        }
+
+        .purpose-row {
+            display: flex;
+            align-items: baseline;
+            gap: .75rem;
+            background: var(--paper);
+            border-radius: 8px;
+            padding: .55rem .85rem;
+            border: 1px solid var(--line);
+        }
+
+        .purpose-row .pr-struct {
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+            white-space: nowrap;
+            flex-shrink: 0;
+            min-width: 8rem;
+        }
+
+        .purpose-row .pr-ex {
+            font-style: italic;
+            font-size: .95rem;
+            color: var(--ink);
+        }
+
+        /* ── DECISION FLOWCHART ── */
+        .decision-block {
+            background: var(--ink);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .decision-block .db-title {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--primary-mid);
+            margin-bottom: 1rem;
+        }
+
+        .decision-block pre {
+            background: transparent;
+            color: rgba(255, 255, 255, .78);
+            font-family: 'DM Mono', monospace;
+            font-size: .88rem;
+            line-height: 1.72;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .decision-block pre .hl {
+            color: var(--primary-mid);
+            font-weight: 500;
+        }
+
+        /* ── SELF CHECK ── */
+        .self-check {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .self-check .sc-title {
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .6rem;
+        }
+
+        .self-check ol {
+            padding-left: 1.25rem;
+            color: var(--ink);
+            font-size: .97rem;
+        }
+
+        .self-check ol li {
+            margin-bottom: .35rem;
+        }
+
+        /* ── SUMMARY BLOCK ── */
+        .summary-block {
+            background: var(--ink);
+            color: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .summary-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 1.25rem;
+            color: var(--primary-mid);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1.5px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+        }
+
+        .summary-card .sc-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .73rem;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            color: var(--primary-mid);
+            margin-bottom: .3rem;
+        }
+
+        .summary-card .sc-desc {
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .summary-outro {
+            font-style: italic;
+            color: rgba(255, 255, 255, .5);
+            font-size: .95rem;
+            margin-top: .75rem;
+        }
+
+        /* ── READING PASSAGE ── */
+        .reading-passage {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 2rem 2.25rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .reading-passage .rp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .75rem;
+        }
+
+        .reading-passage p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.08rem;
+            line-height: 1.88;
+            margin-bottom: 1.4rem;
+            color: #2a2934;
+        }
+
+        .reading-passage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reading-passage strong {
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: .05em .22em;
+            border-radius: 3px;
+        }
+
+        /* ── GRAMMAR FEATURES ── */
+        .grammar-features {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .grammar-features h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .6rem;
+        }
+
+        .grammar-features p {
+            font-size: .97rem;
+            line-height: 1.72;
+            margin-bottom: .9rem;
+            color: var(--ink);
+        }
+
+        .grammar-features p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grammar-features strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .grammar-features em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--muted);
+            font-size: .85rem;
+            border-top: 1px solid var(--line);
+            margin-top: 3rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:640px) {
+            .page-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .grammar-block-body {
+                padding: 1.25rem;
+            }
+
+            .grammar-block-header {
+                padding: 1.1rem 1.25rem 1rem;
+            }
+
+            .meaning-pair {
+                grid-template-columns: 1fr;
+            }
+
+            .prefer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-passage {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .summary-block {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .grammar-features {
+                padding: 1.25rem;
+            }
+
+            .purpose-row {
+                flex-direction: column;
+                gap: .35rem;
+            }
+
+            table.grammar-table {
+                font-size: .87rem;
+            }
+
+            table.grammar-table thead th,
+            table.grammar-table tbody td {
+                padding: .6rem .75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+    <header class="hero">
+        <div class="hero-badge">Unit 9 · Destination B2</div>
+        <h1>-ING vs TO-INFINITIVE<br><em>Cuộc "Đối Đầu" Kinh Điển</em></h1>
+        <p class="hero-intro">
+            <em>"I enjoy <strong>to read</strong>"</em> hay <em>"I enjoy <strong>reading</strong>"</em>? <em>"I want
+                <strong>going</strong>"</em> hay <em>"I want <strong>to go</strong>"</em>? Đây chính là cuộc đối đầu
+            kinh điển khiến hàng triệu học viên "đau đầu" nhất. Nhưng đừng lo — chúng ta sẽ <strong>giải mã tất
+                cả</strong>!
+        </p>
+    </header>
+
+    <main>
+        <div class="page-container">
+
+            <!-- ═══════════════════════════════════════
+     9.1 VERB + -ING FORM
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">9.1</span>
+                    <h2>Verb + -ING Form — <em style="font-style:italic;color:var(--primary);">Động Từ + V-ing</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Tại sao <em>"I finished to write"</em> nghe sai sai?<br>
+                        <strong>Bản chất:</strong> Một số động từ <strong>"thích"</strong> có -ING theo sau, như những
+                        cặp bạn thân không thể tách rời!
+                    </div>
+
+                    <h3>📝 Danh sách động từ + V-ING:</h3>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Nhóm 1 · Cảm xúc &amp; Thái độ</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">like</span><span class="kw-chip">love</span><span
+                                class="kw-chip">enjoy</span><span class="kw-chip">hate</span><span
+                                class="kw-chip">dislike</span><span class="kw-chip">detest</span><span
+                                class="kw-chip">mind</span><span class="kw-chip">can't help</span>
+                        </div>
+                        <div class="vg-example">I <em><strong>enjoy reading</strong></em> novels. &nbsp;·&nbsp; Do you
+                            <em><strong>mind opening</strong></em> the window?</div>
+                    </div>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Nhóm 2 · Bắt đầu &amp; Kết thúc</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">start</span><span class="kw-chip">begin</span><span
+                                class="kw-chip">finish</span><span class="kw-chip">stop</span><span class="kw-chip">keep
+                                (on)</span><span class="kw-chip">give up</span>
+                        </div>
+                        <div class="vg-example">I <em><strong>finished writing</strong></em> my essay. &nbsp;·&nbsp; She
+                            <em><strong>keeps talking</strong></em> in class.</div>
+                    </div>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Nhóm 3 · Hoãn &amp; Tránh</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">postpone</span><span class="kw-chip">delay</span><span
+                                class="kw-chip">put off</span><span class="kw-chip">avoid</span><span
+                                class="kw-chip">escape</span>
+                        </div>
+                        <div class="vg-example">We <em><strong>postponed meeting</strong></em> until tomorrow.
+                            &nbsp;·&nbsp; I <em><strong>avoid walking</strong></em> alone at night.</div>
+                    </div>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Nhóm 4 · Khác</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">admit</span><span class="kw-chip">deny</span><span
+                                class="kw-chip">suggest</span><span class="kw-chip">risk</span><span
+                                class="kw-chip">involve</span>
+                        </div>
+                        <div class="vg-example">He <em><strong>denied stealing</strong></em> the money. &nbsp;·&nbsp;
+                            This job <em><strong>involves traveling</strong></em> a lot.</div>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Đặc Điểm Quan Trọng</div>
+                        <p><strong>Sau giới từ → LUÔN V-ING:</strong></p>
+                        <ul>
+                            <li>I'm interested <em>in learning</em> French.</li>
+                            <li>Thank you <em>for helping</em> me.</li>
+                            <li>I'm tired <em>of waiting</em>.</li>
+                        </ul>
+                        <p style="margin-top:.75rem"><strong>Có thể có tân ngữ trước V-ING:</strong></p>
+                        <ul>
+                            <li>I can't stand <em>people cheating</em> in exams.</li>
+                            <li>I don't mind <em>him coming</em> late.</li>
+                        </ul>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Dùng to-infinitive thay V-ING:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I enjoy to read
+                                        books.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I enjoy reading books.</span>
+                                </div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Quên V-ING sau giới từ:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I'm good at to
+                                        cook.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I'm good at cooking.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     9.2 VERB + TO-INFINITIVE
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">9.2</span>
+                    <h2>Verb + TO-Infinitive — <em style="font-style:italic;color:var(--primary);">Động Từ + To + V</em>
+                    </h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Tại sao <em>"I want going"</em> nghe kỳ kỳ?<br>
+                        <strong>Bản chất:</strong> Một số động từ <strong>"thích"</strong> có TO-infinitive theo sau!
+                    </div>
+
+                    <h3>📝 Danh sách động từ + TO-Infinitive:</h3>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Nhóm 1 · Ý định &amp; Quyết định</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">want</span><span class="kw-chip">wish</span><span
+                                class="kw-chip">would like</span><span class="kw-chip">decide</span><span
+                                class="kw-chip">choose</span><span class="kw-chip">plan</span><span
+                                class="kw-chip">hope</span><span class="kw-chip">expect</span>
+                        </div>
+                        <div class="vg-example">I <em><strong>want to travel</strong></em> abroad. &nbsp;·&nbsp; She
+                            <em><strong>decided to quit</strong></em> her job.</div>
+                    </div>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Nhóm 2 · Cố gắng &amp; Thành công</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">try</span><span class="kw-chip">attempt</span><span
+                                class="kw-chip">manage</span><span class="kw-chip">fail</span><span
+                                class="kw-chip">tend</span>
+                        </div>
+                        <div class="vg-example">I <em><strong>managed to finish</strong></em> on time. &nbsp;·&nbsp; He
+                            <em><strong>failed to pass</strong></em> the exam.</div>
+                    </div>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Nhóm 3 · Lời hứa &amp; Đồng ý</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">promise</span><span class="kw-chip">agree</span><span
+                                class="kw-chip">offer</span><span class="kw-chip">refuse</span><span
+                                class="kw-chip">pretend</span>
+                        </div>
+                        <div class="vg-example">I <em><strong>promise to help</strong></em> you. &nbsp;·&nbsp; She
+                            <em><strong>refused to answer</strong></em>.</div>
+                    </div>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Nhóm 4 · Tính từ + To</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">able</span><span class="kw-chip">pleased</span><span
+                                class="kw-chip">ready</span><span class="kw-chip">happy</span><span
+                                class="kw-chip">excited</span><span class="kw-chip">surprised</span>
+                        </div>
+                        <div class="vg-example">I'm <em><strong>able to swim</strong></em>. &nbsp;·&nbsp; I'm
+                            <em><strong>happy to meet</strong></em> you.</div>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Có Thể Có Tân Ngữ</div>
+                        <ul>
+                            <li>I want <em>to call</em> my mom.</li>
+                            <li>I want <em>you to call</em> me. (tân ngữ xen vào)</li>
+                            <li>She encouraged <em>me to apply</em> for the job.</li>
+                        </ul>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Dùng V-ING thay TO-infinitive:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I want going
+                                        home.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I want to go home.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Quên "to":</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I decided go
+                                        there.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I decided to go there.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     9.3 BARE INFINITIVE
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">9.3</span>
+                    <h2>Verb + Bare Infinitive — <em style="font-style:italic;color:var(--primary);">Không Có "To"</em>
+                    </h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Khi nào "to" biến mất?<br>
+                        <strong>Bản chất:</strong> Một số động từ đặc biệt <strong>"ăn mất"</strong> chữ "to"!
+                    </div>
+
+                    <h3>📝 Danh sách động từ + Bare Infinitive:</h3>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Modal Verbs (đã học Unit 7)</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">can</span><span class="kw-chip">could</span><span
+                                class="kw-chip">will</span><span class="kw-chip">would</span><span
+                                class="kw-chip">should</span><span class="kw-chip">must</span><span
+                                class="kw-chip">may</span><span class="kw-chip">might</span>
+                        </div>
+                        <div class="vg-example">I <em><strong>can swim</strong></em>. &nbsp;·&nbsp; You
+                            <em><strong>should study</strong></em>.</div>
+                    </div>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Động từ tri giác + Object</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">see</span><span class="kw-chip">hear</span><span
+                                class="kw-chip">watch</span><span class="kw-chip">notice</span><span
+                                class="kw-chip">feel</span>
+                        </div>
+                        <div class="vg-example">I <em><strong>saw him leave</strong></em>. &nbsp;·&nbsp; I
+                            <em><strong>heard her cry</strong></em>.</div>
+                    </div>
+
+                    <div class="verb-group">
+                        <div class="vg-label">Động từ khiến + Object</div>
+                        <div class="vg-verbs">
+                            <span class="kw-chip">make</span><span class="kw-chip">let</span>
+                        </div>
+                        <div class="vg-example">She <em><strong>made me cry</strong></em>. &nbsp;·&nbsp; Let me
+                            <em><strong>help</strong></em> you.</div>
+                    </div>
+
+                    <h3>🔥 Phân biệt Bare Infinitive vs V-ING với động từ tri giác:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Bare Infinitive (hoàn chỉnh)</th>
+                                    <th>V-ING (đang diễn ra)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em>I heard him <strong>tell</strong> the story.</em><br><span
+                                            style="font-size:.82rem;color:var(--muted);">Nghe toàn bộ câu chuyện</span>
+                                    </td>
+                                    <td><em>I heard him <strong>telling</strong> the story.</em><br><span
+                                            style="font-size:.82rem;color:var(--muted);">Nghe một phần câu chuyện</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><em>I saw her <strong>cross</strong> the road.</em><br><span
+                                            style="font-size:.82rem;color:var(--muted);">Thấy cả quá trình</span></td>
+                                    <td><em>I saw her <strong>crossing</strong> the road.</em><br><span
+                                            style="font-size:.82rem;color:var(--muted);">Thấy đang băng qua</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 Passive của make/hear/see → TO-Infinitive!</div>
+                        <p><strong>Active:</strong> <em>The teacher <strong>made</strong> me stand up.</em></p>
+                        <p><strong>Passive:</strong> <em>I was made <strong>to stand</strong> up.</em></p>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Thêm "to" sau make/let:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">She made me to
+                                        cry.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>She made me cry.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Quên "to" trong passive:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I was made stand
+                                        up.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I was made to stand up.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     9.4 BOTH (LITTLE DIFFERENCE)
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">9.4</span>
+                    <h2>Verb + TO-Inf hoặc V-ING — <em style="font-style:italic;color:var(--primary);">Ít Khác Biệt</em>
+                    </h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Khi nào cả hai đều đúng?<br>
+                        <strong>Bản chất:</strong> Một số động từ <strong>"thoải mái"</strong> với cả hai — ý nghĩa gần
+                        như không đổi.
+                    </div>
+
+                    <h3>📝 Danh sách "động từ dễ tính":</h3>
+                    <div style="margin:.5rem 0 1.25rem;line-height:2;">
+                        <span class="kw-chip">begin</span>
+                        <span class="kw-chip">start</span>
+                        <span class="kw-chip">continue</span>
+                        <span class="kw-chip">can't bear</span>
+                        <span class="kw-chip">can't stand</span>
+                        <span class="kw-chip">hate</span>
+                        <span class="kw-chip">intend</span>
+                        <span class="kw-chip">love</span>
+                        <span class="kw-chip">prefer</span>
+                    </div>
+
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Start — cả hai đều đúng:</strong>
+                            <em>I <strong>started to learn</strong> / <strong>started learning</strong> English.</em>
+                        </li>
+                        <li>
+                            <strong>Love — ý nghĩa giống nhau:</strong>
+                            <em>She <strong>loves to dance</strong> / <strong>loves dancing</strong>.</em>
+                        </li>
+                    </ul>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <p>Những động từ này <strong>"dễ tính"</strong> — dùng cái nào cũng được!</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     9.5 BOTH (DIFFERENT MEANINGS)
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">9.5</span>
+                    <h2>Verb + TO-Inf hoặc V-ING — <em style="font-style:italic;color:var(--primary);">Khác Nghĩa Hoàn
+                            Toàn!</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"I remember to do"</em> vs <em>"I remember doing"</em> — Cái nào
+                        đúng?<br>
+                        <strong>Bản chất:</strong> Đây là những động từ <strong>"khó tính"</strong> — thay đổi form là
+                        thay đổi nghĩa!
+                    </div>
+
+                    <h3>📊 Bảng phân biệt chi tiết:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Động từ</th>
+                                    <th>+ TO-INFINITIVE</th>
+                                    <th>+ V-ING</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>remember</strong></td>
+                                    <td>Nhớ <strong>phải làm</strong> (tương lai)<br><em>Remember <strong>to
+                                                lock</strong> the door!</em></td>
+                                    <td>Nhớ <strong>đã làm</strong> (quá khứ)<br><em>I remember <strong>locking</strong>
+                                            the door.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>forget</strong></td>
+                                    <td>Quên <strong>phải làm</strong><br><em>Don't forget <strong>to call</strong>
+                                            me!</em></td>
+                                    <td>Quên <strong>đã làm</strong><br><em>I'll never forget <strong>meeting</strong>
+                                            you.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>stop</strong></td>
+                                    <td>Dừng <strong>để làm</strong> việc khác<br><em>I stopped <strong>to buy</strong>
+                                            coffee.</em></td>
+                                    <td>Dừng <strong>việc đang làm</strong><br><em>I stopped
+                                            <strong>smoking</strong>.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>try</strong></td>
+                                    <td>Cố gắng làm<br><em>Try <strong>to be</strong> on time!</em></td>
+                                    <td>Thử làm (xem sao)<br><em>Try <strong>calling</strong> him.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>regret</strong></td>
+                                    <td>Tiếc <strong>phải làm</strong><br><em>I regret <strong>to tell</strong>
+                                            you…</em></td>
+                                    <td>Tiếc <strong>đã làm</strong><br><em>I regret <strong>buying</strong> this
+                                            car.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🎯 Phân tích chi tiết từng động từ:</h3>
+
+                    <h4>REMEMBER:</h4>
+                    <div class="meaning-pair">
+                        <div class="meaning-card to-card">
+                            <div class="mc-label">Remember + TO (tương lai)</div>
+                            <div class="mc-meaning">Nhớ phải làm gì đó</div>
+                            <div class="mc-ex">Did you remember <strong>to do</strong> your homework?</div>
+                            <div class="mc-ex" style="font-size:.82rem;color:var(--muted);margin-top:.2rem">(Bạn có nhớ
+                                làm bài không?)</div>
+                        </div>
+                        <div class="meaning-card ing-card">
+                            <div class="mc-label">Remember + ING (quá khứ)</div>
+                            <div class="mc-meaning">Nhớ đã làm gì rồi</div>
+                            <div class="mc-ex">I remember <strong>doing</strong> my homework.</div>
+                            <div class="mc-ex" style="font-size:.82rem;color:var(--muted);margin-top:.2rem">(Tôi nhớ đã
+                                làm bài rồi.)</div>
+                        </div>
+                    </div>
+
+                    <h4>STOP:</h4>
+                    <div class="meaning-pair">
+                        <div class="meaning-card to-card">
+                            <div class="mc-label">Stop + TO (mục đích)</div>
+                            <div class="mc-meaning">Dừng để làm việc khác</div>
+                            <div class="mc-ex">I stopped <strong>to talk</strong> to him.</div>
+                            <div class="mc-ex" style="font-size:.82rem;color:var(--muted);margin-top:.2rem">(Tôi dừng
+                                lại để nói chuyện)</div>
+                        </div>
+                        <div class="meaning-card ing-card">
+                            <div class="mc-label">Stop + ING (chấm dứt)</div>
+                            <div class="mc-meaning">Ngừng việc đang làm</div>
+                            <div class="mc-ex">I stopped <strong>talking</strong> to him.</div>
+                            <div class="mc-ex" style="font-size:.82rem;color:var(--muted);margin-top:.2rem">(Tôi ngừng
+                                nói chuyện)</div>
+                        </div>
+                    </div>
+
+                    <h4>TRY:</h4>
+                    <div class="meaning-pair">
+                        <div class="meaning-card to-card">
+                            <div class="mc-label">Try + TO (cố gắng)</div>
+                            <div class="mc-meaning">Nỗ lực để đạt kết quả</div>
+                            <div class="mc-ex">Try <strong>to arrive</strong> on time.</div>
+                            <div class="mc-ex" style="font-size:.82rem;color:var(--muted);margin-top:.2rem">(Cố gắng đến
+                                đúng giờ)</div>
+                        </div>
+                        <div class="meaning-card ing-card">
+                            <div class="mc-label">Try + ING (thử nghiệm)</div>
+                            <div class="mc-meaning">Thử một cách tiếp cận</div>
+                            <div class="mc-ex">Try <strong>taking</strong> this medicine.</div>
+                            <div class="mc-ex" style="font-size:.82rem;color:var(--muted);margin-top:.2rem">(Thử uống
+                                thuốc này xem)</div>
+                        </div>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Nhầm lẫn remember:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I remember to meet
+                                        him yesterday.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I remember meeting him
+                                        yesterday.</span></div>
+                                <div class="err-context">(muốn nói: nhớ đã gặp anh ấy)</div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Nhầm lẫn stop:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I stopped to
+                                        smoke.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I stopped smoking.</span></div>
+                                <div class="err-context">(muốn nói: bỏ thuốc lá)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     9.6 PREFER / WOULD RATHER / HAD BETTER
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">9.6</span>
+                    <h2>Prefer, Would Rather, Had Better — <em style="font-style:italic;color:var(--primary);">Thích Hơn
+                            &amp; Lời Khuyên</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Ba cách diễn đạt "thích hơn" — khi nào dùng cái nào?
+                    </div>
+
+                    <div class="prefer-grid">
+                        <div class="prefer-card">
+                            <div class="pc-title">PREFER</div>
+                            <div class="pc-formula">prefer + noun/V-ing + to + noun/V-ing</div>
+                            <div class="pc-meaning">Thích hơn (chung chung, thói quen)</div>
+                            <div class="pc-ex">I prefer coffee <strong>to</strong> tea.</div>
+                            <div class="pc-ex">I prefer reading <strong>to</strong> watching TV.</div>
+                        </div>
+                        <div class="prefer-card">
+                            <div class="pc-title">WOULD PREFER</div>
+                            <div class="pc-formula">would prefer + to-inf + rather than + inf</div>
+                            <div class="pc-meaning">Thích hơn (lần này cụ thể)</div>
+                            <div class="pc-ex">I'd prefer to stay <strong>rather than go</strong>.</div>
+                            <div class="pc-ex">I'd prefer to have coffee.</div>
+                        </div>
+                        <div class="prefer-card">
+                            <div class="pc-title">WOULD RATHER</div>
+                            <div class="pc-formula">would rather + bare inf + than + bare inf</div>
+                            <div class="pc-meaning">Thích hơn (chung hoặc cụ thể)</div>
+                            <div class="pc-ex">I'd rather stay <strong>than take</strong> the bus.</div>
+                            <div class="pc-ex">I'd rather you <strong>came</strong> tomorrow.</div>
+                        </div>
+                        <div class="prefer-card">
+                            <div class="pc-title">HAD BETTER</div>
+                            <div class="pc-formula">had better + bare infinitive</div>
+                            <div class="pc-meaning">Lời khuyên mạnh (có hậu quả)</div>
+                            <div class="pc-ex">You'd better ask your parents first.</div>
+                            <div class="pc-ex">We'd better <strong>not</strong> be late.</div>
+                        </div>
+                    </div>
+
+                    <h3>🎯 Ví dụ chi tiết từng cấu trúc:</h3>
+
+                    <h4>PREFER (thói quen chung):</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Danh từ / V-ING + to:</strong>
+                            <em>I prefer reading <strong>to</strong> watching TV.</em>
+                        </li>
+                        <li>
+                            <strong>Phủ định:</strong>
+                            <em>She prefers <strong>not to</strong> work late.</em>
+                        </li>
+                    </ul>
+
+                    <h4>WOULD RATHER (lần này / muốn ai đó làm):</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Cá nhân — bare infinitive:</strong>
+                            <em>I'd rather <strong>walk</strong> than take the bus.</em>
+                        </li>
+                        <li>
+                            <strong>Muốn ai đó làm — past simple:</strong>
+                            <em>I'd rather you <strong>came</strong> tomorrow.</em>
+                            <span class="usage-note"><strong>Chú ý:</strong> Dùng Past Simple để diễn đạt yêu cầu lịch
+                                sự!</span>
+                        </li>
+                    </ul>
+
+                    <h4>HAD BETTER (lời khuyên mạnh):</h4>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Lời khuyên có hậu quả:</strong>
+                            <em>You'd better <strong>hurry</strong> up!</em>
+                            <span class="usage-note"><strong>Phân biệt:</strong> Should (nhẹ) → Had better (mạnh hơn,
+                                ngụ ý hậu quả)</span>
+                        </li>
+                    </ul>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Dùng "I don't prefer":</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I don't prefer
+                                        coffee.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I prefer not to drink
+                                        coffee.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Nhầm lẫn had better với should:</div>
+                                <div class="err-right"><span class="icon">📌</span><span>You should study.</span></div>
+                                <div class="err-context">(lời khuyên nhẹ)</div>
+                                <div class="err-right" style="margin-top:.3rem"><span class="icon">⚡</span><span>You'd
+                                        better study.</span></div>
+                                <div class="err-context">(lời khuyên mạnh — ngụ ý hậu quả)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     9.7 INFINITIVES OF PURPOSE
+══════════════════════════════════════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">9.7</span>
+                    <h2>Infinitives of Purpose — <em style="font-style:italic;color:var(--primary);">Diễn Đạt Mục
+                            Đích</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> "Tại sao" làm việc gì đó?<br>
+                        <strong>Bản chất:</strong> Diễn tả <strong>mục đích, lý do</strong> thực hiện hành động.
+                    </div>
+
+                    <h3>📝 Ba cách diễn đạt:</h3>
+                    <div class="purpose-trio">
+                        <div class="purpose-row">
+                            <span class="pr-struct">to + infinitive</span>
+                            <span class="pr-ex">I went to university <strong>to avoid</strong> getting a job!</span>
+                        </div>
+                        <div class="purpose-row">
+                            <span class="pr-struct">in order + to</span>
+                            <span class="pr-ex">I study hard <strong>in order to</strong> pass the exam.</span>
+                        </div>
+                        <div class="purpose-row">
+                            <span class="pr-struct">so as + to</span>
+                            <span class="pr-ex">I got up early <strong>so as to</strong> catch the bus.</span>
+                        </div>
+                    </div>
+
+                    <h3>🔄 So sánh với "so that":</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>So that (+ clause):</strong>
+                            <em>I study hard <strong>so that</strong> I can pass the exam.</em>
+                        </li>
+                        <li>
+                            <strong>To (+ infinitive):</strong>
+                            <em>I study hard <strong>to</strong> pass the exam.</em>
+                        </li>
+                    </ul>
+
+                    <h3>🔥 Phủ định mục đích:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>In order not to (✅ đúng):</strong>
+                            <em>I left early <strong>in order not to</strong> be late.</em>
+                        </li>
+                        <li>
+                            <strong>So as not to (✅ đúng):</strong>
+                            <em>I left early <strong>so as not to</strong> be late.</em>
+                        </li>
+                    </ul>
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi — Dùng "not to" đơn độc cho mục đích phủ định:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">I left early not to
+                                        be late.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>I left early in order not to be
+                                        late.</span></div>
+                                <div class="err-right" style="margin-top:.3rem"><span class="icon">✅</span><span>I left
+                                        early so as not to be late.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>TO + infinitive:</strong> Đơn giản nhất — dùng hàng ngày</li>
+                            <li><strong>IN ORDER TO / SO AS TO:</strong> Trang trọng hơn — văn viết</li>
+                            <li><strong>Phủ định:</strong> Phải có "in order" hoặc "so as" trước "not to"</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ═══════════════════════════════════════
+     TỔNG KẾT
+══════════════════════════════════════════ -->
+            <div class="summary-block">
+                <h2>Tổng Kết Unit 9</h2>
+
+                <div class="decision-block" style="margin-bottom:1.5rem;">
+                    <div class="db-title">🎯 Sơ Đồ Quyết Định -ING vs TO-Infinitive</div>
+                    <pre>-ING vs TO-INFINITIVE — Chọn gì? 🤔
+
+Sau giới từ?                → <span class="hl">V-ING</span>  (always!)
+Enjoy, finish, avoid...?   → <span class="hl">V-ING</span>
+Want, decide, hope...?     → <span class="hl">TO-INFINITIVE</span>
+Make, let, modal verbs?    → <span class="hl">BARE INFINITIVE</span>
+Remember/forget/stop/try?  → <span class="hl">XEM NGHĨA!</span>  (cả hai nhưng nghĩa khác)
+Start/begin/continue/love? → <span class="hl">CẢ HAI OK</span>   (ít khác biệt)</pre>
+                </div>
+
+                <h3
+                    style="color:var(--primary-mid);font-family:'DM Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.85rem;">
+                    📊 Bảng tham khảo nhanh</h3>
+                <div class="table-wrap" style="margin-bottom:1.5rem;">
+                    <table class="grammar-table">
+                        <thead>
+                            <tr>
+                                <th>Loại</th>
+                                <th>Động từ</th>
+                                <th>Ví dụ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>+ V-ING</strong></td>
+                                <td><em>enjoy, finish, avoid, mind</em></td>
+                                <td><em>enjoy reading</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>+ TO-INF</strong></td>
+                                <td><em>want, decide, hope, manage</em></td>
+                                <td><em>want to go</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>+ BARE INF</strong></td>
+                                <td><em>can, make, let, see, hear</em></td>
+                                <td><em>can swim, make me cry</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cả hai (khác nghĩa)</strong></td>
+                                <td><em>remember, forget, stop, try</em></td>
+                                <td><em>remember to do vs doing</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cả hai (giống nghĩa)</strong></td>
+                                <td><em>start, begin, continue, love</em></td>
+                                <td><em>start to work = start working</em></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="sc-label">9.1 · Verb + -ING</div>
+                        <div class="sc-desc">enjoy, finish, avoid · sau giới từ → luôn -ing</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">9.2 · Verb + TO</div>
+                        <div class="sc-desc">want, decide, manage, promise, hope</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">9.3 · Bare Infinitive</div>
+                        <div class="sc-desc">modals · make/let · see/hear/watch</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">9.4 · Cả hai (ít khác)</div>
+                        <div class="sc-desc">start, begin, love — dùng cái nào cũng được</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">9.5 · Cả hai (khác nghĩa)</div>
+                        <div class="sc-desc">remember / stop / try / forget / regret</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">9.6 · Prefer / Rather</div>
+                        <div class="sc-desc">prefer to/than · rather · had better</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">9.7 · Purpose</div>
+                        <div class="sc-desc">to / in order to / so as to</div>
+                    </div>
+                </div>
+
+                <div class="self-check"
+                    style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);margin-top:1.25rem;">
+                    <div class="sc-title" style="color:var(--primary-mid);">📚 Câu Hỏi Tự Kiểm Tra</div>
+                    <ol style="color:rgba(255,255,255,.8);">
+                        <li>"I stopped to smoke" vs "I stopped smoking" — Khác biệt gì?</li>
+                        <li>"Remember to do" vs "Remember doing" — Khi nào dùng?</li>
+                        <li>"I prefer go" vs "I prefer going" vs "I prefer to go" — Cái nào đúng?</li>
+                    </ol>
+                </div>
+
+                <p class="summary-outro">Xuất sắc! Chúng ta vừa giải quyết cuộc "đối đầu" kinh điển -ING vs
+                    TO-INFINITIVE. Tiếp theo, hãy khám phá Questions &amp; Question Tags — nghệ thuật đặt câu hỏi như
+                    người bản xứ!</p>
+            </div>
+
+            <!-- ═══════════════════════════════════════
+     READING PASSAGE
+══════════════════════════════════════════ -->
+            <section class="reading-passage">
+                <div class="rp-title">📖 My Hobbies and Goals</div>
+
+                <p>I've always <strong>enjoyed exploring</strong> new hobbies, and I <strong>want to share</strong> how
+                    these activities have shaped my life goals. When I was younger, I <strong>couldn't stand
+                        sitting</strong> still – I <strong>needed to be</strong> constantly active. My parents
+                    <strong>made me try</strong> various activities, and I'm grateful they <strong>let me
+                        explore</strong> different interests. I <strong>remember trying</strong> piano lessons at age
+                    seven, but I <strong>stopped playing</strong> after just six months. Now I <strong>regret giving
+                        up</strong> so easily, and I often <strong>wish to go</strong> back in time <strong>to
+                        tell</strong> my younger self <strong>to continue practicing</strong>. These days, I
+                    <strong>prefer learning</strong> at my own pace <strong>rather than follow</strong> rigid schedules.
+                    I've <strong>decided to pursue</strong> hobbies that genuinely interest me, and I <strong>hope to
+                        develop</strong> skills that will last a lifetime.</p>
+
+                <p>Photography has become my greatest passion. I <strong>started taking</strong> photos five years ago
+                    <strong>to capture</strong> memories from a trip to Iceland. Initially, I <strong>avoided
+                        sharing</strong> my work because I <strong>couldn't help comparing</strong> myself to
+                    professionals. But I <strong>kept practicing</strong>, and eventually I <strong>managed to
+                        overcome</strong> my insecurity. I <strong>love wandering</strong> through the city
+                    <strong>looking for</strong> interesting subjects. Sometimes I <strong>stop to photograph</strong>
+                    unexpected moments – a child <strong>feeding</strong> pigeons, an elderly couple
+                    <strong>holding</strong> hands, or sunlight <strong>streaming</strong> through buildings. I've
+                    <strong>learned to appreciate</strong> the beauty in everyday scenes. My friends <strong>encouraged
+                        me to enter</strong> competitions, and though I <strong>failed to win</strong> at first, I
+                    <strong>refused to give up</strong>. I <strong>remember winning</strong> my first award last year –
+                    I'll never <strong>forget seeing</strong> my photograph displayed in a gallery.</p>
+
+                <p>Music remains important in my life, though my approach has changed. I <strong>began learning</strong>
+                    guitar two years ago, and this time I <strong>promised to stick</strong> with it. I <strong>try to
+                        practice</strong> for at least thirty minutes daily. Sometimes I <strong>feel like
+                        quitting</strong> when chords seem impossible, but I <strong>force myself to continue</strong>.
+                    I <strong>can't help smiling</strong> when I finally master a difficult song. My teacher
+                    <strong>suggested joining</strong> a band, but I <strong>prefer playing</strong> alone for now. I'd
+                    <strong>rather improve</strong> my skills before <strong>performing</strong> publicly. However, I
+                    <strong>intend to start</strong> busking next summer <strong>to gain</strong> confidence. I
+                    <strong>need to overcome</strong> my stage fright, and there's no better way than
+                    <strong>facing</strong> it directly. My goal is <strong>to be able to play</strong> at open mic
+                    nights without <strong>feeling</strong> nervous.</p>
+
+                <p>Writing has always been something I <strong>wanted to pursue</strong> seriously. I <strong>enjoy
+                        creating</strong> stories and <strong>exploring</strong> different perspectives through
+                    characters. Every morning, I <strong>try writing</strong> for an hour before work. Some days the
+                    words flow easily; other days I <strong>struggle to produce</strong> a single paragraph. I've
+                    <strong>started attending</strong> workshops <strong>to improve</strong> my technique. The
+                    instructor <strong>keeps telling</strong> us <strong>to write</strong> without
+                    <strong>worrying</strong> about perfection. She <strong>made us promise</strong> not <strong>to
+                        edit</strong> while drafting. I <strong>remember hesitating</strong> at first, but I've
+                    <strong>learned to let</strong> my creativity flow freely. I <strong>hope to finish</strong> my
+                    novel this year, and I <strong>plan to submit</strong> it to publishers. I'd <strong>rather
+                        face</strong> rejection than <strong>wonder</strong> what might have been.</p>
+
+                <p>Physical fitness has become essential <strong>to maintaining</strong> my mental health. I
+                    <strong>used to hate exercising</strong>, but I <strong>decided to change</strong> my attitude. I
+                    <strong>started by walking</strong> every morning, then gradually <strong>began running</strong>.
+                    Now I <strong>can't imagine starting</strong> my day without a workout. I <strong>love
+                        feeling</strong> the endorphins after a good run. My doctor <strong>suggested trying</strong>
+                    yoga <strong>to improve</strong> flexibility, and I <strong>agreed to give</strong> it a chance. At
+                    first, I <strong>couldn't help laughing</strong> at myself <strong>attempting</strong> difficult
+                    poses. But I <strong>kept going</strong>, and now I <strong>manage to complete</strong> entire
+                    sessions without <strong>stopping</strong>. I <strong>prefer working</strong> out alone, but I
+                    <strong>might consider joining</strong> a gym <strong>to access</strong> better equipment. My goal
+                    is <strong>to be able to run</strong> a marathon by next year.</p>
+
+                <p>Cooking has evolved from necessity to passion. I <strong>started learning</strong> out of necessity
+                    when I moved out, but I've <strong>grown to love</strong> experimenting with flavors. I
+                    <strong>enjoy trying</strong> recipes from different cultures. Sometimes experiments <strong>fail to
+                        turn</strong> out as expected, but I <strong>don't mind making</strong> mistakes – they're part
+                    of learning. I <strong>remember attempting</strong> to make sushi for the first time and
+                    <strong>ending</strong> up with a mess. But I <strong>refused to be</strong> discouraged. I
+                    <strong>kept practicing</strong>, and now friends <strong>ask me to cook</strong> for gatherings. I
+                    <strong>prefer cooking</strong> for others <strong>to eating</strong> alone. There's something
+                    satisfying about <strong>watching</strong> people <strong>enjoy</strong> food I've prepared. I
+                    <strong>want to learn</strong> professional techniques, so I'm <strong>considering taking</strong>
+                    culinary classes.</p>
+
+                <p>Travel photography combines two of my passions. I <strong>love exploring</strong> new places while
+                    <strong>capturing</strong> their essence through my lens. I <strong>try to avoid</strong> typical
+                    tourist shots, <strong>preferring to find</strong> unique perspectives. Before trips, I
+                    <strong>spend</strong> hours <strong>researching</strong> locations and <strong>planning</strong>
+                    shots. However, I've <strong>learned to remain</strong> flexible – sometimes the best photos come
+                    from <strong>wandering</strong> without a plan. I <strong>stopped trying</strong> to photograph
+                    everything and <strong>started focusing</strong> on quality over quantity. I'd <strong>rather
+                        take</strong> ten meaningful photos than hundreds of forgettable ones. My dream is <strong>to
+                        become</strong> a travel photographer, though I <strong>realize achieving</strong> this goal
+                    will require dedication. I <strong>need to build</strong> a strong portfolio and <strong>learn to
+                        market</strong> myself effectively.</p>
+
+                <p>Language learning has taught me patience and persistence. I <strong>began studying</strong> Spanish
+                    three years ago <strong>to communicate</strong> with my partner's family. Initially, I <strong>kept
+                        making</strong> the same mistakes and <strong>felt like giving</strong> up. But I
+                    <strong>remembered reading</strong> that language acquisition takes time. I <strong>tried
+                        using</strong> various apps, but I <strong>prefer taking</strong> structured classes. My teacher
+                    <strong>encourages us to speak</strong> without <strong>worrying</strong> about errors. She
+                    <strong>lets us make</strong> mistakes and gently corrects us. I <strong>can't stand
+                        memorizing</strong> grammar rules in isolation, so I <strong>prefer learning</strong> through
+                    context. I <strong>make myself practice</strong> daily, even when I don't feel motivated. My goal is
+                    <strong>to achieve</strong> fluency within two years. I'd <strong>better start</strong> reading
+                    Spanish literature <strong>to improve</strong> my vocabulary.</p>
+
+                <p>Volunteering has given my hobbies deeper meaning. I <strong>started teaching</strong> photography to
+                    underprivileged youth last year. Initially, I <strong>worried about being</strong> qualified enough,
+                    but the organization assured me that enthusiasm matters more than expertise. I <strong>love
+                        seeing</strong> the kids <strong>discover</strong> their creative potential. Some of them had
+                    never <strong>held</strong> a camera before. I <strong>let them experiment</strong> freely while
+                    <strong>offering</strong> guidance when needed. One student told me she <strong>wants to
+                        become</strong> a photographer after <strong>participating</strong> in our program. Moments like
+                    these <strong>make me realize</strong> the impact of <strong>sharing</strong> our passions. I
+                    <strong>plan to continue</strong> volunteering and <strong>hope to expand</strong> the program to
+                    more communities.</p>
+
+                <p>Personal growth through hobbies has taught me valuable lessons. I've <strong>learned to
+                        embrace</strong> failure as part of the learning process. I <strong>used to avoid
+                        trying</strong> new things for fear of <strong>looking</strong> foolish. Now I
+                    <strong>understand failing</strong> is necessary for growth. Each hobby has <strong>helped me
+                        develop</strong> different skills – photography taught patience, music taught discipline,
+                    writing taught persistence. I <strong>prefer learning</strong> through experience <strong>to
+                        reading</strong> about theories. I'd <strong>rather make</strong> mistakes and learn from them
+                    than never <strong>try</strong> at all. I <strong>keep reminding</strong> myself that mastery takes
+                    time. Rome wasn't built in a day, and I <strong>shouldn't expect to become</strong> an expert
+                    overnight.</p>
+
+                <p>Looking ahead, I <strong>want to continue</strong> exploring new interests while
+                    <strong>deepening</strong> existing ones. I'm <strong>considering learning</strong> pottery next
+                    year <strong>to explore</strong> three-dimensional creativity. I <strong>might try</strong> acting
+                    classes <strong>to overcome</strong> my remaining shyness. Whatever I choose, I <strong>promise to
+                        approach</strong> it with an open mind. I've <strong>stopped comparing</strong> myself to others
+                    and <strong>started focusing</strong> on personal progress. I'd <strong>better stop
+                        procrastinating</strong> and <strong>start pursuing</strong> these goals actively. Life is too
+                    short <strong>to postpone doing</strong> what we love. I <strong>encourage</strong> everyone
+                    <strong>to find</strong> hobbies that bring joy and <strong>to keep exploring</strong> new
+                    possibilities. After all, we <strong>never stop learning</strong> and growing through our passions.
+                </p>
+            </section>
+
+            <!-- ═══════════════════════════════════════
+     GRAMMAR FEATURES
+══════════════════════════════════════════ -->
+            <section class="grammar-features">
+                <h2>Grammar Features Highlighted</h2>
+
+                <p><strong>Verb + -ing:</strong> Correctly used after enjoy, avoid, can't help, finish, keep, suggest,
+                    mind, can't stand, prefer, love (<em>enjoyed exploring</em>, <em>avoid sharing</em>, <em>keep
+                        practicing</em>, <em>suggest joining</em>).</p>
+
+                <p><strong>Verb + to-infinitive:</strong> Properly used after want, decide, hope, manage, promise, plan,
+                    refuse, fail, need (<em>want to share</em>, <em>decided to pursue</em>, <em>hope to develop</em>,
+                    <em>managed to overcome</em>).</p>
+
+                <p><strong>Bare infinitive:</strong> Used after make, let, modal verbs, and perception verbs (<em>made
+                        me try</em>, <em>let me explore</em>, <em>can't imagine</em>, <em>watch people enjoy</em>).</p>
+
+                <p><strong>After prepositions:</strong> Always -ing form (<em>to maintaining</em>, <em>about being</em>,
+                    <em>without worrying</em>, <em>by walking</em>, <em>for looking</em>).</p>
+
+                <p><strong>Different meanings:</strong> Remember/forget/stop/try with both forms showing meaning changes
+                    (<em>remember trying</em> vs <em>remember to practice</em>; <em>stop to photograph</em> vs
+                    <em>stopped trying</em>; <em>try to practice</em> vs <em>try writing</em>).</p>
+
+                <p><strong>Same meaning:</strong> Start/begin/continue/love with both forms (<em>started taking</em> /
+                    <em>began learning</em>, <em>love wandering</em>).</p>
+
+                <p><strong>Prefer/Would rather/Had better:</strong> All structures demonstrated (<em>prefer learning to
+                        reading</em>, <em>rather improve…before performing</em>, <em>better start reading</em>).</p>
+
+                <p><strong>Infinitives of purpose:</strong> To/in order to/so as to (<em>to capture memories</em>,
+                    <em>to gain confidence</em>, <em>to improve flexibility</em>).</p>
+
+                <p><strong>Common Errors Avoided:</strong> No to-infinitive after enjoy, finish, avoid; no -ing after
+                    want, decide, hope; no "to" after make/let; always -ing after prepositions; correct distinction
+                    between remember/stop/try meanings.</p>
+            </section>
+
+        </div><!-- /page-container -->
+    </main>
+
+    <footer>
+        <p>Destination B2 · Unit 9 — -ING vs TO-Infinitive &nbsp;|&nbsp; Cuộc "Đối Đầu" Kinh Điển</p>
+    </footer>
+
+</body>
+
+</html>

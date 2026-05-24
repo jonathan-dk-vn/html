@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Unit 8 – The Passive &amp; Causative | Destination B2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ══════════════════════════════════════
+   THEME A · BLUE — Active/Passive Voice
+══════════════════════════════════════ */
+:root {
+  --primary:       #3B6FBF;
+  --primary-light: #D6E4FF;
+  --primary-mid:   #7AAAF5;
+  --primary-dark:  #1A3F80;
+  --primary-rgb:   59,111,191;
+
+  --success:     #2E9E68;
+  --error:       #E8344A;
+  --ink:         #14131C;
+  --paper:       #F8F8F6;
+  --surface:     #FFFFFF;
+  --surface-alt: #1F1D2B;
+  --muted:       #6E6B80;
+  --line:        #E2E0DB;
+  --shadow:      rgba(20,19,28,.05);
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.72;
+  color:var(--ink);
+  background:var(--paper);
+}
+
+.page-container {
+  max-width:1000px;
+  margin:0 auto;
+  padding:0 1.5rem 4rem;
+}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero {
+  background-color:var(--ink);
+  color:#fff;
+  text-align:center;
+  padding:4rem 2rem 3.5rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 65% 55% at 20% 30%, rgba(59,111,191,.28) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 45% at 80% 70%, rgba(122,170,245,.18) 0%, transparent 65%);
+  pointer-events:none;
+}
+.hero-badge {
+  display:inline-block;
+  font-family:'DM Mono',monospace;
+  font-size:.75rem;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--primary-mid);
+  border:1.5px solid rgba(122,170,245,.4);
+  border-radius:40px;
+  padding:.35rem 1.1rem;
+  margin-bottom:1.4rem;
+  position:relative;
+}
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,5vw,52px);
+  font-weight:700;
+  line-height:1.18;
+  color:#fff;
+  position:relative;
+}
+.hero h1 em { font-style:normal; color:var(--primary-mid); }
+.hero-intro {
+  max-width:720px;
+  margin:1.4rem auto 0;
+  font-size:1.03rem;
+  color:rgba(255,255,255,.72);
+  line-height:1.78;
+  position:relative;
+}
+.hero-intro strong { color:var(--primary-mid); font-weight:600; }
+.hero-intro em { font-style:italic; color:rgba(255,255,255,.85); }
+
+/* ══════════════════════════════════════
+   GRAMMAR BLOCK
+══════════════════════════════════════ */
+.grammar-block {
+  background:var(--surface);
+  border-radius:16px;
+  box-shadow:0 2px 20px var(--shadow);
+  margin:2.5rem 0;
+  overflow:hidden;
+}
+.grammar-block-header {
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  padding:1.5rem 1.75rem 1.25rem;
+  border-bottom:2px solid var(--line);
+}
+.section-badge {
+  font-family:'DM Mono',monospace;
+  font-size:.78rem;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  background:var(--primary-light);
+  color:var(--primary-dark);
+  border-radius:8px;
+  padding:.3rem .75rem;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.grammar-block-header h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(17px,2.4vw,23px);
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.25;
+}
+.grammar-block-body { padding:1.75rem; }
+
+/* ── INTRO PARA ── */
+.intro-para {
+  background:var(--paper);
+  border-left:4px solid var(--primary);
+  border-radius:0 10px 10px 0;
+  padding:1rem 1.25rem;
+  margin-bottom:1.5rem;
+  font-size:1.02rem;
+}
+.intro-para strong { color:var(--primary-dark); }
+.intro-para em { font-style:italic; color:var(--primary-dark); }
+
+/* ── SUB-HEADINGS ── */
+.grammar-block-body h3 {
+  font-family:'DM Sans',sans-serif;
+  font-size:1rem;
+  font-weight:600;
+  color:var(--primary-dark);
+  margin:1.75rem 0 .75rem;
+  display:flex;
+  align-items:center;
+  gap:.45rem;
+}
+.grammar-block-body h4 {
+  font-size:.95rem;
+  font-weight:600;
+  color:var(--ink);
+  margin:1.2rem 0 .5rem;
+}
+
+/* ── FORMULA BOX ── */
+.formula-box {
+  font-family:'DM Mono',monospace;
+  font-size:1rem;
+  text-align:center;
+  background:var(--paper);
+  border:2px dashed var(--primary-mid);
+  border-radius:12px;
+  padding:.9rem 1.5rem;
+  margin:.75rem 0 1.25rem;
+  color:var(--primary-dark);
+  letter-spacing:.03em;
+}
+
+/* ── TABLES ── */
+.table-wrap {
+  overflow-x:auto;
+  margin:.75rem 0 1.5rem;
+  border-radius:12px;
+  box-shadow:0 1px 12px var(--shadow);
+}
+table.grammar-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:.95rem;
+}
+table.grammar-table thead th {
+  background:var(--primary-light);
+  color:var(--primary-dark);
+  font-weight:600;
+  text-align:left;
+  padding:.75rem 1rem;
+  white-space:nowrap;
+}
+table.grammar-table tbody td {
+  padding:.7rem 1rem;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+table.grammar-table tbody tr:last-child td { border-bottom:none; }
+table.grammar-table tbody tr:hover td { background:rgba(214,228,255,.22); }
+table.grammar-table em { color:var(--primary-dark); font-style:italic; }
+table.grammar-table strong { font-weight:600; }
+
+/* ── USAGE LIST ── */
+.usage-list {
+  list-style:none;
+  margin:.5rem 0 1rem;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+.usage-list li {
+  padding-left:1.25rem;
+  position:relative;
+}
+.usage-list li::before {
+  content:'';
+  position:absolute;
+  left:0; top:.57rem;
+  width:8px; height:8px;
+  border-radius:50%;
+  background:var(--primary);
+}
+.usage-list li strong {
+  display:block;
+  font-weight:600;
+  color:var(--ink);
+  margin-bottom:.2rem;
+}
+.usage-list li em {
+  display:block;
+  font-style:italic;
+  color:var(--primary-dark);
+  margin-bottom:.2rem;
+  font-size:1rem;
+}
+.usage-note {
+  font-size:.88rem;
+  color:var(--muted);
+  font-style:normal;
+}
+.usage-note strong { color:var(--ink); font-weight:600; }
+
+/* ── KEYWORD CHIPS ── */
+.kw-chip {
+  display:inline-block;
+  font-family:'DM Mono',monospace;
+  font-size:.8rem;
+  background:var(--primary-light);
+  color:var(--primary-dark);
+  border-radius:6px;
+  padding:.1rem .45rem;
+  margin:.1rem .15rem;
+}
+
+/* ── ERROR BLOCK ── */
+.error-block {
+  background:var(--surface-alt);
+  border-radius:14px;
+  margin:1.75rem 0;
+  overflow:hidden;
+}
+.error-block-header {
+  background:linear-gradient(90deg,var(--error),var(--primary-mid));
+  padding:.65rem 1.25rem;
+}
+.error-block-header span {
+  font-family:'DM Sans',sans-serif;
+  font-size:.85rem;
+  font-weight:600;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:#fff;
+}
+.error-block-body {
+  padding:1.25rem 1.5rem;
+  display:flex;
+  flex-direction:column;
+  gap:1.1rem;
+}
+.error-item-label {
+  font-size:.8rem;
+  font-family:'DM Mono',monospace;
+  color:rgba(255,255,255,.4);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:.4rem;
+}
+.err-wrong {
+  color:var(--error);
+  font-style:italic;
+  font-size:.97rem;
+  display:flex;
+  align-items:flex-start;
+  gap:.5rem;
+  margin-bottom:.3rem;
+}
+.err-wrong .icon { flex-shrink:0; font-style:normal; }
+.err-wrong .txt { text-decoration:line-through; opacity:.85; }
+.err-right {
+  color:var(--success);
+  font-weight:600;
+  font-size:.97rem;
+  font-style:italic;
+  display:flex;
+  align-items:flex-start;
+  gap:.5rem;
+}
+.err-right .icon { flex-shrink:0; font-style:normal; }
+.err-context {
+  font-size:.82rem;
+  color:rgba(255,255,255,.38);
+  font-style:normal;
+  margin-top:.25rem;
+  padding-left:1.4rem;
+}
+
+/* ── ALERT BOX ── */
+.alert-box {
+  background:var(--primary-light);
+  border-left:4px solid var(--primary);
+  border-radius:0 12px 12px 0;
+  padding:1rem 1.25rem;
+  margin:1.25rem 0;
+}
+.alert-box .alert-title {
+  font-weight:700;
+  font-size:.88rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--primary-dark);
+  margin-bottom:.45rem;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.alert-box ul {
+  list-style:none;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:.3rem;
+}
+.alert-box ul li { font-size:.97rem; color:var(--ink); }
+.alert-box ul li::before { content:'→ '; color:var(--primary); font-weight:700; }
+.alert-box p { font-size:.97rem; color:var(--ink); }
+.alert-box p + p { margin-top:.4rem; }
+
+/* ── FEATURE BOX ── */
+.feature-box {
+  background:linear-gradient(135deg,var(--primary-dark),var(--primary));
+  border-radius:14px;
+  padding:1.25rem 1.5rem;
+  margin:1.5rem 0;
+  color:#fff;
+}
+.feature-box .feature-title {
+  font-size:.82rem;
+  font-family:'DM Mono',monospace;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--primary-mid);
+  margin-bottom:.55rem;
+}
+.feature-box p { color:rgba(255,255,255,.88); font-size:.97rem; margin-bottom:.4rem; }
+.feature-box p:last-child { margin-bottom:0; }
+.feature-box em { font-style:italic; color:var(--primary-mid); }
+.feature-box strong { font-weight:600; color:#fff; }
+.feature-box ul { list-style:none; padding:0; display:flex; flex-direction:column; gap:.45rem; margin-top:.5rem; }
+.feature-box ul li {
+  color:rgba(255,255,255,.88);
+  font-size:.97rem;
+  padding-left:1.2rem;
+  position:relative;
+}
+.feature-box ul li::before {
+  content:'·';
+  position:absolute; left:0;
+  color:var(--primary-mid);
+  font-size:1.3rem;
+  line-height:.9;
+}
+
+/* ── ACTIVE/PASSIVE CONTRAST ── */
+.ap-contrast {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:.75rem;
+  margin:1rem 0;
+}
+.ap-card {
+  border-radius:12px;
+  padding:.9rem 1.1rem;
+  border:1.5px solid var(--line);
+}
+.ap-card.active-card {
+  background:rgba(59,111,191,.07);
+  border-color:rgba(59,111,191,.3);
+}
+.ap-card.passive-card {
+  background:rgba(46,158,104,.07);
+  border-color:rgba(46,158,104,.3);
+}
+.ap-card .ap-label {
+  font-size:.73rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin-bottom:.4rem;
+}
+.ap-card.active-card .ap-label { color:var(--primary); }
+.ap-card.passive-card .ap-label { color:var(--success); }
+.ap-card .ap-formula {
+  font-family:'DM Mono',monospace;
+  font-size:.82rem;
+  color:var(--muted);
+  margin-bottom:.35rem;
+}
+.ap-card .ap-ex { font-style:italic; font-size:.97rem; color:var(--ink); }
+
+/* ── HAVE vs GET PAIR ── */
+.pair-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:.75rem;
+  margin:.75rem 0;
+}
+.pair-card {
+  background:var(--paper);
+  border:1.5px solid var(--line);
+  border-radius:12px;
+  padding:.9rem 1.1rem;
+}
+.pair-card .pc-label {
+  font-family:'DM Mono',monospace;
+  font-size:.75rem;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--primary);
+  margin-bottom:.35rem;
+}
+.pair-card .pc-tag {
+  font-size:.75rem;
+  color:var(--muted);
+  margin-bottom:.3rem;
+  font-style:italic;
+}
+.pair-card .pc-ex { font-style:italic; font-size:.95rem; color:var(--ink); }
+
+/* ── DECISION FLOWCHART ── */
+.decision-block {
+  background:var(--ink);
+  border-radius:14px;
+  padding:1.5rem 1.75rem;
+  margin:1.5rem 0;
+  font-family:'DM Mono',monospace;
+}
+.decision-block .db-title {
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:var(--primary-mid);
+  margin-bottom:1rem;
+}
+.decision-block pre {
+  background:transparent;
+  color:rgba(255,255,255,.78);
+  font-family:'DM Mono',monospace;
+  font-size:.88rem;
+  line-height:1.72;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+.decision-block pre .hl { color:var(--primary-mid); font-weight:500; }
+
+/* ── VERB LIST CHIPS ── */
+.verb-chips {
+  display:flex;
+  flex-wrap:wrap;
+  gap:.4rem;
+  margin:.6rem 0 1.2rem;
+}
+
+/* ── SELF CHECK ── */
+.self-check {
+  background:var(--paper);
+  border:1.5px solid var(--line);
+  border-radius:12px;
+  padding:1rem 1.25rem;
+  margin:1.25rem 0;
+}
+.self-check .sc-title {
+  font-size:.82rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--primary);
+  margin-bottom:.6rem;
+}
+.self-check ol {
+  padding-left:1.25rem;
+  color:var(--ink);
+  font-size:.97rem;
+}
+.self-check ol li { margin-bottom:.35rem; }
+
+/* ── SUMMARY BLOCK ── */
+.summary-block {
+  background:var(--ink);
+  color:#fff;
+  border-radius:16px;
+  padding:2rem;
+  margin:2.5rem 0;
+}
+.summary-block h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(20px,3vw,28px);
+  margin-bottom:1.25rem;
+  color:var(--primary-mid);
+}
+.summary-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(195px,1fr));
+  gap:1rem;
+  margin-bottom:1.25rem;
+}
+.summary-card {
+  background:rgba(255,255,255,.06);
+  border:1.5px solid rgba(255,255,255,.1);
+  border-radius:12px;
+  padding:1rem 1.1rem;
+}
+.summary-card .sc-label {
+  font-family:'DM Mono',monospace;
+  font-size:.73rem;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  color:var(--primary-mid);
+  margin-bottom:.3rem;
+}
+.summary-card .sc-desc { font-size:.9rem; color:rgba(255,255,255,.75); }
+.summary-outro {
+  font-style:italic;
+  color:rgba(255,255,255,.5);
+  font-size:.95rem;
+  margin-top:.75rem;
+}
+
+/* ── READING PASSAGE ── */
+.reading-passage {
+  background:var(--paper);
+  border-radius:16px;
+  padding:2rem 2.25rem;
+  margin:2.5rem 0;
+  box-shadow:0 2px 20px var(--shadow);
+}
+.reading-passage .rp-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(22px,3vw,30px);
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:1.5rem;
+  border-bottom:2px solid var(--line);
+  padding-bottom:.75rem;
+}
+.reading-passage p {
+  font-family:'Playfair Display',serif;
+  font-size:1.08rem;
+  line-height:1.88;
+  margin-bottom:1.4rem;
+  color:#2a2934;
+}
+.reading-passage p:last-child { margin-bottom:0; }
+.reading-passage strong {
+  font-weight:700;
+  color:var(--primary-dark);
+  background:var(--primary-light);
+  padding:.05em .22em;
+  border-radius:3px;
+}
+
+/* ── GRAMMAR FEATURES ── */
+.grammar-features {
+  background:var(--surface);
+  border-radius:16px;
+  padding:1.75rem 2rem;
+  margin:2rem 0;
+  box-shadow:0 2px 20px var(--shadow);
+}
+.grammar-features h2 {
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:1.25rem;
+  border-bottom:2px solid var(--line);
+  padding-bottom:.6rem;
+}
+.grammar-features p { font-size:.97rem; line-height:1.72; margin-bottom:.9rem; color:var(--ink); }
+.grammar-features p:last-child { margin-bottom:0; }
+.grammar-features strong { color:var(--primary-dark); font-weight:600; }
+.grammar-features em { font-style:italic; color:var(--primary-dark); }
+
+/* ── FOOTER ── */
+footer {
+  text-align:center;
+  padding:2rem 0 1rem;
+  color:var(--muted);
+  font-size:.85rem;
+  border-top:1px solid var(--line);
+  margin-top:3rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width:640px) {
+  .page-container { padding:0 1rem 3rem; }
+  .hero { padding:2.5rem 1rem 2rem; }
+  .grammar-block-body { padding:1.25rem; }
+  .grammar-block-header { padding:1.1rem 1.25rem 1rem; }
+  .ap-contrast { grid-template-columns:1fr; }
+  .pair-grid { grid-template-columns:1fr; }
+  .reading-passage { padding:1.5rem 1.25rem; }
+  .summary-block { padding:1.5rem 1.25rem; }
+  .grammar-features { padding:1.25rem; }
+  table.grammar-table { font-size:.87rem; }
+  table.grammar-table thead th,
+  table.grammar-table tbody td { padding:.6rem .75rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-badge">Unit 8 · Destination B2</div>
+  <h1>THE PASSIVE &amp; CAUSATIVE<br><em>"Nghệ Thuật Lật Ngược"</em></h1>
+  <p class="hero-intro">
+    So sánh hai câu: <em>"Someone stole my car"</em> vs <em>"<strong>My car was stolen</strong>"</em>. Câu nào nghe chuyên nghiệp hơn? Passive Voice không chỉ là "đảo ngược" câu — nó là nghệ thuật tạo ra sự <strong>trang trọng, khách quan</strong> và tập trung vào điều quan trọng!
+  </p>
+</header>
+
+<main>
+<div class="page-container">
+
+<!-- ═══════════════════════════════════════
+     8.1 THE PASSIVE
+══════════════════════════════════════════ -->
+<article class="grammar-block">
+  <div class="grammar-block-header">
+    <span class="section-badge">8.1</span>
+    <h2>The Passive — <em style="font-style:italic;color:var(--primary);">Thể Bị Động</em></h2>
+  </div>
+  <div class="grammar-block-body">
+
+    <div class="intro-para">
+      <strong>🤔 Mở đầu:</strong> Khi nào "người làm" không quan trọng bằng "việc được làm"?<br>
+      <strong>Bản chất:</strong> Passive Voice chuyển trọng tâm từ <strong>người thực hiện</strong> sang <strong>hành động</strong> hoặc <strong>kết quả</strong>.
+    </div>
+
+    <h3>📝 Công thức chung:</h3>
+    <div class="formula-box">Noun + be (chia thì) + Past Participle (V3) + (by / with + noun)</div>
+
+    <h3>📊 Bảng chuyển đổi các thì:</h3>
+    <div class="table-wrap">
+      <table class="grammar-table">
+        <thead>
+          <tr><th>Thì</th><th>Active</th><th>Passive</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Present Simple</strong></td>
+            <td><em>They grow bananas.</em></td>
+            <td><em>Bananas <strong>are grown</strong>.</em></td>
+          </tr>
+          <tr>
+            <td><strong>Present Continuous</strong></td>
+            <td><em>They are decorating the café.</em></td>
+            <td><em>The café <strong>is being decorated</strong>.</em></td>
+          </tr>
+          <tr>
+            <td><strong>Present Perfect</strong></td>
+            <td><em>Has anyone peeled the carrots?</em></td>
+            <td><em><strong>Have</strong> the carrots <strong>been peeled</strong>?</em></td>
+          </tr>
+          <tr>
+            <td><strong>Past Simple</strong></td>
+            <td><em>They served the meal.</em></td>
+            <td><em>The meal <strong>was served</strong>.</em></td>
+          </tr>
+          <tr>
+            <td><strong>Past Continuous</strong></td>
+            <td><em>They were preparing the bill.</em></td>
+            <td><em>The bill <strong>was being prepared</strong>.</em></td>
+          </tr>
+          <tr>
+            <td><strong>Past Perfect</strong></td>
+            <td><em>Someone had eaten all food.</em></td>
+            <td><em>All food <strong>had been eaten</strong>.</em></td>
+          </tr>
+          <tr>
+            <td><strong>Future (will)</strong></td>
+            <td><em>We will deliver your pizza.</em></td>
+            <td><em>Your pizza <strong>will be delivered</strong>.</em></td>
+          </tr>
+          <tr>
+            <td><strong>Future (be going to)</strong></td>
+            <td><em>They are going to sue Burgerland.</em></td>
+            <td><em>Burgerland <strong>is going to be sued</strong>.</em></td>
+          </tr>
+          <tr>
+            <td><strong>Modal</strong></td>
+            <td><em>You should brush the chicken.</em></td>
+            <td><em>The chicken <strong>should be brushed</strong>.</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>🎯 Khi nào dùng Passive:</h3>
+    <ul class="usage-list">
+      <li>
+        <strong>1. Không biết ai làm:</strong>
+        <em>My groceries <strong>have been stolen</strong>!</em>
+      </li>
+      <li>
+        <strong>2. Hiển nhiên ai làm:</strong>
+        <em>A boy <strong>was arrested</strong> yesterday.</em>
+        <span class="usage-note">Hiển nhiên là cảnh sát bắt — không cần nói "by the police"</span>
+      </li>
+      <li>
+        <strong>3. Không quan trọng ai làm:</strong>
+        <em>The French bistro <strong>is being knocked down</strong>.</em>
+        <span class="usage-note">Quan trọng là việc phá dỡ, không phải người phá</span>
+      </li>
+      <li>
+        <strong>4. Muốn nhấn mạnh / trang trọng:</strong>
+        <em>The potato <strong>was brought</strong> to Europe by Sir Walter Raleigh.</em>
+        <span class="usage-note">Nhấn mạnh kết quả và sự kiện lịch sử</span>
+      </li>
+    </ul>
+
+    <h3>🔥 BY vs WITH:</h3>
+    <div class="table-wrap">
+      <table class="grammar-table">
+        <thead>
+          <tr><th>Giới từ</th><th>Cách dùng</th><th>Ví dụ</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="kw-chip">BY</span></td>
+            <td>Người / Tác nhân thực hiện</td>
+            <td><em>painted <strong>by</strong> Picasso</em></td>
+          </tr>
+          <tr>
+            <td><span class="kw-chip">WITH</span></td>
+            <td>Công cụ / Phương tiện</td>
+            <td><em>cut <strong>with</strong> a knife</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>🔄 Active vs Passive — so sánh trực tiếp:</h3>
+    <div class="ap-contrast">
+      <div class="ap-card active-card">
+        <div class="ap-label">Active</div>
+        <div class="ap-formula">Subject + Verb + Object</div>
+        <div class="ap-ex">They serve the meal.</div>
+        <div class="ap-ex" style="margin-top:.3rem;color:var(--muted);font-size:.85rem;">Chủ ngữ <strong>làm</strong> hành động</div>
+      </div>
+      <div class="ap-card passive-card">
+        <div class="ap-label">Passive</div>
+        <div class="ap-formula">Subject + be + V3 + (by…)</div>
+        <div class="ap-ex">The meal was served.</div>
+        <div class="ap-ex" style="margin-top:.3rem;color:var(--muted);font-size:.85rem;">Chủ ngữ <strong>nhận</strong> hành động</div>
+      </div>
+    </div>
+
+    <div class="error-block">
+      <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+      <div class="error-block-body">
+        <div class="error-item">
+          <div class="error-item-label">Lỗi 1 — Lạm dụng "by someone":</div>
+          <div class="err-wrong"><span class="icon">❌</span><span class="txt">This steak was overcooked by someone.</span></div>
+          <div class="err-right"><span class="icon">✅</span><span>This steak was overcooked.</span></div>
+        </div>
+        <div class="error-item">
+          <div class="error-item-label">Lỗi 2 — Dùng passive với động từ nội động (intransitive):</div>
+          <div class="err-wrong"><span class="icon">❌</span><span class="txt">The accident was happened yesterday.</span></div>
+          <div class="err-right"><span class="icon">✅</span><span>The accident happened yesterday.</span></div>
+        </div>
+        <div class="error-item">
+          <div class="error-item-label">Lỗi 3 — Quên "being" trong continuous passive:</div>
+          <div class="err-wrong"><span class="icon">❌</span><span class="txt">The house is built.</span></div>
+          <div class="err-right"><span class="icon">✅</span><span>The house is being built.</span></div>
+          <div class="err-context">(khi muốn nói đang xây)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+      <ul>
+        <li><strong>Active:</strong> Chủ ngữ <em>làm</em> hành động</li>
+        <li><strong>Passive:</strong> Chủ ngữ <em>nhận</em> hành động</li>
+        <li><strong>By</strong> = người làm &nbsp;·&nbsp; <strong>With</strong> = dụng cụ</li>
+      </ul>
+    </div>
+
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════
+     8.2 IMPERSONAL PASSIVE
+══════════════════════════════════════════ -->
+<article class="grammar-block">
+  <div class="grammar-block-header">
+    <span class="section-badge">8.2</span>
+    <h2>Impersonal Passive — <em style="font-style:italic;color:var(--primary);">Thể Bị Động Không Ngôi</em></h2>
+  </div>
+  <div class="grammar-block-body">
+
+    <div class="intro-para">
+      <strong>🤔 Mở đầu:</strong> Làm sao nói <em>"Người ta nói rằng…"</em> một cách trang trọng?<br>
+      <strong>Bản chất:</strong> Diễn tả <strong>ý kiến của nhiều người</strong> một cách <strong>khách quan, trang trọng</strong>.
+    </div>
+
+    <h3>📝 Hai cấu trúc:</h3>
+
+    <div class="formula-box">Cấu trúc 1: It + be + said/believed/thought + that clause</div>
+    <ul class="usage-list">
+      <li>
+        <strong>Ví dụ cấu trúc 1:</strong>
+        <em>It <strong>is thought that</strong> he is a great chef.</em>
+      </li>
+    </ul>
+
+    <div class="formula-box">Cấu trúc 2: Subject + be + said/believed/thought + to infinitive</div>
+    <ul class="usage-list">
+      <li>
+        <strong>Ví dụ cấu trúc 2:</strong>
+        <em>He <strong>is thought to be</strong> a great chef.</em>
+      </li>
+    </ul>
+
+    <h3>🎯 Ví dụ chi tiết — 3 cấp độ thời gian:</h3>
+    <div class="table-wrap">
+      <table class="grammar-table">
+        <thead>
+          <tr><th>Active</th><th>Impersonal (Cấu trúc 1)</th><th>Impersonal (Cấu trúc 2)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><em>People think he is great.</em></td>
+            <td><em><strong>It is thought that</strong> he is great.</em></td>
+            <td><em>He <strong>is thought to be</strong> great.</em></td>
+          </tr>
+          <tr>
+            <td><em>People believe he was great.</em></td>
+            <td><em><strong>It is believed that</strong> he was great.</em></td>
+            <td><em>He <strong>is believed to have been</strong> great.</em></td>
+          </tr>
+          <tr>
+            <td><em>People say he has influenced others.</em></td>
+            <td><em><strong>It is said that</strong> he has influenced others.</em></td>
+            <td><em>He <strong>is said to have influenced</strong> others.</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>🔥 Các động từ thường dùng:</h3>
+    <div class="verb-chips">
+      <span class="kw-chip">say</span>
+      <span class="kw-chip">believe</span>
+      <span class="kw-chip">think</span>
+      <span class="kw-chip">claim</span>
+      <span class="kw-chip">estimate</span>
+      <span class="kw-chip">report</span>
+      <span class="kw-chip">consider</span>
+      <span class="kw-chip">suppose</span>
+      <span class="kw-chip">expect</span>
+      <span class="kw-chip">know</span>
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+      <ul>
+        <li><strong>Cấu trúc 1 (It is said that…):</strong> Khách quan hơn, không đề cập đến chủ thể</li>
+        <li><strong>Cấu trúc 2 (He is said to…):</strong> Tập trung vào chủ thể được nhắc đến</li>
+      </ul>
+    </div>
+
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════
+     8.3 THE CAUSATIVE
+══════════════════════════════════════════ -->
+<article class="grammar-block">
+  <div class="grammar-block-header">
+    <span class="section-badge">8.3</span>
+    <h2>The Causative — <em style="font-style:italic;color:var(--primary);">Thể Sai Khiến</em></h2>
+  </div>
+  <div class="grammar-block-body">
+
+    <div class="intro-para">
+      <strong>🤔 Mở đầu:</strong> <em>"I cut my hair"</em> vs <em>"I had my hair cut"</em> — Ai là người cắt?<br>
+      <strong>Bản chất:</strong> Diễn tả việc <strong>nhờ người khác làm</strong> thay vì tự làm.
+    </div>
+
+    <h3>📝 Công thức:</h3>
+    <div class="formula-box">have / get + object + past participle</div>
+
+    <h3>🎯 Các cách dùng:</h3>
+    <ul class="usage-list">
+      <li>
+        <strong>1. Sắp xếp cho ai đó làm (chủ động nhờ):</strong>
+        <em>I <strong>have</strong> my groceries <strong>delivered</strong> weekly.</em>
+        <span class="usage-note">Nhờ siêu thị giao hàng tuần</span>
+      </li>
+      <li>
+        <strong>2. Sắp xếp trong tiến trình:</strong>
+        <em>We <strong>are having</strong> a new cooker <strong>put in</strong> tomorrow.</em>
+        <span class="usage-note">Nhờ thợ lắp bếp mới</span>
+      </li>
+      <li>
+        <strong>3. Tình huống không mong muốn (xảy ra với mình):</strong>
+        <em>We <strong>had</strong> our garden <strong>vandalized</strong>.</em>
+        <span class="usage-note">Khu vườn bị phá hoại</span>
+      </li>
+      <li>
+        <strong>4. Tình huống xảy ra (hoàn thành):</strong>
+        <em>They <strong>have had</strong> their microwave <strong>stolen</strong>.</em>
+        <span class="usage-note">Lò vi sóng bị trộm</span>
+      </li>
+    </ul>
+
+    <h3>🔄 Have vs Get:</h3>
+    <div class="pair-grid">
+      <div class="pair-card">
+        <div class="pc-label">HAVE</div>
+        <div class="pc-tag">Trang trọng hơn</div>
+        <div class="pc-ex"><em>have it repaired</em></div>
+      </div>
+      <div class="pair-card">
+        <div class="pc-label">GET</div>
+        <div class="pc-tag">Thân thiện hơn (informal)</div>
+        <div class="pc-ex"><em>get it repaired</em></div>
+      </div>
+    </div>
+
+    <div class="feature-box">
+      <div class="feature-title">🔥 Cấu Trúc Mở Rộng</div>
+      <p><strong>Get/Have + somebody + to do (có "to"):</strong></p>
+      <p><em>Get the chef <strong>to prepare</strong> a vegetarian meal.</em></p>
+      <p style="margin-top:.7rem"><strong>Have + somebody + do (không "to"):</strong></p>
+      <p><em>Have the chef <strong>prepare</strong> a vegetarian meal.</em></p>
+    </div>
+
+    <div class="ap-contrast">
+      <div class="ap-card active-card">
+        <div class="ap-label">Tự làm (Active)</div>
+        <div class="ap-ex">I cut my hair.</div>
+        <div class="ap-ex" style="margin-top:.3rem;font-size:.85rem;color:var(--muted);">→ Tự tay tôi cắt</div>
+      </div>
+      <div class="ap-card passive-card">
+        <div class="ap-label">Nhờ làm (Causative)</div>
+        <div class="ap-ex">I had my hair cut.</div>
+        <div class="ap-ex" style="margin-top:.3rem;font-size:.85rem;color:var(--muted);">→ Nhờ thợ cắt tóc</div>
+      </div>
+    </div>
+
+    <div class="error-block">
+      <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+      <div class="error-block-body">
+        <div class="error-item">
+          <div class="error-item-label">Lỗi — Quên past participle:</div>
+          <div class="err-wrong"><span class="icon">❌</span><span class="txt">I had my car wash.</span></div>
+          <div class="err-right"><span class="icon">✅</span><span>I had my car washed.</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════
+     8.4 DIRECT & INDIRECT OBJECTS
+══════════════════════════════════════════ -->
+<article class="grammar-block">
+  <div class="grammar-block-header">
+    <span class="section-badge">8.4</span>
+    <h2>Direct &amp; Indirect Objects — <em style="font-style:italic;color:var(--primary);">Hai Tân Ngữ → Hai Cách Passive</em></h2>
+  </div>
+  <div class="grammar-block-body">
+
+    <div class="intro-para">
+      <strong>🤔 Mở đầu:</strong> <em>"I gave John a book"</em> có thể passive theo mấy cách?<br>
+      <strong>Bản chất:</strong> Một số động từ có <strong>hai tân ngữ</strong> → có <strong>hai cách</strong> chuyển passive!
+    </div>
+
+    <h3>📝 Các động từ hai tân ngữ:</h3>
+    <div class="verb-chips">
+      <span class="kw-chip">bring</span>
+      <span class="kw-chip">buy</span>
+      <span class="kw-chip">get</span>
+      <span class="kw-chip">give</span>
+      <span class="kw-chip">lend</span>
+      <span class="kw-chip">make</span>
+      <span class="kw-chip">offer</span>
+      <span class="kw-chip">owe</span>
+      <span class="kw-chip">pass</span>
+      <span class="kw-chip">promise</span>
+      <span class="kw-chip">send</span>
+      <span class="kw-chip">show</span>
+      <span class="kw-chip">take</span>
+      <span class="kw-chip">teach</span>
+      <span class="kw-chip">tell</span>
+      <span class="kw-chip">write</span>
+    </div>
+
+    <h3>🎯 Ví dụ chuyển đổi — "A friend gave my sister this book":</h3>
+
+    <h4>Active (2 cách viết):</h4>
+    <ul class="usage-list">
+      <li>
+        <strong>Indirect + Direct:</strong>
+        <em>A friend gave <strong>my sister</strong> this book.</em>
+      </li>
+      <li>
+        <strong>Direct + to + Indirect:</strong>
+        <em>A friend gave this book <strong>to my sister</strong>.</em>
+      </li>
+    </ul>
+
+    <h4>Passive (2 cách):</h4>
+    <ul class="usage-list">
+      <li>
+        <strong>Indirect object làm chủ ngữ:</strong>
+        <em><strong>My sister</strong> was given this book.</em>
+        <span class="usage-note">Phổ biến hơn — người nhận trở thành chủ ngữ</span>
+      </li>
+      <li>
+        <strong>Direct object làm chủ ngữ:</strong>
+        <em><strong>This book</strong> was given to my sister.</em>
+        <span class="usage-note">Nhấn mạnh vật được trao</span>
+      </li>
+    </ul>
+
+    <h3>🔄 Giới từ thường dùng:</h3>
+    <div class="table-wrap">
+      <table class="grammar-table">
+        <thead>
+          <tr><th>Động từ</th><th>Giới từ</th><th>Ví dụ</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="kw-chip">give</span> <span class="kw-chip">send</span> <span class="kw-chip">show</span></td>
+            <td><strong>to</strong></td>
+            <td><em>given <strong>to</strong> Mary</em></td>
+          </tr>
+          <tr>
+            <td><span class="kw-chip">buy</span> <span class="kw-chip">make</span> <span class="kw-chip">cook</span></td>
+            <td><strong>for</strong></td>
+            <td><em>made <strong>for</strong> the children</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+      <ul>
+        <li><strong>Tân ngữ gián tiếp</strong> = người nhận</li>
+        <li><strong>Tân ngữ trực tiếp</strong> = vật được trao</li>
+        <li>Cả hai đều có thể làm chủ ngữ trong passive!</li>
+      </ul>
+    </div>
+
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════
+     TỔNG KẾT
+══════════════════════════════════════════ -->
+<div class="summary-block">
+  <h2>Tổng Kết Unit 8</h2>
+
+  <div class="decision-block" style="margin-bottom:1.5rem;">
+    <div class="db-title">🎯 Sơ Đồ Quyết Định Khi Nào Dùng Passive</div>
+    <pre>PASSIVE VOICE — Khi nào dùng? 🤔
+
+Không biết ai làm?              → <span class="hl">YES ✓ Dùng Passive</span>
+Không quan trọng ai làm?        → <span class="hl">YES ✓ Dùng Passive</span>
+Muốn trang trọng / khách quan?  → <span class="hl">YES ✓ Dùng Passive</span>
+Muốn nhấn mạnh kết quả?         → <span class="hl">YES ✓ Dùng Passive</span>
+Tình huống thông thường?         → <span class="hl">→ Active</span></pre>
+  </div>
+
+  <h3 style="color:var(--primary-mid);font-family:'DM Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.85rem;">📊 Bảng tham khảo nhanh</h3>
+  <div class="table-wrap" style="margin-bottom:1.5rem;">
+    <table class="grammar-table">
+      <thead>
+        <tr><th>Loại</th><th>Công thức</th><th>Ví dụ</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Basic Passive</strong></td>
+          <td><em>be + V3</em></td>
+          <td><em>is made, was built</em></td>
+        </tr>
+        <tr>
+          <td><strong>Impersonal</strong></td>
+          <td><em>It is said that… / S + is said to…</em></td>
+          <td><em>It is believed that he's honest</em></td>
+        </tr>
+        <tr>
+          <td><strong>Causative</strong></td>
+          <td><em>have/get + object + V3</em></td>
+          <td><em>had my car repaired</em></td>
+        </tr>
+        <tr>
+          <td><strong>Double Object</strong></td>
+          <td><em>2 cách passive</em></td>
+          <td><em>John was given a book / A book was given to John</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="sc-label">8.1 · The Passive</div>
+      <div class="sc-desc">be + V3 — tất cả các thì. By = người, With = dụng cụ</div>
+    </div>
+    <div class="summary-card">
+      <div class="sc-label">8.2 · Impersonal</div>
+      <div class="sc-desc">It is said that… / He is said to be…</div>
+    </div>
+    <div class="summary-card">
+      <div class="sc-label">8.3 · Causative</div>
+      <div class="sc-desc">have/get + obj + V3 — nhờ người khác làm</div>
+    </div>
+    <div class="summary-card">
+      <div class="sc-label">8.4 · Double Object</div>
+      <div class="sc-desc">Hai tân ngữ → hai cách passive</div>
+    </div>
+  </div>
+
+  <div class="self-check" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);margin-top:1.25rem;">
+    <div class="sc-title" style="color:var(--primary-mid);">📚 Câu Hỏi Tự Kiểm Tra</div>
+    <ol style="color:rgba(255,255,255,.8);">
+      <li>"My car was stolen" vs "Someone stole my car" — Khi nào dùng cái nào?</li>
+      <li>"I cut my hair" vs "I had my hair cut" — Sự khác biệt là gì?</li>
+      <li>"It is said that" vs "He is said to" — Cái nào trang trọng hơn?</li>
+    </ol>
+  </div>
+
+  <p class="summary-outro">Tuyệt vời! Chúng ta vừa làm chủ "nghệ thuật lật ngược" với Passive Voice. Tiếp theo, hãy khám phá -ING vs TO-INFINITIVE — cuộc "đối đầu" kinh điển nhất trong ngữ pháp!</p>
+</div>
+
+<!-- ═══════════════════════════════════════
+     READING PASSAGE
+══════════════════════════════════════════ -->
+<section class="reading-passage">
+  <div class="rp-title">📖 Renovating My Dream House</div>
+
+  <p>Last year, an old Victorian mansion <strong>was purchased</strong> by my family after years of saving. The house <strong>had been abandoned</strong> for nearly a decade, and extensive renovations <strong>were needed</strong> immediately. We <strong>were told</strong> by neighbors that the previous owners <strong>had been forced</strong> to leave suddenly, though the exact reasons <strong>were never explained</strong>. <strong>It is believed that</strong> the house was built in 1890 by a wealthy merchant, and <strong>it is said to have been</strong> one of the finest homes in the area. Now, after months of work, our dream home <strong>is being transformed</strong> into reality. We've <strong>had</strong> most of the major repairs <strong>completed</strong>, though some rooms <strong>are still being renovated</strong>. The experience has taught me that having a house restored <strong>is</strong> both exciting and exhausting.</p>
+
+  <p>The initial inspection <strong>was conducted</strong> by a professional surveyor who <strong>was recommended</strong> to us by friends. His report <strong>was delivered</strong> within a week, and we <strong>were shocked</strong> by what <strong>was discovered</strong>. The roof <strong>had been damaged</strong> by years of neglect, and water <strong>had been leaking</strong> into the attic. The original hardwood floors <strong>were covered</strong> with layers of old carpet that <strong>hadn't been removed</strong> in decades. Asbestos <strong>was found</strong> in the basement, which meant it <strong>had to be removed</strong> by specialists. The electrical wiring <strong>was considered</strong> dangerous and <strong>needed to be replaced</strong> immediately. We <strong>were informed</strong> that all the plumbing <strong>would have to be modernized</strong>. The survey results <strong>were presented</strong> to us with detailed photographs, and every problem <strong>was explained</strong> carefully.</p>
+
+  <p>Once the purchase <strong>was finalized</strong>, we <strong>had</strong> a team of architects <strong>draw up</strong> renovation plans. The original blueprints <strong>were obtained</strong> from the city archives, which helped us understand how the house <strong>had been designed</strong>. Several contractors <strong>were interviewed</strong> before the right team <strong>was chosen</strong>. Their references <strong>were checked</strong> thoroughly, and previous clients <strong>were contacted</strong> for feedback. A detailed contract <strong>was drawn up</strong> by our lawyer, and every aspect of the work <strong>was specified</strong> clearly. The budget <strong>was set</strong> at $150,000, though we <strong>were warned</strong> that unexpected costs might arise. <strong>It is generally accepted that</strong> renovation projects often exceed their initial budgets, and we <strong>were advised</strong> to prepare for this possibility.</p>
+
+  <p>The actual work began in spring when the weather <strong>was considered</strong> ideal for construction. First, we <strong>had</strong> the dangerous asbestos <strong>removed</strong> by certified professionals. This work <strong>had to be completed</strong> before any other renovations <strong>could be started</strong>. Next, we <strong>had</strong> new electrical wiring <strong>installed</strong> throughout the house. The old system <strong>was replaced</strong> with modern, energy-efficient components. All the work <strong>was inspected</strong> by city officials to ensure it met current codes. We <strong>got</strong> the plumber <strong>to update</strong> all the pipes, and new bathrooms <strong>were fitted</strong> on each floor. The original fireplaces <strong>were restored</strong> by a specialist who <strong>is known to be</strong> an expert in Victorian architecture.</p>
+
+  <p>The kitchen renovation <strong>was</strong> the most dramatic transformation. The old kitchen <strong>had been modernized</strong> poorly in the 1970s, and those updates <strong>had to be removed</strong> completely. We <strong>had</strong> custom cabinets <strong>built</strong> by a local craftsman whose work <strong>is thought to be</strong> the finest in the region. New appliances <strong>were delivered</strong> and <strong>installed</strong> last month. The kitchen island <strong>was constructed</strong> from reclaimed wood that <strong>was sourced</strong> from an old barn. Original tiles <strong>were discovered</strong> under the linoleum and <strong>were carefully restored</strong>. The pantry <strong>was converted</strong> into a breakfast nook where morning coffee <strong>can be enjoyed</strong> while sunlight streams through the restored windows.</p>
+
+  <p>Unfortunately, we've also <strong>had</strong> some belongings <strong>damaged</strong> during the renovation process. A valuable painting <strong>was accidentally knocked</strong> off the wall by workers, though it <strong>has since been repaired</strong> by a professional restorer. We <strong>had</strong> our antique furniture <strong>moved</strong> to storage after a chair <strong>was scratched</strong> during the construction. Some of grandmother's china <strong>was broken</strong> when a shelf collapsed, which <strong>couldn't be prevented</strong> despite our precautions. These incidents <strong>are said to be</strong> common during major renovations, but they <strong>were</strong> still disappointing. Insurance claims <strong>were filed</strong> for the significant damages, and most costs <strong>were covered</strong> by our policy.</p>
+
+  <p>The garden renovation <strong>is being handled</strong> by a landscape designer who <strong>was highly recommended</strong> by the previous renovators of the house. Dead trees <strong>have been removed</strong>, and new ones <strong>are being planted</strong> this week. The old greenhouse <strong>is being rebuilt</strong> using the original plans that <strong>were found</strong> in the attic. A new irrigation system <strong>has been installed</strong>, and the lawn <strong>has been reseeded</strong>. Stone pathways <strong>are being laid</strong> to connect different areas of the garden. We <strong>are having</strong> a gazebo <strong>constructed</strong> where outdoor meals <strong>can be enjoyed</strong> during summer. The fence <strong>was repaired</strong> last week, and the gates <strong>were repainted</strong> in the original Victorian colors.</p>
+
+  <p>Modern technology <strong>has been integrated</strong> thoughtfully throughout the house. Smart home systems <strong>were installed</strong> to control heating, lighting, and security. Solar panels <strong>are going to be mounted</strong> on the roof next month to reduce energy costs. High-speed internet cables <strong>were run</strong> through the walls during the electrical work. Security cameras <strong>have been positioned</strong> around the property, and the footage <strong>can be accessed</strong> remotely. <strong>It is estimated that</strong> these upgrades will increase the house's value significantly. However, care <strong>was taken</strong> to ensure that modern additions <strong>weren't allowed</strong> to compromise the historic character.</p>
+
+  <p>The restoration of original features <strong>has been given</strong> special attention. The ornate ceiling moldings <strong>were cleaned</strong> and <strong>repaired</strong> by specialists. Original stained glass windows <strong>were removed</strong>, <strong>restored</strong> off-site, and then <strong>reinstalled</strong>. The hardwood floors <strong>were refinished</strong> after years of wear <strong>had been addressed</strong>. Built-in bookcases <strong>were stripped</strong> of old paint and <strong>refinished</strong> to show the natural wood grain. The main staircase <strong>was reinforced</strong> while its carved banister <strong>was preserved</strong>. Every effort <strong>has been made</strong> to maintain the house's authentic Victorian character. <strong>It is believed</strong> by historians that few houses of this era <strong>have been preserved</strong> so carefully.</p>
+
+  <p>Local history <strong>has been researched</strong> extensively during our renovation. Old photographs <strong>were discovered</strong> showing the house in its original glory. Former residents <strong>were interviewed</strong> about their memories of the property. <strong>It is said that</strong> famous authors and politicians <strong>were entertained</strong> here in the early 1900s. A hidden room <strong>was discovered</strong> behind a bookcase, where valuable documents <strong>had been stored</strong>. These papers <strong>are being examined</strong> by historians who believe they may be significant. The house's story <strong>is being documented</strong> for future generations, and a plaque <strong>will be installed</strong> to mark its historical importance.</p>
+
+  <p>Financial aspects of the renovation <strong>have been carefully managed</strong>. Regular payments <strong>are made</strong> to contractors as work <strong>is completed</strong>. All receipts <strong>are being kept</strong> for tax purposes, as some renovation costs <strong>can be deducted</strong>. The property <strong>has been reappraised</strong>, and its value <strong>is estimated to have increased</strong> by 60%. A home equity line of credit <strong>was secured</strong> to cover unexpected expenses. We <strong>have had</strong> several rooms <strong>photographed</strong> professionally for insurance documentation. <strong>It is recommended</strong> by experts that all major renovations <strong>should be documented</strong> thoroughly.</p>
+
+  <p>As the project nears completion, lessons <strong>have been learned</strong> about the renovation process. Patience <strong>is required</strong> when dealing with unexpected discoveries and delays. Good contractors <strong>are worth</strong> their higher prices, as we discovered when cheaper options <strong>had to be redone</strong>. Having proper permits <strong>obtained</strong> before work begins saves time and trouble later. We <strong>should have had</strong> more items <strong>moved</strong> to storage initially to prevent damage. The importance of clear communication <strong>cannot be overstated</strong> — every decision <strong>must be documented</strong> in writing.</p>
+
+  <p>Looking back, this renovation journey <strong>has been</strong> both challenging and rewarding. Our dream house <strong>is being created</strong> through the combined efforts of many skilled professionals. While we <strong>have had</strong> unexpected problems <strong>arise</strong>, solutions <strong>have always been found</strong>. The house that <strong>was once considered</strong> beyond saving <strong>has been transformed</strong> into a beautiful home. <strong>It is hoped that</strong> future generations <strong>will be inspired</strong> to preserve other historic properties. Next month, when the final touches <strong>are completed</strong>, we <strong>will have</strong> a celebration <strong>organized</strong> to thank everyone who helped. This house, which <strong>was nearly demolished</strong>, <strong>has been given</strong> new life, and we are honored to be its caretakers.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     GRAMMAR FEATURES
+══════════════════════════════════════════ -->
+<section class="grammar-features">
+  <h2>Grammar Features Highlighted</h2>
+
+  <p><strong>Basic Passive — All tenses:</strong> Present Simple (<em>are made</em>), Present Continuous (<em>is being handled</em>), Present Perfect (<em>has been integrated</em>), Past Simple (<em>was purchased</em>), Past Perfect (<em>had been abandoned</em>), Future (<em>will be installed</em>, <em>are going to be mounted</em>).</p>
+
+  <p><strong>Modal Passive:</strong> Various modals with passive (<em>must be documented</em>, <em>should be documented</em>, <em>can be enjoyed</em>, <em>couldn't be prevented</em>, <em>had to be removed</em>).</p>
+
+  <p><strong>Impersonal Passive — Both structures:</strong> <em>It is believed that</em>, <em>It is said that</em>, <em>It is estimated that</em> (Structure 1); <em>is said to have been</em>, <em>is thought to be</em>, <em>is known to be</em>, <em>is estimated to have increased</em> (Structure 2).</p>
+
+  <p><strong>Causative (have/get):</strong> Arranging work (<em>had the asbestos removed</em>, <em>had cabinets built</em>, <em>are having a gazebo constructed</em>); informal get (<em>got the plumber to update</em>); unfortunate events (<em>had belongings damaged</em>, <em>had furniture moved</em>); have + bare infinitive (<em>had architects draw up</em>).</p>
+
+  <p><strong>Double Object Passive:</strong> Both patterns shown (<em>were told by neighbors</em>, <em>was delivered to us</em>, <em>has been given special attention</em>).</p>
+
+  <p><strong>By vs With:</strong> Correct usage throughout (<em>was conducted by a surveyor</em>, <em>were presented with photographs</em>, <em>was replaced with modern components</em>).</p>
+
+  <p><strong>Common Errors Avoided:</strong> No unnecessary "by someone"; correct use of "being" in continuous passive (<em>is being transformed</em>); proper past participle forms; no passive with intransitive verbs; clear distinction between doing something yourself vs having it done.</p>
+</section>
+
+</div><!-- /page-container -->
+</main>
+
+<footer>
+  <p>Destination B2 · Unit 8 — The Passive &amp; Causative &nbsp;|&nbsp; "Nghệ Thuật Lật Ngược"</p>
+</footer>
+
+</body>
+</html>
