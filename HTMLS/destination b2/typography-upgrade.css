@@ -1,816 +1,885 @@
-/*
- * ══════════════════════════════════════════════════════════════════
- *  TYPOGRAPHY UPGRADE — Destination B2
- *  Nâng cấp toàn diện: font size ↑, font weight ↑, contrast ↑,
- *  line-height tối ưu, spacing thoáng, thân thiện với mắt
- * ══════════════════════════════════════════════════════════════════
- *
- *  CÁCH DÙNG:
- *  Thêm dòng sau vào thẻ <head> của mỗi file HTML,
- *  SAU tất cả <link> stylesheet hiện có:
- *
- *  <link rel="stylesheet" href="typography-upgrade.css" />
- *
- * ══════════════════════════════════════════════════════════════════
- */
-
-/* ─── 1. GOOGLE FONTS — Nâng cấp sang bộ font dễ đọc hơn ─── */
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;0,8..60,900;1,8..60,400;1,8..60,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
-
-/* ─── 2. ROOT — Biến màu & font nâng cấp ─── */
+/* ══════════════════════════════════════
+   THEME: BLUE — Destination B2
+══════════════════════════════════════ */
 :root {
-  /* Font families mới — đọc tốt hơn nhiều */
-  --font-body:    'Plus Jakarta Sans', 'DM Sans', sans-serif;
-  --font-display: 'Source Serif 4', 'Playfair Display', serif;
-  --font-mono:    'JetBrains Mono', 'DM Mono', monospace;
+    --primary: #3B6FBF;
+    --primary-light: #D6E4FF;
+    --primary-mid: #7AAAF5;
+    --primary-dark: #1A3F80;
+    --primary-rgb: 59, 111, 191;
 
-  /* Tăng kích thước font cơ bản */
-  --fs-base:   18px;       /* 16px → 18px */
-  --fs-sm:     0.9rem;     /* ~16px */
-  --fs-xs:     0.82rem;    /* ~14.8px */
-  --fs-lg:     1.15rem;    /* ~20.7px */
-  --fs-xl:     1.35rem;    /* ~24.3px */
-  --fs-2xl:    1.65rem;    /* ~29.7px */
-  --fs-3xl:    2.1rem;     /* ~37.8px */
-
-  /* Line-height tối ưu cho từng cấp */
-  --lh-body:    1.85;
-  --lh-heading: 1.25;
-  --lh-label:   1.4;
-  --lh-code:    1.7;
-
-  /* Letter spacing */
-  --ls-tight:  -0.01em;
-  --ls-normal:  0;
-  --ls-wide:    0.04em;
-  --ls-wider:   0.1em;
-  --ls-widest:  0.16em;
-
-  /* Tăng độ tương phản màu chữ */
-  --ink:        #0E0D18;   /* đậm hơn: #14131C → #0E0D18 */
-  --ink-soft:   #2C2B38;   /* cho text thứ cấp, rõ hơn muted */
-  --muted:      #5A5770;   /* đậm hơn: #6E6B80 → #5A5770 */
-
-  /* Tăng font weight mặc định */
-  --fw-normal:  450;       /* 400 → 450 (medium-regular) */
-  --fw-medium:  550;
-  --fw-semi:    650;
-  --fw-bold:    750;
-  --fw-black:   850;
+    --success: #2E9E68;
+    --error: #E8344A;
+    --ink: #14131C;
+    --paper: #F8F8F6;
+    --surface: #FFFFFF;
+    --surface-alt: #1F1D2B;
+    --muted: #6E6B80;
+    --line: #E2E0DB;
+    --shadow: rgba(20, 19, 28, .05);
+    --shadow-hover: rgba(59, 111, 191, .15);
 }
 
-
-/* ─── 3. RESET & BASE ─── */
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  font-size: var(--fs-base);
-  -webkit-text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    /* Tăng font-size gốc từ 16px lên 18px để scale toàn bộ đơn vị rem */
+    font-size: 18px; 
 }
 
 body {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: var(--fw-normal);
-  line-height: var(--lh-body);
-  color: var(--ink);
-  letter-spacing: var(--ls-normal);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--ink);
+    background: var(--paper);
 }
 
-/* ─── 4. HEADINGS ─── */
-
-/* H1 — Hero title */
-h1,
-.hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5.5vw, 3.4rem);
-  font-weight: var(--fw-black);
-  line-height: var(--lh-heading);
-  letter-spacing: var(--ls-tight);
+/* ── CONTAINER ── */
+.page-container {
+    max-width: 3000px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
 }
 
-/* H2 — Section headers */
-h2,
-.grammar-block-header h2,
-.grammar-features h2,
-.summary-block h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.8vw, 1.7rem);
-  font-weight: var(--fw-bold);
-  line-height: 1.3;
-  letter-spacing: var(--ls-tight);
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero {
+    background-color: var(--ink);
+    color: #fff;
+    text-align: center;
+    padding: 4.5rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
 }
 
-/* H3 — Sub-section */
-h3,
-.grammar-block-body h3 {
-  font-family: var(--font-body);
-  font-size: 1.15rem;
-  font-weight: var(--fw-bold);
-  line-height: 1.35;
-  letter-spacing: -0.005em;
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 70% 60% at 15% 25%, rgba(59, 111, 191, .28) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 50% at 85% 75%, rgba(122, 170, 245, .18) 0%, transparent 65%);
+    pointer-events: none;
 }
 
-/* H4 — Minor heading */
-h4,
-.grammar-block-body h4 {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  font-weight: var(--fw-semi);
-  line-height: 1.4;
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to bottom, rgba(122, 170, 245, .5), transparent);
 }
-
-
-/* ─── 5. BODY TEXT ─── */
-
-p,
-.intro-para,
-.hero-intro,
-.grammar-features p,
-.reading-passage p,
-.feature-box p,
-.alert-box p,
-.story-box p,
-.special-plural p,
-.summary-outro {
-  font-size: 1rem;
-  font-weight: var(--fw-normal);
-  line-height: var(--lh-body);
-  color: var(--ink);
-  max-width: 70ch; /* giới hạn độ dài dòng để dễ đọc */
-}
-
-/* Strong / Bold inline */
-strong,
-b,
-.intro-para strong,
-.hero-intro strong,
-.grammar-features strong,
-.reading-passage strong,
-.feature-box strong,
-.usage-list li strong,
-.alert-box .alert-title,
-.story-box strong,
-.special-plural strong,
-.plain-list li strong,
-.golden-rules ol li strong {
-  font-weight: var(--fw-bold);
-  color: var(--ink);
-}
-
-/* Em / Italic */
-em,
-i,
-.intro-para em,
-.hero-intro em,
-.grammar-features em,
-.feature-box em,
-.usage-list li em,
-.story-box em,
-.special-plural em,
-.plain-list li em,
-.golden-rules ol li em {
-  font-style: italic;
-  font-weight: var(--fw-medium);
-  color: var(--ink-soft);
-}
-
-
-/* ─── 6. HERO SECTION ─── */
 
 .hero-badge {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: var(--ls-widest);
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--primary-mid);
+    border: 1.5px solid rgba(122, 170, 245, .4);
+    border-radius: 40px;
+    padding: .4rem 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 6vw, 60px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+    position: relative;
 }
 
 .hero h1 em {
-  font-style: italic;
-  font-weight: inherit;
+    font-style: normal;
+    color: var(--primary-mid);
 }
 
 .hero-intro {
-  font-size: 1.1rem;
-  font-weight: var(--fw-medium);
-  line-height: 1.8;
-  max-width: 62ch;
-  margin-left: auto;
-  margin-right: auto;
+    max-width: 680px;
+    margin: 1.5rem auto 0;
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, .72);
+    line-height: 1.75;
+    position: relative;
 }
 
 .hero-intro strong {
-  font-weight: var(--fw-bold);
-  color: inherit;
+    color: var(--primary-mid);
+    font-weight: 600;
 }
 
-
-/* ─── 7. SECTION BADGE / LABELS ─── */
-
-.section-badge,
-.error-block-header span,
-.certainty-label,
-.cond-badge,
-.modal-chip,
-.article-chip {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: var(--ls-widest);
-  text-transform: uppercase;
+/* ── SECTION DIVIDER ── */
+hr.section-rule {
+    border: none;
+    border-top: 2px solid var(--line);
+    margin: 3rem 0;
 }
 
-
-/* ─── 8. FORMULA BOX ─── */
-
-.formula-box,
-.golden-formula,
-.struct-card .scard-formula,
-.verb-group .vg-formula,
-.prefer-card .pc-formula,
-.so-card .sc-formula,
-.part-row .pr-formula,
-.st-card .stc-formula {
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: var(--lh-code);
-  letter-spacing: 0.02em;
+/* ══════════════════════════════════════
+   GRAMMAR BLOCK
+══════════════════════════════════════ */
+.grammar-block {
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: 0 2px 20px var(--shadow);
+    margin: 2.5rem 0;
+    overflow: hidden;
+    margin-bottom: 50rem;
 }
 
-
-/* ─── 9. MONOSPACE / CODE ─── */
-
-.kw-chip,
-code,
-pre,
-.decision-block pre,
-.formula-inline {
-  font-family: var(--font-mono);
-  font-size: 0.88rem;
-  font-weight: 500;
-  line-height: var(--lh-code);
-  letter-spacing: 0.01em;
+.grammar-block-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 1.75rem 1.25rem;
+    border-bottom: 2px solid var(--line);
 }
 
-
-/* ─── 10. LISTS ─── */
-
-.usage-list li,
-.alert-box ul li,
-.feature-box ul li,
-.golden-rules ol li,
-.mindmap-block ul li,
-.decision-block ul li,
-.shall-box ul li,
-.plain-list li {
-  font-size: 1rem;
-  font-weight: var(--fw-normal);
-  line-height: 1.8;
-  color: var(--ink);
+.section-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-radius: 8px;
+    padding: .35rem .85rem;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-/* List labels */
+.grammar-block-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 2.8vw, 26px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+}
+
+.grammar-block-body {
+    padding: 1.75rem;
+}
+
+/* ── INTRO PARA ── */
+.intro-para {
+    background: var(--paper);
+    border-left: 4px solid var(--primary);
+    border-radius: 0 10px 10px 0;
+    padding: 1.15rem 1.4rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.intro-para strong {
+    color: var(--primary-dark);
+}
+
+/* ── SUB-HEADINGS ── */
+.grammar-block-body h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin: 1.75rem 0 .85rem;
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+}
+
+/* ── FORMULA BOX ── */
+.formula-box {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.1rem;
+    text-align: center;
+    background: var(--paper);
+    border: 2px dashed var(--primary-mid);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin: .85rem 0 1.25rem;
+    color: var(--primary-dark);
+    letter-spacing: .03em;
+}
+
+/* ── TABLES ── */
+.table-wrap {
+    overflow-x: auto;
+    margin: .85rem 0 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 1px 12px var(--shadow);
+}
+
+table.grammar-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.05rem;
+}
+
+table.grammar-table thead th {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    font-weight: 600;
+    text-align: left;
+    padding: .85rem 1.1rem;
+    white-space: nowrap;
+}
+
+table.grammar-table tbody td {
+    padding: .85rem 1.1rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+}
+
+table.grammar-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+table.grammar-table tbody tr:hover td {
+    background: rgba(214, 228, 255, .22);
+}
+
+table.grammar-table em {
+    color: var(--primary-dark);
+    font-style: italic;
+}
+
+table.grammar-table strong {
+    font-weight: 600;
+}
+
+/* ── USAGE LIST ── */
+.usage-list {
+    list-style: none;
+    margin: .6rem 0 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+}
+
+.usage-list li {
+    padding-left: 1.4rem;
+    position: relative;
+}
+
 .usage-list li::before {
-  font-weight: var(--fw-bold);
+    content: '';
+    position: absolute;
+    left: 0;
+    top: .6rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--primary);
 }
 
-
-/* ─── 11. CARDS — Labels ─── */
-
-.flag-card .flag-label,
-.contrast-card .cc-label,
-.def-card .dc-label,
-.dist-card .dc-label,
-.meaning-card .mc-label,
-.resp-card .rc-label,
-.inton-card .ic-label,
-.so-card .sc-label,
-.st-card .stc-label,
-.prefer-card .pc-title,
-.struct-card,
-.summary-card .sc-label,
-.fe-item .fe-badge,
-.verb-group .vg-label,
-.golden-formula .gf-label,
-.poss-card .pc-type,
-.ph-card .ph-label,
-.inv-row .ir-adv,
-.timeline-row .tl-time,
-.part-row .pr-tag,
-.special-row .sr-tag {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-wider);
-  text-transform: uppercase;
-  line-height: var(--lh-label);
+.usage-list li strong {
+    display: block;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: .25rem;
+    font-size: 1.1rem;
 }
 
-/* Card examples */
-.flag-card .flag-ex,
-.contrast-card .cc-ex,
-.def-card .dc-ex,
-.dist-card .dc-ex,
-.meaning-card .mc-ex,
-.resp-card .rc-ex,
-.inton-card .ic-ex,
-.so-card .sc-ex,
-.st-card .stc-ex,
-.prefer-card .pc-ex,
-.struct-card .scard-ex,
-.verb-group .vg-example,
-.golden-formula .gf-example,
-.poss-card .pc-pro,
-.ph-card .ph-ex,
-.inv-row .ir-ex,
-.timeline-row .tl-fact,
-.part-row .pr-ex,
-.special-row .sr-ex,
-.err-wrong .txt,
-.err-right {
-  font-size: 1rem;
-  font-weight: var(--fw-medium);
-  line-height: 1.65;
+.usage-list li em {
+    display: block;
+    font-style: italic;
+    color: var(--primary-dark);
+    margin-bottom: .25rem;
+    font-size: 1.1rem;
 }
 
-/* Card notes */
-.flag-card .flag-note,
-.contrast-card .cc-note,
-.def-card .dc-note,
-.def-card .dc-rule,
-.dist-card .dc-modal,
-.dist-card .dc-note,
-.meaning-card .mc-meaning,
-.resp-card .rc-trigger,
-.inton-card .ic-note,
-.so-card .sc-note,
-.st-card .stc-note,
-.golden-formula .gf-note,
-.struct-card .scard-note,
-.usage-note,
-.err-context,
-.error-item-label {
-  font-size: 0.92rem;
-  font-weight: var(--fw-normal);
-  line-height: 1.75;
-  color: var(--ink-soft);
+.usage-note {
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-style: normal;
 }
 
 .usage-note strong {
-  font-weight: var(--fw-semi);
-  color: var(--ink);
+    color: var(--ink);
+    font-weight: 600;
 }
 
-
-/* ─── 12. SUMMARY CARDS ─── */
-
-.summary-card .sc-label {
-  font-size: 0.75rem;
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-widest);
-  text-transform: uppercase;
+/* ── KEYWORD CHIPS ── */
+.kw-chip {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.9rem;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-radius: 6px;
+    padding: .15rem .5rem;
+    margin: .15rem .2rem;
 }
 
-.summary-card .sc-desc {
-  font-size: 0.97rem;
-  font-weight: var(--fw-normal);
-  line-height: 1.75;
+/* ── ERROR BLOCK ── */
+.error-block {
+    background: var(--surface-alt);
+    border-radius: 14px;
+    margin: 1.75rem 0;
+    overflow: hidden;
 }
-
-
-/* ─── 13. ERROR / CORRECTION BLOCKS ─── */
 
 .error-block-header {
-  font-size: 0.95rem;
-  font-weight: var(--fw-semi);
+    background: linear-gradient(90deg, var(--error), var(--primary-mid));
+    padding: .75rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.error-block-header span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.error-block-body {
+    padding: 1.4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 
 .error-item-label {
-  font-weight: var(--fw-semi);
-  font-size: 0.88rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+    font-size: 0.9rem;
+    font-family: 'DM Mono', monospace;
+    color: rgba(255, 255, 255, .5);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: .45rem;
+}
+
+.err-wrong {
+    color: var(--error);
+    font-style: italic;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+    margin-bottom: .35rem;
+}
+
+.err-wrong .icon, .err-right .icon {
+    flex-shrink: 0;
+    font-style: normal;
 }
 
 .err-wrong .txt {
-  font-weight: var(--fw-medium);
+    text-decoration: line-through;
+    opacity: .85;
 }
 
-
-/* ─── 14. READING PASSAGE ─── */
-
-.reading-passage {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 430;
-  line-height: 1.9;
-  letter-spacing: 0.005em;
+.err-right {
+    color: var(--success);
+    font-weight: 600;
+    font-size: 1.05rem;
+    font-style: italic;
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
 }
 
-.reading-passage .rp-title {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: var(--fw-bold);
-  line-height: 1.3;
+.err-context {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, .45);
+    font-style: normal;
+    margin-top: .3rem;
+    padding-left: 1.6rem;
 }
 
-.reading-passage strong {
-  font-weight: var(--fw-bold);
+/* ── ALERT BOX ── */
+.alert-box {
+    background: var(--primary-light);
+    border-left: 4px solid var(--primary);
+    border-radius: 0 12px 12px 0;
+    padding: 1.15rem 1.4rem;
+    margin: 1.5rem 0;
 }
-
-
-/* ─── 15. SELF-CHECK ─── */
-
-.self-check .sc-title {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: var(--fw-bold);
-  line-height: 1.3;
-}
-
-.self-check ol li {
-  font-size: 1rem;
-  font-weight: var(--fw-normal);
-  line-height: 1.8;
-  color: var(--ink);
-}
-
-
-/* ─── 16. VERB GROUPS ─── */
-
-.verb-group .vg-verbs {
-  font-family: var(--font-mono);
-  font-size: 0.92rem;
-  font-weight: 500;
-  line-height: 1.65;
-}
-
-.verb-group .vg-example em {
-  font-style: italic;
-  font-weight: var(--fw-medium);
-}
-
-
-/* ─── 17. SCALE / CERTAINTY ─── */
-
-.certainty-scale .cs-title,
-.scale-bar .sb-title,
-.shall-box .sb-title,
-.story-box .sb-title,
-.timeline-box .tl-title,
-.mindmap-block .mm-title,
-.decision-block .db-title,
-.golden-rules .gr-title,
-.phonetic-box {
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-wider);
-  text-transform: uppercase;
-}
-
-.certainty-pct {
-  font-family: var(--font-mono);
-  font-weight: 600;
-}
-
-
-/* ─── 18. PHONETICS ─── */
-
-.ph-card .ph-sym {
-  font-family: var(--font-mono);
-  font-size: 1.4rem;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-
-/* ─── 19. COMPARE BANNER ─── */
-
-.compare-banner {
-  font-size: 1rem;
-  font-weight: var(--fw-medium);
-  line-height: 1.75;
-}
-
-
-/* ─── 20. TABLES ─── */
-
-.table-wrap table {
-  font-size: 0.97rem;
-  font-weight: var(--fw-normal);
-  line-height: 1.65;
-}
-
-.table-wrap th {
-  font-weight: var(--fw-bold);
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.table-wrap td {
-  font-weight: var(--fw-normal);
-  line-height: 1.65;
-}
-
-
-/* ─── 21. GRAMMAR FEATURES BLOCK ─── */
-
-.grammar-features h2 {
-  font-size: 1.3rem;
-  font-weight: var(--fw-bold);
-}
-
-.grammar-features p {
-  font-size: 1rem;
-  line-height: var(--lh-body);
-}
-
-.grammar-features em {
-  font-weight: var(--fw-medium);
-}
-
-
-/* ─── 22. DUAL NOTES ─── */
-
-.dual-verb-note,
-.dual-noun-note {
-  font-size: 0.93rem;
-  font-weight: var(--fw-normal);
-  line-height: 1.75;
-  color: var(--ink-soft);
-}
-
-
-/* ─── 23. AP CONTRAST ─── */
-
-.ap-contrast {
-  font-size: 0.95rem;
-  font-weight: var(--fw-normal);
-  line-height: 1.75;
-}
-
-
-/* ─── 24. POSS GRID ─── */
-
-.poss-card .pc-det {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.poss-card .pc-pro {
-  font-size: 1rem;
-  font-weight: var(--fw-medium);
-}
-
-
-/* ─── 25. FE-ITEM ─── */
-
-.fe-item em {
-  font-style: italic;
-  font-weight: var(--fw-medium);
-  color: var(--ink-soft);
-}
-
-
-/* ─── 26. INVERTED EXAMPLE ─── */
-
-.inverted-example .ie-label {
-  font-size: 0.78rem;
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-wider);
-  text-transform: uppercase;
-}
-
-.inverted-example .ie-standard,
-.inverted-example .ie-formal {
-  font-size: 1rem;
-  font-weight: var(--fw-medium);
-  line-height: 1.65;
-}
-
-
-/* ─── 27. WISH / PURPOSE ROWS ─── */
-
-.wish-row,
-.purpose-row .pr-struct,
-.purpose-row .pr-ex {
-  font-size: 1rem;
-  font-weight: var(--fw-normal);
-  line-height: 1.75;
-}
-
-
-/* ─── 28. MINDMAP ─── */
-
-.mindmap-block ul li .mm-key {
-  font-weight: var(--fw-bold);
-  font-size: 0.95rem;
-}
-
-
-/* ─── 29. DECISION BLOCK ─── */
-
-.decision-block ul li .q {
-  font-weight: var(--fw-semi);
-  font-size: 0.97rem;
-}
-
-.decision-block ul li .ans {
-  font-weight: var(--fw-medium);
-  font-size: 0.95rem;
-}
-
-.decision-block ul li .arrow {
-  font-weight: var(--fw-bold);
-}
-
-.decision-block pre .hl {
-  font-weight: var(--fw-bold);
-}
-
-
-/* ─── 30. SPECIAL PLURAL ─── */
-
-.special-plural .sp-title {
-  font-weight: var(--fw-bold);
-  font-size: 0.95rem;
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-}
-
-.special-plural em {
-  font-style: italic;
-  font-weight: var(--fw-medium);
-}
-
-
-/* ─── 31. PREFER CARD ─── */
-
-.prefer-card .pc-meaning {
-  font-size: 0.92rem;
-  font-weight: var(--fw-normal);
-  line-height: 1.7;
-  color: var(--ink-soft);
-}
-
-
-/* ─── 32. TIMELINE ROW ─── */
-
-.timeline-row .tl-arrow {
-  font-weight: var(--fw-bold);
-}
-
-
-/* ─── 33. PAGE CONTAINER ─── */
-
-.page-container {
-  max-width: 960px; /* thoáng hơn một chút */
-}
-
-
-/* ─── 34. INTRO PARA ─── */
-
-.intro-para {
-  font-size: 1.05rem;
-  font-weight: var(--fw-normal);
-  line-height: var(--lh-body);
-}
-
-
-/* ─── 35. ALERT BOX ─── */
 
 .alert-box .alert-title {
-  font-size: 0.82rem;
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-wider);
-  text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--primary-dark);
+    margin-bottom: .6rem;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
 }
 
-.alert-box p,
+.alert-box ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
 .alert-box ul li {
-  font-size: 0.97rem;
-  line-height: 1.8;
+    font-size: 1.05rem;
+    color: var(--ink);
 }
 
-.alert-box .formula-inline {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  font-weight: 600;
+.alert-box ul li::before {
+    content: '→ ';
+    color: var(--primary);
+    font-weight: 700;
 }
 
+.alert-box p {
+    font-size: 1.05rem;
+    color: var(--ink);
+}
 
-/* ─── 36. FEATURE BOX ─── */
+/* ── US-UK DIFF BOXES (From Unit 1) ── */
+.flag-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .85rem;
+    margin: 1.15rem 0;
+}
+
+.flag-card {
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 1rem 1.15rem;
+    border: 1.5px solid var(--line);
+}
+
+.flag-card .flag-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: .4rem;
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+.flag-card .flag-ex {
+    font-style: italic;
+    color: var(--primary-dark);
+    font-size: 1.05rem;
+}
+
+.flag-card .flag-note {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-top: .3rem;
+}
+
+/* ── FEATURE BOX (dark gradient) ── */
+.feature-box {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    border-radius: 14px;
+    padding: 1.4rem 1.6rem;
+    margin: 1.75rem 0;
+    color: #fff;
+}
 
 .feature-box .feature-title {
-  font-size: 0.82rem;
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-wider);
-  text-transform: uppercase;
+    font-size: 0.95rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--primary-mid);
+    margin-bottom: .6rem;
 }
 
 .feature-box p {
-  font-size: 0.97rem;
-  line-height: 1.8;
+    color: rgba(255, 255, 255, .9);
+    font-size: 1.05rem;
 }
 
+.feature-box em {
+    font-style: italic;
+    color: var(--primary-mid);
+}
 
-/* ─── 37. STORY BOX ─── */
+.feature-box strong {
+    font-weight: 600;
+    color: #fff;
+}
+
+/* ── GOLDEN FORMULA BOX (From Unit 2) ── */
+.golden-formula {
+    background: linear-gradient(135deg, rgba(59, 111, 191, .12), rgba(122, 170, 245, .12));
+    border: 2px solid var(--primary-mid);
+    border-radius: 12px;
+    padding: 1.25rem 1.4rem;
+    margin: 1.25rem 0 1.75rem;
+    text-align: center;
+}
+
+.golden-formula .gf-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--primary);
+    margin-bottom: .5rem;
+}
+
+.golden-formula .gf-formula {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.15rem;
+    color: var(--primary-dark);
+    font-weight: 500;
+}
+
+.golden-formula .gf-example {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-top: .6rem;
+}
+
+.golden-formula .gf-note {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-top: .4rem;
+}
+
+/* ── STORY TECHNIQUE BOX (From Unit 2) ── */
+.story-box {
+    background: var(--paper);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    padding: 1.25rem 1.4rem;
+    margin: 1.5rem 0;
+}
+
+.story-box .sb-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--primary);
+    margin-bottom: .6rem;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
 
 .story-box p {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 420;
-  line-height: 1.9;
-  font-style: normal;
+    font-size: 1.05rem;
+    color: var(--ink);
+    line-height: 1.75;
 }
 
 .story-box em {
-  font-style: italic;
-  font-weight: var(--fw-medium);
+    font-style: italic;
+    color: var(--primary-dark);
 }
 
 .story-box strong {
-  font-weight: var(--fw-bold);
+    font-weight: 600;
 }
 
-
-/* ─── 38. SCALE LABELS ─── */
-
-.scale-labels {
-  font-size: 0.8rem;
-  font-weight: var(--fw-semi);
-  letter-spacing: 0.03em;
+/* ── COMPARE BANNER ── */
+.compare-banner {
+    background: var(--paper);
+    border-radius: 10px;
+    padding: .75rem 1.15rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: .85rem;
+    border-left: 3px solid var(--primary);
 }
 
-
-/* ─── 39. INV-ROW ─── */
-
-.inv-row .ir-note {
-  font-size: 0.9rem;
-  font-weight: var(--fw-normal);
-  line-height: 1.7;
-  color: var(--ink-soft);
+/* ── MINDMAP BLOCK (From Unit 2) ── */
+.mindmap-block {
+    background: var(--ink);
+    border-radius: 14px;
+    padding: 1.75rem 2rem;
+    margin: 1.75rem 0;
+    font-family: 'DM Mono', monospace;
 }
 
-
-/* ─── 40. SPECIAL ROW ─── */
-
-.special-row .sr-key {
-  font-weight: var(--fw-bold);
-  font-size: 1rem;
-}
-
-
-/* ══════════════════════════════════════════════════════════════════
- *  RESPONSIVE — Điều chỉnh trên màn hình nhỏ
- * ══════════════════════════════════════════════════════════════════ */
-
-@media (max-width: 640px) {
-  :root {
-    --fs-base: 17px; /* Vẫn lớn hơn mặc định 16px trên mobile */
-  }
-
-  .hero-intro {
-    font-size: 1rem;
-  }
-
-  .reading-passage {
-    font-size: 1rem;
-  }
-
-  .table-wrap table {
+.mindmap-block .mm-title {
     font-size: 0.9rem;
-  }
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--primary-mid);
+    margin-bottom: 1rem;
 }
 
+.mindmap-block ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
 
-/* ══════════════════════════════════════════════════════════════════
- *  PRINT — Tối ưu khi in
- * ══════════════════════════════════════════════════════════════════ */
+.mindmap-block ul li {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, .85);
+    padding-left: 1.6rem;
+    position: relative;
+}
 
-@media print {
-  :root {
-    --fs-base: 12pt;
-  }
+.mindmap-block ul li::before {
+    content: '├──';
+    position: absolute;
+    left: 0;
+    color: var(--primary-mid);
+    font-size: 0.95rem;
+}
 
-  body {
-    color: #000;
-    font-weight: 400;
-  }
+.mindmap-block ul li:last-child::before {
+    content: '└──';
+}
 
-  h1, h2, h3 {
+.mindmap-block ul li .mm-key {
+    color: var(--primary-mid);
+    font-weight: 500;
+}
+
+/* ── DUAL-VERB NOTE (From Unit 1) ── */
+.dual-verb-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* ── SELF CHECK ── */
+.self-check {
+    background: var(--paper);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    padding: 1.15rem 1.4rem;
+    margin: 1.5rem 0;
+}
+
+.self-check .sc-title {
+    font-size: 0.95rem;
     font-weight: 700;
-  }
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--primary);
+    margin-bottom: .75rem;
+}
+
+.self-check ol {
+    padding-left: 1.4rem;
+    color: var(--ink);
+    font-size: 1.05rem;
+}
+
+.self-check ol li {
+    margin-bottom: .4rem;
+}
+
+/* ── SUMMARY BLOCK ── */
+.summary-block {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 16px;
+    padding: 2.25rem 2.25rem;
+    margin: 2.75rem 0;
+}
+
+.summary-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3.5vw, 32px);
+    margin-bottom: 1.4rem;
+    color: var(--primary-mid);
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.15rem;
+}
+
+.summary-card {
+    background: rgba(255, 255, 255, .06);
+    border: 1.5px solid rgba(255, 255, 255, .1);
+    border-radius: 12px;
+    padding: 1.15rem 1.25rem;
+}
+
+.summary-card .sc-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    color: var(--primary-mid);
+    margin-bottom: .4rem;
+}
+
+.summary-card .sc-desc {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, .8);
+}
+
+.summary-outro {
+    margin-top: 1.4rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, .6);
+    font-size: 1.05rem;
+}
+
+/* ── READING PASSAGE ── */
+.reading-passage {
+    background: var(--paper);
+    border-radius: 16px;
+    padding: 2.25rem 2.5rem;
+    margin: 2.75rem 0;
+    box-shadow: 0 2px 20px var(--shadow);
+}
+
+.reading-passage .rp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3.5vw, 34px);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1.75rem;
+    border-bottom: 2px solid var(--line);
+    padding-bottom: .85rem;
+}
+
+.reading-passage p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    color: #2a2934;
+}
+
+.reading-passage p:last-child {
+    margin-bottom: 0;
+}
+
+.reading-passage strong {
+    font-weight: 700;
+    color: var(--primary-dark);
+    background: var(--primary-light);
+    padding: .05em .2em;
+    border-radius: 3px;
+}
+
+/* ── GRAMMAR FEATURES ── */
+.grammar-features {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 2rem 2.25rem;
+    margin: 2.25rem 0;
+    box-shadow: 0 2px 20px var(--shadow);
+}
+
+.grammar-features h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1.4rem;
+    border-bottom: 2px solid var(--line);
+    padding-bottom: .75rem;
+}
+
+.grammar-features p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.1rem;
+    color: var(--ink);
+}
+
+.grammar-features p:last-child {
+    margin-bottom: 0;
+}
+
+.grammar-features strong {
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.grammar-features em {
+    font-style: italic;
+    color: var(--primary-dark);
+}
+
+/* ── FOOTER ── */
+footer {
+    text-align: center;
+    padding: 2.5rem 0 1.5rem;
+    color: var(--muted);
+    font-size: 1rem;
+    border-top: 1px solid var(--line);
+    margin-top: 3.5rem;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px) {
+    .page-container {
+        padding: 0 1.25rem 3rem;
+    }
+
+    .hero {
+        padding: 3rem 1.25rem 2.5rem;
+    }
+
+    .grammar-block-body {
+        padding: 1.4rem;
+    }
+
+    .grammar-block-header {
+        padding: 1.25rem 1.4rem 1.15rem;
+    }
+
+    .flag-compare {
+        grid-template-columns: 1fr;
+    }
+
+    .reading-passage {
+        padding: 1.75rem 1.4rem;
+    }
+
+    .summary-block {
+        padding: 1.75rem 1.4rem;
+    }
+
+    .grammar-features {
+        padding: 1.5rem 1.4rem;
+    }
+
+    table.grammar-table {
+        font-size: 1rem;
+    }
+
+    table.grammar-table thead th,
+    table.grammar-table tbody td {
+        padding: .75rem .9rem;
+    }
+
+    .golden-formula .gf-formula {
+        font-size: 1.05rem;
+    }
 }
