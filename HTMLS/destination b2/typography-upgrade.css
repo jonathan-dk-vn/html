@@ -1,0 +1,816 @@
+/*
+ * ══════════════════════════════════════════════════════════════════
+ *  TYPOGRAPHY UPGRADE — Destination B2
+ *  Nâng cấp toàn diện: font size ↑, font weight ↑, contrast ↑,
+ *  line-height tối ưu, spacing thoáng, thân thiện với mắt
+ * ══════════════════════════════════════════════════════════════════
+ *
+ *  CÁCH DÙNG:
+ *  Thêm dòng sau vào thẻ <head> của mỗi file HTML,
+ *  SAU tất cả <link> stylesheet hiện có:
+ *
+ *  <link rel="stylesheet" href="typography-upgrade.css" />
+ *
+ * ══════════════════════════════════════════════════════════════════
+ */
+
+/* ─── 1. GOOGLE FONTS — Nâng cấp sang bộ font dễ đọc hơn ─── */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;0,8..60,900;1,8..60,400;1,8..60,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+
+/* ─── 2. ROOT — Biến màu & font nâng cấp ─── */
+:root {
+  /* Font families mới — đọc tốt hơn nhiều */
+  --font-body:    'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  --font-display: 'Source Serif 4', 'Playfair Display', serif;
+  --font-mono:    'JetBrains Mono', 'DM Mono', monospace;
+
+  /* Tăng kích thước font cơ bản */
+  --fs-base:   18px;       /* 16px → 18px */
+  --fs-sm:     0.9rem;     /* ~16px */
+  --fs-xs:     0.82rem;    /* ~14.8px */
+  --fs-lg:     1.15rem;    /* ~20.7px */
+  --fs-xl:     1.35rem;    /* ~24.3px */
+  --fs-2xl:    1.65rem;    /* ~29.7px */
+  --fs-3xl:    2.1rem;     /* ~37.8px */
+
+  /* Line-height tối ưu cho từng cấp */
+  --lh-body:    1.85;
+  --lh-heading: 1.25;
+  --lh-label:   1.4;
+  --lh-code:    1.7;
+
+  /* Letter spacing */
+  --ls-tight:  -0.01em;
+  --ls-normal:  0;
+  --ls-wide:    0.04em;
+  --ls-wider:   0.1em;
+  --ls-widest:  0.16em;
+
+  /* Tăng độ tương phản màu chữ */
+  --ink:        #0E0D18;   /* đậm hơn: #14131C → #0E0D18 */
+  --ink-soft:   #2C2B38;   /* cho text thứ cấp, rõ hơn muted */
+  --muted:      #5A5770;   /* đậm hơn: #6E6B80 → #5A5770 */
+
+  /* Tăng font weight mặc định */
+  --fw-normal:  450;       /* 400 → 450 (medium-regular) */
+  --fw-medium:  550;
+  --fw-semi:    650;
+  --fw-bold:    750;
+  --fw-black:   850;
+}
+
+
+/* ─── 3. RESET & BASE ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--fs-base);
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-body);
+  color: var(--ink);
+  letter-spacing: var(--ls-normal);
+}
+
+/* ─── 4. HEADINGS ─── */
+
+/* H1 — Hero title */
+h1,
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  font-weight: var(--fw-black);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-tight);
+}
+
+/* H2 — Section headers */
+h2,
+.grammar-block-header h2,
+.grammar-features h2,
+.summary-block h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.8vw, 1.7rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.3;
+  letter-spacing: var(--ls-tight);
+}
+
+/* H3 — Sub-section */
+h3,
+.grammar-block-body h3 {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: var(--fw-bold);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+
+/* H4 — Minor heading */
+h4,
+.grammar-block-body h4 {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: var(--fw-semi);
+  line-height: 1.4;
+}
+
+
+/* ─── 5. BODY TEXT ─── */
+
+p,
+.intro-para,
+.hero-intro,
+.grammar-features p,
+.reading-passage p,
+.feature-box p,
+.alert-box p,
+.story-box p,
+.special-plural p,
+.summary-outro {
+  font-size: 1rem;
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-body);
+  color: var(--ink);
+  max-width: 70ch; /* giới hạn độ dài dòng để dễ đọc */
+}
+
+/* Strong / Bold inline */
+strong,
+b,
+.intro-para strong,
+.hero-intro strong,
+.grammar-features strong,
+.reading-passage strong,
+.feature-box strong,
+.usage-list li strong,
+.alert-box .alert-title,
+.story-box strong,
+.special-plural strong,
+.plain-list li strong,
+.golden-rules ol li strong {
+  font-weight: var(--fw-bold);
+  color: var(--ink);
+}
+
+/* Em / Italic */
+em,
+i,
+.intro-para em,
+.hero-intro em,
+.grammar-features em,
+.feature-box em,
+.usage-list li em,
+.story-box em,
+.special-plural em,
+.plain-list li em,
+.golden-rules ol li em {
+  font-style: italic;
+  font-weight: var(--fw-medium);
+  color: var(--ink-soft);
+}
+
+
+/* ─── 6. HERO SECTION ─── */
+
+.hero-badge {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: var(--ls-widest);
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: inherit;
+}
+
+.hero-intro {
+  font-size: 1.1rem;
+  font-weight: var(--fw-medium);
+  line-height: 1.8;
+  max-width: 62ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-intro strong {
+  font-weight: var(--fw-bold);
+  color: inherit;
+}
+
+
+/* ─── 7. SECTION BADGE / LABELS ─── */
+
+.section-badge,
+.error-block-header span,
+.certainty-label,
+.cond-badge,
+.modal-chip,
+.article-chip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+}
+
+
+/* ─── 8. FORMULA BOX ─── */
+
+.formula-box,
+.golden-formula,
+.struct-card .scard-formula,
+.verb-group .vg-formula,
+.prefer-card .pc-formula,
+.so-card .sc-formula,
+.part-row .pr-formula,
+.st-card .stc-formula {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: var(--lh-code);
+  letter-spacing: 0.02em;
+}
+
+
+/* ─── 9. MONOSPACE / CODE ─── */
+
+.kw-chip,
+code,
+pre,
+.decision-block pre,
+.formula-inline {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: var(--lh-code);
+  letter-spacing: 0.01em;
+}
+
+
+/* ─── 10. LISTS ─── */
+
+.usage-list li,
+.alert-box ul li,
+.feature-box ul li,
+.golden-rules ol li,
+.mindmap-block ul li,
+.decision-block ul li,
+.shall-box ul li,
+.plain-list li {
+  font-size: 1rem;
+  font-weight: var(--fw-normal);
+  line-height: 1.8;
+  color: var(--ink);
+}
+
+/* List labels */
+.usage-list li::before {
+  font-weight: var(--fw-bold);
+}
+
+
+/* ─── 11. CARDS — Labels ─── */
+
+.flag-card .flag-label,
+.contrast-card .cc-label,
+.def-card .dc-label,
+.dist-card .dc-label,
+.meaning-card .mc-label,
+.resp-card .rc-label,
+.inton-card .ic-label,
+.so-card .sc-label,
+.st-card .stc-label,
+.prefer-card .pc-title,
+.struct-card,
+.summary-card .sc-label,
+.fe-item .fe-badge,
+.verb-group .vg-label,
+.golden-formula .gf-label,
+.poss-card .pc-type,
+.ph-card .ph-label,
+.inv-row .ir-adv,
+.timeline-row .tl-time,
+.part-row .pr-tag,
+.special-row .sr-tag {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  line-height: var(--lh-label);
+}
+
+/* Card examples */
+.flag-card .flag-ex,
+.contrast-card .cc-ex,
+.def-card .dc-ex,
+.dist-card .dc-ex,
+.meaning-card .mc-ex,
+.resp-card .rc-ex,
+.inton-card .ic-ex,
+.so-card .sc-ex,
+.st-card .stc-ex,
+.prefer-card .pc-ex,
+.struct-card .scard-ex,
+.verb-group .vg-example,
+.golden-formula .gf-example,
+.poss-card .pc-pro,
+.ph-card .ph-ex,
+.inv-row .ir-ex,
+.timeline-row .tl-fact,
+.part-row .pr-ex,
+.special-row .sr-ex,
+.err-wrong .txt,
+.err-right {
+  font-size: 1rem;
+  font-weight: var(--fw-medium);
+  line-height: 1.65;
+}
+
+/* Card notes */
+.flag-card .flag-note,
+.contrast-card .cc-note,
+.def-card .dc-note,
+.def-card .dc-rule,
+.dist-card .dc-modal,
+.dist-card .dc-note,
+.meaning-card .mc-meaning,
+.resp-card .rc-trigger,
+.inton-card .ic-note,
+.so-card .sc-note,
+.st-card .stc-note,
+.golden-formula .gf-note,
+.struct-card .scard-note,
+.usage-note,
+.err-context,
+.error-item-label {
+  font-size: 0.92rem;
+  font-weight: var(--fw-normal);
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+.usage-note strong {
+  font-weight: var(--fw-semi);
+  color: var(--ink);
+}
+
+
+/* ─── 12. SUMMARY CARDS ─── */
+
+.summary-card .sc-label {
+  font-size: 0.75rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+}
+
+.summary-card .sc-desc {
+  font-size: 0.97rem;
+  font-weight: var(--fw-normal);
+  line-height: 1.75;
+}
+
+
+/* ─── 13. ERROR / CORRECTION BLOCKS ─── */
+
+.error-block-header {
+  font-size: 0.95rem;
+  font-weight: var(--fw-semi);
+}
+
+.error-item-label {
+  font-weight: var(--fw-semi);
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.err-wrong .txt {
+  font-weight: var(--fw-medium);
+}
+
+
+/* ─── 14. READING PASSAGE ─── */
+
+.reading-passage {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 430;
+  line-height: 1.9;
+  letter-spacing: 0.005em;
+}
+
+.reading-passage .rp-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: var(--fw-bold);
+  line-height: 1.3;
+}
+
+.reading-passage strong {
+  font-weight: var(--fw-bold);
+}
+
+
+/* ─── 15. SELF-CHECK ─── */
+
+.self-check .sc-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: var(--fw-bold);
+  line-height: 1.3;
+}
+
+.self-check ol li {
+  font-size: 1rem;
+  font-weight: var(--fw-normal);
+  line-height: 1.8;
+  color: var(--ink);
+}
+
+
+/* ─── 16. VERB GROUPS ─── */
+
+.verb-group .vg-verbs {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.verb-group .vg-example em {
+  font-style: italic;
+  font-weight: var(--fw-medium);
+}
+
+
+/* ─── 17. SCALE / CERTAINTY ─── */
+
+.certainty-scale .cs-title,
+.scale-bar .sb-title,
+.shall-box .sb-title,
+.story-box .sb-title,
+.timeline-box .tl-title,
+.mindmap-block .mm-title,
+.decision-block .db-title,
+.golden-rules .gr-title,
+.phonetic-box {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+}
+
+.certainty-pct {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+
+/* ─── 18. PHONETICS ─── */
+
+.ph-card .ph-sym {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+
+/* ─── 19. COMPARE BANNER ─── */
+
+.compare-banner {
+  font-size: 1rem;
+  font-weight: var(--fw-medium);
+  line-height: 1.75;
+}
+
+
+/* ─── 20. TABLES ─── */
+
+.table-wrap table {
+  font-size: 0.97rem;
+  font-weight: var(--fw-normal);
+  line-height: 1.65;
+}
+
+.table-wrap th {
+  font-weight: var(--fw-bold);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.table-wrap td {
+  font-weight: var(--fw-normal);
+  line-height: 1.65;
+}
+
+
+/* ─── 21. GRAMMAR FEATURES BLOCK ─── */
+
+.grammar-features h2 {
+  font-size: 1.3rem;
+  font-weight: var(--fw-bold);
+}
+
+.grammar-features p {
+  font-size: 1rem;
+  line-height: var(--lh-body);
+}
+
+.grammar-features em {
+  font-weight: var(--fw-medium);
+}
+
+
+/* ─── 22. DUAL NOTES ─── */
+
+.dual-verb-note,
+.dual-noun-note {
+  font-size: 0.93rem;
+  font-weight: var(--fw-normal);
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+
+/* ─── 23. AP CONTRAST ─── */
+
+.ap-contrast {
+  font-size: 0.95rem;
+  font-weight: var(--fw-normal);
+  line-height: 1.75;
+}
+
+
+/* ─── 24. POSS GRID ─── */
+
+.poss-card .pc-det {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.poss-card .pc-pro {
+  font-size: 1rem;
+  font-weight: var(--fw-medium);
+}
+
+
+/* ─── 25. FE-ITEM ─── */
+
+.fe-item em {
+  font-style: italic;
+  font-weight: var(--fw-medium);
+  color: var(--ink-soft);
+}
+
+
+/* ─── 26. INVERTED EXAMPLE ─── */
+
+.inverted-example .ie-label {
+  font-size: 0.78rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+}
+
+.inverted-example .ie-standard,
+.inverted-example .ie-formal {
+  font-size: 1rem;
+  font-weight: var(--fw-medium);
+  line-height: 1.65;
+}
+
+
+/* ─── 27. WISH / PURPOSE ROWS ─── */
+
+.wish-row,
+.purpose-row .pr-struct,
+.purpose-row .pr-ex {
+  font-size: 1rem;
+  font-weight: var(--fw-normal);
+  line-height: 1.75;
+}
+
+
+/* ─── 28. MINDMAP ─── */
+
+.mindmap-block ul li .mm-key {
+  font-weight: var(--fw-bold);
+  font-size: 0.95rem;
+}
+
+
+/* ─── 29. DECISION BLOCK ─── */
+
+.decision-block ul li .q {
+  font-weight: var(--fw-semi);
+  font-size: 0.97rem;
+}
+
+.decision-block ul li .ans {
+  font-weight: var(--fw-medium);
+  font-size: 0.95rem;
+}
+
+.decision-block ul li .arrow {
+  font-weight: var(--fw-bold);
+}
+
+.decision-block pre .hl {
+  font-weight: var(--fw-bold);
+}
+
+
+/* ─── 30. SPECIAL PLURAL ─── */
+
+.special-plural .sp-title {
+  font-weight: var(--fw-bold);
+  font-size: 0.95rem;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.special-plural em {
+  font-style: italic;
+  font-weight: var(--fw-medium);
+}
+
+
+/* ─── 31. PREFER CARD ─── */
+
+.prefer-card .pc-meaning {
+  font-size: 0.92rem;
+  font-weight: var(--fw-normal);
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+
+/* ─── 32. TIMELINE ROW ─── */
+
+.timeline-row .tl-arrow {
+  font-weight: var(--fw-bold);
+}
+
+
+/* ─── 33. PAGE CONTAINER ─── */
+
+.page-container {
+  max-width: 960px; /* thoáng hơn một chút */
+}
+
+
+/* ─── 34. INTRO PARA ─── */
+
+.intro-para {
+  font-size: 1.05rem;
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-body);
+}
+
+
+/* ─── 35. ALERT BOX ─── */
+
+.alert-box .alert-title {
+  font-size: 0.82rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+}
+
+.alert-box p,
+.alert-box ul li {
+  font-size: 0.97rem;
+  line-height: 1.8;
+}
+
+.alert-box .formula-inline {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+
+/* ─── 36. FEATURE BOX ─── */
+
+.feature-box .feature-title {
+  font-size: 0.82rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+}
+
+.feature-box p {
+  font-size: 0.97rem;
+  line-height: 1.8;
+}
+
+
+/* ─── 37. STORY BOX ─── */
+
+.story-box p {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 420;
+  line-height: 1.9;
+  font-style: normal;
+}
+
+.story-box em {
+  font-style: italic;
+  font-weight: var(--fw-medium);
+}
+
+.story-box strong {
+  font-weight: var(--fw-bold);
+}
+
+
+/* ─── 38. SCALE LABELS ─── */
+
+.scale-labels {
+  font-size: 0.8rem;
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.03em;
+}
+
+
+/* ─── 39. INV-ROW ─── */
+
+.inv-row .ir-note {
+  font-size: 0.9rem;
+  font-weight: var(--fw-normal);
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+
+/* ─── 40. SPECIAL ROW ─── */
+
+.special-row .sr-key {
+  font-weight: var(--fw-bold);
+  font-size: 1rem;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════
+ *  RESPONSIVE — Điều chỉnh trên màn hình nhỏ
+ * ══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 640px) {
+  :root {
+    --fs-base: 17px; /* Vẫn lớn hơn mặc định 16px trên mobile */
+  }
+
+  .hero-intro {
+    font-size: 1rem;
+  }
+
+  .reading-passage {
+    font-size: 1rem;
+  }
+
+  .table-wrap table {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════════
+ *  PRINT — Tối ưu khi in
+ * ══════════════════════════════════════════════════════════════════ */
+
+@media print {
+  :root {
+    --fs-base: 12pt;
+  }
+
+  body {
+    color: #000;
+    font-weight: 400;
+  }
+
+  h1, h2, h3 {
+    font-weight: 700;
+  }
+}

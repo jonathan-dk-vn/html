@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 14 – Possessives &amp; Inversions | Destination B2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ══════════════════════════════════════
+   THEME C · ORANGE — Possessives & Inversions
+══════════════════════════════════════ */
+        :root {
+            --primary: #C86B1A;
+            --primary-light: #FFE4C4;
+            --primary-mid: #F5A45A;
+            --primary-dark: #6E3605;
+            --primary-rgb: 200, 107, 26;
+
+            --success: #2E9E68;
+            --error: #E8344A;
+            --ink: #14131C;
+            --paper: #F8F8F6;
+            --surface: #FFFFFF;
+            --surface-alt: #1F1D2B;
+            --muted: #6E6B80;
+            --line: #E2E0DB;
+            --shadow: rgba(20, 19, 28, .05);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.72;
+            color: var(--ink);
+            background: var(--paper);
+        }
+
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background-color: var(--ink);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 65% 55% at 20% 30%, rgba(200, 107, 26, .32) 0%, transparent 65%), radial-gradient(ellipse 50% 45% at 80% 70%, rgba(245, 164, 90, .2) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            border: 1.5px solid rgba(245, 164, 90, .45);
+            border-radius: 40px;
+            padding: .35rem 1.1rem;
+            margin-bottom: 1.4rem;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.18;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--primary-mid);
+        }
+
+        .hero-intro {
+            max-width: 720px;
+            margin: 1.4rem auto 0;
+            font-size: 1.03rem;
+            color: rgba(255, 255, 255, .72);
+            line-height: 1.78;
+            position: relative;
+        }
+
+        .hero-intro strong {
+            color: var(--primary-mid);
+            font-weight: 600;
+        }
+
+        .hero-intro em {
+            font-style: italic;
+            color: rgba(255, 255, 255, .85);
+        }
+
+        /* ── GRAMMAR BLOCK ── */
+        .grammar-block {
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 2px 20px var(--shadow);
+            margin: 2.5rem 0;
+            overflow: hidden;
+        }
+
+        .grammar-block-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 1.75rem 1.25rem;
+            border-bottom: 2px solid var(--line);
+        }
+
+        .section-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 8px;
+            padding: .3rem .75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .grammar-block-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(17px, 2.4vw, 23px);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+
+        .grammar-block-body {
+            padding: 1.75rem;
+        }
+
+        /* ── INTRO PARA ── */
+        .intro-para {
+            background: var(--paper);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-para strong {
+            color: var(--primary-dark);
+        }
+
+        .intro-para em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── SUB-HEADINGS ── */
+        .grammar-block-body h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 1.75rem 0 .75rem;
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .grammar-block-body h4 {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 1.2rem 0 .5rem;
+        }
+
+        /* ── FORMULA BOX ── */
+        .formula-box {
+            font-family: 'DM Mono', monospace;
+            font-size: 1rem;
+            text-align: center;
+            background: var(--paper);
+            border: 2px dashed var(--primary-mid);
+            border-radius: 12px;
+            padding: .9rem 1.5rem;
+            margin: .75rem 0 1.25rem;
+            color: var(--primary-dark);
+            letter-spacing: .03em;
+        }
+
+        /* ── TABLES ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: .75rem 0 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 12px var(--shadow);
+        }
+
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .95rem;
+        }
+
+        table.grammar-table thead th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-align: left;
+            padding: .75rem 1rem;
+            white-space: nowrap;
+        }
+
+        table.grammar-table tbody td {
+            padding: .7rem 1rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        table.grammar-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.grammar-table tbody tr:hover td {
+            background: rgba(255, 228, 196, .25);
+        }
+
+        table.grammar-table em {
+            color: var(--primary-dark);
+            font-style: italic;
+        }
+
+        table.grammar-table strong {
+            font-weight: 600;
+        }
+
+        /* ── USAGE LIST ── */
+        .usage-list {
+            list-style: none;
+            margin: .5rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .usage-list li {
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .usage-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .57rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .usage-list li strong {
+            display: block;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: .2rem;
+        }
+
+        .usage-list li em {
+            display: block;
+            font-style: italic;
+            color: var(--primary-dark);
+            margin-bottom: .2rem;
+            font-size: 1rem;
+        }
+
+        .usage-note {
+            font-size: .88rem;
+            color: var(--muted);
+            font-style: normal;
+        }
+
+        .usage-note strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ── KEYWORD CHIPS ── */
+        .kw-chip {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .8rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 6px;
+            padding: .1rem .45rem;
+            margin: .1rem .15rem;
+        }
+
+        /* ── ERROR BLOCK ── */
+        .error-block {
+            background: var(--surface-alt);
+            border-radius: 14px;
+            margin: 1.75rem 0;
+            overflow: hidden;
+        }
+
+        .error-block-header {
+            background: linear-gradient(90deg, var(--error), var(--primary-mid));
+            padding: .65rem 1.25rem;
+        }
+
+        .error-block-header span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .error-block-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .error-item-label {
+            font-size: .8rem;
+            font-family: 'DM Mono', monospace;
+            color: rgba(255, 255, 255, .4);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .4rem;
+        }
+
+        .err-wrong {
+            color: var(--error);
+            font-style: italic;
+            font-size: .97rem;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            margin-bottom: .3rem;
+        }
+
+        .err-wrong .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-wrong .txt {
+            text-decoration: line-through;
+            opacity: .85;
+        }
+
+        .err-right {
+            color: var(--success);
+            font-weight: 600;
+            font-size: .97rem;
+            font-style: italic;
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+        }
+
+        .err-right .icon {
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        .err-context {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .38);
+            font-style: normal;
+            margin-top: .25rem;
+            padding-left: 1.4rem;
+        }
+
+        /* ── ALERT BOX ── */
+        .alert-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .alert-box .alert-title {
+            font-weight: 700;
+            font-size: .88rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--primary-dark);
+            margin-bottom: .45rem;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .alert-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
+
+        .alert-box ul li {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box ul li::before {
+            content: '→ ';
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .alert-box p {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        .alert-box p+p {
+            margin-top: .4rem;
+        }
+
+        /* ── FEATURE BOX ── */
+        .feature-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            color: #fff;
+        }
+
+        .feature-box .feature-title {
+            font-size: .82rem;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--primary-mid);
+            margin-bottom: .55rem;
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            margin-bottom: .4rem;
+        }
+
+        .feature-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-box em {
+            font-style: italic;
+            color: var(--primary-mid);
+        }
+
+        .feature-box strong {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .feature-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .45rem;
+            margin-top: .45rem;
+        }
+
+        .feature-box ul li {
+            color: rgba(255, 255, 255, .88);
+            font-size: .97rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .feature-box ul li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mid);
+            font-size: 1.3rem;
+            line-height: .9;
+        }
+
+        /* ── POSSESSIVE SHOWCASE ── */
+        .poss-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .55rem;
+            margin: .75rem 0 1.25rem;
+        }
+
+        .poss-card {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 10px;
+            padding: .65rem .85rem;
+            text-align: center;
+        }
+
+        .poss-card .pc-type {
+            font-family: 'DM Mono', monospace;
+            font-size: .68rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--muted);
+            margin-bottom: .2rem;
+        }
+
+        .poss-card .pc-det {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: .1rem;
+        }
+
+        .poss-card .pc-pro {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* ── INVERSION ROW ── */
+        .inversion-list {
+            display: flex;
+            flex-direction: column;
+            gap: .55rem;
+            margin: .75rem 0 1.25rem;
+        }
+
+        .inv-row {
+            display: flex;
+            align-items: baseline;
+            gap: .75rem;
+            background: var(--paper);
+            border-radius: 10px;
+            padding: .65rem .9rem;
+            border: 1.5px solid var(--line);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .inv-row::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .inv-row .ir-adv {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+            white-space: nowrap;
+            flex-shrink: 0;
+            min-width: 9rem;
+            background: var(--primary-light);
+            border-radius: 5px;
+            padding: .15rem .5rem;
+            margin-left: .25rem;
+        }
+
+        .inv-row .ir-ex {
+            font-style: italic;
+            font-size: .95rem;
+            color: var(--ink);
+            flex: 1;
+        }
+
+        .inv-row .ir-note {
+            font-size: .82rem;
+            color: var(--muted);
+            display: block;
+            margin-top: .12rem;
+        }
+
+        /* ── RESPONSE PAIR ── */
+        .response-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            margin: 1rem 0;
+        }
+
+        .resp-card {
+            border-radius: 12px;
+            padding: .9rem 1.1rem;
+            border: 1.5px solid var(--line);
+        }
+
+        .resp-card.pos {
+            background: rgba(46, 158, 104, .07);
+            border-color: rgba(46, 158, 104, .3);
+        }
+
+        .resp-card.neg {
+            background: rgba(232, 52, 74, .05);
+            border-color: rgba(232, 52, 74, .25);
+        }
+
+        .resp-card .rc-label {
+            font-size: .73rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            margin-bottom: .4rem;
+        }
+
+        .resp-card.pos .rc-label {
+            color: var(--success);
+        }
+
+        .resp-card.neg .rc-label {
+            color: var(--error);
+        }
+
+        .resp-card .rc-trigger {
+            font-style: italic;
+            font-size: .9rem;
+            color: var(--muted);
+            margin-bottom: .3rem;
+        }
+
+        .resp-card .rc-ex {
+            font-family: 'DM Mono', monospace;
+            font-size: .88rem;
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        /* ── DECISION FLOWCHART ── */
+        .decision-block {
+            background: var(--ink);
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .decision-block .db-title {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--primary-mid);
+            margin-bottom: 1rem;
+        }
+
+        .decision-block pre {
+            background: transparent;
+            color: rgba(255, 255, 255, .78);
+            font-family: 'DM Mono', monospace;
+            font-size: .88rem;
+            line-height: 1.72;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .decision-block pre .hl {
+            color: var(--primary-mid);
+            font-weight: 500;
+        }
+
+        /* ── SELF CHECK ── */
+        .self-check {
+            background: var(--paper);
+            border: 1.5px solid var(--line);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .self-check .sc-title {
+            font-size: .82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--primary);
+            margin-bottom: .6rem;
+        }
+
+        .self-check ol {
+            padding-left: 1.25rem;
+            color: var(--ink);
+            font-size: .97rem;
+        }
+
+        .self-check ol li {
+            margin-bottom: .35rem;
+        }
+
+        /* ── SUMMARY BLOCK ── */
+        .summary-block {
+            background: var(--ink);
+            color: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .summary-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(20px, 3vw, 28px);
+            margin-bottom: 1.25rem;
+            color: var(--primary-mid);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1.5px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+        }
+
+        .summary-card .sc-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .73rem;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            color: var(--primary-mid);
+            margin-bottom: .3rem;
+        }
+
+        .summary-card .sc-desc {
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .summary-outro {
+            font-style: italic;
+            color: rgba(255, 255, 255, .5);
+            font-size: .95rem;
+            margin-top: .75rem;
+        }
+
+        /* ── READING PASSAGE ── */
+        .reading-passage {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 2rem 2.25rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .reading-passage .rp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .75rem;
+        }
+
+        .reading-passage p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.08rem;
+            line-height: 1.88;
+            margin-bottom: 1.4rem;
+            color: #2a2934;
+        }
+
+        .reading-passage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reading-passage strong {
+            font-weight: 700;
+            color: var(--primary-dark);
+            background: var(--primary-light);
+            padding: .05em .22em;
+            border-radius: 3px;
+        }
+
+        /* ── GRAMMAR FEATURES ── */
+        .grammar-features {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .grammar-features h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--line);
+            padding-bottom: .6rem;
+        }
+
+        .grammar-features p {
+            font-size: .97rem;
+            line-height: 1.72;
+            margin-bottom: .9rem;
+            color: var(--ink);
+        }
+
+        .grammar-features p:last-child {
+            margin-bottom: 0;
+        }
+
+        .grammar-features strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .grammar-features em {
+            font-style: italic;
+            color: var(--primary-dark);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            color: var(--muted);
+            font-size: .85rem;
+            border-top: 1px solid var(--line);
+            margin-top: 3rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width:640px) {
+            .page-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .grammar-block-body {
+                padding: 1.25rem;
+            }
+
+            .grammar-block-header {
+                padding: 1.1rem 1.25rem 1rem;
+            }
+
+            .poss-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .response-pair {
+                grid-template-columns: 1fr;
+            }
+
+            .inv-row {
+                flex-direction: column;
+                gap: .3rem;
+            }
+
+            .reading-passage {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .summary-block {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .grammar-features {
+                padding: 1.25rem;
+            }
+
+            table.grammar-table {
+                font-size: .87rem;
+            }
+
+            table.grammar-table thead th,
+            table.grammar-table tbody td {
+                padding: .6rem .75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="hero-badge">Unit 14 · Destination B2</div>
+        <h1>POSSESSIVES &amp; INVERSIONS<br><em>"Đỉnh Cao" Ngữ Pháp B2</em></h1>
+        <p class="hero-intro">
+            Possessives và Inversions như những <strong>"điệu nhảy ballet"</strong> của tiếng Anh — tinh tế, thanh lịch
+            và thể hiện trình độ cao. Đây chính là bước cuối cùng để bạn trở thành <strong>"master"</strong> ngữ pháp
+            B2!
+        </p>
+    </header>
+
+    <main>
+        <div class="page-container">
+
+            <!-- ══════════ 14.1 POSSESSIVE 'S ══════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">14.1</span>
+                    <h2>Possessive 'S and S' — <em style="font-style:italic;color:var(--primary);">Sở Hữu Cách</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"John's car"</em> hay <em>"the car of John"</em>?<br>
+                        <strong>Bản chất:</strong> Sở hữu cách thể hiện <strong>mối quan hệ sở hữu</strong> một cách
+                        ngắn gọn và tự nhiên.
+                    </div>
+
+                    <h3>📝 Quy tắc cơ bản:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Loại danh từ</th>
+                                    <th>Cách viết</th>
+                                    <th>Ví dụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Số ít</strong></td>
+                                    <td><span class="kw-chip">'s</span></td>
+                                    <td><em>the <strong>manager's</strong> car · my <strong>sister's</strong> book</em>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Số nhiều kết thúc -s</strong></td>
+                                    <td><span class="kw-chip">'</span> (chỉ dấu phẩy)</td>
+                                    <td><em>the <strong>workers'</strong> pay · my <strong>parents'</strong> house</em>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Số nhiều không kết thúc -s</strong></td>
+                                    <td><span class="kw-chip">'s</span></td>
+                                    <td><em>the <strong>children's</strong> toys · <strong>women's</strong> rights</em>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🕐 Biểu hiện thời gian:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Thời gian + 's:</strong>
+                            <em>After an <strong>hour's</strong> wait, I saw the manager.</em>
+                        </li>
+                        <li>
+                            <strong>Tuần, ngày:</strong>
+                            <em>I need a <strong>week's</strong> holiday. · It's a <strong>ten minutes'</strong>
+                                walk.</em>
+                        </li>
+                    </ul>
+
+                    <h3>🎯 Khi nào dùng 's / Khi nào dùng OF:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Dùng 'S / S'</th>
+                                    <th>Dùng OF</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>✅ Người và động vật<br><em>the <strong>company's</strong>
+                                            finances</em><br><em>the <strong>cat's</strong> paw</em></td>
+                                    <td>✅ Đồ vật<br><em>the back <strong>of</strong> the computer</em><br><em>the top
+                                            <strong>of</strong> the bottle</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>🔥 Trường hợp đặc biệt:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Tên riêng kết thúc bằng -s:</strong>
+                            <em>Charles<strong>'</strong> computer</em> hoặc <em>Charles<strong>'s</strong>
+                                computer</em>
+                            <span class="usage-note">Cả hai đều đúng!</span>
+                        </li>
+                        <li>
+                            <strong>Tên gia đình số nhiều:</strong>
+                            <em>The <strong>Smiths'</strong> business</em>
+                            <span class="usage-note">Gia đình Smith</span>
+                        </li>
+                        <li>
+                            <strong>Cụm từ dài — 's ở cuối cùng:</strong>
+                            <em>Tom, Dick and <strong>Harry's</strong> office</em>
+                            <span class="usage-note">'s chỉ ở người cuối cùng trong chuỗi!</span>
+                        </li>
+                        <li>
+                            <strong>Cụm từ chức vụ — 's ở cuối cụm:</strong>
+                            <em>The <strong>President of France's</strong> visit</em>
+                        </li>
+                    </ul>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Đặt sai vị trí 's:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">Tom's and Dick's and
+                                        Harry's office</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>Tom, Dick and Harry's
+                                        office</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Dùng 's với đồ vật:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">The car's
+                                        engine</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>The engine of the car</span>
+                                </div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 3 — Nhầm lẫn sở hữu với số nhiều:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">The boy's are
+                                        playing.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>The boys are playing.</span>
+                                </div>
+                                <div class="err-right" style="margin-top:.3rem"><span class="icon">✅</span><span>The
+                                        boy's toys are here.</span></div>
+                                <div class="err-context">(đồ chơi của cậu bé)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ══════════ 14.2 POSSESSIVE DETERMINERS & PRONOUNS ══════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">14.2</span>
+                    <h2>Possessive Determiners &amp; Pronouns — <em style="font-style:italic;color:var(--primary);">My
+                            vs Mine</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> <em>"My book"</em> vs <em>"Mine"</em> — Khi nào dùng cái nào?
+                    </div>
+
+                    <h3>📊 Bảng so sánh:</h3>
+                    <div class="poss-grid">
+                        <div class="poss-card">
+                            <div class="pc-type">Determiner</div>
+                            <div class="pc-det">my</div>
+                            <div class="pc-pro">mine</div>
+                        </div>
+                        <div class="poss-card">
+                            <div class="pc-type">Determiner</div>
+                            <div class="pc-det">your</div>
+                            <div class="pc-pro">yours</div>
+                        </div>
+                        <div class="poss-card">
+                            <div class="pc-type">Determiner</div>
+                            <div class="pc-det">his</div>
+                            <div class="pc-pro">his</div>
+                        </div>
+                        <div class="poss-card">
+                            <div class="pc-type">Determiner</div>
+                            <div class="pc-det">her</div>
+                            <div class="pc-pro">hers</div>
+                        </div>
+                        <div class="poss-card">
+                            <div class="pc-type">Determiner</div>
+                            <div class="pc-det">its</div>
+                            <div class="pc-pro" style="color:var(--muted);font-size:.9rem;">— (không có)</div>
+                        </div>
+                        <div class="poss-card">
+                            <div class="pc-type">Determiner</div>
+                            <div class="pc-det">our</div>
+                            <div class="pc-pro">ours</div>
+                        </div>
+                        <div class="poss-card" style="grid-column:1/-1;">
+                            <div class="pc-type">Determiner</div>
+                            <div class="pc-det">their</div>
+                            <div class="pc-pro">theirs</div>
+                        </div>
+                    </div>
+
+                    <h3>🎯 Cách dùng:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Possessive Determiners (+ noun):</strong>
+                            <em>I'm excited about <strong>my</strong> new job.</em>
+                        </li>
+                        <li>
+                            <strong>Possessive Pronouns (thay thế noun):</strong>
+                            <em>My job is great. How about <strong>yours</strong>? · This book is
+                                <strong>mine</strong>.</em>
+                        </li>
+                        <li>
+                            <strong>Sau "of":</strong>
+                            <em>She's a colleague <strong>of mine</strong>. · That friend <strong>of yours</strong> is
+                                funny.</em>
+                        </li>
+                    </ul>
+
+                    <div class="feature-box">
+                        <div class="feature-title">🔥 ITS vs IT'S — Hai thứ hoàn toàn khác nhau!</div>
+                        <ul>
+                            <li><em>The company increased <strong>its</strong> profits.</em> <span
+                                    style="color:rgba(255,255,255,.5);">(sở hữu — its = of it)</span></li>
+                            <li><em><strong>It's</strong> a great company.</em> <span
+                                    style="color:rgba(255,255,255,.5);">(it is — viết tắt)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Nhầm determiner vs pronoun:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">Mine book is
+                                        here.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>My book is here.</span></div>
+                                <div class="err-wrong" style="margin-top:.4rem"><span class="icon">❌</span><span
+                                        class="txt">How about your?</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>How about yours?</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Thêm apostrophe vào pronoun:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">The book is
+                                        their's.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>The book is theirs.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ══════════ 14.3 INVERSIONS WITH NEGATIVE ADVERBIALS ══════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">14.3</span>
+                    <h2>Inversions with Negative Adverbials — <em style="font-style:italic;color:var(--primary);">Đảo
+                            Ngữ Nhấn Mạnh</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <div class="intro-para">
+                        <strong>🤔 Mở đầu:</strong> Tại sao đảo ngữ làm câu nói <em>"sang chảnh"</em>?<br>
+                        <strong>Bản chất:</strong> Inversions tạo <strong>hiệu ứng nhấn mạnh</strong> và thể hiện
+                        <strong>trình độ cao</strong> — như "đũa phép" của tiếng Anh!
+                    </div>
+
+                    <h3>📝 Quy tắc chung:</h3>
+                    <div class="formula-box">Negative adverbial + auxiliary + subject + main verb</div>
+
+                    <h3>📊 Các từ/cụm từ thường dùng:</h3>
+                    <div class="inversion-list">
+                        <div class="inv-row">
+                            <span class="ir-adv">Never</span>
+                            <span class="ir-ex"><em><strong>Never</strong> have I worked so hard.</em></span>
+                        </div>
+                        <div class="inv-row">
+                            <span class="ir-adv">Rarely / Seldom</span>
+                            <span class="ir-ex"><em><strong>Rarely</strong> have I seen such talent.</em></span>
+                        </div>
+                        <div class="inv-row">
+                            <span class="ir-adv">No sooner…than</span>
+                            <span class="ir-ex"><em><strong>No sooner</strong> had he arrived <strong>than</strong> it
+                                    started raining.</em></span>
+                        </div>
+                        <div class="inv-row">
+                            <span class="ir-adv">Hardly…when</span>
+                            <span class="ir-ex"><em><strong>Hardly</strong> had I sat down <strong>when</strong> the
+                                    phone rang.</em></span>
+                        </div>
+                        <div class="inv-row">
+                            <span class="ir-adv">Not only…but also</span>
+                            <span class="ir-ex"><em><strong>Not only</strong> is he smart, <strong>but</strong> he's
+                                    also funny.</em></span>
+                        </div>
+                        <div class="inv-row">
+                            <span class="ir-adv">Under no circumstances</span>
+                            <span class="ir-ex"><em><strong>Under no circumstances</strong> should you give
+                                    up.</em></span>
+                        </div>
+                        <div class="inv-row">
+                            <span class="ir-adv">At no time/point</span>
+                            <span class="ir-ex"><em><strong>At no time</strong> was I told about this.</em></span>
+                        </div>
+                        <div class="inv-row">
+                            <span class="ir-adv">Little</span>
+                            <span class="ir-ex"><em><strong>Little</strong> did I know how hard it would be.</em> <span
+                                    class="ir-note">= I didn't know at all — dùng với know, realise, suspect,
+                                    understand</span></span>
+                        </div>
+                        <div class="inv-row">
+                            <span class="ir-adv">Not until</span>
+                            <span class="ir-ex"><em><strong>Not until</strong> midnight did he return home.</em></span>
+                        </div>
+                        <div class="inv-row">
+                            <span class="ir-adv">Only when</span>
+                            <span class="ir-ex"><em><strong>Only</strong> when I met her did I understand
+                                    love.</em></span>
+                        </div>
+                    </div>
+
+                    <h3>🔥 Phân tích chi tiết — NOT UNTIL / ONLY:</h3>
+                    <div class="feature-box">
+                        <div class="feature-title">⚡ Chú ý — Đảo ngữ ở mệnh đề nào?</div>
+                        <p><strong>Đảo ngữ MỆNH ĐỀ CHÍNH (sau "Not until…"):</strong></p>
+                        <p><em>Not until I finished homework <strong>was I allowed</strong> to go out.</em></p>
+                        <p style="margin-top:.5rem;color:rgba(255,255,255,.55);font-size:.87rem">= Trật tự bình thường
+                            trong mệnh đề thời gian, đảo ngữ trong mệnh đề kết quả!</p>
+                    </div>
+
+                    <h3>🎯 Ví dụ so sánh bình thường vs đảo ngữ:</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Câu bình thường</th>
+                                    <th>Câu đảo ngữ (trang trọng hơn)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em>I have never worked so hard in my life.</em></td>
+                                    <td><em><strong>Never</strong> have I worked so hard in my life.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>He had no sooner arrived than it rained.</em></td>
+                                    <td><em><strong>No sooner</strong> had he arrived than it rained.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 1 — Quên đảo ngữ:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">Never I have seen
+                                        such beauty.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>Never have I seen such
+                                        beauty.</span></div>
+                            </div>
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi 2 — Sai trật tự với NOT UNTIL:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">Not until he had
+                                        finished was allowed to leave.</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>Not until he had finished was he
+                                        allowed to leave.</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ══════════ 14.4 OTHER INVERSIONS ══════════ -->
+            <article class="grammar-block">
+                <div class="grammar-block-header">
+                    <span class="section-badge">14.4</span>
+                    <h2>Other Inversions — <em style="font-style:italic;color:var(--primary);">Đảo Ngữ Khác</em></h2>
+                </div>
+                <div class="grammar-block-body">
+
+                    <h3>1. Short answers với SO / NEITHER / NOR:</h3>
+                    <div class="response-pair">
+                        <div class="resp-card pos">
+                            <div class="rc-label">Câu khẳng định → SO</div>
+                            <div class="rc-trigger"><em>"I'm a plumber!"</em></div>
+                            <div class="rc-ex">"Really? So am I!"</div>
+                            <div class="rc-trigger" style="margin-top:.4rem"><em>"I like coffee."</em></div>
+                            <div class="rc-ex">"So do I."</div>
+                        </div>
+                        <div class="resp-card neg">
+                            <div class="rc-label">Câu phủ định → NEITHER/NOR</div>
+                            <div class="rc-trigger"><em>"I don't like coffee."</em></div>
+                            <div class="rc-ex">"Neither do I." / "Nor do I."</div>
+                            <div class="rc-trigger" style="margin-top:.4rem"><em>"I can't swim."</em></div>
+                            <div class="rc-ex">"Neither can I."</div>
+                        </div>
+                    </div>
+
+                    <h3>2. Sau AS / SO / SUCH:</h3>
+                    <ul class="usage-list">
+                        <li>
+                            <strong>Sau AS:</strong>
+                            <em>The manager was nervous, <strong>as were</strong> the staff.</em>
+                        </li>
+                        <li>
+                            <strong>Sau SUCH (nhấn mạnh):</strong>
+                            <em><strong>Such</strong> a hot day <strong>was it</strong> that no one worked.</em>
+                        </li>
+                    </ul>
+
+                    <h3>3. Conditional inversions (bỏ "if"):</h3>
+                    <div class="table-wrap">
+                        <table class="grammar-table">
+                            <thead>
+                                <tr>
+                                    <th>Có "if" (thường)</th>
+                                    <th>Không có "if" (trang trọng)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><em>If I were you, I would be careful.</em></td>
+                                    <td><em><strong>Were</strong> I you, I would be careful.</em></td>
+                                </tr>
+                                <tr>
+                                    <td><em>If I had known, I would have come.</em></td>
+                                    <td><em><strong>Had</strong> I known, I would have come.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="error-block">
+                        <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+                        <div class="error-block-body">
+                            <div class="error-item">
+                                <div class="error-item-label">Lỗi — Nhầm lẫn so và neither:</div>
+                                <div class="err-wrong"><span class="icon">❌</span><span class="txt">"I don't like it."
+                                        "So do I."</span></div>
+                                <div class="err-right"><span class="icon">✅</span><span>"I don't like it." "Neither do
+                                        I."</span></div>
+                                <div class="err-context">Câu phủ định → dùng NEITHER/NOR (không dùng SO)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+                        <ul>
+                            <li><strong>SO:</strong> Đồng ý với câu <span class="kw-chip">khẳng định</span></li>
+                            <li><strong>NEITHER / NOR:</strong> Đồng ý với câu <span class="kw-chip">phủ định</span>
+                            </li>
+                            <li><strong>Conditional inversions:</strong> Were I / Had I / Should I — bỏ "if", đảo
+                                Were/Had/Should lên đầu</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ══════════ SUMMARY ══════════ -->
+            <div class="summary-block">
+                <h2>Tổng Kết Unit 14 — &amp; Kết Thúc Hành Trình B2!</h2>
+
+                <div class="decision-block" style="margin-bottom:1.5rem;">
+                    <div class="db-title">👑 Sơ Đồ Quyết Định Possessives</div>
+                    <pre>POSSESSIVES — Chọn cách nào? 👑
+
+Người/động vật + đồ vật?    → <span class="hl">'S / S'</span>
+Đồ vật + đồ vật?             → <span class="hl">OF</span>
+Trước noun?                   → <span class="hl">MY / YOUR / HIS…</span>
+Thay thế noun?               → <span class="hl">MINE / YOURS / HIS…</span>
+Tên kết thúc -s?             → <span class="hl">' hoặc 's</span>
+Số nhiều kết thúc -s?        → <span class="hl">S'</span> (chỉ dấu phẩy)</pre>
+                </div>
+
+                <div class="decision-block" style="margin-bottom:1.5rem;">
+                    <div class="db-title">⚡ Sơ Đồ Quyết Định Inversions</div>
+                    <pre>INVERSIONS — Khi nào đảo? ⚡
+
+Negative adverbial đầu câu?  → <span class="hl">ĐẢO NGỮ</span>
+Never/Rarely/Little…?        → <span class="hl">aux + subject + verb</span>
+Short answer đồng ý (+)?     → <span class="hl">So + aux + S</span>
+Short answer đồng ý (-)?     → <span class="hl">Neither/Nor + aux + S</span>
+Muốn trang trọng/nhấn mạnh? → <span class="hl">INVERSIONS</span>
+Câu bình thường?              → Trật tự thường</pre>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="sc-label">14.1 · Possessive 's</div>
+                        <div class="sc-desc">Số ít: 's · Số nhiều -s: s' · Bất quy tắc: 's</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">14.2 · Det. vs Pronoun</div>
+                        <div class="sc-desc">My + noun vs Mine alone · its ≠ it's</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">14.3 · Neg. Inversions</div>
+                        <div class="sc-desc">Never/Rarely/No sooner/Not until/Little</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="sc-label">14.4 · Other Inversions</div>
+                        <div class="sc-desc">So/Neither · Were I / Had I · Such…that</div>
+                    </div>
+                </div>
+
+                <div class="self-check"
+                    style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);margin-top:1.25rem;">
+                    <div class="sc-title" style="color:var(--primary-mid);">📚 Câu Hỏi Tự Kiểm Tra</div>
+                    <ol style="color:rgba(255,255,255,.8);">
+                        <li>"The childrens' toys" vs "The children's toys" — Cái nào đúng?</li>
+                        <li>"Never I have seen" vs "Never have I seen" — Cái nào đúng?</li>
+                        <li>"Its" vs "It's" — Khi nào dùng cái nào?</li>
+                    </ol>
+                </div>
+
+                <p class="summary-outro">🎉 Chúc mừng! Bạn vừa hoàn thành toàn bộ 14 Units của Destination B2 — từ
+                    Present Tenses đến Possessives &amp; Inversions. Hành trình chinh phục B2 của bạn đã hoàn tất!</p>
+            </div>
+
+            <!-- ══════════ READING PASSAGE ══════════ -->
+            <section class="reading-passage">
+                <div class="rp-title">📖 The Unwritten Rules: My Family's Traditions</div>
+
+                <p>Every family has <strong>its</strong> own unique culture, a set of traditions that are rarely written
+                    down but are understood by all. In my family, these traditions are the anchors of our year, shaping
+                    our gatherings and strengthening our bonds. <strong>Never</strong> have I seen these customs broken;
+                    they are the unwritten rules that define us. From the specific roles each person plays to the timing
+                    of every event, these moments are not just habits but cherished ceremonies.</p>
+
+                <p>The ownership of tasks and memories is clearly, if informally, defined. My
+                    <strong>grandmother's</strong> kitchen is the heart of all our celebrations. Her recipes are a
+                    closely guarded secret, and the results are a testament to a <strong>lifetime's</strong> practice.
+                    During the holidays, my <strong>parents'</strong> main job is decoration. The festive atmosphere
+                    they create is magical for the <strong>children's</strong> enjoyment. The most significant event is
+                    my <strong>Aunt Jane and Uncle Tom's</strong> anniversary party. The responsibility for the music is
+                    always my <strong>brother's</strong>, while the task of organizing the guest list is
+                    <strong>mine</strong>. The house itself belongs to them, but on that day, the joy is
+                    <strong>ours</strong> to share. A friend of <strong>yours</strong> might find our structured
+                    approach amusing, but for us, it's a beautifully coordinated dance.</p>
+
+                <p>Our traditions are governed by rules that are communicated with emphatic gravity. <strong>Under no
+                        circumstances</strong> is anyone late for the annual family photo. <strong>Not only</strong> is
+                    this picture a historical record, <strong>but it is also</strong> a source of great pride for my
+                    grandfather. As children, <strong>little</strong> did we understand the importance of these moments.
+                    We just knew the rules. <strong>No sooner</strong> had the photo been taken <strong>than</strong> we
+                    were allowed to run off and play. I particularly remember the rule about dessert: <strong>not
+                        until</strong> everyone had finished the main course <strong>was the cake allowed</strong> to be
+                    cut. This structure, inverting the main clause, perfectly captures the dramatic weight of the
+                    moment. <strong>Rarely</strong> have I tasted anything as delicious as my
+                    <strong>grandmother's</strong> chocolate cake after a long, patient wait.</p>
+
+                <p>These traditions create a powerful sense of unity and shared feeling. My father loves telling old
+                    family stories. "<strong>So does my uncle</strong>." My younger cousins, however, don't enjoy
+                    sitting still for so long. "<strong>Neither do I</strong>, if I'm being honest," my sister once
+                    whispered to me. The bond is palpable. <strong>Such</strong> was the feeling of togetherness that
+                    even newcomers felt instantly welcome. Reflecting on it now, I see the past with new eyes.
+                    <strong>Were</strong> I to have my own family one day, I would continue these traditions.
+                    <strong>Had</strong> I known then how fast time would pass, I would have cherished each moment even
+                    more. These aren't just my <strong>family's</strong> traditions; they are a legacy.</p>
+
+                <p>In the end, these rituals are more than just repeated actions. They are the language of our family's
+                    love. They are the back of the photo album, not the <em>photo album's back</em>. They belong to the
+                    <strong>Jameses'</strong> history, a story passed down through generations. The traditions are not
+                    just <strong>his</strong> or <strong>hers</strong>; they are <strong>theirs</strong>,
+                    <strong>ours</strong>, and a precious inheritance for the future. <strong>Seldom</strong> does a
+                    family create something so strong out of such simple, repeated acts of love and gathering.</p>
+            </section>
+
+            <!-- ══════════ GRAMMAR FEATURES ══════════ -->
+            <section class="grammar-features">
+                <h2>Grammar Features Highlighted</h2>
+
+                <p><strong>Possessive 's and s':</strong> Correctly used with singular (<em>grandmother's</em>), plural
+                    (<em>parents'</em>), and irregular plural (<em>children's</em>) nouns; time expression (<em>a
+                        lifetime's practice</em>); long phrase (<em>Aunt Jane and Uncle Tom's</em>); family name
+                    (<em>the Jameses' history</em>).</p>
+
+                <p><strong>Of vs 's:</strong> The essay correctly uses <em>the back of the photo album</em> (not "the
+                    photo album's back") — demonstrating the rule that inanimate objects take "of" not "'s."</p>
+
+                <p><strong>Possessive Determiners vs Pronouns:</strong> <em>my brother's</em> (role + noun),
+                    <em>mine</em> (pronoun replacing noun), <em>ours</em> (pronoun), <em>yours</em> (after "of"),
+                    <em>his</em>, <em>hers</em>, <em>theirs</em> — all correctly used.</p>
+
+                <p><strong>Its vs It's:</strong> Correctly uses <em>its</em> for possession (<em>Every family has its
+                        own unique culture</em>) and <em>it's</em> for "it is" (<em>it's a beautifully coordinated
+                        dance</em>).</p>
+
+                <p><strong>Negative Adverbial Inversions:</strong> <em>Never have I seen…</em>; <em>Under no
+                        circumstances is anyone late</em>; <em>Not only is this picture…, but it is also…</em>;
+                    <em>Little did we understand…</em>; <em>No sooner had the photo been taken than…</em>; <em>Not until
+                        everyone had finished…was the cake allowed…</em> (correctly inverting the main clause);
+                    <em>Rarely have I tasted…</em>; <em>Seldom does a family create…</em></p>
+
+                <p><strong>Other Inversions:</strong> So/Neither (<em>So does my uncle</em>; <em>Neither do I</em>);
+                    Conditional inversions (<em>Were I to have…</em>; <em>Had I known…</em>); Such…that (<em>Such was
+                        the feeling of togetherness that…</em>).</p>
+
+                <p><strong>Common Errors Avoided:</strong> No double apostrophe in possessive pronouns (theirs, ours,
+                    not their's/our's); correct word order after negative adverbials; correct "Neither" (not "So") for
+                    negative responses; proper inversion in main clause for "Not until"; no use of 's with inanimate
+                    compound objects.</p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Destination B2 · Unit 14 — Possessives &amp; Inversions &nbsp;|&nbsp; "Đỉnh Cao" Ngữ Pháp B2 &nbsp;🎓</p>
+    </footer>
+
+</body>
+
+</html>

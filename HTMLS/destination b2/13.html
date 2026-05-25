@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Unit 13 – Wishes &amp; Unreal Past | Destination B2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ══════════════════════════════════════
+   THEME B · GREEN — Wishes / Unreal Past
+══════════════════════════════════════ */
+:root {
+  --primary:       #2E9E68;
+  --primary-light: #C8F0DE;
+  --primary-mid:   #5EC996;
+  --primary-dark:  #144D31;
+  --primary-rgb:   46,158,104;
+
+  --success:     #2E9E68;
+  --error:       #E8344A;
+  --ink:         #14131C;
+  --paper:       #F8F8F6;
+  --surface:     #FFFFFF;
+  --surface-alt: #1F1D2B;
+  --muted:       #6E6B80;
+  --line:        #E2E0DB;
+  --shadow:      rgba(20,19,28,.05);
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; font-size:16px; line-height:1.72; color:var(--ink); background:var(--paper); }
+.page-container { max-width:1000px; margin:0 auto; padding:0 1.5rem 4rem; }
+
+/* ── HERO ── */
+.hero { background-color:var(--ink); color:#fff; text-align:center; padding:4rem 2rem 3.5rem; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 65% 55% at 15% 30%, rgba(46,158,104,.3) 0%, transparent 65%), radial-gradient(ellipse 55% 50% at 85% 75%, rgba(94,201,150,.18) 0%, transparent 65%); pointer-events:none; }
+.hero-badge { display:inline-block; font-family:'DM Mono',monospace; font-size:.75rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--primary-mid); border:1.5px solid rgba(94,201,150,.45); border-radius:40px; padding:.35rem 1.1rem; margin-bottom:1.4rem; position:relative; }
+.hero h1 { font-family:'Playfair Display',serif; font-size:clamp(28px,5vw,52px); font-weight:700; line-height:1.18; color:#fff; position:relative; }
+.hero h1 em { font-style:normal; color:var(--primary-mid); }
+.hero-intro { max-width:720px; margin:1.4rem auto 0; font-size:1.03rem; color:rgba(255,255,255,.72); line-height:1.78; position:relative; }
+.hero-intro strong { color:var(--primary-mid); font-weight:600; }
+.hero-intro em { font-style:italic; color:rgba(255,255,255,.85); }
+
+/* ── GRAMMAR BLOCK ── */
+.grammar-block { background:var(--surface); border-radius:16px; box-shadow:0 2px 20px var(--shadow); margin:2.5rem 0; overflow:hidden; }
+.grammar-block-header { display:flex; align-items:center; gap:1rem; padding:1.5rem 1.75rem 1.25rem; border-bottom:2px solid var(--line); }
+.section-badge { font-family:'DM Mono',monospace; font-size:.78rem; font-weight:500; text-transform:uppercase; letter-spacing:.1em; background:var(--primary-light); color:var(--primary-dark); border-radius:8px; padding:.3rem .75rem; white-space:nowrap; flex-shrink:0; }
+.grammar-block-header h2 { font-family:'Playfair Display',serif; font-size:clamp(17px,2.4vw,23px); font-weight:700; color:var(--ink); line-height:1.25; }
+.grammar-block-body { padding:1.75rem; }
+
+/* ── INTRO PARA ── */
+.intro-para { background:var(--paper); border-left:4px solid var(--primary); border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin-bottom:1.5rem; font-size:1.02rem; }
+.intro-para strong { color:var(--primary-dark); }
+.intro-para em { font-style:italic; color:var(--primary-dark); }
+
+/* ── SUB-HEADINGS ── */
+.grammar-block-body h3 { font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:600; color:var(--primary-dark); margin:1.75rem 0 .75rem; display:flex; align-items:center; gap:.45rem; }
+.grammar-block-body h4 { font-size:.95rem; font-weight:600; color:var(--ink); margin:1.2rem 0 .5rem; }
+
+/* ── FORMULA BOX ── */
+.formula-box { font-family:'DM Mono',monospace; font-size:1rem; text-align:center; background:var(--paper); border:2px dashed var(--primary-mid); border-radius:12px; padding:.9rem 1.5rem; margin:.75rem 0 1.25rem; color:var(--primary-dark); letter-spacing:.03em; }
+
+/* ── TABLES ── */
+.table-wrap { overflow-x:auto; margin:.75rem 0 1.5rem; border-radius:12px; box-shadow:0 1px 12px var(--shadow); }
+table.grammar-table { width:100%; border-collapse:collapse; font-size:.95rem; }
+table.grammar-table thead th { background:var(--primary-light); color:var(--primary-dark); font-weight:600; text-align:left; padding:.75rem 1rem; white-space:nowrap; }
+table.grammar-table tbody td { padding:.7rem 1rem; border-bottom:1px solid var(--line); vertical-align:top; }
+table.grammar-table tbody tr:last-child td { border-bottom:none; }
+table.grammar-table tbody tr:hover td { background:rgba(200,240,222,.22); }
+table.grammar-table em { color:var(--primary-dark); font-style:italic; }
+table.grammar-table strong { font-weight:600; }
+
+/* ── USAGE LIST ── */
+.usage-list { list-style:none; margin:.5rem 0 1rem; display:flex; flex-direction:column; gap:1rem; }
+.usage-list li { padding-left:1.25rem; position:relative; }
+.usage-list li::before { content:''; position:absolute; left:0; top:.57rem; width:8px; height:8px; border-radius:50%; background:var(--primary); }
+.usage-list li strong { display:block; font-weight:600; color:var(--ink); margin-bottom:.2rem; }
+.usage-list li em { display:block; font-style:italic; color:var(--primary-dark); margin-bottom:.2rem; font-size:1rem; }
+.usage-note { font-size:.88rem; color:var(--muted); font-style:normal; }
+.usage-note strong { color:var(--ink); font-weight:600; }
+
+/* ── KEYWORD CHIPS ── */
+.kw-chip { display:inline-block; font-family:'DM Mono',monospace; font-size:.8rem; background:var(--primary-light); color:var(--primary-dark); border-radius:6px; padding:.1rem .45rem; margin:.1rem .15rem; }
+
+/* ── ERROR BLOCK ── */
+.error-block { background:var(--surface-alt); border-radius:14px; margin:1.75rem 0; overflow:hidden; }
+.error-block-header { background:linear-gradient(90deg,var(--error),var(--primary-mid)); padding:.65rem 1.25rem; }
+.error-block-header span { font-family:'DM Sans',sans-serif; font-size:.85rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:#fff; }
+.error-block-body { padding:1.25rem 1.5rem; display:flex; flex-direction:column; gap:1.1rem; }
+.error-item-label { font-size:.8rem; font-family:'DM Mono',monospace; color:rgba(255,255,255,.4); text-transform:uppercase; letter-spacing:.08em; margin-bottom:.4rem; }
+.err-wrong { color:var(--error); font-style:italic; font-size:.97rem; display:flex; align-items:flex-start; gap:.5rem; margin-bottom:.3rem; }
+.err-wrong .icon { flex-shrink:0; font-style:normal; }
+.err-wrong .txt { text-decoration:line-through; opacity:.85; }
+.err-right { color:var(--success); font-weight:600; font-size:.97rem; font-style:italic; display:flex; align-items:flex-start; gap:.5rem; }
+.err-right .icon { flex-shrink:0; font-style:normal; }
+.err-context { font-size:.82rem; color:rgba(255,255,255,.38); font-style:normal; margin-top:.25rem; padding-left:1.4rem; }
+
+/* ── ALERT BOX ── */
+.alert-box { background:var(--primary-light); border-left:4px solid var(--primary); border-radius:0 12px 12px 0; padding:1rem 1.25rem; margin:1.25rem 0; }
+.alert-box .alert-title { font-weight:700; font-size:.88rem; text-transform:uppercase; letter-spacing:.08em; color:var(--primary-dark); margin-bottom:.45rem; display:flex; align-items:center; gap:.4rem; }
+.alert-box ul { list-style:none; padding:0; display:flex; flex-direction:column; gap:.3rem; }
+.alert-box ul li { font-size:.97rem; color:var(--ink); }
+.alert-box ul li::before { content:'→ '; color:var(--primary); font-weight:700; }
+.alert-box p { font-size:.97rem; color:var(--ink); }
+.alert-box p + p { margin-top:.4rem; }
+
+/* ── FEATURE BOX ── */
+.feature-box { background:linear-gradient(135deg,var(--primary-dark),var(--primary)); border-radius:14px; padding:1.25rem 1.5rem; margin:1.5rem 0; color:#fff; }
+.feature-box .feature-title { font-size:.82rem; font-family:'DM Mono',monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--primary-mid); margin-bottom:.55rem; }
+.feature-box p { color:rgba(255,255,255,.88); font-size:.97rem; margin-bottom:.4rem; }
+.feature-box p:last-child { margin-bottom:0; }
+.feature-box em { font-style:italic; color:var(--primary-mid); }
+.feature-box strong { font-weight:600; color:#fff; }
+.feature-box ul { list-style:none; padding:0; display:flex; flex-direction:column; gap:.4rem; margin-top:.45rem; }
+.feature-box ul li { color:rgba(255,255,255,.88); font-size:.97rem; padding-left:1.2rem; position:relative; }
+.feature-box ul li::before { content:'·'; position:absolute; left:0; color:var(--primary-mid); font-size:1.3rem; line-height:.9; }
+
+/* ── WISH TIMELINE CARDS ── */
+.wish-grid { display:flex; flex-direction:column; gap:.55rem; margin:.75rem 0 1.25rem; }
+.wish-row { display:flex; align-items:baseline; gap:.75rem; background:var(--paper); border-radius:10px; padding:.65rem .9rem; border:1.5px solid var(--line); position:relative; overflow:hidden; }
+.wish-row::before { content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:var(--primary); }
+.wish-row .wr-type { font-family:'DM Mono',monospace; font-size:.75rem; font-weight:500; color:var(--primary-dark); white-space:nowrap; flex-shrink:0; min-width:9.5rem; background:var(--primary-light); border-radius:5px; padding:.15rem .5rem; margin-left:.25rem; }
+.wish-row .wr-formula { font-family:'DM Mono',monospace; font-size:.8rem; color:var(--muted); flex-shrink:0; }
+.wish-row .wr-ex { font-style:italic; font-size:.97rem; color:var(--ink); flex:1; }
+.wish-row .wr-note { font-size:.82rem; color:var(--muted); display:block; margin-top:.15rem; }
+
+/* ── CONTRAST STRUCTURE CARDS ── */
+.contrast-pair { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin:1rem 0; }
+.contrast-card { border-radius:12px; padding:.9rem 1.1rem; border:1.5px solid var(--line); }
+.contrast-card.clause { background:rgba(46,158,104,.06); border-color:rgba(46,158,104,.3); }
+.contrast-card.noun { background:rgba(59,111,191,.06); border-color:rgba(59,111,191,.3); }
+.contrast-card .cc-label { font-size:.73rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; margin-bottom:.4rem; }
+.contrast-card.clause .cc-label { color:var(--success); }
+.contrast-card.noun .cc-label { color:#3B6FBF; }
+.contrast-card .cc-formula { font-family:'DM Mono',monospace; font-size:.8rem; color:var(--muted); margin-bottom:.35rem; }
+.contrast-card .cc-ex { font-style:italic; font-size:.97rem; color:var(--ink); }
+
+/* ── POSITION ROW ── */
+.position-trio { display:flex; flex-direction:column; gap:.45rem; margin:.75rem 0 1.25rem; }
+.pos-row { display:flex; align-items:baseline; gap:.75rem; background:var(--paper); border-radius:8px; padding:.6rem .9rem; border:1px solid var(--line); }
+.pos-row .pr-pos { font-family:'DM Mono',monospace; font-size:.75rem; font-weight:500; color:var(--primary-dark); white-space:nowrap; flex-shrink:0; min-width:6rem; }
+.pos-row .pr-ex { font-style:italic; font-size:.97rem; color:var(--ink); flex:1; }
+
+/* ── DECISION FLOWCHART ── */
+.decision-block { background:var(--ink); border-radius:14px; padding:1.5rem 1.75rem; margin:1.5rem 0; font-family:'DM Mono',monospace; }
+.decision-block .db-title { font-size:.78rem; text-transform:uppercase; letter-spacing:.14em; color:var(--primary-mid); margin-bottom:1rem; }
+.decision-block pre { background:transparent; color:rgba(255,255,255,.78); font-family:'DM Mono',monospace; font-size:.88rem; line-height:1.72; white-space:pre-wrap; word-break:break-word; }
+.decision-block pre .hl { color:var(--primary-mid); font-weight:500; }
+
+/* ── SELF CHECK ── */
+.self-check { background:var(--paper); border:1.5px solid var(--line); border-radius:12px; padding:1rem 1.25rem; margin:1.25rem 0; }
+.self-check .sc-title { font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--primary); margin-bottom:.6rem; }
+.self-check ol { padding-left:1.25rem; color:var(--ink); font-size:.97rem; }
+.self-check ol li { margin-bottom:.35rem; }
+
+/* ── SUMMARY BLOCK ── */
+.summary-block { background:var(--ink); color:#fff; border-radius:16px; padding:2rem; margin:2.5rem 0; }
+.summary-block h2 { font-family:'Playfair Display',serif; font-size:clamp(20px,3vw,28px); margin-bottom:1.25rem; color:var(--primary-mid); }
+.summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:1rem; margin-bottom:1.25rem; }
+.summary-card { background:rgba(255,255,255,.06); border:1.5px solid rgba(255,255,255,.1); border-radius:12px; padding:1rem 1.1rem; }
+.summary-card .sc-label { font-family:'DM Mono',monospace; font-size:.73rem; text-transform:uppercase; letter-spacing:.09em; color:var(--primary-mid); margin-bottom:.3rem; }
+.summary-card .sc-desc { font-size:.9rem; color:rgba(255,255,255,.75); }
+.summary-outro { font-style:italic; color:rgba(255,255,255,.5); font-size:.95rem; margin-top:.75rem; }
+
+/* ── READING PASSAGE ── */
+.reading-passage { background:var(--paper); border-radius:16px; padding:2rem 2.25rem; margin:2.5rem 0; box-shadow:0 2px 20px var(--shadow); }
+.reading-passage .rp-title { font-family:'Playfair Display',serif; font-size:clamp(22px,3vw,30px); font-weight:700; color:var(--ink); margin-bottom:1.5rem; border-bottom:2px solid var(--line); padding-bottom:.75rem; }
+.reading-passage p { font-family:'Playfair Display',serif; font-size:1.08rem; line-height:1.88; margin-bottom:1.4rem; color:#2a2934; }
+.reading-passage p:last-child { margin-bottom:0; }
+.reading-passage strong { font-weight:700; color:var(--primary-dark); background:var(--primary-light); padding:.05em .22em; border-radius:3px; }
+
+/* ── GRAMMAR FEATURES ── */
+.grammar-features { background:var(--surface); border-radius:16px; padding:1.75rem 2rem; margin:2rem 0; box-shadow:0 2px 20px var(--shadow); }
+.grammar-features h2 { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:var(--ink); margin-bottom:1.25rem; border-bottom:2px solid var(--line); padding-bottom:.6rem; }
+.grammar-features p { font-size:.97rem; line-height:1.72; margin-bottom:.9rem; color:var(--ink); }
+.grammar-features p:last-child { margin-bottom:0; }
+.grammar-features strong { color:var(--primary-dark); font-weight:600; }
+.grammar-features em { font-style:italic; color:var(--primary-dark); }
+
+/* ── FOOTER ── */
+footer { text-align:center; padding:2rem 0 1rem; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); margin-top:3rem; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:640px) {
+  .page-container { padding:0 1rem 3rem; }
+  .hero { padding:2.5rem 1rem 2rem; }
+  .grammar-block-body { padding:1.25rem; }
+  .grammar-block-header { padding:1.1rem 1.25rem 1rem; }
+  .contrast-pair { grid-template-columns:1fr; }
+  .wish-row { flex-direction:column; gap:.3rem; }
+  .pos-row { flex-direction:column; gap:.3rem; }
+  .reading-passage { padding:1.5rem 1.25rem; }
+  .summary-block { padding:1.5rem 1.25rem; }
+  .grammar-features { padding:1.25rem; }
+  table.grammar-table { font-size:.87rem; }
+  table.grammar-table thead th, table.grammar-table tbody td { padding:.6rem .75rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-badge">Unit 13 · Destination B2</div>
+  <h1>WISHES &amp; UNREAL PAST<br><em>Thế Giới Điều Ước</em></h1>
+  <p class="hero-intro">
+    <em>"If I <strong>were</strong> you…"</em> (tôi không phải là bạn), <em>"I wish I <strong>had</strong> more time"</em> (tôi không có nhiều thời gian), <em>"It's time you <strong>went</strong> home"</em>… Đây chính là "Unreal Past" — <strong>quá khứ về hình thức, không phải về thời gian!</strong>
+  </p>
+</header>
+
+<main>
+<div class="page-container">
+
+<!-- ══════════════ 13.1 UNREAL PAST ══════════════ -->
+<article class="grammar-block">
+  <div class="grammar-block-header">
+    <span class="section-badge">13.1</span>
+    <h2>Unreal Past — <em style="font-style:italic;color:var(--primary);">Quá Khứ "Không Thật"</em></h2>
+  </div>
+  <div class="grammar-block-body">
+
+    <div class="intro-para">
+      <strong>🤔 Mở đầu:</strong> Khi nào Past Simple không nói về quá khứ?<br>
+      <strong>Bản chất:</strong> Trong một số cấu trúc, chúng ta dùng <strong>thì quá khứ</strong> để nói về <strong>hiện tại/tương lai</strong> nhưng với ý nghĩa <strong>giả định, không có thật</strong>.
+    </div>
+
+    <h3>📝 Các cấu trúc Unreal Past:</h3>
+    <div class="wish-grid">
+      <div class="wish-row">
+        <span class="wr-type">Second Conditional</span>
+        <span class="wr-ex"><em>I'd buy that top if I <strong>had</strong> more cash.</em> <span class="wr-note">Thực tế: Không có nhiều tiền (hiện tại)</span></span>
+      </div>
+      <div class="wish-row">
+        <span class="wr-type">Suppose / What if</span>
+        <span class="wr-ex"><em>Suppose I <strong>became</strong> a famous model!</em> <span class="wr-note">Thực tế: Không phải người mẫu nổi tiếng</span></span>
+      </div>
+      <div class="wish-row">
+        <span class="wr-type">Would rather + sb</span>
+        <span class="wr-ex"><em>I'd rather you <strong>didn't come</strong> with me tomorrow.</em> <span class="wr-note">Muốn bạn không đến (tương lai)</span></span>
+      </div>
+      <div class="wish-row">
+        <span class="wr-type">It's (high) time</span>
+        <span class="wr-ex"><em>It's time that hats <strong>came</strong> back.</em> <span class="wr-note">Đã đến lúc… (hiện tại)</span></span>
+      </div>
+      <div class="wish-row">
+        <span class="wr-type">Polite question</span>
+        <span class="wr-ex"><em><strong>Did</strong> you <strong>want</strong> me to send the catalogue?</em> <span class="wr-note">Lịch sự hơn "Do you want…?"</span></span>
+      </div>
+      <div class="wish-row">
+        <span class="wr-type">Wish / If only</span>
+        <span class="wr-ex"><em>If only I <strong>had</strong> something to wear tonight.</em> <span class="wr-note">Thực tế: Không có gì để mặc</span></span>
+      </div>
+    </div>
+
+    <h3>🔄 So sánh Real vs Unreal:</h3>
+    <div class="table-wrap">
+      <table class="grammar-table">
+        <thead>
+          <tr><th>Real (có thể xảy ra)</th><th>Unreal (ít có thể xảy ra)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><em>What if you <strong>are</strong> accepted?</em></td>
+            <td><em>What if you <strong>were</strong> accepted?</em></td>
+          </tr>
+          <tr>
+            <td><em>Suppose it <strong>rains</strong> tomorrow.</em></td>
+            <td><em>Suppose it <strong>rained</strong> tomorrow.</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-title">💡 Mẹo Ghi Nhớ Quan Trọng Nhất</div>
+      <p><strong>Past form ≠ Past time</strong> — Quá khứ về hình thức, không phải về thời gian!</p>
+    </div>
+
+  </div>
+</article>
+
+<!-- ══════════════ 13.2 WISHES ══════════════ -->
+<article class="grammar-block">
+  <div class="grammar-block-header">
+    <span class="section-badge">13.2</span>
+    <h2>Wishes — <em style="font-style:italic;color:var(--primary);">Những Điều Ước</em></h2>
+  </div>
+  <div class="grammar-block-body">
+
+    <div class="intro-para">
+      <strong>🤔 Mở đầu:</strong> "I wish" — câu nói của những ước mơ?<br>
+      <strong>Bản chất:</strong> "Wish" thể hiện <strong>mong muốn</strong> về những điều <strong>không có thật</strong> hoặc <strong>khó thực hiện</strong>.
+    </div>
+
+    <h3>📊 Các loại Wishes:</h3>
+    <div class="wish-grid">
+      <div class="wish-row">
+        <span class="wr-type">Wish hiện tại</span>
+        <span class="wr-ex"><em>I wish I <strong>was studying</strong> history instead of biology!</em> · <em>I wish I <strong>had</strong> more money.</em><span class="wr-note">Thực tế: Đang học sinh học / Không có nhiều tiền</span></span>
+      </div>
+      <div class="wish-row">
+        <span class="wr-type">Wish quá khứ</span>
+        <span class="wr-ex"><em>If only I<strong>'d known</strong> Burton's was having a sale.</em> · <em>I wish I <strong>had studied</strong> harder.</em><span class="wr-note">Thực tế: Không biết tin sale / Đã không học chăm</span></span>
+      </div>
+      <div class="wish-row">
+        <span class="wr-type">Wish phàn nàn</span>
+        <span class="wr-ex"><em>If only Henry <strong>would get</strong> a haircut!</em> · <em>I wish you <strong>would stop</strong> smoking.</em><span class="wr-note">Bực bội vì ai đó không thay đổi hành vi</span></span>
+      </div>
+      <div class="wish-row">
+        <span class="wr-type">Wish khả năng</span>
+        <span class="wr-ex"><em>I wish I <strong>could fit</strong> into these jeans.</em><span class="wr-note">Thực tế: Không vừa với quần jeans này</span></span>
+      </div>
+      <div class="wish-row">
+        <span class="wr-type">Wish trang trọng</span>
+        <span class="wr-ex"><em>I wish <strong>to try on</strong> this ballgown.</em><span class="wr-note">Tôi muốn thử chiếc váy này (trang trọng)</span></span>
+      </div>
+    </div>
+
+    <h3>🎯 Phân biệt WISH vs HOPE:</h3>
+    <div class="table-wrap">
+      <table class="grammar-table">
+        <thead>
+          <tr><th>WISH</th><th>HOPE</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Không thể / Khó xảy ra</strong></td>
+            <td><strong>Có thể xảy ra</strong></td>
+          </tr>
+          <tr>
+            <td><em>I wish I <strong>were</strong> rich.</em> (không giàu)</td>
+            <td><em>I hope I <strong>will be</strong> rich.</em> (có thể giàu)</td>
+          </tr>
+          <tr>
+            <td><em>I wish I <strong>could fly</strong>.</em> (không thể bay)</td>
+            <td><em>I hope the plane <strong>will arrive</strong> on time.</em> (có thể đúng giờ)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="feature-box">
+      <div class="feature-title">🔥 Điểm Quan Trọng</div>
+      <p><strong>Không nói "I wish I would…" cho bản thân:</strong></p>
+      <ul>
+        <li><em>❌ I wish I <strong>would have</strong> enough money.</em></li>
+        <li><em>✅ I wish I <strong>had</strong> enough money.</em></li>
+        <li><em>✅ I <strong>hope</strong> I will have enough money.</em></li>
+      </ul>
+      <p style="margin-top:.7rem"><strong>If only = I wish (nhấn mạnh hơn):</strong></p>
+      <p><em>I wish I were taller.</em> = <em>If only I were taller!</em></p>
+    </div>
+
+    <div class="error-block">
+      <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+      <div class="error-block-body">
+        <div class="error-item">
+          <div class="error-item-label">Lỗi 1 — Nhầm lẫn wish với hope:</div>
+          <div class="err-wrong"><span class="icon">❌</span><span class="txt">I wish I will pass the exam.</span></div>
+          <div class="err-right"><span class="icon">✅</span><span>I hope I will pass the exam.</span></div>
+          <div class="err-right" style="margin-top:.3rem"><span class="icon">✅</span><span>I wish I were smarter.</span></div>
+          <div class="err-context">(không thông minh lắm → wish + past)</div>
+        </div>
+        <div class="error-item">
+          <div class="error-item-label">Lỗi 2 — Dùng "would" cho bản thân:</div>
+          <div class="err-wrong"><span class="icon">❌</span><span class="txt">I wish I would be rich.</span></div>
+          <div class="err-right"><span class="icon">✅</span><span>I wish I were rich.</span></div>
+        </div>
+        <div class="error-item">
+          <div class="error-item-label">Lỗi 3 — Nhầm lẫn thời gian (hối tiếc quá khứ):</div>
+          <div class="err-wrong"><span class="icon">❌</span><span class="txt">I wish I studied yesterday.</span></div>
+          <div class="err-right"><span class="icon">✅</span><span>I wish I had studied yesterday.</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<!-- ══════════════ 13.3 ALTHOUGH/THOUGH/EVEN THOUGH ══════════════ -->
+<article class="grammar-block">
+  <div class="grammar-block-header">
+    <span class="section-badge">13.3</span>
+    <h2>Although / Though / Even Though — <em style="font-style:italic;color:var(--primary);">"Mặc Dù" + Mệnh Đề</em></h2>
+  </div>
+  <div class="grammar-block-body">
+
+    <div class="intro-para">
+      <strong>Bản chất:</strong> Ba từ cùng nghĩa "mặc dù" nhưng khác nhau về <strong>mức độ nhấn mạnh</strong>.
+    </div>
+
+    <h3>📝 Cấu trúc:</h3>
+    <div class="formula-box">Although / Though / Even though + S + V, S + V</div>
+
+    <h3>🎯 Mức độ nhấn mạnh:</h3>
+    <div class="table-wrap">
+      <table class="grammar-table">
+        <thead>
+          <tr><th>Từ nối</th><th>Mức độ</th><th>Ví dụ</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Though</strong></td>
+            <td>Thân thiện, không trang trọng</td>
+            <td><em>Though it was raining, we went out.</em></td>
+          </tr>
+          <tr>
+            <td><strong>Although</strong></td>
+            <td>Trang trọng hơn though</td>
+            <td><em>Although it was raining, we went out.</em></td>
+          </tr>
+          <tr>
+            <td><strong>Even though</strong></td>
+            <td>Nhấn mạnh nhất (mưa rất to!)</td>
+            <td><em>Even though it was raining, we went out.</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>🔥 Vị trí linh hoạt:</h3>
+    <div class="position-trio">
+      <div class="pos-row">
+        <span class="pr-pos">Đầu câu</span>
+        <span class="pr-ex"><em><strong>Although</strong> I wore a hat, I got sunburn.</em></span>
+      </div>
+      <div class="pos-row">
+        <span class="pr-pos">Giữa câu</span>
+        <span class="pr-ex"><em>I got sunburn <strong>although</strong> I wore a hat.</em></span>
+      </div>
+      <div class="pos-row">
+        <span class="pr-pos">Cuối câu (though)</span>
+        <span class="pr-ex"><em>I wore a hat. I got sunburn, <strong>though</strong>.</em></span>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<!-- ══════════════ 13.4 IN SPITE OF / DESPITE ══════════════ -->
+<article class="grammar-block">
+  <div class="grammar-block-header">
+    <span class="section-badge">13.4</span>
+    <h2>In Spite Of / Despite — <em style="font-style:italic;color:var(--primary);">"Mặc Dù" + Danh Từ / V-ING</em></h2>
+  </div>
+  <div class="grammar-block-body">
+
+    <div class="intro-para">
+      <strong>Bản chất:</strong> Sau <strong>In spite of / Despite</strong> phải là <strong>noun, V-ing, hoặc "the fact that"</strong> — KHÔNG phải clause (S+V)!
+    </div>
+
+    <h3>📝 Cấu trúc:</h3>
+    <div class="formula-box">In spite of / Despite + noun / V-ing / the fact that, S + V</div>
+
+    <h3>🎯 Các cách dùng:</h3>
+    <div class="contrast-pair">
+      <div class="contrast-card clause">
+        <div class="cc-label">+ V-ing</div>
+        <div class="cc-ex"><em><strong>In spite of</strong> wearing a hat, I got sunburn.</em></div>
+        <div class="cc-ex" style="margin-top:.35rem"><em><strong>Despite</strong> wearing a hat, I got sunburn.</em></div>
+      </div>
+      <div class="contrast-card noun">
+        <div class="cc-label">+ the fact that (= clause)</div>
+        <div class="cc-ex"><em><strong>In spite of</strong> the fact that I wore a hat, I got sunburn.</em></div>
+        <div class="cc-ex" style="margin-top:.35rem"><em><strong>Despite</strong> my hat, I got sunburn.</em></div>
+      </div>
+    </div>
+
+    <h3>🔥 Perfect -ing form (trước đó):</h3>
+    <ul class="usage-list">
+      <li>
+        <strong>Despite + having + V3:</strong>
+        <em>I got sunburn <strong>despite having worn</strong> a hat.</em>
+        <span class="usage-note">(đã đeo mũ trước đó — nhưng vẫn bị cháy nắng)</span>
+      </li>
+    </ul>
+
+    <div class="error-block">
+      <div class="error-block-header"><span>⚠️ LỖI SAI THƯỜNG GẶP</span></div>
+      <div class="error-block-body">
+        <div class="error-item">
+          <div class="error-item-label">Lỗi 1 — Dùng S+V sau despite:</div>
+          <div class="err-wrong"><span class="icon">❌</span><span class="txt">Despite I wore a hat, I got sunburn.</span></div>
+          <div class="err-right"><span class="icon">✅</span><span>Despite wearing a hat, I got sunburn.</span></div>
+          <div class="err-right" style="margin-top:.3rem"><span class="icon">✅</span><span>Despite the fact that I wore a hat, I got sunburn.</span></div>
+        </div>
+        <div class="error-item">
+          <div class="error-item-label">Lỗi 2 — Sai chủ ngữ với V-ing:</div>
+          <div class="err-wrong"><span class="icon">❌</span><span class="txt">My sunburn was terrible despite wearing a hat.</span></div>
+          <div class="err-right"><span class="icon">✅</span><span>I had terrible sunburn despite wearing a hat.</span></div>
+          <div class="err-context">(Chủ ngữ phải là người đeo mũ)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<!-- ══════════════ 13.5 HOWEVER / NEVERTHELESS ══════════════ -->
+<article class="grammar-block">
+  <div class="grammar-block-header">
+    <span class="section-badge">13.5</span>
+    <h2>However / Nevertheless — <em style="font-style:italic;color:var(--primary);">Tuy Nhiên (Trang Trọng)</em></h2>
+  </div>
+  <div class="grammar-block-body">
+
+    <div class="intro-para">
+      <strong>Bản chất:</strong>
+      <strong>However</strong> — Trang trọng &nbsp;·&nbsp;
+      <strong>Nevertheless</strong> — Rất trang trọng<br>
+      Kết nối <strong>hai câu riêng biệt</strong>, không phải hai mệnh đề trong một câu.
+    </div>
+
+    <h3>🔥 Vị trí linh hoạt:</h3>
+    <div class="position-trio">
+      <div class="pos-row">
+        <span class="pr-pos">Đầu câu</span>
+        <span class="pr-ex"><em>The show was expensive. <strong>However/Nevertheless</strong>, it made a profit.</em></span>
+      </div>
+      <div class="pos-row">
+        <span class="pr-pos">Cuối câu</span>
+        <span class="pr-ex"><em>The show was expensive; it made a profit, <strong>however/nevertheless</strong>.</em></span>
+      </div>
+      <div class="pos-row">
+        <span class="pr-pos">Giữa câu</span>
+        <span class="pr-ex"><em>The show was expensive; it did, <strong>however/nevertheless</strong>, make a profit.</em></span>
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-title">💡 Mẹo Ghi Nhớ</div>
+      <ul>
+        <li><strong>However/Nevertheless:</strong> Thường có dấu phẩy xung quanh</li>
+        <li>Dùng trong văn viết trang trọng</li>
+        <li>Kết nối hai câu, không kết nối hai mệnh đề</li>
+      </ul>
+    </div>
+
+  </div>
+</article>
+
+<!-- ══════════════ 13.6 WHILE / WHEREAS ══════════════ -->
+<article class="grammar-block">
+  <div class="grammar-block-header">
+    <span class="section-badge">13.6</span>
+    <h2>While / Whereas — <em style="font-style:italic;color:var(--primary);">Trong Khi, Còn</em></h2>
+  </div>
+  <div class="grammar-block-body">
+
+    <div class="intro-para">
+      <strong>Bản chất:</strong> Dùng để <strong>so sánh, đối chiếu</strong> hai sự thật khác nhau.
+    </div>
+
+    <h3>📝 Cấu trúc:</h3>
+    <div class="formula-box">While / Whereas + S + V, S + V</div>
+
+    <h3>🎯 Ví dụ:</h3>
+    <ul class="usage-list">
+      <li>
+        <strong>While (trong khi đó):</strong>
+        <em><strong>While</strong> jeans are worn by both men and women, blouses are worn only by women.</em>
+      </li>
+      <li>
+        <strong>Whereas (ngược lại với):</strong>
+        <em>Blouses are worn only by women, <strong>whereas</strong> jeans are worn by both men and women.</em>
+      </li>
+    </ul>
+
+  </div>
+</article>
+
+<!-- ══════════════ SUMMARY ══════════════ -->
+<div class="summary-block">
+  <h2>Tổng Kết Unit 13</h2>
+
+  <div class="decision-block" style="margin-bottom:1.5rem;">
+    <div class="db-title">🎯 Bản Đồ Tư Duy Wishes &amp; Contrast</div>
+    <pre>WISHES &amp; UNREAL PAST 🌟
+
+Điều ước hiện tại?   → <span class="hl">WISH + Past Simple</span>
+Điều ước quá khứ?   → <span class="hl">WISH + Past Perfect</span>
+Phàn nàn?            → <span class="hl">WISH + would</span>
+Khả năng?            → <span class="hl">WISH + could</span>
+Có thể xảy ra?       → <span class="hl">HOPE + will</span>
+
+CONTRAST STRUCTURES 🔄
+
+Mặc dù + clause?     → <span class="hl">ALTHOUGH / THOUGH / EVEN THOUGH</span>
+Mặc dù + noun/-ing? → <span class="hl">IN SPITE OF / DESPITE</span>
+Tuy nhiên (trang trọng)? → <span class="hl">HOWEVER / NEVERTHELESS</span>
+So sánh đối chiếu?   → <span class="hl">WHILE / WHEREAS</span></pre>
+  </div>
+
+  <h3 style="color:var(--primary-mid);font-family:'DM Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.85rem;">📊 Bảng tham khảo nhanh</h3>
+  <div class="table-wrap" style="margin-bottom:1.5rem;">
+    <table class="grammar-table">
+      <thead>
+        <tr><th>Loại</th><th>Cấu trúc</th><th>Ví dụ</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Wish hiện tại</strong></td><td><em>wish + past simple</em></td><td><em>I wish I were rich.</em></td></tr>
+        <tr><td><strong>Wish quá khứ</strong></td><td><em>wish + past perfect</em></td><td><em>I wish I had studied.</em></td></tr>
+        <tr><td><strong>Contrast + clause</strong></td><td><em>although + S + V</em></td><td><em>Although it's raining…</em></td></tr>
+        <tr><td><strong>Contrast + noun/-ing</strong></td><td><em>despite + noun/V-ing</em></td><td><em>Despite the rain…</em></td></tr>
+        <tr><td><strong>Formal contrast</strong></td><td><em>However / Nevertheless</em></td><td><em>It rained. However,…</em></td></tr>
+        <tr><td><strong>Comparison</strong></td><td><em>While / Whereas + S + V</em></td><td><em>While he likes coffee…</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="summary-grid">
+    <div class="summary-card"><div class="sc-label">13.1 · Unreal Past</div><div class="sc-desc">Past form ≠ Past time — Giả định hiện tại/tương lai</div></div>
+    <div class="summary-card"><div class="sc-label">13.2 · Wishes</div><div class="sc-desc">Wish + past/pp/would/could · Wish vs Hope</div></div>
+    <div class="summary-card"><div class="sc-label">13.3 · Although/Though</div><td class="sc-desc">Mặc dù + clause · Though cuối câu</div></div>
+    <div class="summary-card"><div class="sc-label">13.4 · Despite/In spite of</div><div class="sc-desc">Mặc dù + noun/V-ing/the fact that</div></div>
+    <div class="summary-card"><div class="sc-label">13.5 · However</div><div class="sc-desc">Tuy nhiên — kết nối câu trang trọng</div></div>
+    <div class="summary-card"><div class="sc-label">13.6 · While/Whereas</div><div class="sc-desc">Trong khi đó / Ngược lại với</div></div>
+  </div>
+
+  <div class="self-check" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);margin-top:1.25rem;">
+    <div class="sc-title" style="color:var(--primary-mid);">📚 Câu Hỏi Tự Kiểm Tra</div>
+    <ol style="color:rgba(255,255,255,.8);">
+      <li>"I wish I will be rich" vs "I wish I were rich" — Cái nào đúng?</li>
+      <li>"Despite I was tired" vs "Despite being tired" — Cái nào đúng?</li>
+      <li>"Although" vs "However" — Khi nào dùng cái nào?</li>
+    </ol>
+  </div>
+
+  <p class="summary-outro">Tuyệt vời! Chúng ta vừa khám phá thế giới điều ước và tương phản. Tiếp theo, hãy chinh phục chủ đề cuối — Possessives &amp; Inversions — những "đỉnh cao" của ngữ pháp!</p>
+</div>
+
+<!-- ══════════════ READING PASSAGE ══════════════ -->
+<section class="reading-passage">
+  <div class="rp-title">📖 Between Dreams and Reality: My Wishes and Regrets</div>
+
+  <p>Life is a delicate dance between the reality we live in and the world we envision for ourselves. <strong>I often wish I had</strong> more hours in the day to chase every dream. <strong>Suppose I became</strong> a celebrated novelist living in a quiet, seaside town? <strong>What if I learned</strong> to paint landscapes? These thoughts are my constant companions. <strong>Although my current life is comfortable and stable</strong>, the pull of a different, unrealized path is a powerful force, creating a tapestry of dreams, regrets, and the constant effort to reconcile the two.</p>
+
+  <p>My dreams for the future are painted with the soft hues of the "unreal past." <strong>I wish I were</strong> living a more adventurous life, perhaps in a country where I don't speak the language. <strong>If only I could overcome</strong> my fear of uncertainty, I would pack a single bag and just go. In these moments of daydreaming, I often find myself complaining about my own inertia; <strong>I wish my self-doubt would simply vanish</strong>. My practical side knows it's not that simple. <strong>However</strong>, the dreams persist. A close friend once told me, "It's high time you took your writing seriously," and her words echo in my mind. I know she's right. I would rather I <strong>started</strong> my novel today than put it off for another year.</p>
+
+  <p>Of course, looking forward to dreams often involves looking back at regrets. <strong>I wish I had traveled</strong> more in my twenties when I had fewer responsibilities. <strong>If only I had studied</strong> architecture instead of business; my passion for design might have found a professional outlet. These are not bitter regrets, but gentle acknowledgments of paths not taken. It's easy to fall into the trap of wishing for a different past, but it's more productive to learn from it. I once missed a major career opportunity because I was too timid. <strong>I truly wish I had been</strong> braver then. Thinking about it now, I understand the difference between wishing and hoping. I can't say "<em>I wish I will get another chance like that</em>," because that implies it's impossible. Instead, <strong>I hope I will get</strong> another chance, because the future is still unwritten.</p>
+
+  <p>Navigating the space between my dreams and my current life requires an understanding of contrast. <strong>Even though my job can be demanding, I make time for creative pursuits.</strong> <strong>Despite having a full-time career</strong>, I've managed to write several short stories. This directly counters the common mistake of saying "<em>Despite I have a career…</em>"; the structure requires a noun or gerund. My progress is slow; <strong>nevertheless, it is progress</strong>. I find a stark contrast in my energy levels: <strong>while my professional work often leaves me drained, my personal projects invigorate me</strong>. My lifestyle in the city is convenient, <strong>whereas my dream life is slow and rural</strong>. <strong>In spite of the fact that my reality is different from my dream</strong>, I refuse to see them as mutually exclusive.</p>
+
+  <p>In the end, life is not about choosing between dreams and reality, but about weaving them together. I've learned that <strong>while it's fruitless to dwell on past regrets</strong>, it is essential to have future aspirations. <strong>I wish I had started this journey of self-discovery earlier, though</strong> I am grateful to be on it now. The person I am today has been shaped by every decision, both the right ones and the ones I regret. A friend once asked me politely, "<strong>Did you want</strong> to submit that story to the journal?" Her use of the past tense made the question feel less like pressure and more like a gentle nudge. That's what our dreams are: gentle nudges from an unreal past, guiding us toward a future we still have the power to create.</p>
+</section>
+
+<!-- ══════════════ GRAMMAR FEATURES ══════════════ -->
+<section class="grammar-features">
+  <h2>Grammar Features Highlighted</h2>
+
+  <p><strong>Unreal Past:</strong> Suppose/What if for hypotheticals (<em>Suppose I became…</em>, <em>What if I learned…</em>); Would rather + person + Past Simple (<em>I would rather I started…</em>); It's high time + Past Simple (<em>It's high time you took…</em>); Polite question (<em>Did you want…</em> softening a present question).</p>
+
+  <p><strong>Wishes — Present/Future:</strong> Wish + Past Simple/Continuous (<em>I wish I were living…</em>).</p>
+
+  <p><strong>Wishes — Past:</strong> Wish + Past Perfect for regrets (<em>I wish I had traveled…</em>, <em>If only I had studied…</em>, <em>I wish I had been braver</em>).</p>
+
+  <p><strong>Wishes — Complaint:</strong> Wish + would for complaints about others (<em>I wish my self-doubt would simply vanish</em>).</p>
+
+  <p><strong>Wishes — Ability:</strong> If only + could (<em>If only I could overcome my fear…</em>).</p>
+
+  <p><strong>Wish vs Hope:</strong> The distinction is clearly explained — <em>I hope I will get another chance</em> (possible) vs <em>I wish I had been braver</em> (impossible to change the past). The error of "I wish I will get" is flagged.</p>
+
+  <p><strong>Although/Though/Even though:</strong> Used at sentence-beginning (<em>Although my current life…</em>), and after the main clause; "though" at the end of a sentence (<em>…earlier, though</em>); "Even though" for stronger emphasis (<em>Even though my job can be demanding…</em>).</p>
+
+  <p><strong>In spite of/Despite:</strong> Correctly used with gerund (<em>Despite having a full-time career…</em>) and "the fact that" (<em>In spite of the fact that my reality…</em>). The essay explicitly flags the common mistake of using a clause directly after "Despite."</p>
+
+  <p><strong>However/Nevertheless:</strong> Used formally to connect contrasting sentences (<em>However, the dreams persist</em>; <em>nevertheless, it is progress</em>).</p>
+
+  <p><strong>While/Whereas:</strong> Used to compare two different truths (<em>while my professional work…, my personal projects…</em>; <em>convenient, whereas my dream life…</em>).</p>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <p>Destination B2 · Unit 13 — Wishes &amp; Unreal Past &nbsp;|&nbsp; Thế Giới Điều Ước</p>
+</footer>
+
+</body>
+</html>
