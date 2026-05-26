@@ -166,7 +166,6 @@ main { padding-bottom: 5rem; padding-top: 3rem; }
   background: var(--surface);
   border-radius: 12px;
   box-shadow: 0 2px 16px var(--shadow);
-  margin-bottom: 50rem;
   overflow: hidden;
   transition: box-shadow .25s ease;
   border: 1px solid var(--line);
