@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lộ Trình 30 Ngày Học Tiếng Đan Mạch Thông Minh</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --primary-dark: #172554;
+            --success: #10b981;
+            --success-light: #ecfdf5;
+            --success-dark: #065f46;
+            --warning: #f59e0b;
+            --warning-light: #fffbeb;
+            --neutral-light: #f8fafc;
+            --neutral-border: #e2e8f0;
+            --text-main: #334155;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+
+            --theme-noun: #3b82f6;
+            --theme-pronoun: #6366f1;
+            --theme-adj: #10b981;
+            --theme-adv: #f59e0b;
+            --theme-prep: #ec4899;
+            --theme-conj: #8b5cf6;
+            --theme-syntax: #d97706;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        .dashboard {
+            max-width: 1440px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            padding: 24px;
+        }
+
+        header {
+            margin-bottom: 24px;
+            border-bottom: 2px solid var(--neutral-border);
+            padding-bottom: 16px;
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Stats Grid */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--neutral-light);
+            border: 1px solid var(--neutral-border);
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .progress-wrapper {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 768px) {
+            .progress-wrapper {
+                grid-column: span 1;
+            }
+        }
+
+        .progress-bar-bg {
+            background: var(--neutral-border);
+            border-radius: 9999px;
+            height: 16px;
+            width: 100%;
+            margin-top: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            height: 100%;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        /* Filter Controls */
+        .controls-panel {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--neutral-border);
+            align-items: center;
+        }
+
+        .filter-btn {
+            background: #ffffff;
+            border: 1px solid var(--neutral-border);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-main);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--text-muted);
+            background: var(--neutral-light);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .search-box {
+            margin-left: auto;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .search-box {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+
+        .search-box input {
+            padding: 6px 12px;
+            border: 1px solid var(--neutral-border);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            width: 240px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        @media (max-width: 768px) {
+            .search-box input {
+                width: 100%;
+            }
+        }
+
+        .search-box input:focus {
+            border-color: var(--theme-noun);
+        }
+
+        /* Table Responsive Wrapper */
+        .table-container {
+            overflow-x: auto;
+            border: 1px solid var(--neutral-border);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: var(--neutral-light);
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 2px solid var(--neutral-border);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--neutral-border);
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Row Styles & Colors */
+        tr.completed {
+            background-color: #f8fafc !important;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .col-day {
+            width: 75px;
+            text-align: center;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .col-ch {
+            width: 160px;
+            font-weight: 500;
+        }
+
+        .col-detail {
+            min-width: 280px;
+        }
+
+        .col-time {
+            width: 100px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .col-note {
+            min-width: 320px;
+            font-size: 0.85rem;
+            color: #475569;
+        }
+
+        .col-check {
+            width: 65px;
+            text-align: center;
+        }
+
+        /* Badge Pills */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        .bg-noun {
+            background-color: var(--theme-noun);
+        }
+
+        .bg-pronoun {
+            background-color: var(--theme-pronoun);
+        }
+
+        .bg-adj {
+            background-color: var(--theme-adj);
+        }
+
+        .bg-adv {
+            background-color: var(--theme-adv);
+        }
+
+        .bg-prep {
+            background-color: var(--theme-prep);
+        }
+
+        .bg-conj {
+            background-color: var(--theme-conj);
+        }
+
+        .bg-syntax {
+            background-color: var(--theme-syntax);
+        }
+
+        .bg-review {
+            background-color: #64748b;
+        }
+
+        /* Custom Checkbox styling */
+        .checkbox-container {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            font-size: 22px;
+            user-select: none;
+            height: 20px;
+            width: 20px;
+        }
+
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border: 2px solid #cbd5e1;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-container:hover input~.checkmark {
+            border-color: #94a3b8;
+        }
+
+        .checkbox-container input:checked~.checkmark {
+            background-color: var(--success);
+            border-color: var(--success);
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .checkbox-container input:checked~.checkmark:after {
+            display: block;
+        }
+
+        .checkbox-container .checkmark:after {
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        /* Sticky Reset Button */
+        .reset-wrapper {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-reset {
+            background: #ef4444;
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-reset:hover {
+            background: #b91c1c;
+        }
+
+        /* Highlighting searched text */
+        mark {
+            background: #fef08a;
+            color: #000;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <header>
+            <h1>🇩🇰 LỘ TRÌNH 30 NGÀY CHINH PHỤC NGỮ PHÁP TIẾNG ĐAN MẠCH CHUYÊN SÂU</h1>
+            <p>Học tập thông minh xen kẽ (Interleaving) • Quản lý quỹ thời gian chi tiết theo từng Opgave (Time-down)
+            </p>
+        </header>
+
+        <!-- Thống kê tiến độ -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <span class="stat-label">Tổng bài học & bài tập</span>
+                <span class="stat-value" id="stat-total">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Đã hoàn thành</span>
+                <span class="stat-value" id="stat-completed" style="color: var(--success-dark);">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Tổng thời gian cần học</span>
+                <span class="stat-value" id="stat-time-total">0 phút</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Thời gian đã tích lũy</span>
+                <span class="stat-value" id="stat-time-done" style="color: var(--primary);">0 phút</span>
+            </div>
+            <div class="stat-card progress-wrapper">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span class="stat-label" style="margin:0; font-weight:700; color:var(--success-dark);">Tiến độ lộ
+                        trình thực tế</span>
+                    <span class="stat-value" id="stat-percent"
+                        style="font-size:1.3rem; color:var(--success-dark);">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bộ lọc & Tìm kiếm -->
+        <div class="controls-panel">
+            <button class="filter-btn active" onclick="filterTab('all', this)">Tất cả mục</button>
+            <button class="filter-btn" onclick="filterTab('noun', this)">Chương 1 (Danh từ)</button>
+            <button class="filter-btn" onclick="filterTab('pronoun', this)">Chương 2 (Đại từ)</button>
+            <button class="filter-btn" onclick="filterTab('adj', this)">Chương 4 (Tính từ)</button>
+            <button class="filter-btn" onclick="filterTab('adv', this)">Chương 5 (Trạng từ)</button>
+            <button class="filter-btn" onclick="filterTab('prep', this)">Chương 6 (Giới từ)</button>
+            <button class="filter-btn" onclick="filterTab('conj', this)">Chương 7 (Liên từ)</button>
+            <button class="filter-btn" onclick="filterTab('syntax', this)">Chương 8 (Cú pháp)</button>
+            <button class="filter-btn" onclick="filterTab('incomplete', this)"
+                style="border-color: var(--warning); color: var(--warning-dark);">Chưa làm (🔥)</button>
+
+            <div class="search-box">
+                <input type="text" id="table-search" oninput="searchTable()"
+                    placeholder="Tìm nhanh nội dung, bài tập, bẫy ngữ pháp...">
+            </div>
+        </div>
+
+        <!-- Bảng nội dung chi tiết -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Ngày</th>
+                        <th>Chương / Chủ đề</th>
+                        <th>Nội dung chi tiết (Lý thuyết / Opgave)</th>
+                        <th style="text-align: center;">Thời gian</th>
+                        <th>Trọng tâm cần nhớ / Bẫy ngữ pháp cần phòng tránh</th>
+                        <th style="text-align: center;">Đã xong?</th>
+                    </tr>
+                </thead>
+                <tbody id="roadmap-body">
+                    <!-- Data injected by Python script generation -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="reset-wrapper">
+            <button class="btn-reset" onclick="resetAllProgress()">Xóa dữ liệu làm lại từ đầu</button>
+        </div>
+    </div>
+
+    <script>
+        // Dữ liệu thô cấu trúc hóa chi tiết toàn bộ các bài tập (Opgave) từ file tài liệu
+        const roadmapData = [
+            // TUẦN 1
+            { id: 1, day: "Ngày 1", cat: "noun", ch: "Chương 1: Substantiver", type: "Lý thuyết", title: "Học Lý thuyết: Bản chất danh từ, mạo từ en/et", time: 30, note: "75% từ vựng là en-ord, 25% là et-ord. Học mẹo nhận diện hậu tố cốt lõi: -ing, -ning, -else, -hed là nhóm giống chung en-ord." },
+            { id: 2, day: "Ngày 1", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 1", time: 15, note: "Phân loại mạo từ giống chung và giống trung cơ bản." },
+            { id: 3, day: "Ngày 1", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 2", time: 15, note: "Xác định mạo từ phù hợp đi kèm danh từ đơn giản." },
+            { id: 4, day: "Ngày 1", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 3", time: 15, note: "Điền mạo từ không xác định căn cứ theo hậu tố từ." },
+            { id: 5, day: "Ngày 1", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 4", time: 15, note: "Luyện phản xạ nhanh nhận biết từ loại et-ord qua hậu tố -eri, -um." },
+            { id: 6, day: "Ngày 1", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 5", time: 15, note: "Phân biệt mạo từ trong các cụm từ ghép thông dụng." },
+
+            { id: 7, day: "Ngày 2", cat: "noun", ch: "Chương 1: Substantiver", type: "Review", title: "Review lý thuyết mạo từ & Phân tích lỗi sai kinh điển", time: 15, note: "Đọc kỹ phần panel tối (stative-block) cuối chương 1 để lọc các lỗi sai vô thức về mạo từ." },
+            { id: 8, day: "Ngày 2", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Luyện lại (Spaced Repetition): Opgave 1", time: 10, note: "Làm lại tốc độ cao để ăn sâu phản xạ mạo từ tự nhiên." },
+            { id: 9, day: "Ngày 2", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Luyện lại (Spaced Repetition): Opgave 2", time: 10, note: "Tập dịch nghĩa nhanh cụm từ đi kèm mạo từ." },
+            { id: 10, day: "Ngày 2", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Luyện lại (Spaced Repetition): Opgave 3", time: 10, note: "Tự kiểm tra xem có bị sai lại những từ của ngày hôm trước không." },
+            { id: 11, day: "Ngày 2", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Luyện lại (Spaced Repetition): Opgave 4", time: 10, note: "Khắc sâu nhóm từ có đuôi -eri thuộc et-ord." },
+            { id: 12, day: "Ngày 2", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Luyện lại (Spaced Repetition): Opgave 5", time: 10, note: "Hoàn tất vòng lặp lặp lại ngắt quãng đầu tiên." },
+
+            { id: 13, day: "Ngày 3", cat: "noun", ch: "Chương 1: Substantiver", type: "Lý thuyết", title: "Học Lý thuyết: Số ít & Số nhiều (Dạng Ental - Flertal)", time: 25, note: "Nắm chắc logic của 3 nhóm có quy tắc: thêm -er, thêm -e, hoặc giữ nguyên dạng số nhiều cho et-ord đơn âm tiết." },
+            { id: 14, day: "Ngày 3", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 6", time: 15, note: "Chia số nhiều nhóm 1 (thêm -er/r cho từ kết thúc bằng nguyên âm)." },
+            { id: 15, day: "Ngày 3", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 7", time: 15, note: "Chia số nhiều nhóm 2 (thêm -e cho đa số từ en-ord một âm tiết)." },
+            { id: 16, day: "Ngày 3", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 8", time: 15, note: "Chia số nhiều nhóm 3 (giữ nguyên hình thái đối với et-ord ngắn gọn: et hus -> to hus)." },
+            { id: 17, day: "Ngày 3", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 9", time: 15, note: "Trộn lẫn bài tập chia số nhiều có quy tắc của 3 nhóm." },
+
+            { id: 18, day: "Ngày 4", cat: "noun", ch: "Chương 1: Substantiver", type: "Lý thuyết", title: "Học thuộc lòng danh sách Nhóm 4 (Số nhiều biến đổi nguyên âm bất quy tắc)", time: 20, note: "Bắt buộc ghi nhớ các từ cốt lõi: mand -> mænd, bog -> bøger, barn -> børn, hånd -> hænder, nat -> nætter." },
+            { id: 19, day: "Ngày 4", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 10", time: 15, note: "Áp dụng danh từ bất quy tắc nhóm biến đổi nguyên âm." },
+            { id: 20, day: "Ngày 4", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 11", time: 15, note: "Xử lý bài tập chia từ mượn gốc nước ngoài (tiếng Anh) trong tiếng Đan Mạch." },
+            { id: 21, day: "Ngày 4", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 12", time: 15, note: "Tổng hợp các dạng thức biến đổi số nhiều nâng cao." },
+
+            { id: 22, day: "Ngày 5", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Lý thuyết", title: "Học Lý thuyết: Trật tự từ trong Mệnh đề chính (Hovedsætninger)", time: 30, note: "Học thuộc cấu trúc nền tảng: S - V1 - A - V2 - O. Lưu ý Centraladverbium (trạng từ không phủ định như ikke, cũng như også, aldrig) luôn luôn đứng ngay SAU động từ thứ nhất." },
+            { id: 23, day: "Ngày 5", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 1", time: 15, note: "Sắp xếp lại trật tự từ cho câu trần thuật cơ bản xuôi chiều." },
+            { id: 24, day: "Ngày 5", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 2", time: 15, note: "Xác định đúng vị trí của trạng từ không 'ikke' luôn đứng sau động từ chính." },
+
+            { id: 25, day: "Ngày 6", cat: "noun", ch: "Chương 1: Substantiver", type: "Lý thuyết", title: "Học Lý thuyết: Tính xác định & Sở hữu cách (Genitiv)", time: 30, note: "Cách thêm đuôi xác định số ít/số nhiều. Quy tắc sở hữu cách Genitiv: thêm đuôi -s trực tiếp vào sau danh từ, nếu từ đã tận cùng bằng s, x, z thì chỉ cần thêm một dấu nháy đơn '." },
+            { id: 26, day: "Ngày 6", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 13", time: 15, note: "Chia danh từ ở hình thái xác định số ít (Bestemt form, ental)." },
+            { id: 27, day: "Ngày 6", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 14", time: 15, note: "Chia danh từ ở hình thái xác định số nhiều (Bestemt form, flertal)." },
+            { id: 28, day: "Ngày 6", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 15", time: 15, note: "Bài tập kết hợp mạo từ xác định và sở hữu cách." },
+            { id: 29, day: "Ngày 6", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 16", time: 15, note: "Sử dụng dấu nháy đơn chính xác cho danh từ sở hữu kết thúc bằng s." },
+            { id: 30, day: "Ngày 6", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 17", time: 15, note: "Phân biệt danh từ đếm được (mange/få) và không đếm được (meget/lidt)." },
+            { id: 31, day: "Ngày 6", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 18", time: 15, note: "Ứng dụng đơn vị đo lường cho danh từ khối lượng không đếm được." },
+            { id: 32, day: "Ngày 6", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 19", time: 15, note: "Điền từ định lượng thích hợp tương thích với bối cảnh câu." },
+            { id: 33, day: "Ngày 6", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Opgave 20", time: 15, note: "Tổng ôn tập toàn bộ các dạng biến cách danh từ từ bài 13 đến bài 19." },
+
+            { id: 34, day: "Ngày 7", cat: "noun", ch: "Chương 1: Substantiver", type: "Review", title: "Tổng kết toàn bộ Chương 1: Sửa lỗi sai tổng hòa", time: 20, note: "Khắc sâu màng lọc tư duy theo Checklist: Kiểm tra mạo từ gốc -> Kiểm tra số nhiều -> Kiểm tra tính xác định." },
+            { id: 35, day: "Ngày 7", cat: "noun", ch: "Chương 1: Substantiver", type: "Bài tập", title: "Thực hành: Bài Repetition Chương 1 (Sửa 10 lỗi sai kinh điển)", time: 35, note: "Tập trung phân tích lý do tại sao sai dựa trên bảng đối chiếu lý thuyết cuối chương để không bao giờ tái phạm." },
+
+            // TUẦN 2
+            { id: 36, day: "Ngày 8", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Lý thuyết", title: "Học Lý thuyết: Đại từ nhân xưng & Đại từ phản thân", time: 25, note: "Nắm vững bảng chia đại từ ở dạng chủ ngữ (jeg, du, han) và dạng tân ngữ mục tiêu (mig, dig, ham)." },
+            { id: 37, day: "Ngày 8", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 1", time: 15, note: "Thay thế danh từ bằng đại từ nhân xưng chủ ngữ chính xác." },
+            { id: 38, day: "Ngày 8", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 2", time: 15, note: "Điền đại từ nhân xưng đóng vai trò tân ngữ (Object pronomener)." },
+            { id: 39, day: "Ngày 8", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 3", time: 15, note: "Phân biệt thể lịch sự De/Dem và ngôi số nhiều thường de/dem." },
+            { id: 40, day: "Ngày 8", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 4", time: 15, note: "Trộn lẫn đại từ chủ ngữ và tân ngữ trong đoạn văn ngắn." },
+
+            { id: 41, day: "Ngày 9", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Lý thuyết", title: "Học Lý thuyết: Động từ phản thân đi với đại từ 'sig'", time: 20, note: "Quy tắc: jeg vasker mig, du vasker dig, nhưng ngôi thứ 3 (han, hun, de) bắt buộc phải dùng đại từ phản thân 'sig' nếu hành động quay về chính chủ ngữ." },
+            { id: 42, day: "Ngày 9", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 5", time: 15, note: "Chia đại từ phản thân cơ bản cho các ngôi." },
+            { id: 43, day: "Ngày 9", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 6", time: 15, note: "Nhận biết các động từ bắt buộc phải có đại từ phản thân đi kèm (at skynde sig, at glæde sig)." },
+            { id: 44, day: "Ngày 9", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 7", time: 15, note: "Phân biệt bẫy: Khi nào hành động tác động lên bản thân (sig) và khi nào tác động lên đối tượng khác (ham/hende)." },
+            { id: 45, day: "Ngày 9", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 8", time: 15, note: "Hoàn thiện hội thoại sử dụng động từ phản thân." },
+
+            { id: 46, day: "Ngày 10", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Lý thuyết", title: "Học Lý thuyết: Hiện tượng Đảo ngữ (Inversion trong Hovedsætninger)", time: 30, note: "QUY TẮC V2: Khi một thành phần trạng ngữ (thời gian, nơi chốn) hoặc một mệnh đề phụ được đẩy lên đứng đầu câu làm điểm nhấn, ĐỘNG TỪ bắt buộc phải nhảy lên trước CHỦ NGỮ." },
+            { id: 47, day: "Ngày 10", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 3", time: 15, note: "Đảo ngữ câu khi trạng từ chỉ thời gian (Nu, I dag) đứng đầu câu." },
+            { id: 48, day: "Ngày 10", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 4", time: 15, note: "Đảo ngữ câu với trạng ngữ nơi chốn (I Danmark, På skolen)." },
+            { id: 49, day: "Ngày 10", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 5", time: 15, note: "Sắp xếp lại các câu văn có yếu tố đảo ngữ phức tạp." },
+            { id: 50, day: "Ngày 10", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 6", time: 15, note: "Phát hiện lỗi sai vị trí chủ ngữ khi câu có thành phần phụ đứng đầu." },
+            { id: 51, day: "Ngày 10", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 7", time: 15, note: "Viết lại câu trần thuật thường thành câu đảo ngữ nhấn mạnh." },
+
+            { id: 52, day: "Ngày 11", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Lý thuyết", title: "Học Lý thuyết: Đại từ sở hữu (Điểm bẫy ngữ pháp nặng nhất)", time: 30, note: "Phân biệt rạch ròi: hans/hendes/deres biểu thị quyền sở hữu của một đối tượng KHÔNG LÀM chủ ngữ. Còn sin/sit/sine biểu thị quyền sở hữu thuộc về CHÍNH chủ ngữ ngôi thứ 3 của câu đó." },
+            { id: 53, day: "Ngày 11", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 9", time: 15, note: "Điền đại từ sở hữu cơ bản ngôi thứ nhất và thứ hai (min/mit/mine, din/dit/dine)." },
+            { id: 54, day: "Ngày 11", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 10", time: 15, note: "Áp dụng chọn lọc giữa sin và sit căn cứ vào giống danh từ (en-ord hay et-ord)." },
+            { id: 55, day: "Ngày 11", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 11", time: 15, note: "Sử dụng dạng số nhiều 'sine' cho danh từ sở hữu số nhiều thuộc về chủ ngữ." },
+            { id: 56, day: "Ngày 11", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 12", time: 15, note: "Phân biệt bối cảnh câu để chọn hans hay sin trong câu đơn giản." },
+
+            { id: 57, day: "Ngày 12", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Review", title: "Luyện chuyên sâu bài tập bẫy đại từ sở hữu", time: 15, note: "Nghiên cứu lại nguyên tắc logic: sin/sit/sine chỉ dùng trong phạm vi một mệnh đề đơn và không bao giờ được phép làm một phần của cụm chủ ngữ." },
+            { id: 58, day: "Ngày 12", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành trọng tâm: Opgave 13", time: 20, note: "Bài bẫy kinh điển! Phân tích kỹ mối quan hệ giữa chủ ngữ và vật sở hữu để điền hans/hendes hay sin/sit." },
+            { id: 59, day: "Ngày 12", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 14", time: 15, note: "Điền đại từ sở hữu ngôi số nhiều: vores, jeres, deres." },
+            { id: 60, day: "Ngày 12", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 15", time: 15, note: "Tổng hợp toàn bộ hệ thống đại từ sở hữu trong một câu phức." },
+            { id: 61, day: "Ngày 12", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 16", time: 15, note: "Chuyển đổi câu văn dùng tên riêng sang câu dùng đại từ sở hữu tương ứng." },
+
+            { id: 62, day: "Ngày 13", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Lý thuyết", title: "Học Lý thuyết: Đại từ bất định & Cặp cấu trúc Det / Der", time: 25, note: "Cách phối hợp nogen (nghi vấn/phủ định), noget (không đếm được), nogle (số nhiều khẳng định). Phân biệt: Der er diễn đạt sự hiện hữu của sự vật, Det er dùng cho thời tiết hoặc câu nhận định đánh giá." },
+            { id: 63, day: "Ngày 13", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 17", time: 15, note: "Phân biệt và điền nogen, noget, nogle vào ô trống thích hợp." },
+            { id: 64, day: "Ngày 13", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 18", time: 15, note: "Ứng dụng dạng phủ định hoàn toàn ingen và intet." },
+            { id: 65, day: "Ngày 13", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 19", time: 15, note: "Chọn lựa giữa cấu trúc hiện hữu Der er và cấu trúc nhận định Det er." },
+            { id: 66, day: "Ngày 13", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 20", time: 15, note: "Ứng dụng đại từ chỉ định den, det, de dựa vào tính chất danh từ." },
+            { id: 67, day: "Ngày 13", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Bài tập", title: "Thực hành: Opgave 21", time: 15, note: "Tổng hợp đại từ bất định nâng cao trong văn cảnh thực tế." },
+
+            { id: 68, day: "Ngày 14", cat: "pronoun", ch: "Chương 2: Pronomener", type: "Review", title: "Tổng kết Chương 2: Luyện cấu trúc câu hỏi tổng hợp", time: 25, note: "Hệ thống lại câu hỏi Ja/Nej (động từ nhảy lên đầu làm chủ) và câu hỏi từ để hỏi Hv-ord (Hv-ord + V + S)." },
+            { id: 69, day: "Ngày 14", cat: "pronoun", ch: "Chương 2", type: "Bài tập", title: "Thực hành: Bài Repetition Chương 2", time: 30, note: "Tập trung sửa các bẫy lỗi về đại từ sở hữu sin/sit và phản thân sig." },
+            { id: 70, day: "Ngày 14", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 8 & 9", time: 20, note: "Xây dựng các câu hỏi chính xác vị trí từ loại theo quy tắc cú pháp Hovedsætning." },
+
+            // TUẦN 3
+            { id: 71, day: "Ngày 15", cat: "adj", ch: "Chương 4: Adjektiver", type: "Lý thuyết", title: "Học Lý thuyết: Biến cách Tính từ đuôi -t và -e", time: 30, note: "Nắm vững 3 dạng: Grundform (giữ nguyên cho từ en-ord), T-form (thêm đuôi -t cho từ et-ord), và E-form (thêm đuôi -e cho danh từ số nhiều hoặc khi cụm danh từ ở trạng thái xác định)." },
+            { id: 72, day: "Ngày 15", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 5", time: 15, note: "Chia tính từ vị ngữ đứng sau động từ cho danh từ số ít en-ord." },
+            { id: 73, day: "Ngày 15", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 6", time: 15, note: "Chia tính từ vị ngữ thêm đuôi -t cho danh từ số ít et-ord." },
+            { id: 74, day: "Ngày 15", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 7", time: 15, note: "Chia tính từ vị ngữ thêm đuôi -e cho danh từ số nhiều." },
+            { id: 75, day: "Ngày 15", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 8", time: 15, note: "Phối hợp chia tính từ vị ngữ trộn lẫn nhiều danh từ khác nhau." },
+            { id: 76, day: "Ngày 15", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 9", time: 15, note: "Chia tính từ thuộc ngữ đứng trước danh từ không xác định số ít." },
+            { id: 77, day: "Ngày 15", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tap", title: "Thực hành: Opgave 10", time: 15, note: "Chia tính từ thuộc ngữ đứng trước danh từ số nhiều không xác định." },
+
+            { id: 78, day: "Ngày 16", cat: "adj", ch: "Chương 4: Adjektiver", type: "Lý thuyết", title: "Học Lý thuyết: Các tính từ biến đổi bất quy tắc", time: 20, note: "Nhớ kỹ các trường hợp ngoại lệ đặc biệt: từ lille giữ nguyên hình thái ở số ít xác định, chuyển thành små ở số nhiều; tính từ kết thúc bằng đuôi -el, -en, -er phải giảm lược nguyên âm khi thêm đuôi -e." },
+            { id: 79, day: "Ngày 16", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 11", time: 15, note: "Chia tính từ thuộc ngữ đứng trước danh từ đã XÁC ĐỊNH (Bắt buộc dùng đuôi -e kết hợp mạo từ riêng den/det/de)." },
+            { id: 80, day: "Ngày 16", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 12", time: 15, note: "Áp dụng chia tính từ đặc biệt 'lille' và 'små' trong câu." },
+            { id: 81, day: "Ngày 16", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 13", time: 15, note: "Bài tập biến cách tính từ kết thúc bằng nguyên âm (ny -> nyt, fri -> frit)." },
+            { id: 82, day: "Ngày 16", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 14", time: 15, note: "Thực hành giảm lược nguyên âm cho nhóm tính từ đuôi -el, -er (gammel -> gamle)." },
+
+            { id: 83, day: "Ngày 17", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Lý thuyết", title: "Học Lý thuyết: Trật tự từ trong Mệnh đề phụ (Ledsætninger)", time: 35, note: "QUY TẮC VÀNG BUỘC PHẢI KHẮC CỐT GHI TÂM: Trong mệnh đề phụ (bắt đầu bằng liên từ như fordi, at, hvis, liên từ quan hệ som/der), trạng từ phủ định/năng cách 'ikke', 'altid', 'aldrig' BẮT BUỘC ĐỨNG TRƯỚC ĐỘNG TỪ (Cấu trúc: Liên từ -> S -> A -> V)." },
+            { id: 84, day: "Ngày 17", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 10", time: 20, note: "Sắp xếp câu chứa mệnh đề phụ khẳng định cơ bản." },
+            { id: 85, day: "Ngày 17", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 11", time: 20, note: "Ép não bộ phản xạ đưa từ 'ikke' lên đứng trước động từ trong vế câu sau 'fordi'." },
+            { id: 86, day: "Ngày 17", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 12", time: 20, note: "Xử lý vị trí trạng từ thái độ trong mệnh đề phụ bắt đầu bằng liên từ 'at'." },
+            { id: 87, day: "Ngày 17", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 13", time: 20, note: "Trộn lẫn viết câu mệnh đề chính và mệnh đề phụ để thấy rõ sự tương phản vị trí của từ 'ikke'." },
+
+            { id: 88, day: "Ngày 18", cat: "adj", ch: "Chương 4: Adjektiver", type: "Lý thuyết", title: "Học Lý thuyết: Cấu trúc So sánh Tính từ (Gradbøjning)", time: 25, note: "Nguyên tắc chia so sánh: So sánh hơn (Komparativ) thêm đuôi -ere vào sau tính từ; So sánh nhất (Superlativ) thêm đuôi -est hoặc -ste cho dạng thức xác định." },
+            { id: 89, day: "Ngày 18", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 20", time: 15, note: "Biến đổi tính từ sang dạng so sánh hơn có quy tắc (+ere)." },
+            { id: 90, day: "Ngày 18", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 21", time: 15, note: "Biến đổi tính từ sang dạng so sánh nhất có quy tắc (+est)." },
+            { id: 91, day: "Ngày 18", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 22", time: 15, note: "Viết câu so sánh sử dụng từ kết nối 'end' (hơn... so với)." },
+            { id: 92, day: "Ngày 18", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 23", time: 15, note: "Ứng dụng dạng so sánh nhất trong cụm danh từ xác định (bắt buộc thêm mạo từ den/det/de và dùng đuôi -ste)." },
+
+            { id: 93, day: "Ngày 19", cat: "adj", ch: "Chương 4: Adjektiver", type: "Lý thuyết", title: "Học thuộc tính từ so sánh đổi nguyên âm bất quy tắc", time: 20, note: "Ghi nhớ các cặp từ vàng hay xuất hiện: god -> bedre -> bedst, gammel -> ældre -> ældst, stor -> større -> størst, ung -> yngre -> yngst." },
+            { id: 94, day: "Ngày 19", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 24", time: 15, note: "Áp dụng tính từ so sánh bất quy tắc đổi nguyên âm vào bài tập điền từ." },
+            { id: 95, day: "Ngày 19", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 25", time: 15, note: "So sánh sử dụng cấu trúc dùng trạng từ 'mere' và 'mest' cho tính từ dài kết thúc bằng đuôi -et, -ende." },
+            { id: 96, day: "Ngày 19", cat: "adj", ch: "Chương 4: Adjektiver", type: "Bài tập", title: "Thực hành: Opgave 26", time: 15, note: "Tổng hợp bài tập so sánh tính từ nâng cao trộn lẫn các quy tắc." },
+
+            { id: 97, day: "Ngày 20", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Lý thuyết", title: "Học Lý thuyết: Câu hỏi gián tiếp & Mệnh đề quan hệ", time: 25, note: "Câu hỏi gián tiếp lồng bên trong câu khác sẽ có tính chất trật tự từ giống hệt mệnh đề phụ: dùng liên từ 'om' hoặc giữ nguyên từ để hỏi Hv-ord + S + A + V. Đại từ quan hệ 'der' làm chủ ngữ, 'som' làm tân ngữ/chủ ngữ." },
+            { id: 98, day: "Ngày 20", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 14", time: 15, note: "Chuyển đổi câu hỏi trực tiếp Ja/Nej thành câu hỏi gián tiếp với từ nối 'om'." },
+            { id: 99, day: "Ngày 20", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 15", time: 15, note: "Chuyển câu hỏi có từ để hỏi thành câu hỏi gián tiếp lồng ngữ cảnh (Lưu ý đưa ikke lên trước V)." },
+            { id: 100, day: "Ngày 20", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 16", time: 15, note: "Nối câu sử dụng đại từ quan hệ 'der' đóng vai trò làm chủ từ mệnh đề sau." },
+            { id: 101, day: "Ngày 20", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 17", time: 15, note: "Nối câu sử dụng đại từ quan hệ 'som' đóng vai trò tân ngữ." },
+            { id: 102, day: "Ngày 20", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 18", time: 15, note: "Bài tập tổng hợp phân biệt rõ ràng khi nào chọn der và khi nào chọn som." },
+            { id: 103, day: "Ngày 20", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành: Opgave 19", time: 15, note: "Xử lý mệnh đề quan hệ phức tạp có chứa trạng từ năng cách phủ định." },
+
+            { id: 104, day: "Ngày 21", cat: "syntax", ch: "Chương 4 + Ch8", type: "Review", title: "Tổng kết tính từ & Hiện tượng Đảo ngữ phối hợp phức tạp", time: 20, note: "Học quy tắc nâng cao: Khi đẩy toàn bộ một mệnh đề phụ (Ledsætning) lên làm vế đầu câu -> Mệnh đề chính phía sau đóng vai trò như bị một trạng ngữ dài đứng trước -> BẮT BUỘC PHẢI ĐẢO NGỮ ĐỘNG TỪ LÊN TRƯỚC CHỦ NGỮ ở mệnh đề chính." },
+            { id: 105, day: "Ngày 21", cat: "adj", ch: "Chương 4", type: "Bài tập", title: "Thực hành: Bài Repetition Chương 4", time: 25, note: "Sửa các lỗi quên mạo từ den/det/de hoặc nhầm đuôi -t và -e của tính từ." },
+            { id: 106, day: "Ngày 21", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành chuyên sâu: Opgave 20", time: 20, note: "Thực hành viết câu phức đẩy vế 'fordi/hvis' lên đầu và thực hiện đảo ngữ ở vế sau chuẩn xác." },
+
+            // TUẦN 4
+            { id: 107, day: "Ngày 22", cat: "adv", ch: "Chương 5: Adverbier", type: "Lý thuyết", title: "Học Lý thuyết: Phân biệt Trạng từ chỉ Hướng và Vị trí", time: 30, note: "Dạng ngắn diễn tả hành động hướng chuyển động (đi kèm động từ động như gå, køre, flytte): ind, ud, op, ned, hjem. Dạng dài thêm đuôi -e biểu thị vị trí tĩnh tại (đi kèm động từ tĩnh như være, bo, sidde): inde, ude, oppe, nede, hjemme." },
+            { id: 108, day: "Ngày 22", cat: "adv", ch: "Chương 5: Adverbier", type: "Bài tập", title: "Thực hành: Opgave 1", time: 15, note: "Phân biệt cụm từ hướng/vị trí kinh điển ind và inde dựa trên động từ chính." },
+            { id: 109, day: "Ngày 22", cat: "adv", ch: "Chương 5: Adverbier", type: "Bài tập", title: "Thực hành: Opgave 2", time: 15, note: "Ứng dụng cặp từ chuyển động/tĩnh tại ud và ude trong ngữ cảnh." },
+            { id: 110, day: "Ngày 22", cat: "adv", ch: "Chương 5: Adverbier", type: "Bài tập", title: "Thực hành: Opgave 3", time: 15, note: "Điền trạng từ phù hợp cho cặp từ op và oppe." },
+            { id: 111, day: "Ngày 22", cat: "adv", ch: "Chương 5: Adverbier", type: "Bài tập", title: "Thực hành: Opgave 4", time: 15, note: "Xử lý cặp từ trạng ngữ ned và nede chuẩn xác." },
+            { id: 112, day: "Ngày 22", cat: "adv", ch: "Chương 5: Adverbier", type: "Bài tập", title: "Thực hành: Opgave 5", time: 15, note: "Thực hành phân biệt bẫy rất sâu giữa cụm từ về nhà 'hjem' và ở nhà 'hjemme'." },
+
+            { id: 113, day: "Ngày 23", cat: "adv", ch: "Chương 5: Adverbier", type: "Lý thuyết", title: "Học thuộc các cụm trạng từ thái độ và mức độ cốt lõi", time: 20, note: "Nắm vững trạng từ tần suất và thái độ: måske, heldigvis, sikkert. Nằm lòng nguyên tắc vị trí đứng của chúng trong cấu trúc câu Hovedsætning và Ledsætning." },
+            { id: 114, day: "Ngày 23", cat: "adv", ch: "Chương 5: Adverbier", type: "Bài tập", title: "Thực hành: Opgave 6", time: 15, note: "Sắp xếp vị trí trạng từ chỉ mức độ đứng trước tính từ bổ nghĩa." },
+            { id: 115, day: "Ngày 23", cat: "adv", ch: "Chương 5: Adverbier", type: "Bài tập", title: "Thực hành: Opgave 7", time: 15, note: "Điền trạng từ thái độ (måske, sikkert) đúng vị trí quy định trong câu trần thuật." },
+            { id: 116, day: "Ngày 23", cat: "adv", ch: "Chương 5: Adverbier", type: "Bài tập", title: "Thực hành: Opgave 8", time: 15, note: "Bài tập phân loại trạng từ chỉ thời gian thông dụng." },
+            { id: 117, day: "Ngày 23", cat: "adv", ch: "Chương 5: Adverbier", type: "Bài tập", title: "Thực hành: Opgave 9", time: 15, note: "Kết hợp trạng từ chỉ hướng và trạng từ chỉ thời gian trong câu phức." },
+            { id: 118, day: "Ngày 23", cat: "adv", ch: "Chương 5: Adverbier", type: "Bài tập", title: "Thực hành: Opgave 10", time: 15, note: "Tổng hợp phân biệt từ loại trạng từ với tính từ đuôi -t dễ nhầm lẫn." },
+
+            { id: 119, day: "Ngày 24", cat: "prep", ch: "Chương 6: Præpositioner", type: "Lý thuyết", title: "Học Lý thuyết: Giới từ không gian cốt lõi (Phân biệt i vs på)", time: 30, note: "Giới từ 'i' dùng cho quốc gia, thành phố, không gian có tính bao bọc khép kín sâu rộng. Giới từ 'på' dùng cho hòn đảo, bề mặt, hoặc các địa điểm cụ thể mang tính hành chính công cộng tại địa phương." },
+            { id: 120, day: "Ngày 24", cat: "prep", ch: "Chương 6: Præpositioner", type: "Bài tập", title: "Thực hành: Opgave 1", time: 15, note: "Điền giới từ không gian cơ bản chỉ vị trí tương đối (under, over, bagved, foran)." },
+            { id: 121, day: "Ngày 24", cat: "prep", ch: "Chương 6: Præpositioner", type: "Bài tập", title: "Thực hành: Opgave 2", time: 15, note: "Xử lý giới từ chuyển động xuyên qua 'gennem' và ở giữa 'mellem'." },
+            { id: 122, day: "Ngày 24", cat: "prep", ch: "Chương 6: Præpositioner", type: "Bài tập", title: "Thực hành: Opgave 3", time: 15, note: "Trộn lẫn các giới từ không gian mô tả bức tranh thực tế." },
+            { id: 123, day: "Ngày 24", cat: "prep", ch: "Chương 6: Præpositioner", type: "Bài tập", title: "Thực hành trọng tâm: Opgave 4", time: 15, note: "Luyện tập bẫy điền giới từ 'i' hay 'på' cho các tên thành phố và địa điểm Đan Mạch cụ thể." },
+            { id: 124, day: "Ngày 24", cat: "prep", ch: "Chương 6: Præpositioner", type: "Bài tập", title: "Thực hành nâng cao: Opgave 5", time: 15, note: "Phân biệt bối cảnh khi nào một địa điểm dùng i và khi nào dùng på tùy thuộc vào góc nhìn không gian." },
+
+            { id: 125, day: "Ngày 25", cat: "prep", ch: "Chương 6: Præpositioner", type: "Lý thuyết", title: "Học Lý thuyết: Cụm giới từ chỉ mốc và khoảng thời gian", time: 25, note: "Bối cảnh quá khứ dùng cấu trúc: for... siden. Bối cảnh tương lai dùng: om + khoảng thời gian. Tần suất lặp đi lặp lại tổng quát dùng cấu trúc: om + danh từ thời gian ở hình thái XÁC ĐỊNH số ít (om sommeren, om dagen)." },
+            { id: 126, day: "Ngày 25", cat: "prep", ch: "Chương 6: Præpositioner", type: "Bài tập", title: "Thực hành: Opgave 6", time: 15, note: "Điền giới từ thời gian bối cảnh quá khứ và hiện tại hoàn thành (i, for... siden)." },
+            { id: 127, day: "Ngày 25", cat: "prep", ch: "Chương 6: Præpositioner", type: "Bài tập", title: "Thực hành: Opgave 7", time: 15, note: "Ứng dụng giới từ tương lai 'om' và tần suất lặp lại định kỳ." },
+            { id: 128, day: "Ngày 25", cat: "prep", ch: "Chương 6: Præpositioner", type: "Bài tập", title: "Thực hành: Opgave 8", time: 15, note: "Điền tổng hợp giới từ thời gian trong một đoạn nhật ký hành trình ngắn." },
+
+            { id: 129, day: "Ngày 26", cat: "conj", ch: "Chương 7: Konjunktioner", type: "Lý thuyết", title: "Học Lý thuyết: Liên từ mệnh đề chính vs Mệnh đề phụ", time: 30, note: "Chia liên từ làm 2 phe quyết định cú pháp: 1. HS-konjunktioner (og, men, eller, for, så) giữ nguyên cấu trúc vế sau S-V-A. 2. LS-konjunktioner (fordi, at, hvis, selvom) ép vế sau biến đổi ngay lập tức thành trật tự mệnh đề phụ S-A-V." },
+            { id: 130, day: "Ngày 26", cat: "conj", ch: "Chương 7: Konjunktioner", type: "Bài tập", title: "Thực hành: Opgave 1", time: 15, note: "Nối câu bằng liên từ mệnh đề chính (HS-konjunktioner), giữ nguyên vị trí từ." },
+            { id: 131, day: "Ngày 26", cat: "conj", ch: "Chương 7: Konjunktioner", type: "Bài tập", title: "Thực hành: Opgave 2", time: 15, note: "Nối câu bằng liên từ nguyên nhân kết quả mệnh đề chính 'for' và 'så'." },
+            { id: 132, day: "Ngày 26", cat: "conj", ch: "Chương 7: Konjunktioner", type: "Bài tập", title: "Thực hành: Opgave 3", time: 15, note: "Nối câu bằng liên từ mệnh đề phụ 'fordi' (đưa liên từ lên đầu hoặc giữa, đảo cấu trúc từ vế sau)." },
+            { id: 133, day: "Ngày 26", cat: "conj", ch: "Chương 7: Konjunktioner", type: "Bài tập", title: "Thực hành: Opgave 4", time: 15, note: "Ứng dụng liên từ chỉ điều kiện 'hvis' và liên từ nhượng bộ 'selvom'." },
+            { id: 134, day: "Ngày 26", cat: "conj", ch: "Chương 7: Konjunktioner", type: "Bài tập", title: "Thực hành: Opgave 5", time: 15, note: "Nối câu phức phức tạp trộn lẫn cả liên từ mệnh đề chính và liên từ mệnh đề phụ." },
+
+            { id: 135, day: "Ngày 27", cat: "conj", ch: "Chương 7: Konjunktioner", type: "Lý thuyết", title: "Phân biệt các cặp liên từ bẫy dễ lừa học viên", time: 20, note: "Bẫy phân biệt rất sâu: 'da' dùng cho hành động quá khứ diễn ra một lần duy nhất. 'når' dùng cho hành động tương lai hoặc một hành động mang tính lặp đi lặp lại nhiều lần ở cả quá khứ lẫn tương lai." },
+            { id: 136, day: "Ngày 27", cat: "conj", ch: "Chương 7: Konjunktioner", type: "Bài tập", title: "Thực hành trọng tâm: Opgave 6", time: 15, note: "Bài tập bẫy kinh điển phân biệt điền 'da' hay 'når' căn cứ vào bản chất mốc thời gian hành động." },
+            { id: 137, day: "Ngày 27", cat: "conj", ch: "Chương 7: Konjunktioner", type: "Bài tập", title: "Thực hành: Opgave 7", time: 15, note: "Phân biệt cặp từ nối chỉ điều kiện/nghi vấn 'hvis' và 'om' trong câu phức." },
+            { id: 138, day: "Ngày 27", cat: "conj", ch: "Chương 7: Konjunktioner", type: "Bài tập", title: "Thực hành: Opgave 8", time: 15, note: "Phân biệt sự tương phản mục đích nguyên nhân giữa 'for' (HS) và 'fordi' (LS)." },
+            { id: 139, day: "Ngày 27", cat: "conj", ch: "Chương 7: Konjunktioner", type: "Bài tập", title: "Thực hành: Opgave 9", time: 15, note: "Ứng dụng hai chức năng riêng biệt của từ 'så': làm liên từ HS (vì vậy) và làm liên từ LS (để mà)." },
+            { id: 140, day: "Ngày 27", cat: "conj", ch: "Chương 7: Konjunktioner", type: "Bài tập", title: "Thực hành: Opgave 10", time: 15, note: "Luyện cấu trúc cụm liên từ đi với động từ nguyên mẫu: 'for at' và 'uden at'." },
+
+            { id: 141, day: "Ngày 28", cat: "syntax", ch: "Chương 6 + Chương 8", type: "Review", title: "Cụm từ cố định & Vị trí đại từ tân ngữ ngắn", time: 25, note: "Học thuộc lòng các cụm Verbum/Adjektiv + Præposition bắt buộc đi liền nhau (være glad for, tænke på). QUY TẮC BẪY: Đại từ nhân xưng tân ngữ dạng ngắn (det, mig, từ không có trọng âm) bắt buộc phải đứng TRƯỚC trạng từ ngắn không phủ định không tách rời trong mệnh đề chính." },
+            { id: 142, day: "Ngày 28", cat: "prep", ch: "Chương 6", type: "Bài tập", title: "Thực hành cụm cố định: Opgave 9 - 11", time: 15, note: "Điền giới từ tương thích cố định đi kèm động từ và tính từ cho trước." },
+            { id: 143, day: "Ngày 28", cat: "syntax", ch: "Chương 8: Ordstilling", type: "Bài tập", title: "Thực hành bẫy nâng cao: Opgave 30", time: 20, note: "Sắp xếp câu đưa đại từ tân ngữ ngắn nhảy lên đứng trước từ ikke (Ví dụ: Jeg ved det ikke - chuẩn ngữ pháp)." },
+
+            { id: 144, day: "Ngày 29", cat: "review", ch: "Chương 5; 6; 7; 8", type: "Review", title: "Tổng kiểm tra chéo toàn bộ hệ thống: Sửa lỗi sai nâng cao", time: 20, note: "Đọc thật kỹ các bảng tổng hợp lỗi sai cú pháp của 4 chương cuối tài liệu để xây dựng bộ lọc tư duy tự chấm điểm bài viết." },
+            { id: 145, day: "Ngày 29", cat: "review", ch: "Tổng hợp các chương", type: "Bài tập", title: "Thực hành: Toàn bộ bài tập Repetition của các chương 5, 6, 7 và 8", time: 45, note: "Tự giải quyết các bài sửa lỗi sai tổng hợp, bóc tách cấu trúc câu cẩn thận bằng bút chì màu để nhận biết bẫy từ loại." },
+
+            { id: 146, day: "Ngày 30", cat: "syntax", ch: "Tổng hòa Hệ thống Syntaks", type: "Lý thuyết", title: "Về đích: Chiến lược viết luận thực tế ứng dụng cấu trúc câu ghép", time: 30, note: "Hệ thống lại hai nguyên lý tối thượng bao trùm toàn bộ ngữ pháp tiếng Đan Mạch: Quy tắc V2 trong mệnh đề chính và cấu trúc S-A-V trong mệnh đề phụ." },
+            { id: 147, day: "Ngày 30", cat: "syntax", ch: "Tổng hòa Hệ thống Syntaks", type: "Bài tập", title: "Thực hành: Tự viết đoạn văn 150-200 từ & Tự rà soát theo Checklist tổng hợp", time: 30, note: "Tự viết một đoạn văn ngắn áp dụng đầy đủ: câu có đảo ngữ, câu ghép dùng fordi/at, ít nhất 2 cụm giới từ cố định. Sau đó áp dụng checklist rà soát lỗi từ loại để tự chấm điểm hoàn tất lộ trình học thông minh." }
+        ];
+
+        // Khởi tạo trạng thái ứng dụng lưu trữ trên LocalStorage của trình duyệt khách hàng
+        let userProgress = JSON.parse(localStorage.getItem('denmark_roadmap_progress')) || {};
+        let currentFilter = 'all';
+
+        // Hàm render bảng dữ liệu động và tối ưu hóa giao diện trực quan
+        function renderTable() {
+            const tbody = document.getElementById('roadmap-body');
+            tbody.innerHTML = '';
+            const searchInput = document.getElementById('table-search').value.toLowerCase();
+
+            roadmapData.forEach(item => {
+                const isCompleted = userProgress[item.id] || false;
+
+                // Kiểm tra bộ lọc danh mục bài học chuyên sâu
+                if (currentFilter !== 'all') {
+                    if (currentFilter === 'incomplete' && isCompleted) return;
+                    if (currentFilter !== 'incomplete' && item.cat !== currentFilter) return;
+                }
+
+                // Kiểm tra chuỗi tìm kiếm thực tế của người dùng
+                if (searchInput) {
+                    const inCh = item.ch.toLowerCase().includes(searchInput);
+                    const inTitle = item.title.toLowerCase().includes(searchInput);
+                    const inNote = item.note.toLowerCase().includes(searchInput);
+                    const inDay = item.day.toLowerCase().includes(searchInput);
+                    if (!inCh && !inTitle && !inNote && !inDay) return;
+                }
+
+                // Tạo các badge màu sắc tương ứng theo phong cách thiết kế phân loại từ loại Đan Mạch
+                let badgeClass = 'bg-review';
+                if (item.cat === 'noun') badgeClass = 'bg-noun';
+                if (item.cat === 'pronoun') badgeClass = 'bg-pronoun';
+                if (item.cat === 'adj') badgeClass = 'bg-adj';
+                if (item.cat === 'adv') badgeClass = 'bg-adv';
+                if (item.cat === 'prep') badgeClass = 'bg-prep';
+                if (item.cat === 'conj') badgeClass = 'bg-conj';
+                if (item.cat === 'syntax') badgeClass = 'bg-syntax';
+
+                const tr = document.createElement('tr');
+                if (isCompleted) tr.classList.add('completed');
+
+                // Hàm bọc công cụ làm nổi bật từ khóa tìm kiếm (Highlighting)
+                let displayTitle = item.title;
+                let displayNote = item.note;
+                if (searchInput) {
+                    const regex = new RegExp(`(${escapeRegExp(searchInput)})`, 'gi');
+                    displayTitle = displayTitle.replace(regex, '<mark>$1</mark>');
+                    displayNote = displayNote.replace(regex, '<mark>$1</mark>');
+                }
+
+                tr.innerHTML = `
+                <td class="col-day">${item.day}</td>
+                <td class="col-ch"><span class="badge ${badgeClass}">${item.ch}</span></td>
+                <td class="col-detail">
+                    <strong style="color:var(--text-dark); font-size:0.95rem;">[${item.type}]</strong> ${displayTitle}
+                </td>
+                <td class="col-time">${item.time} phút</td>
+                <td class="col-note">${displayNote}</td>
+                <td class="col-check">
+                    <label class="checkbox-container">
+                        <input type="checkbox" ${isCompleted ? 'checked' : ''} onchange="toggleProgress(${item.id}, this)">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+            `;
+                tbody.appendChild(tr);
+            });
+
+            calculateStats();
+        }
+
+        // Hàm bổ trợ xử lý biểu thức chính quy tránh lỗi ký tự đặc biệt khi tìm kiếm
+        function escapeRegExp(string) {
+            // Thêm \ trước cả [ và ] để không làm loạn cú pháp nhóm
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        // Chức năng thay đổi trạng thái hoàn thành bài tập (Checkbox thực tế)
+        function toggleProgress(id, checkbox) {
+            userProgress[id] = checkbox.checked;
+            localStorage.setItem('denmark_roadmap_progress', JSON.stringify(userProgress));
+
+            // Thay đổi class dòng trực tiếp tạo hiệu ứng mượt mà
+            const tr = checkbox.closest('tr');
+            if (checkbox.checked) {
+                tr.classList.add('completed');
+            } else {
+                tr.classList.remove('completed');
+            }
+
+            calculateStats();
+        }
+
+        // Hàm tính toán và cập nhật các chỉ số thống kê, thanh tiến độ theo thời gian thực (Real-time)
+        function calculateStats() {
+            const totalItems = roadmapData.length;
+            let completedCount = 0;
+            let totalMinutes = 0;
+            let completedMinutes = 0;
+
+            roadmapData.forEach(item => {
+                totalMinutes += item.time;
+                if (userProgress[item.id]) {
+                    completedCount++;
+                    completedMinutes += item.time;
+                }
+            });
+
+            // Tính phần trăm tiến độ thực tế dựa trên số bài học đã tích lũy
+            const percent = totalItems > 0 ? Math.round((completedCount / totalItems) * 100) : 0;
+
+            // Cập nhật giao diện DOM trực tiếp
+            document.getElementById('stat-total').innerText = totalItems;
+            document.getElementById('stat-completed').innerText = completedCount;
+            document.getElementById('stat-time-total').innerText = totalMinutes + " phút";
+            document.getElementById('stat-time-done').innerText = completedMinutes + " phút";
+            document.getElementById('stat-percent').innerText = percent + "%";
+            document.getElementById('progress-fill').style.width = percent + "%";
+        }
+
+        // Xử lý chuyển đổi qua lại giữa các tab bộ lọc thông minh
+        function filterTab(category, btn) {
+            currentFilter = category;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderTable();
+        }
+
+        // Chức năng lọc tìm kiếm ký tự trực tiếp trên bảng
+        function searchTable() {
+            renderTable();
+        }
+
+        // Chức năng Reset toàn bộ tiến độ lộ trình để học lại từ đầu khi cần thiết
+        function resetAllProgress() {
+            if (confirm("Bạn có chắc chắn muốn xóa toàn bộ tiến độ đã tích lũy để thiết lập lại lộ trình từ đầu không?")) {
+                userProgress = {};
+                localStorage.removeItem('denmark_roadmap_progress');
+                renderTable();
+            }
+        }
+
+        // Tự động kích hoạt tải và kết xuất bảng ngay khi trang web sẵn sàng
+        window.onload = function () {
+            renderTable();
+        };
+    </script>
+
+</body>
+
+</html>

@@ -65,7 +65,7 @@ del { color: var(--error); text-decoration-color: var(--error); opacity: .85; }
    LAYOUT & HERO
 ═════════════════════════════════════════════════ */
 .container {
-  max-width: 3000px; /* Tối ưu cho màn hình đọc */
+  max-width: 1800px; /* Tối ưu cho màn hình đọc */
   margin: 0 auto;
   padding: 0 1.5rem;
 }
