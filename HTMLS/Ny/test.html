@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Swine Farm Operational Manual – Bilingual EN/VI</title>
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+/* ============================================================
+   @PAGE – WeasyPrint A4 settings
+   ============================================================ */
+@page {
+  size: A4;
+  margin: 15mm 14mm 18mm 14mm;
+  @bottom-center {
+    content: counter(page) " / " counter(pages);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 8pt;
+    color: #6c757d;
+  }
+}
+ 
+/* ============================================================
+   TYPOGRAPHY & GLOBAL
+   ============================================================ */
+body {
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.62;
+  color: #212529;
+  background: #f8f9fa;
+}
+ 
+h1 { font-size: 20pt; }
+h2 { font-size: 14pt; }
+h3 { font-size: 11.5pt; }
+h4 { font-size: 10.5pt; }
+ 
+/* ============================================================
+   COLOUR PALETTE (CSS VARIABLES)
+   ============================================================ */
+:root {
+  --green-dark:   #1e4620;
+  --green-mid:    #2d6a31;
+  --green-light:  #e8f5e9;
+  --green-accent: #4caf50;
+  --warn-red:     #c62828;
+  --warn-bg:      #fff3f3;
+  --warn-border:  #ef9a9a;
+  --slate:        #1a365d;
+  --slate-light:  #e8edf5;
+  --gold:         #f9a825;
+  --gold-light:   #fffde7;
+  --body-bg:      #f8f9fa;
+  --white:        #ffffff;
+  --border-muted: #dee2e6;
+  --text-muted:   #6c757d;
+  --text-dark:    #212529;
+}
+ 
+/* ============================================================
+   DOCUMENT WRAPPER
+   ============================================================ */
+.document-wrapper {
+  max-width: 185mm;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 0;
+}
+ 
+/* ============================================================
+   COVER / MASTER HEADER
+   ============================================================ */
+.cover {
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 18mm 14mm 14mm 14mm;
+  page-break-after: always;
+  border-bottom: 5px solid var(--gold);
+}
+.cover .farm-label {
+  font-size: 8pt;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6mm;
+}
+.cover h1 {
+  font-size: 22pt;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 3mm;
+}
+.cover .sub-en {
+  font-size: 11pt;
+  color: #b2dfdb;
+  margin-bottom: 2mm;
+}
+.cover .sub-vi {
+  font-size: 10.5pt;
+  color: #a5d6a7;
+  font-style: italic;
+  margin-bottom: 8mm;
+}
+.cover-meta-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6mm;
+}
+.cover-meta-table td {
+  padding: 3px 0;
+  font-size: 9pt;
+  color: #cfd8dc;
+  vertical-align: top;
+}
+.cover-meta-table td:first-child {
+  width: 38mm;
+  color: var(--gold);
+  font-weight: 600;
+}
+.cover-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+  margin: 8mm 0;
+}
+.cover-sectors {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+.cover-sector-cell {
+  display: table-cell;
+  width: 25%;
+  padding: 5px 4px;
+  text-align: center;
+  vertical-align: top;
+}
+.cover-sector-badge {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 4px;
+  padding: 6px 4px;
+  font-size: 8pt;
+  color: #e0f2f1;
+}
+.cover-sector-badge .dk {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--white);
+  display: block;
+}
+ 
+/* ============================================================
+   PART HEADERS
+   ============================================================ */
+.part-header {
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 8mm 10mm;
+  page-break-before: always;
+  page-break-after: avoid;
+}
+.part-header .part-num {
+  font-size: 8pt;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 3mm;
+}
+.part-header h1 {
+  font-size: 18pt;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2mm;
+}
+.part-header .part-subtitle {
+  font-size: 10pt;
+  color: #a5d6a7;
+  font-style: italic;
+}
+ 
+/* ============================================================
+   SECTION HEADERS (within parts)
+   ============================================================ */
+.section-header {
+  background: var(--green-mid);
+  color: var(--white);
+  padding: 4mm 8mm;
+  margin-top: 6mm;
+  margin-bottom: 0;
+  page-break-after: avoid;
+}
+.section-header h2 {
+  font-size: 13pt;
+  font-weight: 700;
+}
+.section-header .vi {
+  font-size: 10pt;
+  color: #c8e6c9;
+  font-style: italic;
+  margin-top: 1mm;
+}
+ 
+.subsection-header {
+  background: var(--green-light);
+  border-left: 4px solid var(--green-mid);
+  padding: 3mm 8mm;
+  margin-top: 4mm;
+  page-break-after: avoid;
+}
+.subsection-header h3 {
+  color: var(--green-dark);
+  font-size: 11pt;
+}
+.subsection-header .vi {
+  color: var(--green-mid);
+  font-size: 9.5pt;
+  font-style: italic;
+}
+ 
+/* ============================================================
+   BILINGUAL TABLE (Part 1 SOP)
+   ============================================================ */
+.bilingual-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.bilingual-table .col-header-en,
+.bilingual-table .col-header-vi {
+  width: 50%;
+  padding: 3.5mm 5mm;
+  background: var(--slate);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 9pt;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.bilingual-table .col-header-vi {
+  background: var(--green-mid);
+  border-left: 2px solid var(--white);
+}
+ 
+.bilingual-table tr.content-row {
+  page-break-inside: avoid;
+}
+.bilingual-table tr.content-row:nth-child(odd) td {
+  background: var(--white);
+}
+.bilingual-table tr.content-row:nth-child(even) td {
+  background: #f1f8f1;
+}
+ 
+.bilingual-table td.en-cell,
+.bilingual-table td.vi-cell {
+  width: 50%;
+  padding: 4mm 5mm;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border-muted);
+  font-size: 10pt;
+}
+.bilingual-table td.vi-cell {
+  border-left: 2px solid var(--border-muted);
+}
+ 
+/* Phase row headers */
+.bilingual-table tr.phase-row td {
+  background: var(--slate-light);
+  padding: 3mm 5mm;
+  page-break-after: avoid;
+  page-break-inside: avoid;
+}
+.bilingual-table tr.phase-row td h3 {
+  color: var(--slate);
+  font-size: 10.5pt;
+}
+.bilingual-table tr.phase-row td .vi {
+  color: var(--green-mid);
+  font-size: 9.5pt;
+  font-style: italic;
+}
+ 
+/* Inline label styles */
+.med { font-weight: 700; font-style: italic; color: var(--slate); }
+.term-dk { font-weight: 700; color: var(--green-dark); }
+.term-en { font-style: italic; color: #555; }
+ 
+/* ============================================================
+   WARNING CALLOUT BOXES
+   ============================================================ */
+.warn-box {
+  background: var(--warn-bg);
+  border: 1.5px solid var(--warn-border);
+  border-left: 5px solid var(--warn-red);
+  border-radius: 0 4px 4px 0;
+  padding: 3.5mm 5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+.warn-box .warn-title {
+  font-weight: 700;
+  color: var(--warn-red);
+  font-size: 9.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5mm;
+  display: block;
+}
+.warn-box p {
+  font-size: 9.5pt;
+  color: #5c2222;
+  margin: 0;
+  line-height: 1.5;
+}
+.warn-box .vi-warn {
+  color: #7b2020;
+  font-style: italic;
+  font-size: 9pt;
+  margin-top: 1.5mm;
+  display: block;
+  border-top: 1px dashed #ef9a9a;
+  padding-top: 1.5mm;
+}
+ 
+/* ============================================================
+   INFO CALLOUT BOXES (gold/amber)
+   ============================================================ */
+.info-box {
+  background: var(--gold-light);
+  border: 1.5px solid #ffe082;
+  border-left: 5px solid var(--gold);
+  border-radius: 0 4px 4px 0;
+  padding: 3mm 5mm;
+  margin: 3mm 0;
+  page-break-inside: avoid;
+}
+.info-box .info-title {
+  font-weight: 700;
+  color: #e65100;
+  font-size: 9.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5mm;
+  display: block;
+}
+.info-box p, .info-box ul {
+  font-size: 9.5pt;
+  color: #4e342e;
+  margin: 0;
+}
+.info-box ul { padding-left: 5mm; }
+.info-box ul li { margin-bottom: 1mm; }
+ 
+/* ============================================================
+   PROCEDURE STEP LIST
+   ============================================================ */
+.step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.step-list li {
+  padding: 1.5mm 0 1.5mm 6mm;
+  border-bottom: 1px dotted #e0e0e0;
+  font-size: 10pt;
+  position: relative;
+}
+.step-list li:last-child { border-bottom: none; }
+.step-list li::before {
+  content: "▸";
+  color: var(--green-mid);
+  position: absolute;
+  left: 0;
+  font-size: 9pt;
+}
+ 
+.step-arrow-list {
+  list-style: none;
+  padding: 0;
+  margin: 2mm 0;
+  display: table;
+  width: 100%;
+}
+.step-arrow-list li {
+  display: table-row;
+  font-size: 9.5pt;
+}
+.step-arrow-list li .step-num {
+  display: table-cell;
+  width: 7mm;
+  font-weight: 700;
+  color: var(--green-dark);
+  vertical-align: top;
+  padding: 1mm 0;
+}
+.step-arrow-list li .step-text {
+  display: table-cell;
+  padding: 1mm 0 1mm 2mm;
+  vertical-align: top;
+}
+ 
+/* ============================================================
+   PART 2 – NARRATIVE JOURNAL
+   ============================================================ */
+.narrative-section {
+  padding: 0 0 5mm 0;
+}
+ 
+.narrative-phase-header {
+  background: var(--slate);
+  color: var(--white);
+  padding: 4mm 8mm;
+  margin-top: 7mm;
+  page-break-after: avoid;
+}
+.narrative-phase-header h2 {
+  font-size: 12pt;
+  font-weight: 700;
+}
+.narrative-phase-header .vi {
+  font-size: 10pt;
+  color: #90caf9;
+  font-style: italic;
+  margin-top: 1mm;
+}
+ 
+.narrative-entry {
+  page-break-inside: avoid;
+  border-bottom: 1px solid #e8f5e9;
+  padding: 5mm 8mm;
+}
+.narrative-entry:last-child { border-bottom: none; }
+ 
+.narrative-en {
+  font-size: 10.5pt;
+  color: var(--text-dark);
+  line-height: 1.7;
+  margin-bottom: 3mm;
+}
+.narrative-vi {
+  font-size: 10pt;
+  color: #2d4a2f;
+  line-height: 1.7;
+  font-style: italic;
+  background: #f1f8f1;
+  border-left: 3px solid var(--green-accent);
+  padding: 3mm 5mm;
+  border-radius: 0 3px 3px 0;
+}
+ 
+.narrative-time-badge {
+  display: inline-block;
+  background: var(--green-dark);
+  color: var(--gold);
+  font-size: 8.5pt;
+  font-weight: 700;
+  padding: 1.5mm 4mm;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  margin-bottom: 3mm;
+}
+ 
+/* ============================================================
+   MEDICATION REFERENCE BADGE
+   ============================================================ */
+.med-badge {
+  display: inline-block;
+  background: var(--slate);
+  color: #e8edf5;
+  font-size: 8pt;
+  font-weight: 700;
+  padding: 0.5mm 2.5mm;
+  border-radius: 3px;
+  font-style: normal;
+  letter-spacing: 0.3px;
+}
+ 
+/* ============================================================
+   WEEKLY TASK TABLE
+   ============================================================ */
+.weekly-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2mm;
+  font-size: 9.5pt;
+}
+.weekly-table th {
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 3mm 4mm;
+  text-align: left;
+  font-weight: 700;
+  font-size: 9pt;
+}
+.weekly-table td {
+  padding: 3mm 4mm;
+  border-bottom: 1px solid var(--border-muted);
+  vertical-align: top;
+}
+.weekly-table tr:nth-child(even) td { background: #f1f8f1; }
+.weekly-table tr { page-break-inside: avoid; }
+ 
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.doc-footer {
+  background: var(--green-dark);
+  color: #a5d6a7;
+  text-align: center;
+  font-size: 8pt;
+  padding: 5mm;
+  margin-top: 8mm;
+  page-break-inside: avoid;
+}
+ 
+/* ============================================================
+   TABLE OF CONTENTS
+   ============================================================ */
+.toc-section {
+  padding: 8mm 10mm;
+  background: var(--white);
+  page-break-after: always;
+}
+.toc-section h2 {
+  color: var(--green-dark);
+  font-size: 14pt;
+  border-bottom: 2px solid var(--green-dark);
+  padding-bottom: 2mm;
+  margin-bottom: 5mm;
+}
+.toc-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.toc-table td {
+  padding: 2mm 3mm;
+  font-size: 9.5pt;
+  border-bottom: 1px dotted #ced4da;
+  vertical-align: middle;
+}
+.toc-table td:last-child {
+  text-align: right;
+  color: var(--text-muted);
+  width: 15mm;
+}
+.toc-table tr.toc-part td {
+  font-weight: 700;
+  font-size: 10.5pt;
+  color: var(--green-dark);
+  background: var(--green-light);
+  border-bottom: 1px solid #a5d6a7;
+}
+.toc-table tr.toc-sub td { padding-left: 8mm; }
+ 
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.text-muted { color: var(--text-muted); }
+.text-vi { color: #2d6a31; }
+p.en { margin-bottom: 1.5mm; }
+p.vi { color: #2d6a31; font-style: italic; }
+.mt2 { margin-top: 2mm; }
+.mt4 { margin-top: 4mm; }
+.mb2 { margin-bottom: 2mm; }
+.page-break { page-break-before: always; }
+ 
+/* Print overrides */
+@media print {
+  body { background: var(--white); }
+  .document-wrapper { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="document-wrapper">
+ 
+<!-- ============================================================
+     COVER PAGE
+     ============================================================ -->
+<div class="cover">
+  <div class="farm-label">Livestock Operations Manual &nbsp;·&nbsp; Tài Liệu Vận Hành Trại Chăn Nuôi</div>
+  <h1>Swine Farm Operational<br/>Procedures Manual</h1>
+  <div class="sub-en">Danish Pig Farm – Bilingual Standard Operating Procedures</div>
+  <div class="sub-vi">Trại Heo Đan Mạch – Quy Trình Vận Hành Song Ngữ Anh / Việt</div>
+ 
+  <div class="cover-divider"></div>
+ 
+  <div class="cover-sectors">
+    <div class="cover-sector-cell">
+      <div class="cover-sector-badge">
+        <span class="dk">Løbe</span>
+        Insemination / Mating<br/>
+        <em style="font-size:7.5pt;color:#b2dfdb;">Khu Phối Giống</em>
+      </div>
+    </div>
+    <div class="cover-sector-cell">
+      <div class="cover-sector-badge">
+        <span class="dk">Drægtie</span>
+        Gestation / Pregnancy<br/>
+        <em style="font-size:7.5pt;color:#b2dfdb;">Khu Heo Bầu</em>
+      </div>
+    </div>
+    <div class="cover-sector-cell">
+      <div class="cover-sector-badge">
+        <span class="dk">Polte</span>
+        Gilt Sector<br/>
+        <em style="font-size:7.5pt;color:#b2dfdb;">Khu Heo Tơ</em>
+      </div>
+    </div>
+    <div class="cover-sector-cell">
+      <div class="cover-sector-badge">
+        <span class="dk">Fares</span>
+        Farrowing / Birthing<br/>
+        <em style="font-size:7.5pt;color:#b2dfdb;">Khu Heo Đẻ</em>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="cover-divider"></div>
+ 
+  <table class="cover-meta-table">
+    <tr>
+      <td>Document Type</td>
+      <td>Standard Operating Procedures + Narrative Journal &nbsp;/&nbsp; Quy Trình Vận Hành + Văn Bản Tự Sự</td>
+    </tr>
+    <tr>
+      <td>Languages</td>
+      <td>English (EN) &nbsp;/&nbsp; Tiếng Việt (VI)</td>
+    </tr>
+    <tr>
+      <td>Sectors Covered</td>
+      <td>Løbe · Drægtie · Polte · Fares · Sick Bay</td>
+    </tr>
+    <tr>
+      <td>Key Medications</td>
+      <td>Oxytobel · Melovem · Trymoc · Neuton · Viloferon</td>
+    </tr>
+    <tr>
+      <td>Classification</td>
+      <td>A-Sows · Primiparous (Polte/1st litter) · Multiparous (Parity 2+)</td>
+    </tr>
+    <tr>
+      <td>Revision</td>
+      <td>Version 1.0 &nbsp;·&nbsp; For internal use only</td>
+    </tr>
+  </table>
+</div>
+<!-- /COVER -->
+ 
+ 
+<!-- ============================================================
+     TABLE OF CONTENTS
+     ============================================================ -->
+<div class="toc-section">
+  <h2>Table of Contents &nbsp;·&nbsp; Mục Lục</h2>
+  <table class="toc-table">
+    <tr class="toc-part">
+      <td>PART 1 – Standard Operational Procedures (SOP) &nbsp;/&nbsp; Quy Trình Vận Hành Chuẩn</td>
+      <td></td>
+    </tr>
+    <tr class="toc-sub">
+      <td>1.1 &nbsp; Work Schedule &amp; Time Tracking &nbsp;/&nbsp; Lịch Làm Việc &amp; Giờ Giấc</td>
+      <td>—</td>
+    </tr>
+    <tr class="toc-sub">
+      <td>1.2 &nbsp; Phase 1: 5:00 AM – 7:00 AM Early Morning Inspection &amp; Initial Care</td>
+      <td>—</td>
+    </tr>
+    <tr class="toc-sub">
+      <td>1.3 &nbsp; Phase 2: 7:00 AM – Midday Break: Processing &amp; Immunization</td>
+      <td>—</td>
+    </tr>
+    <tr class="toc-sub">
+      <td>1.4 &nbsp; Phase 3: Post-Break Routine Section Checks</td>
+      <td>—</td>
+    </tr>
+    <tr class="toc-sub">
+      <td>1.5 &nbsp; Phase 4: End of Shift – Microclimate Control &amp; Wrap-Up</td>
+      <td>—</td>
+    </tr>
+    <tr class="toc-sub">
+      <td>1.6 &nbsp; Weekly Task: Piglet Tail Docking Schedule &nbsp;/&nbsp; Lịch Cắt Đuôi Heo</td>
+      <td>—</td>
+    </tr>
+    <tr class="toc-part">
+      <td>PART 2 – Narrative Journal (Văn Bản Tự Sự) – Day in the Life of a Livestock Technician</td>
+      <td></td>
+    </tr>
+    <tr class="toc-sub">
+      <td>2.1 &nbsp; Before Dawn: Waking for the 5:00 AM Shift &nbsp;/&nbsp; Trước Bình Minh</td>
+      <td>—</td>
+    </tr>
+    <tr class="toc-sub">
+      <td>2.2 &nbsp; Phase 1 Narrative: The Barn Comes Alive</td>
+      <td>—</td>
+    </tr>
+    <tr class="toc-sub">
+      <td>2.3 &nbsp; Phase 2 Narrative: The Rush of Processing</td>
+      <td>—</td>
+    </tr>
+    <tr class="toc-sub">
+      <td>2.4 &nbsp; Midday: A Brief Pause in the Storm</td>
+      <td>—</td>
+    </tr>
+    <tr class="toc-sub">
+      <td>2.5 &nbsp; Phase 3 Narrative: Afternoon Rounds</td>
+      <td>—</td>
+    </tr>
+    <tr class="toc-sub">
+      <td>2.6 &nbsp; Phase 4 Narrative: Closing the Day</td>
+      <td>—</td>
+    </tr>
+    <tr class="toc-sub">
+      <td>2.7 &nbsp; Monday Special: The Tail Docking Ritual</td>
+      <td>—</td>
+    </tr>
+    <tr class="toc-sub">
+      <td>2.8 &nbsp; Reflection: The Weight of the Rotation Week</td>
+      <td>—</td>
+    </tr>
+  </table>
+</div>
+<!-- /TOC -->
+ 
+ 
+<!-- ============================================================
+     PART 1 HEADER
+     ============================================================ -->
+<div class="part-header">
+  <div class="part-num">Part 1 &nbsp;·&nbsp; Phần 1</div>
+  <h1>Standard Operational Procedures (SOP)</h1>
+  <div class="part-subtitle">Quy Trình Vận Hành Chuẩn – Trình bày song ngữ Anh / Việt</div>
+</div>
+ 
+<!-- ============================================================
+     SECTION 1.1  WORK SCHEDULE
+     ============================================================ -->
+<div class="section-header">
+  <h2>1.1 &nbsp; Work Schedule &amp; Time Tracking</h2>
+  <div class="vi">Lịch Làm Việc &amp; Giờ Giấc</div>
+</div>
+ 
+<table class="bilingual-table">
+  <tr>
+    <td class="col-header-en">🇬🇧 &nbsp; English</td>
+    <td class="col-header-vi">🇻🇳 &nbsp; Tiếng Việt</td>
+  </tr>
+ 
+  <!-- Standard Week -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Standard Work Week</strong><br/>
+      Work from <strong>Monday to Friday</strong>. Shift begins at <strong>7:00 AM</strong> and concludes once all daily tasks are fully completed.
+    </td>
+    <td class="vi-cell">
+      <strong>Tuần Làm Việc Bình Thường</strong><br/>
+      Làm việc từ <strong>Thứ 2 đến Thứ 6</strong>. Bắt đầu lúc <strong>7:00 sáng</strong> và kết thúc khi hoàn thành toàn bộ công việc trong ngày.
+    </td>
+  </tr>
+ 
+  <!-- Rotation Week -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Overtime / Rotation Week (Every 3rd Week)</strong><br/>
+      Every 3 weeks, a mandatory rotation week activates. During this week, the schedule extends to a continuous block from <strong>Monday through Sunday</strong> (7 days straight). After completion, the schedule resets to the standard 2-week cycle.
+    </td>
+    <td class="vi-cell">
+      <strong>Tuần Tăng Ca / Xoay Vòng (Mỗi 3 Tuần)</strong><br/>
+      Cứ 3 tuần sẽ có 1 tuần tăng ca bắt buộc. Trong tuần này, lịch kéo dài liên tục từ <strong>Thứ 2 đến hết Chủ Nhật</strong> (7 ngày liên tiếp). Sau đó, lịch quay về vòng lặp 2 tuần bình thường.
+    </td>
+  </tr>
+ 
+  <!-- Early Shift -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Early Shift Days</strong><br/>
+      Exactly <strong>2 days per week</strong> require an early start at <strong>5:00 AM</strong>. These days follow the detailed Early Shift Protocol described in Sections 1.2–1.5.
+    </td>
+    <td class="vi-cell">
+      <strong>Ngày Làm Sớm</strong><br/>
+      Mỗi tuần có đúng <strong>2 ngày</strong> phải bắt đầu lúc <strong>5:00 sáng</strong>. Các ngày này tuân theo Quy Trình Ngày Làm Sớm mô tả chi tiết trong Mục 1.2–1.5.
+    </td>
+  </tr>
+</table>
+ 
+ 
+<!-- ============================================================
+     SECTION 1.2  PHASE 1
+     ============================================================ -->
+<div class="section-header" style="margin-top:6mm;">
+  <h2>1.2 &nbsp; Phase 1: Early Morning Inspection &amp; Initial Care</h2>
+  <div class="vi">Chặng 1: Kiểm Tra Và Chăm Sóc Đầu Ngày (5:00 – 7:00 Sáng)</div>
+</div>
+ 
+<table class="bilingual-table">
+  <tr>
+    <td class="col-header-en">🇬🇧 &nbsp; 5:00 AM – 7:00 AM &nbsp;| English</td>
+    <td class="col-header-vi">🇻🇳 &nbsp; 5:00 – 7:00 Sáng &nbsp;| Tiếng Việt</td>
+  </tr>
+ 
+  <!-- Routine Barn Patrol -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Routine Barn Patrol</strong><br/>
+      Inspect all primary production sectors in sequence:<br/>
+      <ul class="step-list">
+        <li><span class="term-dk">Løbe</span> sector – Insemination / Mating unit</li>
+        <li><span class="term-dk">Drægtie</span> sector – Gestation / Pregnancy unit</li>
+        <li><span class="term-dk">Polte</span> sector – Gilt unit (first-time mothers)</li>
+        <li>Sick Bay – Isolation / treatment area</li>
+        <li><span class="term-dk">Fares</span> unit – Farrowing / Birthing barn</li>
+      </ul>
+    </td>
+    <td class="vi-cell">
+      <strong>Đi Tuần Tra Toàn Bộ Các Khu Chuồng</strong><br/>
+      Kiểm tra lần lượt tất cả các khu sản xuất chính:<br/>
+      <ul class="step-list">
+        <li>Khu <span class="term-dk">Løbe</span> – Khu heo phối giống</li>
+        <li>Khu <span class="term-dk">Drægtie</span> – Khu heo bầu (mang thai)</li>
+        <li>Khu <span class="term-dk">Polte</span> – Khu heo tơ (đẻ lứa đầu)</li>
+        <li>Khu heo ốm – Khu cách ly / điều trị</li>
+        <li>Khu <span class="term-dk">Fares</span> – Khu heo đẻ</li>
+      </ul>
+    </td>
+  </tr>
+ 
+  <!-- Fares Critical Warning -->
+  <tr class="content-row">
+    <td class="en-cell" colspan="2">
+      <div class="warn-box">
+        <span class="warn-title">⚠ Critical Rule – Fares Unit Patrol Frequency &nbsp;|&nbsp; Quy Tắc Đặc Biệt – Tần Suất Kiểm Tra Khu Heo Đẻ</span>
+        <p><strong>Re-inspect the Fares unit every 30 to 45 minutes without exception.</strong> Maintain close observation to identify and provide timely assistance to sows experiencing dystocia (difficult or prolonged labor). Missing a window risks piglet mortality and serious maternal complications.</p>
+        <span class="vi-warn"><strong>Cứ 30 đến 45 phút phải quay lại kiểm tra khu heo đẻ một lần, không có ngoại lệ.</strong> Quan sát kỹ để phát hiện và hỗ trợ kịp thời cho những con heo đẻ khó. Bỏ sót một chu kỳ kiểm tra có thể dẫn đến heo con chết và biến chứng nghiêm trọng cho heo mẹ.</span>
+      </div>
+    </td>
+  </tr>
+ 
+  <!-- Labor Assistance & Medication -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Labor Assistance &amp; Medication Logging</strong><br/>
+      Administer <span class="med">Oxytobel</span> (oxytocin) to sows actively farrowing to stimulate uterine contractions and promote milk letdown.<br/><br/>
+      <div class="info-box">
+        <span class="info-title">📋 Registry Entry Requirements</span>
+        <ul>
+          <li>Sow ID number (ear tag / number)</li>
+          <li>Crate / Box number</li>
+          <li>Dosage administered</li>
+          <li>Injection count for the shift</li>
+        </ul>
+      </div>
+    </td>
+    <td class="vi-cell">
+      <strong>Hỗ Trợ Đẻ &amp; Ghi Chép Thuốc</strong><br/>
+      Tiêm thuốc kích đẻ và tạo sữa <span class="med">Oxytobel</span> (oxytocin) cho những con heo đang đẻ để kích thích co tử cung và tiết sữa.<br/><br/>
+      <div class="info-box">
+        <span class="info-title">📋 Thông Tin Cần Ghi Vào Sổ</span>
+        <ul>
+          <li>Số tai heo (số số heo)</li>
+          <li>Số ô chuồng (số box)</li>
+          <li>Liều lượng đã tiêm</li>
+          <li>Số lần tiêm Oxytobel trong ca</li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+ 
+  <!-- Oxytobel Prohibition -->
+  <tr class="content-row">
+    <td class="en-cell" colspan="2">
+      <div class="warn-box">
+        <span class="warn-title">🚫 Strict Prohibition – Oxytobel &nbsp;|&nbsp; Cấm Tuyệt Đối – Oxytobel</span>
+        <p><strong>NEVER administer Oxytobel to sows exhibiting uterine prolapse or any uterine complications.</strong> Administration in these cases risks fatal haemorrhage and will worsen the prolapse. Immediately flag the animal for veterinary evaluation.</p>
+        <span class="vi-warn"><strong>TUYỆT ĐỐI KHÔNG tiêm Oxytobel cho những con heo mẹ bị lòi tử cung hoặc có bất kỳ biến chứng tử cung nào.</strong> Tiêm trong trường hợp này có nguy cơ gây xuất huyết tử vong và làm nặng thêm tình trạng lòi tử cung. Cần đánh dấu con vật ngay lập tức để cán bộ thú y xử lý.</span>
+      </div>
+    </td>
+  </tr>
+ 
+  <!-- First Feed -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Newborn Piglet First Feeding</strong><br/>
+      Warm up the milk substitute first to the appropriate temperature, then feed the newly born, hungry piglets. Ensure each piglet receives adequate colostrum or substitute during this critical window.
+    </td>
+    <td class="vi-cell">
+      <strong>Cho Heo Con Ăn Cử Đầu</strong><br/>
+      Làm ấm sữa bột thay thế trước đến nhiệt độ phù hợp, sau đó cho những heo con mới đẻ đang đói uống sữa. Đảm bảo mỗi con nhận đủ sữa đầu hoặc sữa thay thế trong giai đoạn quan trọng này.
+    </td>
+  </tr>
+ 
+  <!-- Sow Nutrition -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Sow Nutrition – Sugar &amp; Salt Supplement</strong><br/>
+      Clean out the feed troughs completely, then distribute sugar and salt nutritional supplements to both <span class="term-dk">Drægtie</span> (gestating) and actively farrowing sows. This supports energy levels and electrolyte balance during the demanding birthing process.
+    </td>
+    <td class="vi-cell">
+      <strong>Bổ Sung Dinh Dưỡng Heo Mẹ – Đường &amp; Muối</strong><br/>
+      Múc sạch toàn bộ máng ăn, sau đó rải đường và muối bổ sung dinh dưỡng cho cả heo <span class="term-dk">Drægtie</span> (heo bầu) và heo đang đẻ. Điều này hỗ trợ năng lượng và cân bằng điện giải trong quá trình sinh sản vất vả.
+    </td>
+  </tr>
+</table>
+ 
+ 
+<!-- ============================================================
+     SECTION 1.3  PHASE 2
+     ============================================================ -->
+<div class="section-header" style="margin-top:6mm;">
+  <h2>1.3 &nbsp; Phase 2: Processing &amp; Immunization</h2>
+  <div class="vi">Chặng 2: Làm Hộ Tịch &amp; Tiêm Phòng (7:00 Sáng – Giờ Nghỉ Giữa Giờ)</div>
+</div>
+ 
+<table class="bilingual-table">
+  <tr>
+    <td class="col-header-en">🇬🇧 &nbsp; 7:00 AM – Midday Break &nbsp;| English</td>
+    <td class="col-header-vi">🇻🇳 &nbsp; 7:00 Sáng – Nghỉ Giữa Giờ &nbsp;| Tiếng Việt</td>
+  </tr>
+ 
+  <!-- Newborn Processing -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Newborn Piglet Processing</strong><br/>
+      <ul class="step-list">
+        <li>Secure and confine the newborn piglets in their box.</li>
+        <li>Perform umbilical cord trimming / clamping (docking).</li>
+        <li>Conduct an accurate headcount and record in the log.</li>
+      </ul>
+    </td>
+    <td class="vi-cell">
+      <strong>Xử Lý Heo Con Mới Sinh</strong><br/>
+      <ul class="step-list">
+        <li>Nhốt heo con mới đẻ vào ô chuồng.</li>
+        <li>Cắt dây rốn / thắt rốn (cắt rốn).</li>
+        <li>Đếm số lượng chính xác và ghi vào sổ theo dõi.</li>
+      </ul>
+    </td>
+  </tr>
+ 
+  <!-- Sow Immunization -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Sow Immunization Protocol</strong><br/>
+      Administer the following injections to post-farrowing sows:<br/>
+      <ul class="step-list">
+        <li><span class="med">Melovem</span> – Anti-inflammatory / pain relief</li>
+        <li><span class="med">Oxytobel</span> – Oxytocin for uterine contraction &amp; milk letdown</li>
+      </ul>
+      <div class="warn-box" style="margin-top:3mm;">
+        <span class="warn-title">🚫 Prohibition – Uterine Prolapse &nbsp;|&nbsp; Cấm – Lòi Tử Cung</span>
+        <p>Sows with uterine prolapse (<em>lòi tử cung</em>) or any uterine complication <strong>must NEVER receive Oxytobel</strong>. Administer Melovem only and escalate to veterinary staff immediately.</p>
+        <span class="vi-warn">Heo mẹ bị <strong>lòi tử cung</strong> hoặc biến chứng tử cung <strong>TUYỆT ĐỐI KHÔNG được tiêm Oxytobel</strong>. Chỉ tiêm Melovem và báo ngay cho cán bộ thú y xử lý.</span>
+      </div>
+    </td>
+    <td class="vi-cell">
+      <strong>Tiêm Phòng Cho Heo Mẹ</strong><br/>
+      Tiêm các loại thuốc sau cho heo mẹ sau khi đẻ:<br/>
+      <ul class="step-list">
+        <li><span class="med">Melovem</span> – Kháng viêm / giảm đau</li>
+        <li><span class="med">Oxytobel</span> – Oxytocin kích co tử cung &amp; tiết sữa</li>
+      </ul>
+      <div class="warn-box" style="margin-top:3mm;">
+        <span class="warn-title">🚫 Cấm Tuyệt Đối – Lòi Tử Cung</span>
+        <p>Heo mẹ bị <strong>lòi tử cung</strong> hoặc có vấn đề về tử cung <strong>KHÔNG ĐƯỢC tiêm Oxytobel</strong>. Chỉ tiêm Melovem và báo ngay cán bộ thú y.</p>
+        <span class="vi-warn">Sows with uterine prolapse must NEVER receive Oxytobel. Administer Melovem only and escalate immediately.</span>
+      </div>
+    </td>
+  </tr>
+ 
+  <!-- Piglet Treatment -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Piglet Treatment Protocol (by Parity)</strong><br/><br/>
+      <strong>Primiparous sows</strong> (<span class="term-dk">Polte</span> / first-time mothers, Parity 1):<br/>
+      <ul class="step-list">
+        <li>Administer <span class="med">Trymoc</span> injection</li>
+        <li>Administer <span class="med">Neuton</span> injection</li>
+      </ul>
+      <br/>
+      <strong>Multiparous sows</strong> (Parity 2 and above):<br/>
+      <ul class="step-list">
+        <li>Administer <span class="med">Trymoc</span> injection only</li>
+        <li><em>Neuton is NOT required for parity 2+ litters.</em></li>
+      </ul>
+    </td>
+    <td class="vi-cell">
+      <strong>Quy Trình Tiêm Thuốc Cho Heo Con (Theo Lứa Đẻ)</strong><br/><br/>
+      <strong>Heo nái đẻ lứa đầu</strong> (<span class="term-dk">Polte</span> / heo tơ, Lứa 1):<br/>
+      <ul class="step-list">
+        <li>Tiêm thuốc <span class="med">Trymoc</span></li>
+        <li>Tiêm thuốc <span class="med">Neuton</span></li>
+      </ul>
+      <br/>
+      <strong>Heo nái từ lứa thứ 2 trở lên</strong> (Lứa 2+):<br/>
+      <ul class="step-list">
+        <li>Chỉ tiêm thuốc <span class="med">Trymoc</span> mà thôi</li>
+        <li><em>Không cần tiêm Neuton cho heo con lứa từ 2 trở lên.</em></li>
+      </ul>
+    </td>
+  </tr>
+ 
+  <!-- Milking & Second Feed -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Milking &amp; Second Piglet Feeding</strong><br/>
+      Conduct colostrum / milk collection (milking) until approximately <strong>9:00 AM – 9:30 AM</strong>. Upon completion, administer a second round of milk substitute to all hungry newborn piglets throughout the Fares unit.
+    </td>
+    <td class="vi-cell">
+      <strong>Vắt Sữa &amp; Cho Heo Con Ăn Cử Hai</strong><br/>
+      Tiến hành vắt sữa heo mẹ đến khoảng <strong>9:00 – 9:30 sáng</strong>. Sau khi hoàn thành, tiếp tục đi cho tất cả các heo con mới đẻ đang đói trong khu Fares uống sữa thêm một lần nữa.
+    </td>
+  </tr>
+ 
+  <!-- Pre-Break Verification -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Pre-Break Verification – A-Sow Priority Check</strong><br/>
+      Immediately before taking the midday break:<br/>
+      <ul class="step-list">
+        <li>Perform a final check of all actively farrowing areas in the <span class="term-dk">Fares</span> unit.</li>
+        <li>Administer an <span class="med">Oxytobel</span> injection to all designated <strong>A-sows</strong> (priority / high-value breeding sows).</li>
+        <li>Note any sows requiring urgent attention for post-break follow-up.</li>
+      </ul>
+    </td>
+    <td class="vi-cell">
+      <strong>Chốt Việc Trước Khi Nghỉ – Kiểm Tra Heo A Sow</strong><br/>
+      Ngay trước khi nghỉ giữa giờ:<br/>
+      <ul class="step-list">
+        <li>Kiểm tra lại toàn bộ khu heo đang đẻ trong khu <span class="term-dk">Fares</span>.</li>
+        <li>Tiêm thuốc <span class="med">Oxytobel</span> cho tất cả các <strong>heo A sow</strong> (heo nái ưu tiên / giá trị cao).</li>
+        <li>Ghi chú các heo cần theo dõi gấp sau khi nghỉ.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+ 
+ 
+<!-- ============================================================
+     SECTION 1.4  PHASE 3
+     ============================================================ -->
+<div class="section-header" style="margin-top:6mm;">
+  <h2>1.4 &nbsp; Phase 3: Post-Break Routine Section Checks</h2>
+  <div class="vi">Chặng 3: Khám Chuồng Định Kỳ Sau Giờ Nghỉ</div>
+</div>
+ 
+<table class="bilingual-table">
+  <tr>
+    <td class="col-header-en">🇬🇧 &nbsp; Post-Break &nbsp;| English</td>
+    <td class="col-header-vi">🇻🇳 &nbsp; Sau Nghỉ Giữa Giờ &nbsp;| Tiếng Việt</td>
+  </tr>
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Immediate Re-Verification of Fares Unit</strong><br/>
+      Upon returning from the break, the first priority is to immediately re-check the active farrowing area in the <span class="term-dk">Fares</span> unit:
+      <ul class="step-list">
+        <li>Assess all sows currently in labour.</li>
+        <li>Administer scheduled <span class="med">Oxytobel</span> injections to <strong>A-sows</strong>.</li>
+        <li>Supply milk substitute to any hungry newborn piglets.</li>
+      </ul>
+    </td>
+    <td class="vi-cell">
+      <strong>Kiểm Tra Lại Ngay Khu Fares Sau Nghỉ</strong><br/>
+      Quay trở lại làm việc, việc đầu tiên là kiểm tra ngay khu heo đẻ trong khu <span class="term-dk">Fares</span>:
+      <ul class="step-list">
+        <li>Kiểm tra tất cả các heo đang trong giai đoạn sinh.</li>
+        <li>Tiêm <span class="med">Oxytobel</span> theo lịch cho <strong>heo A sow</strong>.</li>
+        <li>Cho heo con mới đẻ đang đói uống sữa thay thế.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Nursery / Rearing Room Inspections</strong><br/>
+      Conduct systematic inspections of nursery and rearing rooms based on the farm manager's specific assignments for that day. Inspections cover cohorts by size classification:
+      <ul class="step-list">
+        <li><strong>Small</strong> piglet cohort rooms</li>
+        <li><strong>Medium</strong> piglet cohort rooms</li>
+        <li><strong>Large</strong> piglet cohort rooms (nearing weaning)</li>
+      </ul>
+      Monitor for health issues, feed availability, water supply, and environmental conditions in each room.
+    </td>
+    <td class="vi-cell">
+      <strong>Kiểm Tra Các Phòng Heo Cai Sữa / Heo Con</strong><br/>
+      Tiến hành kiểm tra có hệ thống các phòng nuôi dưỡng theo phân công cụ thể của quản lý trong ngày. Kiểm tra các nhóm theo kích cỡ:
+      <ul class="step-list">
+        <li>Phòng heo con <strong>cỡ nhỏ</strong></li>
+        <li>Phòng heo con <strong>cỡ trung bình</strong></li>
+        <li>Phòng heo con <strong>cỡ lớn</strong> (sắp cai sữa)</li>
+      </ul>
+      Theo dõi sức khỏe, thức ăn, nước uống và điều kiện môi trường trong từng phòng.
+    </td>
+  </tr>
+</table>
+ 
+ 
+<!-- ============================================================
+     SECTION 1.5  PHASE 4
+     ============================================================ -->
+<div class="section-header" style="margin-top:6mm;">
+  <h2>1.5 &nbsp; Phase 4: End of Shift – Microclimate Control &amp; Wrap-Up</h2>
+  <div class="vi">Chặng 4: Cuối Ngày – Điều Phối Đèn Sưởi &amp; Dọn Chuồng</div>
+</div>
+ 
+<table class="bilingual-table">
+  <tr>
+    <td class="col-header-en">🇬🇧 &nbsp; End of Shift &nbsp;| English</td>
+    <td class="col-header-vi">🇻🇳 &nbsp; Cuối Ca Làm Việc &nbsp;| Tiếng Việt</td>
+  </tr>
+ 
+  <!-- Heating Lamp Collection -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Heating Lamp Collection Protocol</strong><br/>
+      While colleagues wash down vacant <span class="term-dk">Fares</span> crates (in preparation for transferring pregnant sows from the <span class="term-dk">Drægtie</span> sector), collect heating lamps from the following designated areas:
+      <ul class="step-list">
+        <li>Boxes housing <strong>large piglets nearing weaning</strong></li>
+        <li>Boxes housing <strong>medium-sized piglets</strong></li>
+        <li>Boxes with piglets that have reached exactly <strong>4 days of age</strong></li>
+      </ul>
+    </td>
+    <td class="vi-cell">
+      <strong>Quy Trình Gom Đèn Sưởi</strong><br/>
+      Trong khi đồng nghiệp rửa chuồng trống trong khu <span class="term-dk">Fares</span> (để chuẩn bị chuyển heo từ khu <span class="term-dk">Drægtie</span> sang), mình đi gom đèn sưởi từ các ô chuồng sau:
+      <ul class="step-list">
+        <li>Ô heo con <strong>cỡ lớn sắp cai sữa</strong></li>
+        <li>Ô heo con <strong>cỡ trung bình</strong></li>
+        <li>Ô heo con đã đủ <strong>4 ngày tuổi</strong></li>
+      </ul>
+    </td>
+  </tr>
+ 
+  <!-- Lamp Prohibition Warning -->
+  <tr class="content-row">
+    <td class="en-cell" colspan="2">
+      <div class="warn-box">
+        <span class="warn-title">🚫 Strict Prohibition – Sick Piglet Boxes &nbsp;|&nbsp; Cấm Tuyệt Đối – Ô Heo Con Bị Ốm</span>
+        <p><strong>DO NOT remove heating lamps from any pen or box holding sick, weak, or compromised piglets.</strong> Removal of the heat source from an already vulnerable animal is life-threatening. Verify the health status of ALL occupants before removing any lamp. When in doubt, leave the lamp in place and consult the farm manager.</p>
+        <span class="vi-warn"><strong>TUYỆT ĐỐI KHÔNG lấy đèn sưởi từ bất kỳ ô (box) nào đang nuôi heo con bị ốm, yếu, hoặc sức khỏe không ổn định.</strong> Lấy nguồn nhiệt khỏi con vật đang yếu là cực kỳ nguy hiểm. Kiểm tra sức khỏe TẤT CẢ các con trong ô trước khi lấy đèn. Khi không chắc chắn, hãy để nguyên đèn và hỏi ý kiến quản lý trại.</span>
+      </div>
+    </td>
+  </tr>
+ 
+  <!-- Lamp Deployment -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Heating Lamp Installation (Newly Born Piglets)</strong><br/>
+      Immediately deploy all collected lamps into the farrowing crates of newly born piglets. Proper lamp positioning is critical to prevent hypothermia — the leading cause of neonatal piglet mortality.
+    </td>
+    <td class="vi-cell">
+      <strong>Lắp Đèn Sưởi (Cho Heo Con Mới Đẻ)</strong><br/>
+      Mang toàn bộ đèn vừa gom được và lắp ngay vào các ô chuồng có heo con mới đẻ. Vị trí đặt đèn đúng là rất quan trọng để phòng ngừa hạ thân nhiệt – nguyên nhân hàng đầu gây chết heo con sơ sinh.
+    </td>
+  </tr>
+ 
+  <!-- Final Cleaning & Handover -->
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Final Cleaning &amp; Shift Handover</strong><br/>
+      <ul class="step-list">
+        <li>Thoroughly scoop and clean out all feeding troughs in the Fares unit.</li>
+        <li>Conduct a final sweep inspection of the entire <span class="term-dk">Fares</span> sector.</li>
+        <li>Administer the last scheduled <span class="med">Oxytobel</span> dose to all <strong>A-sows</strong>.</li>
+        <li>Complete the shift log, record all interventions, and sign off.</li>
+      </ul>
+    </td>
+    <td class="vi-cell">
+      <strong>Dọn Dẹp Cuối Ca &amp; Bàn Giao</strong><br/>
+      <ul class="step-list">
+        <li>Múc sạch và rửa toàn bộ máng ăn trong khu Fares.</li>
+        <li>Đi kiểm tra tổng thể toàn bộ khu <span class="term-dk">Fares</span> một lần cuối.</li>
+        <li>Tiêm liều <span class="med">Oxytobel</span> cuối cùng trong ngày cho tất cả <strong>heo A sow</strong>.</li>
+        <li>Hoàn thành sổ theo dõi ca làm việc, ghi đầy đủ các can thiệp và ký xác nhận.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+ 
+ 
+<!-- ============================================================
+     SECTION 1.6  WEEKLY TASK
+     ============================================================ -->
+<div class="section-header" style="margin-top:6mm;">
+  <h2>1.6 &nbsp; Weekly Task: Piglet Tail Docking Schedule</h2>
+  <div class="vi">Công Việc Phát Sinh Theo Ngày – Lịch Cắt Đuôi Heo</div>
+</div>
+ 
+<table class="bilingual-table">
+  <tr>
+    <td class="col-header-en">🇬🇧 &nbsp; Tail Docking Schedule &nbsp;| English</td>
+    <td class="col-header-vi">🇻🇳 &nbsp; Lịch Cắt Đuôi &nbsp;| Tiếng Việt</td>
+  </tr>
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Every Monday – Primary Tail Docking Run</strong><br/>
+      Execute tail docking for all piglets that have reached exactly <strong>5 days of age</strong>.<br/><br/>
+      <strong>Standard Operating Procedure (SOP):</strong>
+      <ol class="step-arrow-list">
+        <li><span class="step-num">①</span><span class="step-text">Administer medicated milk with nutritional supplements</span></li>
+        <li><span class="step-num">②</span><span class="step-text">Inject <span class="med">Viloferon</span> (iron supplement) subcutaneously</span></li>
+        <li><span class="step-num">③</span><span class="step-text">Proceed with tail docking using approved equipment</span></li>
+      </ol>
+    </td>
+    <td class="vi-cell">
+      <strong>Thứ 2 Hàng Tuần – Cắt Đuôi Chính</strong><br/>
+      Tiến hành cắt đuôi cho tất cả heo con đã đủ <strong>5 ngày tuổi</strong>.<br/><br/>
+      <strong>Quy Trình Thực Hiện (SOP):</strong>
+      <ol class="step-arrow-list">
+        <li><span class="step-num">①</span><span class="step-text">Cho heo con uống sữa có pha thuốc bổ sung dinh dưỡng</span></li>
+        <li><span class="step-num">②</span><span class="step-text">Tiêm <span class="med">Viloferon</span> (bổ sung sắt) dưới da</span></li>
+        <li><span class="step-num">③</span><span class="step-text">Tiến hành cắt đuôi bằng dụng cụ đã được phê duyệt</span></li>
+      </ol>
+    </td>
+  </tr>
+  <tr class="content-row">
+    <td class="en-cell">
+      <strong>Wednesday &amp; Thursday – Follow-Up Completion</strong><br/>
+      Review all records and perform tail docking on any remaining eligible piglets missed or skipped during the Monday primary run. This ensures complete cohort compliance and no piglets fall through the protocol.
+    </td>
+    <td class="vi-cell">
+      <strong>Thứ 4 &amp; Thứ 5 – Bổ Sung Những Con Còn Sót</strong><br/>
+      Kiểm tra lại toàn bộ hồ sơ và tiến hành cắt đuôi cho những heo con còn sót lại chưa được xử lý vào Thứ 2. Điều này đảm bảo tất cả heo con trong nhóm đều được xử lý đầy đủ theo quy trình.
+    </td>
+  </tr>
+</table>
+ 
+ 
+<!-- ============================================================
+     PART 2 HEADER
+     ============================================================ -->
+<div class="part-header">
+  <div class="part-num">Part 2 &nbsp;·&nbsp; Phần 2</div>
+  <h1>Narrative Journal – Văn Bản Tự Sự</h1>
+  <div class="part-subtitle">A Day in the Life of a Livestock Technician &nbsp;·&nbsp; Một Ngày Làm Việc Của Nhân Viên Chăn Nuôi</div>
+</div>
+ 
+<!-- Narrative Intro -->
+<div class="narrative-section">
+ 
+<div style="background:var(--green-light); border:1px solid #a5d6a7; padding:5mm 8mm; margin:0 0 3mm 0;">
+  <p style="font-size:9.5pt; color:#1e4620; font-style:italic; margin:0;">
+    <strong>Narrator's Note:</strong> The following narrative is written in the first-person voice of a livestock technician working an early shift (5:00 AM start) during a standard week. All technical constraints, medication protocols, timing requirements, and safety prohibitions from the SOP are seamlessly woven into this account. Events on a Monday are featured to include the tail docking ritual.
+    <br/><br/>
+    <strong>Ghi Chú Người Kể:</strong> Câu chuyện sau đây được kể theo góc nhìn ngôi thứ nhất của một nhân viên chăn nuôi đang làm ca sớm (bắt đầu lúc 5:00 sáng) trong một tuần bình thường. Tất cả các ràng buộc kỹ thuật, quy trình dùng thuốc, yêu cầu thời gian và các lệnh cấm an toàn từ SOP đều được lồng ghép vào câu chuyện một cách tự nhiên. Sự kiện diễn ra vào Thứ 2 để bao gồm cả nghi thức cắt đuôi heo.
+  </p>
+</div>
+ 
+ 
+<!-- ============================================================
+     2.1 BEFORE DAWN
+     ============================================================ -->
+<div class="narrative-phase-header">
+  <h2>2.1 &nbsp; Before Dawn: Waking for the 5:00 AM Shift</h2>
+  <div class="vi">Trước Bình Minh: Dậy Đi Làm Ca 5:00 Sáng</div>
+</div>
+ 
+<div class="narrative-entry">
+  <div class="narrative-time-badge">Monday · 4:15 AM · Thứ 2 · 4:15 Sáng</div>
+  <div class="narrative-en">
+    The alarm goes off at 4:15 AM, cutting through a darkness that feels almost physical. I lie still for a moment, cataloguing the particular fatigue of this job: the kind that settles into your joints and doesn't fully leave, especially during the rotation week — that gruelling stretch where the schedule expands from a civilised Monday-to-Friday into a relentless Monday-through-Sunday. Seven days, no pause. I've just come off one of those weeks. The two-week reprieve has helped, but this morning, pulling on my overalls in the cold of the pre-dawn, I feel the residue of it in my muscles.
+ 
+    This week is a standard week. Two of these five days will be early days — shifts that begin not at the comfortable hour of 7:00 AM, but at 5:00, when the farm is still technically night-dark and the animals haven't yet started the low chorus of their waking. Today is one of those early days, and it's a Monday, which means the schedule carries an additional weight: the weekly tail docking protocol sits at the end of the day's long task list. First, however, I must get to the barn.
+  </div>
+  <div class="narrative-vi">
+    Chuông báo thức reo lúc 4:15 sáng, xé toạc màn đêm tối như mực. Tôi nằm im một lúc, cảm nhận cái mệt mỏi đặc trưng của nghề này: thứ mệt ngấm vào xương khớp và không bao giờ thực sự biến mất, đặc biệt là trong những tuần xoay vòng — những tuần khắc nghiệt khi lịch làm việc giãn ra từ Thứ 2 đến Thứ 6 bình thường thành một khối liên tục từ Thứ 2 đến Chủ Nhật. Bảy ngày, không nghỉ. Tôi vừa trải qua một tuần như vậy. Hai tuần bình thường vừa rồi đã giúp phục hồi, nhưng sáng nay, khi mặc bộ đồ bảo hộ trong cái lạnh của buổi tinh mơ, tôi vẫn còn cảm nhận dư âm của nó trong từng bắp thịt.
+ 
+    Tuần này là tuần bình thường. Trong năm ngày này, sẽ có hai ngày làm sớm — những ca không bắt đầu lúc 7:00 sáng thoải mái, mà lúc 5:00 sáng, khi trại vẫn còn chìm trong bóng đêm và những con vật chưa bắt đầu tiếng ồn quen thuộc khi thức giấc. Hôm nay là một trong những ngày như vậy, và là Thứ 2, nghĩa là lịch còn mang thêm một gánh nặng nữa: quy trình cắt đuôi heo hàng tuần đang chờ ở cuối danh sách công việc dài dằng dặc. Nhưng trước tiên, tôi phải đến chuồng đã.
+  </div>
+</div>
+ 
+ 
+<!-- ============================================================
+     2.2 PHASE 1 NARRATIVE
+     ============================================================ -->
+<div class="narrative-phase-header">
+  <h2>2.2 &nbsp; Phase 1: The Barn Comes Alive (5:00 – 7:00 AM)</h2>
+  <div class="vi">Chặng 1: Trại Bắt Đầu Thức Dậy (5:00 – 7:00 Sáng)</div>
+</div>
+ 
+<div class="narrative-entry">
+  <div class="narrative-time-badge">5:00 AM · 5:00 Sáng</div>
+  <div class="narrative-en">
+    I push through the heavy barn door at exactly 5:00 AM. The smell hits first — warm, earthy, biological — the particular perfume of five hundred animals living their lives in close proximity. I pull on my gloves and begin the first task of every early shift: the full barn patrol.
+ 
+    I move methodically through each sector. First, the <strong>Løbe</strong> sector — the insemination and mating unit — where the boars are already awake, restless. A quick visual check: nothing unusual. Next, the <strong>Drægtie</strong> sector, where the gestating sows lie in their rows, their breathing slow and heavy with the weight of pregnancy. I check water lines, note any animals that seem uncomfortable, and move on.
+ 
+    The <strong>Polte</strong> sector follows — the gilts, the first-time mothers in waiting, young animals whose bodies are still adjusting to the demands of reproduction. Then the sick bay, a quieter, more clinical space where I check on the animals under treatment, noting any changes in condition overnight.
+ 
+    And then, finally, the sector that will dominate my entire morning: the <strong>Fares</strong> unit. The farrowing barn. This is where life is happening — raw, urgent, and sometimes chaotic.
+  </div>
+  <div class="narrative-vi">
+    Tôi đẩy cánh cửa chuồng nặng bước vào đúng lúc 5:00 sáng. Mùi đặc trưng ập đến ngay lập tức — ấm áp, đất đai, sinh vật học — thứ hương vị đặc biệt của năm trăm con vật đang sống trong không gian gần gũi. Tôi đeo găng tay và bắt đầu nhiệm vụ đầu tiên của mỗi ca sớm: tuần tra toàn bộ các khu chuồng.
+ 
+    Tôi di chuyển có hệ thống qua từng khu. Đầu tiên là khu <strong>Løbe</strong> — khu phối giống — nơi những con đực giống đã thức dậy, bồn chồn. Một lượt kiểm tra bằng mắt: không có gì bất thường. Tiếp theo là khu <strong>Drægtie</strong>, nơi những heo nái bầu nằm thành hàng, hơi thở chậm và nặng nề với sức nặng của thai kỳ. Tôi kiểm tra đường nước, ghi chú những con có vẻ không thoải mái, rồi tiếp tục.
+ 
+    Khu <strong>Polte</strong> tiếp theo — những heo tơ, những bà mẹ lần đầu đang chờ đợi, những con vật trẻ mà cơ thể vẫn đang thích nghi với những đòi hỏi của việc sinh sản. Sau đó là khu heo ốm, không gian yên tĩnh và lâm sàng hơn, nơi tôi kiểm tra những con đang được điều trị, ghi nhận bất kỳ thay đổi nào trong đêm.
+ 
+    Và cuối cùng, khu sẽ chiếm lĩnh toàn bộ buổi sáng của tôi: khu <strong>Fares</strong>. Chuồng đẻ. Đây là nơi sự sống đang diễn ra — thô, khẩn cấp, và đôi khi hỗn loạn.
+  </div>
+</div>
+ 
+<div class="narrative-entry">
+  <div class="narrative-time-badge">5:15 AM – The Fares Unit · 5:15 Sáng – Khu Fares</div>
+  <div class="narrative-en">
+    Three sows are in active labour when I arrive. This is a good morning — it could be worse. I watch each one carefully, assessing the intervals between contractions. One of them, a large multiparous sow in crate seven, has been labouring for longer than I'd like. I reach for the <strong>Oxytobel</strong> — oxytocin — and administer the injection to stimulate her contractions and help bring the milk down. Immediately after, I open the registry and record everything with precision: her ear tag number, the box number, the dosage, and the fact that this is her first injection of the shift. Every injection gets logged. No exceptions.
+ 
+    The rules around Oxytobel are absolute. There is one prohibition I carry in my mind like a non-negotiable law: a sow showing any sign of uterine prolapse — <em>lòi tử cung</em> — must never receive Oxytobel. Not today, not any day. A forced contraction in a prolapsed uterus is a death sentence. So before every injection, I check. I always check.
+ 
+    My watch tells me it's 5:30 AM now. I've been in the Fares unit for fifteen minutes. I need to move — there's still the first feeding to organise, the troughs to clean, the sugar and salt supplements for the gestating and farrowing sows. But I know I cannot stay away from this unit for too long. The rule is absolute, engraved into my practice through training and, honestly, through witnessing what happens when it's ignored: <strong>every thirty to forty-five minutes, I return to the Fares unit without exception</strong>. There are sows still in labour. Every half hour, lives may be in the balance.
+  </div>
+  <div class="narrative-vi">
+    Ba con heo đang đẻ khi tôi đến. Đây là một buổi sáng tốt — có thể còn tệ hơn. Tôi quan sát kỹ từng con, đánh giá khoảng cách giữa các cơn co. Một con, heo nái đa sản lớn trong ô số bảy, đã đẻ lâu hơn mức tôi muốn. Tôi cầm lấy <strong>Oxytobel</strong> — oxytocin — và tiêm để kích thích co tử cung và giúp sữa xuống. Ngay sau đó, tôi mở sổ và ghi chép đầy đủ và chính xác: số tai heo, số ô chuồng, liều lượng, và việc đây là lần tiêm đầu tiên trong ca. Mọi lần tiêm đều được ghi lại. Không có ngoại lệ.
+ 
+    Các quy tắc về Oxytobel là tuyệt đối. Có một điều cấm mà tôi ghi trong đầu như luật bất di bất dịch: một con heo mẹ có bất kỳ dấu hiệu lòi tử cung nào — <em>lòi tử cung</em> — tuyệt đối không được tiêm Oxytobel. Không hôm nay, không bao giờ. Kích thích co tử cung đã lòi là bản án tử. Vì vậy trước mỗi lần tiêm, tôi kiểm tra. Tôi luôn kiểm tra.
+ 
+    Đồng hồ chỉ 5:30 sáng. Tôi đã ở khu Fares mười lăm phút rồi. Tôi cần di chuyển — vẫn còn cữ ăn đầu cần tổ chức, máng ăn cần dọn, đường và muối bổ sung cho heo bầu và heo đẻ. Nhưng tôi biết mình không thể rời khu này quá lâu. Quy tắc là tuyệt đối, được khắc vào thực hành của tôi qua đào tạo và, thành thật mà nói, qua việc chứng kiến điều gì xảy ra khi nó bị bỏ qua: <strong>cứ ba mươi đến bốn mươi lăm phút, tôi quay lại khu Fares không có ngoại lệ</strong>. Vẫn còn heo đang đẻ. Mỗi nửa giờ, những sinh mạng có thể đang trong cân bằng mong manh.
+  </div>
+</div>
+ 
+<div class="narrative-entry">
+  <div class="narrative-time-badge">5:30 – 7:00 AM · 5:30 – 7:00 Sáng</div>
+  <div class="narrative-en">
+    I move through the next ninety minutes in a rhythm I've internalised over months of early shifts: check Fares, warm the milk, feed the hungry newborns, return to Fares, clean troughs, distribute sugar and salt to the gestating sows and the ones in active labour, return to Fares. The circuit repeats. The clock is always running.
+ 
+    The milk warming is not a step to rush. The substitute needs to be at the right temperature — too cold and the piglets won't take it, too hot and you risk burning their delicate mouths. I warm it carefully, then make my way box by box through the Fares unit, coaxing each small, wriggling body into feeding. A newborn that doesn't receive adequate nourishment in these first hours may not recover. The urgency is biological, not procedural.
+ 
+    By 6:30 AM I have made three complete passes through the Fares unit. Each time, I re-assess the labouring sows — checking progress, looking for signs of distress, watching for the small movements that indicate a piglet is stuck. The troughs are clean now. The sugar and salt have been distributed. I allow myself one slow breath before 7:00 AM arrives and the full team comes on. The second phase begins.
+  </div>
+  <div class="narrative-vi">
+    Tôi trải qua chín mươi phút tiếp theo theo nhịp điệu mà tôi đã nội tâm hóa qua nhiều tháng ca sớm: kiểm tra Fares, làm ấm sữa, cho heo con mới đẻ đói ăn, quay lại Fares, dọn máng, rải đường và muối cho heo bầu và heo đẻ, quay lại Fares. Vòng lặp tiếp diễn. Đồng hồ luôn chạy.
+ 
+    Việc làm ấm sữa không phải bước có thể làm qua loa. Sữa thay thế cần đạt đúng nhiệt độ — quá lạnh và heo con sẽ không uống, quá nóng và bạn có nguy cơ làm bỏng miệng nhạy cảm của chúng. Tôi cẩn thận làm ấm, rồi đi từng ô trong khu Fares, dỗ dành từng thân hình nhỏ đang cựa quậy vào bú. Heo con mới sinh không nhận đủ dinh dưỡng trong những giờ đầu này có thể không phục hồi được. Sự khẩn cấp là sinh học, không phải thủ tục.
+ 
+    Đến 6:30 sáng tôi đã đi ba vòng hoàn chỉnh qua khu Fares. Mỗi lần, tôi đánh giá lại những heo đang đẻ — kiểm tra tiến độ, tìm dấu hiệu đau đớn, quan sát những chuyển động nhỏ cho thấy heo con đang bị kẹt. Máng đã sạch. Đường và muối đã được rải. Tôi cho phép mình một hơi thở chậm trước khi 7:00 sáng đến và toàn đội vào ca. Chặng hai bắt đầu.
+  </div>
+</div>
+ 
+ 
+<!-- ============================================================
+     2.3 PHASE 2 NARRATIVE
+     ============================================================ -->
+<div class="narrative-phase-header">
+  <h2>2.3 &nbsp; Phase 2: The Rush of Processing (7:00 AM – Midday)</h2>
+  <div class="vi">Chặng 2: Guồng Quay Xử Lý (7:00 Sáng – Nghỉ Giữa Giờ)</div>
+</div>
+ 
+<div class="narrative-entry">
+  <div class="narrative-time-badge">7:00 AM · 7:00 Sáng</div>
+  <div class="narrative-en">
+    Seven o'clock brings the organised chaos of the full team arriving. The pace shifts — what was a quiet, watchful solo circuit becomes a coordinated operation. My role now is clear: newborn processing and immunization.
+ 
+    I move into the Fares unit with purpose. For each litter of newly born piglets, I secure them from their dam, perform the umbilical cord trimming — a clean cut, properly disinfected — and count heads. Accurate headcount is not optional; the number goes in the log. This documentation links to parity records that will govern every treatment decision I make next.
+ 
+    And those treatment decisions are carved in protocol. For piglets from <strong>primiparous sows</strong> — the <em>polte</em>, the gilts having their first litter — I administer both <strong>Trymoc</strong> and <strong>Neuton</strong> injections. The reasoning is rooted in the biology of first-time mothers: their immune transfer is less robust, their colostrum less consistent, and so the support their piglets need is more comprehensive.
+ 
+    For piglets from <strong>multiparous sows</strong> — parity two and above — it's <strong>Trymoc</strong> alone. Experienced mothers produce better colostrum; their piglets arrive with stronger passive immunity. The protocol reflects that reality precisely. I make no substitutions, no shortcuts. I know which sow I'm at — I check the ear tag, I check the records — and I inject accordingly.
+  </div>
+  <div class="narrative-vi">
+    Bảy giờ mang đến sự hỗn loạn có tổ chức khi toàn đội đến. Nhịp độ thay đổi — cái yên tĩnh, cẩn thận của vòng tuần tra solo biến thành một hoạt động phối hợp. Vai trò của tôi bây giờ rõ ràng: xử lý heo con mới sinh và tiêm phòng.
+ 
+    Tôi bước vào khu Fares với mục đích rõ ràng. Với mỗi ổ heo con mới sinh, tôi tách chúng ra khỏi heo mẹ, cắt rốn — vết cắt sạch, đã sát trùng đúng cách — và đếm số lượng. Đếm số đầu chính xác là bắt buộc; con số ghi vào sổ. Tài liệu này liên kết với hồ sơ lứa đẻ sẽ chi phối mọi quyết định điều trị tôi đưa ra tiếp theo.
+ 
+    Và những quyết định điều trị đó được đúc kết trong quy trình. Đối với heo con từ <strong>heo nái đẻ lứa đầu</strong> — <em>polte</em>, heo tơ đang đẻ lứa đầu tiên — tôi tiêm cả <strong>Trymoc</strong> và <strong>Neuton</strong>. Lý do bắt nguồn từ sinh học của những bà mẹ lần đầu: sự truyền miễn dịch của chúng kém mạnh mẽ hơn, sữa đầu kém ổn định hơn, và do đó sự hỗ trợ mà heo con của chúng cần toàn diện hơn.
+ 
+    Đối với heo con từ <strong>heo nái đa sản</strong> — lứa hai trở lên — chỉ tiêm <strong>Trymoc</strong> mà thôi. Những bà mẹ có kinh nghiệm sản xuất sữa đầu tốt hơn; heo con của chúng đến với miễn dịch thụ động mạnh hơn. Quy trình phản ánh thực tế đó một cách chính xác. Tôi không thay thế, không cắt bỏ bước nào. Tôi biết mình đang ở ô của heo nào — tôi kiểm tra số tai, tôi kiểm tra hồ sơ — và tiêm theo đó.
+  </div>
+</div>
+ 
+<div class="narrative-entry">
+  <div class="narrative-time-badge">7:30 – 9:30 AM · 7:30 – 9:30 Sáng</div>
+  <div class="narrative-en">
+    While I work through the piglet treatments, the sow immunization protocol runs in parallel. Post-farrowing sows receive their injections: <strong>Melovem</strong> for the inflammation and discomfort of labour, and <strong>Oxytobel</strong> to continue supporting uterine involution and milk production. The combination addresses both the acute pain and the recovery physiology.
+ 
+    But before every single Oxytobel injection, I assess the sow. This is the weight I carry on every early shift, the checkpoint that sits before every injection like a locked gate: Has she shown any sign of uterine prolapse? Is there any evidence of uterine complication? If the answer is yes — in any degree — the Oxytobel stays in the tray. No exceptions. A prolapsed uterus is an absolute contraindication. I have seen what happens when this rule is ignored. I don't ignore it.
+ 
+    By around 9:00 AM, the milking run begins. I collect colostrum from the sows where it's available and process it through to approximately 9:30 AM. Milking requires attention — it's not only about collection, it's about assessing each sow's milk production, flagging any issues. Once the milking is complete, I make another feeding round through the newborn boxes. The hungry ones are always easy to identify: they root, they vocalise, they press against the gate. I make sure each one eats.
+ 
+    Before I can take my midday break, there is one final task that cannot be skipped. I walk the active farrowing area of the Fares unit one more time — a thorough visual sweep — and administer Oxytobel to the <strong>A-sows</strong>. These are the priority animals: high-value breeding stock designated by the farm manager. The A-sow designation changes what I prioritise, but it does not change the contraindication. Even for an A-sow, the uterine prolapse rule applies absolutely.
+  </div>
+  <div class="narrative-vi">
+    Trong khi tôi xử lý tiêm cho heo con, quy trình tiêm phòng cho heo mẹ chạy song song. Heo nái sau khi đẻ nhận tiêm: <strong>Melovem</strong> cho viêm nhiễm và khó chịu do chuyển dạ, và <strong>Oxytobel</strong> để tiếp tục hỗ trợ co hồi tử cung và sản xuất sữa. Sự kết hợp giải quyết cả cơn đau cấp tính lẫn sinh lý phục hồi.
+ 
+    Nhưng trước mỗi lần tiêm Oxytobel, tôi đánh giá heo mẹ. Đây là gánh nặng tôi mang trong mỗi ca sớm, điểm kiểm tra ngồi trước mỗi lần tiêm như một cánh cổng khóa: Con này có biểu hiện lòi tử cung không? Có bằng chứng nào về biến chứng tử cung không? Nếu câu trả lời là có — ở bất kỳ mức độ nào — Oxytobel ở lại trong khay. Không có ngoại lệ. Lòi tử cung là chống chỉ định tuyệt đối. Tôi đã thấy điều gì xảy ra khi quy tắc này bị bỏ qua. Tôi không bỏ qua nó.
+ 
+    Khoảng 9:00 sáng, đợt vắt sữa bắt đầu. Tôi thu thập sữa đầu từ những heo mẹ có sữa và xử lý đến khoảng 9:30 sáng. Vắt sữa đòi hỏi chú ý — không chỉ là thu thập, mà còn đánh giá sản xuất sữa của mỗi heo mẹ, đánh dấu bất kỳ vấn đề nào. Khi vắt sữa xong, tôi đi vòng cho ăn thêm một lần qua các ô heo con. Những con đói luôn dễ nhận biết: chúng ủi đầu vào, kêu la, ép vào cửa ô. Tôi đảm bảo mỗi con được ăn.
+ 
+    Trước khi nghỉ giữa giờ, có một nhiệm vụ cuối cùng không thể bỏ qua. Tôi đi qua khu đẻ đang hoạt động của khu Fares thêm một lần — quét mắt kỹ lưỡng — và tiêm Oxytobel cho các <strong>heo A sow</strong>. Đây là những con vật ưu tiên: giống gốc giá trị cao được quản lý trại chỉ định. Chỉ định A sow thay đổi những gì tôi ưu tiên, nhưng không thay đổi chống chỉ định. Ngay cả với heo A sow, quy tắc lòi tử cung áp dụng tuyệt đối.
+  </div>
+</div>
+ 
+ 
+<!-- ============================================================
+     2.4 MIDDAY BREAK
+     ============================================================ -->
+<div class="narrative-phase-header">
+  <h2>2.4 &nbsp; Midday: A Brief Pause in the Storm</h2>
+  <div class="vi">Giữa Trưa: Khoảnh Khắc Nghỉ Ngơi Ngắn Ngủi</div>
+</div>
+ 
+<div class="narrative-entry">
+  <div class="narrative-time-badge">Midday Break · Nghỉ Giữa Giờ</div>
+  <div class="narrative-en">
+    The break is never fully restorative. I sit in the break room, eat my meal, and already my mind is running through the Fares unit — which sows are at which stage, which piglets looked too small at the last check, whether the sow in crate seven has progressed. This is the nature of the job: the animals don't pause. The barn continues its biological business without consulting the clock on the break room wall. I eat quickly. The second half of the day begins as soon as I put down my fork.
+  </div>
+  <div class="narrative-vi">
+    Giờ nghỉ không bao giờ thực sự hồi phục. Tôi ngồi trong phòng nghỉ, ăn bữa của mình, và tâm trí đã chạy qua khu Fares — heo nào đang ở giai đoạn nào, heo con nào trông quá nhỏ ở lần kiểm tra cuối, liệu heo mẹ trong ô số bảy đã tiến triển chưa. Đây là bản chất của công việc: những con vật không tạm dừng. Chuồng tiếp tục công việc sinh học của nó mà không hỏi ý kiến đồng hồ trên tường phòng nghỉ. Tôi ăn nhanh. Nửa ngày thứ hai bắt đầu ngay khi tôi đặt nĩa xuống.
+  </div>
+</div>
+ 
+ 
+<!-- ============================================================
+     2.5 PHASE 3 NARRATIVE
+     ============================================================ -->
+<div class="narrative-phase-header">
+  <h2>2.5 &nbsp; Phase 3: Afternoon Rounds</h2>
+  <div class="vi">Chặng 3: Vòng Kiểm Tra Buổi Chiều</div>
+</div>
+ 
+<div class="narrative-entry">
+  <div class="narrative-time-badge">Post-Break · Sau Nghỉ Giữa Giờ</div>
+  <div class="narrative-en">
+    I walk back onto the floor and the first place my feet carry me is the Fares unit. Always the Fares unit first. I re-verify the active farrowing area, check the A-sows, administer any scheduled Oxytobel doses, and feed any hungry newborns. This is non-negotiable: the post-break return to Fares is as important as the opening patrol.
+ 
+    Once the Fares check is complete, the afternoon stretches into the nursery rounds. The farm manager has designated which sections I'll cover today — this afternoon it's the small and medium piglet cohort rooms. I move through systematically, assessing feed and water access, watching for any animals showing signs of illness, checking that pen temperatures are appropriate. The small piglets are fragile in a way the larger ones have long outgrown; I give them extra time.
+ 
+    The work in the nursery rooms is quieter than the Fares unit, slower — but no less important. An undetected health issue in a cohort of thirty piglets can become an outbreak in twenty-four hours. My eyes need to be sharp in the afternoon even when my body wants to slow down.
+  </div>
+  <div class="narrative-vi">
+    Tôi bước trở lại sàn và nơi đầu tiên chân tôi mang đến là khu Fares. Luôn là khu Fares trước. Tôi xác minh lại khu đẻ đang hoạt động, kiểm tra heo A sow, tiêm những liều Oxytobel theo lịch, và cho những heo con đói ăn. Điều này là không thể thương lượng: việc quay lại Fares sau nghỉ quan trọng không kém cuộc tuần tra mở đầu.
+ 
+    Khi kiểm tra Fares xong, buổi chiều kéo dài vào các vòng kiểm tra phòng heo con. Quản lý trại đã chỉ định khu nào tôi sẽ kiểm tra hôm nay — chiều nay là phòng nhóm heo con nhỏ và trung bình. Tôi đi có hệ thống, đánh giá tiếp cận thức ăn và nước uống, theo dõi bất kỳ con vật nào có dấu hiệu bệnh tật, kiểm tra nhiệt độ ô chuồng có phù hợp không. Heo con nhỏ dễ bị tổn thương theo cách mà những con lớn hơn đã vượt qua từ lâu; tôi dành thêm thời gian cho chúng.
+ 
+    Công việc trong các phòng heo con yên tĩnh hơn khu Fares, chậm hơn — nhưng không kém phần quan trọng. Một vấn đề sức khỏe không được phát hiện trong một nhóm ba mươi heo con có thể trở thành dịch bùng phát trong vòng hai mươi bốn giờ. Mắt tôi cần tinh trong buổi chiều ngay cả khi cơ thể muốn chậm lại.
+  </div>
+</div>
+ 
+ 
+<!-- ============================================================
+     2.6 PHASE 4 NARRATIVE
+     ============================================================ -->
+<div class="narrative-phase-header">
+  <h2>2.6 &nbsp; Phase 4: Closing the Day – Lamps, Troughs, and Handover</h2>
+  <div class="vi">Chặng 4: Kết Thúc Ngày – Đèn Sưởi, Máng Ăn Và Bàn Giao</div>
+</div>
+ 
+<div class="narrative-entry">
+  <div class="narrative-time-badge">Late Afternoon · Chiều Muộn</div>
+  <div class="narrative-en">
+    In the final phase of the day, the barn transitions. My colleagues begin washing down the vacant Fares crates — sterilising and preparing them for the pregnant sows who will transfer in from the Drægtie sector tonight. My job during this transition is the heating lamp redistribution: one of the most consequential end-of-day tasks.
+ 
+    I move through the units collecting lamps. The criteria are clear: lamps come from the boxes housing <strong>large piglets nearing weaning</strong> — they are robust enough to thermoregulate; from the <strong>medium-sized piglet</strong> boxes — they've reached a sufficient developmental stage; and from boxes where the piglets have hit the threshold of <strong>4 days of age</strong>.
+ 
+    But there is one absolute rule that governs every single lamp removal. I check every occupant before I touch the lamp. <strong>If a box contains a sick or compromised piglet, the lamp stays.</strong> No exception, no pragmatic override. A weak piglet without its heat source is a piglet that won't survive the night. I have never removed a lamp from a sick box, and I never will. When I'm unsure — when a piglet's status is ambiguous — I default to leaving the lamp and flagging it for review. The cost of a wrong removal is irreversible.
+ 
+    Once collected, all lamps go directly into the farrowing crates of the newest arrivals — the litters born in the last hours. These tiny animals are desperately sensitive to cold. Hypothermia is the number one killer of neonatal piglets, and the heating lamp is the most direct intervention I have. I position each one carefully, checking the height, checking the temperature gradient across the box, making sure every piglet has access to warmth without being overheated.
+ 
+    With the lamps in place, I move through the troughs. I scoop every one clean — no residue, no spoiled feed left in any machine. Then I walk the Fares unit one final time, a slow, deliberate sweep of every crate, every box. I check the A-sows and administer the last Oxytobel doses of the shift. I complete the log. I sign off. The barn is handed over to the next shift in the condition I'd want to receive it: everything documented, every animal assessed, every lamp where it needs to be.
+ 
+    I strip off my gloves in the doorway. Outside, the light has moved from afternoon to early evening. The rotation clock ticks on — two standard weeks before the next seven-day stretch. But tonight, that's someone else's mathematics. I did what the morning asked of me.
+  </div>
+  <div class="narrative-vi">
+    Trong giai đoạn cuối của ngày, chuồng chuyển đổi. Đồng nghiệp của tôi bắt đầu rửa các ô Fares trống — khử trùng và chuẩn bị cho những heo bầu sẽ chuyển vào từ khu Drægtie tối nay. Công việc của tôi trong quá trình chuyển đổi này là điều phối lại đèn sưởi: một trong những nhiệm vụ cuối ngày có hậu quả lớn nhất.
+ 
+    Tôi đi qua các khu gom đèn. Tiêu chí rõ ràng: đèn lấy từ các ô nuôi <strong>heo con cỡ lớn sắp cai sữa</strong> — chúng đã đủ mạnh để tự điều tiết thân nhiệt; từ các ô <strong>heo con cỡ trung bình</strong> — chúng đã đạt giai đoạn phát triển đủ; và từ các ô nơi heo con đã đạt ngưỡng <strong>4 ngày tuổi</strong>.
+ 
+    Nhưng có một quy tắc tuyệt đối chi phối mỗi lần lấy đèn. Tôi kiểm tra mọi con vật trong ô trước khi chạm vào đèn. <strong>Nếu ô có heo con đang ốm hay sức khỏe không ổn định, đèn ở lại.</strong> Không có ngoại lệ, không có ưu tiên thực dụng. Heo con yếu không có nguồn nhiệt là heo con sẽ không sống qua đêm. Tôi chưa bao giờ lấy đèn từ ô có heo bệnh, và tôi sẽ không bao giờ làm vậy. Khi không chắc chắn — khi tình trạng của heo con mơ hồ — tôi mặc định để lại đèn và đánh dấu để xem xét. Chi phí của một lần lấy sai là không thể phục hồi.
+ 
+    Sau khi gom xong, tất cả đèn đi thẳng vào các ô đẻ của những con mới nhất — những ổ được sinh ra trong vài giờ qua. Những con vật nhỏ bé này cực kỳ nhạy cảm với lạnh. Hạ thân nhiệt là kẻ giết người số một của heo con sơ sinh, và đèn sưởi là can thiệp trực tiếp nhất tôi có. Tôi đặt mỗi cái cẩn thận, kiểm tra chiều cao, kiểm tra gradient nhiệt độ trong ô, đảm bảo mỗi heo con có thể tiếp cận hơi ấm mà không bị quá nóng.
+ 
+    Với đèn đã lắp, tôi đi qua các máng ăn. Tôi múc sạch từng cái — không còn cặn, không còn thức ăn hỏng trong bất kỳ máng nào. Sau đó tôi đi qua khu Fares lần cuối, một cuộc quét chậm rãi, có chủ đích qua mỗi ô chuồng. Tôi kiểm tra heo A sow và tiêm những liều Oxytobel cuối cùng của ca. Tôi hoàn thành sổ ghi chép. Tôi ký bàn giao. Chuồng được giao lại cho ca tiếp theo trong tình trạng tôi muốn nhận: mọi thứ được ghi chép, mọi con vật được đánh giá, mọi đèn ở đúng vị trí.
+ 
+    Tôi tháo găng tay ở cửa ra. Bên ngoài, ánh sáng đã chuyển từ chiều sang tối sớm. Đồng hồ xoay vòng tiếp tục chạy — hai tuần bình thường trước đợt bảy ngày tiếp theo. Nhưng tối nay, đó là bài toán của người khác. Tôi đã làm những gì buổi sáng yêu cầu.
+  </div>
+</div>
+ 
+ 
+<!-- ============================================================
+     2.7 MONDAY TAIL DOCKING
+     ============================================================ -->
+<div class="narrative-phase-header">
+  <h2>2.7 &nbsp; Monday Special: The Tail Docking Ritual</h2>
+  <div class="vi">Đặc Biệt Thứ 2: Nghi Thức Cắt Đuôi</div>
+</div>
+ 
+<div class="narrative-entry">
+  <div class="narrative-time-badge">Every Monday · Thứ 2 Hàng Tuần</div>
+  <div class="narrative-en">
+    On Mondays, before I begin the end-of-shift lamp redistribution, there is one additional protocol woven into the afternoon: the weekly tail docking procedure. Every Monday, we identify and process all piglets that have reached exactly 5 days of age.
+ 
+    The sequence matters and cannot be reordered. First, the piglets receive their medicated milk — the nutritional supplement drink that prepares them. Then, each eligible piglet receives an injection of <strong>Viloferon</strong>, the iron supplement that supports red blood cell development and prevents anaemia in the critical first weeks of life. Only after these steps — the milk, the iron — does the tail docking proceed.
+ 
+    This order is not arbitrary. The milk settles the animals, making them easier to handle. The Viloferon must be administered before any physical intervention to ensure consistent dosing. And the docking itself, done cleanly with the proper equipment, is the last step. I move through the eligible litters methodically, one at a time, making sure no animal is missed.
+ 
+    Any piglets that couldn't be processed on Monday — perhaps born at the edge of the five-day window, or part of a litter that needed to be held back for health reasons — are caught up on Wednesday and Thursday. The follow-up runs ensure that the entire cohort receives the protocol. There are no exceptions in the documentation, and there are no exceptions in the treatment.
+ 
+    By the time the Monday docking run is complete and the lamps are redistributed and the troughs are clean and the A-sows have received their final Oxytobel of the day, the barn is quiet in a way that feels earned. I walk out knowing that every animal under my care today received what it needed — no more, no less, and always in the right order.
+  </div>
+  <div class="narrative-vi">
+    Vào Thứ 2, trước khi tôi bắt đầu điều phối đèn cuối ca, có một quy trình bổ sung được đan xen vào buổi chiều: quy trình cắt đuôi hàng tuần. Mỗi Thứ 2, chúng tôi xác định và xử lý tất cả heo con đã đủ đúng 5 ngày tuổi.
+ 
+    Trình tự quan trọng và không thể đảo ngược. Đầu tiên, heo con nhận sữa có thuốc — thức uống bổ sung dinh dưỡng chuẩn bị cho chúng. Sau đó, mỗi heo con đủ điều kiện nhận một mũi tiêm <strong>Viloferon</strong>, bổ sung sắt hỗ trợ phát triển hồng cầu và ngăn ngừa thiếu máu trong những tuần đầu quan trọng của cuộc đời. Chỉ sau những bước này — sữa, sắt — việc cắt đuôi mới tiến hành.
+ 
+    Thứ tự này không phải ngẫu nhiên. Sữa làm con vật ổn định, dễ xử lý hơn. Viloferon phải được tiêm trước bất kỳ can thiệp vật lý nào để đảm bảo liều lượng nhất quán. Và bản thân việc cắt đuôi, được thực hiện gọn gàng bằng dụng cụ thích hợp, là bước cuối cùng. Tôi đi qua các ổ đủ điều kiện có hệ thống, từng ổ một, đảm bảo không con vật nào bị bỏ sót.
+ 
+    Những heo con không thể xử lý vào Thứ 2 — có lẽ sinh ra ở ranh giới năm ngày tuổi, hoặc thuộc ổ cần giữ lại vì lý do sức khỏe — được bổ sung vào Thứ 4 và Thứ 5. Các đợt theo dõi đảm bảo toàn bộ nhóm nhận được quy trình. Không có ngoại lệ trong tài liệu, và không có ngoại lệ trong điều trị.
+ 
+    Đến lúc đợt cắt đuôi Thứ 2 hoàn thành và đèn đã được điều phối lại và máng ăn đã sạch và heo A sow đã nhận Oxytobel cuối cùng của ngày, chuồng yên tĩnh theo cách cảm thấy xứng đáng. Tôi bước ra ngoài biết rằng mọi con vật trong sự chăm sóc của tôi hôm nay đã nhận được những gì nó cần — không nhiều hơn, không ít hơn, và luôn luôn theo đúng thứ tự.
+  </div>
+</div>
+ 
+ 
+<!-- ============================================================
+     2.8 REFLECTION
+     ============================================================ -->
+<div class="narrative-phase-header">
+  <h2>2.8 &nbsp; Reflection: The Weight of the Rotation Week</h2>
+  <div class="vi">Suy Ngẫm: Gánh Nặng Của Tuần Xoay Vòng</div>
+</div>
+ 
+<div class="narrative-entry">
+  <div class="narrative-time-badge">End of Shift Reflection · Suy Ngẫm Cuối Ca</div>
+  <div class="narrative-en">
+    People sometimes ask what this job is like. I tell them it is a job governed entirely by rhythm and obligation — the rhythm of animal biology, and the obligation to meet it, every single day, every thirty to forty-five minutes in the Fares unit, every Monday with the docking protocol, every third week with the seven-day rotation.
+ 
+    The rotation week is its own category of difficulty. When the calendar turns to that third week and the schedule extends from five days to seven — Monday through Sunday, no pause — you feel it in your body by Wednesday. By Sunday, you are operating on a form of professional autopilot that is still precise, still careful, still correct, but that costs more than a standard shift ever does. The two weeks of standard schedule that follow are not a holiday; they are recovery. And then the clock resets.
+ 
+    What carries you through — what has always carried me through — is the non-negotiable nature of the work. The sow in labour at 5:15 in the morning does not care whether it is your seventh consecutive day. The newborn piglet at the edge of hypothermia does not pause for your fatigue. The A-sow needs her Oxytobel — within the constraints of her health status, always within those constraints — whether you slept well or not. And so you learn to stop negotiating with tiredness, and start simply working within it.
+ 
+    That is the job. I wouldn't trade it.
+  </div>
+  <div class="narrative-vi">
+    Người ta đôi khi hỏi công việc này như thế nào. Tôi nói với họ rằng đây là công việc được chi phối hoàn toàn bởi nhịp điệu và nghĩa vụ — nhịp điệu sinh học động vật, và nghĩa vụ đáp ứng nó, mỗi ngày, cứ ba mươi đến bốn mươi lăm phút trong khu Fares, mỗi Thứ 2 với quy trình cắt đuôi, cứ ba tuần với tuần xoay vòng bảy ngày.
+ 
+    Tuần xoay vòng là loại khó khăn riêng của nó. Khi lịch chuyển sang tuần thứ ba và lịch kéo dài từ năm ngày thành bảy — từ Thứ 2 đến Chủ Nhật, không nghỉ — bạn cảm nhận nó trong cơ thể vào Thứ 4. Đến Chủ Nhật, bạn đang vận hành theo một dạng phi công tự động chuyên nghiệp vẫn chính xác, vẫn cẩn thận, vẫn đúng, nhưng tốn kém hơn bất kỳ ca bình thường nào. Hai tuần lịch tiêu chuẩn tiếp theo không phải là kỳ nghỉ; chúng là sự phục hồi. Và rồi đồng hồ đặt lại.
+ 
+    Điều duy trì bạn — điều luôn duy trì tôi — là bản chất không thể thương lượng của công việc. Con heo đang đẻ lúc 5:15 sáng không quan tâm đây là ngày thứ bảy liên tiếp của bạn. Con heo con sơ sinh đang ở ranh giới hạ thân nhiệt không tạm dừng vì sự mệt mỏi của bạn. Heo A sow cần Oxytobel của nó — trong giới hạn tình trạng sức khỏe của nó, luôn luôn trong những giới hạn đó — dù bạn ngủ ngon hay không. Và vì vậy bạn học cách ngừng thương lượng với sự mệt mỏi, và bắt đầu đơn giản làm việc trong đó.
+ 
+    Đó là công việc này. Tôi sẽ không đổi nó lấy thứ khác.
+  </div>
+</div>
+ 
+</div>
+<!-- /narrative-section -->
+ 
+ 
+<!-- ============================================================
+     DOCUMENT FOOTER
+     ============================================================ -->
+<div class="doc-footer">
+  <strong style="color:var(--white);">Swine Farm Operational Procedures Manual</strong>
+  &nbsp;·&nbsp; Bilingual EN / VI &nbsp;·&nbsp;
+  Sectors: Løbe · Drægtie · Polte · Fares
+  &nbsp;·&nbsp;
+  Medications: Oxytobel · Melovem · Trymoc · Neuton · Viloferon
+  <br/>
+  <span style="color:#80cbc4;">For internal use only. All protocols subject to veterinary and management approval.</span>
+  <br/>
+  <em style="color:#80cbc4;">Tài liệu nội bộ. Mọi quy trình cần được phê duyệt của bác sĩ thú y và ban quản lý.</em>
+</div>
+ 
+</div>
+<!-- /document-wrapper -->
+</body>
+</html>

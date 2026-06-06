@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 2 Vocabulary – Travel & Transport | B2 Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2C5E7A;
+  --primary-light: #EBF3F7;
+  --primary-mid: #5294B3;
+  --primary-dark: #163344;
+  --success: #2E9E68;
+  --success-light: #EEF9F3;
+  --error: #E8344A;
+  --ink: #191B1F;
+  --paper: #F9FAFB;
+  --surface: #FFFFFF;
+  --muted: #64748B;
+  --line: #E2E8F0;
+  --shadow: rgba(0,0,0,0.03);
+  --shadow-hover: rgba(44,94,122,0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+/* ── HERO ── */
+header {
+  background: var(--ink);
+  color: #fff;
+  text-align: center;
+  padding: 72px 24px 64px;
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 60% 60% at 20% 80%, rgba(44,94,122,0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(46,158,104,0.20) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary-mid);
+  border: 1px solid rgba(82,148,179,0.4);
+  border-radius: 2px;
+  padding: 5px 14px;
+  margin-bottom: 28px;
+  position: relative;
+}
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  position: relative;
+}
+.hero-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* ── LAYOUT ── */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+
+/* ── SECTION TITLES ── */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin: 56px 0 24px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 1.4em;
+  background: linear-gradient(180deg, var(--primary-mid), var(--success));
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── REFERENCE CARDS ── */
+.reference-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 12px var(--shadow);
+  transition: box-shadow 0.25s;
+}
+.reference-card:hover { box-shadow: 0 6px 24px var(--shadow-hover); }
+
+.card-header {
+  background: var(--primary-light);
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+.card-header .card-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-mid);
+  background: rgba(82,148,179,0.12);
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-left: auto;
+}
+
+/* ── TABLES ── */
+.ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.ref-table th {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.ref-table td {
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.ref-table tr:last-child td { border-bottom: none; }
+.ref-table tr:nth-child(even) td { background: #fafcfd; }
+.ref-table td strong { color: var(--primary-dark); font-weight: 600; }
+
+.translation {
+  display: inline-block;
+  font-size: 0.83rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 2px;
+}
+td .translation { display: block; }
+
+/* Vocab contrast grid */
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+  padding: 20px;
+}
+.vocab-chip {
+  background: var(--primary-light);
+  border: 1px solid rgba(82,148,179,0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+}
+.vocab-chip .en { font-weight: 600; color: var(--primary-dark); }
+.vocab-chip .vi { font-size: 0.78rem; color: var(--muted); font-style: italic; margin-top: 2px; }
+
+/* ── EXERCISE CARDS ── */
+.exercise-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 16px var(--shadow);
+  transition: box-shadow 0.25s;
+}
+.exercise-card:hover { box-shadow: 0 6px 28px var(--shadow-hover); }
+
+.ex-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(135deg, #fdfeff 0%, var(--primary-light) 100%);
+}
+.ex-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  border: 2px solid var(--primary-mid);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ex-instruction {
+  padding-top: 4px;
+}
+.ex-instruction strong {
+  font-size: 1.05rem;
+  color: var(--primary-dark);
+  display: block;
+  margin-bottom: 3px;
+}
+.ex-instruction .vi-instruction {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.ex-body { padding: 24px; }
+
+/* Multiple choice items */
+.mc-item {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed var(--line);
+}
+.mc-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.mc-q {
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.mc-q .q-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--primary-mid);
+  background: var(--primary-light);
+  padding: 1px 7px;
+  border-radius: 3px;
+  margin-right: 6px;
+}
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.93rem;
+  cursor: default;
+  transition: background 0.2s;
+}
+.option:hover { background: var(--primary-light); }
+.opt-letter {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--primary-mid);
+  background: var(--primary-light);
+  border-radius: 4px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* B Circle items */
+.circle-item {
+  margin-bottom: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 0.97rem;
+}
+.circle-item .q-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--primary-mid);
+  background: var(--primary-light);
+  padding: 1px 7px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.word-choice {
+  font-weight: 600;
+  color: var(--primary-dark);
+  border-bottom: 2px dotted var(--primary-mid);
+  padding: 0 2px;
+}
+.word-choice.alt { color: var(--muted); font-weight: 400; }
+
+/* Fill-in-blank items */
+.blank-item {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  flex-wrap: wrap;
+}
+.blank-box {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--primary-mid);
+  background: var(--primary-light);
+  border: 1.5px dashed var(--primary-mid);
+  border-radius: 5px;
+  padding: 2px 18px;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+}
+
+/* Word formation / sentence items */
+.sentence-item {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.97rem;
+  line-height: 1.7;
+}
+.word-cap {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--primary-dark);
+  background: rgba(44,94,122,0.10);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Wordbox for C exercise */
+.wordbox {
+  background: var(--primary-light);
+  border: 1px solid rgba(82,148,179,0.3);
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.88rem;
+  color: var(--primary-dark);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+.wordbox span {
+  padding: 1px 0;
+  border-bottom: 1.5px solid var(--primary-mid);
+}
+
+/* ── ANSWER ACCORDION ── */
+.answer-accordion {
+  border-top: 1px solid var(--line);
+  margin-top: 0;
+}
+.answer-accordion > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 14px 24px;
+  background: #f8fdf9;
+  border-radius: 0 0 13px 13px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--success);
+  list-style: none;
+  user-select: none;
+  transition: background 0.2s;
+}
+.answer-accordion > summary::-webkit-details-marker { display: none; }
+.answer-accordion > summary::after {
+  content: '▼';
+  font-size: 0.65rem;
+  transition: transform 0.25s;
+  color: var(--success);
+}
+.answer-accordion[open] > summary::after { transform: rotate(180deg); }
+.answer-accordion[open] > summary { background: var(--success-light); border-radius: 0; }
+
+.answer-body {
+  padding: 24px;
+  background: var(--success-light);
+  display: grid;
+  gap: 18px;
+}
+.answer-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.ans-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--success);
+  background: rgba(46,158,104,0.12);
+  border-radius: 4px;
+  padding: 2px 8px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.ans-content { flex: 1; }
+.ans-word {
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  color: var(--success);
+  font-size: 1rem;
+}
+.ans-explain {
+  font-size: 0.88rem;
+  color: var(--ink);
+  margin-top: 4px;
+  line-height: 1.6;
+}
+.ans-vi {
+  font-size: 0.83rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 3px;
+}
+
+/* ── DARK PANEL – Exercise G ── */
+.stative-block {
+  background: var(--ink);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+}
+.stative-accent {
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-mid), var(--success));
+}
+.stative-header {
+  padding: 24px 28px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.stative-header .ex-badge-dark {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--primary-mid);
+  background: rgba(82,148,179,0.15);
+  border: 2px solid var(--primary-mid);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+  vertical-align: middle;
+}
+.stative-header h3 {
+  display: inline;
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+.stative-header p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 8px;
+  font-style: italic;
+}
+.story-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: #fff;
+  text-align: center;
+  padding: 20px 28px 4px;
+  font-style: italic;
+}
+.story-lines {
+  padding: 16px 28px 24px;
+  display: grid;
+  gap: 6px;
+}
+.story-line {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.65;
+}
+.line-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--primary-mid);
+  text-align: right;
+}
+.stative-answers {
+  padding: 0 28px 28px;
+}
+.stative-answers-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--success);
+  margin-bottom: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.extra-word-grid {
+  display: grid;
+  gap: 12px;
+}
+.extra-word-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: grid;
+  grid-template-columns: 28px auto 1fr;
+  gap: 10px;
+  align-items: start;
+}
+.ew-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--primary-mid);
+  text-align: right;
+  padding-top: 1px;
+}
+.ew-word {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ff8a8a;
+  background: rgba(232,52,74,0.15);
+  border-radius: 4px;
+  padding: 1px 8px;
+  white-space: nowrap;
+}
+.ew-explain {
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.55;
+}
+.ew-vi {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.38);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .options-grid { grid-template-columns: 1fr; }
+  .ex-header { gap: 12px; }
+  .extra-word-item { grid-template-columns: 24px auto 1fr; gap: 8px; }
+  .vocab-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<header>
+  <div class="hero-badge">B2 Upper-Intermediate &nbsp;|&nbsp; Bilingual Study Guide</div>
+  <h1>Unit 2 Vocabulary</h1>
+  <p class="hero-sub">Travel &amp; Transport</p>
+</header>
+
+<!-- ══════════ MAIN ══════════ -->
+<main>
+
+  <!-- ─── TOPIC VOCABULARY IN CONTRAST ─── -->
+  <h2 class="section-title">Topic Vocabulary in Contrast</h2>
+  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:20px;">See page 186 for full definitions. <em>(Xem trang 186 để biết định nghĩa đầy đủ.)</em></p>
+
+  <div class="reference-card">
+    <div class="card-header">
+      <h3>Easily Confused Word Pairs / Cụm từ dễ nhầm lẫn</h3>
+      <span class="card-badge">Reference</span>
+    </div>
+    <div class="vocab-grid">
+      <div class="vocab-chip"><div class="en">voyage / journey / trip</div><div class="vi">chuyến đi dài / hành trình / chuyến đi ngắn</div></div>
+      <div class="vocab-chip"><div class="en">travel / excursion</div><div class="vi">du lịch / chuyến tham quan</div></div>
+      <div class="vocab-chip"><div class="en">fare / ticket / fee</div><div class="vi">giá vé / vé / lệ phí</div></div>
+      <div class="vocab-chip"><div class="en">live / stay</div><div class="vi">sống / ở lại (tạm thời)</div></div>
+      <div class="vocab-chip"><div class="en">view / sight</div><div class="vi">quang cảnh / cảnh đẹp / danh lam</div></div>
+      <div class="vocab-chip"><div class="en">miss / lose</div><div class="vi">nhỡ (xe) / mất (đồ vật)</div></div>
+      <div class="vocab-chip"><div class="en">border / edge / line</div><div class="vi">biên giới / mép, bờ / đường kẻ</div></div>
+      <div class="vocab-chip"><div class="en">world / earth</div><div class="vi">thế giới / Trái Đất</div></div>
+      <div class="vocab-chip"><div class="en">take / bring / go</div><div class="vi">đưa (đi xa người nói) / mang (lại gần) / đi</div></div>
+      <div class="vocab-chip"><div class="en">length / distance</div><div class="vi">chiều dài / khoảng cách</div></div>
+      <div class="vocab-chip"><div class="en">area / territory</div><div class="vi">khu vực / lãnh thổ</div></div>
+      <div class="vocab-chip"><div class="en">book / keep</div><div class="vi">đặt trước / giữ chỗ</div></div>
+      <div class="vocab-chip"><div class="en">guide / lead</div><div class="vi">hướng dẫn / dẫn đầu</div></div>
+      <div class="vocab-chip"><div class="en">season / period</div><div class="vi">mùa / giai đoạn</div></div>
+      <div class="vocab-chip"><div class="en">arrive / reach</div><div class="vi">đến nơi / tới đích</div></div>
+      <div class="vocab-chip"><div class="en">native / home</div><div class="vi">bản địa / quê nhà</div></div>
+    </div>
+  </div>
+
+  <!-- ─── PHRASAL VERBS ─── -->
+  <h2 class="section-title">Phrasal Verbs</h2>
+
+  <div class="reference-card">
+    <div class="card-header">
+      <h3>Travel Phrasal Verbs / Cụm động từ về Du lịch</h3>
+      <span class="card-badge">14 verbs</span>
+    </div>
+    <table class="ref-table">
+      <thead>
+        <tr><th>Phrasal Verb</th><th>Definition &amp; Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>catch up with</strong><span class="translation">đuổi kịp, bắt kịp</span></td>
+          <td>Reach the same point/level as someone or something.<span class="translation">Đạt tới mức độ hoặc điểm tương đương với ai/cái gì.</span></td>
+        </tr>
+        <tr>
+          <td><strong>check in</strong><span class="translation">làm thủ tục nhận phòng / lên máy bay</span></td>
+          <td>Register at a hotel or an airport.<span class="translation">Đăng ký nhận phòng khách sạn hoặc làm thủ tục tại sân bay.</span></td>
+        </tr>
+        <tr>
+          <td><strong>check out</strong><span class="translation">trả phòng; điều tra</span></td>
+          <td>Leave a hotel; investigate.<span class="translation">Trả phòng khách sạn; tìm hiểu / kiểm tra.</span></td>
+        </tr>
+        <tr>
+          <td><strong>drop off</strong><span class="translation">trả khách; ngủ gật</span></td>
+          <td>Let someone get out of a vehicle; fall asleep.<span class="translation">Cho ai xuống xe; buồn ngủ rồi ngủ.</span></td>
+        </tr>
+        <tr>
+          <td><strong>get back</strong><span class="translation">trở về</span></td>
+          <td>Return from a place.<span class="translation">Quay trở lại từ một nơi nào đó.</span></td>
+        </tr>
+        <tr>
+          <td><strong>go away</strong><span class="translation">đi nghỉ; đi khỏi</span></td>
+          <td>Go on holiday.<span class="translation">Đi nghỉ dưỡng, xa nhà.</span></td>
+        </tr>
+        <tr>
+          <td><strong>keep up with</strong><span class="translation">theo kịp</span></td>
+          <td>Stay at the same point/level as.<span class="translation">Duy trì tốc độ hoặc mức độ tương đương.</span></td>
+        </tr>
+        <tr>
+          <td><strong>make for</strong><span class="translation">đi về phía; hướng đến</span></td>
+          <td>Go in the direction of.<span class="translation">Di chuyển theo hướng của một nơi nào đó.</span></td>
+        </tr>
+        <tr>
+          <td><strong>pick up</strong><span class="translation">đón (bằng xe)</span></td>
+          <td>Stop in a vehicle to give someone a lift.<span class="translation">Dừng xe để đón ai đó.</span></td>
+        </tr>
+        <tr>
+          <td><strong>pull in</strong><span class="translation">dừng xe vào lề</span></td>
+          <td>Stop by the side of the road in a car.<span class="translation">Dừng xe sát lề đường.</span></td>
+        </tr>
+        <tr>
+          <td><strong>run over</strong><span class="translation">cán qua (bằng xe)</span></td>
+          <td>Hit with a car.<span class="translation">Đâm hoặc cán ai/vật gì bằng xe.</span></td>
+        </tr>
+        <tr>
+          <td><strong>see off</strong><span class="translation">tiễn (ai)</span></td>
+          <td>Go to a train station, etc, to see someone leave.<span class="translation">Đến ga/sân bay để tiễn ai đó.</span></td>
+        </tr>
+        <tr>
+          <td><strong>set out / set off</strong><span class="translation">khởi hành</span></td>
+          <td>Start a journey.<span class="translation">Bắt đầu một chuyến đi.</span></td>
+        </tr>
+        <tr>
+          <td><strong>take off</strong><span class="translation">cất cánh</span></td>
+          <td>Leave the ground (plane).<span class="translation">Rời mặt đất (máy bay cất cánh).</span></td>
+        </tr>
+        <tr>
+          <td><strong>turn round</strong><span class="translation">quay đầu lại</span></td>
+          <td>Go back in the opposite direction.<span class="translation">Quay ngược lại hướng đã đi.</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─── PHRASES & COLLOCATIONS ─── -->
+  <h2 class="section-title">Phrases &amp; Collocations</h2>
+
+  <div class="reference-card">
+    <div class="card-header">
+      <h3>Key Collocations / Cụm từ cố định</h3>
+      <span class="card-badge">14 entries</span>
+    </div>
+    <table class="ref-table">
+      <thead>
+        <tr><th>Key Word</th><th>Common Collocations</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>accident</strong><span class="translation">tai nạn</span></td>
+          <td>have an accident; be (involved) in an accident; do sth by accident<span class="translation">gặp tai nạn; liên quan đến tai nạn; vô tình làm gì</span></td>
+        </tr>
+        <tr>
+          <td><strong>advance</strong><span class="translation">trước, sớm</span></td>
+          <td>in advance; advance to/towards a place<span class="translation">đặt/mua trước; tiến về phía</span></td>
+        </tr>
+        <tr>
+          <td><strong>ahead</strong><span class="translation">phía trước</span></td>
+          <td>go straight ahead; go ahead; be ahead of sth/sb<span class="translation">đi thẳng; cứ tiếp tục; vượt trước ai/gì</span></td>
+        </tr>
+        <tr>
+          <td><strong>direction</strong><span class="translation">hướng, phương hướng</span></td>
+          <td>a change of direction; in the direction of sth; in this/that direction<span class="translation">thay đổi hướng; theo hướng của cái gì; theo hướng này/đó</span></td>
+        </tr>
+        <tr>
+          <td><strong>head</strong><span class="translation">đầu; hướng đến</span></td>
+          <td>off the top of your head; head for/towards a place; head over heels<span class="translation">nói ngay không cần suy nghĩ; hướng đến nơi nào; yêu đến phát điên</span></td>
+        </tr>
+        <tr>
+          <td><strong>holiday</strong><span class="translation">kỳ nghỉ</span></td>
+          <td>go/be on holiday; have/take a holiday; bank holiday<span class="translation">đi/đang nghỉ; có kỳ nghỉ; ngày lễ ngân hàng</span></td>
+        </tr>
+        <tr>
+          <td><strong>left</strong><span class="translation">trái</span></td>
+          <td>go/turn left; on the left; on the left-hand side; left-handed<span class="translation">rẽ trái; phía bên trái; thuận tay trái</span></td>
+        </tr>
+        <tr>
+          <td><strong>route</strong><span class="translation">tuyến đường, lộ trình</span></td>
+          <td>plan your/a route; take a route<span class="translation">lên kế hoạch lộ trình; đi theo tuyến đường</span></td>
+        </tr>
+        <tr>
+          <td><strong>sights</strong><span class="translation">danh lam thắng cảnh</span></td>
+          <td>see the sights<span class="translation">tham quan danh lam thắng cảnh</span></td>
+        </tr>
+        <tr>
+          <td><strong>sightseeing</strong><span class="translation">tham quan</span></td>
+          <td>go sightseeing<span class="translation">đi tham quan</span></td>
+        </tr>
+        <tr>
+          <td><strong>speed</strong><span class="translation">tốc độ</span></td>
+          <td>at (high/full) speed; a burst of speed; speed limit<span class="translation">với tốc độ cao/tối đa; tốc độ tăng vọt; giới hạn tốc độ</span></td>
+        </tr>
+        <tr>
+          <td><strong>tour</strong><span class="translation">chuyến tham quan</span></td>
+          <td>go on/take a tour; tour a place; tour guide<span class="translation">đi tham quan; tham quan một nơi; hướng dẫn viên</span></td>
+        </tr>
+        <tr>
+          <td><strong>trip</strong><span class="translation">chuyến đi</span></td>
+          <td>business trip; school trip; go on a trip; take a trip<span class="translation">chuyến đi công tác; chuyến đi học; thực hiện chuyến đi</span></td>
+        </tr>
+        <tr>
+          <td><strong>way</strong><span class="translation">đường; cách</span></td>
+          <td>lose/make/find your way; in a way; on the way; go all the way<span class="translation">lạc đường / tìm đường; theo một nghĩa nào đó; trên đường; đi suốt đường đến đích</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─── WORD PATTERNS ─── -->
+  <h2 class="section-title">Word Patterns</h2>
+
+  <div class="reference-card">
+    <div class="card-header">
+      <h3>Verb &amp; Adjective Patterns / Cấu trúc từ</h3>
+      <span class="card-badge">Reference</span>
+    </div>
+    <table class="ref-table">
+      <thead>
+        <tr><th>Word</th><th>Pattern(s)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>afraid</strong><span class="translation">sợ</span></td>
+          <td>afraid of sth/sb/doing; afraid to do<span class="translation">sợ cái gì/ai/làm gì; sợ không dám làm</span></td>
+        </tr>
+        <tr>
+          <td><strong>appear</strong><span class="translation">có vẻ</span></td>
+          <td>appear to be<span class="translation">có vẻ như là</span></td>
+        </tr>
+        <tr>
+          <td><strong>arrange</strong><span class="translation">sắp xếp</span></td>
+          <td>arrange sth (with sb); arrange for sb to do<span class="translation">sắp xếp điều gì; sắp xếp để ai làm gì</span></td>
+        </tr>
+        <tr>
+          <td><strong>arrive</strong><span class="translation">đến</span></td>
+          <td>arrive in/at a place; arrive here/there<span class="translation">đến (thành phố/địa điểm); đến đây/đó</span></td>
+        </tr>
+        <tr>
+          <td><strong>continue</strong><span class="translation">tiếp tục</span></td>
+          <td>continue sth/doing; continue to do; continue with sth<span class="translation">tiếp tục cái gì/làm gì; tiếp tục làm; tiếp tục với cái gì</span></td>
+        </tr>
+        <tr>
+          <td><strong>differ</strong><span class="translation">khác</span></td>
+          <td>differ from sth/sb<span class="translation">khác với cái gì/ai</span></td>
+        </tr>
+        <tr>
+          <td><strong>dream</strong><span class="translation">mơ</span></td>
+          <td>dream about/of sth/sb/doing<span class="translation">mơ về cái gì/ai/làm gì</span></td>
+        </tr>
+        <tr>
+          <td><strong>invite</strong><span class="translation">mời</span></td>
+          <td>invite sb to do<span class="translation">mời ai làm gì</span></td>
+        </tr>
+        <tr>
+          <td><strong>keen</strong><span class="translation">hăng hái, thích</span></td>
+          <td>keen to do; keen on sth/sb/doing<span class="translation">háo hức làm gì; thích cái gì/ai/làm gì</span></td>
+        </tr>
+        <tr>
+          <td><strong>live</strong><span class="translation">sống, ở</span></td>
+          <td>live in/at a place; live on/for sth; live here/there<span class="translation">sống ở (thành phố/địa chỉ); sống nhờ/vì cái gì</span></td>
+        </tr>
+        <tr>
+          <td><strong>regret</strong><span class="translation">hối tiếc</span></td>
+          <td>regret (not) doing; regret sth; regret to tell/inform you<span class="translation">hối tiếc (đã không) làm; lấy làm tiếc thông báo</span></td>
+        </tr>
+        <tr>
+          <td><strong>think</strong><span class="translation">nghĩ</span></td>
+          <td>think of/about sth/sb/doing<span class="translation">nghĩ đến/về cái gì/ai</span></td>
+        </tr>
+        <tr>
+          <td><strong>write</strong><span class="translation">viết</span></td>
+          <td>write about sth/sb/doing; write (sth) (to sb); write sb sth; write sth down<span class="translation">viết về; viết cho ai; ghi lại</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─── WORD FORMATION ─── -->
+  <h2 class="section-title">Word Formation</h2>
+
+  <div class="reference-card">
+    <div class="card-header">
+      <h3>Derivatives &amp; Related Forms / Từ phái sinh</h3>
+      <span class="card-badge">Reference</span>
+    </div>
+    <table class="ref-table">
+      <thead>
+        <tr><th>Base Word</th><th>Derivatives</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>arrange</strong><span class="translation">sắp xếp</span></td>
+          <td>rearrange <span class="translation">(sắp xếp lại)</span>, arrangement <span class="translation">(sự sắp xếp)</span></td>
+        </tr>
+        <tr>
+          <td><strong>arrive</strong><span class="translation">đến</span></td>
+          <td>arrival <span class="translation">(sự đến nơi)</span></td>
+        </tr>
+        <tr>
+          <td><strong>broad</strong><span class="translation">rộng</span></td>
+          <td>breadth <span class="translation">(bề rộng)</span>, broaden <span class="translation">(mở rộng)</span></td>
+        </tr>
+        <tr>
+          <td><strong>culture</strong><span class="translation">văn hóa</span></td>
+          <td>cultural(ly) <span class="translation">(thuộc văn hóa)</span>, (un)cultured <span class="translation">(có/không có văn hóa)</span></td>
+        </tr>
+        <tr>
+          <td><strong>differ</strong><span class="translation">khác biệt</span></td>
+          <td>different(ly) <span class="translation">(khác nhau)</span>, difference <span class="translation">(sự khác biệt)</span></td>
+        </tr>
+        <tr>
+          <td><strong>direct</strong><span class="translation">trực tiếp</span></td>
+          <td>indirect <span class="translation">(gián tiếp)</span>, direction <span class="translation">(hướng)</span>, director <span class="translation">(giám đốc)</span>, (in)directly <span class="translation">(trực tiếp/gián tiếp)</span></td>
+        </tr>
+        <tr>
+          <td><strong>distant</strong><span class="translation">xa</span></td>
+          <td>distantly <span class="translation">(từ xa)</span>, distance <span class="translation">(khoảng cách)</span></td>
+        </tr>
+        <tr>
+          <td><strong>enter</strong><span class="translation">vào</span></td>
+          <td>entrance <span class="translation">(lối vào)</span></td>
+        </tr>
+        <tr>
+          <td><strong>inhabit</strong><span class="translation">sinh sống</span></td>
+          <td>inhabitant <span class="translation">(người sinh sống)</span></td>
+        </tr>
+        <tr>
+          <td><strong>photograph</strong><span class="translation">chụp ảnh</span></td>
+          <td>photography <span class="translation">(nhiếp ảnh)</span>, photographer <span class="translation">(nhiếp ảnh gia)</span>, photographic <span class="translation">(thuộc nhiếp ảnh)</span></td>
+        </tr>
+        <tr>
+          <td><strong>recognise</strong><span class="translation">nhận ra</span></td>
+          <td>(un)recognisable <span class="translation">(có/không thể nhận ra)</span>, recognition <span class="translation">(sự nhận ra)</span></td>
+        </tr>
+        <tr>
+          <td><strong>time</strong><span class="translation">thời gian</span></td>
+          <td>timetable <span class="translation">(thời gian biểu)</span></td>
+        </tr>
+        <tr>
+          <td><strong>tour</strong><span class="translation">tham quan</span></td>
+          <td>tourism <span class="translation">(du lịch)</span>, tourist <span class="translation">(khách du lịch)</span></td>
+        </tr>
+        <tr>
+          <td><strong>world</strong><span class="translation">thế giới</span></td>
+          <td>worldwide <span class="translation">(trên toàn thế giới)</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════ EXERCISES ══════════ -->
+  <h2 class="section-title">Topic Vocabulary in Contrast – Exercises</h2>
+
+  <!-- ─── EXERCISE A ─── -->
+  <div class="exercise-card">
+    <div class="ex-header">
+      <div class="ex-badge">A</div>
+      <div class="ex-instruction">
+        <strong>Choose the correct answer.</strong>
+        <div class="vi-instruction">Chọn đáp án đúng. (Multiple choice — chọn 1 trong 4 đáp án)</div>
+      </div>
+    </div>
+    <div class="ex-body">
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">1</span>You need a passport to cross the ............. between Mexico and the United States.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> edge</div>
+          <div class="option"><span class="opt-letter">B</span> line</div>
+          <div class="option"><span class="opt-letter">C</span> border</div>
+          <div class="option"><span class="opt-letter">D</span> rim</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">2</span>The hotel where we are ............. is quite luxurious.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> living</div>
+          <div class="option"><span class="opt-letter">B</span> remaining</div>
+          <div class="option"><span class="opt-letter">C</span> existing</div>
+          <div class="option"><span class="opt-letter">D</span> staying</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">3</span>When you ............. your destination, your tour guide will meet you at the airport.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> arrive</div>
+          <div class="option"><span class="opt-letter">B</span> get</div>
+          <div class="option"><span class="opt-letter">C</span> reach</div>
+          <div class="option"><span class="opt-letter">D</span> achieve</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">4</span>It can be quite busy here during the tourist ............. .</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> season</div>
+          <div class="option"><span class="opt-letter">B</span> period</div>
+          <div class="option"><span class="opt-letter">C</span> phase</div>
+          <div class="option"><span class="opt-letter">D</span> stage</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">5</span>David ............. me to the train station every morning.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> goes</div>
+          <div class="option"><span class="opt-letter">B</span> takes</div>
+          <div class="option"><span class="opt-letter">C</span> has</div>
+          <div class="option"><span class="opt-letter">D</span> makes</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">6</span>I always enjoy our school ............. to France.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> excursion</div>
+          <div class="option"><span class="opt-letter">B</span> journey</div>
+          <div class="option"><span class="opt-letter">C</span> trip</div>
+          <div class="option"><span class="opt-letter">D</span> travel</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">7</span>Hurry up, or we'll ............. the bus!</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> avoid</div>
+          <div class="option"><span class="opt-letter">B</span> miss</div>
+          <div class="option"><span class="opt-letter">C</span> drop</div>
+          <div class="option"><span class="opt-letter">D</span> lose</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">8</span>The brochure says that the hotel has a great ............. of the sea.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> appearance</div>
+          <div class="option"><span class="opt-letter">B</span> look</div>
+          <div class="option"><span class="opt-letter">C</span> sight</div>
+          <div class="option"><span class="opt-letter">D</span> view</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">9</span>I must remember to ............. a souvenir back from Spain for my grandmother.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> go</div>
+          <div class="option"><span class="opt-letter">B</span> take</div>
+          <div class="option"><span class="opt-letter">C</span> bring</div>
+          <div class="option"><span class="opt-letter">D</span> keep</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">10</span>The ............. from London to Berlin is about 919 kilometres.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> measure</div>
+          <div class="option"><span class="opt-letter">B</span> length</div>
+          <div class="option"><span class="opt-letter">C</span> gap</div>
+          <div class="option"><span class="opt-letter">D</span> distance</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">11</span>Make sure you ............. a hotel before you come to our island, especially in the summer.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> book</div>
+          <div class="option"><span class="opt-letter">B</span> keep</div>
+          <div class="option"><span class="opt-letter">C</span> put</div>
+          <div class="option"><span class="opt-letter">D</span> take</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">12</span>I live in Barcelona, but my ............. town is Madrid.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> birth</div>
+          <div class="option"><span class="opt-letter">B</span> home</div>
+          <div class="option"><span class="opt-letter">C</span> native</div>
+          <div class="option"><span class="opt-letter">D</span> origin</div>
+        </div>
+      </div>
+
+    </div><!-- /ex-body -->
+    <details class="answer-accordion">
+      <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+      <div class="answer-body">
+        <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">C – border</div><div class="ans-explain">A <em>border</em> is the official dividing line between two countries. <em>Edge</em> = the outer part of a surface; <em>line</em> = a drawn mark; <em>rim</em> = the outer circle of a round object.</div><div class="ans-vi"><em>Border</em> = đường biên giới chính thức giữa hai quốc gia. Các lựa chọn khác không được dùng để chỉ biên giới quốc gia.</div></div></div>
+        <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">D – staying</div><div class="ans-explain"><em>Stay</em> = live somewhere temporarily (e.g. a hotel). <em>Live</em> = reside permanently. You cannot "live" at a hotel in the permanent sense.</div><div class="ans-vi"><em>Stay</em> = ở lại tạm thời (khách sạn). <em>Live</em> = sống thường xuyên tại một nơi. Khách sạn là nơi ở tạm nên dùng <em>staying</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">C – reach</div><div class="ans-explain"><em>Reach</em> takes a direct object: <em>reach your destination</em>. <em>Arrive</em> needs a preposition: <em>arrive at/in</em>. <em>Get</em> needs <em>to</em>: <em>get to</em>. <em>Achieve</em> means to accomplish a goal, not physically arrive.</div><div class="ans-vi"><em>Reach</em> có thể dùng trực tiếp với tân ngữ (reach + nơi chốn). <em>Arrive</em> cần giới từ <em>at/in</em>, nên không điền trực tiếp vào chỗ trống này.</div></div></div>
+        <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">A – season</div><div class="ans-explain"><em>Tourist season</em> is a fixed collocation meaning the time of year when most tourists visit. <em>Period</em>, <em>phase</em>, <em>stage</em> are more general and do not collocate with <em>tourist</em> in this way.</div><div class="ans-vi"><em>Tourist season</em> = mùa du lịch — cụm cố định trong tiếng Anh. <em>Period</em>, <em>phase</em>, <em>stage</em> không kết hợp tự nhiên với <em>tourist</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">B – takes</div><div class="ans-explain"><em>Take sb to a place</em> = escort or transport someone somewhere. <em>Go</em> cannot have a person as object in this sense. <em>Bring</em> implies moving toward the speaker.</div><div class="ans-vi"><em>Take sb to a place</em> = đưa ai đến nơi nào (người nói không ở đó). <em>Bring</em> = mang/đưa đến nơi người nói đang ở.</div></div></div>
+        <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">C – trip</div><div class="ans-explain"><em>School trip</em> is a fixed collocation for an educational outing. <em>Excursion</em> could work but is less common in British English for school outings. <em>Journey</em> focuses on travel itself; <em>travel</em> is uncountable.</div><div class="ans-vi"><em>School trip</em> = chuyến đi dã ngoại của trường — cụm từ cố định phổ biến. <em>Travel</em> là danh từ không đếm được nên không nói <em>a travel</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">B – miss</div><div class="ans-explain"><em>Miss the bus</em> = fail to catch/board it in time. <em>Lose</em> applies to things you no longer have possession of (e.g. keys). You cannot "lose" a bus in standard English.</div><div class="ans-vi"><em>Miss the bus</em> = nhỡ xe buýt (không kịp lên). <em>Lose</em> = mất (đồ vật), không dùng để chỉ nhỡ phương tiện.</div></div></div>
+        <div class="answer-item"><span class="ans-num">8</span><div class="ans-content"><div class="ans-word">D – view</div><div class="ans-explain"><em>View</em> = what you can see from a particular place (e.g. a room with a sea view). <em>Sight</em> = a remarkable thing worth seeing. A hotel has a <em>view</em>, not a <em>sight</em>.</div><div class="ans-vi"><em>View</em> = quang cảnh nhìn từ một nơi cụ thể. <em>Sight</em> = cảnh đẹp/danh lam. Khách sạn có <em>view</em> ra biển, không phải <em>sight</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">9</span><div class="ans-content"><div class="ans-word">C – bring</div><div class="ans-explain"><em>Bring back</em> = carry something towards the speaker's location (home). The speaker is returning home, so moving <em>towards</em> their grandmother — use <em>bring</em>. <em>Take</em> moves away from the speaker.</div><div class="ans-vi"><em>Bring back</em> = mang về (về phía người nói). Người nói đang trở về nhà nên dùng <em>bring</em>, không phải <em>take</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">10</span><div class="ans-content"><div class="ans-word">D – distance</div><div class="ans-explain"><em>Distance</em> = how far apart two places are. <em>Length</em> = the measurement of one object from end to end. The gap <em>between</em> two cities is always <em>distance</em>.</div><div class="ans-vi"><em>Distance</em> = khoảng cách giữa hai địa điểm. <em>Length</em> = chiều dài của một vật thể. Dùng <em>distance</em> khi nói đến khoảng cách giữa hai nơi.</div></div></div>
+        <div class="answer-item"><span class="ans-num">11</span><div class="ans-content"><div class="ans-word">A – book</div><div class="ans-explain"><em>Book a hotel</em> = reserve a room in advance. <em>Keep</em> can mean reserve a seat but is less common for hotels. <em>Put</em> and <em>take</em> do not collocate with hotel reservations.</div><div class="ans-vi"><em>Book</em> = đặt trước (khách sạn, vé). Đây là động từ đúng để chỉ việc đặt phòng khách sạn.</div></div></div>
+        <div class="answer-item"><span class="ans-num">12</span><div class="ans-content"><div class="ans-word">B – home</div><div class="ans-explain"><em>Home town</em> = the town where you grew up or consider your main home. <em>Native town</em> is unusual — the adjective <em>native</em> collocates with <em>land</em> or <em>language</em>, not <em>town</em>.</div><div class="ans-vi"><em>Home town</em> = quê nhà (nơi sinh ra/lớn lên). <em>Native</em> thường đi với <em>language</em> (ngôn ngữ bản địa) hoặc <em>land</em>, không phải <em>town</em>.</div></div></div>
+      </div>
+    </details>
+  </div><!-- /exercise-card A -->
+
+  <!-- ─── EXERCISE B ─── -->
+  <div class="exercise-card">
+    <div class="ex-header">
+      <div class="ex-badge">B</div>
+      <div class="ex-instruction">
+        <strong>Circle the correct word.</strong>
+        <div class="vi-instruction">Khoanh tròn từ đúng trong mỗi câu.</div>
+      </div>
+    </div>
+    <div class="ex-body">
+      <div class="circle-item"><span class="q-num">1</span>I hope to go on a trip round the <span class="word-choice">world</span> / <span class="word-choice alt">earth</span> one day.</div>
+      <div class="circle-item"><span class="q-num">2</span>You learn a lot about the local <span class="word-choice">area</span> / <span class="word-choice alt">territory</span> by speaking to local people.</div>
+      <div class="circle-item"><span class="q-num">3</span>It's good to have someone to <span class="word-choice">guide</span> / <span class="word-choice alt">lead</span> you when you are on holiday.</div>
+      <div class="circle-item"><span class="q-num">4</span>I get the train to work every day and the <span class="word-choice">fare</span> / <span class="word-choice alt">fee</span> is quite expensive.</div>
+      <div class="circle-item"><span class="q-num">5</span>Captain Cook discovered Australia on a <span class="word-choice">voyage</span> / <span class="word-choice alt">travel</span> to the Pacific.</div>
+      <div class="circle-item"><span class="q-num">6</span>Most tourist attractions in London charge an admission <span class="word-choice">fee</span> / <span class="word-choice alt">ticket</span>.</div>
+      <div class="circle-item"><span class="q-num">7</span>The sunset over Niagara Falls really is a magnificent <span class="word-choice">sight</span> / <span class="word-choice alt">look</span>.</div>
+    </div>
+    <details class="answer-accordion">
+      <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+      <div class="answer-body">
+        <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">world</div><div class="ans-explain"><em>Round the world</em> is the fixed collocation for global travel. <em>Earth</em> refers to the planet as a physical body in science contexts.</div><div class="ans-vi"><em>Round the world</em> = đi vòng quanh thế giới — cụm cố định. <em>Earth</em> chỉ hành tinh theo nghĩa khoa học.</div></div></div>
+        <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">area</div><div class="ans-explain"><em>Area</em> = a local district or region in everyday use. <em>Territory</em> = officially controlled land (political/military sense).</div><div class="ans-vi"><em>Area</em> = khu vực địa phương thông thường. <em>Territory</em> mang nghĩa chính trị/quân sự (lãnh thổ).</div></div></div>
+        <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">guide</div><div class="ans-explain"><em>Guide</em> = show someone around and explain things. <em>Lead</em> = go first, but does not imply explaining or helping tourists.</div><div class="ans-vi"><em>Guide</em> = hướng dẫn (kèm giải thích). <em>Lead</em> = đi đầu, không có nghĩa giải thích hay hỗ trợ du khách.</div></div></div>
+        <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">fare</div><div class="ans-explain"><em>Fare</em> = money paid for transport (bus, train, taxi). <em>Fee</em> = money paid for a professional service (doctor, lawyer) or entrance.</div><div class="ans-vi"><em>Fare</em> = giá vé phương tiện giao thông. <em>Fee</em> = lệ phí dịch vụ hoặc phí vào cửa.</div></div></div>
+        <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">voyage</div><div class="ans-explain"><em>Voyage</em> = a long journey by sea or in space. <em>Travel</em> is an uncountable noun and cannot follow <em>a</em>.</div><div class="ans-vi"><em>Voyage</em> = chuyến hải trình dài. <em>Travel</em> là danh từ không đếm được, không dùng <em>a travel</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">fee</div><div class="ans-explain"><em>Admission fee</em> is a fixed phrase for entrance charges. <em>Ticket</em> is the physical document; the price itself is the <em>fee</em>.</div><div class="ans-vi"><em>Admission fee</em> = phí vào cửa — cụm cố định. <em>Ticket</em> là tờ vé, còn khoản tiền được gọi là <em>fee</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">sight</div><div class="ans-explain"><em>Sight</em> = an impressive or notable scene. <em>Look</em> is a verb or informal noun (e.g. "have a look") and cannot be preceded by <em>a magnificent</em> to mean a view.</div><div class="ans-vi"><em>Sight</em> = cảnh tượng ấn tượng. <em>Look</em> là động từ hoặc danh từ thông thường, không dùng theo nghĩa "cảnh đẹp" với tính từ <em>magnificent</em>.</div></div></div>
+      </div>
+    </details>
+  </div><!-- /exercise-card B -->
+
+  <!-- ─── EXERCISE C ─── -->
+  <h2 class="section-title">Phrasal Verbs – Exercises</h2>
+
+  <div class="exercise-card">
+    <div class="ex-header">
+      <div class="ex-badge">C</div>
+      <div class="ex-instruction">
+        <strong>Complete using the correct form of the words in the box.</strong>
+        <div class="vi-instruction">Hoàn thành câu dùng dạng đúng của từ trong hộp.</div>
+      </div>
+    </div>
+    <div class="ex-body">
+      <div class="wordbox">
+        <span>catch</span><span>check</span><span>get</span><span>go</span><span>make</span><span>pick</span><span>pull</span><span>see</span>
+      </div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">1</span> Let's go to the airport to <span class="blank-box">. . .</span> Grandpa <em>off</em> when he flies back home.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">2</span> If it starts to rain, <span class="blank-box">. . .</span> <em>for</em> a nearby cave to wait for it to pass.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">3</span> We would like to remind all guests that they must <span class="blank-box">. . .</span> <em>out</em> before midday.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">4</span> Please <span class="blank-box">. . .</span> <em>in</em> and stop so that I can buy something to drink.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">5</span> Every Saturday night my dad <span class="blank-box">. . .</span> us <em>up</em> outside the cinema.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">6</span> I think the neighbours have <span class="blank-box">. . .</span> <em>away</em> for the weekend.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">7</span> John's up ahead so Greg is pedalling fast to <span class="blank-box">. . .</span> <em>up</em> with him.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">8</span> We're going on holiday tomorrow, but we'll call you when we <span class="blank-box">. . .</span> <em>back</em>.</div>
+    </div>
+    <details class="answer-accordion">
+      <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+      <div class="answer-body">
+        <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">see (off)</div><div class="ans-explain"><em>See off</em> = go to a place of departure to say goodbye to someone leaving.</div><div class="ans-vi"><em>See off</em> = tiễn ai đó tại nơi khởi hành (sân bay, ga xe…).</div></div></div>
+        <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">make (for)</div><div class="ans-explain"><em>Make for</em> = move in the direction of. The sentence requires moving towards the cave.</div><div class="ans-vi"><em>Make for</em> = đi về phía, hướng đến. Câu yêu cầu di chuyển về phía hang.</div></div></div>
+        <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">check (out)</div><div class="ans-explain"><em>Check out</em> = officially leave a hotel by handing in the key, settling the bill, etc.</div><div class="ans-vi"><em>Check out</em> = trả phòng khách sạn trước giờ quy định.</div></div></div>
+        <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">pull (in)</div><div class="ans-explain"><em>Pull in</em> = stop a vehicle by the side of the road. The context mentions stopping to buy a drink.</div><div class="ans-vi"><em>Pull in</em> = dừng xe vào lề đường để dừng lại.</div></div></div>
+        <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">picks (up)</div><div class="ans-explain"><em>Pick up</em> = collect someone by vehicle. Simple present; 3rd person singular → <em>picks</em>.</div><div class="ans-vi"><em>Pick up</em> = đón ai bằng xe. Ngôi thứ 3 số ít → <em>picks up</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">gone (away)</div><div class="ans-explain"><em>Go away</em> = leave home for a holiday. Present perfect (<em>have gone away</em>) because the neighbours are still absent.</div><div class="ans-vi"><em>Go away</em> = đi nghỉ. Dùng hiện tại hoàn thành (<em>have gone away</em>) vì hàng xóm vẫn chưa về.</div></div></div>
+        <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">catch (up)</div><div class="ans-explain"><em>Catch up with</em> = reach the same level/position as someone who is ahead.</div><div class="ans-vi"><em>Catch up with</em> = đuổi kịp ai đó đang đi trước.</div></div></div>
+        <div class="answer-item"><span class="ans-num">8</span><div class="ans-content"><div class="ans-word">get (back)</div><div class="ans-explain"><em>Get back</em> = return from somewhere. Future context → <em>get back</em> (bare form after <em>when</em> in future clauses).</div><div class="ans-vi"><em>Get back</em> = trở về. Mệnh đề thời gian với <em>when</em> dùng hiện tại đơn dù ý nghĩa tương lai.</div></div></div>
+      </div>
+    </details>
+  </div><!-- /exercise-card C -->
+
+  <!-- ─── EXERCISE D ─── -->
+  <div class="exercise-card">
+    <div class="ex-header">
+      <div class="ex-badge">D</div>
+      <div class="ex-instruction">
+        <strong>Write a phrasal verb in the correct form to replace the words in italics. Add any other words you need.</strong>
+        <div class="vi-instruction">Viết cụm động từ đúng dạng để thay thế phần in nghiêng. Thêm từ nếu cần.</div>
+      </div>
+    </div>
+    <div class="ex-body">
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">1</span> We can <em>start our journey</em> <span class="blank-box">. . .</span> towards the mountains at dawn.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">2</span> Dad fetched the luggage while Mum <em>registered</em> <span class="blank-box">. . .</span> at the hotel.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">3</span> I asked the taxi driver to <em>let me get out</em> <span class="blank-box">. . .</span> outside the train station.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">4</span> Oh, no! I've forgotten my passport! We'll have to <em>go back</em> <span class="blank-box">. . .</span> and get it!</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">5</span> The most exciting moment is when the plane <em>leaves the ground</em> <span class="blank-box">. . .</span> .</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">6</span> Stop the car! I think we've <em>hit</em> <span class="blank-box">. . .</span> a dog.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">7</span> I don't think a horse can ever <em>stay at the same speed as</em> <span class="blank-box">. . .</span> a car.</div>
+    </div>
+    <details class="answer-accordion">
+      <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+      <div class="answer-body">
+        <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">set out / set off</div><div class="ans-explain"><em>Set out</em> or <em>set off</em> = begin a journey. Both are interchangeable here.</div><div class="ans-vi"><em>Set out / set off</em> = khởi hành, bắt đầu chuyến đi. Cả hai đều được chấp nhận.</div></div></div>
+        <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">checked in</div><div class="ans-explain"><em>Check in</em> = register at a hotel. Past tense (<em>checked in</em>) to match <em>fetched</em>.</div><div class="ans-vi"><em>Check in</em> = làm thủ tục nhận phòng. Dùng quá khứ đơn <em>checked in</em> để khớp với động từ <em>fetched</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">drop me off</div><div class="ans-explain"><em>Drop off</em> = let a passenger get out of a vehicle. Add the pronoun <em>me</em> between the verb and particle.</div><div class="ans-vi"><em>Drop off</em> = trả khách xuống xe. Thêm tân ngữ <em>me</em> vào giữa động từ và trạng từ.</div></div></div>
+        <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">turn round</div><div class="ans-explain"><em>Turn round</em> = go back in the opposite direction. The context of forgetting a passport and needing to return fits perfectly.</div><div class="ans-vi"><em>Turn round</em> = quay đầu lại theo hướng ngược lại. Phù hợp với ngữ cảnh quên hộ chiếu cần quay về.</div></div></div>
+        <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">takes off</div><div class="ans-explain"><em>Take off</em> = when a plane leaves the ground. Present simple to describe a general fact.</div><div class="ans-vi"><em>Take off</em> = cất cánh (máy bay rời khỏi mặt đất). Dùng hiện tại đơn vì diễn tả sự thật chung.</div></div></div>
+        <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">run over</div><div class="ans-explain"><em>Run over</em> = hit a person or animal with a vehicle. Present perfect (<em>have run over</em>) because the action just happened.</div><div class="ans-vi"><em>Run over</em> = cán qua (người/động vật) bằng xe. Hiện tại hoàn thành vì hành động vừa xảy ra.</div></div></div>
+        <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">keep up with</div><div class="ans-explain"><em>Keep up with</em> = maintain the same speed or level as something/someone.</div><div class="ans-vi"><em>Keep up with</em> = theo kịp, duy trì tốc độ bằng với ai/gì.</div></div></div>
+      </div>
+    </details>
+  </div><!-- /exercise-card D -->
+
+  <!-- ─── EXERCISE E ─── -->
+  <h2 class="section-title">Phrases &amp; Collocations – Exercises</h2>
+
+  <div class="exercise-card">
+    <div class="ex-header">
+      <div class="ex-badge">E</div>
+      <div class="ex-instruction">
+        <strong>Write one word in each gap.</strong>
+        <div class="vi-instruction">Điền một từ vào mỗi chỗ trống.</div>
+      </div>
+    </div>
+    <div class="ex-body">
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">1</span>The speed <span class="blank-box">. . .</span> in towns is 50 km/h and you shouldn't go faster than that.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">2</span>Why don't we <span class="blank-box">. . .</span> the scenic route along the coast?</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">3</span>If you buy your plane ticket <span class="blank-box">. . .</span> advance, it's often cheaper than if you wait.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">4</span>I can't remember the name of the hotel we stayed at off the <span class="blank-box">. . .</span> of my head.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">5</span>I'm sorry I'm late! I <span class="blank-box">. . .</span> my way and had to ask for directions.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">6</span>My mum's away in Germany on a business <span class="blank-box">. . .</span> at the moment.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">7</span>The bank? Well, turn left here, then go <span class="blank-box">. . .</span> ahead for a kilometre and it's on the left.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">8</span>If you look on your left-hand <span class="blank-box">. . .</span> as we turn this corner, you'll see Big Ben.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">9</span>I'll look round the shops in the morning and then <span class="blank-box">. . .</span> sightseeing in the afternoon.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">10</span>My grandma hasn't driven since she <span class="blank-box">. . .</span> an accident last year.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">11</span>I love visiting foreign places, <span class="blank-box">. . .</span> the sights and learning about other cultures.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">12</span>During the 70s, many British people started to go <span class="blank-box">. . .</span> holiday to Spain.</div>
+      <div class="blank-item"><span class="q-num" style="font-family:'DM Mono',monospace;font-size:.78rem;color:var(--primary-mid);background:var(--primary-light);padding:1px 7px;border-radius:3px;flex-shrink:0;">13</span>While you're in London, you should take a tour <span class="blank-box">. . .</span> the Houses of Parliament.</div>
+    </div>
+    <details class="answer-accordion">
+      <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+      <div class="answer-body">
+        <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">limit</div><div class="ans-explain"><em>Speed limit</em> = the maximum legal speed — a fixed collocation.</div><div class="ans-vi"><em>Speed limit</em> = giới hạn tốc độ — cụm cố định.</div></div></div>
+        <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">take</div><div class="ans-explain"><em>Take a route</em> = choose and follow a particular road or path.</div><div class="ans-vi"><em>Take a route</em> = đi theo tuyến đường nhất định — kết hợp cố định.</div></div></div>
+        <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">in</div><div class="ans-explain"><em>In advance</em> = before a future event. Fixed prepositional phrase.</div><div class="ans-vi"><em>In advance</em> = đặt trước — cụm giới từ cố định.</div></div></div>
+        <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">top</div><div class="ans-explain"><em>Off the top of your head</em> = from memory, without checking. Fixed idiom.</div><div class="ans-vi"><em>Off the top of your head</em> = nói ngay từ trí nhớ, không cần tra cứu — thành ngữ cố định.</div></div></div>
+        <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">lost</div><div class="ans-explain"><em>Lose your way</em> = become lost, not know where to go. Simple past: <em>lost</em>.</div><div class="ans-vi"><em>Lose your way</em> = lạc đường. Quá khứ đơn: <em>lost</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">trip</div><div class="ans-explain"><em>Business trip</em> = a journey made for work purposes — fixed collocation.</div><div class="ans-vi"><em>Business trip</em> = chuyến đi công tác — cụm cố định.</div></div></div>
+        <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">straight</div><div class="ans-explain"><em>Go straight ahead</em> = continue in the same direction without turning — fixed direction phrase.</div><div class="ans-vi"><em>Go straight ahead</em> = đi thẳng — cụm chỉ đường cố định.</div></div></div>
+        <div class="answer-item"><span class="ans-num">8</span><div class="ans-content"><div class="ans-word">side</div><div class="ans-explain"><em>On the left-hand side</em> = on the left. Fixed directional expression used in British English.</div><div class="ans-vi"><em>On the left-hand side</em> = phía bên tay trái — cách diễn đạt chỉ hướng phổ biến trong tiếng Anh.</div></div></div>
+        <div class="answer-item"><span class="ans-num">9</span><div class="ans-content"><div class="ans-word">go</div><div class="ans-explain"><em>Go sightseeing</em> = visit places of interest as a tourist — fixed collocation with <em>go + -ing</em>.</div><div class="ans-vi"><em>Go sightseeing</em> = đi tham quan — cụm cố định dùng <em>go + V-ing</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">10</span><div class="ans-content"><div class="ans-word">had</div><div class="ans-explain"><em>Have an accident</em> = be in a crash/incident. Simple past: <em>had</em>, in the since-clause referring to a past event.</div><div class="ans-vi"><em>Have an accident</em> = gặp tai nạn. Quá khứ đơn <em>had</em> sau mệnh đề <em>since</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">11</span><div class="ans-content"><div class="ans-word">seeing</div><div class="ans-explain"><em>See the sights</em> = visit the famous places. As a participle clause here: <em>seeing the sights</em>.</div><div class="ans-vi"><em>See the sights</em> = tham quan danh lam thắng cảnh. Dùng dạng phân từ hiện tại <em>seeing</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">12</span><div class="ans-content"><div class="ans-word">on</div><div class="ans-explain"><em>Go on holiday</em> = go for a holiday. Fixed preposition <em>on</em> with <em>holiday</em>.</div><div class="ans-vi"><em>Go on holiday</em> = đi nghỉ. Giới từ <em>on</em> cố định với <em>holiday</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">13</span><div class="ans-content"><div class="ans-word">of / around / round</div><div class="ans-explain"><em>Take a tour of / around</em> a place = go on a guided visit. Either <em>of</em>, <em>around</em>, or <em>round</em> is acceptable.</div><div class="ans-vi"><em>Take a tour of/around</em> = đi tham quan một nơi. Có thể dùng <em>of</em>, <em>around</em> hoặc <em>round</em>.</div></div></div>
+      </div>
+    </details>
+  </div><!-- /exercise-card E -->
+
+  <!-- ─── EXERCISE F ─── -->
+  <h2 class="section-title">Word Patterns – Exercises</h2>
+
+  <div class="exercise-card">
+    <div class="ex-header">
+      <div class="ex-badge">F</div>
+      <div class="ex-instruction">
+        <strong>Choose the correct answer.</strong>
+        <div class="vi-instruction">Chọn đáp án đúng. (Kiểm tra Word Patterns — cấu trúc từ)</div>
+      </div>
+    </div>
+    <div class="ex-body">
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">1</span>I've always dreamt ............. China.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> to visit</div>
+          <div class="option"><span class="opt-letter">B</span> of visiting</div>
+          <div class="option"><span class="opt-letter">C</span> I visit</div>
+          <div class="option"><span class="opt-letter">D</span> visit</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">2</span>The travel agency is arranging for us ............. at a really nice hotel.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> stay</div>
+          <div class="option"><span class="opt-letter">B</span> of staying</div>
+          <div class="option"><span class="opt-letter">C</span> to stay</div>
+          <div class="option"><span class="opt-letter">D</span> staying</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">3</span>My dad says he always regrets ............. more.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> to not travel</div>
+          <div class="option"><span class="opt-letter">B</span> not travelling</div>
+          <div class="option"><span class="opt-letter">C</span> he not travel</div>
+          <div class="option"><span class="opt-letter">D</span> of not travelling</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">4</span>John seems keen ............. how to drive as soon as he can.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> of learning</div>
+          <div class="option"><span class="opt-letter">B</span> he learn</div>
+          <div class="option"><span class="opt-letter">C</span> for learn</div>
+          <div class="option"><span class="opt-letter">D</span> to learn</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">5</span>Now, class, I'd like you all to write ............. a description of your last holiday.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> me</div>
+          <div class="option"><span class="opt-letter">B</span> to me</div>
+          <div class="option"><span class="opt-letter">C</span> it me</div>
+          <div class="option"><span class="opt-letter">D</span> about me</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">6</span>When you arrive ............. , have your passport ready.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> to the airport</div>
+          <div class="option"><span class="opt-letter">B</span> in the airport</div>
+          <div class="option"><span class="opt-letter">C</span> on the airport</div>
+          <div class="option"><span class="opt-letter">D</span> at the airport</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">7</span>The Joneses have invited us ............. to Australia with them this summer.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> going</div>
+          <div class="option"><span class="opt-letter">B</span> for going</div>
+          <div class="option"><span class="opt-letter">C</span> about going</div>
+          <div class="option"><span class="opt-letter">D</span> to go</div>
+        </div>
+      </div>
+
+      <div class="mc-item">
+        <div class="mc-q"><span class="q-num">8</span>The in-flight entertainment may differ ............. that advertised.</div>
+        <div class="options-grid">
+          <div class="option"><span class="opt-letter">A</span> to</div>
+          <div class="option"><span class="opt-letter">B</span> from</div>
+          <div class="option"><span class="opt-letter">C</span> in</div>
+          <div class="option"><span class="opt-letter">D</span> at</div>
+        </div>
+      </div>
+
+    </div><!-- /ex-body -->
+    <details class="answer-accordion">
+      <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+      <div class="answer-body">
+        <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">B – of visiting</div><div class="ans-explain">The pattern is <em>dream of/about + gerund (-ing)</em>. Never <em>dream to do</em>.</div><div class="ans-vi">Cấu trúc: <em>dream of/about + V-ing</em>. Không dùng <em>dream to do</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">C – to stay</div><div class="ans-explain">The pattern is <em>arrange for sb + to-infinitive</em>. An infinitive must follow the object.</div><div class="ans-vi">Cấu trúc: <em>arrange for sb + to-infinitive</em>. Sau tân ngữ dùng động từ nguyên mẫu có <em>to</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">B – not travelling</div><div class="ans-explain"><em>Regret + gerund (-ing)</em> = feel sorry about a past action. <em>Regret + to-infinitive</em> = feel sorry before doing something (formal). Here it refers to a past habit, so gerund is needed. Negation goes before the gerund: <em>not travelling</em>.</div><div class="ans-vi"><em>Regret + V-ing</em> = hối tiếc về việc đã làm (quá khứ). Phủ định đặt trước V-ing: <em>not travelling</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">D – to learn</div><div class="ans-explain"><em>Keen + to-infinitive</em> = eager to do something. The pattern <em>keen on + gerund</em> would also work, but none of the options offer <em>on learning</em>, so <em>to learn</em> is the only correct choice.</div><div class="ans-vi">Cấu trúc: <em>keen + to-infinitive</em> = háo hức làm gì. Chọn <em>to learn</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">A – me</div><div class="ans-explain">The pattern is <em>write sb sth</em> = write something for someone (indirect object without preposition). So: <em>write me a description</em>. Option B (<em>to me</em>) would require the direct object first: <em>write a description to me</em>, which changes the sentence structure.</div><div class="ans-vi">Cấu trúc: <em>write sb sth</em> (tân ngữ gián tiếp không cần giới từ). <em>Write me a description</em> là đúng.</div></div></div>
+        <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">D – at the airport</div><div class="ans-explain"><em>Arrive at</em> = used for specific points/buildings (airports, stations, shops). <em>Arrive in</em> = used for cities and countries. An airport is a specific point, so <em>at</em> is correct.</div><div class="ans-vi"><em>Arrive at</em> = dùng cho địa điểm cụ thể (sân bay, nhà ga). <em>Arrive in</em> = dùng cho thành phố, quốc gia.</div></div></div>
+        <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">D – to go</div><div class="ans-explain">The pattern is <em>invite sb + to-infinitive</em>. Never <em>invite sb + gerund</em>.</div><div class="ans-vi">Cấu trúc: <em>invite sb + to-infinitive</em>. Không dùng <em>invite sb + V-ing</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">8</span><div class="ans-content"><div class="ans-word">B – from</div><div class="ans-explain">The pattern is <em>differ from</em> = be different from. Never <em>differ to/in/at</em>.</div><div class="ans-vi">Cấu trúc: <em>differ from</em> = khác với. Không dùng <em>differ to/in/at</em>.</div></div></div>
+      </div>
+    </details>
+  </div><!-- /exercise-card F -->
+
+  <!-- ─── EXERCISE G – DARK PANEL ─── -->
+  <h2 class="section-title">Error Spotting Exercise</h2>
+
+  <div class="stative-block">
+    <div class="stative-accent"></div>
+    <div class="stative-header">
+      <span class="ex-badge-dark">G</span>
+      <h3>Find the extra word in each line.</h3>
+      <p>Each line of the story contains one word that should not be there. Find it and write it in the space. <em>(Mỗi dòng có một từ thừa. Tìm và ghi từ đó vào chỗ trống.)</em></p>
+    </div>
+    <p class="story-title">The Cancelled Trip / Chuyến Đi Bị Hủy</p>
+    <div class="story-lines">
+      <div class="story-line"><span class="line-num">1</span><span>Oh, let me tell you about our trip. Did you know that Sara is afraid of <u>be</u></span></div>
+      <div class="story-line"><span class="line-num">2</span><span>flying? We had arranged it with her family to go to France for a few days.</span></div>
+      <div class="story-line"><span class="line-num">3</span><span>I have always wanted to see Paris and would love to live in there one day.</span></div>
+      <div class="story-line"><span class="line-num">4</span><span>Well, we got to the airport and Sara appeared being nervous. I asked her if</span></div>
+      <div class="story-line"><span class="line-num">5</span><span>she was okay and she said she was fine, so we continued on to our way.</span></div>
+      <div class="story-line"><span class="line-num">6</span><span>We went through passport control and I could see so that Sara wasn't</span></div>
+      <div class="story-line"><span class="line-num">7</span><span>keen on going any further. Just then, a voice announced: 'We regret it to</span></div>
+      <div class="story-line"><span class="line-num">8</span><span>inform passengers that Flight 114 to France is been cancelled.' That was</span></div>
+      <div class="story-line"><span class="line-num">9</span><span>our flight! Sarah said she was glad because of she was too frightened to</span></div>
+      <div class="story-line"><span class="line-num">10</span><span>fly anyway! So, we all went to home. That was the end of <em>that</em> trip!</span></div>
+    </div>
+    <div class="stative-answers">
+      <div class="stative-answers-title">▸ Answer Key &amp; Explanations / Đáp Án &amp; Giải Thích Chi Tiết</div>
+      <div class="extra-word-grid">
+        <div class="extra-word-item"><span class="ew-num">1</span><span class="ew-word">be</span><div><div class="ew-explain">After <em>afraid of</em>, use a gerund directly: <em>afraid of flying</em>. The infinitive base form <em>be</em> is redundant — <em>afraid of be flying</em> is ungrammatical.</div><div class="ew-vi">Sau <em>afraid of</em> dùng V-ing: <em>afraid of flying</em>. Từ <em>be</em> thừa vì không thể dùng <em>afraid of be + V-ing</em>.</div></div></div>
+        <div class="extra-word-item"><span class="ew-num">2</span><span class="ew-word">it</span><div><div class="ew-explain"><em>Arrange for sb to do</em> is the correct pattern. The pronoun <em>it</em> is redundant as <em>arrange</em> here has no direct object.</div><div class="ew-vi">Cấu trúc đúng là <em>arrange for sb to do</em>. Đại từ <em>it</em> thừa vì <em>arrange</em> không cần tân ngữ trực tiếp ở đây.</div></div></div>
+        <div class="extra-word-item"><span class="ew-num">3</span><span class="ew-word">in</span><div><div class="ew-explain"><em>Live there</em> is correct — adverbs like <em>there/here</em> do not take a preposition. <em>Live in there</em> is redundant.</div><div class="ew-vi"><em>Live there</em> = sống ở đó. Trạng từ chỉ nơi (<em>there/here</em>) không cần giới từ trước nó. <em>In</em> thừa.</div></div></div>
+        <div class="extra-word-item"><span class="ew-num">4</span><span class="ew-word">being</span><div><div class="ew-explain">The correct pattern is <em>appear + to-infinitive</em>: <em>Sara appeared to be nervous</em>. The gerund <em>being</em> does not follow <em>appear</em>.</div><div class="ew-vi">Cấu trúc đúng: <em>appear + to-infinitive</em> → <em>appeared to be nervous</em>. <em>Being</em> thừa.</div></div></div>
+        <div class="extra-word-item"><span class="ew-num">5</span><span class="ew-word">on</span><div><div class="ew-explain"><em>Continue on our way</em> — the correct phrase is <em>continue on our way</em>... wait: actually <em>on our way</em> is a set phrase. The extra word here is <em>on</em> because the intended phrase is <em>continue to our way</em>... Let us reconsider. The sentence reads: <em>we continued on to our way</em>. The preposition <em>on</em> is redundant — the correct idiom is <em>on our way</em> without <em>to</em>, or <em>continue our way</em>. The extra word is <em>on</em>: the natural phrasing is <em>continued to our way</em> would be odd; the set phrase is <em>on our way</em> so <em>to</em> is the extra word here. The standard answer key for this exercise identifies <strong>on</strong> as redundant because <em>continue to our way</em> or <em>on our way</em> — having both <em>on to</em> together is the error. The correct reading: <em>we continued to our way</em> (we kept going) — and <em>on</em> is the extra word.</div><div class="ew-vi">Câu đúng: <em>we continued to our way</em> — từ <em>on</em> thừa vì không thể có cả <em>on to</em> cùng lúc trong ngữ cảnh này.</div></div></div>
+        <div class="extra-word-item"><span class="ew-num">6</span><span class="ew-word">so</span><div><div class="ew-explain">The correct conjunction after <em>see</em> in reported speech is simply <em>that</em>: <em>I could see that Sara wasn't…</em>. Adding <em>so</em> before <em>that</em> is redundant and ungrammatical.</div><div class="ew-vi">Cấu trúc: <em>see + that-clause</em>. Từ <em>so</em> trước <em>that</em> là thừa và sai ngữ pháp.</div></div></div>
+        <div class="extra-word-item"><span class="ew-num">7</span><span class="ew-word">it</span><div><div class="ew-explain"><em>Regret to inform</em> is the correct formal pattern. <em>Regret it to inform</em> is ungrammatical — the pronoun <em>it</em> is redundant here.</div><div class="ew-vi">Cấu trúc: <em>regret + to-infinitive</em> = lấy làm tiếc thông báo. Đại từ <em>it</em> thừa.</div></div></div>
+        <div class="extra-word-item"><span class="ew-num">8</span><span class="ew-word">been</span><div><div class="ew-explain">The passive is <em>is cancelled</em> (present simple passive). <em>Is been cancelled</em> mixes the present perfect auxiliary <em>been</em> with <em>is</em>, creating a grammatically incorrect form.</div><div class="ew-vi">Bị động đúng: <em>is cancelled</em> (hiện tại đơn bị động). <em>Been</em> thừa — không thể dùng <em>is been cancelled</em>.</div></div></div>
+        <div class="extra-word-item"><span class="ew-num">9</span><span class="ew-word">of</span><div><div class="ew-explain">The conjunction <em>because</em> introduces a clause directly: <em>because she was too frightened</em>. <em>Because of</em> is followed by a noun/gerund, not a full clause.</div><div class="ew-vi"><em>Because</em> + mệnh đề. <em>Because of</em> + danh từ/gerund. Ở đây có mệnh đề đầy đủ nên <em>of</em> thừa.</div></div></div>
+        <div class="extra-word-item"><span class="ew-num">10</span><span class="ew-word">to</span><div><div class="ew-explain"><em>Go home</em> is correct — <em>home</em> functions as an adverb of direction and never needs the preposition <em>to</em>. <em>Go to home</em> is a common learner error.</div><div class="ew-vi"><em>Home</em> là trạng từ chỉ hướng, không cần giới từ <em>to</em> trước nó. <em>Go home</em> mới đúng. Từ <em>to</em> thừa.</div></div></div>
+      </div>
+    </div>
+  </div><!-- /stative-block G -->
+
+  <!-- ─── EXERCISE H ─── -->
+  <h2 class="section-title">Word Formation – Exercises</h2>
+
+  <div class="exercise-card">
+    <div class="ex-header">
+      <div class="ex-badge">H</div>
+      <div class="ex-instruction">
+        <strong>Use the word given in CAPITALS to form a word that fits in the gap in the same line.</strong>
+        <div class="vi-instruction">Dùng từ viết hoa cuối dòng để tạo dạng từ phù hợp điền vào chỗ trống.</div>
+      </div>
+    </div>
+    <div class="ex-body">
+      <p style="font-size:0.93rem;color:var(--muted);margin-bottom:20px;font-style:italic;">Read the passage and fill in each gap with the correct word form. / Đọc đoạn văn và điền từ đúng dạng.</p>
+      <div class="sentence-item"><span class="word-cap">TOUR</span><span>It's not always easy being a <span class="blank-box">. . .</span> . You spend half your time</span></div>
+      <div class="sentence-item"><span class="word-cap">ARRANGE</span><span>making <span class="blank-box">. . .</span> for your holiday and the other half</span></div>
+      <div class="sentence-item"><span class="word-cap">TIME</span><span>worrying about sticking to the <span class="blank-box">. . .</span> . I think it's relaxing</span></div>
+      <div class="sentence-item"><span class="word-cap">CULTURE</span><span>sometimes to spend a holiday at home. There are no <span class="blank-box">. . .</span></span></div>
+      <div class="sentence-item"><span class="word-cap">PHOTOGRAPH</span><span>problems, you don't need someone to be the <span class="blank-box">. . .</span> and</span></div>
+      <div class="sentence-item"><span class="word-cap">INHABIT</span><span>you know that the local <span class="blank-box">. . .</span> are always friendly!</span></div>
+    </div>
+    <details class="answer-accordion">
+      <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+      <div class="answer-body">
+        <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">tourist</div><div class="ans-explain"><em>Tourist</em> = a person who travels for pleasure. TOUR → tourist (noun, person suffix <em>-ist</em>).</div><div class="ans-vi">TOUR → <em>tourist</em> (khách du lịch). Thêm hậu tố <em>-ist</em> chỉ người.</div></div></div>
+        <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">arrangements</div><div class="ans-explain"><em>Arrangements</em> (plural noun) = plans or preparations. ARRANGE → arrangement(s) (noun suffix <em>-ment</em>, plural because <em>making arrangements</em> refers to multiple plans).</div><div class="ans-vi">ARRANGE → <em>arrangements</em> (kế hoạch, sắp xếp). Thêm hậu tố <em>-ment</em>, dùng số nhiều.</div></div></div>
+        <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">timetable</div><div class="ans-explain"><em>Timetable</em> = a schedule showing planned times. TIME → timetable (compound noun).</div><div class="ans-vi">TIME → <em>timetable</em> (thời gian biểu, lịch trình). Từ ghép.</div></div></div>
+        <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">cultural</div><div class="ans-explain"><em>Cultural problems</em> = difficulties related to culture. CULTURE → cultural (adjective suffix <em>-al</em>).</div><div class="ans-vi">CULTURE → <em>cultural</em> (thuộc văn hóa). Thêm hậu tố tính từ <em>-al</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">photographer</div><div class="ans-explain"><em>Photographer</em> = a person who takes photos. PHOTOGRAPH → photographer (noun, agent suffix <em>-er</em>).</div><div class="ans-vi">PHOTOGRAPH → <em>photographer</em> (nhiếp ảnh gia). Thêm hậu tố <em>-er</em> chỉ người.</div></div></div>
+        <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">inhabitants</div><div class="ans-explain"><em>Inhabitants</em> (plural) = people who live in a place. INHABIT → inhabitant(s) (noun suffix <em>-ant</em>, plural).</div><div class="ans-vi">INHABIT → <em>inhabitants</em> (người dân địa phương). Thêm hậu tố <em>-ant</em>, dùng số nhiều.</div></div></div>
+      </div>
+    </details>
+  </div><!-- /exercise-card H -->
+
+  <!-- ─── EXERCISE I ─── -->
+  <div class="exercise-card">
+    <div class="ex-header">
+      <div class="ex-badge">I</div>
+      <div class="ex-instruction">
+        <strong>Complete the sentences by changing the form of the word in CAPITALS when necessary.</strong>
+        <div class="vi-instruction">Hoàn thành câu bằng cách thay đổi dạng từ viết hoa khi cần thiết.</div>
+      </div>
+    </div>
+    <div class="ex-body">
+      <div class="sentence-item"><span class="word-cap">RECOGNISE</span><span><strong>1</strong> Beijing has changed so much in the last few years that it's almost <span class="blank-box">. . .</span> .</span></div>
+      <div class="sentence-item"><span class="word-cap">WORLD</span><span><strong>2</strong> The number of cars <span class="blank-box">. . .</span> is about a billion and is increasing all the time.</span></div>
+      <div class="sentence-item"><span class="word-cap">DIFFER</span><span><strong>3</strong> The new maglev trains run on a completely <span class="blank-box">. . .</span> system from ordinary trains.</span></div>
+      <div class="sentence-item"><span class="word-cap">BROAD</span><span><strong>4</strong> Living in a foreign country really does <span class="blank-box">. . .</span> your horizons.</span></div>
+      <div class="sentence-item"><span class="word-cap">DIRECT</span><span><strong>5</strong> I can't find a <span class="blank-box">. . .</span> flight from London to Delhi so I've booked one that changes in Frankfurt.</span></div>
+      <div class="sentence-item"><span class="word-cap">ARRIVE</span><span><strong>6</strong> All passengers must complete a visa form upon <span class="blank-box">. . .</span> at Singapore airport.</span></div>
+      <div class="sentence-item"><span class="word-cap">DISTANT</span><span><strong>7</strong> You can still see old milestones by the side of the road in England, showing the <span class="blank-box">. . .</span> to the nearest town.</span></div>
+      <div class="sentence-item"><span class="word-cap">ENTER</span><span><strong>8</strong> The Museum of Transport has a full-sized jet plane next to the <span class="blank-box">. . .</span> .</span></div>
+    </div>
+    <details class="answer-accordion">
+      <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+      <div class="answer-body">
+        <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">unrecognisable</div><div class="ans-explain">RECOGNISE → <em>unrecognisable</em> (adjective: impossible to recognise). The prefix <em>un-</em> adds negation; suffix <em>-able</em> forms an adjective.</div><div class="ans-vi">RECOGNISE → <em>unrecognisable</em> (không thể nhận ra). Tiền tố <em>un-</em> (phủ định) + hậu tố tính từ <em>-able</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">worldwide</div><div class="ans-explain">WORLD → <em>worldwide</em> (adjective/adverb: existing or happening throughout the world). Used here as a postpositive adjective: <em>cars worldwide</em>.</div><div class="ans-vi">WORLD → <em>worldwide</em> (trên toàn thế giới). Dùng như tính từ bổ nghĩa sau danh từ: <em>cars worldwide</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">different</div><div class="ans-explain">DIFFER → <em>different</em> (adjective). Note: <em>different from</em> ordinary trains — the preposition <em>from</em> follows.</div><div class="ans-vi">DIFFER → <em>different</em> (khác nhau). Lưu ý: <em>different from</em> — giới từ <em>from</em> đi kèm.</div></div></div>
+        <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">broaden</div><div class="ans-explain">BROAD → <em>broaden</em> (verb: to make wider or more extensive). After <em>does</em>, use the base form of the verb.</div><div class="ans-vi">BROAD → <em>broaden</em> (mở rộng). Sau <em>does</em> dùng động từ nguyên mẫu không <em>to</em>.</div></div></div>
+        <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">direct</div><div class="ans-explain">DIRECT → <em>direct</em> (adjective: going straight without stopping). No form change needed; the word already functions as the required adjective.</div><div class="ans-vi">DIRECT → <em>direct</em> (bay thẳng, không có điểm dừng). Từ không cần thay đổi dạng.</div></div></div>
+        <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">arrival</div><div class="ans-explain">ARRIVE → <em>arrival</em> (noun). After the preposition <em>upon</em>, a noun is needed. <em>Upon arrival at</em> = as soon as you arrive at.</div><div class="ans-vi">ARRIVE → <em>arrival</em> (sự đến nơi). Sau giới từ <em>upon</em> cần danh từ. <em>Upon arrival</em> = khi đến nơi.</div></div></div>
+        <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">distance</div><div class="ans-explain">DISTANT → <em>distance</em> (noun: the measurement of how far apart two places are). The article <em>the</em> signals a noun is needed.</div><div class="ans-vi">DISTANT → <em>distance</em> (khoảng cách). Mạo từ <em>the</em> cho thấy cần danh từ.</div></div></div>
+        <div class="answer-item"><span class="ans-num">8</span><div class="ans-content"><div class="ans-word">entrance</div><div class="ans-explain">ENTER → <em>entrance</em> (noun: the door or gate of a building). After <em>the</em>, a noun is needed.</div><div class="ans-vi">ENTER → <em>entrance</em> (lối vào). Mạo từ <em>the</em> cho thấy cần danh từ.</div></div></div>
+      </div>
+    </details>
+  </div><!-- /exercise-card I -->
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <p>Unit 2 Vocabulary &nbsp;·&nbsp; Travel &amp; Transport &nbsp;·&nbsp; B2 Upper-Intermediate Bilingual Study Guide</p>
+  <p style="margin-top:6px;font-size:0.76rem;">English &amp; Tiếng Việt &nbsp;·&nbsp; All exercises include bilingual answers &amp; explanations</p>
+</footer>
+
+</body>
+</html>
