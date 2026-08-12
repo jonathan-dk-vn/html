@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 4 Vocabulary – Hobbies, Sport & Games | B2 Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2C5E7A;
+  --primary-light: #EBF3F7;
+  --primary-mid: #5294B3;
+  --primary-dark: #163344;
+  --success: #2E9E68;
+  --success-light: #EEF9F3;
+  --error: #E8344A;
+  --ink: #191B1F;
+  --paper: #F9FAFB;
+  --surface: #FFFFFF;
+  --muted: #64748B;
+  --line: #E2E8F0;
+  --shadow: rgba(0,0,0,0.03);
+  --shadow-hover: rgba(44,94,122,0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+/* ── HERO ── */
+header {
+  background: var(--ink);
+  color: #fff;
+  text-align: center;
+  padding: 72px 24px 64px;
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 20% 80%, rgba(44,94,122,0.38) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(46,158,104,0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary-mid);
+  border: 1px solid rgba(82,148,179,0.4);
+  border-radius: 2px;
+  padding: 5px 14px;
+  margin-bottom: 28px;
+  position: relative;
+}
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  position: relative;
+}
+.hero-sub {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* ── LAYOUT ── */
+main { max-width: 1000px; margin: 0 auto; padding: 48px 20px 80px; }
+
+/* ── SECTION TITLES ── */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin: 56px 0 24px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 1.4em;
+  background: linear-gradient(180deg, var(--primary-mid), var(--success));
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── REFERENCE CARDS ── */
+.reference-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 12px var(--shadow);
+  transition: box-shadow 0.25s;
+}
+.reference-card:hover { box-shadow: 0 6px 24px var(--shadow-hover); }
+.card-header {
+  background: var(--primary-light);
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+.card-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-mid);
+  background: rgba(82,148,179,0.12);
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-left: auto;
+}
+
+/* ── VOCAB GRID ── */
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+  padding: 20px;
+}
+.vocab-chip {
+  background: var(--primary-light);
+  border: 1px solid rgba(82,148,179,0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+.vocab-chip .en { font-weight: 600; color: var(--primary-dark); font-size: 0.88rem; }
+.vocab-chip .vi { font-size: 0.78rem; color: var(--muted); font-style: italic; margin-top: 2px; }
+
+/* ── TABLES ── */
+.ref-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.ref-table th {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.ref-table td {
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.ref-table tr:last-child td { border-bottom: none; }
+.ref-table tr:nth-child(even) td { background: #fafcfd; }
+.ref-table td strong { color: var(--primary-dark); font-weight: 600; }
+.translation {
+  display: block;
+  font-size: 0.83rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 2px;
+}
+span.translation { display: inline; margin-left: 4px; }
+
+/* ── EXERCISE CARDS ── */
+.exercise-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 16px var(--shadow);
+  transition: box-shadow 0.25s;
+}
+.exercise-card:hover { box-shadow: 0 6px 28px var(--shadow-hover); }
+.ex-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(135deg, #fdfeff 0%, var(--primary-light) 100%);
+}
+.ex-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  border: 2px solid var(--primary-mid);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ex-instruction { padding-top: 4px; }
+.ex-instruction strong { font-size: 1.05rem; color: var(--primary-dark); display: block; margin-bottom: 3px; }
+.ex-instruction .vi-instruction { font-size: 0.85rem; color: var(--muted); font-style: italic; }
+.ex-body { padding: 24px; }
+
+/* ── WORDBOX ── */
+.wordbox {
+  background: var(--primary-light);
+  border: 1px solid rgba(82,148,179,0.3);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 22px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.86rem;
+  color: var(--primary-dark);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  line-height: 1.7;
+}
+.wordbox .wb-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  padding-right: 16px;
+  border-right: 1.5px solid rgba(82,148,179,0.3);
+}
+.wordbox .wb-group:last-child { border-right: none; padding-right: 0; }
+.wordbox span { border-bottom: 1.5px solid var(--primary-mid); }
+
+/* ── BLANK ITEMS ── */
+.blank-item {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  flex-wrap: wrap;
+}
+.q-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--primary-mid);
+  background: var(--primary-light);
+  padding: 1px 7px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.blank-box {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--primary-mid);
+  background: var(--primary-light);
+  border: 1.5px dashed var(--primary-mid);
+  border-radius: 5px;
+  padding: 2px 18px;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+}
+
+/* ── CIRCLE ITEMS ── */
+.circle-item {
+  margin-bottom: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 0.97rem;
+}
+.word-choice { font-weight: 600; color: var(--primary-dark); border-bottom: 2px dotted var(--primary-mid); padding: 0 2px; }
+.word-choice.alt { color: var(--muted); font-weight: 400; }
+
+/* ── MULTIPLE CHOICE ── */
+.mc-item { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px dashed var(--line); }
+.mc-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.mc-q { font-weight: 500; margin-bottom: 12px; color: var(--ink); line-height: 1.6; }
+.mc-q .q-num { margin-right: 6px; }
+.options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.93rem;
+  cursor: default;
+  transition: background 0.2s;
+}
+.option:hover { background: var(--primary-light); }
+.opt-letter {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--primary-mid);
+  background: var(--primary-light);
+  border-radius: 4px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── SENTENCE ITEMS ── */
+.sentence-item {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.97rem;
+  line-height: 1.7;
+}
+.word-cap {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--primary-dark);
+  background: rgba(44,94,122,0.10);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── MATCH TABLE ── */
+.match-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.match-col { display: flex; flex-direction: column; gap: 8px; }
+.match-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--primary-light);
+  border: 1px solid rgba(82,148,179,0.2);
+  border-radius: 8px;
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+.match-key {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--primary-mid);
+  flex-shrink: 0;
+}
+
+/* ── DAMAGED TEXT ── */
+.damaged-passage {
+  background: #fdf8ef;
+  border: 1.5px solid #e8d9b0;
+  border-radius: 10px;
+  padding: 20px 22px;
+  font-size: 0.97rem;
+  line-height: 1.85;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+.damaged-passage .dmg {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  background: #f3e5c0;
+  border-radius: 4px;
+  padding: 1px 7px;
+  color: #8a6a1e;
+  border: 1px solid #d9c07a;
+}
+.blank-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.blank-list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.93rem;
+}
+
+/* ── ANSWER ACCORDION ── */
+.answer-accordion { border-top: 1px solid var(--line); }
+.answer-accordion > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 14px 24px;
+  background: #f8fdf9;
+  border-radius: 0 0 13px 13px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--success);
+  list-style: none;
+  user-select: none;
+  transition: background 0.2s;
+}
+.answer-accordion > summary::-webkit-details-marker { display: none; }
+.answer-accordion > summary::after { content: '▼'; font-size: 0.65rem; transition: transform 0.25s; color: var(--success); }
+.answer-accordion[open] > summary::after { transform: rotate(180deg); }
+.answer-accordion[open] > summary { background: var(--success-light); border-radius: 0; }
+.answer-body { padding: 24px; background: var(--success-light); display: grid; gap: 18px; }
+.answer-item { display: flex; gap: 14px; align-items: flex-start; }
+.ans-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--success);
+  background: rgba(46,158,104,0.12);
+  border-radius: 4px;
+  padding: 2px 8px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.ans-content { flex: 1; }
+.ans-word { font-family: 'DM Mono', monospace; font-weight: 500; color: var(--success); font-size: 1rem; }
+.ans-explain { font-size: 0.88rem; color: var(--ink); margin-top: 4px; line-height: 1.6; }
+.ans-vi { font-size: 0.83rem; color: var(--muted); font-style: italic; margin-top: 3px; }
+
+/* ── DARK PANEL – Exercise G ── */
+.dark-panel {
+  background: var(--ink);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+}
+.dark-accent { height: 4px; background: linear-gradient(90deg, var(--primary-mid), var(--success)); }
+.dark-header {
+  padding: 24px 28px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.ex-badge-dark {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--primary-mid);
+  background: rgba(82,148,179,0.15);
+  border: 2px solid var(--primary-mid);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+  vertical-align: middle;
+}
+.dark-header h3 { display: inline; font-family: 'Playfair Display', serif; color: #fff; font-size: 1.1rem; vertical-align: middle; }
+.dark-header p { font-size: 0.88rem; color: rgba(255,255,255,0.45); margin-top: 8px; font-style: italic; }
+.dark-passage-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #fff;
+  text-align: center;
+  padding: 20px 28px 4px;
+  font-style: italic;
+}
+.dark-passage {
+  padding: 16px 28px 24px;
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.9;
+}
+.dark-passage .dmg-dark {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  background: rgba(82,148,179,0.25);
+  border-radius: 4px;
+  padding: 1px 7px;
+  color: #92d0f0;
+  border: 1px solid rgba(82,148,179,0.4);
+}
+.blank-dark-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  padding: 0 28px 28px;
+}
+.blank-dark-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 7px;
+  padding: 8px 12px;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+}
+.dark-answers-section { padding: 0 28px 28px; }
+.dark-answers-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--success);
+  margin-bottom: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.dark-answer-grid { display: grid; gap: 10px; }
+.dark-answer-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: grid;
+  grid-template-columns: 28px auto 1fr;
+  gap: 10px;
+  align-items: start;
+}
+.da-num { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--primary-mid); text-align: right; padding-top: 1px; }
+.da-word {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #7de8b0;
+  background: rgba(46,158,104,0.2);
+  border-radius: 4px;
+  padding: 1px 8px;
+  white-space: nowrap;
+}
+.da-explain { font-size: 0.84rem; color: rgba(255,255,255,0.65); line-height: 1.55; }
+.da-vi { font-size: 0.78rem; color: rgba(255,255,255,0.38); font-style: italic; margin-top: 2px; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .options-grid { grid-template-columns: 1fr; }
+  .match-grid { grid-template-columns: 1fr; }
+  .vocab-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .dark-answer-item { grid-template-columns: 24px auto 1fr; gap: 8px; }
+  .blank-dark-list { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<header>
+  <div class="hero-badge">B2 Upper-Intermediate &nbsp;|&nbsp; Bilingual Study Guide</div>
+  <h1>Unit 4 Vocabulary</h1>
+  <p class="hero-sub">Hobbies, Sport &amp; Games</p>
+</header>
+
+<main>
+
+<!-- ══════════ REFERENCE: TOPIC VOCABULARY ══════════ -->
+<h2 class="section-title">Topic Vocabulary in Contrast</h2>
+<p style="font-size:0.9rem;color:var(--muted);margin-bottom:20px;">See page 186 for full definitions. <em>(Xem trang 186 để biết định nghĩa đầy đủ.)</em></p>
+
+<div class="reference-card">
+  <div class="card-header">
+    <h3>Easily Confused Words / Cặp từ dễ nhầm lẫn</h3>
+    <span class="card-badge">Reference</span>
+  </div>
+  <div class="vocab-grid">
+    <div class="vocab-chip"><div class="en">pitch / track / court</div><div class="vi">sân bóng / đường đua / sân tennis</div></div>
+    <div class="vocab-chip"><div class="en">course / ring / rink</div><div class="vi">sân golf / sàn đấu / sân băng</div></div>
+    <div class="vocab-chip"><div class="en">umpire / referee</div><div class="vi">trọng tài (tennis) / trọng tài (bóng đá)</div></div>
+    <div class="vocab-chip"><div class="en">sport / athletics</div><div class="vi">thể thao nói chung / điền kinh</div></div>
+    <div class="vocab-chip"><div class="en">win / beat / score</div><div class="vi">thắng (trận) / đánh bại / ghi điểm</div></div>
+    <div class="vocab-chip"><div class="en">final / finale / end / ending</div><div class="vi">chung kết / màn kết (âm nhạc) / kết thúc</div></div>
+    <div class="vocab-chip"><div class="en">interval / half time</div><div class="vi">giờ giải lao (sân khấu) / hiệp nghỉ</div></div>
+    <div class="vocab-chip"><div class="en">play / game</div><div class="vi">chơi (hoạt động) / trò chơi, trận đấu</div></div>
+    <div class="vocab-chip"><div class="en">bat / stick / rod / racket</div><div class="vi">gậy cricket / gậy hockey / cần câu / vợt</div></div>
+    <div class="vocab-chip"><div class="en">draw / equal</div><div class="vi">hoà (tỷ số) / bằng nhau</div></div>
+    <div class="vocab-chip"><div class="en">spectator / viewer</div><div class="vi">khán giả (tại chỗ) / người xem (TV)</div></div>
+    <div class="vocab-chip"><div class="en">amateur / professional</div><div class="vi">nghiệp dư / chuyên nghiệp</div></div>
+    <div class="vocab-chip"><div class="en">competitor / opponent</div><div class="vi">đối thủ thi đấu / đối thủ trực tiếp</div></div>
+  </div>
+</div>
+
+<!-- ══════════ REFERENCE: PHRASAL VERBS ══════════ -->
+<h2 class="section-title">Phrasal Verbs</h2>
+
+<div class="reference-card">
+  <div class="card-header">
+    <h3>Sport &amp; Activity Phrasal Verbs / Cụm động từ về Thể thao &amp; Hoạt động</h3>
+    <span class="card-badge">14 verbs</span>
+  </div>
+  <table class="ref-table">
+    <thead><tr><th>Phrasal Verb</th><th>Definition &amp; Vietnamese Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><strong>bring forward</strong><span class="translation">dời sớm hơn (ngày/giờ)</span></td><td>Change the date/time of an event so it happens earlier.<span class="translation">Thay đổi ngày/giờ của sự kiện để nó diễn ra sớm hơn.</span></td></tr>
+      <tr><td><strong>carry on</strong><span class="translation">tiếp tục</span></td><td>Continue.<span class="translation">Tiếp tục làm điều gì đó.</span></td></tr>
+      <tr><td><strong>get round to</strong><span class="translation">cuối cùng bắt tay vào làm</span></td><td>Start something after planning to do it for a long time.<span class="translation">Bắt đầu làm điều gì đó sau khi đã dự định từ lâu.</span></td></tr>
+      <tr><td><strong>get up to</strong><span class="translation">làm gì (thường là không nên)</span></td><td>Do; do something you should not do.<span class="translation">Làm gì đó; thường dùng khi hỏi về hoạt động của ai, đôi khi mang nghĩa nghịch ngợm.</span></td></tr>
+      <tr><td><strong>go in for</strong><span class="translation">tham gia (thi đấu); thích</span></td><td>Enter a competition; enjoy or like something.<span class="translation">Tham gia thi đấu; yêu thích điều gì đó.</span></td></tr>
+      <tr><td><strong>go off</strong><span class="translation">hết thích, không còn thích nữa</span></td><td>Stop liking something/someone.<span class="translation">Không còn thích điều gì/ai đó nữa.</span></td></tr>
+      <tr><td><strong>join in</strong><span class="translation">tham gia, tham dự</span></td><td>Participate, take part.<span class="translation">Tham gia vào một hoạt động cùng người khác.</span></td></tr>
+      <tr><td><strong>knock out</strong><span class="translation">loại khỏi cuộc thi; hạ gục</span></td><td>Defeat and remove from a competition; make unconscious.<span class="translation">Đánh bại và loại khỏi cuộc thi; đánh ngất ai.</span></td></tr>
+      <tr><td><strong>look out</strong><span class="translation">cẩn thận! chú ý!</span></td><td>Be careful.<span class="translation">Cẩn thận, chú ý nguy hiểm.</span></td></tr>
+      <tr><td><strong>pull out</strong><span class="translation">rút lui khỏi hoạt động</span></td><td>Stop being involved in an activity.<span class="translation">Rút lui, ngừng tham gia vào một hoạt động.</span></td></tr>
+      <tr><td><strong>put off</strong><span class="translation">trì hoãn, dời lại</span></td><td>Delay, postpone.<span class="translation">Trì hoãn, hoãn lại.</span></td></tr>
+      <tr><td><strong>put up with</strong><span class="translation">chịu đựng, chấp nhận</span></td><td>Tolerate.<span class="translation">Chịu đựng điều gì không dễ chịu.</span></td></tr>
+      <tr><td><strong>take to</strong><span class="translation">bắt đầu (như thói quen); thích ngay</span></td><td>Start doing something as a habit; begin to like.<span class="translation">Bắt đầu làm điều gì thường xuyên; bắt đầu thích ai/gì.</span></td></tr>
+      <tr><td><strong>take up</strong><span class="translation">bắt đầu (sở thích, môn thể thao); chiếm (không gian/thời gian)</span></td><td>Start a hobby or sport; fill an amount of space or time.<span class="translation">Bắt đầu một sở thích hay môn thể thao; chiếm dụng không gian hoặc thời gian.</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══════════ REFERENCE: PHRASES & COLLOCATIONS ══════════ -->
+<h2 class="section-title">Phrases &amp; Collocations</h2>
+
+<div class="reference-card">
+  <div class="card-header">
+    <h3>Key Collocations / Cụm từ cố định quan trọng</h3>
+    <span class="card-badge">11 entries</span>
+  </div>
+  <table class="ref-table">
+    <thead><tr><th>Key Word</th><th>Common Collocations &amp; Patterns</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>best</strong><span class="translation">tốt nhất</span></td>
+        <td>make the best of sth; do your best; the best at sth/doing<span class="translation">tận dụng tốt nhất; làm hết sức; giỏi nhất về điều gì</span></td>
+      </tr>
+      <tr>
+        <td><strong>chance</strong><span class="translation">cơ hội; khả năng</span></td>
+        <td>have/take/get a chance to do; have a chance of doing; take a chance; chance of a lifetime<span class="translation">có/nắm bắt cơ hội để làm; có cơ hội; mạo hiểm thử; cơ hội ngàn năm có một</span></td>
+      </tr>
+      <tr>
+        <td><strong>go</strong><span class="translation">lượt; thử</span></td>
+        <td>your go; have a go<span class="translation">đến lượt bạn; thử xem</span></td>
+      </tr>
+      <tr>
+        <td><strong>height</strong><span class="translation">chiều cao; đỉnh điểm</span></td>
+        <td>in height; afraid of heights; height of sth<span class="translation">về chiều cao; sợ độ cao; đỉnh điểm của cái gì</span></td>
+      </tr>
+      <tr>
+        <td><strong>mad</strong><span class="translation">điên; mê say</span></td>
+        <td>mad about/on sth/sb/doing; go/become mad<span class="translation">mê mẩn điều gì/ai; phát điên</span></td>
+      </tr>
+      <tr>
+        <td><strong>pleasure</strong><span class="translation">niềm vui; sự hài lòng</span></td>
+        <td>take pleasure in sth/doing; gain/get pleasure from sth/doing<span class="translation">tìm thấy niềm vui trong điều gì; hưởng thụ niềm vui từ điều gì</span></td>
+      </tr>
+      <tr>
+        <td><strong>popular</strong><span class="translation">phổ biến</span></td>
+        <td>popular with/among<span class="translation">phổ biến với/trong số (người nào)</span></td>
+      </tr>
+      <tr>
+        <td><strong>side</strong><span class="translation">phía; bên; đội</span></td>
+        <td>(on) the opposite/far side; side with sb; on the winning/losing side<span class="translation">phía đối diện/xa; đứng về phía ai; thuộc đội thắng/thua</span></td>
+      </tr>
+      <tr>
+        <td><strong>talent</strong><span class="translation">tài năng</span></td>
+        <td>have a talent for sth/doing; talent contest<span class="translation">có tài năng về điều gì; cuộc thi tài năng</span></td>
+      </tr>
+      <tr>
+        <td><strong>time</strong><span class="translation">thời gian</span></td>
+        <td>on time; in time; the whole time; high/about time; take your time; spend time doing; free/spare/leisure time; time passes; find time to do<span class="translation">đúng giờ; kịp giờ; suốt thời gian; đã đến lúc; cứ từ từ; dành thời gian; thời gian rảnh; thời gian trôi qua; tìm thời gian để làm</span></td>
+      </tr>
+      <tr>
+        <td><strong>turn</strong><span class="translation">lượt; xoay</span></td>
+        <td>turn around/away; turn sth over; in turn; take turns; take it in turns; your turn<span class="translation">quay lại/quay đi; lật cái gì; lần lượt; thay nhau; đến lượt bạn</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══════════ REFERENCE: WORD PATTERNS ══════════ -->
+<h2 class="section-title">Word Patterns</h2>
+
+<div class="reference-card">
+  <div class="card-header">
+    <h3>Verb &amp; Adjective Patterns / Cấu trúc từ</h3>
+    <span class="card-badge">Reference</span>
+  </div>
+  <table class="ref-table">
+    <thead><tr><th>Word</th><th>Pattern(s)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>compete</strong><span class="translation">thi đấu, cạnh tranh</span></td><td>compete against/with sb; compete for/in sth<span class="translation">thi đấu với/chống lại ai; thi đấu vì/trong điều gì</span></td></tr>
+      <tr><td><strong>concentrate</strong><span class="translation">tập trung</span></td><td>concentrate on sth/doing<span class="translation">tập trung vào điều gì/làm gì</span></td></tr>
+      <tr><td><strong>difficult</strong><span class="translation">khó</span></td><td>difficult to do; find sth difficult; find it difficult to do<span class="translation">khó làm; thấy điều gì khó; thấy khó mà làm</span></td></tr>
+      <tr><td><strong>fond</strong><span class="translation">yêu thích</span></td><td>fond of sth/sb/doing<span class="translation">thích cái gì/ai/làm gì</span></td></tr>
+      <tr><td><strong>free</strong><span class="translation">tự do; rảnh</span></td><td>free to do; free from/of sth; free for sth<span class="translation">tự do làm; thoát khỏi; rảnh để</span></td></tr>
+      <tr><td><strong>interested</strong><span class="translation">quan tâm, thích</span></td><td>interested in sth/doing<span class="translation">quan tâm đến điều gì/làm gì</span></td></tr>
+      <tr><td><strong>involve</strong><span class="translation">liên quan đến; bao gồm</span></td><td>involve sth/doing; involved in sth/doing<span class="translation">bao gồm điều gì/làm gì; liên quan đến điều gì/làm gì</span></td></tr>
+      <tr><td><strong>listen</strong><span class="translation">nghe</span></td><td>listen to sth/sb<span class="translation">nghe cái gì/ai (cần giới từ <em>to</em>)</span></td></tr>
+      <tr><td><strong>love</strong><span class="translation">yêu; rất thích</span></td><td>love sth/sb/doing; love to do<span class="translation">rất thích cái gì/ai/làm gì; thích làm gì</span></td></tr>
+      <tr><td><strong>mean</strong><span class="translation">có nghĩa là; dự định</span></td><td>mean to do; it/this means that; it/this means sth/doing<span class="translation">dự định làm; có nghĩa là; điều đó có nghĩa là phải làm gì</span></td></tr>
+      <tr><td><strong>prefer</strong><span class="translation">thích hơn</span></td><td>prefer to do (rather than do); prefer sth/doing (to sth/doing)<span class="translation">thích làm hơn (là làm); thích cái gì hơn cái gì</span></td></tr>
+      <tr><td><strong>stop</strong><span class="translation">dừng; ngăn</span></td><td>stop sth/doing; stop to do; stop sb from doing<span class="translation">ngừng làm; dừng lại để làm; ngăn ai làm gì</span></td></tr>
+      <tr><td><strong>sure/certain</strong><span class="translation">chắc chắn</span></td><td>make/be sure/certain that; sure/certain to do; be sure/certain of sth<span class="translation">chắc chắn rằng; chắc chắn sẽ làm; chắc chắn về điều gì</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══════════ REFERENCE: WORD FORMATION ══════════ -->
+<h2 class="section-title">Word Formation</h2>
+
+<div class="reference-card">
+  <div class="card-header">
+    <h3>Derivatives &amp; Related Forms / Từ phái sinh</h3>
+    <span class="card-badge">Reference</span>
+  </div>
+  <table class="ref-table">
+    <thead><tr><th>Base Word</th><th>Derivatives</th></tr></thead>
+    <tbody>
+      <tr><td><strong>allow</strong><span class="translation">cho phép</span></td><td>disallow <span class="translation">(không cho phép)</span>, allowance <span class="translation">(tiền trợ cấp)</span>, allowable <span class="translation">(được phép)</span></td></tr>
+      <tr><td><strong>associate</strong><span class="translation">liên kết</span></td><td>disassociate <span class="translation">(tách rời)</span>, association <span class="translation">(hiệp hội)</span>, (un)associated <span class="translation">(có/không liên quan)</span></td></tr>
+      <tr><td><strong>compete</strong><span class="translation">thi đấu</span></td><td>competition <span class="translation">(cuộc thi)</span>, competitor <span class="translation">(đối thủ)</span>, competitive(ly) <span class="translation">(cạnh tranh)</span></td></tr>
+      <tr><td><strong>enjoy</strong><span class="translation">tận hưởng</span></td><td>enjoyment <span class="translation">(sự tận hưởng)</span>, enjoyable <span class="translation">(thú vị, vui vẻ)</span></td></tr>
+      <tr><td><strong>equip</strong><span class="translation">trang bị</span></td><td>equipment <span class="translation">(thiết bị, dụng cụ)</span>, equipped <span class="translation">(được trang bị)</span></td></tr>
+      <tr><td><strong>fortune</strong><span class="translation">vận may; tài sản lớn</span></td><td>misfortune <span class="translation">(xui xẻo)</span>, (un)fortunate(ly) <span class="translation">(may/không may thay)</span></td></tr>
+      <tr><td><strong>interest</strong><span class="translation">quan tâm; lãi suất</span></td><td>(un)interesting(ly) <span class="translation">(thú vị/nhàm chán)</span></td></tr>
+      <tr><td><strong>know</strong><span class="translation">biết</span></td><td>knowledge <span class="translation">(kiến thức)</span>, (un)knowledgeable <span class="translation">(có/không có kiến thức)</span></td></tr>
+      <tr><td><strong>lose</strong><span class="translation">thua; mất</span></td><td>lost <span class="translation">(đã thua/mất)</span>, loss <span class="translation">(sự thua cuộc; sự mất mát)</span></td></tr>
+      <tr><td><strong>maintain</strong><span class="translation">duy trì; bảo trì</span></td><td>maintenance <span class="translation">(việc bảo trì)</span></td></tr>
+      <tr><td><strong>medal</strong><span class="translation">huy chương</span></td><td>medallist <span class="translation">(người đoạt huy chương)</span>, medallion <span class="translation">(mặt dây chuyền hình huy chương)</span></td></tr>
+      <tr><td><strong>oppose</strong><span class="translation">phản đối; đối lập</span></td><td>opposition <span class="translation">(sự phản đối; phe đối lập)</span>, opponent <span class="translation">(đối thủ)</span>, opposite <span class="translation">(đối diện; trái ngược)</span>, opposing <span class="translation">(đối lập)</span></td></tr>
+      <tr><td><strong>practice</strong><span class="translation">thực hành; luyện tập</span></td><td>practise <span class="translation">(luyện tập — động từ)</span>, (im)practical(ly) <span class="translation">(thực tế/không thực tế)</span></td></tr>
+      <tr><td><strong>train</strong><span class="translation">huấn luyện; tập luyện</span></td><td>retrain <span class="translation">(huấn luyện lại)</span>, trainer <span class="translation">(giày thể thao; huấn luyện viên)</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══════════ EXERCISES ══════════ -->
+<h2 class="section-title">Topic Vocabulary in Contrast – Exercises</h2>
+
+<!-- ─── EXERCISE A ─── -->
+<div class="exercise-card">
+  <div class="ex-header">
+    <div class="ex-badge">A</div>
+    <div class="ex-instruction">
+      <strong>Complete using the correct form of the words in the box.</strong>
+      <div class="vi-instruction">Hoàn thành câu dùng từ trong hộp. Có ba nhóm từ khác nhau.</div>
+    </div>
+  </div>
+  <div class="ex-body">
+    <div class="wordbox">
+      <div class="wb-group"><span>course</span><span>court</span><span>pitch</span><span>ring</span><span>rink</span><span>track</span></div>
+      <div class="wb-group"><span>beat</span><span>win</span><span>score</span></div>
+      <div class="wb-group"><span>bat</span><span>stick</span><span>rod</span><span>racket</span></div>
+    </div>
+
+    <div class="blank-item"><span class="q-num">1</span>We used to go skating at the ice <span class="blank-box">. . .</span> every Saturday.</div>
+    <div class="blank-item"><span class="q-num">2</span>Keith had never seen such a large golf <span class="blank-box">. . .</span> until he went to Scotland.</div>
+    <div class="blank-item"><span class="q-num">3</span>We all met at the basketball <span class="blank-box">. . .</span> at half past three.</div>
+    <div class="blank-item"><span class="q-num">4</span>It's called a boxing <span class="blank-box">. . .</span> , but it's actually square!</div>
+    <div class="blank-item"><span class="q-num">5</span>For the 800 metres race, you have to run round the <span class="blank-box">. . .</span> twice.</div>
+    <div class="blank-item"><span class="q-num">6</span>The football match had to be called off because the <span class="blank-box">. . .</span> was flooded.</div>
+    <div class="blank-item"><span class="q-num">7</span>Our team <span class="blank-box">. . .</span> until half time, but in the second half the other team <span class="blank-box">. . .</span> three goals, and so they <span class="blank-box">. . .</span> us. But it was a great match!</div>
+    <div class="blank-item"><span class="q-num">8</span>Adrian got a new fishing <span class="blank-box">. . .</span> for his birthday.</div>
+    <div class="blank-item"><span class="q-num">9</span>Can I borrow your tennis <span class="blank-box">. . .</span> ?</div>
+    <div class="blank-item"><span class="q-num">10</span>Why are hockey <span class="blank-box">. . .</span> s such a strange shape?</div>
+    <div class="blank-item"><span class="q-num">11</span>I'd spend hours putting linseed oil on my cricket <span class="blank-box">. . .</span> to keep the wood strong.</div>
+  </div>
+  <details class="answer-accordion">
+    <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+    <div class="answer-body">
+      <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">rink</div><div class="ans-explain">An <em>ice rink</em> is the venue for ice skating. Each sport has a specific word for its playing area.</div><div class="ans-vi"><em>Ice rink</em> = sân trượt băng. Mỗi môn thể thao có từ riêng cho địa điểm thi đấu.</div></div></div>
+      <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">course</div><div class="ans-explain">A <em>golf course</em> is the area where golf is played, consisting of 9 or 18 holes.</div><div class="ans-vi"><em>Golf course</em> = sân golf, thường có 9 hoặc 18 lỗ.</div></div></div>
+      <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">court</div><div class="ans-explain">A <em>basketball court</em> (or tennis court) is the surface area for racket or court sports.</div><div class="ans-vi"><em>Basketball court</em> = sân bóng rổ. <em>Court</em> dùng cho sân tennis, bóng rổ, squash…</div></div></div>
+      <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">ring</div><div class="ans-explain">A <em>boxing ring</em> is the square-shaped, roped-off area where boxing matches take place. Despite being called a "ring", it is square.</div><div class="ans-vi"><em>Boxing ring</em> = sàn đấu quyền anh. Tuy gọi là "ring" (vòng tròn) nhưng thực tế là hình vuông.</div></div></div>
+      <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">track</div><div class="ans-explain">A <em>track</em> is an oval circuit used for running, cycling, and racing.</div><div class="ans-vi"><em>Track</em> = đường đua (hình bầu dục) dùng cho chạy bộ, đua xe đạp…</div></div></div>
+      <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">pitch</div><div class="ans-explain">A <em>pitch</em> is the playing field for football, rugby, or cricket.</div><div class="ans-vi"><em>Pitch</em> = sân cỏ cho bóng đá, bóng bầu dục hoặc cricket.</div></div></div>
+      <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">won / scored / beat</div><div class="ans-explain"><em>Win</em> = to be victorious in the game (intransitive, or with the game as object). <em>Score</em> = to get points. <em>Beat</em> = to defeat (takes a person/team as object): <em>they beat us</em>.</div><div class="ans-vi"><em>Win</em> = thắng trận (thắng cuộc). <em>Score</em> = ghi bàn/điểm. <em>Beat</em> = đánh bại (tân ngữ là đội/người): <em>they beat us</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">8</span><div class="ans-content"><div class="ans-word">rod</div><div class="ans-explain">A <em>fishing rod</em> is the long, thin pole used in angling. Not a stick or a bat.</div><div class="ans-vi"><em>Fishing rod</em> = cần câu cá. Không dùng <em>stick</em> hay <em>bat</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">9</span><div class="ans-content"><div class="ans-word">racket</div><div class="ans-explain">A <em>tennis racket</em> (also spelled <em>racquet</em>) is the strung implement used in tennis, badminton, and squash.</div><div class="ans-vi"><em>Tennis racket</em> = vợt tennis. Dùng cho tennis, cầu lông, squash.</div></div></div>
+      <div class="answer-item"><span class="ans-num">10</span><div class="ans-content"><div class="ans-word">stick</div><div class="ans-explain">A <em>hockey stick</em> is the curved implement used in field or ice hockey.</div><div class="ans-vi"><em>Hockey stick</em> = gậy hockey có đầu cong. Dùng trong khúc côn cầu.</div></div></div>
+      <div class="answer-item"><span class="ans-num">11</span><div class="ans-content"><div class="ans-word">bat</div><div class="ans-explain">A <em>cricket bat</em> is the flat, willow implement used to hit the ball in cricket. (A <em>bat</em> is also used in baseball and table tennis.)</div><div class="ans-vi"><em>Cricket bat</em> = gậy cricket (gỗ liễu dương, dẹt một mặt). Dùng trong cricket, bóng chày, bóng bàn.</div></div></div>
+    </div>
+  </details>
+</div><!-- /A -->
+
+<!-- ─── EXERCISE B ─── -->
+<div class="exercise-card">
+  <div class="ex-header">
+    <div class="ex-badge">B</div>
+    <div class="ex-instruction">
+      <strong>Circle the correct word or phrase.</strong>
+      <div class="vi-instruction">Khoanh tròn từ hoặc cụm từ đúng trong mỗi câu.</div>
+    </div>
+  </div>
+  <div class="ex-body">
+    <div class="circle-item"><span class="q-num">1</span>The <span class="word-choice">referee</span> / <span class="word-choice alt">umpire</span> blew the whistle and the most important football match I've ever played began.</div>
+    <div class="circle-item"><span class="q-num">2</span>We used to play rugby in the winter term, football in the spring term, and we'd do <span class="word-choice">athletics</span> / <span class="word-choice alt">sport</span> and swimming in the summer term.</div>
+    <div class="circle-item"><span class="q-num">3</span>Do you fancy a <span class="word-choice">game</span> / <span class="word-choice alt">play</span> of cards?</div>
+    <div class="circle-item"><span class="q-num">4</span>I only do magic tricks for fun. I've never thought of becoming <span class="word-choice">a professional</span> / <span class="word-choice alt">an amateur</span> magician.</div>
+    <div class="circle-item"><span class="q-num">5</span>The play was so boring, we walked out during <span class="word-choice">the interval</span> / <span class="word-choice alt">half time</span>.</div>
+    <div class="circle-item"><span class="q-num">6</span>Coventry City <span class="word-choice">drew</span> / <span class="word-choice alt">equalled</span> 3-3 with Sunderland in the match last Saturday.</div>
+    <div class="circle-item"><span class="q-num">7</span><span class="word-choice">Viewers</span> / <span class="word-choice alt">Spectators</span> who watched last week's programme will remember we were looking at the history of baseball.</div>
+    <div class="circle-item"><span class="q-num">8</span>We got through to the <span class="word-choice">final</span> / <span class="word-choice alt">finale</span>, but then lost to Cirencester.</div>
+    <div class="circle-item"><span class="q-num">9</span>Most people prefer films which have a happy <span class="word-choice">ending</span> / <span class="word-choice alt">end</span>.</div>
+    <div class="circle-item"><span class="q-num">10</span>Would all <span class="word-choice">competitors</span> / <span class="word-choice alt">opponents</span> please make their way to the starting line?</div>
+  </div>
+  <details class="answer-accordion">
+    <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+    <div class="answer-body">
+      <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">referee</div><div class="ans-explain">A <em>referee</em> officiates in football, rugby, basketball. An <em>umpire</em> officiates in tennis, cricket, baseball. Football → referee.</div><div class="ans-vi"><em>Referee</em> = trọng tài bóng đá, bóng rổ, rugby. <em>Umpire</em> = trọng tài tennis, cricket, bóng chày.</div></div></div>
+      <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">athletics</div><div class="ans-explain"><em>Athletics</em> refers specifically to track and field events (running, jumping, throwing). <em>Sport</em> is a general term; you cannot <em>do sport</em> alongside swimming as a school curriculum subject in the same specific sense.</div><div class="ans-vi"><em>Athletics</em> = điền kinh (chạy, nhảy, ném). Trong học thuật, đây là môn cụ thể, khác với <em>sport</em> chung chung.</div></div></div>
+      <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">game</div><div class="ans-explain"><em>A game of cards</em> is the fixed expression. <em>Play</em> is a verb or refers to a theatrical performance; it does not collocate with <em>a … of cards</em>.</div><div class="ans-vi"><em>A game of cards</em> = một ván bài — cụm từ cố định. <em>Play</em> là động từ hoặc chỉ vở kịch.</div></div></div>
+      <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">a professional</div><div class="ans-explain">The context says he does it "for fun" and has "never thought of becoming" paid — so the contrast is between doing it as a hobby versus becoming a paid <em>professional</em>. An <em>amateur</em> is the hobby version.</div><div class="ans-vi">Vì anh ấy chỉ làm vì niềm vui (nghiệp dư), câu hỏi là liệu có trở thành <em>professional</em> (chuyên nghiệp, được trả lương) không.</div></div></div>
+      <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">the interval</div><div class="ans-explain"><em>Interval</em> = the break in the middle of a theatre performance, concert, or film. <em>Half time</em> = the break in the middle of a sports match.</div><div class="ans-vi"><em>Interval</em> = giờ nghỉ giữa màn diễn (nhà hát, hòa nhạc). <em>Half time</em> = giờ nghỉ giữa hai hiệp đấu thể thao.</div></div></div>
+      <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">drew</div><div class="ans-explain"><em>Draw</em> (verb) = end a match with equal scores. You <em>draw with</em> a team. <em>Equal</em> is an adjective or verb meaning to be the same, but not used for sports scores in British English.</div><div class="ans-vi"><em>Draw</em> (động từ) = hoà tỷ số. <em>Drew 3-3 with</em> = hoà 3-3 với. <em>Equal</em> là tính từ, không dùng cho kết quả thể thao.</div></div></div>
+      <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">Viewers</div><div class="ans-explain"><em>Viewers</em> = people who watch television. <em>Spectators</em> = people who watch a live event (stadium, sports ground). The context is "last week's programme" — TV, so <em>viewers</em>.</div><div class="ans-vi"><em>Viewers</em> = người xem TV. <em>Spectators</em> = khán giả tại chỗ. Ngữ cảnh là chương trình TV nên dùng <em>viewers</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">8</span><div class="ans-content"><div class="ans-word">final</div><div class="ans-explain"><em>Final</em> = the last deciding match in a competition. <em>Finale</em> = the last part of a musical or theatrical performance.</div><div class="ans-vi"><em>Final</em> = trận chung kết thể thao. <em>Finale</em> = phần kết của buổi diễn âm nhạc/kịch.</div></div></div>
+      <div class="answer-item"><span class="ans-num">9</span><div class="ans-content"><div class="ans-word">ending</div><div class="ans-explain"><em>Ending</em> = the concluding part of a story, film, or book. <em>End</em> is more general (e.g. the end of the road, the end of the year). Films have an <em>ending</em>.</div><div class="ans-vi"><em>Ending</em> = phần kết của câu chuyện/phim. <em>End</em> chung chung hơn (cuối đường, cuối năm). Phim có <em>ending</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">10</span><div class="ans-content"><div class="ans-word">competitors</div><div class="ans-explain"><em>Competitors</em> = all participants in a race or competition (general). <em>Opponents</em> = specifically your direct adversary in a match. At the starting line, all participants are <em>competitors</em>.</div><div class="ans-vi"><em>Competitors</em> = tất cả các vận động viên tham gia. <em>Opponents</em> = đối thủ trực tiếp của bạn. Ở vạch xuất phát, dùng <em>competitors</em>.</div></div></div>
+    </div>
+  </details>
+</div><!-- /B -->
+
+<!-- ─── EXERCISE C ─── -->
+<h2 class="section-title">Phrasal Verbs – Exercises</h2>
+
+<div class="exercise-card">
+  <div class="ex-header">
+    <div class="ex-badge">C</div>
+    <div class="ex-instruction">
+      <strong>Complete each second sentence using the word given, so that it has a similar meaning to the first sentence. Write between two and five words in each gap.</strong>
+      <div class="vi-instruction">Hoàn thành câu thứ hai dùng từ gợi ý sao cho nghĩa tương đương câu đầu. Viết từ 2 đến 5 từ vào chỗ trống.</div>
+    </div>
+  </div>
+  <div class="ex-body">
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">1</span> I don't know how you can stand getting up so early to go to the pool. <strong>[put]</strong></div>
+      <div style="font-size:0.95rem;color:var(--muted);padding-left:10px;margin-top:6px;">I don't know how you can <span class="blank-box">. . . . . . . . .</span> up so early to go to the pool.</div>
+    </div>
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">2</span> I've finally started sorting out my postcard collection. <strong>[round]</strong></div>
+      <div style="font-size:0.95rem;color:var(--muted);padding-left:10px;margin-top:6px;">I've finally <span class="blank-box">. . . . . . . . .</span> sorting out my postcard collection.</div>
+    </div>
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">3</span> What did you do at the weekend? <strong>[get]</strong></div>
+      <div style="font-size:0.95rem;color:var(--muted);padding-left:10px;margin-top:6px;">What did you <span class="blank-box">. . . . . . . . .</span> at the weekend?</div>
+    </div>
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">4</span> I'm not so keen on skiing now I've discovered snowboarding. <strong>[gone]</strong></div>
+      <div style="font-size:0.95rem;color:var(--muted);padding-left:10px;margin-top:6px;">I've <span class="blank-box">. . . . . . . . .</span> since I discovered snowboarding.</div>
+    </div>
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">5</span> Why do you continue to have riding lessons if you can't afford them? <strong>[on]</strong></div>
+      <div style="font-size:0.95rem;color:var(--muted);padding-left:10px;margin-top:6px;">Why do you <span class="blank-box">. . . . . . . . .</span> riding lessons if you can't afford them?</div>
+    </div>
+    <div class="mc-item" style="margin-bottom:0;border-bottom:none;padding-bottom:0;">
+      <div class="mc-q"><span class="q-num">6</span> We can't delay the match any longer. <strong>[put]</strong></div>
+      <div style="font-size:0.95rem;color:var(--muted);padding-left:10px;margin-top:6px;">We can't <span class="blank-box">. . . . . . . . .</span> any longer.</div>
+    </div>
+  </div>
+  <details class="answer-accordion">
+    <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+    <div class="answer-body">
+      <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">put up with getting</div><div class="ans-explain"><em>Put up with</em> = tolerate. Replaces <em>stand</em> (= tolerate). The gerund <em>getting</em> follows as the object.</div><div class="ans-vi"><em>Put up with</em> = chịu đựng, thay thế cho <em>stand</em>. Theo sau là danh động từ <em>getting</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">got round to</div><div class="ans-explain"><em>Get round to + gerund</em> = finally find time to do something you planned. Present perfect: <em>have got round to</em>.</div><div class="ans-vi"><em>Get round to + V-ing</em> = cuối cùng cũng bắt tay vào làm điều đã hoạch định. Hiện tại hoàn thành: <em>have got round to</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">get up to</div><div class="ans-explain"><em>Get up to</em> = do (used especially when asking what someone has been doing). Past tense: <em>did you get up to</em>.</div><div class="ans-vi"><em>Get up to</em> = làm gì (thường dùng để hỏi về hoạt động). Quá khứ đơn: <em>did you get up to</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">gone off skiing</div><div class="ans-explain"><em>Go off</em> = stop liking. The clue word is <em>gone</em> (past participle for present perfect). Result: <em>I've gone off skiing</em>.</div><div class="ans-vi"><em>Go off</em> = hết thích. Dùng hiện tại hoàn thành: <em>I've gone off skiing</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">carry on having / carry on with</div><div class="ans-explain"><em>Carry on + gerund / carry on with</em> = continue. The clue word is <em>on</em>. <em>carry on having riding lessons</em> or <em>carry on with riding lessons</em>.</div><div class="ans-vi"><em>Carry on + V-ing</em> = tiếp tục làm. Từ gợi ý <em>on</em> → <em>carry on having riding lessons</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">put the match off / put off the match</div><div class="ans-explain"><em>Put off</em> = delay, postpone. The clue word <em>put</em> combined with <em>off</em>. The object <em>the match</em> can go between the verb and particle or after.</div><div class="ans-vi"><em>Put off</em> = trì hoãn, hoãn lại. Tân ngữ <em>the match</em> có thể đặt giữa hoặc sau cụm động từ.</div></div></div>
+    </div>
+  </details>
+</div><!-- /C -->
+
+<!-- ─── EXERCISE D ─── -->
+<div class="exercise-card">
+  <div class="ex-header">
+    <div class="ex-badge">D</div>
+    <div class="ex-instruction">
+      <strong>Write one word in each gap.</strong>
+      <div class="vi-instruction">Điền một từ vào mỗi chỗ trống để hoàn thành cụm động từ.</div>
+    </div>
+  </div>
+  <div class="ex-body">
+    <div class="blank-item"><span class="q-num">1</span>Tony never used to want to join <span class="blank-box">. . .</span> with the other kids in the playground.</div>
+    <div class="blank-item"><span class="q-num">2</span>Look <span class="blank-box">. . .</span> ! There's a car coming!</div>
+    <div class="blank-item"><span class="q-num">3</span>Simone's <span class="blank-box">. . .</span> to wearing a helmet whenever she goes cycling.</div>
+    <div class="blank-item"><span class="q-num">4</span>I was thinking of taking <span class="blank-box">. . .</span> scuba diving until I found out how expensive the equipment is.</div>
+    <div class="blank-item"><span class="q-num">5</span>They were knocked <span class="blank-box">. . .</span> in the semi-final.</div>
+    <div class="blank-item"><span class="q-num">6</span>Maybe we should bring the meeting <span class="blank-box">. . .</span> to this Tuesday instead of having it in two weeks' time.</div>
+    <div class="blank-item"><span class="q-num">7</span>Becca had to pull <span class="blank-box">. . .</span> of the race when she sprained her ankle.</div>
+    <div class="blank-item"><span class="q-num">8</span>Melissa doesn't <span class="blank-box">. . .</span> in for adventure sports.</div>
+  </div>
+  <details class="answer-accordion">
+    <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+    <div class="answer-body">
+      <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">in</div><div class="ans-explain"><em>Join in</em> = participate, take part. Tony didn't want to participate with other children.</div><div class="ans-vi"><em>Join in</em> = tham gia cùng. Tony không muốn tham gia cùng các bạn.</div></div></div>
+      <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">out</div><div class="ans-explain"><em>Look out!</em> = Be careful! A warning exclamation about immediate danger.</div><div class="ans-vi"><em>Look out!</em> = Cẩn thận! Câu cảnh báo nguy hiểm tức thì.</div></div></div>
+      <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">taken</div><div class="ans-explain"><em>Take to + gerund</em> = start doing something as a habit. Present perfect with <em>has</em>: she <em>has taken to</em> wearing a helmet.</div><div class="ans-vi"><em>Take to + V-ing</em> = bắt đầu làm điều gì như thói quen. Hiện tại hoàn thành: <em>has taken to wearing</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">up</div><div class="ans-explain"><em>Take up</em> = start a hobby or sport. She was considering starting scuba diving.</div><div class="ans-vi"><em>Take up</em> = bắt đầu (sở thích, môn thể thao). Cô ấy đang nghĩ đến việc bắt đầu lặn.</div></div></div>
+      <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">out</div><div class="ans-explain"><em>Knock out</em> = defeat and eliminate from a competition. They were eliminated at the semi-final stage.</div><div class="ans-vi"><em>Knock out</em> = loại khỏi cuộc thi. Họ bị loại ở bán kết.</div></div></div>
+      <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">forward</div><div class="ans-explain"><em>Bring forward</em> = move an event to an earlier date/time. The meeting is being moved from two weeks' time to this Tuesday.</div><div class="ans-vi"><em>Bring forward</em> = dời sớm hơn. Cuộc họp được chuyển từ hai tuần nữa sang thứ Ba này.</div></div></div>
+      <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">out</div><div class="ans-explain"><em>Pull out</em> = withdraw from a competition or activity. Becca had to withdraw because of an injury.</div><div class="ans-vi"><em>Pull out</em> = rút lui. Becca phải rút khỏi cuộc đua vì chấn thương.</div></div></div>
+      <div class="answer-item"><span class="ans-num">8</span><div class="ans-content"><div class="ans-word">go</div><div class="ans-explain"><em>Go in for</em> = like or be interested in something; also enter a competition. Melissa is not interested in adventure sports.</div><div class="ans-vi"><em>Go in for</em> = thích, quan tâm đến. Melissa không thích thể thao mạo hiểm.</div></div></div>
+    </div>
+  </details>
+</div><!-- /D -->
+
+<!-- ─── EXERCISE E ─── -->
+<h2 class="section-title">Phrases &amp; Collocations – Exercises</h2>
+
+<div class="exercise-card">
+  <div class="ex-header">
+    <div class="ex-badge">E</div>
+    <div class="ex-instruction">
+      <strong>Choose the correct answer.</strong>
+      <div class="vi-instruction">Chọn đáp án đúng. (Kiểm tra cụm từ và collocations)</div>
+    </div>
+  </div>
+  <div class="ex-body">
+
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">1</span>Why don't you ........... a go? It's not difficult!</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> make</div><div class="option"><span class="opt-letter">B</span> have</div>
+        <div class="option"><span class="opt-letter">C</span> do</div><div class="option"><span class="opt-letter">D</span> set</div>
+      </div>
+    </div>
+
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">2</span>Carl wasn't very good at mountain climbing as he's afraid of ........... .</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> highs</div><div class="option"><span class="opt-letter">B</span> highness</div>
+        <div class="option"><span class="opt-letter">C</span> heights</div><div class="option"><span class="opt-letter">D</span> height</div>
+      </div>
+    </div>
+
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">3</span>There's little ........... of our getting into the final.</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> opportunity</div><div class="option"><span class="opt-letter">B</span> chance</div>
+        <div class="option"><span class="opt-letter">C</span> luck</div><div class="option"><span class="opt-letter">D</span> fortune</div>
+      </div>
+    </div>
+
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">4</span>Rachel is mad ........... the Eurovision Song Contest.</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> from</div><div class="option"><span class="opt-letter">B</span> against</div>
+        <div class="option"><span class="opt-letter">C</span> for</div><div class="option"><span class="opt-letter">D</span> about</div>
+      </div>
+    </div>
+
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">5</span>Just ........... your best – that's all anyone can ask of you.</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> do</div><div class="option"><span class="opt-letter">B</span> make</div>
+        <div class="option"><span class="opt-letter">C</span> be</div><div class="option"><span class="opt-letter">D</span> have</div>
+      </div>
+    </div>
+
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">6</span>It's ........... time you learned to swim.</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> big</div><div class="option"><span class="opt-letter">B</span> tall</div>
+        <div class="option"><span class="opt-letter">C</span> high</div><div class="option"><span class="opt-letter">D</span> far</div>
+      </div>
+    </div>
+
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">7</span>Grandma ........... a lot of pleasure from gardening.</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> does</div><div class="option"><span class="opt-letter">B</span> has</div>
+        <div class="option"><span class="opt-letter">C</span> makes</div><div class="option"><span class="opt-letter">D</span> gets</div>
+      </div>
+    </div>
+
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">8</span>........... your time – don't rush.</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> Tell</div><div class="option"><span class="opt-letter">B</span> Find</div>
+        <div class="option"><span class="opt-letter">C</span> Spend</div><div class="option"><span class="opt-letter">D</span> Take</div>
+      </div>
+    </div>
+
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">9</span>Each player takes it ........... turn to roll the dice.</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> on</div><div class="option"><span class="opt-letter">B</span> in</div>
+        <div class="option"><span class="opt-letter">C</span> at</div><div class="option"><span class="opt-letter">D</span> to</div>
+      </div>
+    </div>
+
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">10</span>Time ........... so quickly when you're doing something enjoyable.</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> takes</div><div class="option"><span class="opt-letter">B</span> spends</div>
+        <div class="option"><span class="opt-letter">C</span> passes</div><div class="option"><span class="opt-letter">D</span> finds</div>
+      </div>
+    </div>
+
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">11</span>Our new coach is popular ........... the whole team.</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> for</div><div class="option"><span class="opt-letter">B</span> to</div>
+        <div class="option"><span class="opt-letter">C</span> by</div><div class="option"><span class="opt-letter">D</span> with</div>
+      </div>
+    </div>
+
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">12</span>She'd ........... hours lying on her bed, reading.</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> spend</div><div class="option"><span class="opt-letter">B</span> take</div>
+        <div class="option"><span class="opt-letter">C</span> make</div><div class="option"><span class="opt-letter">D</span> pass</div>
+      </div>
+    </div>
+
+    <div class="mc-item">
+      <div class="mc-q"><span class="q-num">13</span>He'd been planning to leave the team the ........... time, and hadn't told anyone.</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> complete</div><div class="option"><span class="opt-letter">B</span> whole</div>
+        <div class="option"><span class="opt-letter">C</span> total</div><div class="option"><span class="opt-letter">D</span> full</div>
+      </div>
+    </div>
+
+    <div class="mc-item" style="margin-bottom:0;padding-bottom:0;border-bottom:none;">
+      <div class="mc-q"><span class="q-num">14</span>I'm not siding ........... her because she's my sister, but because she's right.</div>
+      <div class="options-grid">
+        <div class="option"><span class="opt-letter">A</span> from</div><div class="option"><span class="opt-letter">B</span> for</div>
+        <div class="option"><span class="opt-letter">C</span> to</div><div class="option"><span class="opt-letter">D</span> with</div>
+      </div>
+    </div>
+
+  </div>
+  <details class="answer-accordion">
+    <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+    <div class="answer-body">
+      <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">B – have</div><div class="ans-explain"><em>Have a go</em> = try something. Fixed collocation. Never <em>make a go</em> (which means something different: to make a success of something).</div><div class="ans-vi"><em>Have a go</em> = thử xem — cụm cố định. <em>Make a go</em> = làm cho thành công (nghĩa khác).</div></div></div>
+      <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">C – heights</div><div class="ans-explain"><em>Afraid of heights</em> (plural) = fear of being at a high altitude — a fixed expression. Not <em>height</em> (singular) or <em>highs</em>.</div><div class="ans-vi"><em>Afraid of heights</em> (số nhiều) = sợ độ cao — cụm cố định. Không dùng số ít <em>height</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">B – chance</div><div class="ans-explain"><em>A chance of (your) doing</em> = a possibility that something will happen. <em>Opportunity</em> needs <em>to do</em>; <em>luck</em> and <em>fortune</em> do not take <em>of + gerund</em> in this structure.</div><div class="ans-vi"><em>A chance of doing</em> = khả năng xảy ra — cấu trúc cố định. <em>Opportunity</em> dùng <em>to do</em>; <em>luck/fortune</em> không dùng <em>of + V-ing</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">D – about</div><div class="ans-explain"><em>Mad about</em> = very enthusiastic about; obsessed with. Fixed preposition.</div><div class="ans-vi"><em>Mad about</em> = mê say, cuồng nhiệt về điều gì — giới từ cố định.</div></div></div>
+      <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">A – do</div><div class="ans-explain"><em>Do your best</em> = try as hard as you can. Fixed collocation. <em>Make your best</em> is incorrect.</div><div class="ans-vi"><em>Do your best</em> = cố gắng hết sức — cụm cố định. <em>Make your best</em> sai.</div></div></div>
+      <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">C – high</div><div class="ans-explain"><em>It's high time (+ past tense)</em> = it should have happened already; used to express that something is overdue. Fixed idiom.</div><div class="ans-vi"><em>It's high time + past tense</em> = đã đến lúc (phải làm điều gì đó rồi) — thành ngữ cố định.</div></div></div>
+      <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">D – gets</div><div class="ans-explain"><em>Get pleasure from</em> = derive enjoyment from. <em>Take pleasure in</em> also works but is not an option here. <em>Has pleasure</em>, <em>makes pleasure</em>, and <em>does pleasure</em> are all incorrect.</div><div class="ans-vi"><em>Get pleasure from</em> = tìm thấy niềm vui từ — cụm đúng. <em>Has/makes/does pleasure</em> đều sai.</div></div></div>
+      <div class="answer-item"><span class="ans-num">8</span><div class="ans-content"><div class="ans-word">D – Take</div><div class="ans-explain"><em>Take your time</em> = do something without rushing. Fixed expression used as an imperative or advice.</div><div class="ans-vi"><em>Take your time</em> = cứ từ từ, không cần vội — cụm cố định dùng như câu lệnh hoặc lời khuyên.</div></div></div>
+      <div class="answer-item"><span class="ans-num">9</span><div class="ans-content"><div class="ans-word">B – in</div><div class="ans-explain"><em>Take it in turns</em> (British English) = take turns. Fixed preposition: <em>in turn(s)</em>.</div><div class="ans-vi"><em>Take it in turns</em> = lần lượt thay nhau — giới từ cố định <em>in</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">10</span><div class="ans-content"><div class="ans-word">C – passes</div><div class="ans-explain"><em>Time passes</em> = time goes by. This is the only correct collocation with <em>time</em> as the subject. <em>Time takes, spends, finds</em> are all incorrect.</div><div class="ans-vi"><em>Time passes</em> = thời gian trôi qua — kết hợp duy nhất đúng với <em>time</em> làm chủ ngữ.</div></div></div>
+      <div class="answer-item"><span class="ans-num">11</span><div class="ans-content"><div class="ans-word">D – with</div><div class="ans-explain"><em>Popular with/among</em> = liked by. Fixed preposition. <em>Popular for</em> means known for a reason, not liked by a group.</div><div class="ans-vi"><em>Popular with/among</em> = được yêu thích bởi — giới từ cố định. <em>Popular for</em> = nổi tiếng vì điều gì, nghĩa khác.</div></div></div>
+      <div class="answer-item"><span class="ans-num">12</span><div class="ans-content"><div class="ans-word">A – spend</div><div class="ans-explain"><em>Spend time doing</em> = use time on an activity. Past tense: <em>she'd spend hours doing</em> (habitual past with <em>would</em>).</div><div class="ans-vi"><em>Spend time + V-ing</em> = dành thời gian làm gì. Quá khứ thói quen: <em>she'd spend hours</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">13</span><div class="ans-content"><div class="ans-word">B – whole</div><div class="ans-explain"><em>The whole time</em> = all along, throughout that period. <em>The whole time</em> is a fixed collocation. <em>Total/complete/full time</em> do not work here.</div><div class="ans-vi"><em>The whole time</em> = suốt thời gian đó — cụm cố định. <em>Total/complete/full time</em> không dùng được ở đây.</div></div></div>
+      <div class="answer-item"><span class="ans-num">14</span><div class="ans-content"><div class="ans-word">D – with</div><div class="ans-explain"><em>Side with sb</em> = support or agree with someone. Fixed preposition. <em>Side for/from/to</em> are all incorrect.</div><div class="ans-vi"><em>Side with sb</em> = đứng về phía ai, ủng hộ ai — giới từ cố định <em>with</em>.</div></div></div>
+    </div>
+  </details>
+</div><!-- /E -->
+
+<!-- ─── EXERCISE F ─── -->
+<h2 class="section-title">Word Patterns – Exercises</h2>
+
+<div class="exercise-card">
+  <div class="ex-header">
+    <div class="ex-badge">F</div>
+    <div class="ex-instruction">
+      <strong>Match to make sentences.</strong>
+      <div class="vi-instruction">Nối các phần để tạo thành câu hoàn chỉnh. (Kiểm tra Word Patterns)</div>
+    </div>
+  </div>
+  <div class="ex-body">
+    <div class="match-grid">
+      <div class="match-col">
+        <div class="match-item"><span class="match-key">1</span> I'm not very fond ...........</div>
+        <div class="match-item"><span class="match-key">2</span> She's interested ...........</div>
+        <div class="match-item"><span class="match-key">3</span> You should concentrate ...........</div>
+        <div class="match-item"><span class="match-key">4</span> I used to find it difficult ...........</div>
+        <div class="match-item"><span class="match-key">5</span> Let's listen ...........</div>
+        <div class="match-item"><span class="match-key">6</span> We stopped ...........</div>
+        <div class="match-item"><span class="match-key">7</span> The bad weather stopped us ...........</div>
+      </div>
+      <div class="match-col">
+        <div class="match-item"><span class="match-key">A</span> in playing for the school team.</div>
+        <div class="match-item"><span class="match-key">B</span> to find enough time to have any hobbies.</div>
+        <div class="match-item"><span class="match-key">C</span> to try to find the golf balls we'd lost.</div>
+        <div class="match-item"><span class="match-key">D</span> of playing in goal.</div>
+        <div class="match-item"><span class="match-key">E</span> from finishing the game.</div>
+        <div class="match-item"><span class="match-key">F</span> to what the coach thinks first.</div>
+        <div class="match-item"><span class="match-key">G</span> on getting fit.</div>
+      </div>
+    </div>
+  </div>
+  <details class="answer-accordion">
+    <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+    <div class="answer-body">
+      <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">1 – D: fond of playing in goal</div><div class="ans-explain">Pattern: <em>fond of + gerund</em>. The adjective <em>fond</em> is always followed by the preposition <em>of</em>.</div><div class="ans-vi">Cấu trúc: <em>fond of + V-ing</em>. Tính từ <em>fond</em> luôn đi với giới từ <em>of</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">2 – A: interested in playing for the school team</div><div class="ans-explain">Pattern: <em>interested in + gerund</em>. The adjective <em>interested</em> is always followed by <em>in</em>.</div><div class="ans-vi">Cấu trúc: <em>interested in + V-ing</em>. Tính từ <em>interested</em> luôn đi với <em>in</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">3 – G: concentrate on getting fit</div><div class="ans-explain">Pattern: <em>concentrate on + gerund</em>. The verb <em>concentrate</em> requires the preposition <em>on</em>.</div><div class="ans-vi">Cấu trúc: <em>concentrate on + V-ing</em>. Động từ <em>concentrate</em> đi với giới từ <em>on</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">4 – B: find it difficult to find enough time</div><div class="ans-explain">Pattern: <em>find it difficult + to-infinitive</em>. The dummy object <em>it</em> is placed before the adjective, followed by the infinitive.</div><div class="ans-vi">Cấu trúc: <em>find it difficult + to-infinitive</em>. Dùng <em>it</em> thay thế cho mệnh đề, sau đó là <em>to + V</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">5 – F: listen to what the coach thinks</div><div class="ans-explain">Pattern: <em>listen to + object</em>. The verb <em>listen</em> always requires the preposition <em>to</em>.</div><div class="ans-vi">Cấu trúc: <em>listen to + tân ngữ</em>. Động từ <em>listen</em> luôn cần giới từ <em>to</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">6 – C: stopped to try to find the golf balls</div><div class="ans-explain">Pattern: <em>stop + to-infinitive</em> = pause in order to do something. (Contrast: <em>stop + gerund</em> = cease doing.) They paused their activity in order to search for the lost golf balls.</div><div class="ans-vi">Cấu trúc: <em>stop + to-infinitive</em> = dừng lại để làm gì khác. Khác với <em>stop + V-ing</em> = ngừng làm điều đó. Họ dừng lại để tìm bóng golf.</div></div></div>
+      <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">7 – E: stopped us from finishing the game</div><div class="ans-explain">Pattern: <em>stop sb from + gerund</em> = prevent someone from doing. The preposition <em>from</em> is essential.</div><div class="ans-vi">Cấu trúc: <em>stop sb from + V-ing</em> = ngăn ai làm điều gì. Giới từ <em>from</em> bắt buộc.</div></div></div>
+    </div>
+  </details>
+</div><!-- /F -->
+
+<!-- ─── EXERCISE G – DARK PANEL ─── -->
+<div class="dark-panel">
+  <div class="dark-accent"></div>
+  <div class="dark-header">
+    <span class="ex-badge-dark">G</span>
+    <h3>Water has damaged part of this text. Decide what each original word was.</h3>
+    <p>The damaged portions are marked. Use your knowledge of word patterns to reconstruct the original text. Write the words in the blank spaces. <em>(Phần bị hỏng được đánh dấu. Dùng kiến thức về Word Patterns để tìm lại từ gốc.)</em></p>
+  </div>
+  <p class="dark-passage-title">Sport at School / Thể Thao ở Trường</p>
+  <div class="dark-passage">
+    I used to wear glasses when I was at school, and so I found <span class="dmg-dark">[1 damage]</span> sport very difficult. I wanted to be involved <span class="dmg-dark">[2 damage]</span> school sports competitions, and I loved the idea of teams competing <span class="dmg-dark">[3 damage]</span> each other, but being on the rugby team, for example, <span class="dmg-dark">[4 damage]</span> having to take off my glasses, and that meant <span class="dmg-dark">[5 damage]</span> I couldn't see! And it's difficult <span class="dmg-dark">[6 damage]</span> catch a ball when you can't see it! So, I wasn't very good and the captains always <span class="dmg-dark">[7 damage]</span> sure that I wasn't on their team. This meant I was free <span class="dmg-dark">[8 damage]</span> do other activities, like being on the debating team, and actually I preferred to <span class="dmg-dark">[9 damage]</span> things I was good at doing <span class="dmg-dark">[10 damage]</span> than have everyone laugh at me.
+  </div>
+  <div class="blank-dark-list">
+    <div class="blank-dark-item"><span class="q-num" style="background:rgba(82,148,179,0.2);color:#92d0f0;">1</span> <span class="blank-box" style="background:rgba(255,255,255,0.08);border-color:rgba(82,148,179,0.5);color:#92d0f0;">. . .</span></div>
+    <div class="blank-dark-item"><span class="q-num" style="background:rgba(82,148,179,0.2);color:#92d0f0;">2</span> <span class="blank-box" style="background:rgba(255,255,255,0.08);border-color:rgba(82,148,179,0.5);color:#92d0f0;">. . .</span></div>
+    <div class="blank-dark-item"><span class="q-num" style="background:rgba(82,148,179,0.2);color:#92d0f0;">3</span> <span class="blank-box" style="background:rgba(255,255,255,0.08);border-color:rgba(82,148,179,0.5);color:#92d0f0;">. . .</span></div>
+    <div class="blank-dark-item"><span class="q-num" style="background:rgba(82,148,179,0.2);color:#92d0f0;">4</span> <span class="blank-box" style="background:rgba(255,255,255,0.08);border-color:rgba(82,148,179,0.5);color:#92d0f0;">. . .</span></div>
+    <div class="blank-dark-item"><span class="q-num" style="background:rgba(82,148,179,0.2);color:#92d0f0;">5</span> <span class="blank-box" style="background:rgba(255,255,255,0.08);border-color:rgba(82,148,179,0.5);color:#92d0f0;">. . .</span></div>
+    <div class="blank-dark-item"><span class="q-num" style="background:rgba(82,148,179,0.2);color:#92d0f0;">6</span> <span class="blank-box" style="background:rgba(255,255,255,0.08);border-color:rgba(82,148,179,0.5);color:#92d0f0;">. . .</span></div>
+    <div class="blank-dark-item"><span class="q-num" style="background:rgba(82,148,179,0.2);color:#92d0f0;">7</span> <span class="blank-box" style="background:rgba(255,255,255,0.08);border-color:rgba(82,148,179,0.5);color:#92d0f0;">. . .</span></div>
+    <div class="blank-dark-item"><span class="q-num" style="background:rgba(82,148,179,0.2);color:#92d0f0;">8</span> <span class="blank-box" style="background:rgba(255,255,255,0.08);border-color:rgba(82,148,179,0.5);color:#92d0f0;">. . .</span></div>
+    <div class="blank-dark-item"><span class="q-num" style="background:rgba(82,148,179,0.2);color:#92d0f0;">9</span> <span class="blank-box" style="background:rgba(255,255,255,0.08);border-color:rgba(82,148,179,0.5);color:#92d0f0;">. . .</span></div>
+    <div class="blank-dark-item"><span class="q-num" style="background:rgba(82,148,179,0.2);color:#92d0f0;">10</span> <span class="blank-box" style="background:rgba(255,255,255,0.08);border-color:rgba(82,148,179,0.5);color:#92d0f0;">. . .</span></div>
+  </div>
+  <div class="dark-answers-section">
+    <div class="dark-answers-title">▸ Answer Key &amp; Explanations / Đáp Án &amp; Giải Thích Chi Tiết</div>
+    <div class="dark-answer-grid">
+      <div class="dark-answer-item"><span class="da-num">1</span><span class="da-word">it</span><div><div class="da-explain">Pattern: <em>find it + adjective + to-infinitive / noun</em>. The dummy object <em>it</em> is required: <em>I found it very difficult (to play sport)</em>. Without <em>it</em>, the sentence is incomplete.</div><div class="da-vi">Cấu trúc: <em>find it + adj + to-inf</em>. Đại từ giả <em>it</em> bắt buộc: <em>I found it very difficult</em>.</div></div></div>
+      <div class="dark-answer-item"><span class="da-num">2</span><span class="da-word">in</span><div><div class="da-explain">Pattern: <em>involved in sth</em>. The adjective <em>involved</em> always takes the preposition <em>in</em>.</div><div class="da-vi">Cấu trúc: <em>involved in sth</em> — tính từ <em>involved</em> luôn đi với giới từ <em>in</em>.</div></div></div>
+      <div class="dark-answer-item"><span class="da-num">3</span><span class="da-word">against</span><div><div class="da-explain">Pattern: <em>compete against each other</em>. Teams compete <em>against</em> (or <em>with</em>) each other. <em>Against</em> is more natural when emphasising opposition.</div><div class="da-vi">Cấu trúc: <em>compete against each other</em> = thi đấu chống lại nhau. <em>Against</em> nhấn mạnh tính đối kháng.</div></div></div>
+      <div class="dark-answer-item"><span class="da-num">4</span><span class="da-word">meant/involved</span><div><div class="da-explain">Pattern: <em>involve/mean + gerund</em>. Being on the rugby team <em>meant/involved</em> having to take off his glasses. Both words take a gerund as object here.</div><div class="da-vi">Cấu trúc: <em>mean/involve + V-ing</em>. Ở trong đội rugby <em>có nghĩa là / liên quan đến</em> việc phải tháo kính.</div></div></div>
+      <div class="dark-answer-item"><span class="da-num">5</span><span class="da-word">that</span><div><div class="da-explain">Pattern: <em>it/this means that + clause</em>. The conjunction <em>that</em> introduces the result clause: <em>that meant that I couldn't see</em>.</div><div class="da-vi">Cấu trúc: <em>mean that + mệnh đề</em>. Liên từ <em>that</em> dẫn mệnh đề kết quả.</div></div></div>
+      <div class="dark-answer-item"><span class="da-num">6</span><span class="da-word">to</span><div><div class="da-explain">Pattern: <em>difficult + to-infinitive</em>. After the adjective <em>difficult</em>, use <em>to + base verb</em>: <em>it's difficult to catch</em>.</div><div class="da-vi">Cấu trúc: <em>difficult + to-infinitive</em>. Sau tính từ <em>difficult</em> dùng <em>to + V</em>: <em>it's difficult to catch</em>.</div></div></div>
+      <div class="dark-answer-item"><span class="da-num">7</span><span class="da-word">made</span><div><div class="da-explain">Pattern: <em>make sure that</em>. The collocation is <em>make sure</em> (= ensure). Past tense: <em>the captains always made sure</em>.</div><div class="da-vi">Cụm từ: <em>make sure (that)</em> = đảm bảo rằng. Quá khứ đơn: <em>always made sure</em>.</div></div></div>
+      <div class="dark-answer-item"><span class="da-num">8</span><span class="da-word">to</span><div><div class="da-explain">Pattern: <em>free to do</em> = at liberty to do. The adjective <em>free</em> followed by <em>to-infinitive</em>: <em>I was free to do other activities</em>.</div><div class="da-vi">Cấu trúc: <em>free + to-infinitive</em> = tự do làm gì. <em>I was free to do other activities.</em></div></div></div>
+      <div class="dark-answer-item"><span class="da-num">9</span><span class="da-word">do</span><div><div class="da-explain">Pattern: <em>prefer to do (rather than do)</em>. After <em>preferred to</em>, use the base verb <em>do</em>. The full structure: <em>I preferred to do things I was good at rather than…</em></div><div class="da-vi">Cấu trúc: <em>prefer to do (rather than do)</em>. Sau <em>preferred to</em> dùng động từ nguyên mẫu không <em>to</em>: <em>prefer to do…</em></div></div></div>
+      <div class="dark-answer-item"><span class="da-num">10</span><span class="da-word">rather</span><div><div class="da-explain">Pattern: <em>prefer to do … rather than (do)</em>. The full collocation: <em>I preferred to do things I was good at rather than have everyone laugh at me</em>.</div><div class="da-vi">Cấu trúc: <em>prefer to do … rather than do</em>. Từ cần điền là <em>rather</em> để hoàn thành cụm <em>rather than</em>.</div></div></div>
+    </div>
+  </div>
+</div><!-- /G dark panel -->
+
+<!-- ─── EXERCISE H ─── -->
+<h2 class="section-title">Word Formation – Exercises</h2>
+
+<div class="exercise-card">
+  <div class="ex-header">
+    <div class="ex-badge">H</div>
+    <div class="ex-instruction">
+      <strong>Complete the sentences by changing the form of the word in CAPITALS when this is necessary.</strong>
+      <div class="vi-instruction">Hoàn thành câu bằng cách thay đổi dạng từ viết hoa khi cần.</div>
+    </div>
+  </div>
+  <div class="ex-body">
+    <div class="sentence-item"><span class="word-cap">TRAIN</span><span><strong>1</strong> I need to buy a new pair of <span class="blank-box">. . .</span> .</span></div>
+    <div class="sentence-item"><span class="word-cap">PRACTICE</span><span><strong>2</strong> Ellie used to <span class="blank-box">. . .</span> for hours to learn to juggle properly.</span></div>
+    <div class="sentence-item"><span class="word-cap">INTEREST</span><span><strong>3</strong> That was the most <span class="blank-box">. . .</span> book I've ever read. I can't wait for the sequel!</span></div>
+    <div class="sentence-item"><span class="word-cap">COMPETE</span><span><strong>4</strong> Would you describe yourself as a <span class="blank-box">. . .</span> person?</span></div>
+    <div class="sentence-item"><span class="word-cap">FORTUNE</span><span><strong>5</strong> Many professional basketball players earn a <span class="blank-box">. . .</span> these days.</span></div>
+    <div class="sentence-item"><span class="word-cap">ASSOCIATE</span><span><strong>6</strong> F.A. stands for Football <span class="blank-box">. . .</span> .</span></div>
+    <div class="sentence-item"><span class="word-cap">MEDAL</span><span><strong>7</strong> The gold, silver and bronze <span class="blank-box">. . .</span> took their places on the podium for the presentation ceremony.</span></div>
+    <div class="sentence-item"><span class="word-cap">ALLOW</span><span><strong>8</strong> In Britain, the money parents give their children is called pocket money. In America, it's often called an <span class="blank-box">. . .</span> .</span></div>
+    <div class="sentence-item"><span class="word-cap">MAINTAIN</span><span><strong>9</strong> I'm afraid the swimming pool is closed at the moment as they're carrying out some essential <span class="blank-box">. . .</span> .</span></div>
+  </div>
+  <details class="answer-accordion">
+    <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+    <div class="answer-body">
+      <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">trainers</div><div class="ans-explain">TRAIN → <em>trainers</em> (plural noun) = sports/training shoes. In British English, <em>trainers</em> = athletic footwear.</div><div class="ans-vi">TRAIN → <em>trainers</em> (số nhiều) = giày thể thao. Trong tiếng Anh Anh, <em>trainers</em> = giày thể dục.</div></div></div>
+      <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">practise</div><div class="ans-explain">PRACTICE (noun) → <em>practise</em> (verb). In British English, the verb is spelled <em>practise</em>, the noun <em>practice</em>. After <em>used to</em>, the base form <em>practise</em> is needed.</div><div class="ans-vi">PRACTICE (danh từ) → <em>practise</em> (động từ). Trong tiếng Anh Anh: động từ = <em>practise</em>, danh từ = <em>practice</em>. Sau <em>used to</em> dùng động từ nguyên mẫu.</div></div></div>
+      <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">interesting</div><div class="ans-explain">INTEREST → <em>interesting</em> (adjective describing what causes interest). The superlative <em>most interesting</em> is required after <em>the most</em>.</div><div class="ans-vi">INTEREST → <em>interesting</em> (tính từ mô tả điều gây ra hứng thú). Dạng so sánh nhất: <em>the most interesting</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">competitive</div><div class="ans-explain">COMPETE → <em>competitive</em> (adjective: having a strong urge to compete and win). A <em>competitive person</em> = người thích cạnh tranh.</div><div class="ans-vi">COMPETE → <em>competitive</em> (tính từ: thích cạnh tranh). Cần tính từ để bổ nghĩa cho <em>person</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">fortune</div><div class="ans-explain">FORTUNE → <em>fortune</em> (noun: a very large amount of money). No form change needed here; <em>earn a fortune</em> = kiếm rất nhiều tiền — fixed collocation.</div><div class="ans-vi">FORTUNE → <em>fortune</em> (danh từ: số tiền rất lớn). Không cần thay đổi dạng. <em>Earn a fortune</em> = kiếm được gia tài.</div></div></div>
+      <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">Association</div><div class="ans-explain">ASSOCIATE → <em>Association</em> (noun: an organisation). F.A. = Football Association (Hiệp hội Bóng đá Anh). Capital letter as it is a proper noun.</div><div class="ans-vi">ASSOCIATE → <em>Association</em> (hiệp hội). F.A. = Football Association (Hiệp hội Bóng đá Anh). Viết hoa vì là danh từ riêng.</div></div></div>
+      <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">medallists</div><div class="ans-explain">MEDAL → <em>medallists</em> (plural noun: people who have won medals). The gold, silver, and bronze <em>medallists</em> = those who won those medals.</div><div class="ans-vi">MEDAL → <em>medallists</em> (số nhiều: người đoạt huy chương). Ba người đoạt huy chương vàng, bạc, đồng.</div></div></div>
+      <div class="answer-item"><span class="ans-num">8</span><div class="ans-content"><div class="ans-word">allowance</div><div class="ans-explain">ALLOW → <em>allowance</em> (noun: a regular sum of money given to someone). In American English, <em>allowance</em> = pocket money for children.</div><div class="ans-vi">ALLOW → <em>allowance</em> (tiền trợ cấp, tiền tiêu vặt). Trong tiếng Anh Mỹ, <em>allowance</em> = tiền tiêu vặt cho trẻ em.</div></div></div>
+      <div class="answer-item"><span class="ans-num">9</span><div class="ans-content"><div class="ans-word">maintenance</div><div class="ans-explain">MAINTAIN → <em>maintenance</em> (noun: the act of keeping something in good working order). The article <em>some essential</em> signals a noun is required.</div><div class="ans-vi">MAINTAIN → <em>maintenance</em> (việc bảo trì, duy trì). Mạo từ <em>some essential</em> cho thấy cần danh từ.</div></div></div>
+    </div>
+  </details>
+</div><!-- /H -->
+
+<!-- ─── EXERCISE I ─── -->
+<div class="exercise-card">
+  <div class="ex-header">
+    <div class="ex-badge">I</div>
+    <div class="ex-instruction">
+      <strong>Use the word given in CAPITALS to form a word that fits in the gap.</strong>
+      <div class="vi-instruction">Dùng từ viết hoa để tạo dạng từ phù hợp điền vào chỗ trống trong đoạn văn.</div>
+    </div>
+  </div>
+  <div class="ex-body">
+    <p style="font-size:0.92rem;color:var(--muted);margin-bottom:18px;font-style:italic;">Read the passage and complete each gap. / Đọc đoạn văn và điền từ đúng dạng vào mỗi chỗ trống.</p>
+    <div style="background:var(--primary-light);border-radius:10px;padding:18px 22px;margin-bottom:20px;font-size:0.95rem;line-height:1.9;border:1px solid rgba(82,148,179,0.2);">
+      <p style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--primary-dark);margin-bottom:12px;font-style:italic;">A Snooker Player Speaks</p>
+      When I first started playing snooker, I had no real <strong>(1)</strong> <span class="blank-box">. . .</span> of the rules. I just thought it looked an <strong>(2)</strong> <span class="blank-box">. . .</span> game. Also, I didn't need to buy any expensive <strong>(3)</strong> <span class="blank-box">. . .</span> because the snooker hall near my house had tables and cues. I spent <strong>(4)</strong> <span class="blank-box">. . .</span> all the free time I had practising, and then decided to enter a <strong>(5)</strong> <span class="blank-box">. . .</span> . It was great fun! My <strong>(6)</strong> <span class="blank-box">. . .</span> was someone who'd been playing for years. Of course, he beat me, but the fact that I'd <strong>(7)</strong> <span class="blank-box">. . .</span> didn't put me off at all. And, <strong>(8)</strong> <span class="blank-box">. . .</span> , my game improved enough for me to become a professional snooker player three years ago.
+    </div>
+    <table class="ref-table" style="border-radius:8px;overflow:hidden;">
+      <thead><tr><th>#</th><th>Base Word</th><th>Hint</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td><strong>KNOW</strong></td><td>→ noun form</td></tr>
+        <tr><td><strong>2</strong></td><td><strong>ENJOY</strong></td><td>→ adjective form</td></tr>
+        <tr><td><strong>3</strong></td><td><strong>EQUIP</strong></td><td>→ noun form (uncountable)</td></tr>
+        <tr><td><strong>4</strong></td><td><strong>PRACTICAL</strong></td><td>→ adverb form</td></tr>
+        <tr><td><strong>5</strong></td><td><strong>COMPETE</strong></td><td>→ noun form</td></tr>
+        <tr><td><strong>6</strong></td><td><strong>OPPOSE</strong></td><td>→ noun form (person)</td></tr>
+        <tr><td><strong>7</strong></td><td><strong>LOSE</strong></td><td>→ past participle</td></tr>
+        <tr><td><strong>8</strong></td><td><strong>FORTUNE</strong></td><td>→ adverb form (positive)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <details class="answer-accordion">
+    <summary>View Answers &amp; Explanations / Xem Đáp Án &amp; Giải Thích</summary>
+    <div class="answer-body">
+      <div class="answer-item"><span class="ans-num">1</span><div class="ans-content"><div class="ans-word">knowledge</div><div class="ans-explain">KNOW → <em>knowledge</em> (uncountable noun: information and understanding). <em>Have no knowledge of</em> = not know anything about. Suffix <em>-ledge</em>.</div><div class="ans-vi">KNOW → <em>knowledge</em> (kiến thức, hiểu biết — danh từ không đếm được). <em>Have no knowledge of</em> = không biết gì về.</div></div></div>
+      <div class="answer-item"><span class="ans-num">2</span><div class="ans-content"><div class="ans-word">enjoyable</div><div class="ans-explain">ENJOY → <em>enjoyable</em> (adjective: giving pleasure; pleasant). Suffix <em>-able</em>. The article <em>an</em> signals a vowel-starting adjective is needed.</div><div class="ans-vi">ENJOY → <em>enjoyable</em> (thú vị, vui vẻ). Hậu tố <em>-able</em>. Mạo từ <em>an</em> cho thấy tính từ bắt đầu bằng nguyên âm.</div></div></div>
+      <div class="answer-item"><span class="ans-num">3</span><div class="ans-content"><div class="ans-word">equipment</div><div class="ans-explain">EQUIP → <em>equipment</em> (uncountable noun: tools and items needed for an activity). Suffix <em>-ment</em>. Note: never <em>equipments</em> — it is uncountable.</div><div class="ans-vi">EQUIP → <em>equipment</em> (thiết bị, dụng cụ — danh từ không đếm được). Không nói <em>equipments</em>.</div></div></div>
+      <div class="answer-item"><span class="ans-num">4</span><div class="ans-content"><div class="ans-word">practically</div><div class="ans-explain">PRACTICAL → <em>practically</em> (adverb: almost, virtually). Here meaning <em>I spent virtually all the free time I had</em>. It modifies <em>all</em>.</div><div class="ans-vi">PRACTICAL → <em>practically</em> (trạng từ = gần như, hầu hết). Ở đây bổ nghĩa cho <em>all</em>: <em>practically all the free time</em> = hầu hết thời gian rảnh.</div></div></div>
+      <div class="answer-item"><span class="ans-num">5</span><div class="ans-content"><div class="ans-word">competition</div><div class="ans-explain">COMPETE → <em>competition</em> (noun: a contest). <em>Enter a competition</em> = sign up for a contest. Suffix <em>-ition</em>.</div><div class="ans-vi">COMPETE → <em>competition</em> (cuộc thi). <em>Enter a competition</em> = tham dự một cuộc thi.</div></div></div>
+      <div class="answer-item"><span class="ans-num">6</span><div class="ans-content"><div class="ans-word">opponent</div><div class="ans-explain">OPPOSE → <em>opponent</em> (noun: the person competing directly against you). Suffix <em>-ent</em>. Not <em>opposition</em> (which refers to a group or idea).</div><div class="ans-vi">OPPOSE → <em>opponent</em> (đối thủ trực tiếp — người, không phải tổ chức). Không dùng <em>opposition</em> (phe đối lập, mang nghĩa trừu tượng hơn).</div></div></div>
+      <div class="answer-item"><span class="ans-num">7</span><div class="ans-content"><div class="ans-word">lost</div><div class="ans-explain">LOSE → <em>lost</em> (past participle: used in the present perfect clause <em>I'd lost</em> = I had lost). The fact that he was beaten in the match did not discourage him.</div><div class="ans-vi">LOSE → <em>lost</em> (quá khứ phân từ). Dùng trong mệnh đề hoàn thành <em>I'd lost</em> = tôi đã thua. Việc thua không làm nản lòng anh ấy.</div></div></div>
+      <div class="answer-item"><span class="ans-num">8</span><div class="ans-content"><div class="ans-word">fortunately</div><div class="ans-explain">FORTUNE → <em>fortunately</em> (adverb: luckily). It introduces a positive outcome after the earlier failure. Suffix chain: fortune → fortunate → fortunately.</div><div class="ans-vi">FORTUNE → <em>fortunately</em> (may mắn thay). Dùng để giới thiệu kết quả tích cực sau thất bại trước đó. Chuỗi hậu tố: fortune → fortunate → fortunately.</div></div></div>
+    </div>
+  </details>
+</div><!-- /I -->
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <p>Unit 4 Vocabulary &nbsp;·&nbsp; Hobbies, Sport &amp; Games &nbsp;·&nbsp; B2 Upper-Intermediate Bilingual Study Guide</p>
+  <p style="margin-top:6px;font-size:0.76rem;">English &amp; Tiếng Việt &nbsp;·&nbsp; All exercises include bilingual answers &amp; explanations</p>
+</footer>
+
+</body>
+</html>
